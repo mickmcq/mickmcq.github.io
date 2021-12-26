@@ -4,7 +4,7 @@
 title: main
 subtitle: personal and professional info
 layout: default
-order: 2
+rank: 2
 icon: fa-home
 ---
 

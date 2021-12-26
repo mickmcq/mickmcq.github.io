@@ -1,8 +1,7 @@
 ---
 layout: default
 title: about
-permalink: /about/
-order: 1
+rank: 1
 icon: fa-user
 ---
 

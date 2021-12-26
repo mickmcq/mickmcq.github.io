@@ -2,7 +2,7 @@
 title: iste432
 subtitle: Database Application Development
 layout: default
-order: 5
+rank: 5
 icon: fa-edit
 ---
 
