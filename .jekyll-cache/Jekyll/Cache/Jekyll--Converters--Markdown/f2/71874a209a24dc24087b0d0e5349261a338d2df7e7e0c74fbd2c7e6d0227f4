@@ -1,0 +1,57 @@
+I"ú<p>Rapidly expanding collections of data from all areas of society are becoming available in digital form. Computer-based methods are available to facilitate discovering new information and knowledge that is embedded in these collections of data. This course provides students with an introduction to the use of these data analytic methods, especially statistical learning approaches, within the context of the data-driven knowledge discovery process.</p>
+
+<p><a href="assets/iste780syllabus.pdf">The syllabus</a> is the course's main document. Expect it to be followed to the letter.</p>
+
+<p><a href="assets/iste780hwInstr.pdf">The homework instructions</a> describe what is expected of you in addition to the final exam.</p>
+
+<h3 id="lectures-all-youtube-links">Lectures (all youtube links)</h3>
+
+<p><a href="https://www.youtube.com/playlist?list=PLwHwa1b638_mb56W-WoKxQWsFVkC111FM">playlist</a></p>
+
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=C-k_i4VaaJU">iste780day01a-intro</a></li>
+  <li><a href="https://www.youtube.com/watch?v=Yi5ddWfcezM">iste780day01b-intro</a></li>
+  <li><a href="https://www.youtube.com/watch?v=n4pDAAb-i5c">iste780day01c-gettingr</a></li>
+  <li><a href="https://www.youtube.com/watch?v=jROCqA0N3Fc">iste780day01d-rtutor</a></li>
+  <li><a href="https://www.youtube.com/watch?v=B-ioV1CL9Js">iste780day01e-wrapup</a></li>
+  <li><a href="https://www.youtube.com/watch?v=3V84jlq5kvg">iste780day02a-intro</a></li>
+  <li><a href="https://www.youtube.com/watch?v=_WSwUJBwQBI">iste780day02b-diffmodels</a></li>
+  <li><a href="https://www.youtube.com/watch?v=myYiZ5W-G6s">iste780day02c-exercises</a></li>
+  <li><a href="https://www.youtube.com/watch?v=2_TnL1H4UrA">iste780day03a-qualOfFit</a></li>
+  <li><a href="https://www.youtube.com/watch?v=uats6MmctvQ">iste780day03b-biasVariance</a></li>
+  <li><a href="https://www.youtube.com/watch?v=2Sp19AvZKZM">iste780day03c-classification</a></li>
+  <li><a href="https://www.youtube.com/watch?v=nXcr5bXIl0Y">iste780day03d-exercise</a></li>
+  <li><a href="https://www.youtube.com/watch?v=QXERvgZTViY">iste780day04-lab</a></li>
+  <li><a href="https://youtu.be/0lp_TExVGYM">iste780rmarkdown</a></li>
+  <li><a href="https://youtu.be/DvyCQKppIT0">iste780rmarkdownintro2</a></li>
+  <li><a href="https://www.youtube.com/watch?v=Ec2tXgMW098">iste780day05a-simpleLinRegr</a></li>
+  <li><a href="https://www.youtube.com/watch?v=-PSD5rNm08k">iste780day05b-multLinRegr</a></li>
+  <li><a href="https://www.youtube.com/watch?v=NEo5mM7-rL4">iste780day05c-miscLinRegr</a></li>
+  <li><a href="https://www.youtube.com/watch?v=WBSd0YGCB20">iste780day05d-exercise</a></li>
+  <li><a href="https://www.youtube.com/watch?v=aCjGeN2ZXPs">iste780day06-lab</a></li>
+  <li><a href="https://www.youtube.com/watch?v=nr0CJDIZLIA">iste780day06b-lab</a></li>
+  <li><a href="https://www.youtube.com/watch?v=kg-8bROtANY">iste780day07-classification</a></li>
+  <li><a href="https://www.youtube.com/watch?v=AAjUZ8qfuic">iste780day08-lab</a></li>
+  <li><a href="https://www.youtube.com/watch?v=o6Z_VORWOWM">iste780day09-resampling</a></li>
+  <li><a href="https://www.youtube.com/watch?v=8zhq8lnEH28">iste780day10-lab</a></li>
+  <li><a href="https://www.youtube.com/watch?v=ncm8uP6308w">iste780day11a-subsets</a></li>
+  <li><a href="https://www.youtube.com/watch?v=zZCILgwO0yQ">iste780day11b-shrinkage</a></li>
+  <li><a href="https://www.youtube.com/watch?v=l6KO1FVFZW8">iste780day11c-dimReduction</a></li>
+  <li><a href="https://www.youtube.com/watch?v=JU4cEUEnnNA">iste780day12a-lab</a></li>
+  <li><a href="https://www.youtube.com/watch?v=P-aq5L2KZAE">iste780day12b-lab</a></li>
+  <li><a href="https://www.youtube.com/watch?v=_QSGDuF_LFc">iste780day12c-lab</a></li>
+  <li><a href="https://www.youtube.com/watch?v=LtIg62oHfto">iste78013a-polynomial</a></li>
+  <li><a href="https://www.youtube.com/watch?v=eQK-hRSs9kU">iste78013b-splines</a></li>
+  <li><a href="https://www.youtube.com/watch?v=CDw9sAk85vY">iste780day14a-local+gams</a></li>
+  <li><a href="https://www.youtube.com/watch?v=gWFnDJGy6ic">iste780day14b-lab</a></li>
+  <li><a href="https://www.youtube.com/watch?v=LTjV45WoV2g">iste780day15a-trees</a></li>
+  <li><a href="https://www.youtube.com/watch?v=jISOW0f3fLo">iste780day15b-bagBoost</a></li>
+  <li><a href="https://www.youtube.com/watch?v=foSzBDY9BSA">iste780day16-lab</a></li>
+  <li><a href="https://www.youtube.com/watch?v=h-f3260Ze5o">iste780day17-svm</a></li>
+  <li><a href="https://www.youtube.com/watch?v=Fhm54yNY1tU">iste780day18-lab</a></li>
+  <li><a href="https://www.youtube.com/watch?v=3-4fE4ELxtM">iste780day19-unsuper</a></li>
+  <li><a href="https://www.youtube.com/watch?v=t_eHl3zoTqs">iste780day20a-lab</a></li>
+  <li><a href="https://www.youtube.com/watch?v=Zf1mmh-_2lw">iste780day20b-lab</a></li>
+  <li><a href="https://www.youtube.com/watch?v=YPnp7BInUx0">iste780day20c-lab</a></li>
+</ul>
+:ET

@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Information and Interaction Design</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Mick McQuaid" />
+    <script src="index_files/header-attrs/header-attrs.js"></script>
+    <link href="index_files/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="index_files/tile-view/tile-view.js"></script>
+    <link href="index_files/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Information and Interaction Design
+## Introduction
+### Mick McQuaid
+
+---
+
+class: animated, fadeIn, middle
+layout: true
+
+&lt;style type="text/css"&gt;
+.remark-slide-content h1 {
+  font-size: 600%;
+}
+.remark-slide-number {
+  position: inherit;
+}
+
+.remark-slide-number .progress-bar-container {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  display: block;
+  left: 0;
+  right: 0;
+}
+
+.remark-slide-number .progress-bar {
+  height: 100%;
+  background-color: red;
+}
+.scale-30 img { width: 30%; height: 30%; }
+.scale-40 img { width: 40%; height: 40%; }
+.scale-45 img { width: 45%; height: 45%; }
+.scale-60 img { width: 60%; height: 60%; }
+.scale-70 img { width: 70%; height: 70%; }
+.scale-75 img { width: 75%; height: 75%; }
+.scale-80 img { width: 80%; height: 80%; }
+.scale-85 img { width: 85%; height: 85%; }
+.big { font-size: 200%; }
+&lt;/style&gt;
+
+
+
+
+---
+class: animated, fadeIn, middle, inverse
+
+# let's begin with the title
+
+???
+
+Hi, Mick McQuaid here to introduce the Information and Interaction Design course. This slideshow is called 01intro, and by now you should have already seen 00intro, which covers administrative details including the website and syllabus. This slideshow introduces the content of the course itself.
+
+This first section of this slideshow is an attempt to define the title of the course.
+
+---
+
+# information and interaction design
+
+???
+
+Information and Interaction Design seems like a simple enough name, but is it really? 
+
+---
+
+# let's define each word
+
+---
+
+# first, information
+
+???
+
+First, try to define information.
+This is the hardest of the three words, as you'll see if you pause the slideshow here and try to write down definitions for each word.
+
+---
+
+```
+From The Collaborative International Dictionary
+of English v.0.48 [gcide]:
+
+  Information \In`for*ma"tion\, n. [F., fr. L.
+     information representation, conception.
+     See {Inform}, v. t.]
+     1. The act of informing, or communicating knowledge
+        or intelligence.
+        [1913 Webster]
+              The active informations of the intellect.
+                --South.
+        [1913 Webster]
+
+     2. Any fact or set of facts, knowledge, news, or
+        advice, whether communicated by others or
+        obtained by personal study and investigation;
+        any datum that reduces uncertainty about the
+        state of any part of the world;
+        intelligence; knowledge derived from reading,
+        observation, or instruction.
+        [1913 Webster +PJC]
+              Larger opportunities of information.
+                --Rogers.
+        [1913 Webster]
+              He should get some information in the
+              subject he intends to handle.
+                --Swift.
+        [1913 Webster]
+```
+
+???
+
+So, I went online for definitions and here is what I found.
+This is a pretty boring definition actually. It uses the term knowledge, so I looked up knowledge. That definition refers to knowing, and when I looked *that* up, it refers to information. So we've come full circle and found that these definitions aren't too helpful.
+
+But there are a few interesting things to notice.
+
+Of particular note in these definitions is that people define information according to their work. So it's a highly contextualized term.
+
+One item that I like here is in definition number two with the reduction of uncertainty about the state of the world. That at least tells us what information does and it prefigures another definition of information we'll see on the next slide.
+
+---
+
+# *a message received and understood*
+
+.right.big[&amp;mdash; Claude Shannon]
+
+???
+
+Claude Shannon popularized the notion of information as a message received and understood because that notion served his development of information theory, which underlies the field of network communication.
+
+---
+
+##     *1234567.89 is data.*
+
+##     *"Your bank balance has jumped 8087% to 1234567.89USD" is information.*
+
+##     *"Nobody owes me that much money" is knowledge.*
+
+##     *"I'd better talk to the bank before I spend it, because of what has happened to other people" is wisdom.*
+
+???
+
+This definition comes from the *Free Online Dictionary of Computing* in a 2014 edition.
+
+Some pundits like to posit a hierarchy of data, information, knowledge, and wisdom to support their work in a field called knowledge management. This field was popular about a dozen years ago and its influence had waned by the time this definition had been added to the Free Dictionary of Computing.
+
+---
+
+## *A man's life in these parts often depends on a mere scrap of information.*
+
+.right.big[&amp;mdash; line spoken by&lt;br&gt;Clint Eastwood in&lt;br&gt; *A Fistful of Dollars* (1970)]
+
+???
+
+So, we know that information is a thing with some value, and that value may vary greatly, as we see in this quote from one of my favorite Spaghetti Western films.
+
+---
+
+# now, define interaction
+
+---
+
+# *reciprocal action or influence*
+
+???
+
+If we do the same dictionary exercise with the word Interaction,
+we'll find that it has a little more
+substance.  It means reciprocal action or influence and
+that is something we can work with---how the computer and the human influence each other.
+
+So reciprocity is a key to understanding and impacting interaction.
+
+---
+
+# now define design
+
+???
+
+Design
+is one of the best of all possible words.  I
+always like to look up words in the dictionary, but not
+many have the power of the word design.  It's no
+accident that it is chosen by propagandists in the
+Intelligent Design wars.  It's a very powerful word.
+It's all about making conscious choices.
+
+---
+
+## *a plan or drawing produced to show the look and function or workings of a building, garment, or other object before it is built or made*
+
+.right.big[&amp;mdash; a dictionary definition]
+
+---
+
+# *Design is all about constraints.*
+
+.right.big[&amp;mdash; Charles Eames,&lt;br&gt;in an interview]
+
+???
+
+Notice that Eames doesn't say *compromises* due to constraints. Somehow, a great designer works through constraints or with constraints.
+
+By the way, Eames, along with his wife Ray Eames, was a major 20th century designer, working in various areas of industrial design and filmmaking.
+
+---
+
+# `\(\langle\)` pause to rewrite&lt;br&gt; &amp;nbsp; &amp;nbsp; your definitions `\(\rangle\)`
+
+???
+
+Now you should pause the slideshow to rewrite your definitions and keep these in your sketchbook so you can refer back to them as they change throughout your journey.
+
+---
+class: inverse
+
+# background radiation
+
+???
+
+I've borrowed the term *background radiation* from physics, where it is used to refer to the background radiation of the universe, left over from the Big Bang, and which has to be accounted for before zooming in on any celestial object of interest.
+
+Here I mean it to refer to the most fundamental things in UX design that you must take into account before zooming in on design topics of interest.
+
+---
+
+.pull-left[
+## .big[the least common denominator]
+]
+.pull-right[
+.right[.scale-70[![](fiDesignEveryday.png)]]
+]
+
+???
+
+The least common denominator for ux design is certainly this book. If design people refer to it in conversation and you don't know what they're talking about, they may look at you like you're fresh in from Mars. Read this book. Read it again. Don't wait.
+
+It was originally published in the 1980s under a different title but became a best seller when the author was persuaded to replace the then-unpopular word *psychology* in the title with the much more popular word *design*. It is by far the best-selling book in HCI history. Its author is brilliant and can back up even the most casual assertion with volumes of peer-reviewed research.
+
+---
+
+# roles
+
+???
+
+Everyone in the design world plays some role, whether in your current job or in your career overall. How do you make sense of the profusion of terms used to describe you?
+
+---
+class: center
+
+&lt;img src="fiTriangle.png" width="90%" height="90%" /&gt;
+
+???
+
+No matter where you fit in, people may be trying to place you on an artifact like this triangle. The yellow vertices represent the skills or knowledgge that pull you in three different directions. The green ovals represent labels for people who have been pulled to one vertex or another or are firmly in the middle. The labels can change. What's important is that you know where you stand and can find labels that communicate with other people. For example, a visual designer is all about graphics. A ux engineer is all about coding. A ui designer is expected to be in the middle, not overwhelmingly proficiant in any one of the three, but with a good grounding in all of them.
+
+Throughout your design career, you need to think about where your education, experience, and aspirations lie on the triangle. These three, education, experience, and aspirations, may suggest different points on the triangle and your career path could be a journey from one end to the other or different points between. The main thing is to think about it. Take a minute now to pause the video and think about where you are and where you'd like to be.
+
+Check out [http://bold.pixelapse.com/minming/recruiting-a-designer-heres-what-you-should-know](http://bold.pixelapse.com/minming/recruiting-a-designer-heres-what-you-should-know) and
+[https://www.fastcodesign.com/3032719/ui-ux-who-does-what-a-designers-guide-to-the-tech-industry](https://www.fastcodesign.com/3032719/ui-ux-who-does-what-a-designers-guide-to-the-tech-industry)
+for more details.
+
+If you want links to read more, they're in the speaker notes for this slide and I'll explain later how to get those.
+
+---
+
+# look and feel
+
+???
+
+Another way people distinguish between positions is to enunciate the difference between look, usually a shorthand for ui, and feel, usually a shorthand for ux. Feel relates more to cognitive psychology, while look relates more to graphical practice.
+
+---
+
+# design thinking as fad
+
+???
+
+Wherever you go in the design world, you will be assailed with claims that "we do design thinking". Obsession with design is nothing new, though. I'd like to take you back to the Great Depression for a moment.
+
+---
+class: center
+
+&lt;img src="fiNextBiscuit.png" width="60%" height="60%" /&gt;
+
+???
+
+The most prominent US based designer of that era was Norman Bel Geddes. In 1932, the *New Yorker* ran this cartoon depicting the nationwide obsession with having more and more things designed by Norman Bel Geddes or his celebrity peers, such as Raymond Loewy and Gilbert Rohde. So take it with a grain of salt when people tell you they are doing design thinking. They often remind me of the speaker in this cartoon, who is saying "Gentlemen, I am convinced that our next biscuit should be styled by Norman Bel Geddes".
+
+---
+
+# design thinking steps
+
+???
+
+When people who actually *do* practice design thinking talk about it, they usually follow a series of well-defined steps. You should get to know the steps I'm about to show you off the top of your head.
+
+---
+
+![](fiEDIPT.png)
+
+???
+
+I remember these steps by the acronym EDIPT. I'd like to explain each one in turn.
+
+---
+
+.pull-left[
+# Empathize
+]
+.pull-right[
+
+How we understand humans throughout UX history
+
+- Idealized human working
+- Novice humans working
+- Humans working in groups
+- Humans at play
+- Communities of practice
+- Communities of place
+- Humans of diverse abilities
+]
+
+???
+
+Empathizing is the first and most important and most characteristic step. Only when we empathize with other people can we design for them. In different epochs of HCI history, we've learned to empathize with different people. In the earlist period, it was idealized people at work, because computers were enormously expensive and we didn't want to waste their time. As computers became more available, we learned to empathize with novice workers, then people working in groups, then people playing, then communities formed out of work, then communities formed by their location, and nowadays, people of diverse abilities. This is, of course, a very rough and oversimplified version of how we've progressed.
+
+---
+
+.pull-left[
+# Define
+]
+.pull-right[
+- Often formalized as requirements analysis
+- Analyze observations and notes from the previous stage
+- Goal is to identify needs, problems, challenges, and opportunities
+- The themes you discover in this stage will inform the next stage
+]
+
+???
+
+Next we set boundaries. By the way, some formulations of design thinking curtail or eliminate some of the stages. These are just the most common.
+
+---
+
+.pull-left[
+# Ideate
+]
+.pull-right[
+- A core activity of designers is to brainstorm
+- Brainstorming can follow well-studied techniques
+- Goal is idea generation *before* idea selection (don't try to do them at the same time)
+- Don't criticize ideas as they arise&amp;mdash;you can do that later
+- Ask questions like “What if we try XYZ?”
+- Storyboards and sketches can support brainstorming
+]
+
+???
+
+(Read the list!)
+
+---
+
+.pull-left[
+# Prototype
+]
+.pull-right[
+- Another core activity of designers
+- Ranges from simple, cheap, fast to elaborate, expensive, slow
+- Start simple&amp;mdash;create a straw man for discussion
+- Can be as simple as index cards and colored markers
+- Figma is the flavor of the month for prototyping
+- Framer makes prototypes with JavaScript output
+]
+
+???
+
+(read the list!)
+
+---
+
+.pull-left[
+# Test
+]
+.pull-right[
+- Can be as simple as heuristic evaluation
+- Can involve experts or casual participants
+- Tested artifact can be *any* kind of prototype
+- May use lab, cameras, eye trackers, or other devices
+]
+
+???
+
+(read the list!)
+
+---
+class: inverse
+
+# more background radiation
+
+???
+
+There's quite a bit more background radiation in the study guide for this course. You can find it at mickmcquaid.com or the course website. For now, I'm just going to cover a few of the points. A few people, technologies, and guidelines from industry that you must know.
+
+---
+
+# people
+
+???
+
+I'm going to go quickly through an alphabetical list of some of the people you may want to follow. You can return to this slideshow on your own to learn more about them later. I'll show you how to do that at the end. You can find a longer list of people in the study guide.
+
+---
+
+### Rudolph Arnheim
+Major definer of artistic principles via his most famous book, *Art and visual perception*, (1974).
+
+---
+
+### Chris Bangle
+Influential automobile designer who points out each era has had a technology that defines what is possible and, therefore, what designers like to showcase. Bangle called the five-way milling machine the defining technology for automobiles in 2005, contrasting it to metal lathes as the defining technology of a century ago.
+
+---
+
+### Bill Buxton
+A longtime mainstay of HCI at Microsoft Research, formerly a voice in the wilderness, now a Grand Old Man.
+
+---
+
+### Matias Duarte
+Head of design for Android, spokesperson for Material Design.
+
+---
+
+### Jesse James Garrett
+Popular author and designer, whose diagram of (and later book) *The Elements of User Experience* catapulted him to fame.
+
+---
+
+### Jonathan Grudin
+The self-appointed historian of academic HCI, one of his strengths is organizing his view of history in a synthetic way so that he generates insights rather than summarizing the past. His blog, for instance, is essential reading.
+
+---
+
+### Jony Ive
+Head of design for Apple, prefers flat design not skeuomorphism, allegedly ousted skeuomorphism proponent Scott Forestall after Steve Jobs's passing.
+
+---
+
+### Steve Krug
+Noted for a popular book admonishing designers to not make him think, Krug's ideas form an excuse for designing to the least common denominator. His basic notion seems terribly flawed to me (Mick). It appears to saddle designers with the responsibility to make interactions seem natural to users so that they can think about what they are doing rather than the computerized tools enabling them to do things. Krug's influence may be waning since this core concept so rigidly contradicts flat design. Flat design celebrates the active examination of the interface and the pleasant discovery of features in the interface.
+
+---
+
+### Peter Morville
+Popularized the term information architecture before moving on to various other interests---at the time of this writing, his major tagline seems to be *everything is connected*.
+
+---
+
+### Jakob Nielsen
+Business partner of Don Norman, author of influential evaluation heuristics and controversial blog.
+
+---
+
+### Don Norman
+Most popular figure in HCI world. His first popular book, *The Psychology of Everyday Things*, was retitled as *The Design of Everyday Things*, whereupon it became the biggest seller of any HCI-related book ever published. Norman has a detailed knowledge of vastly many subjects. Even when he writes in a popular accessible style, do not discount the vast scholarship underlying every word. He popularized the word *affordance* which is the most identifying concept in HCI. Unfortunately, his interpretation of that word may differ from that of his mentor, J.J. Gibson, who coined the term. Norman's interpretation may have overshadowed the original meaning in a way that the HCI world can only reevaluate in the twenty-first century, in light of advances in neurology unavailable to the cognitive psychologists of Gibson's era.
+
+---
+
+### Dieter Rams
+Popular industrial designer in 1960s, idol of Jony Ives, described in the documentaries *Objectified* and *Helvetica*, both of which are required viewing for aspiring HCI people.
+
+---
+
+### Jeff Raskin
+Frequently referred to as the inventor of the Macintosh, author of *The Humane Interface*.
+
+---
+
+### Aza Raskin
+Son of Jeff, has participated in high-profile startups and is a popular speaker. I was especially impressed by an application he once created that took advantage of insights about Google search terms. People in the past decade have become used to thinking about getting what they want by remembering short sequences of keywords. This is much like the ancient command line interfaces except that it is forgiving and provides you with *some* result for each attempt. Command line errors used to just evoke the response *bad command or filename* without any further help. Of course, Google has the advantage that you send every single search string to google and that you typically either reformulate it or click on one of the results, all of which options provides Google with more information about whether you made a mistake. Command lines could historically be executed without anyone but the end user knowing their contents or their aftermath. So Raskin's interface faced a stiff barrier unless it could incorporate some kind of feedback loop. But it seemed like an insightful idea whatever its limitations.
+
+---
+
+### Edward Tufte
+Popular for a series of beautiful books whose distinctive style has been widely imitated.
+
+
+# Technologies
+
+---
+
+### JavaScript
+is certainly the language of the web. You will find yourself terribly disadvantaged in design if you don't at least understand this ubiquitous language.
+
+---
+
+### CSS
+is another required technology. You should understand enough about the use of CSS to at least provide different views of the same content, either for different audiences or platforms. You should be able to do the kinds of things that can be done with the *Stylish* plugin for Firefox but on whatever platform you choose.
+
+---
+
+### JSON
+is one of the most important ways of organizing information online, another being XML. You should be able to manipulate structures in at least these two containers. You may use any language to do so, including JavaScript, but understanding JSON and XML requires study separate from that of JavaScript.
+
+---
+
+# Design Guidelines from Vendors
+
+???
+
+Much of the design action in the world today is taking place in the battle between Android and iOS for market share and mind share. Some other firms, primarily Samsung and Microsoft, have published meaningful design guidelines. Most interaction designers today, whether or not they work in the mobile space, are familiar with the following four sets of guidelines.
+
+---
+
+.big[[Material Design](https://material.io/design/)]
+
+---
+
+.big[[Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)]
+
+---
+
+.big[[Fluent Design](https://www.microsoft.com/design/fluent/)]
+
+---
+
+.big[[Inclusive Design](https://www.microsoft.com/design/inclusive/)]
+
+---
+class: inverse
+
+# conclusion
+
+???
+
+There's more background radiation in the study guide for this course, available on mickmcquaid.com. What I've gone over here are some of the high points. I want you to make time, on a regular basis, to come back to this slideshow or the study guide, to absorb some of the background radiation. Bit by bit, you should become aware of at least this much about the field you're pursuing. How will you best review these slides?
+
+---
+
+These slides are available at [http://mickmcquaid.com/infointeractdsgn/01intro](http://mickmcquaid.com/infointeractdsgn/01intro) and are unusual in that they were produced using Xaringan, a JavaScript / Rmarkdown utility that will allow some keyboard shortcuts if you view it on Chrome or Firefox without too many plugins.
+
+You can type p to see presenter notes, then p again to return to single slide view. You can type o for an overview (tile view) of the slides, and o again to return to single slide view. Type h or ? for help on other keyboard toggles.
+
+???
+
+Note:
+
+I have compiled this slideshow with the option `self-contained: true` so that you can download the `index.html` file and play it on your own computer, regardless of your network connection and so that you don't need any other files to run it. This is good, except that you don't benefit (or suffer) from any changes in remark.js or the fonts, which would normally be downloaded every time you show the slides.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"self-contained": true,
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9",
+"countIncrementalSlides": true,
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>`"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
