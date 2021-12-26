@@ -1,7 +1,7 @@
 ---
 title: photos
 subtitle: photo albums, both personal and professional
-layout: page
+layout: default
 order: 10
 icon: fa-edit
 ---
