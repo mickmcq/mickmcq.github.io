@@ -27,7 +27,7 @@ avatar: avatar.png
 
 # Build settings
 markdown: GFM
-theme: jekyll-theme-prologue
+theme: jekyll-theme-minimal
 plugins:
   - jekyll-feed
 kramdown:
