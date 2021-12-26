@@ -1,6 +1,6 @@
 ---
 layout: blog
 title: blog
-order: 8
-icon: fa-comment
+rank: 11
 ---
+
