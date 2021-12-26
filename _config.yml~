@@ -27,8 +27,8 @@ avatar: avatar.png
 
 # Build settings
 markdown: GFM
-theme: jekyll-theme-midnight
-remote_theme: pages-themes/midnight@v0.2.0
+theme: jekyll-theme-minimal
+remote_theme: pages-themes/minimal@v0.2.0
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
