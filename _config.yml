@@ -16,6 +16,7 @@
 title: Mick McQuaid
 subtitle: personal and professional info
 logo: avatar.png
+favicon: favicon.ico
 email: mickmcquaid@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   I am a senior lecturer at Rochester Institute of Technology.
