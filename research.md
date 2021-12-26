@@ -2,7 +2,7 @@
 title: research
 subtitle: recent publications
 layout: default
-order: 8
+rank: 8
 icon: fa-edit
 ---
 

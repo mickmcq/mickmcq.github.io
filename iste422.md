@@ -2,7 +2,7 @@
 title: iste422
 subtitle: Application Development Practices
 layout: default
-order: 4
+rank: 4
 icon: fa-edit
 ---
 

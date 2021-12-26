@@ -2,7 +2,7 @@
 title: iste782
 subtitle: Visual Analytics
 layout: default
-order: 7
+rank: 7
 icon: fa-edit
 ---
 

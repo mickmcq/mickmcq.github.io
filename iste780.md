@@ -2,7 +2,7 @@
 title: iste780
 subtitle: Data-Driven Knowledge Discovery
 layout: default
-order: 6
+rank: 6
 icon: fa-edit
 ---
 
