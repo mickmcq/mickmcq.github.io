@@ -3,7 +3,7 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 title: main
 subtitle: personal and professional info
-layout: page
+layout: default
 order: 2
 icon: fa-home
 ---
