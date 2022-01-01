@@ -1,30 +1,29 @@
-<!DOCTYPE html>
-<html lang="" xml:lang="">
-  <head>
-    <title>Information and Interaction Design</title>
-    <meta charset="utf-8" />
-    <meta name="author" content="Mick McQuaid" />
-    <script src="index_files/header-attrs/header-attrs.js"></script>
-    <link href="index_files/tile-view/tile-view.css" rel="stylesheet" />
-    <script src="index_files/tile-view/tile-view.js"></script>
-    <link href="index_files/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
-    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" type="text/css" />
-  </head>
-  <body>
-    <textarea id="source">
-class: center, middle, inverse, title-slide
-
-# Information and Interaction Design
-## Introduction
-### Mick McQuaid
-
 ---
-
+title: "Information and Interaction Design"
+subtitle: "Introduction"  
+author: 
+  - "Mick McQuaid"
+#date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    css:
+      - xaringan-themer.css
+      - "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      ratio: 16:9
+      countIncrementalSlides: true
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+---
 class: animated, fadeIn, middle
 layout: true
 
-&lt;style type="text/css"&gt;
+<style type="text/css">
 .remark-slide-content h1 {
   font-size: 600%;
 }
@@ -54,10 +53,29 @@ layout: true
 .scale-80 img { width: 80%; height: 80%; }
 .scale-85 img { width: 85%; height: 85%; }
 .big { font-size: 200%; }
-&lt;/style&gt;
+</style>
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  fig.width=9, fig.height=3.5, fig.retina=3,
+  out.width = "100%",
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE,
+  hiline = TRUE
+)
+xaringanExtra::use_tile_view()
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+  mute_unhighlighted_code = TRUE  #<<
+)
+```
 
-
-
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_solarized_light()
+```
 
 ---
 class: animated, fadeIn, middle, inverse
@@ -146,7 +164,7 @@ information we’ll see on the next slide.
 
 # *a message received and understood*
 
-.right.big[&amp;mdash; Claude Shannon]
+.right.big[&mdash; Claude Shannon]
 
 ???
 
@@ -172,7 +190,7 @@ Some pundits like to posit a hierarchy of data, information, knowledge, and wisd
 
 ## *A man’s life in these parts often depends on a mere scrap of information.*
 
-.right.big[&amp;mdash; line spoken by&lt;br&gt;Clint Eastwood in&lt;br&gt; *A Fistful of Dollars* (1964)]
+.right.big[&mdash; line spoken by<br>Clint Eastwood in<br> *A Fistful of Dollars* (1964)]
 
 ???
 
@@ -213,13 +231,13 @@ It’s all about making conscious choices.
 
 ## *a plan or drawing produced to show the look and function or workings of a building, garment, or other object before it is built or made*
 
-.right.big[&amp;mdash; a dictionary definition]
+.right.big[&mdash; a dictionary definition]
 
 ---
 
 # *Design is all about constraints.*
 
-.right.big[&amp;mdash; Charles Eames,&lt;br&gt;in an interview]
+.right.big[&mdash; Charles Eames,<br>in an interview]
 
 ???
 
@@ -229,7 +247,7 @@ By the way, Eames, along with his wife Ray Eames, was a major 20th century desig
 
 ---
 
-# `\(\langle\)` pause to rewrite&lt;br&gt; &amp;nbsp; &amp;nbsp; your definitions `\(\rangle\)`
+# $\langle$ pause to rewrite<br> &nbsp; &nbsp; your definitions $\rangle$
 
 ???
 
@@ -275,7 +293,9 @@ Everyone in the design world plays some role, whether in your current job or in 
 ---
 class: center
 
-&lt;img src="fiTriangle.png" width="90%" height="90%" /&gt;
+```{r fiTriangle,out.width="90%",out.height="90%",echo=FALSE}
+knitr::include_graphics("fiTriangle.png")
+```
 
 ???
 
@@ -321,7 +341,9 @@ though. I’d like to take you back to the Great Depression for a moment.
 ---
 class: center
 
-&lt;img src="fiNextBiscuit.png" width="60%" height="60%" /&gt;
+```{r fiNextBiscuit,out.width="60%",out.height="60%",echo=FALSE}
+knitr::include_graphics("fiNextBiscuit.png")
+```
 
 ???
 
@@ -401,7 +423,7 @@ Next we set boundaries. By the way, some formulations of design thinking curtail
 - A core activity of designers is to brainstorm
 - Brainstorming can follow well-studied techniques
 - Goal is idea generation *before* idea selection (don’t try to do them at the same time)
-- Don’t criticize ideas as they arise&amp;mdash;you can do that later
+- Don’t criticize ideas as they arise&mdash;you can do that later
 - Ask questions like “What if we try XYZ?”
 - Storyboards and sketches can support brainstorming
 ]
@@ -418,7 +440,7 @@ Next we set boundaries. By the way, some formulations of design thinking curtail
 .pull-right[
 - Another core activity of designers
 - Ranges from simple, cheap, fast to elaborate, expensive, slow
-- Start simple&amp;mdash;create a straw man for discussion
+- Start simple&mdash;create a straw man for discussion
 - Can be as simple as index cards and colored markers
 - Figma is the flavor of the month for prototyping
 - Framer makes prototypes with JavaScript output
@@ -663,128 +685,3 @@ option and the little hovering triangle over code listings, and animate.css.
 
 # END
 
-    </textarea>
-<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
-<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script>var slideshow = remark.create({
-"highlightStyle": "github",
-"highlightLines": true,
-"ratio": "16:9",
-"countIncrementalSlides": true,
-"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>"
-});
-if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
-  window.dispatchEvent(new Event('resize'));
-});
-(function(d) {
-  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
-  if (!r) return;
-  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
-  d.head.appendChild(s);
-})(document);
-
-(function(d) {
-  var el = d.getElementsByClassName("remark-slides-area");
-  if (!el) return;
-  var slide, slides = slideshow.getSlides(), els = el[0].children;
-  for (var i = 1; i < slides.length; i++) {
-    slide = slides[i];
-    if (slide.properties.continued === "true" || slide.properties.count === "false") {
-      els[i - 1].className += ' has-continuation';
-    }
-  }
-  var s = d.createElement("style");
-  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
-  d.head.appendChild(s);
-})(document);
-// delete the temporary CSS (for displaying all slides initially) when the user
-// starts to view slides
-(function() {
-  var deleted = false;
-  slideshow.on('beforeShowSlide', function(slide) {
-    if (deleted) return;
-    var sheets = document.styleSheets, node;
-    for (var i = 0; i < sheets.length; i++) {
-      node = sheets[i].ownerNode;
-      if (node.dataset["target"] !== "print-only") continue;
-      node.parentNode.removeChild(node);
-    }
-    deleted = true;
-  });
-})();
-(function() {
-  "use strict"
-  // Replace <script> tags in slides area to make them executable
-  var scripts = document.querySelectorAll(
-    '.remark-slides-area .remark-slide-container script'
-  );
-  if (!scripts.length) return;
-  for (var i = 0; i < scripts.length; i++) {
-    var s = document.createElement('script');
-    var code = document.createTextNode(scripts[i].textContent);
-    s.appendChild(code);
-    var scriptAttrs = scripts[i].attributes;
-    for (var j = 0; j < scriptAttrs.length; j++) {
-      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
-    }
-    scripts[i].parentElement.replaceChild(s, scripts[i]);
-  }
-})();
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
-// adds .remark-code-has-line-highlighted class to <pre> parent elements
-// of code chunks containing highlighted lines with class .remark-code-line-highlighted
-(function(d) {
-  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
-  const preParents = [];
-  const findPreParent = function(line, p = 0) {
-    if (p > 1) return null; // traverse up no further than grandparent
-    const el = line.parentElement;
-    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
-  };
-
-  for (let line of hlines) {
-    let pre = findPreParent(line);
-    if (pre && !preParents.includes(pre)) preParents.push(pre);
-  }
-  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
-})(document);</script>
-
-<script>
-slideshow._releaseMath = function(el) {
-  var i, text, code, codes = el.getElementsByTagName('code');
-  for (i = 0; i < codes.length;) {
-    code = codes[i];
-    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
-      text = code.textContent;
-      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
-          /^\$\$(.|\s)+\$\$$/.test(text) ||
-          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
-        code.outerHTML = code.innerHTML;  // remove <code></code>
-        continue;
-      }
-    }
-    i++;
-  }
-};
-slideshow._releaseMath(document);
-</script>
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-(function () {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
-  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
-    script.src  = script.src.replace(/^https?:/, '');
-  document.getElementsByTagName('head')[0].appendChild(script);
-})();
-</script>
-  </body>
-</html>
