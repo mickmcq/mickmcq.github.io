@@ -1,0 +1,156 @@
+---
+title: "Rochester Childfirst Network"  
+subtitle: "... needs an app from RIT students"
+author: 
+  - "Mick McQuaid"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    css:
+      - xaringan-themer.css
+      - "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      ratio: 16:9
+      countIncrementalSlides: true
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+---
+class: animated, fadeIn, middle
+layout: true
+
+<style type="text/css">
+/* .remark-slide-content h1 {
+  font-size: 600%;
+}
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Fira%20Code:wght@300..700&display=swap');
+.remark-code, .remark-inline-code { font-family: 'Fira Code'; }
+
+.remark-slide-number {
+  position: inherit;
+}
+
+.remark-slide-number .progress-bar-container {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  display: block;
+  left: 0;
+  right: 0;
+}
+
+.remark-slide-number .progress-bar {
+  height: 100%;
+  background-color: red;
+}
+.scale-30 img { width: 30%; height: 30%; }
+.scale-40 img { width: 40%; height: 40%; }
+.scale-45 img { width: 45%; height: 45%; }
+.scale-60 img { width: 60%; height: 60%; }
+.scale-70 img { width: 70%; height: 70%; }
+.scale-75 img { width: 75%; height: 75%; }
+.scale-80 img { width: 80%; height: 80%; }
+.scale-85 img { width: 85%; height: 85%; }
+.big { font-size: 200%; }
+</style>
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  fig.width=9, fig.height=3.5, fig.retina=3,
+  out.width = "100%",
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE,
+  hiline = TRUE
+)
+xaringanExtra::use_tile_view()
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+  mute_unhighlighted_code = TRUE  #<<
+)
+```
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_solarized_light()
+```
+
+---
+class: animated, fadeIn
+
+.pull-left[
+  .left[![](rcn-logo.png)]
+]
+.pull-right[
+# Rochester Childfirst Network
+is a not-for-profit agency dedicated to advancing the quality of early education and care in Western New York, through leadership, advocacy, and innovative direct services to children.
+]
+
+---
+
+.pull-left[
+  .left[![](rcn-southwedge.jpg)]
+]
+.pull-right[
+  ## RCN's main facility
+  is a 4 acre location in the South Wedge. Parents converge on this location every day at 9AM and 3PM to drop off and pick up children. It's a madhouse at these times! An app to help manage dropoff and pickup would be welcomed.
+]
+
+---
+
+.pull-left[
+  .left[![](rcn-teacher.jpg)]
+]
+.pull-right[
+  ## RCN's childcare providers
+  have the autonomy to use or reject apps that appeal or don't appeal to them. There is currently an employee shortage, so an app that could help recruit childcare providers would be welcomed.
+]
+
+---
+
+.pull-left[
+  .left[![](rcn-meals.jpg)]
+]
+.pull-right[
+  ## Providers
+  of in-home-based child care work with RCN, which offers them meals, diaper giveaways, trainings, and other events and services. An app to connect providers to RCN, informing them of events and services, providing timely notification of cancellations, would be welcomed.
+]
+
+---
+
+.pull-left[
+  .left[![](twitter-logo.png)]
+]
+.pull-right[
+  ## Current use of technology
+  is limited. Providers seem reluctant to use Facebook, parents don't use
+  Twitter much, and ClassDojo is helpful but not a thorough source of two way
+  communication. Most parents have smart phones---even an app allowing us to
+  text them all at once might help. How to make an app open to parents but not
+  predators might be a challenge.
+]
+
+---
+
+# Audiences
+
+- Parents, for picking up (I might be late), dropping off (I'm on my way), and communicating with teachers about what their children are doing right now
+- Managers, who would like to know which parents they need to approach during the 3PM crush regarding late payments
+- Prospective parents and prospective donors, who may need info that's on the website, but delivered differently, or who may need timely messages about fund raisers, raffles, silent auctions, casino night, mad hatter tea party
+- RCN's childcare providers, who may want to communicate with parents
+- In-home-based childcare providers, who work with RCN
+- Prospective employees, who can be hard to reach
+
+---
+
+# Desiderata
+
+- An app must be inclusive of different races, ethnicities, abilities
+- An app must communicate that we're professionals&mdash;child-focused apps may be too playful and childlike in appearance
+- An app must be easy for people who are not computer-savvy&mdash;even Facebook group was a tough sell
