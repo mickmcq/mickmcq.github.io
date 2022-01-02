@@ -95,14 +95,7 @@ class: title-slide
 
 ### slideshow by Mick McQuaid
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-.footer[.center[This is a slideshow. Use the arrow keys to navigate.]]
+.footer[This is a slideshow. Use the arrow keys to navigate.]
 
 ---
 class: animated, fadeIn

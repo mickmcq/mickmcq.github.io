@@ -1,9 +1,9 @@
 ---
-title: "Rochester Childfirst Network"  
-subtitle: "... needs an app from RIT students"
+title: "Rochester Greenovation"  
+subtitle: "... needs an app or website designed by RIT students"
 author: 
   - "Mick McQuaid"
-date: '`r Sys.Date()`'
+date: '`r format(Sys.Date(), format="%B %d %Y")`'
 output:
   xaringan::moon_reader:
     css:
@@ -89,11 +89,11 @@ style_solarized_light()
 ---
 class: title-slide
 
-# Rochester Childfirst Network
+# Rochester Greenovation
 
-### ... needs an app designed by RIT students
+### ... needs an app or website designed by RIT students
 
-### slideshow by Mick McQuaid
+### [note: this is a placeholder for a slideshow that will soon reside at this address]
 
 .footer[This is a slideshow. Use the arrow keys to navigate.]
 
@@ -101,21 +101,20 @@ class: title-slide
 class: animated, fadeIn
 
 .pull-left[
-  .left[![](rcn-logo.png)]
+  .left[![](greenovationlogo.jpg)]
 ]
 .pull-right[
-# Rochester Childfirst Network
-is a not-for-profit agency dedicated to advancing the quality of early education and care in Western New York, through leadership, advocacy, and innovative direct services to children.
+# Rochester Greenovation
+is a not-for-profit agency
 ]
 
 ---
 
 .pull-left[
-  .left[![](rcn-southwedge.jpg)]
+  .left[![](greenovationMural.jpg)]
 ]
 .pull-right[
-  ## RCN's main facility
-  is a 4 acre location in the South Wedge. Parents converge on this location every day at 9AM and 3PM to drop off and pick up children. It's a madhouse at these times! An app to help manage dropoff and pickup would be welcomed.
+  ## Greenovation's facility
 ]
 
 ---
