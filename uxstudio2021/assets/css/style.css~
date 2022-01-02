@@ -103,10 +103,6 @@ p {
     position: relative;
 }
 
-.centercontent {
-    align-items: center;
-}
-
 .register-button {
     background-color: white;
     color: #38b6ff;
