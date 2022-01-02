@@ -9,6 +9,7 @@ output:
     css:
       - xaringan-themer.css
       - "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+    seal: false
     nature:
       highlightStyle: github
       highlightLines: true
@@ -58,6 +59,10 @@ layout: true
 .scale-80 img { width: 80%; height: 80%; }
 .scale-85 img { width: 85%; height: 85%; }
 .big { font-size: 200%; }
+.footer {
+  position: absolute;
+  bottom: 10px;
+}
 </style>
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
@@ -80,6 +85,17 @@ xaringanExtra::use_extra_styles(
 library(xaringanthemer)
 style_solarized_light()
 ```
+
+---
+class: title-slide
+
+# Rochester Childfirst Network
+
+### ... needs an app made by RIT students
+
+### slideshow by Mick McQuaid
+
+.footer[This is a slideshow. Use the arrow keys to navigate.]
 
 ---
 class: animated, fadeIn
