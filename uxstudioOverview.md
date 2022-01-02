@@ -1,5 +1,5 @@
 ---
-title: UXStudio
+title: UXStudio Overview
 subtitle: a design jam for RIT students
 layout: default
 rank: 12
