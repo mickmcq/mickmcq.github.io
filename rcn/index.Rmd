@@ -131,16 +131,6 @@ is a not-for-profit agency dedicated to advancing the quality of early education
 ---
 
 .pull-left[
-  .left[![](rcn-meals.jpg)]
-]
-.pull-right[
-  ## Providers
-  of in-home-based child care work with RCN, which offers them meals, diaper giveaways, trainings, and other events and services. An app to connect providers to RCN, informing them of events and services, providing timely notification of cancellations, would be welcomed.
-]
-
----
-
-.pull-left[
   .left[![](twitter-logo.png)]
 ]
 .pull-right[
@@ -160,7 +150,6 @@ is a not-for-profit agency dedicated to advancing the quality of early education
 - Managers, who would like to know which parents they need to approach during the 3PM crush regarding late payments
 - Prospective parents and prospective donors, who may need info that's on the website, but delivered differently, or who may need timely messages about fund raisers, raffles, silent auctions, casino night, mad hatter tea party
 - RCN's childcare providers, who may want to communicate with parents
-- In-home-based childcare providers, who work with RCN
 - Prospective employees, who can be hard to reach
 
 ---
