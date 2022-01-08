@@ -2,7 +2,7 @@
 title: hcin620
 subtitle: Interaction and Information Design
 layout: default
-rank: 3
+rank: 2
 icon: fa-edit
 ---
 
