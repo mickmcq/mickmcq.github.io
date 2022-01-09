@@ -139,12 +139,19 @@ The purpose of this exercise is to give you practice creating a storyboard. You 
 ## Create a design style guide
 Your task is to create a style guide for the personal web site of the person whose belongings are shown on the next screen. The style guide could be as simple as the sheet shown on the left, or it could include information about the layout: the grid and spacing parameters, and more. It could be a series of pages or panels. See, for example, the stylesheet examples at [dribbble](https://dribbble.com/tags/stylesheet).
 
-You may want to use Google Fonts to identify a font you can use for free. You may want to make this into a reusable template because a style guide will be part of your hifi prototype, HW 3.
+You may want to use Google Fonts to identify a font you can use for free. You may want to make this into a reusable template because a style guide will be part of your hifi prototype, HW 4.
 ]
 
 ???
 
 The purpose of this and the following exercises is to sharpen your eye for fonts, colors, and layouts. The only way to become sophisticated in your use of these elements is to look at a lot of them critically in context of real use cases.
+
+You may want to look at some sophisticated style guides, such as
+
+- [https://design-system.service.gov.uk/](https://design-system.service.gov.uk/)
+- [http://urbaninstitute.github.io/graphics-styleguide/](http://urbaninstitute.github.io/graphics-styleguide/)
+- [https://designsystem.digital.gov/](https://designsystem.digital.gov/)
+- [https://designsystem.digital.gov/design-tokens/](https://designsystem.digital.gov/design-tokens/) (This is a subset of the previous one and is the most important part)
 
 ---
 
