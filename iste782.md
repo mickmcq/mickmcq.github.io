@@ -8,13 +8,13 @@ icon: fa-edit
 
 This course introduces students to Visual Analytics, or the science of analytical reasoning facilitated by interactive visual interfaces. Course lectures, reading assignments, and practical lab experiences will cover a mix of theoretical and technical Visual Analytics topics. Topics include analytical reasoning, human cognition and perception of visual information, visual representation and interaction technologies, data representation and transformation, production, presentation, and dissemination of analytic process results, and Visual Analytic case studies and applications. Furthermore, students will learn relevant Visual Analytics research trends such as Space, Time, and Multivariate Analytics and Extreme Scale Visual Analytics.
 
-[The syllabus](assets/iste782syllabus.pdf) is the course's main document. Expect it to be followed to the letter.
+[The syllabus](/assets/iste782syllabus.pdf) is the course's main document. Expect it to be followed to the letter.
 
-[The homework instructions](assets/iste782hwInstr.pdf) describe what is expected of you in addition to the final exam.
+[The homework instructions](/assets/iste782hwInstr.pdf) describe what is expected of you in addition to the final exam.
 
 The data visualization workshop on day one uses the
-[GlobalSuperstore.xls](assets/GlobalSuperstore.xls) spreadsheet and the
-[tableau.pdf](assets/tableau.pdf) workbook. The content of the workbook is the same as the 01tableau lecture video listed below. It is just a matter of which format you prefer.
+[GlobalSuperstore.xls](/assets/GlobalSuperstore.xls) spreadsheet and the
+[tableau.pdf](/assets/tableau.pdf) workbook. The content of the workbook is the same as the 01tableau lecture video listed below. It is just a matter of which format you prefer.
 
 ### Lectures (all youtube links)
 

@@ -10,7 +10,7 @@ Rapidly expanding collections of data from all areas of society are becoming ava
 
 [The syllabus](assets/iste780syllabus.pdf) is the course's main document. Expect it to be followed to the letter.
 
-[The homework instructions](assets/iste780hwInstr.pdf) describe what is expected of you in addition to the final exam.
+[The homework instructions](/assets/iste780hwInstr.pdf) describe what is expected of you in addition to the final exam.
 
 ### Lectures (all youtube links)
 
