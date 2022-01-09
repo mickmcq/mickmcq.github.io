@@ -6,6 +6,8 @@ rank: 3
 icon: fa-edit
 ---
 
+# {{ page.title }}, {{ page.subtitle }}
+
 # ISTE264, Prototyping and Usability Testing
 
 This course will explore how modern human centered computing design and evaluation methodologies can be effectively used to create high-quality and usable technologies for a variety of users. Students will learn how an initial design can be evaluated and improved through the use of prototyping and user evaluations. Students will investigate a variety of high- and low-fidelity prototyping techniques, plan an iterative design process for an application, conduct an evaluation of a prototype, and analyze the results of user testing to drive a design process. Programming is required.
