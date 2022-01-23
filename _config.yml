@@ -28,6 +28,7 @@ url: "https://mickmcquaid.com" # the base hostname & protocol for your site, e.g
 # twitter_username: jekyllrb
 github_username:  mickmcq
 avatar: avatar.png
+google_analytics: G-8DB63W1MM3
 
 # Build settings
 markdown: GFM
