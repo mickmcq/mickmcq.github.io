@@ -178,7 +178,7 @@ How would you set up this experiment? Jacob Wobbrock did such an experiment, bot
 
 ## experiment characteristics
 
-It is a hallmark of experiments that the experimenter tries to control as many variables as possible. For the IDE experiment, what could you control? Task lighting, machine and peripherals, chair, desk and ambient noice all come to mind as possible confounds.
+It is a hallmark of experiments that the experimenter tries to control as many variables as possible. For the IDE experiment, what could you control? Task lighting, machine and peripherals, chair, desk and ambient noise all come to mind as possible confounds.
 
 Experiments focus on dependent and independent variables, also referred to as *y* and *x*, response and treatment, regressand and regressor, predicted and predictor, unknown and known,  output and input.
 
@@ -205,6 +205,10 @@ Many validated survey instruments exist, including some in HCI. Researchers try 
 ## diaries
 
 Some researchers ask people to keep a diary while using an application over a period of weeks or months. The key problem here is getting people to maintain a habit of diary entries.
+
+???
+
+Williamm Gaver completed a famous diary study in which each participant was given a box of goodies to stimulate them, including a disposable camera that was to be returned at the end of the study.
 
 ---
 
@@ -249,7 +253,7 @@ Both interviews and surveys require the participant to remember something from t
 
 ???
 
-Steinar Kvale wrote an interesting book called *InterViews* (1996) on using interviews as a research tool. After his death, Svend Brinkmann carried on the work and published two subsequent editions of the book, as well as a condensed version.
+Steinar Kvale wrote an interesting book called *InterViews* (1996) on using interviews as a research tool. After his death, Svend Brinkmann carried on the work and published two subsequent editions of the book, as well as a condensed version, called *Doing interviews*.
 
 ---
 
