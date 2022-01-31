@@ -15,3 +15,5 @@ This course will explore how modern human centered computing design and evaluati
 [The exercises](/prototyping+usability/exercises) will be done in class.
 
 Lecture [04studyUsers](/prototyping+usability/04studyUsers) is available.
+
+Accessibility lecture [01understanding](/accessibilitySlides/01understanding) is available.
