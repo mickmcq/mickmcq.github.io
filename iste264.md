@@ -13,3 +13,5 @@ This course will explore how modern human centered computing design and evaluati
 [The homework specs](/prototyping+usability/hwSpecs.pdf) tell in detail what is expected of you.
 
 [The exercises](/prototyping+usability/exercises) will be done in class.
+
+Lecture [04studyUsers](/prototyping+usability/04studyUsers) is available.
