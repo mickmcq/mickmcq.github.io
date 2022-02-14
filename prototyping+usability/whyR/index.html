@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Why R?</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Mick McQuaid" />
+    <meta name="date" content="2022-02-14" />
+    <script src="index_files/header-attrs/header-attrs.js"></script>
+    <link href="index_files/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="index_files/tile-view/tile-view.js"></script>
+    <link href="index_files/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+class: animated, fadeIn, middle
+layout: true
+
+
+
+&lt;style type="text/css"&gt;
+
+/* .remark-slide-content h1 {
+  font-size: 600%;
+}
+*/
+
+.remark-slide-number {
+  position: inherit;
+}
+
+.remark-slide-number .progress-bar-container {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  display: block;
+  left: 0;
+  right: 0;
+}
+
+.remark-slide-number .progress-bar {
+  height: 100%;
+  background-color: red;
+}
+.scale-30 img { width: 30%; height: 30%; }
+.scale-40 img { width: 40%; height: 40%; }
+.scale-45 img { width: 45%; height: 45%; }
+.scale-60 img { width: 60%; height: 60%; }
+.scale-70 img { width: 70%; height: 70%; }
+.scale-75 img { width: 75%; height: 75%; }
+.scale-80 img { width: 80%; height: 80%; }
+.scale-85 img { width: 85%; height: 85%; }
+.scale-125 img { width: 125%; height: 125%; }
+.big { font-size: 200%; }
+.bigger { font-size: 400%; }
+.biggest { font-size: 600%; }
+.footer {
+  position: absolute;
+  bottom: 10px;
+}
+&lt;/style&gt;
+
+
+---
+class: title-slide
+
+
+
+# Why R?
+
+### slideshow by Mick McQuaid
+
+.footer[This is a slideshow. Use the arrow keys to navigate.]
+
+---
+class: animated, fadeIn
+
+.pull-left[
+# Oops!
+]
+
+.pull-right[
+- On Friday, someone asked at the end if I cared whether you used the software I had just spent a half hour describing!
+- In a moment of frustration and sarcasm, I unfortunately answered "No"
+- But I do care, I care very much
+- Evidence includes the time I took to prepare that lesson
+- I'm going to take a few minutes to tell you why I care
+]
+
+---
+
+.left-column[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+### A Venn diagram of stats users
+]
+
+.right-column[
+.center[.scale-85[![A Venn Diagram of stats users](peopleUsingStats.png)]]
+]
+
+???
+
+On top, you see the large group of people who use Excel or SPSS to do stats.
+
+In the middle, is the much smaller group of people who use R for stats. This group includes most experts on stats, as well as some others.
+
+At the bottom, is a group that unfortunately shares a very large overlap with the top group: the people who don't know what the hell they are doing.
+
+What is my source for this Venn diagram? Years of experience teaching stats and struggling with students who don't know and don't want to know. The latter problem is the worst. Many students want to avoid stats as much as they can, so it makes sense to them to take the easy path. If all else were equal, the easy path *would* make sense. But all else is not equal, as I shall try to demonstrate on the next few slides.
+
+---
+
+.pull-left[
+# Why R?
+]
+
+.pull-right[
+## It's free
+## Reproducible research
+## Literate programming
+]
+
+???
+
+These are all very important and valid reasons and I would like to take a minute to explore each.
+
+---
+
+.pull-left[
+# It's free
+]
+
+.pull-right[
+- This is more important than you realize
+- No administrative overhead
+- No purchase orders
+- No bookkeeping about license upgrades
+- No IT people need to monitor your machine
+- No upgrade restrictions&amp;mdash;always use the latest
+]
+
+???
+
+Students often think that *free* only matters because they lack money. Or they are attracted to things that are free for students but cost money for everyone else. Both are traps. There are plenty of reasons to care about software being free besides the fact that you don't have money. (Read the list on the slide.)  And it makes a lot of sense to question why payware is given free to students. Is it because they want to do you a favor? Probably not. More likely they are hoping to lock you into their product so you'll buy it when you graduate. Therefore, a product like R, that has been free for over twenty years to everyone and is sustained by a healthy community of developers and scholars, has great value.
+
+---
+
+.pull-left[
+# Reproducible Research
+]
+
+.pull-right[
+- Provides evidence that your results are correct
+- Allows other to use your methods and results
+- Allows you to reuse your methods if you forget how you did it
+- Google 'reproducibility crisis' to find out more about how important this is in the scientific world
+]
+
+---
+
+.pull-left[
+# Types of Reproducibility
+]
+
+.pull-right[
+- _Computational reproducibility_ provides info about
+  - code, software, hardware, implementation details
+- _Empirical reproducibility_ provides info about
+  - non-computational empirical scientific experiments and observations
+- _Statistical reproducibility_ provides info about
+  - the choice of statistical tests, model parameters, threshold values, and more
+]
+
+---
+
+.pull-left[
+# Literate Programming
+]
+
+.pull-right[
+- Provides a method for reproducible research
+- Puts your code and narrative together in one file
+- Makes it easier to understand why you did what you did
+- Enables a think-say-act cycle that improves your work
+- Google 'literate programming' to find out more about how important this is in the scientific world
+]
+
+???
+
+Literate programming is a technique that enables reproducible research.
+
+
+
+---
+
+.biggest[END]
+
+---
+class: middle
+
+# Colophon
+
+This slideshow was produced using an R package called *Xaringan*.
+
+The theme is *Solarized Light*.
+
+The fonts are Fira Sans (body), Fira Sans Condensed (headings), and Fira Code.
+
+This slideshow is on GitHub in the `mickmcq/accessibilitySlides` repo.
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9",
+"countIncrementalSlides": true,
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
