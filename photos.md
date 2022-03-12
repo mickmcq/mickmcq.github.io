@@ -17,3 +17,6 @@ icon: fa-edit
 [Usability Lab Photos](/usability/index.html) showing students in the Usability Lab available to HCC and HCI students at RIT.
 
 [McQuaid-Espada Family Reunion Photos](/reunion2019/index.html) from Woodland Park, CO in June / July 2019.
+
+[Puerto Rico 2022](/puertorico2022/index.html) from a trip by Mick, Evelyn, and Joseph to Puerto Rico, 6&ndash;9 March 2022.
+
