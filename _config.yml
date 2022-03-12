@@ -37,6 +37,7 @@ remote_theme: pages-themes/minimal@v0.2.0
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
+  - cheesy-gallery
 kramdown:
     smart_quotes: ["apos", "apos", "quot", "quot"]
 collections: [sections]
