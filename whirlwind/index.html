@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Whirlwind tour of data visualization</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/moon.css" id="theme">
+  <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Whirlwind tour of data visualization</h1>
+</section>
+
+<section id="abstract" class="title-slide slide level1">
+<h1>abstract</h1>
+<p><small> In this talk, I will describe data visualization from three
+perspectives: historical, theoretical, and software implementation. I
+will review the history of data visualization, starting with
+Enlightenment practitioners and concluding with today’s data scientists.
+I will review some theories of data visualization, emphasizing Jacques
+Bertin, Leland Wilkinson, and Hadley Wickham. I will review the software
+history of data visualization, emphasizing the software used by data
+scientists today. Finally, I will mention the main venues for data
+visualization today in popular media and scientific literature. After
+the talk, I will ask attendees to create a quick data visualization
+using Tableau. </small></p>
+</section>
+
+<section>
+<section id="but-first" class="title-slide slide level1">
+<h1>But first …</h1>
+
+</section>
+<section id="how-should-we-talk-about-viz" class="slide level2">
+<h2>How should we talk about viz?</h2>
+<ul>
+<li>catalog?</li>
+<li>definitions?</li>
+<li>history?</li>
+<li>theory?</li>
+<li>implementations?</li>
+</ul>
+</section></section>
+<section>
+<section id="catalog-is-popular" class="title-slide slide level1">
+<h1>Catalog is popular</h1>
+<ul>
+<li>show some successful visualizations</li>
+<li>try to group them according to some random visible attribute</li>
+</ul>
+</section>
+<section id="catalog-example-cartogram" class="slide level2">
+<h2>Catalog example: cartogram</h2>
+<figure>
+<img data-src="fiTotalPop2000.png"
+alt="Cartogram of World Population, 2000" />
+<figcaption aria-hidden="true">Cartogram of World Population,
+2000</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: <a
+href="https://worldmapper.org">https://worldmapper.org</a></p>
+<p>This is an appealing cartogram designed by Mark E. J. Newman. It
+shows area of countries distorted to be proportional to population.
+Newman created a popular coffee table book of these in 2006. One was
+featured on the cover of the NY Times. They are clearly targeted at a
+general, but somewhat geoliterate, audience.</p>
+</aside>
+</section>
+<section id="another-a-chord-diagram-of-programming-languages"
+class="slide level2">
+<h2>Another: a chord diagram of programming languages</h2>
+<figure>
+<img data-src="fiChordDiagram.jpg" style="width:55.0%"
+alt="Chord diagram of programming languages used in CRAN" />
+<figcaption aria-hidden="true">Chord diagram of programming languages
+used in CRAN</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: TIOBE Index (Nov 2019)</p>
+<p>TIOBE produces a great many visualizations about the popularity of
+programming languages in various contexts. This particular one reminds
+us that the most performant language for scientific programming is still
+C, but that scientists prefer to program in R when performance is not an
+issue. Of course, I needed to have some external knowledge to make that
+inference from the displayed information. This at least tells us that a
+visualization is for a particular audience. Note the abbreviation LOC, a
+tip-off that the intended audience is software developers.</p>
+</aside>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<div class="container">
+<div class="col">
+<p>Coiled bar chart of CO2 emissions</p>
+</div>
+<div class="col">
+<p><img data-src="fiCoiledBarChart.png" /></p>
+</div>
+</div>
+<aside class="notes">
+<p>Source: forgotten</p>
+<p>This one works well on the printed page, but not so well on screen.
+It’s a coiled bar chart, an excellent space-saving device, although it
+should probably be adapted to the display medium. The point is to show
+more bars than would be possible in a horizontal or vertical layout.</p>
+</aside>
+</section>
+<section id="bad-visualizations-in-the-catalog" class="slide level2">
+<h2>Bad visualizations in the catalog</h2>
+<figure>
+<img data-src="fiBabyBoomer.png"
+alt="Meaningless visualization about baby boomers" />
+<figcaption aria-hidden="true">Meaningless visualization about baby
+boomers</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: many sources online</p>
+<p>No catalog is complete without examples of bad visualization. Usually
+the presenter invites the audience to explain what is wrong. I try to
+limit such examples in my presentations because it is so easy to get
+things wrong and so hard to get things right. The exemplary <em>bad
+visualization</em> usually tells us very little except to organize our
+thinking into categories like color, area, metaphors, and, in this case,
+arithmetic.</p>
+</aside>
+</section></section>
+<section>
+<section id="definitions" class="title-slide slide level1">
+<h1>Definitions</h1>
+
+</section>
+<section id="is-this-a-data-visualization" class="slide level2">
+<h2>Is this a data visualization?</h2>
+<figure>
+<img data-src="fiAfricaMapDress.jpg" style="width:42.0%"
+alt="Woman wearing a dress that resembles a map of Africa" />
+<figcaption aria-hidden="true">Woman wearing a dress that resembles a
+map of Africa</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: forgotten</p>
+<p>When considering definitions of data visualization, I like to present
+a few images that represent a gray area between data visualization and
+related images. This one certainly provides information in a graphical
+format, but students usually resist calling it a data visualization. It
+may stimulate your thought processes to think about why.</p>
+</aside>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<div class="container">
+<div class="col">
+<p>The world’s tallest tree and two humans for scale</p>
+</div>
+<div class="col">
+<figure>
+<img data-src="fiGiantSequoia.jpg" style="width:55.0%"
+alt="The world’s tallest tree and two humans" />
+<figcaption aria-hidden="true">The world’s tallest tree and two
+humans</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="venn-diagrams-of-data-viz-1" class="slide level2">
+<h2>Venn diagrams of data viz 1</h2>
+<figure>
+<img data-src="fiGoodInfViz.png" alt="Venn diagram of info viz" />
+<figcaption aria-hidden="true">Venn diagram of info viz</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: <a
+href="https://informationisbeautiful.net">https://informationisbeautiful.net</a></p>
+<p>Another way to define data viz is to put its components into a Venn
+diagram and try to figure out what it means to subtract each
+component.</p>
+</aside>
+</section>
+<section id="venn-diagrams-of-data-viz-2" class="slide level2">
+<h2>Venn diagrams of data viz 2</h2>
+<figure>
+<img data-src="fiGoodInfDesign.png" alt="Venn diagram of info design" />
+<figcaption aria-hidden="true">Venn diagram of info design</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: <a
+href="https://informationisbeautiful.net">https://informationisbeautiful.net</a></p>
+<p>David McCandless does a lot of visualizations, including many Venn
+diagrams with clues about data viz. This one is problematic, though. For
+example, it is tautological to say that information design without
+interestingness is boring.</p>
+</aside>
+</section>
+<section id="venn-diagrams-of-data-viz-3" class="slide level2">
+<h2>Venn diagrams of data viz 3</h2>
+<figure>
+<img data-src="fiDefineDataSci.png"
+alt="Venn diagram of data science components" />
+<figcaption aria-hidden="true">Venn diagram of data science
+components</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: Nisarg Dave</p>
+<p>Another approach is to display Venn diagrams of the relationship of
+data visualization to other concepts. These abound on blogs and usually
+conflict with each other and, sometimes, with themselves.</p>
+</aside>
+</section></section>
+<section>
+<section id="history" class="title-slide slide level1">
+<h1>History</h1>
+
+</section>
+<section id="pre-history" class="slide level2">
+<h2>Pre-history:</h2>
+<p>Wait for Michael Friendly’s and Denis York’s book on the subject.</p>
+</section>
+<section id="enlightenment" class="slide level2">
+<h2>Enlightenment</h2>
+</section>
+<section id="florence-nightingale" class="slide level2">
+<h2>Florence Nightingale</h2>
+<figure>
+<img data-src="fiFlorenceNightingaleViz.jpg"
+alt="Coxcomb plot of causes of death" />
+<figcaption aria-hidden="true">Coxcomb plot of causes of
+death</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: <a
+href="https://commons.wikimedia.org/wiki/File:Nightingale-mortality.jpg">https://commons.wikimedia.org/wiki/File:Nightingale-mortality.jpg</a></p>
+</aside>
+</section>
+<section id="william-playfair" class="slide level2">
+<h2>William Playfair</h2>
+<figure>
+<img data-src="fiPlayfairTimeSeries.png" style="width:90.0%"
+alt="time series line chart" />
+<figcaption aria-hidden="true">time series line chart</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: By William Playfair - Derivative of File:Playfair
+TimeSeries.png William Playfair's Time Series of Exports and Imports of
+Denmark and Norway, Public Domain, <a
+href="https://commons.wikimedia.org/w/index.php?curid=12674977">https://commons.wikimedia.org/w/index.php?curid=12674977</a></p>
+</aside>
+</section>
+<section id="w.e.b.-dubois" class="slide level2">
+<h2>W.E.B. DuBois</h2>
+<figure>
+<img data-src="fiGeorgiaNegroCityRural.jpg" style="width:50.0%"
+alt="Unique Population Graphic" />
+<figcaption aria-hidden="true">Unique Population Graphic</figcaption>
+</figure>
+<aside class="notes">
+<p>W.E.B. DuBois drew this picture by hand and displayed it at the
+Exposition universelle in Paris in 1900. It shows a comparison of urban
+and rural population of African Americans in Goergia and was part of a
+series created by DuBois to showcase the progress of African Americans
+since Emancipation.</p>
+<p>Source: <a
+href="https://www.loc.gov/resource/ppmsca.33873/">https://www.loc.gov/resource/ppmsca.33873/</a></p>
+</aside>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<div class="container">
+<div class="col">
+<p>Context of preceding viz: photo of WEB DuBois exhibit, including
+diagrams, photos, and books</p>
+</div>
+<div class="col">
+<p><img data-src="fiWEBDuBoisExhibit.jpg" /></p>
+</div>
+</div>
+<aside class="notes">
+<p>The preceding picture was exhibited by WEB DuBois as part of this
+overall exhibit at the Paris Exposition mentioned previously.</p>
+</aside>
+</section>
+<section id="visualization-in-the-1950s-sage" class="slide level2">
+<h2>Visualization in the 1950s: SAGE</h2>
+<figure>
+<img data-src="fiSageConsoles.png" alt="SAGE consoles" />
+<figcaption aria-hidden="true">SAGE consoles</figcaption>
+</figure>
+<aside class="notes">
+<p>The US Government financed a gigantic interactive visualization
+system in the 1950s, called SAGE. It was devoted to detecting and
+visualization Russian missiles and bombers and distinguishing them from
+civilian airplanes and bird flocks.</p>
+<p>The budget for SAGE was enormous and vast numbers of scientists of
+that era were enlisted in the effort. Yet it was secretive and little
+was ever published about the lessons learned from the project. Decades
+later, anthropologists interviewed some of the surviving scientists and
+pieced together what little is widely known about the project.</p>
+<p>Believe it or not, each SAGE console had a built-in ashtray and
+cigarette lighter to relieve the stress of the operators, who had to be
+apprehensive of every blip on their screens.</p>
+</aside>
+</section>
+<section id="exploratory-data-analysis-1970s-and-80s"
+class="slide level2">
+<h2>Exploratory Data Analysis 1970s and 80s</h2>
+<ul>
+<li>John W. Tukey</li>
+<li>William Cleveland</li>
+<li>Edward Tufte</li>
+</ul>
+<aside class="notes">
+<p>I’ll speak briefly about each of these people in turn, but first
+…</p>
+</aside>
+</section>
+<section id="anscombes-quartet" class="slide level2">
+<h2>Anscombe’s Quartet</h2>
+<figure>
+<img data-src="fiAnscombeData.png" alt="Four data sets" />
+<figcaption aria-hidden="true">Four data sets</figcaption>
+</figure>
+<aside class="notes">
+<p>Here you see four data sets, identical in their summary
+statistics.</p>
+</aside>
+</section>
+<section id="anscombes-quartet-visualized" class="slide level2">
+<h2>Anscombe’s Quartet Visualized</h2>
+<figure>
+<img data-src="fiAnscombePlots.png" style="width:80.0%"
+alt="Four scatterplots" />
+<figcaption aria-hidden="true">Four scatterplots</figcaption>
+</figure>
+<aside class="notes">
+<p>But how different they are when visualized, showing the power of
+outliers and nonlinear patterns to trick summary statistics and linear
+models.</p>
+</aside>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<div class="container">
+<div class="col">
+<p>Cover of Tukey’s 1977 book, <em>Exploratory Data Analysis</em></p>
+</div>
+<div class="col">
+<p><img data-src="fiEDA.jpg" /></p>
+</div>
+</div>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<div class="container">
+<div class="col">
+<p>Cover of Tufte’s 1983 book, <em>Visual Display of Quantitative
+Information</em></p>
+</div>
+<div class="col">
+<p><img data-src="fiVisualDisplayQuant.jpg" /></p>
+</div>
+</div>
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<div class="container">
+<div class="col">
+<p>Dust Jacket of Cleveland’s 1985 book, <em>Elements of Graphing
+Data</em></p>
+</div>
+<div class="col">
+<p><img data-src="fiElementsGraphing.jpg" /></p>
+</div>
+</div>
+</section>
+<section id="information-visualization-1990s-and-early-2000s"
+class="slide level2">
+<h2>Information Visualization 1990s and early 2000s</h2>
+<ul>
+<li>and its relationship to scientific visualization</li>
+</ul>
+</section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+<figure>
+<img data-src="fiVennInfoViz.png" alt="Venn diagram of infoviz" />
+<figcaption aria-hidden="true">Venn diagram of infoviz</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: Mick McQuaid’s own conceptualization</p>
+<p>In the late 1980s, scientists wanted grants to buy expensive Silicon
+Graphics computers to do interactive visualization. Lots of them got
+together at a seminal conference and posited the terms <em>Information
+Visualization</em> and <em>Scientific Visualization</em> for what they
+were doing. They wrote to the National Science Foundation that both
+groups needed high-speed graphics-intensive computers to do
+<em>interactive</em> visualization, as distinct from static graphics or
+other arrangements of information, such as tables. This picture is my
+interpretation of the relationships between the concepts in their
+seminal paper.</p>
+<p>Their concepts were extremely popular in the 1990s and only ended
+when graphics cards, intended to play games such as Quake, became so
+cheap (around 1998) that high-speed, graphics-intensive computers were
+no longer out of reach of most scientists.</p>
+</aside>
+</section>
+<section id="network-science-early-2000s" class="slide level2">
+<h2>Network Science early 2000s</h2>
+<figure>
+<img data-src="fiPoliBlogs.jpg"
+alt="A famous visualization of political blogs" />
+<figcaption aria-hidden="true">A famous visualization of political
+blogs</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: Lada Adamic</p>
+<p>Network science earned public prominence in the early 2000s with
+visualizations like this one, which was featured on the front page of
+the NY Times. It shows the links between blue and red blogs and, in
+particular, shows that there are very few links from red to blue and
+vice versa. Closer examination shows that the red blogs are more
+polarized than the blue blogs by standard measures used in network
+science.</p>
+</aside>
+</section>
+<section id="web-based-popular-visualization-early-2000s"
+class="slide level2">
+<h2>Web-based popular visualization early 2000s</h2>
+<ul>
+<li>Processing</li>
+<li>D3</li>
+<li>New York Times</li>
+</ul>
+<aside class="notes">
+<p>I (Mick) interviewed a data visualization specialist at the NY Times
+in the mid-2000s who said that the Times had gained a great deal of
+sophistication about data visualization since going online. He claimed
+that new tools, such as Processing, a Java add-on, and D3, originally a
+JavaScript add-on, were making it possible to produce more sophisticated
+data visualizations at the same time as the NY Times audience was
+growing more sophisticated in its data visualization tastes.</p>
+</aside>
+</section>
+<section id="section-7" class="slide level2">
+<h2></h2>
+<div class="container">
+<div class="col">
+<p>Visual Analytics, 2005—</p>
+<p>Book cover of <em>Illuminating the Path</em> (2005)</p>
+</div>
+<div class="col">
+<p><img data-src="fiThomasBookCover.jpg" /></p>
+</div>
+</div>
+<aside class="notes">
+<p>In the aftermath of September 11th, the US government decided to
+analyze intelligence failures and one of many efforts resulted in this
+book and a national spending program on visualization integrated into a
+comprehensive analytics platform. We’re still seeing the echoes of this
+historic development today under the name visual analytics.</p>
+</aside>
+</section></section>
+<section>
+<section id="theory" class="title-slide slide level1">
+<h1>Theory</h1>
+
+</section>
+<section id="section-8" class="slide level2">
+<h2></h2>
+<div class="container">
+<div class="col">
+<p>Cover of Jacques Bertin’s book, <em>Semiology of Graphics</em></p>
+</div>
+<div class="col">
+<p><img data-src="fiSemiologyGraphics.jpg" /></p>
+</div>
+</div>
+</section>
+<section id="section-9" class="slide level2">
+<h2></h2>
+<div class="container">
+<div class="col">
+<p>Cover of Leland Wilkinson’s book, <em>Grammar of Graphics</em></p>
+</div>
+<div class="col">
+<p><img data-src="fiGrammarGraphics.jpg" /></p>
+</div>
+</div>
+</section>
+<section id="section-10" class="slide level2">
+<h2></h2>
+<div class="container">
+<div class="col">
+<p>Cover of Hadley WIckham’s book, <em>ggplot2</em></p>
+</div>
+<div class="col">
+<p><img data-src="figgplot2Book.jpg" /></p>
+</div>
+</div>
+</section>
+<section id="others" class="slide level2">
+<h2>Others</h2>
+<ul>
+<li>Martin Wattenberg and Fernanda Viegas</li>
+<li>Jeffrey Heer</li>
+</ul>
+</section></section>
+<section>
+<section id="software" class="title-slide slide level1">
+<h1>Software</h1>
+
+</section>
+<section id="what-is-the-most-popular-software" class="slide level2">
+<h2>What is the most popular software?</h2>
+<ul>
+<li class="fragment">Wrong!</li>
+<li class="fragment">It is pen and paper!</li>
+<li class="fragment">Most visualizations have been hand-drawn</li>
+<li class="fragment">Next most popular is Photoshop, Illustrator, Draw,
+Paint, Procreate …</li>
+</ul>
+</section>
+<section id="section-11" class="slide level2">
+<h2></h2>
+<div class="container">
+<div class="col">
+<p>Mark Lombardi’s handdrawn visualizations have been exhibited in art
+museums</p>
+</div>
+<div class="col">
+<p><img data-src="fiMarkLombardi.jpg" /></p>
+</div>
+</div>
+</section>
+<section id="section-12" class="slide level2">
+<h2></h2>
+<div class="container">
+<div class="col">
+<p>One of many attempts to automate Lombardi’s visualizations</p>
+</div>
+<div class="col">
+<p><img data-src="fiLombardiAuto.png" /></p>
+</div>
+</div>
+</section>
+<section id="section-13" class="slide level2">
+<h2></h2>
+<p>R running in the RStudio IDE</p>
+<p><img data-src="fiRStudioR.png" /></p>
+</section>
+<section id="section-14" class="slide level2">
+<h2></h2>
+<p>Python running in the RStudio IDE</p>
+<p><img data-src="fiRStudioPython.jpg" /></p>
+</section>
+<section id="tableau" class="slide level2">
+<h2>Tableau</h2>
+<aside class="notes">
+<p>Tableau, founded by Pat Hanrahan, inspired the current generation of
+popular dataviz software. Pretty much every other package, such as
+PowerBI, Oracle OBIEE, and SAS Visual Analytics, are based on Tableau.
+Therefore we’ll try Tableau next to see what the current crop of these
+tools looks like.</p>
+</aside>
+</section>
+<section id="others-1" class="slide level2">
+<h2>Others</h2>
+<ul>
+<li>Tableau imitators, such as …</li>
+<li>Oracle OBIEE</li>
+<li>Microsoft PowerBI</li>
+<li>SAS Visual Analytics</li>
+</ul>
+</section></section>
+<section id="end" class="title-slide slide level1">
+<h1 class="r-fit-text">END</h1>
+
+</section>
+
+<section id="colophon" class="title-slide slide level1">
+<h1>COLOPHON</h1>
+<p>This slideshow was produced with reveal.js using the moon theme.</p>
+<p><code>pandoc</code> converted the source markdown to html.</p>
+<p>The source is at the same URL as the presentation. Just say
+<code>index.md</code> instead of <code>index.html</code></p>
+<p>URL: <a
+href="https://mickmcquaid.com/whirlwind">https://mickmcquaid.com/whirlwind</a></p>
+<p>email: mickmcquaid@gmail.com</p>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

@@ -16,6 +16,8 @@ The data visualization workshop on day one uses the
 [GlobalSuperstore.xls](/assets/GlobalSuperstore.xls) spreadsheet and the
 [tableau.pdf](/assets/tableau.pdf) workbook. The content of the workbook is the same as the 01tableau lecture video listed below. It is just a matter of which format you prefer.
 
+[whirlwind](whirlwind) introduces data visualization.
+
 ### Lectures (all youtube links)
 
 - [iste782 00intro](https://youtu.be/P06eaRV1a-4)
