@@ -29,7 +29,7 @@ The Faculty Affairs Committee shall be responsible for policy recommendations co
 - Two co-chairs (currently, but at least one is stepping down) M. Ann Howard and Stacey Davis
 - Three members are current senators
 
-# Why should iSchool faculty care?
+# Why care?
 - Outside of GCCIS, GCCIS is widely perceived as CS
 - Faculty senate has two IGM members, no iSchool members
 - Policies affect us, with little understanding of our needs
