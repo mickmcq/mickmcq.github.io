@@ -1,0 +1,137 @@
+---
+title: "Common Assistive Technologies"  
+author: 
+  - "Mick McQuaid"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    css:
+      - xaringan-themer.css
+      - "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      ratio: 16:9
+      countIncrementalSlides: true
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+---
+class: animated, fadeIn, middle
+layout: true
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_solarized_light(
+  text_font_google = google_font("Fira Sans", "300"),
+  header_font_google = google_font("Fira Sans Condensed","600"),
+  code_font_google = google_font("Fira Code")
+)
+```
+
+<style type="text/css">
+
+/* .remark-slide-content h1 {
+  font-size: 600%;
+}
+*/
+
+.remark-slide-number {
+  position: inherit;
+}
+
+.remark-slide-number .progress-bar-container {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  display: block;
+  left: 0;
+  right: 0;
+}
+
+.remark-slide-number .progress-bar {
+  height: 100%;
+  background-color: red;
+}
+.scale-30 img { width: 30%; height: 30%; }
+.scale-40 img { width: 40%; height: 40%; }
+.scale-45 img { width: 45%; height: 45%; }
+.scale-60 img { width: 60%; height: 60%; }
+.scale-70 img { width: 70%; height: 70%; }
+.scale-75 img { width: 75%; height: 75%; }
+.scale-80 img { width: 80%; height: 80%; }
+.scale-85 img { width: 85%; height: 85%; }
+.big { font-size: 200%; }
+.bigger { font-size: 400%; }
+.biggest { font-size: 600%; }
+.footer {
+  position: absolute;
+  bottom: 10px;
+}
+</style>
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  fig.width=9, fig.height=3.5, fig.retina=3,
+  out.width = "100%",
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE,
+  hiline = TRUE
+)
+xaringanExtra::use_tile_view()
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+  mute_unhighlighted_code = TRUE  #<<
+)
+```
+---
+class: title-slide
+
+# Common Assistive Technologies
+
+### types, evolution, mainstream technologies, getting used to it
+
+### slideshow by Mick McQuaid
+
+.footer[This is a slideshow. Use the arrow keys to navigate.]
+
+---
+class: animated, fadeIn
+
+# This is a test of h1
+
+## This is a test of h2
+
+### This is a test of h3
+
+This is a test of body copy. It should appear as Fira Sans
+
+```r
+# This tests code. It should be Fira Code.
+mtcars |>
+mpg >= 20 |>
+  head()
+```
+
+---
+
+.biggest[END]
+
+---
+class: middle
+
+# Colophon
+
+This slideshow was produced using an R package called *Xaringan*.
+
+The theme is *Solarized Light*.
+
+The fonts are Fira Sans (body), Fira Sans Condensed (headings), and Fira Code.
+
+This slideshow is on GitHub in the `mickmcq/accessibilitySlides` repo.
