@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Mick McQuaid">
+  <meta name="dcterms.date" content="2022-02-26">
+  <title>UI facilitators and barriers</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/moon.css" id="theme">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">UI facilitators and barriers</h1>
+  <p class="author">Mick McQuaid</p>
+  <p class="date">2022-02-26</p>
+</section>
+
+<section id="most-technologies" class="slide level1">
+<h1>Most technologies …</h1>
+<p>and interaction models require accessibility design thinking</p>
+<p>Usability + Accessibility = user delight</p>
+<aside class="notes">
+<p>What’s the difference between usability and accessibility?</p>
+<p>It may be the difference between whether someone can use it
+(accessibility) vs how well someone can use it (usability)</p>
+</aside>
+</section>
+<section id="guis" class="slide level1">
+<h1>GUIs</h1>
+<ul>
+<li>Facilitator: Screen reader support</li>
+<li>Barrier: No screen reader support</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<figure>
+<img data-src="fiDesignPosterScreenReaders.jpg" style="width:50.0%"
+alt="designing for screen readers" />
+<figcaption aria-hidden="true">designing for screen readers</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: <a
+href="https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/">https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/</a></p>
+</aside>
+</section>
+<section class="slide level1">
+
+<figure>
+<img data-src="fiGUIAccessibility.png" alt="GUI accessibility" />
+<figcaption aria-hidden="true">GUI accessibility</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: <a
+href="https://www.eclipse.org/actf/docs/users/aDesigner/docs/images/gui/guiSettings.png">https://www.eclipse.org/actf/docs/users/aDesigner/docs/images/gui/guiSettings.png</a></p>
+</aside>
+</section>
+<section id="touchtactile-screens" class="slide level1">
+<h1>Touch/Tactile Screens</h1>
+<ul>
+<li>Facilitator: Big touch targets</li>
+<li>Barrier: Small touch targets</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<figure>
+<img data-src="fiTouchAccommodations.jpg"
+alt="accommodations for multitouch" />
+<figcaption aria-hidden="true">accommodations for
+multitouch</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: <a
+href="https://dl.acm.org/cms/attachment/96de0755-64cc-446d-9391-674e737e6c3f/chi2019-683-fig1.jpg">https://dl.acm.org/cms/attachment/96de0755-64cc-446d-9391-674e737e6c3f/chi2019-683-fig1.jpg</a></p>
+</aside>
+</section>
+<section id="gesture-input" class="slide level1">
+<h1>Gesture Input</h1>
+<ul>
+<li>Facilitator: Intuitive interaction model for performing a task
+(pinch to zoom)</li>
+<li>Barrier: No alternative input mechanism for people with limited
+dexterity</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<figure>
+<img data-src="fiAppleWatchGestures.jpg"
+alt="accommodating watch gesture differences" />
+<figcaption aria-hidden="true">accommodating watch gesture
+differences</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: <a
+href="https://www.pcmag.com/how-to/control-apple-watch-with-hand-gestures">https://www.pcmag.com/how-to/control-apple-watch-with-hand-gestures</a></p>
+</aside>
+</section>
+<section id="video-rich-media" class="slide level1">
+<h1>Video &amp; Rich Media</h1>
+<ul>
+<li>Facilitator: Rich storytelling medium</li>
+<li>Barrier: No closed captions</li>
+</ul>
+</section>
+<section id="speech-to-text-speech-commands" class="slide level1">
+<h1>Speech to Text / Speech Commands</h1>
+<ul>
+<li>Facilitator: Ease of text input and hands-free interaction</li>
+<li>Barrier: Need alternative interaction model for speech and audio
+I/O</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<figure>
+<img data-src="fiDragonDictation.jpg"
+alt="speech to text on a smartphone" />
+<figcaption aria-hidden="true">speech to text on a
+smartphone</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: <a
+href="https://singularityhub.com/wp-content/uploads/2009/12/dragon-dictation.jpg">https://singularityhub.com/wp-content/uploads/2009/12/dragon-dictation.jpg</a></p>
+</aside>
+</section>
+<section id="help-support-considerations" class="slide level1">
+<h1>Help &amp; Support Considerations</h1>
+<ul>
+<li>Providing accessible instructions and support</li>
+<li>Training on AT and accessibility features</li>
+</ul>
+</section>
+<section id="experiences" class="slide level1">
+<h1>Experiences</h1>
+<ul>
+<li>Testimonials from people with disabilities</li>
+<li>Simulation tools/techniques for design and testing</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<figure>
+<img data-src="fiAccessibilityComponent.jpg" style="width:80.0%"
+alt="a typeface for dyslexia" />
+<figcaption aria-hidden="true">a typeface for dyslexia</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: <a
+href="https://autisticadvocacy.org/">https://autisticadvocacy.org/</a></p>
+</aside>
+</section>
+<section class="slide level1">
+
+<figure>
+<img data-src="fiDesignPosterAnxiety.jpg" style="width:50.0%"
+alt="designing for anxiety" />
+<figcaption aria-hidden="true">designing for anxiety</figcaption>
+</figure>
+<aside class="notes">
+<p>This is the first in a series of posters produced by the government
+of the UK, obviously not meant to show on screen, but still very
+useful.</p>
+<p>Notice that these are things that everyone wants. It’s often the case
+that designing for accessibility turns out to be designing for
+everyone.</p>
+<p>Source: <a
+href="https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/">https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/</a></p>
+</aside>
+</section>
+<section class="slide level1">
+
+<figure>
+<img data-src="fiDesignPosterAutism.jpg" style="width:50.0%"
+alt="designing for autism" />
+<figcaption aria-hidden="true">designing for autism</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: <a
+href="https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/">https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/</a></p>
+</aside>
+</section>
+<section class="slide level1">
+
+<figure>
+<img data-src="fiDesignPosterDeaf.jpg" style="width:50.0%"
+alt="designing for dhh" />
+<figcaption aria-hidden="true">designing for dhh</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: <a
+href="https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/">https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/</a></p>
+</aside>
+</section>
+<section class="slide level1">
+
+<figure>
+<img data-src="fiDesignPosterDyslexia.jpg" style="width:50.0%"
+alt="designing for dyslexia" />
+<figcaption aria-hidden="true">designing for dyslexia</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: <a
+href="https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/">https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/</a></p>
+</aside>
+</section>
+<section class="slide level1">
+
+<figure>
+<img data-src="fiDesignPosterLowVision.jpg" style="width:50.0%"
+alt="designing for low vision" />
+<figcaption aria-hidden="true">designing for low vision</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: <a
+href="https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/">https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/</a></p>
+</aside>
+</section>
+<section class="slide level1">
+
+<figure>
+<img data-src="fiDesignPosterMotorDisabilities.jpg" style="width:50.0%"
+alt="designing for motor disabilities" />
+<figcaption aria-hidden="true">designing for motor
+disabilities</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: <a
+href="https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/">https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/</a></p>
+</aside>
+</section>
+<section id="end" class="slide level1">
+<h1 class="r-fit-text">END</h1>
+</section>
+<section id="colophon" class="slide level1">
+<h1>Colophon</h1>
+<p>This slideshow was produced using <code>pandoc</code> and
+<code>revealjs</code></p>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
