@@ -1,234 +1,353 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
-  <head>
-    <title>Common Assistive Technologies</title>
-    <meta charset="utf-8" />
-    <meta name="author" content="Mick McQuaid" />
-    <meta name="date" content="2022-01-16" />
-    <script src="index_files/header-attrs/header-attrs.js"></script>
-    <link href="index_files/tile-view/tile-view.css" rel="stylesheet" />
-    <script src="index_files/tile-view/tile-view.js"></script>
-    <link href="index_files/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
-    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" type="text/css" />
-  </head>
-  <body>
-    <textarea id="source">
-
-class: animated, fadeIn, middle
-layout: true
-
-
-
-&lt;style type="text/css"&gt;
-
-/* .remark-slide-content h1 {
-  font-size: 600%;
-}
-*/
-
-.remark-slide-number {
-  position: inherit;
-}
-
-.remark-slide-number .progress-bar-container {
-  position: absolute;
-  bottom: 0;
-  height: 4px;
-  display: block;
-  left: 0;
-  right: 0;
-}
-
-.remark-slide-number .progress-bar {
-  height: 100%;
-  background-color: red;
-}
-.scale-30 img { width: 30%; height: 30%; }
-.scale-40 img { width: 40%; height: 40%; }
-.scale-45 img { width: 45%; height: 45%; }
-.scale-60 img { width: 60%; height: 60%; }
-.scale-70 img { width: 70%; height: 70%; }
-.scale-75 img { width: 75%; height: 75%; }
-.scale-80 img { width: 80%; height: 80%; }
-.scale-85 img { width: 85%; height: 85%; }
-.big { font-size: 200%; }
-.bigger { font-size: 400%; }
-.biggest { font-size: 600%; }
-.footer {
-  position: absolute;
-  bottom: 10px;
-}
-&lt;/style&gt;
-
-
----
-class: title-slide
-
-# Common Assistive Technologies
-
-### types, evolution, mainstream technologies, getting used to it
-
-### slideshow by Mick McQuaid
-
-.footer[This is a slideshow. Use the arrow keys to navigate.]
-
----
-class: animated, fadeIn
-
-# This is a test of h1
-
-## This is a test of h2
-
-### This is a test of h3
-
-This is a test of body copy. It should appear as Fira Sans
-
-```r
-# This tests code. It should be Fira Code.
-mtcars |&gt;
-mpg &gt;= 20 |&gt;
-  head()
-```
-
----
-
-.biggest[END]
-
----
-class: middle
-
-# Colophon
-
-This slideshow was produced using an R package called *Xaringan*.
-
-The theme is *Solarized Light*.
-
-The fonts are Fira Sans (body), Fira Sans Condensed (headings), and Fira Code.
-
-This slideshow is on GitHub in the `mickmcq/accessibilitySlides` repo.
-    </textarea>
-<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
-<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script>var slideshow = remark.create({
-"highlightStyle": "github",
-"highlightLines": true,
-"ratio": "16:9",
-"countIncrementalSlides": true,
-"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>"
-});
-if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
-  window.dispatchEvent(new Event('resize'));
-});
-(function(d) {
-  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
-  if (!r) return;
-  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
-  d.head.appendChild(s);
-})(document);
-
-(function(d) {
-  var el = d.getElementsByClassName("remark-slides-area");
-  if (!el) return;
-  var slide, slides = slideshow.getSlides(), els = el[0].children;
-  for (var i = 1; i < slides.length; i++) {
-    slide = slides[i];
-    if (slide.properties.continued === "true" || slide.properties.count === "false") {
-      els[i - 1].className += ' has-continuation';
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Mick McQuaid and Madison Russell">
+  <meta name="dcterms.date" content="2022-06-19">
+  <title>Common Assistive Technologies</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
     }
-  }
-  var s = d.createElement("style");
-  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
-  d.head.appendChild(s);
-})(document);
-// delete the temporary CSS (for displaying all slides initially) when the user
-// starts to view slides
-(function() {
-  var deleted = false;
-  slideshow.on('beforeShowSlide', function(slide) {
-    if (deleted) return;
-    var sheets = document.styleSheets, node;
-    for (var i = 0; i < sheets.length; i++) {
-      node = sheets[i].ownerNode;
-      if (node.dataset["target"] !== "print-only") continue;
-      node.parentNode.removeChild(node);
-    }
-    deleted = true;
-  });
-})();
-(function() {
-  "use strict"
-  // Replace <script> tags in slides area to make them executable
-  var scripts = document.querySelectorAll(
-    '.remark-slides-area .remark-slide-container script'
-  );
-  if (!scripts.length) return;
-  for (var i = 0; i < scripts.length; i++) {
-    var s = document.createElement('script');
-    var code = document.createTextNode(scripts[i].textContent);
-    s.appendChild(code);
-    var scriptAttrs = scripts[i].attributes;
-    for (var j = 0; j < scriptAttrs.length; j++) {
-      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
-    }
-    scripts[i].parentElement.replaceChild(s, scripts[i]);
-  }
-})();
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
-// adds .remark-code-has-line-highlighted class to <pre> parent elements
-// of code chunks containing highlighted lines with class .remark-code-line-highlighted
-(function(d) {
-  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
-  const preParents = [];
-  const findPreParent = function(line, p = 0) {
-    if (p > 1) return null; // traverse up no further than grandparent
-    const el = line.parentElement;
-    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
-  };
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/moon.css" id="theme">
+  <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
 
-  for (let line of hlines) {
-    let pre = findPreParent(line);
-    if (pre && !preParents.includes(pre)) preParents.push(pre);
-  }
-  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
-})(document);</script>
+<section id="title-slide">
+  <h1 class="title">Common Assistive Technologies</h1>
+  <p class="author">Mick McQuaid and Madison Russell</p>
+  <p class="date">2022-06-19</p>
+</section>
 
-<script>
-slideshow._releaseMath = function(el) {
-  var i, text, code, codes = el.getElementsByTagName('code');
-  for (i = 0; i < codes.length;) {
-    code = codes[i];
-    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
-      text = code.textContent;
-      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
-          /^\$\$(.|\s)+\$\$$/.test(text) ||
-          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
-        code.outerHTML = code.innerHTML;  // remove <code></code>
-        continue;
-      }
-    }
-    i++;
-  }
-};
-slideshow._releaseMath(document);
-</script>
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-(function () {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
-  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
-    script.src  = script.src.replace(/^https?:/, '');
-  document.getElementsByTagName('head')[0].appendChild(script);
-})();
-</script>
-  </body>
+<section id="types-of-assistive-technology"
+class="title-slide slide level1">
+<h1>Types of assistive technology</h1>
+<ul>
+<li>screen readers (e.g., JAWS, VoiceOver)</li>
+<li>captioning</li>
+<li>switches</li>
+<li>magnifiers</li>
+<li>braille devices</li>
+<li>… and more!</li>
+</ul>
+</section>
+
+<section id="once-only-in-specialty-devices-now"
+class="title-slide slide level1">
+<h1>Once only in specialty devices, now …</h1>
+<ul>
+<li>integrated into TVs</li>
+<li>integraded into PCs</li>
+<li>integrated into smartphones</li>
+<li>integrated into tablets</li>
+<li>integrated into OTT (set top) boxes</li>
+<li>… and more!</li>
+</ul>
+</section>
+
+<section
+id="assistive-technology-is-used-by-people-without-disabilities"
+class="title-slide slide level1">
+<h1>Assistive technology is used by people without disabilities</h1>
+<ul>
+<li>autonomous cars</li>
+<li>speech recognition</li>
+<li>language translation tools</li>
+<li>… and more!</li>
+</ul>
+</section>
+
+<section id="pause-to-demo-screen-reader"
+class="title-slide slide level1">
+<h1>Pause to demo screen reader</h1>
+<aside class="notes">
+<p>My class meets in a macOS lab, so screen readers are built into the
+machines. This may not be possible if you are on Windows. One
+alternative is, if the students have iPhones, to use VoiceOver there.
+Another alternative is to simulate a screen reader by having students
+pair up with one at the keyboard and one acting as the screen
+reader.</p>
+</aside>
+</section>
+
+<section id="examples" class="title-slide slide level1">
+<h1>Examples</h1>
+
+</section>
+
+<section id="adaptive-driving" class="title-slide slide level1">
+<h1>Adaptive Driving</h1>
+<figure>
+<img data-src="fiAdaptiveDriving.jpg" alt="Adaptive Driving" />
+<figcaption aria-hidden="true">Adaptive Driving</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: <a
+href="https://newmobility.com/rocking-my-accessible-minivan/">https://newmobility.com/rocking-my-accessible-minivan/</a></p>
+</aside>
+</section>
+
+<section id="braille-keyboard" class="title-slide slide level1">
+<h1>Braille Keyboard</h1>
+<figure>
+<img data-src="fiBrailleKeyboard.jpg" alt="Braille Keyboard" />
+<figcaption aria-hidden="true">Braille Keyboard</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: <a
+href="https://wethegeek.com/screen-reader-software-for-windows/">https://wethegeek.com/screen-reader-software-for-windows/</a></p>
+</aside>
+</section>
+
+<section id="braille-iphone" class="title-slide slide level1">
+<h1>Braille iPhone</h1>
+<figure>
+<img data-src="fiBrailleiPhone.jpg" alt="Braille iPhone" />
+<figcaption aria-hidden="true">Braille iPhone</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: <a
+href="https://www.cnn.com/2012/02/20/tech/can-braille-be-faster-than-qwerty-app-developer-thinks-so/index.html">https://www.cnn.com/2012/02/20/tech/can-braille-be-faster-than-qwerty-app-developer-thinks-so/index.html</a></p>
+</aside>
+</section>
+
+<section id="hands-free-mouse" class="title-slide slide level1">
+<h1>Hands Free Mouse</h1>
+<figure>
+<img data-src="fiHandsFreeMouse.png" alt="Hands Free Mouse" />
+<figcaption aria-hidden="true">Hands Free Mouse</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: <a
+href="https://www.atandme.com/?p=2326">https://www.atandme.com/?p=2326</a></p>
+</aside>
+</section>
+
+<section id="one-hand-keyboard" class="title-slide slide level1">
+<h1>One Hand Keyboard</h1>
+<figure>
+<img data-src="fiOneHandKeyboard.jpg" alt="One Hand Keyboard" />
+<figcaption aria-hidden="true">One Hand Keyboard</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: <a
+href="https://www.boundlessat.com/Keyboards-Mice/One-Hand-Keyboards/Maltron-Single-Hand-Keyboard">https://www.boundlessat.com/Keyboards-Mice/One-Hand-Keyboards/Maltron-Single-Hand-Keyboard</a></p>
+</aside>
+</section>
+
+<section id="xbox-controller" class="title-slide slide level1">
+<h1>Xbox Controller</h1>
+<figure>
+<img data-src="fiXboxController.png" alt="Xbox Controller" />
+<figcaption aria-hidden="true">Xbox Controller</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: <a
+href="https://www.yourcpf.org/cpproduct/xbox-adaptive-controller/">https://www.yourcpf.org/cpproduct/xbox-adaptive-controller/</a></p>
+</aside>
+</section>
+
+<section id="zoom" class="title-slide slide level1">
+<h1>Zoom</h1>
+<figure>
+<img data-src="fiZoom.png" alt="Zoom" />
+<figcaption aria-hidden="true">Zoom</figcaption>
+</figure>
+<aside class="notes">
+<p>Source: <a
+href="https://answers.uillinois.edu/illinois/page.php?id=105310">https://answers.uillinois.edu/illinois/page.php?id=105310</a></p>
+</aside>
+</section>
+
+<section id="end" class="title-slide slide level1">
+<h1 class="r-fit-text">END</h1>
+
+</section>
+
+<section id="colophon" class="title-slide slide level1">
+<h1>Colophon</h1>
+<p>This slideshow was produced using <code>pandoc</code> and
+<code>revealjs</code></p>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
 </html>
