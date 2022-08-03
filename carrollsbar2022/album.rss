@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0"
+     xmlns:media="http://search.yahoo.com/mrss/"
+     xmlns:jalbum="http://jalbum.net/jalbumrss">
+    <channel>
+        <title>20220801carrollsBar</title>
+   	<link>.</link>
+        <generator>jAlbum 28.1</generator>
+   		<description>A wonderful sendoff from HCI faculty and Irish musicians at Carroll&apos;s Bar, Rochester, NY, August 1st, 2022</description>
+        <jalbum:absolutePath></jalbum:absolutePath>
+        <item>
+            <title>hcifaculty</title>
+            <link>slides/hcifaculty.jpg</link>
+            <pubDate>Tue, 02 Aug 2022 21:22:20 -0400</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/hcifaculty.jpg" width="212" height="170"/>
+            <media:content type="image/jpeg" url="slides/hcifaculty.jpg" width="1000" height="667"/>
+            <jalbum:exif originalDate="Mon, 01 Aug 2022 18:59:09 -0400" cameraMake="FUJIFILM" cameraModel="X100V"/>
+            <guid isPermaLink="false">slides/hcifaculty.jpg</guid>
+        </item>
+        <item>
+            <title>matt+husband</title>
+            <link>slides/matt%2Bhusband.jpg</link>
+            <pubDate>Tue, 02 Aug 2022 21:22:20 -0400</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/matt%2Bhusband.jpg" width="212" height="170"/>
+            <media:content type="image/jpeg" url="slides/matt%2Bhusband.jpg" width="1000" height="667"/>
+            <jalbum:exif originalDate="Mon, 01 Aug 2022 18:53:26 -0400" cameraMake="FUJIFILM" cameraModel="X100V"/>
+            <guid isPermaLink="false">slides/matt%2Bhusband.jpg</guid>
+        </item>
+        <item>
+            <title>roshan</title>
+            <link>slides/roshan.jpg</link>
+            <pubDate>Tue, 02 Aug 2022 21:22:20 -0400</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/roshan.jpg" width="212" height="170"/>
+            <media:content type="image/jpeg" url="slides/roshan.jpg" width="1000" height="667"/>
+            <jalbum:exif originalDate="Mon, 01 Aug 2022 19:09:39 -0400" cameraMake="FUJIFILM" cameraModel="X100V"/>
+            <guid isPermaLink="false">slides/roshan.jpg</guid>
+        </item>
+        <item>
+            <title>roshan+wife</title>
+            <link>slides/roshan%2Bwife.jpg</link>
+            <pubDate>Tue, 02 Aug 2022 21:22:20 -0400</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/roshan%2Bwife.jpg" width="212" height="170"/>
+            <media:content type="image/jpeg" url="slides/roshan%2Bwife.jpg" width="1000" height="667"/>
+            <jalbum:exif originalDate="Mon, 01 Aug 2022 18:53:36 -0400" cameraMake="FUJIFILM" cameraModel="X100V"/>
+            <guid isPermaLink="false">slides/roshan%2Bwife.jpg</guid>
+        </item>
+        <item>
+            <title>garreth</title>
+            <link>slides/garreth.jpg</link>
+            <pubDate>Tue, 02 Aug 2022 21:22:20 -0400</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/garreth.jpg" width="212" height="170"/>
+            <media:content type="image/jpeg" url="slides/garreth.jpg" width="1000" height="667"/>
+            <jalbum:exif originalDate="Mon, 01 Aug 2022 18:44:31 -0400" cameraMake="FUJIFILM" cameraModel="X100V"/>
+            <guid isPermaLink="false">slides/garreth.jpg</guid>
+        </item>
+        <item>
+            <title>kristen</title>
+            <link>slides/kristen.jpg</link>
+            <pubDate>Tue, 02 Aug 2022 21:22:20 -0400</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/kristen.jpg" width="212" height="170"/>
+            <media:content type="image/jpeg" url="slides/kristen.jpg" width="1000" height="667"/>
+            <jalbum:exif originalDate="Mon, 01 Aug 2022 18:53:47 -0400" cameraMake="FUJIFILM" cameraModel="X100V"/>
+            <guid isPermaLink="false">slides/kristen.jpg</guid>
+        </item>
+        <item>
+            <title>musicians</title>
+            <link>slides/musicians.jpg</link>
+            <pubDate>Tue, 02 Aug 2022 21:22:20 -0400</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/musicians.jpg" width="212" height="170"/>
+            <media:content type="image/jpeg" url="slides/musicians.jpg" width="1000" height="667"/>
+            <jalbum:exif originalDate="Mon, 01 Aug 2022 19:30:30 -0400" cameraMake="FUJIFILM" cameraModel="X100V"/>
+            <guid isPermaLink="false">slides/musicians.jpg</guid>
+        </item>
+        <item>
+            <title>musicians2</title>
+            <link>slides/musicians2.jpg</link>
+            <pubDate>Tue, 02 Aug 2022 21:22:20 -0400</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/musicians2.jpg" width="212" height="170"/>
+            <media:content type="image/jpeg" url="slides/musicians2.jpg" width="1000" height="667"/>
+            <jalbum:exif originalDate="Mon, 01 Aug 2022 19:42:03 -0400" cameraMake="FUJIFILM" cameraModel="X100V"/>
+            <guid isPermaLink="false">slides/musicians2.jpg</guid>
+        </item>
+        <item>
+            <title>benGoehring</title>
+            <link>slides/benGoehring.jpg</link>
+            <pubDate>Tue, 02 Aug 2022 21:22:20 -0400</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/benGoehring.jpg" width="212" height="170"/>
+            <media:content type="image/jpeg" url="slides/benGoehring.jpg" width="533" height="800"/>
+            <jalbum:exif originalDate="Mon, 01 Aug 2022 21:44:14 -0400" cameraMake="FUJIFILM" cameraModel="X100V"/>
+            <guid isPermaLink="false">slides/benGoehring.jpg</guid>
+        </item>
+        <item>
+            <title>harp</title>
+            <link>slides/harp.jpg</link>
+            <pubDate>Tue, 02 Aug 2022 21:22:20 -0400</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/harp.jpg" width="212" height="170"/>
+            <media:content type="image/jpeg" url="slides/harp.jpg" width="533" height="800"/>
+            <jalbum:exif originalDate="Mon, 01 Aug 2022 21:49:04 -0400" cameraMake="FUJIFILM" cameraModel="X100V"/>
+            <guid isPermaLink="false">slides/harp.jpg</guid>
+        </item>
+        <item>
+            <title>benElla</title>
+            <link>slides/benElla.jpg</link>
+            <pubDate>Tue, 02 Aug 2022 21:22:20 -0400</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/benElla.jpg" width="212" height="170"/>
+            <media:content type="image/jpeg" url="slides/benElla.jpg" width="1000" height="667"/>
+            <jalbum:exif originalDate="Mon, 01 Aug 2022 21:46:23 -0400" cameraMake="FUJIFILM" cameraModel="X100V"/>
+            <guid isPermaLink="false">slides/benElla.jpg</guid>
+        </item>
+        <item>
+            <title>benEllaPerri</title>
+            <link>slides/benEllaPerri.jpg</link>
+            <pubDate>Tue, 02 Aug 2022 21:22:20 -0400</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/benEllaPerri.jpg" width="212" height="170"/>
+            <media:content type="image/jpeg" url="slides/benEllaPerri.jpg" width="1000" height="667"/>
+            <jalbum:exif originalDate="Mon, 01 Aug 2022 21:48:38 -0400" cameraMake="FUJIFILM" cameraModel="X100V"/>
+            <guid isPermaLink="false">slides/benEllaPerri.jpg</guid>
+        </item>
+        <item>
+            <title>benJohn</title>
+            <link>slides/benJohn.jpg</link>
+            <pubDate>Tue, 02 Aug 2022 21:22:20 -0400</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/benJohn.jpg" width="212" height="170"/>
+            <media:content type="image/jpeg" url="slides/benJohn.jpg" width="1000" height="667"/>
+            <jalbum:exif originalDate="Mon, 01 Aug 2022 19:26:46 -0400" cameraMake="FUJIFILM" cameraModel="X100V"/>
+            <guid isPermaLink="false">slides/benJohn.jpg</guid>
+        </item>
+        <item>
+            <title>ella</title>
+            <link>slides/ella.jpg</link>
+            <pubDate>Tue, 02 Aug 2022 21:22:20 -0400</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/ella.jpg" width="212" height="170"/>
+            <media:content type="image/jpeg" url="slides/ella.jpg" width="1000" height="667"/>
+            <jalbum:exif originalDate="Mon, 01 Aug 2022 19:28:00 -0400" cameraMake="FUJIFILM" cameraModel="X100V"/>
+            <guid isPermaLink="false">slides/ella.jpg</guid>
+        </item>
+        <item>
+            <title>johnGriffin</title>
+            <link>slides/johnGriffin.jpg</link>
+            <pubDate>Tue, 02 Aug 2022 21:22:20 -0400</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/johnGriffin.jpg" width="212" height="170"/>
+            <media:content type="image/jpeg" url="slides/johnGriffin.jpg" width="1000" height="667"/>
+            <jalbum:exif originalDate="Mon, 01 Aug 2022 19:27:55 -0400" cameraMake="FUJIFILM" cameraModel="X100V"/>
+            <guid isPermaLink="false">slides/johnGriffin.jpg</guid>
+        </item>
+        <item>
+            <title>benHockenberry</title>
+            <link>slides/benHockenberry.jpg</link>
+            <pubDate>Tue, 02 Aug 2022 21:22:20 -0400</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/benHockenberry.jpg" width="212" height="170"/>
+            <media:content type="image/jpeg" url="slides/benHockenberry.jpg" width="533" height="800"/>
+            <jalbum:exif originalDate="Mon, 01 Aug 2022 21:49:53 -0400" cameraMake="FUJIFILM" cameraModel="X100V"/>
+            <guid isPermaLink="false">slides/benHockenberry.jpg</guid>
+        </item>
+        <item>
+            <title>mick</title>
+            <link>slides/mick.jpg</link>
+            <pubDate>Tue, 02 Aug 2022 21:22:20 -0400</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/mick.jpg" width="212" height="170"/>
+            <media:content type="image/jpeg" url="slides/mick.jpg" width="533" height="800"/>
+            <jalbum:exif originalDate="Mon, 01 Aug 2022 19:35:30 -0400" cameraMake="FUJIFILM" cameraModel="X100V"/>
+            <guid isPermaLink="false">slides/mick.jpg</guid>
+        </item>
+        <item>
+            <title>perri</title>
+            <link>slides/perri.jpg</link>
+            <pubDate>Tue, 02 Aug 2022 21:22:20 -0400</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/perri.jpg" width="212" height="170"/>
+            <media:content type="image/jpeg" url="slides/perri.jpg" width="533" height="800"/>
+            <jalbum:exif originalDate="Mon, 01 Aug 2022 21:42:13 -0400" cameraMake="FUJIFILM" cameraModel="X100V"/>
+            <guid isPermaLink="false">slides/perri.jpg</guid>
+        </item>
+        <item>
+            <title>sunshine</title>
+            <link>slides/sunshine.jpg</link>
+            <pubDate>Tue, 02 Aug 2022 21:22:20 -0400</pubDate>
+            <description></description>
+            <media:description type="html"></media:description>
+            <media:thumbnail url="thumbs/sunshine.jpg" width="212" height="170"/>
+            <media:content type="image/jpeg" url="slides/sunshine.jpg" width="533" height="800"/>
+            <jalbum:exif originalDate="Mon, 01 Aug 2022 21:41:15 -0400" cameraMake="FUJIFILM" cameraModel="X100V"/>
+            <guid isPermaLink="false">slides/sunshine.jpg</guid>
+        </item>
+    </channel>
+</rss>
