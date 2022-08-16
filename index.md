@@ -7,8 +7,13 @@ layout: default
 rank: 2
 icon: fa-home
 ---
+These are the courses I teach at the University of Texas at Austin:
 
-These are the courses I teach:
+- I320U, Information and Interaction Design
+- INF385T, Rapid Prototyping and Lean UX Methodology
+- I320D, Database Design
+
+These are the courses I taught at Rochester Institute of Technology:
 
 - HCIN600, Research Methods
 - HCIN610, Foundations of Human-Computer Interaction
