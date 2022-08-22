@@ -9,7 +9,7 @@ icon: fa-home
 ---
 These are the courses I teach at the University of Texas at Austin:
 
-- [I320U, Information and Interaction Design](/i302u.html)
+- [I320U, Information and Interaction Design](/i320u.html)
 - [INF385T, Rapid Prototyping and Lean UX Methodology](inf385t.html)
 - I320D, Database Design
 
