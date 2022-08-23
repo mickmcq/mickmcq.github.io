@@ -220,7 +220,7 @@ I've put a daunting amount of reading on Canvas. I typically expect grad student
 
 I should add that the librarian told me that I'm only allowed to put three chapters of any book on Canvas, so I did that with all the books. You can find some of them on the library website and you may want to buy some, although a few of them are absurdly expensive. I can not advocate that you go to libgen.rs and download the books for free, partially because it may be illegal to do so. The courts ruled at one time that you had to deprive someone of ownership for an act to be considered theft. That hasn't stopped the music and publishing industries from labeling downloading as theft, though, and they have enjoyed some handsome out of court settlements over file sharing. Another reason you may disapprove of libgen (as well as scihub) is that it is hosted in Russia, not the most popular country right now. Further, you may feel that the academic publishing industry is not a bunch of parasitic gangsters and instead feel that they fairly compensate authors for their work. You may not feel that universities should *cut out the middleman* and take over academic publishing. For all these reasons, I do not endorse libgen and only mention it for the sake of raising issues about publishing.
 
-A few of the books are the topics of lectures, namely @Greever2020, @Buxton2007, @Becker2020, and @Stackowiak2020. You may want to prioritize these in your reading.
+A few of the books are the topics of lectures, namely @Patton2014a, @Greever2020, @Buxton2007, @Becker2020, and @Stackowiak2020. You may want to prioritize these in your reading.
 :::
 
 ---
