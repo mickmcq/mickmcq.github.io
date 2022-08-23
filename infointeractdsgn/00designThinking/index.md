@@ -22,7 +22,7 @@ Day ONE
 ---
 
 ::: {.r-fit-text}
-How to Start
+How to Start?
 :::
 
 ---
@@ -31,7 +31,7 @@ How to Start
 Read the syllabus?
 :::
 
-(eventually we'll hafta)
+(eventually we'll hafta, but it's a boring way to start)
 
 ---
 
@@ -39,7 +39,7 @@ Read the syllabus?
 Go around the room saying our names?
 :::
 
-(eventually we'll hafta)
+(eventually we'll hafta, but better if we're energized)
 
 ---
 
@@ -55,7 +55,7 @@ WHY?
 
 ---
 
-I think it's better to start with an exercise that reminds of what we do, no matter how proficient we are at it.
+I think it's better to start with an exercise that reminds us of what we do, no matter how proficient we are at it.
 
 I need to know something about you and this is a very revealing exercise.
 
@@ -175,8 +175,8 @@ Protocol
 - it's never too early to test
 - but testing is the focus of a different course
 
-## our focus
-![iterative cycle: design, prototype, evaluate](fiIterativeSWdevel.png)
+## our focus: design
+![](fiIterativeSWdevel.png){fig-alt="iterative cycle: design, prototype, evaluate"}
 
 ---
 
@@ -191,10 +191,10 @@ what did we learn?
   - ideate (storyboard)
   - prototype (cards)
 
----
+::: {.notes}
 
-::: {.r-fit-text}
-‹syllabus›
+I casually mention on this slide that you should write something in your sketchbook! If you don't keep a sketchbook, consider these questions: Are you a designer? Do you aspire to be a designer? I refer you to @Pink2005, which is a book asking people to learn from designers. One of the recommendations in the book is to keep a sketchbook. In the sketchbook, you write and sketch but you don't paste in elements like printouts of digitally created art. Instead, you develop your eye-hand coordination by doing manual sketching and writing. At least two fifths of a typical designer's time is spent at the whiteboard, so this activity can support a lot of your work.
+
 :::
 
 ---
@@ -205,13 +205,29 @@ what did we learn?
 
 ---
 
-<!--
+::: {.r-fit-text}
+‹syllabus›
+:::
+
+---
+
+::: {.r-fit-text}
+‹canvas›
+:::
+
+::: {.notes}
+I've four readings on Canvas. These include two books that you will use to prepare your milestones, @Cooper2014 and @Holtzblatt2005. By the way, there is a newer edition of Holtzblatt, but I don't like it because it doesn't much except for interrupting itself every few paragraphs to remind us that there are smartphones now. Duh! Another reading is @Dodson2006, which will be useful throughout the semester to support your sketching. Finally, we have @Rosenfeld2015, which will help with the second half of the course on information design.
+
+I should add that the librarian told me that I'm only allowed to put three chapters of any book on Canvas, so I did that with all the books. You can find some of them on the library website and you may want to buy some, although a few of them are absurdly expensive. I can not advocate that you go to libgen and download the books for free, partially because it may be illegal to do so. The courts ruled at one time that you had to deprive someone of ownership for an act to be considered theft. That hasn't stopped the music and publishing industries from labeling downloading as theft, though, and they have enjoyed some handsome out of court settlements over file sharing. Another reason you may disapprove of libgen (as well as scihub) is that it is hosted in Russia, not the most popular country right now. Further, you may feel that the academic publishing industry is not a bunch of parasitic gangsters and instead feel that they fairly compensate authors for their work. You may not feel that universities should *cut out the middleman* and take over academic publishing. For all these reasons, I do not endorse libgen and only mention it for the sake of raising issues about publishing.
+
+:::
+
+---
+
 # References
 
 ::: {#refs}
 :::
-
--->
 
 ---
 
