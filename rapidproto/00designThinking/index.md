@@ -101,7 +101,7 @@ Materials
 
 - three pages
 - some index cards (about 6)
-- some colored sharpies (at least 3)
+- some colored sharpies (at least 2)
 - a pen or pencil
 
 ---
@@ -110,8 +110,8 @@ Materials
 Form Groups
 :::
 
-- first form a pair with someone like you
-- then form a group of four with a pair that identifies differently from you (gender, ethnicity, or other identity factors)
+- first form a pair with someone like you (that's for today)
+- then form a group of four with a pair that identifies differently from you (gender, ethnicity, or other identity factors) (that's for the design challenges and can be done at the end of class)
 - this gives you support (pair) and diversity (group of four)
 
 ---
@@ -154,7 +154,7 @@ Protocol
 - draw four panels of cartoons on the ideate page
 - show a successful interaction with an app
 - don't worry about the app details
-- concentrate on the user experience &mdash; what did the user feel?
+- concentrate on the user experience&mdash;what did the user feel?
 
 ---
 
