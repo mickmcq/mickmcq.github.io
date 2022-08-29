@@ -11,6 +11,6 @@ icon: fa-edit
 
 ## Lectures
 
-[day-one](/rapidproto/00designThinking/index.html) covers an exercise in design thinking and provides placeholders for a few introductory items, as well as a description of design challenge 1
+[01designThinking](/rapidproto/01designThinking/index.html) covers an exercise in design thinking and provides placeholders for a few introductory items, as well as a description of design challenge 1
 
 [UCD and Agile](/rapidproto/ucdAgile/index.html) describes the relationship between User Centered Design and Agile
