@@ -186,7 +186,69 @@ From The Free On-line Dictionary of Computing
 Of particular note in the above definitions is that people define information according to their work. Claude Shannon popularized the notion of information as a message received and understood because that notion served his development of information theory, which underlies the field of network communication.
 
 Some pundits like to posit a hierarchy of data, information, knowledge, and wisdom to support their work in a field called knowledge management. This field was popular about a dozen years ago and its influence had waned by the time the last definition above had been added to the Free Dictionary of Computing.
+
+
+So, I went online for definitions and here is what I found.
+This is a pretty boring definition actually. It uses the term
+knowledge, so I looked up knowledge. That definition refers to
+knowing, and when I looked *that* up, it refers to information. So
+we’ve come full circle and found that these definitions aren’t too helpful.
+
+But there are a few interesting things to notice.
+
+Of particular note in these definitions is that people define
+information according to their work. So it’s a highly contextualized term.
+
+One item that I like here is in definition number two with the
+reduction of uncertainty about the state of the world. That at least
+tells us what information does and it prefigures another definition of
+information we’ll see on the next slide.
 :::
+
+
+---
+
+::: {.r-fit-text}
+*a message received and understood*
+:::
+
+::: {style="text-align: right;"}
+&mdash; Claude Shannon
+:::
+
+::: {.notes}
+Claude Shannon popularized the notion of information as a message received and understood because that notion served his development of information theory, which underlies the field of network communication.
+:::
+
+---
+
+*1234567.89 is data.*
+
+*"Your bank balance has jumped 8087% to 1234567.89USD" is information.*
+
+*"Nobody owes me that much money" is knowledge.*
+
+*"I’d better talk to the bank before I spend it, because of what has happened to other people" is wisdom.*
+
+::: {.notes}
+This definition comes from the *Free Online Dictionary of Computing* in a 2014 edition.
+
+Some pundits like to posit a hierarchy of data, information, knowledge, and wisdom to support their work in a field called knowledge management. This field was popular about a dozen years ago and its influence had waned by the time this definition had been added to the Free Dictionary of Computing.
+:::
+
+---
+
+*A man’s life in these parts often depends on a mere scrap of information.*
+
+::: {style="text-align: right"}
+&mdash; line spoken by<br>Clint Eastwood in<br> *A Fistful of Dollars* (1964)
+:::
+
+::: {.notes}
+So, we know that information is a thing with some value, and that value may vary greatly, as we see in this quote from one of my favorite Spaghetti Western films.
+:::
+
+---
 
 ## (B) Interaction
 
@@ -210,6 +272,22 @@ accident that it is chosen by propagandists in the
 Intelligent Design wars.  It's a very powerful word.
 It's all about making conscious choices.
 One definition you will find in in a dictionary is the preceding.
+:::
+
+---
+
+::: {.r-fit-text}
+*Design is all about constraints.*
+:::
+
+::: {style="text-align: right"}
+&mdash; Charles Eames,<br>in an interview
+:::
+
+::: {.notes}
+Notice that Eames doesn’t say *compromises* due to constraints. Somehow, a great designer works through constraints or with constraints.
+
+By the way, Eames, along with his wife Ray Eames, was a major 20th century designer, working in various areas of industrial design and filmmaking.
 :::
 
 ## Groups
@@ -287,8 +365,6 @@ H.R. McMaster hates Powerpoint. Like Lou Gerstner at IBM, McMaster banned Powerp
 
 Beware of "good" Powerpoint. Students sometimes tell me that the problem with PP is that it is not well done. I have one student whose father built a lucrative second career out of preparing slick PP for others. He had been a photo slide show specialist in the days when Kodak was big and had simply learned its replacement. I have no doubt that he does "good" PP. He makes a very good living at it. That does not excuse the people who pay him for it and the audiences who evaluate it (the PP) rather than whatever the subject of the PP is. There is, of course, an industry of PP consultants to tell you what colors and words and transitions and fonts and punctuation to use. Do not waste your time, at least this semester, listening to them. Everything that they say is either wrong or is a diluted version of information you can obtain straight from @Arnheim1974 or @Bertin2011 among other sources. Go to the source to learn about design. Avoid mixing your design education with a PP education.
 :::
-
----
 
 # References
 
