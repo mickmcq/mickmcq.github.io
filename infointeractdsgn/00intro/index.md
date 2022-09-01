@@ -61,6 +61,10 @@ I found this image when I googled soft pencil for drawing. It exemplifies attent
 - other camera
 - be able to upload images to Canvas in a timely manner
 
+::: {.notes}
+Be sure to use Apple Notes > Scan Documents if on iOS, or CamScanner or similar if on Android.
+:::
+
 ## (D) Prototyping Tools
 
 - Framer will be demonstrated
@@ -183,11 +187,6 @@ From The Free On-line Dictionary of Computing
 ```
 
 ::: {.notes}
-Of particular note in the above definitions is that people define information according to their work. Claude Shannon popularized the notion of information as a message received and understood because that notion served his development of information theory, which underlies the field of network communication.
-
-Some pundits like to posit a hierarchy of data, information, knowledge, and wisdom to support their work in a field called knowledge management. This field was popular about a dozen years ago and its influence had waned by the time the last definition above had been added to the Free Dictionary of Computing.
-
-
 So, I went online for definitions and here is what I found.
 This is a pretty boring definition actually. It uses the term
 knowledge, so I looked up knowledge. That definition refers to
@@ -204,7 +203,6 @@ reduction of uncertainty about the state of the world. That at least
 tells us what information does and it prefigures another definition of
 information we’ll see on the next slide.
 :::
-
 
 ---
 
@@ -352,10 +350,10 @@ A student once wrote to me expressing that she had a hard time "wading through t
 I want to help you. I want you to extend yourself. Being a student means exposing yourself to new and different ways of doing things. I want you to abandon your reliance on Powerpoint this semester and try to use different ways to understand and present material.
 To support you, there are a few readings that may help.
 
-First, there's a file called Tufte2003.pdf under Files > misc on Canvas. This chapter presents a repudiation of Powerpoint based on its information content and suitability to intended purpose.
+First, there's a file called `Tufte2003.pdf` under Files > misc on Canvas. This chapter presents a repudiation of Powerpoint based on its information content and suitability to intended purpose.
 Tufte invokes Feynman as someone who was appalled by bullet points. Feynman's Lectures on Physics are perhaps the most important vehicle for college students learning physics and they may present an alternative to which educators can aspire.
 
-The second is actually a video. Visit Youtube and search for pixar storyboarding. There are many videos about the storyboarding process at Pixar. I have a DVD (remember those) of Pixar Shorts that includes such a video. I have since discovered that there are so many on Youtube that it is pointless to put something on myCourses. Any of these videos show the appropriate use of storyboarding and should make it clear that slide show software is inadequate to the task. The individual "slides" are attached to walls of conference rooms at Pixar and someone talks through the story while pointing at the relevant pictures on the wall. Participants are free to run around and examine each frame, engage in sidebars, sketch their own alternatives on paper and put them up on the wall, and otherwise engage in a collaborative process.
+The second is actually a video. Visit Youtube and search for pixar storyboarding. There are many videos about the storyboarding process at Pixar. I have a DVD (remember those) of Pixar Shorts that includes such a video. I have since discovered that there are so many on Youtube that it is pointless to put something on Canvas. Any of these videos show the appropriate use of storyboarding and should make it clear that slide show software is inadequate to the task. The individual "slides" are attached to walls of conference rooms at Pixar and someone talks through the story while pointing at the relevant pictures on the wall. Participants are free to run around and examine each frame, engage in sidebars, sketch their own alternatives on paper and put them up on the wall, and otherwise engage in a collaborative process.
 
 Third is a profile of a team of high-school students who won a robotics competition in 2005. During the question and answer round of the competition, they raised the judge's eyebrows because they did not provide a Powerpoint. When asked why, they answered that Powerpoint was for people who did not know what to say. The judge was impressed by their responses to questions. They won. They defeated a team from MIT, among other teams, all of whom had slick PP shows.
 
