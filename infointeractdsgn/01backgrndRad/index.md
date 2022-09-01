@@ -38,9 +38,7 @@ It was originally published in the 1980s under a different title but became a be
 ![](fiNextBiscuit.png){fig-align="center" fig-alt="A New Yorker cartoon from 1932 poking fun at the industrial design fad of the era"}
 
 ::: {.notes}
-Wherever you go in the design world, you will be assailed with claims
-that "we do design thinking". Obsession with design is nothing new,
-though. I’d like to take you back to the Great Depression for a moment.
+Wherever you go in the design world, you will be assailed with claims that "we do design thinking". Obsession with design is nothing new, though. I’d like to take you back to the Great Depression for a moment.
 
 The most prominent US based designer of that era was Norman Bel Geddes. In 1932, the *New Yorker* ran this cartoon depicting the nationwide obsession with having more and more things designed by Norman Bel Geddes or his celebrity peers, such as Raymond Loewy, Donald Deskey, and Gilbert Rohde. So take it with a grain of salt when people tell you they are doing design thinking. They often remind me of the speaker in this cartoon, who is saying "Gentlemen, I am convinced that our next biscuit should be styled by Norman Bel Geddes".
 :::
@@ -226,7 +224,7 @@ Unfortunately, some of these people are more famous for being famous than for an
 ::: {.notes}
 Plenty of online tools are part of a typical designer's
 workday, such as
-*kuler* for color palettes.
+`color.adobe.com`, formerly *kuler* for color palettes.
 Some platform specific tools like
 *Sketch*,
 *Principal for Mac*,
@@ -238,7 +236,7 @@ and
 *Invision Studio*, 
 have big
 followings.
-Some students have also mentioned Framer JS, Framer Studio, Tumult Hype, Invision Classic, Visio, Flash Catalyst, Dreamweaver, and coding in straight Actionscript. If you google prototyping tools you will find reviews of Justinmind, Marvel, and more.
+Some students have also mentioned Framer, Tumult Hype, Invision Classic, Visio, Flash Catalyst, Dreamweaver, and coding in straight Actionscript. If you google prototyping tools you will find reviews of Justinmind, Marvel, and more.
 
 During Fall 2015, we discussed the survey at
 [http://tools.subtraction.com/index.html](http://tools.subtraction.com/index.html). (That page has vanished but its message remains relevant.) This survey examined six categories of tools used by designers: brainstorming, wireframing, interface design, prototyping, project management, and version control / file management. The most popular tools, one per category among the five thousand designers self-reporting, were:

@@ -39,6 +39,9 @@ Recap
 
 ![](fiStoryboardExample.png){fig-alt="An example of a storyboard based on a list of needs"}
 
+## Screens
+![](fiScreenExample.png){fig-alt="An example of some app screens done in red and black Sharpie"}
+
 ::: {.notes}
 You worked through the first four stages in our first class and turned them in. Here are a few comments about them.
 
@@ -52,12 +55,16 @@ Fourth, many of you did a really good job of analyzing your interview notes and 
 
 Fifth, some of you made good storyboards. This was the weakest section for most, though. I wonder if you have a good sense of what the storyboard is meant to convey. The most common problem was diving into app specifics rather than the user experience. What does the user get from using your app?
 
-Sixth, most of you made good use of your index cards. A few did not use all six cards, which was unfortunate. Six is not many! Also, the flow from one card to the next was not always clear. One person did a terrific job of annotating the photograph of the cards with arrows to show the flow.
+Sixth, most of you made good use of your index cards. A few did not use all six cards, which was unfortunate. Six is not many! Also, the flow from one card to the next was not always clear. One person did a terrific job of annotating the photograph of the cards with arrows to show the flow. I was probably happiest with the cards overall, happier than with any of the process artifacts. That tells me you know how to create polished apps, but you may be a bit awkward with the process of making them the *right* prototypes. So I hope we can explore some tools to help you make the *right* prototypes.
 
-Finally, some of you addressed the comments I made in Canvas with comments of your own! This was great, although I didn't specifically respond to them. I really did appreciate them!
+Finally, some of you addressed the comments I made in Canvas with comments of your own! This was great. I'm not sure I responded to all of them. I don't see a mechanism in Canvas for telling who has made new comments.
 :::
 
 # design challenge 1
+
+::: {.notes}
+Tell me what you thought of this design challenge.
+:::
 
 ## Still You Bloom in This Land of No Gardens
 
@@ -69,6 +76,16 @@ This painting is a self-portrait of Nigerian artist Njideka Akunyili Crosby with
 The design challenge was to make a digital artifact of use to either of the people depicted in the painting, taking into account their needs, circumstances, and values.
 
 After looking at the picture and before reading anything about it, I noticed that the woman was wearing traditional African garb whereas the child was wearing a *Black is Beautiful* t-shirt printed in English, indicating two different cultures. Also, the child has a lighter skin color than the woman and does not closely resemble her. She might be his caretaker, although her self-assured, calm demeanor suggests that she might be his mother. They are looking in different directions, emphasizing their differing viewpoints and perhaps backgrounds. The woman is looking at the viewer, indicating awareness of the artist. The plants suggest a tropical locale, but the open sliding door suggests the absence of the insects I typically associate with a tropical locale. The woman seems to value serene calm. The child seems to value stimulation. The painting appears to include photographs on the plants or at least very elaborate patterns, obscure in nature. The painting appears to have been made on some sort of cloth, although I later found out that it is actually on paper. The patterns of the woman's dress appear to echo the patterns of the plants. The arrangement of the figures suggests the veranda of a tropical home.
+
+So that's what I picked up by observation. I then investigated and found out many of things you have noted in your presentations. Still, I had been sitting in front of the painting for so long that it left an indelible impression that could not be erased by the extra knowledge I obtained through research. Perhaps I should have asked you to *only* observe the painting because, in most of your assignments, it seemed to get lost in comparison to the amount of attention you gave to the background and circumstances of the painting. I also think I should have assigned a hifi prototype so that a lot of you would have made design system choices, such as color palette, fonts, and grid layout.
+
+One thing I noticed about the grading was that two groups who got Bs asked for the chance to redo the work. I never give that opportunity for reasons that you may be able to guess. Hint: when would the redo opportunity end? Why would anyone ever accept a grade below A under such a system? Would I have the opportunity to downgrade if I don't like the redo?
+
+I do reconsider grades if I have missed something or made some other kind of error, but no redos. Well, I did once, when a person did a completely different assignment than the one assigned. It was an honest mistake, I'm sure, so I made an exception. But I don't make exceptions just because you're dissatisfied with your grade. I try to use grading as a lever to get you to think more about your work, anyway. It's not much of a lever if you basically choose your grade, which is what redos allow.
+
+I didn't see much of the painting in most of your work, by the way. There was a lot of focus on African culture but that is only part of the story.
+
+Again I ask, what did you think about this design challenge?
 :::
 
 # Story Mapping
