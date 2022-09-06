@@ -15,4 +15,6 @@ icon: fa-edit
 
 [02storyMapping](/rapidproto/02storyMapping/index.html) recaps the previous week and introduces user story mapping as preparation for design challenge 2.
 
+[03sketching](/rapidproto/03sketching/index.html) recaps the previous week and introduces mood boards, sketching, and crazy eights.
+
 [UCD and Agile](/rapidproto/ucdAgile/index.html) describes the relationship between User Centered Design and Agile
