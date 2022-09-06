@@ -24,6 +24,7 @@ Day FIVE
 - None of you submitted examples of good design!
 - Some needed better scans
 - Some need the exercises in @Dodson2006
+- One person used the Objectives subsection instead of instructions (?!)
 
 # Audience
 
