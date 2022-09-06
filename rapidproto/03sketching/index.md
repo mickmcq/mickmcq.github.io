@@ -217,6 +217,7 @@ The museum features a lot of work by Diego Rivera, including this admittedly ove
 
 ##
 ![](fiDiegoRiveraMural.png)
+
 ::: {.notes}
 This mural by Diego Rivera was in the same room as the previous one.
 :::
