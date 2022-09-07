@@ -26,6 +26,32 @@ Day FIVE
 - Some need the exercises in @Dodson2006
 - One person used the Objectives subsection instead of instructions (?!)
 
+# Crazy Eights
+
+## Annotated! And speedy!
+
+![](fiCrazyEights1.png)
+
+::: {.notes}
+This example included not only after the fact annotation but a lot of additional frames in the time it took most students to complete one page. Ordinarily I don't preach annotations but I think that, if you have extra time, it helps to document your work. Speed is the priority, though, always.
+:::
+
+## Easy to understand at a glance
+
+![](fiCrazyEights2.png)
+
+::: {.notes}
+On the other hand, here's one that needs no annotation. We can easily understand it at a glance.
+:::
+
+## Pencil or not?
+
+![](fiCrazyEights3.jpg)
+
+::: {.notes}
+I originally encouraged starting with pencil and going over it, but now I think it's better to just start with Sharpie and make erasure impossible. If you run into trouble that requires erasure, just start over on a new page. This attitude change arises from the notion that speed is the highest priority in this exercise.
+:::
+
 # Audience
 
 ## Academic Communities
