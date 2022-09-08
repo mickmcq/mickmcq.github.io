@@ -25,9 +25,28 @@ Week THREE
 Recap
 :::
 
+::: {.notes}
+- syllabus
+  - design challenges
+  - removed some inherited stuff
+  - let me know if you still have problems
+- three things: act fast, think slow, energize yourself
+:::
+
 # design challenge 2
 
 ## pause for group 2's eval
+
+::: {.notes}
+1. Group 2's presentation
+2. Q&A
+3. My evaluation of Group 2's evaluation
+   - hard to argue with anything they said!
+   - magisterial job!
+   - sets a standard that will be hard to match
+   - individual critiques will go in your comment boxes tomorrow afternoon along with grades
+   - 〈pause to share group 6 critique〉
+:::
 
 ## My analysis
 
@@ -38,6 +57,16 @@ Recap
 - For example, why would people add info about lunch?
 - Define a group that wants to get info and a group that wants to give info
 - Make your story map cover both their journeys
+:::
+
+## More of my analysis
+
+::: {.incremental}
+- Best videos were under ten minutes
+- Best videos sounded rehearsed
+- Best videos did not read the FigJam (!)
+- Best projects used techniques they have learned in previous courses, such as contextual inquiry, affinity diagramming
+- Best projects were more concerned with users than features
 :::
 
 # mood boards
