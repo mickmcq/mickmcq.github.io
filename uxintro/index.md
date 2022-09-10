@@ -58,7 +58,7 @@ We urge students to identify where they are and where they want to be with respe
 # What we teach
 
 ::: {.notes}
-Following are some of the activities we teach UX designers to do. I (Mick) personally emphasize the need for speed in action and slowness in thought. There are repeatable processes that can be polished so that your cycle time is faster than your rivals. You need to learn to do these activities quickly.
+Following are some of the activities we teach UX designers to do. I (Mick) personally emphasize the need for speed in action and slowness in thought. On the one hand, there are repeatable processes that can be polished so that your cycle time is faster than your rivals. You need to learn to do these activities quickly.
 
 On the other hand, thought is hard, solitary, and slow. You need to practice slow thought to enhance your creativity.
 :::
@@ -81,7 +81,7 @@ This is an illustration from @Patton2014a, the book shown in the previous slide.
 ![](fiCrazyEights2.png)
 
 ::: {.notes}
-Crazy Eights, also called eight square prototyping, invites the designer to rapidly make eight screens for a digital artifact. The emphasis is on speed, so that you generate a lot of alternatives in a short time.
+Crazy Eights, also called eight square prototyping, invites the designer to rapidly make eight screens on a folded piece of paper for a digital artifact. The emphasis is on speed, so that you generate a lot of alternatives in a short time.
 :::
 
 ## Maintaining Sketchbooks
@@ -117,6 +117,8 @@ I teach the traditional design thinking process, emphasizing different phases in
 
 ::: {.notes}
 One phase of the design thinking process calls for storyboards of user experience. This is one from a current student.
+
+In this storyboard, the student explores the idea of a social app for designers, helping them overcome mental roadblocks by getting inspiration from other designers. Note the clever use of the hat and the ponytails to identify the designer giving and the designer getting.
 :::
 
 ## An Inclusive Design class in action
@@ -162,7 +164,7 @@ One of our other new faculty members is Earl Huff, Jr., who is teaching an Inclu
 :::
 
 ::: {.notes}
-I tried to assemble a bit of a bibliography, so that you would get an idea of where we're coming from, but I filled up this slide by the time I got to the Ms! I threw in a couple of Don Norman books and a work by a collaborator of mine to the list, but there is plenty more in the M to Z space!
+I tried to assemble a bit of a bibliography, so that you would get an idea of where we're coming from, but I filled up this slide by the time I got to M! I threw in a couple of Don Norman books (because they are so fundamental) and a work by a collaborator of mine (which reviews all the extant disability design techniques) to the list, but there is plenty more in the M to Z space!
 :::
 
 # Opportunities
@@ -210,14 +212,23 @@ So often, recommender systems do a pretty good job of evaluating similarity, but
 
 ::: {.notes}
 I looked at Xiquan Cui's recent SigKDD workshop for some inspiration and see that, in four of the six areas of the call for papers, we have common ground!
+
+The last two bullet points are really obvious, particularly the last one, but use cases and user modeling could also work.
 :::
 
 ## Q&A
 
 ::: {.notes}
+I have a few general questions before we get into collaboration:
+
 - What's missing in students you recruit?
 - What are the topics you wished we would cover to educate students?
 - What are the trends you see coming in the near term that new hires could help with?
+
+Then, a few questions about collaboration structure.
+
+- Do you see yourselves working with faculty directly and students indirectly?
+- Or would you like students to directly come to your facilities and be under your direct supervision?
 :::
 
 # References
