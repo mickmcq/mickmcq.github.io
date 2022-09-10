@@ -1,10 +1,11 @@
 ---
-title: UT-Austin, iSchool UX Intro 
+title: UX Design intro
 author: Mick McQuaid
 date: 2022-09-12
 bibliography: master.bib
 format:
   revealjs:
+    logo: iSchoolLogo.png
     theme: moon
     css: style.css
     transition: slide
