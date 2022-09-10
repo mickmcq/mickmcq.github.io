@@ -63,9 +63,11 @@ format:
 ## Storyboards in the Design Thinking Process
 ![](fiStoryboardExample.png)
 
-## Some of the literature we rely on includes
+## An Inclusive Design class in action
+![](fiInclusiveDesign.png)
 
-::: {.scrollable}
+## We rely on UX literature, such as {.smaller}
+
 ::: {.container}
 :::: {.col}
 - @Norman2013
@@ -76,28 +78,28 @@ format:
 - @Becker2020
 - @Bertin2011
 - @Buxton2007
+- @Chi1997
 ::::
 :::: {.col}
-- @Chi1997
 - @Cockton2016
 - @Cooper2014
 - @Dodson2006
+- @Friedman1996
 - @Gaver2004
 - @Goodman2012
-::::
-:::: {.col}
 - @Greever2020
 - @Holtzblatt2005
+::::
+:::: {.col}
 - @Krug2005
 - @Ladner2015
 - @Lazar2017
 - @Lidwell2010
-- @Shinohara2012
+- @Mace1991
+- @Mccloud2006
+- @Shinohara2016
 ::::
 :::
-:::
-
-
 
 # Opportunities
 
