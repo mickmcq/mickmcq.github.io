@@ -661,6 +661,14 @@ suggests how to interact with it
 Why are these elevator buttons bad? There could be a variety of problems. You might be excused for thinking the bottom button means down in the picture on the right. You might be mystified about the meaning of the button on the left. The problems are compounded if you're blind. There is no braille and no shape indicator (of course, Braille itself is a problem in that only ten percent of blind individuals read it).
 :::
 
+## Hotel showers
+
+![](fiRubiksCubeShower.png)
+
+::: {.notes}
+One well-traveled pundit claims that this is what he sees whenever he looks at a hotel shower! I tend to agree and I have to admit I waste a lot of water in hotels trying to figure out how to get the right temperature!
+:::
+
 # References
 
 ::: {#refs}
