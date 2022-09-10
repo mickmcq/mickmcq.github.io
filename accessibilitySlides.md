@@ -18,4 +18,5 @@ These are introductory lectures to get you started on your journey to accessible
 
 [05bestPractices](/accessibilitySlides/05bestPractices)
 
-[06appliedTechniques](/accessibilitySlides/06appliedTechniques)
+<!-- [06appliedTechniques](/accessibilitySlides/06appliedTechniques)
+-->
