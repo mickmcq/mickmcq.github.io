@@ -361,6 +361,13 @@ Note that there are three levels of affinity labels and one level of affinity no
 ::::
 :::
 
+# Activity: Fake an interview
+- Spend the next half hour interviewing each other in pairs
+- Pretend you're a subject matter expert in your project
+- Pretend you've never met
+- Do both sides in the interview
+- If you're a group of three, do two on one; if four, break into two pairs
+
 # References
 
 ::: {#refs}
