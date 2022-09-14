@@ -17,4 +17,6 @@ icon: fa-edit
 
 [03sketching](/rapidproto/03sketching/index.html) recaps the previous week and introduces mood boards, sketching, and crazy eights.
 
+[04clients](/rapidproto/04clients/index.html) recaps the previous week and discusses clients and stakeholders.
+
 [UCD and Agile](/rapidproto/ucdAgile/index.html) describes the relationship between User Centered Design and Agile
