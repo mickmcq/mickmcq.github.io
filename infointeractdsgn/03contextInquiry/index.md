@@ -1,7 +1,7 @@
 ---
 title: Info & Interaction Design, Contextual Inquiry
 author: Mick McQuaid
-date: 2022-09-07
+date: 2022-09-14
 bibliography: master.bib
 format:
   revealjs:
