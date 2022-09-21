@@ -18,7 +18,6 @@
     line-height: 1.5;
 }
   .reveal p {
-    text-align: left;
   }
   .reveal ul {
     display: block;
@@ -43,4 +42,8 @@ p.date {
   flex: 1;
 }
 
+.reveal .slide-logo {
+  top: 0;
+  right: 12px
+}
 

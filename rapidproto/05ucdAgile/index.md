@@ -1,10 +1,11 @@
 ---
-title: UCD and Agile
+title: Rapid Prototyping, UCD and Agile
 author: Mick McQuaid
-date: 2022-07-10
+date: 2022-09-22
 bibliography: master.bib
 format:
   revealjs:
+    logo: iSchoolLogo.png
     theme: moon
     css: style.css
     transition: slide
@@ -12,7 +13,53 @@ format:
     preview-links: auto
     controls: true
     controls-layout: bottom-right
+    center: true
 ---
+
+::: {.r-fit-text}
+Week FIVE
+:::
+
+# But first ... The Elephant in the Room
+
+## Figma acquisition by Adobe
+- Should we keep using Figma?
+- Should we switch to Framer or Penpot or go back to Sketch?
+- [Should we try to develop multiple escape routes?]{.emph}
+
+## What's the problem?
+- Adobe has a long history of buying companies and ruining / destroying their products
+- Adobe has a direct competitor to Figma
+- Acquisitions in big tech are usually disastrous for the consumer
+- There's even a tumblr devoted to publishing optimistic statements by acquired CEOs followed by later announcements of closure ([https://ourincrediblejourney.tumblr.com/](https://ourincrediblejourney.tumblr.com/))
+
+## Where is more info about this?
+
+::: {.incremental}
+- Hacker News: [https://news.ycombinator.com/item?id=32850178](https://news.ycombinator.com/item?id=32850178)
+- [https://hunterwalk.com/2022/09/19/why-figma-is-worth-20b-and-other-observations-from-the-adobe-acquisition/](https://hunterwalk.com/2022/09/19/why-figma-is-worth-20b-and-other-observations-from-the-adobe-acquisition/)
+- [https://adamnash.blog/2022/09/16/figma-a-random-walk-in-palo-alto/](https://adamnash.blog/2022/09/16/figma-a-random-walk-in-palo-alto/)
+- [https://finance.yahoo.com/video/adobe-figma-deal-ive-never-193650708.html](https://finance.yahoo.com/video/adobe-figma-deal-ive-never-193650708.html)
+- [https://www.cnbc.com/2022/08/25/figma-growing-inside-microsoft-testing-longtime-deal-with-adobe.html](https://www.cnbc.com/2022/08/25/figma-growing-inside-microsoft-testing-longtime-deal-with-adobe.html)
+:::
+
+## Questions
+- Everybody hates Adobe. Why? (Subscriptions?)
+- Isn't it possible that this acquisition will fail? (Yes)
+- Might the FTC block the deal? (Unlikely)
+- The co-inventor of Figma has already moved on. Why? [https://madebyevan.com/](https://madebyevan.com/) (That's what they do)
+- What will Adobe do? (retire XD? retire Figma? ruin both?)
+
+::: {.notes}
+Will Adobe get the Figma team? No. Evan Wallace has already moved on. Dylan Field has just been given a billion dollars and asked to choose between sitting in a lot of meetings with empty suits explaining to him why they won't change their business to suit him OR go pursue his passions. Which would you choose?
+
+Plus, Adobe doesn't need the team. If they get patents to Figma's technology, they are set to move Creative Cloud to the cloud for real. Figma runs well on any machine. Does Creative Cloud? It will, soon. I'd buy Adobe stock in a heartbeat right now. No dividend this year, though.
+:::
+
+## Why do we care?
+- Reliance on Figma
+- Pace of innovation at Figma
+- Sketch is mac-only (for now)
 
 # Intro
 
@@ -183,6 +230,9 @@ Focus on
 - early delivery
 - continuous improvement
 
+##
+![](fiTypicalScrum.png)
+
 ## Further reading on Agile
 Vastly many agile processes and practices are documented on Wikipedia's *Agile Software Development* page, including the following diagram of one attempt to merge the best parts of agile and waterfall.
 
@@ -318,7 +368,75 @@ The following slides review the four themes that coalesced at the NordiCHI works
 - Cross functional capabilities of teams and individuals
 
 ## Roles in Scrum
+- Product Owner (PO)
+- Scrum Master
+- Team member (undifferentiated by rank or expertise)
 
+::: {.notes}
+Note that the book uses the expression SME to mean *small to medium sized enterprises*, not *subject matter expert*, its usually meaning. The book also uses UXS to refer to any UX specialist, evidently including designers and researchers.
+:::
+
+## Roles vs responsibilities
+- Responsibilities matter more than roles
+- Context makes all the difference
+- No universal prescription for relations between "Scrummish" roles
+
+## PO represents the customer
+- Yet the customer may be a team member
+- Customer funding may drive top down decisions
+
+## Developers empowered by Agile
+- Breeds distrust by UXSs
+- Leads to attempts to get developers to *do UX*
+- Tricky to get developers to *do UX*
+- Takes training and support and management buy-in
+- Mostly favorable outcomes when it happens
+
+## Team boundaries and communication
+- Creative design needs problem-solution co-evolution
+- Co-evolution is threatened by daily standups excluding UXSs
+- Pair designing (one UXS and one developer) can overcome this
+
+## Face-to-face communications
+- Omitted from most of the NordiCHI cases!
+- Scrum Islands (Chapter 5) was one exception
+- Of course this conference was pre-pandemic
+- Shared language turns out to be key
+
+## Scrum Island
+![](fiScrumIsland.png)
+
+## Summarizing communication
+- Roles and communication practices matter
+- But individual attitudes and capabilities are the foundations for success
+
+## Skipping tasks and research for now
+- Read the task part
+- Skip the research part unless you want a PhD
+
+# Chapter 3: Templates
+- Getting developers to *do UX* via templates
+- Some example templates follow
+
+##
+![](fiABtestingTemplate1.png)
+
+##
+![](fiABtestingTemplate2.png)
+
+##
+![](fiContextualInqTemplate1.png)
+
+##
+![](fiContextualInqTemplate2.png)
+
+##
+![](fiContextualInqCheatSheet.png)
+
+## Summary
+- Designers need to better understand the language of developers
+- Getting developers to appreciate UX is the key to blending them
+- Templates seem to work
 
 # References
 
