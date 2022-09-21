@@ -7,11 +7,11 @@
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.0.37">
+  <meta name="generator" content="quarto-1.1.251">
 
   <meta name="author" content="Mick McQuaid">
-  <meta name="dcterms.date" content="2022-07-10">
-  <title>UCD and Agile</title>
+  <meta name="dcterms.date" content="2022-09-22">
+  <title>Rapid Prototyping, UCD and Agile</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -20,10 +20,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
@@ -340,17 +345,89 @@
     <div class="slides">
 
 <section id="title-slide" class="center">
-  <h1 class="title">UCD and Agile</h1>
+  <h1 class="title">Rapid Prototyping, UCD and Agile</h1>
   <p class="author">Mick McQuaid</p>
-  <p class="date">2022-07-10</p>
+  <p class="date">2022-09-22</p>
 </section>
 
+<section class="slide level2 center">
+
+<div class="r-fit-text">
+<p>Week FIVE</p>
+</div>
+</section>
+<section>
+<section id="but-first-the-elephant-in-the-room" class="title-slide slide level1 center">
+<h1>But first … The Elephant in the Room</h1>
+
+</section>
+<section id="figma-acquisition-by-adobe" class="slide level2 center">
+<h2>Figma acquisition by Adobe</h2>
+<ul>
+<li>Should we keep using Figma?</li>
+<li>Should we switch to Framer or Penpot or go back to Sketch?</li>
+<li><span class="emph">Should we try to develop multiple escape routes?</span></li>
+</ul>
+</section>
+<section id="whats-the-problem" class="slide level2 center">
+<h2>What’s the problem?</h2>
+<ul>
+<li>Adobe has a long history of buying companies and ruining / destroying their products</li>
+<li>Adobe has a direct competitor to Figma</li>
+<li>Acquisitions in big tech are usually disastrous for the consumer</li>
+<li>There’s even a tumblr devoted to publishing optimistic statements by acquired CEOs followed by later announcements of closure (<a href="https://ourincrediblejourney.tumblr.com/">https://ourincrediblejourney.tumblr.com/</a>)</li>
+</ul>
+</section>
+<section id="where-is-more-info-about-this" class="slide level2 center">
+<h2>Where is more info about this?</h2>
+<div>
+<ul>
+<li class="fragment">Hacker News: <a href="https://news.ycombinator.com/item?id=32850178">https://news.ycombinator.com/item?id=32850178</a></li>
+<li class="fragment"><a href="https://hunterwalk.com/2022/09/19/why-figma-is-worth-20b-and-other-observations-from-the-adobe-acquisition/">https://hunterwalk.com/2022/09/19/why-figma-is-worth-20b-and-other-observations-from-the-adobe-acquisition/</a></li>
+<li class="fragment"><a href="https://adamnash.blog/2022/09/16/figma-a-random-walk-in-palo-alto/">https://adamnash.blog/2022/09/16/figma-a-random-walk-in-palo-alto/</a></li>
+<li class="fragment"><a href="https://finance.yahoo.com/video/adobe-figma-deal-ive-never-193650708.html">https://finance.yahoo.com/video/adobe-figma-deal-ive-never-193650708.html</a></li>
+<li class="fragment"><a href="https://www.cnbc.com/2022/08/25/figma-growing-inside-microsoft-testing-longtime-deal-with-adobe.html">https://www.cnbc.com/2022/08/25/figma-growing-inside-microsoft-testing-longtime-deal-with-adobe.html</a></li>
+</ul>
+</div>
+</section>
+<section id="questions" class="slide level2 center">
+<h2>Questions</h2>
+<ul>
+<li>Everybody hates Adobe. Why? (Subscriptions?)</li>
+<li>Isn’t it possible that this acquisition will fail? (Yes)</li>
+<li>Might the FTC block the deal? (Unlikely)</li>
+<li>The co-inventor of Figma has already moved on. Why? <a href="https://madebyevan.com/">https://madebyevan.com/</a> (That’s what they do)</li>
+<li>What will Adobe do? (retire XD? retire Figma? ruin both?)</li>
+</ul>
+<aside class="notes">
+<p>Will Adobe get the Figma team? No.&nbsp;Evan Wallace has already moved on. Dylan Field has just been given a billion dollars and asked to choose between sitting in a lot of meetings with empty suits explaining to him why they won’t change their business to suit him OR go pursue his passions. Which would you choose?</p>
+<p>Plus, Adobe doesn’t need the team. If they get patents to Figma’s technology, they are set to move Creative Cloud to the cloud for real. Figma runs well on any machine. Does Creative Cloud? It will, soon. I’d buy Adobe stock in a heartbeat right now. No dividend this year, though.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="why-do-we-care" class="slide level2 center">
+<h2>Why do we care?</h2>
+<ul>
+<li>Reliance on Figma</li>
+<li>Pace of innovation at Figma</li>
+<li>Sketch is mac-only (for now)</li>
+</ul>
+</section></section>
 <section>
 <section id="intro" class="title-slide slide level1 center">
 <h1>Intro</h1>
-<p>Most of this material comes from a NordiCHI conference workshop on UCD and Agile, documented in <span class="citation" data-cites="Cockton2016">Cockton et al. (<a href="#/ref-Cockton2016" role="doc-biblioref" onclick="return false;">2016</a>)</span>.</p>
+<p>Most of this material comes from a NordiCHI conference workshop on UCD and Agile, documented in <span class="citation" data-cites="Cockton2016">Cockton et al. (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span>.</p>
 </section>
-<section id="what-is-ucd-user-centered-design" class="slide level2">
+<section id="what-is-ucd-user-centered-design" class="slide level2 center">
 <h2>What is UCD (User Centered Design)?</h2>
 <ul>
 <li>When did it start?</li>
@@ -373,7 +450,7 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="some-facts-about-ucd" class="slide level2">
+<section id="some-facts-about-ucd" class="slide level2 center">
 <h2>Some facts about UCD</h2>
 <ul>
 <li>It started in the eighties, as a result of plummeting hardware costs, leading to the rise of casual users</li>
@@ -396,7 +473,7 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="still-later-ucd-embraced-ux" class="slide level2">
+<section id="still-later-ucd-embraced-ux" class="slide level2 center">
 <h2>Still later, UCD embraced UX</h2>
 <ul>
 <li>UI ⇒ user interface, focused on the human-computer interaction</li>
@@ -419,7 +496,7 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="early-challenges-for-ucd" class="slide level2">
+<section id="early-challenges-for-ucd" class="slide level2 center">
 <h2>Early Challenges for UCD</h2>
 <ul>
 <li>The phased approach of waterfall methods meant that UCD had to find a place in each phase (not easy)</li>
@@ -442,7 +519,7 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="waterfall-phases" class="slide level2">
+<section id="waterfall-phases" class="slide level2 center">
 <h2>Waterfall phases</h2>
 <ul>
 <li>problem analysis</li>
@@ -468,15 +545,10 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="a-waterfall-picture" class="slide level2">
+<section id="a-waterfall-picture" class="slide level2 center">
 <h2>A waterfall picture</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="fiWaterfall.png"></p>
-<p></p><figcaption>waterfall phases and products</figcaption><p></p>
-</figure>
-</div>
-<aside class="notes">
+
+<img data-src="fiWaterfall.png" class="r-stretch quarto-figure-center"><p class="caption">waterfall phases and products</p><aside class="notes">
 <p>This picture emphasizes the no-going-back aspect of each phase and shows the product of each phase, which must be approved by all parties before moving on.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -490,15 +562,10 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="iterative-software-development" class="slide level2">
+<section id="iterative-software-development" class="slide level2 center">
 <h2>Iterative software development</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="fiIterativeSWdevel.png"></p>
-<p></p><figcaption>Iterative software development is a three-part circle</figcaption><p></p>
-</figure>
-</div>
-<aside class="notes">
+
+<img data-src="fiIterativeSWdevel.png" class="r-stretch quarto-figure-center"><p class="caption">Iterative software development is a three-part circle</p><aside class="notes">
 <p>Another approach, and the dominant one for small to medium projects, is the iterative approach. Different authors use different names and numbers of nodes in the circle, but they all feature a circle and an emphasis on getting everyone on the same page, often through joint activities. The small boxes list some of the activities.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -512,7 +579,7 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="iterative-software-development-1" class="slide level2">
+<section id="iterative-software-development-1" class="slide level2 center">
 <h2>Iterative software development</h2>
 <ul>
 <li>It is less risky, but more expensive, to iterate</li>
@@ -535,11 +602,11 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="ucd-today" class="slide level2">
+<section id="ucd-today" class="slide level2 center">
 <h2>UCD Today</h2>
 <ul>
 <li>A major approach to UCD is goal-directed design</li>
-<li>It’s exemplified by <span class="citation" data-cites="Cooper2014">Cooper et al. (<a href="#/ref-Cooper2014" role="doc-biblioref" onclick="return false;">2014</a>)</span></li>
+<li>It’s exemplified by <span class="citation" data-cites="Cooper2014">Cooper et al. (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span></li>
 <li>It’s covered in I320U Information and Interaction Design</li>
 </ul>
 </section></section>
@@ -548,7 +615,7 @@
 <h1>Enter Agile</h1>
 
 </section>
-<section id="what-is-agile" class="slide level2">
+<section id="what-is-agile" class="slide level2 center">
 <h2>What is Agile?</h2>
 <ul>
 <li>First and foremost, it is a manifesto, posted in 2001, featuring twelve principles</li>
@@ -572,7 +639,7 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="agile-software-development-principles-1" class="slide level2">
+<section id="agile-software-development-principles-1" class="slide level2 center">
 <h2>Agile software development principles (1)</h2>
 <ol type="1">
 <li>Customer satisfaction by early and continuous delivery of valuable software.</li>
@@ -595,7 +662,7 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="agile-software-development-principles-2" class="slide level2">
+<section id="agile-software-development-principles-2" class="slide level2 center">
 <h2>Agile software development principles (2)</h2>
 <ol start="5" type="1">
 <li>Projects are built around motivated individuals, who should be trusted</li>
@@ -618,7 +685,7 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="agile-software-development-principles-3" class="slide level2">
+<section id="agile-software-development-principles-3" class="slide level2 center">
 <h2>Agile software development principles (3)</h2>
 <ol start="9" type="1">
 <li>Continuous attention to technical excellence and good design</li>
@@ -641,7 +708,7 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="what-agile-looks-like" class="slide level2">
+<section id="what-agile-looks-like" class="slide level2 center">
 <h2>What agile looks like</h2>
 <p>Collaboration between</p>
 <ul>
@@ -656,19 +723,18 @@
 <li>continuous improvement</li>
 </ul>
 </section>
-<section id="further-reading-on-agile" class="slide level2">
+<section id="section" class="slide level2 center">
+<h2></h2>
+
+<img data-src="fiTypicalScrum.png" class="r-stretch"></section>
+<section id="further-reading-on-agile" class="slide level2 center">
 <h2>Further reading on Agile</h2>
 <p>Vastly many agile processes and practices are documented on Wikipedia’s <em>Agile Software Development</em> page, including the following diagram of one attempt to merge the best parts of agile and waterfall.</p>
 </section>
-<section class="slide level2">
+<section class="slide level2 center">
 
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="fiUnifiedProcessModel.png"></p>
-<p></p><figcaption>Unified Process Model</figcaption><p></p>
-</figure>
-</div>
-<aside class="notes">
+
+<img data-src="fiUnifiedProcessModel.png" class="r-stretch quarto-figure-center"><p class="caption">Unified Process Model</p><aside class="notes">
 <p>Diagram found at <a href="https://commons.wikimedia.org/wiki/File:Unified_Process_Model_for_Iterative_Development.svg">https://commons.wikimedia.org/wiki/File:Unified_Process_Model_for_Iterative_Development.svg</a></p>
 <p>The key issues in my mind are whether the people in charge can say “It’s too early to test” or “It’s too late to change”. If they can say those things, the process is too waterfally. Can a process be too agiley? The Wikipedia article gives a long list of Agile pitfalls.</p>
 <style type="text/css">
@@ -715,7 +781,7 @@
 <h1>Agile + UCD</h1>
 
 </section>
-<section id="compatibility" class="slide level2">
+<section id="compatibility" class="slide level2 center">
 <h2>Compatibility</h2>
 <ul>
 <li>evolving requirements</li>
@@ -737,7 +803,7 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="incompatibility" class="slide level2">
+<section id="incompatibility" class="slide level2 center">
 <h2>Incompatibility</h2>
 <ul>
 <li>reduced opportunities for user testing</li>
@@ -764,7 +830,7 @@
 <h1>Best practices from NordiCHI</h1>
 
 </section>
-<section id="four-themes" class="slide level2">
+<section id="four-themes" class="slide level2 center">
 <h2>Four themes</h2>
 <p>The following slides review the four themes that coalesced at the NordiCHI workshop:</p>
 <ol type="1">
@@ -773,8 +839,13 @@
 <li>Tasks</li>
 <li>Research</li>
 </ol>
+</section></section>
+<section>
+<section id="culture" class="title-slide slide level1 center">
+<h1>Culture</h1>
+
 </section>
-<section id="cultural-differences" class="slide level2">
+<section id="cultural-differences" class="slide level2 center">
 <h2>Cultural differences</h2>
 <ul>
 <li>What constitutes a valid problem and what can be ignored</li>
@@ -782,7 +853,7 @@
 <li>Adequacy and excellence in design work</li>
 </ul>
 </section>
-<section id="agile-and-ucd-values-first-agile" class="slide level2">
+<section id="agile-and-ucd-values-first-agile" class="slide level2 center">
 <h2>Agile and UCD Values, first Agile</h2>
 <ul>
 <li>Self-empowered independent autonomous teams</li>
@@ -797,7 +868,7 @@
 <li>being fashionable</li>
 </ul>
 </section>
-<section id="agile-and-ucd-values-next-ucd" class="slide level2">
+<section id="agile-and-ucd-values-next-ucd" class="slide level2 center">
 <h2>Agile and UCD Values, next UCD</h2>
 <ul>
 <li>iterative processes and tools to support planning of comprehensive user-focused research and objective empirical evaluation</li>
@@ -809,7 +880,7 @@
 <li>satisfied users</li>
 </ul>
 </section>
-<section id="recall-the-values-from-the-manifesto" class="slide level2">
+<section id="recall-the-values-from-the-manifesto" class="slide level2 center">
 <h2>Recall the values from the Manifesto</h2>
 <ol type="1">
 <li>Individuals and interactions over processes and tools</li>
@@ -818,7 +889,7 @@
 <li>Responding to change over following a plan</li>
 </ol>
 </section>
-<section id="note-the-nature-of-the-four-preceding-pairs" class="slide level2">
+<section id="note-the-nature-of-the-four-preceding-pairs" class="slide level2 center">
 <h2>Note the nature of the four preceding pairs</h2>
 <ul>
 <li>They are matters of degree</li>
@@ -827,7 +898,7 @@
 </ul>
 <!-- ## Crude rules that [could]{style="color:#cc0000"} follow from the four pairs -->
 </section>
-<section id="crude-rules-that-could-follow-from-the-four-pairs" class="slide level2">
+<section id="crude-rules-that-could-follow-from-the-four-pairs" class="slide level2 center">
 <h2>Crude rules that <span class="emph">could</span> follow from the four pairs</h2>
 <ol type="1">
 <li>Just have individuals and interactions: no need for processes and tools</li>
@@ -836,7 +907,7 @@
 <li>Just keep responding to change with no plan</li>
 </ol>
 </section>
-<section id="good-news-about-culture" class="slide level2">
+<section id="good-news-about-culture" class="slide level2 center">
 <h2>Good news about culture</h2>
 <ul>
 <li>Only half the Agile Manifesto rules <em>could</em> block UCD</li>
@@ -844,8 +915,143 @@
 <li>Other values, such as safety and security and inclusiveness, are important and outside the possible Agile / UCD tension</li>
 </ul>
 </section>
-<section id="culture-and-methodology" class="slide level2">
+<section id="culture-and-methodology" class="slide level2 center">
 <h2>Culture and methodology</h2>
+<ul>
+<li>UCD and Agile have disjoint but not necessarily incompatible values. Dogmatic rules on either side may cause tension.</li>
+<li>Values come from many sources: marketing, creative designers, customer support, security experts. Give user and customer values their own place rather than simply representing them indirectly via UCD or Agile.</li>
+<li>Conflicts and synergies are manifasted in teams and tasks in work contexts, where the ideologies of methodologies meet the realities of software development work.</li>
+</ul>
+</section></section>
+<section>
+<section id="teams" class="title-slide slide level1 center">
+<h1>Teams</h1>
+
+</section>
+<section id="themes-relating-to-teams" class="slide level2 center">
+<h2>Themes relating to teams</h2>
+<ul>
+<li>Roles and responsibilities</li>
+<li>Team boundaries and communication practices</li>
+<li>Cross functional capabilities of teams and individuals</li>
+</ul>
+</section>
+<section id="roles-in-scrum" class="slide level2 center">
+<h2>Roles in Scrum</h2>
+<ul>
+<li>Product Owner (PO)</li>
+<li>Scrum Master</li>
+<li>Team member (undifferentiated by rank or expertise)</li>
+</ul>
+<aside class="notes">
+<p>Note that the book uses the expression SME to mean <em>small to medium sized enterprises</em>, not <em>subject matter expert</em>, its usually meaning. The book also uses UXS to refer to any UX specialist, evidently including designers and researchers.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="roles-vs-responsibilities" class="slide level2 center">
+<h2>Roles vs responsibilities</h2>
+<ul>
+<li>Responsibilities matter more than roles</li>
+<li>Context makes all the difference</li>
+<li>No universal prescription for relations between “Scrummish” roles</li>
+</ul>
+</section>
+<section id="po-represents-the-customer" class="slide level2 center">
+<h2>PO represents the customer</h2>
+<ul>
+<li>Yet the customer may be a team member</li>
+<li>Customer funding may drive top down decisions</li>
+</ul>
+</section>
+<section id="developers-empowered-by-agile" class="slide level2 center">
+<h2>Developers empowered by Agile</h2>
+<ul>
+<li>Breeds distrust by UXSs</li>
+<li>Leads to attempts to get developers to <em>do UX</em></li>
+<li>Tricky to get developers to <em>do UX</em></li>
+<li>Takes training and support and management buy-in</li>
+<li>Mostly favorable outcomes when it happens</li>
+</ul>
+</section>
+<section id="team-boundaries-and-communication" class="slide level2 center">
+<h2>Team boundaries and communication</h2>
+<ul>
+<li>Creative design needs problem-solution co-evolution</li>
+<li>Co-evolution is threatened by daily standups excluding UXSs</li>
+<li>Pair designing (one UXS and one developer) can overcome this</li>
+</ul>
+</section>
+<section id="face-to-face-communications" class="slide level2 center">
+<h2>Face-to-face communications</h2>
+<ul>
+<li>Omitted from most of the NordiCHI cases!</li>
+<li>Scrum Islands (Chapter 5) was one exception</li>
+<li>Of course this conference was pre-pandemic</li>
+<li>Shared language turns out to be key</li>
+</ul>
+</section>
+<section id="scrum-island" class="slide level2 center">
+<h2>Scrum Island</h2>
+
+<img data-src="fiScrumIsland.png" class="r-stretch"></section>
+<section id="summarizing-communication" class="slide level2 center">
+<h2>Summarizing communication</h2>
+<ul>
+<li>Roles and communication practices matter</li>
+<li>But individual attitudes and capabilities are the foundations for success</li>
+</ul>
+</section>
+<section id="skipping-tasks-and-research-for-now" class="slide level2 center">
+<h2>Skipping tasks and research for now</h2>
+<ul>
+<li>Read the task part</li>
+<li>Skip the research part unless you want a PhD</li>
+</ul>
+</section></section>
+<section>
+<section id="chapter-3-templates" class="title-slide slide level1 center">
+<h1>Chapter 3: Templates</h1>
+<ul>
+<li>Getting developers to <em>do UX</em> via templates</li>
+<li>Some example templates follow</li>
+</ul>
+</section>
+<section id="section-1" class="slide level2 center">
+<h2></h2>
+
+<img data-src="fiABtestingTemplate1.png" class="r-stretch"></section>
+<section id="section-2" class="slide level2 center">
+<h2></h2>
+
+<img data-src="fiABtestingTemplate2.png" class="r-stretch"></section>
+<section id="section-3" class="slide level2 center">
+<h2></h2>
+
+<img data-src="fiContextualInqTemplate1.png" class="r-stretch"></section>
+<section id="section-4" class="slide level2 center">
+<h2></h2>
+
+<img data-src="fiContextualInqTemplate2.png" class="r-stretch"></section>
+<section id="section-5" class="slide level2 center">
+<h2></h2>
+
+<img data-src="fiContextualInqCheatSheet.png" class="r-stretch"></section>
+<section id="summary" class="slide level2 center">
+<h2>Summary</h2>
+<ul>
+<li>Designers need to better understand the language of developers</li>
+<li>Getting developers to appreciate UX is the key to blending them</li>
+<li>Templates seem to work</li>
+</ul>
 </section></section>
 <section>
 <section id="references" class="title-slide slide level1 smaller scrollable">
@@ -859,7 +1065,7 @@ Cooper, Alan, Robert Reimann, David Cronin, and Christopher Noessel. 2014. <em>A
 </div>
 </div>
 </section>
-<section class="slide level2">
+<section class="slide level2 center">
 
 <div class="r-fit-text">
 <p>END</p>
@@ -869,7 +1075,8 @@ Cooper, Alan, Robert Reimann, David Cronin, and Christopher Noessel. 2014. <em>A
 <h1>Colophon</h1>
 <p>This slideshow was produced using <code>quarto</code></p>
 <p>Fonts are <em>League Gothic</em> and <em>Lato</em></p>
-<div class="footer footer-default">
+
+<img src="iSchoolLogo.png" class="slide-logo r-stretch"><div class="footer footer-default">
 
 </div>
 </section>
@@ -954,7 +1161,7 @@ Cooper, Alan, Robert Reimann, David Cronin, and Christopher Noessel. 2014. <em>A
         disableLayout: false,
 
         // Vertical centering of slides
-        center: false,
+        center: true,
 
         // Enables touch navigation on devices with touch input
         touch: true,
@@ -1152,7 +1359,8 @@ Cooper, Alan, Robert Reimann, David Cronin, and Christopher Noessel. 2014. <em>A
       for (var i=0; i<noterefs.length; i++) {
         const ref = noterefs[i];
         tippyHover(ref, function() {
-          let href = ref.getAttribute('href');
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
