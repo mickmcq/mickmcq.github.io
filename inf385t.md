@@ -20,3 +20,6 @@ icon: fa-edit
 [04clients](/rapidproto/04clients/index.html) recaps the previous week and discusses clients and stakeholders.
 
 [05ucdAgile](/rapidproto/05ucdAgile/index.html) describes the relationship between User Centered Design and Agile.
+
+[06hifi](/rapidproto/06hifi/index.html) describes four components of hifi prototyping: color, typography, layout, and animation.
+

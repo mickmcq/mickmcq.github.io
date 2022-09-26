@@ -298,6 +298,23 @@ Unexpected issues may include
 - Thank the user and give a gift if possible
 - Be sure you followed Holtzblatt's tips in Tables 4-1 through 4-5!
 
+## Views of the CI interview
+
+##
+![](fiCIinterview1.jpg)
+
+##
+![](fiCIinterview2.jpg)
+
+##
+![](fiCIinterview3.jpg)
+
+##
+![](fiCIinterview4.jpg)
+
+##
+![](fiCIvsIntvwvsObs.jpg)
+
 # Interpret the interviews
 
 ## Intro
@@ -360,6 +377,21 @@ Note that there are three levels of affinity labels and one level of affinity no
 ![](fiAffinityExample.png)
 ::::
 :::
+
+## Different views of the process
+
+##
+![](fiAffinityVariety.png)
+
+##
+![](fiAffinityTiny.png)
+
+##
+![](fiAffinityInProcess.jpg)
+
+##
+![](fiAffinityLarge.jpg)
+
 
 # Activity: Fake an interview
 - Spend the next half hour interviewing each other in pairs
