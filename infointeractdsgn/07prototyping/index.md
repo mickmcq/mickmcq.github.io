@@ -1,7 +1,7 @@
 ---
 title: "Info & Interaction Design: Prototyping"
 author: Mick McQuaid
-date: 2022-09-28
+date: 2022-10-04
 bibliography: master.bib
 format:
   revealjs:
