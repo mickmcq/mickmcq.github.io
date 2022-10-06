@@ -23,3 +23,5 @@ icon: fa-edit
 
 [06hifi](/rapidproto/06hifi/index.html) describes four components of hifi prototyping: color, typography, layout, and animation.
 
+[07lofi](/rapidproto/07lofi/index.html) describes lofi prototyping and the related concepts of ideation, *how might we* statements, diverging and converging, and the distinctions between lofi and hifi.
+
