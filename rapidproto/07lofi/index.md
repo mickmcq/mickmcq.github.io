@@ -1,0 +1,268 @@
+---
+title: "Rapid Prototyping: lofi"
+author: Mick McQuaid
+date: 2022-10-06
+bibliography: master.bib
+format:
+  revealjs:
+    logo: iSchoolLogo.png
+    theme: moon
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+::: {.r-fit-text}
+Week SEVEN
+:::
+
+# But first ... Design challenge 05
+
+# But first ... Design systems
+
+##
+
+::: {.r-fit-text}
+〈pause for design system video〉
+:::
+
+## Takeaways
+::: {.incremental}
+- People use different terms
+- People use the term *design system* in different ways, all the wayfrom style guide to component libraries to basis for entire company (e.g., AirBnB)
+- GitHub posits rules, constraints, and principles
+  - example: color
+  - rule: pass color contrast ratio of 4:5:1
+  - constraint: number of colors in palette
+  - principle: color used in a meaningful way
+:::
+
+## Takeaways, continued
+::: {.incremental}
+- GitHub started with color, typography, spacing, components, layouts
+- GitHub added interaction models, voice and tone, words, grammar and mechanics
+- GitHub uses [https://primer.style/](https://primer.style/)
+- GitHub uses BEM-style notation [https://en.bem.info/](https://en.bem.info/)
+- Material Design is aspirational for GitHub
+:::
+
+## Other examples
+- [IBM Design Language](https://www.ibm.com/design/language/)
+- [IBM Carbon Design System](https://carbondesignsystem.com/)
+- [Atlassian Design System](https://atlassian.design/)
+- [Firefox](https://design.firefox.com/photon/) (obsolete but not yet replaced)
+- [Salesforce](https://www.lightningdesignsystem.com/) (the original use of the term)
+
+##
+::: {.container}
+:::: {.col}
+AirBnB hired Pixar to create their storyboards to reflect AirBnB's values as part of their value-based design system
+::::
+:::: {.col}
+![](fiAirbnbFrame.png)
+::::
+:::
+
+::: {.notes}
+This is a still from Hayley Hughes' presentation of a value-based design system for AirBnB at [https://youtu.be/mq984Mc9UVA](https://youtu.be/mq984Mc9UVA)
+:::
+
+## AirBnB storyboard
+![](fiAirbnbHostJourney.png)
+
+::: {.notes}
+This is a still from Hayley Hughes' presentation of a value-based design system for AirBnB at [https://youtu.be/mq984Mc9UVA](https://youtu.be/mq984Mc9UVA)
+:::
+
+# But first ... Animation
+
+## Animation Storyboards
+- Val Head video [https://youtu.be/Itsg48crOjM](https://youtu.be/Itsg48crOjM)
+- [Val Head interview](https://valhead.com/2016/12/08/sketching-interface-animations-an-interview-with-eva-lotta-lamm/)
+- Trigger
+- Action
+- Quality
+
+## Animation Storyboards
+![](fiAnimationStoryboard.png)
+
+## Animation Storyboard User Input Symbols
+![](fiUserInput.png)
+
+## Animation Storyboard Action Symbols
+![](fiActions.png)
+
+## Animation Storyboard Quality Symbols
+![](fiQuality.png)
+
+## Animation Storyboard Example
+![](fiGoogleMusicSketch.png)
+
+## Animation Motion Comps
+- aka Animatics
+- Video of how animation works
+- Very high fidelity
+
+## Problem: Animate this!
+![](fiOpenClose.png)
+
+::: {.notes}
+You could hand this to the developer and say "Animate this transition!" Instead, Val Head illustrates a motion comp of the transition in her video at [https://youtu.be/Itsg48crOjM](https://youtu.be/Itsg48crOjM).
+:::
+
+## Animation: Interactive Prototypes
+- Allows the user to experience the trigger and the effect
+- Gives the *feel* of the timing, not just the *look*
+- Establishes context (e.g., bouncy, playful bank app)
+- Intuit example [https://designsystem.quickbooks.com](https://designsystem.quickbooks.com) (go to Foundations > Motion)
+
+# lofi
+
+## All you need is here
+![](fiElementarySchoolDesign.png)
+
+# Ideation
+
+## Day one of this course
+::: {.incremental}
+- We used a storyboard sheet to ideate
+- But we could consider the interview and brainstorming the list of needs as part of the ideate process---they certainly lead up to it
+- In fact, we can do anything that will help us come up with ideas!
+- [IDEO](https://www.designkit.org/methods) suggests a three step process: inspiration, ideation, implementation
+- Under Ideate, they suggest many activities, including journey mapping, HMW, and rapid prototyping; we'll examine HMW
+:::
+
+# HMW (how might we?)
+
+##
+
+::: {.r-fit-text}
+〈pause for how might we video〉
+:::
+
+## IDEO steps
+- Brainstorm [https://www.designkit.org/methods/1](https://www.designkit.org/methods/1)
+- Interview [https://www.designkit.org/methods/2](https://www.designkit.org/methods/2)
+- How Might We [https://www.designkit.org/methods/3](https://www.designkit.org/methods/3)
+
+## The How Might We step
+- Rephrase insight statements from previous step as questions by adding "How might we" at the beginning
+- Look for design opportunities from these questions
+- Make each question broad enough to allow a number of solutions, but narrow enough to be actionable
+
+# Diverging and Converging
+
+*The best way to have an idea is to have lots of ideas.*
+
+::: {style="text-align: right"}
+--- Linus Pauling
+:::
+
+## Why diverge then converge
+- You will not come up with a creative solution if you don't diverge
+- You will not meet the deadline if you don't converge
+- You must set a time limit for both processes
+
+## How to diverge and converge
+1. Ideate!
+2. Implement ideas!
+
+## A view from @Becker2020
+![](fiLaseauFunnel.png)
+
+## A way to converge from @Becker2020
+![](fiDotVoting.png)
+
+# Prototyping Levels
+
+## lofi from @Buxton2007
+![](fiConversation.png)
+
+::: {.notes}
+The “conversation” between the sketch (right bubble) and the mind (left
+bubble). A sketch is created from current knowledge (top arrow). Reading,
+or interpreting the resulting representation (bottom arrow), creates new
+knowledge. The creation results from what @Goldschmidt1991 calls “seeing
+that” reasoning, and the extraction of new knowledge results from what
+she calls “seeing as.”
+:::
+
+##
+
+*My drawings have been described as pre-intentionalist, meaning that they were finished before the
+ideas for them had occurred to me. I shall not argue the point.*
+
+::: {style="text-align: right"}
+--- James Thurber
+:::
+
+## Sketching capabilities from @Buxton2007
+![](fiHouses.png)
+
+## lofi and hifi from @Buxton2007
+![](fiSketchPrototype.png)
+
+## [Buxton Collection](https://www.microsoft.com/buxtoncollection)
+![](fiBuxtonCollection.png)
+
+## Sometimes less is more: Femme
+![](fiFemme.png)
+
+# System diagramming
+
+## @Becker2020 view
+![](fiSystemDiagramming.png)
+
+## Issues with system diagramming
+- By the way, it's usually called flowcharting
+- Goes in and out of fashion
+- Main issue is that there is no standard symbol set
+- Therefore any flowchart can mean anything
+- Many developers are schooled in UML, may resist anything else
+- UML has roughly nine very specific diagram types, standardized worldwide
+
+# Design challenge 06
+
+# Next week's guest speaker
+
+## Timing is uncertain
+- He's coming from Houston
+- We'll start class as usual
+- We'll go over my accessibility slideshows until he arrives
+- We'll resume with the accessibility slideshows after he leaves
+
+# Story about learning
+- The time, the place, the people, and the skills
+- aka The time, the place, and the people
+- concerns Daud Sahil (sahil means guide or leader in Hindi)
+
+# Triangle exercise
+
+##
+![](fiTriangle.png)
+
+::: {.notes}
+Draw this triangle and show where you are now and where you aspire to be. The vertices of the triangle can be changed to whatever you consider the three most important skills in UX, but it must be a triangle. There should be two bubbles in the interior, marked as *now* and *future*. The bubbles should contain the appropriate job title.
+:::
+
+# References
+
+::: {#refs}
+:::
+
+---
+
+::: {.r-fit-text}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *League Gothic* and *Lato*
+
