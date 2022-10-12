@@ -25,3 +25,5 @@ icon: fa-edit
 
 [07lofi](/rapidproto/07lofi/index.html) describes lofi prototyping and the related concepts of ideation, *how might we* statements, diverging and converging, and the distinctions between lofi and hifi.
 
+[08accessibility](/rapidproto/08accessibility/index.html) offers five other slideshows as an introduction to accessibility.
+
