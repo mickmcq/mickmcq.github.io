@@ -27,3 +27,5 @@ icon: fa-edit
 
 [08accessibility](/rapidproto/08accessibility/index.html) offers five other slideshows as an introduction to accessibility.
 
+[09workshop](/rapidproto/09workshop/index.html) discusses how to lead a design thinking workshop to get developers and other stakeholders on the same page as designers.
+
