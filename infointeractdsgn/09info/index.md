@@ -1,7 +1,7 @@
 ---
 title: "Info & Interaction Design: Information"
 author: Mick McQuaid
-date: 2022-10-12
+date: 2022-10-19
 bibliography: master.bib
 format:
   revealjs:
