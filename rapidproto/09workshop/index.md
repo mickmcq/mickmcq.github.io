@@ -20,6 +20,9 @@ format:
 Week NINE
 :::
 
+# But first, a PSA from UXPA
+Gayathri will share an event happening tomorrow at noon in Room 210A
+
 # But first, Group six
 
 # Design Thinking revisited
