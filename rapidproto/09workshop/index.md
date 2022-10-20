@@ -416,6 +416,11 @@ The workshop facilitator has to
 
 # And now, Group Eight
 
+# Exercise: Redesign Dream Company's Product
+
+## Redesign a Flagship Product
+If you get an interview at your *dream* company, they may ask you to redesign their flagship product. Do this for the next half hour, coming up with about three alternative lofi wireframes and justifications. Then we'll share results, either now or next week. This should be hard because it's hard to argue with success! Submit a link to your FigJam in Canvas.
+
 # References
 
 ::: {#refs}
