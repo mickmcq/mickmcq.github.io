@@ -29,3 +29,5 @@ icon: fa-edit
 
 [09workshop](/rapidproto/09workshop/index.html) discusses how to lead a design thinking workshop to get developers and other stakeholders on the same page as designers.
 
+[10testing](/rapidproto/10testing/index.html) explains user testing and its aftermath.
+
