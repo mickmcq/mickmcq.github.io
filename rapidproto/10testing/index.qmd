@@ -128,7 +128,7 @@ Krug is best known for the book *Don't Make Me Think*, @Krug2005. I've always re
 
 I was taught the goodness of thinking as an axiom.
 
-# Steve Krug's maxims
+## Steve Krug's maxims
 
 1. Start earlier than you think makes sense
 2. A morning a month, that's all we ask
@@ -179,7 +179,7 @@ Pilot test the scenarios.
 
 [https://youtu.be/VTW1yYUqBm8](https://youtu.be/VTW1yYUqBm8)
 
-# the professional's book
+## the professional's book
 
 *Usability testing essentials: ready, set... test!* by Carol Barnum, 2010.
 
@@ -360,7 +360,7 @@ The source for this material is a book
 - consistency inspection (review layout, color, terminology, language)
 - cognitive walkthrough (experts simulate users and walk through task series)
 
-# shneiderman's heuristics:
+## shneiderman's heuristics:
 Following are eight heuristics known as Shneiderman's Golden Rules of Interface Design, @Shneiderman2017
 
 ## Eight golden rules
@@ -373,7 +373,7 @@ Following are eight heuristics known as Shneiderman's Golden Rules of Interface 
 - support internal locus of control
 - reduce short-term memory load
 
-# automated testing
+## automated testing
 - Software program applies guidelines and determines where guidelines aren't met
 - advantage: speed of code reading
 - advantage: easy to identify features such as alt text on web pages
@@ -382,7 +382,7 @@ Following are eight heuristics known as Shneiderman's Golden Rules of Interface 
 Automated testing isoften used for WCAG checking
 (web content accessibility guidelines)
 
-# user-based testing
+## user-based testing
 This is what people think of when they think of usability testing
 
 ## validation testing
@@ -392,7 +392,7 @@ This is what people think of when they think of usability testing
 - when you think it's ready
 
 
-# stages of testing
+## stages of testing
 Here are two views of the testing process
 
 ## First view
@@ -620,32 +620,32 @@ This is the most likely setup.
 
 Don't discount the value of autopilot. This is meant for unmoderated sessions but you can use it to free you from having to juggle too many things to remember during the session. The only caveat is that you have to set it up properly or you will wind up abandoning it and returning to moderated mode.
 
-# process (one of three)
+## process (one of three)
 - Visit a lab with Morae (before the day of your tests) and set up a configuration in recorder. Save that configuration to a USB drive, Google Drive, or somewhere. Leave the lab.
 - Return to the lab and verify that your config works. Pretend you're doing the test. Actually record yourself playing both parts.
 - Save your recording.
 
-# process (two of three)
+## process (two of three)
 - Go to any computer with Morae and verify that the copy of Morae can open your recording (rdg file)
 - Obtain a web cam
 - Return to the user testing lab and start your recording again using your config file.
 - Verify that you can plug in the web cam and select it as one of the video sources.
 - Use a touch screen in the user testing lab. Verify that you can use it and it works.
 
-# process (three of three)
+## process (three of three)
 - If you have observers, connect them to the recording.
 - Log some tasks and markers.
 - Close down and save your recording.
 - Again, verify that your recording works.
 - Now you're probably ready for your test.
 
-# during the test
+## during the test
 - Make sure you record!
 - Try to relax! Think of specific things you can do to reduce stress, both for you and your participant.
 - Take good care of your participant!
 - Be sure to save your recording afterward.
 
-# after the test
+## after the test
 Now it is time get some evidence from your recordings and prepare it for presentation.
 
 You'll want to find video clips that illustrate important points.
