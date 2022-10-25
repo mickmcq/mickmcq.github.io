@@ -368,7 +368,7 @@ Others are less successful. At one time Google produced a lot of warnings in ema
 *Da real woild jist ain't like dat!*
 
 ::: {style="text-align: right"}
----Someone in an information-immature organization
+---Someone in an information-immature<br>organization
 :::
 
 ::: {.notes}
