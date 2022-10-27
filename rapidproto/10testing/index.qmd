@@ -175,10 +175,8 @@ The scenario adds context, e.g., you are ..., you need ..., and supplies informa
 Pilot test the scenarios.
 
 ##
-
-〈pause to watch a Steve Krug usability test 〉
-
-[https://youtu.be/VTW1yYUqBm8](https://youtu.be/VTW1yYUqBm8)
+- 〈 pause to watch a Steve Krug usability test 〉
+- [https://youtu.be/VTW1yYUqBm8](https://youtu.be/VTW1yYUqBm8)
 
 ## the professional's book
 
