@@ -176,7 +176,7 @@ Pilot test the scenarios.
 
 ##
 
-::: {style="text-indent: -2em;"}
+::: {style="text-indent: -1em;"}
 〈 pause to watch a Steve Krug usability test 〉
 :::
 
