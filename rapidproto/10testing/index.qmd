@@ -102,8 +102,8 @@ Recall Buxton's characteristics
 ## Aids
 
 - Scripts, forms, advice, and checklists from the book *Rocket Surgery Made Easy*
-- Available at \url{http://sensible.com/downloads-rsme.html}
-- Also watch Steve Krug at \url{https://youtu.be/VTW1yYUqBm8}
+- Available at [http://sensible.com/downloads-rsme.html](http://sensible.com/downloads-rsme.html)
+- Also watch Steve Krug at [https://youtu.be/VTW1yYUqBm8](https://youtu.be/VTW1yYUqBm8)
 
 
 # Amateur and Professional Testing
@@ -120,7 +120,7 @@ Most professionals of my acquaintance have read the amateur's book, by the way. 
 The book is called *Rocket surgery made easy, the do-it-yourself guide to finding and fixing usability problems* by Steve Krug, 2010.
 
 ##
-![50%](fiKrug2010.png)
+![](fiKrug2010.png)
 
 ## Steve Krug
 
