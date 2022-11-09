@@ -1,0 +1,437 @@
+---
+title: "Rapid Prototyping:<br>Class Requests"
+author: Mick McQuaid
+date: 2022-11-10
+bibliography: master.bib
+format:
+  revealjs:
+    logo: iSchoolLogo.png
+    theme: moon
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+::: {.r-fit-text}
+Week TWELVE
+:::
+
+# Class Requests
+- Empty states
+- Heuristic Evaluation
+- Affinity Mapping
+- Teamwork
+
+# But first, individual project
+- I'm getting wacky questions from good students
+- Indicative of problems understanding the project
+- This is an interface to a database about books, not a
+  way to browse books
+- You need to talk to English scholars about what they
+  do
+
+# Empty States
+
+::: {.notes}
+The source is this URL
+[https://www.nngroup.com/articles/empty-state-interface-design/](https://www.nngroup.com/articles/empty-state-interface-design/)
+:::
+
+## Do you see what I did there?
+
+## Common Empty States
+- User has not designated favorites or opened files, so
+  lists of favorited or recently viewed items are empty
+- User has not configured alerts yet but app supports
+  alerts
+- App has workspaces or dashboards, but user hasn't
+  added content yet
+- Search result lists when nothing is found, or commands
+  that create empty output
+
+## What empty states can do
+- Communicate system status
+- Help users discover unused features
+- Increase learnability of the app
+- Provide direct pathways to starting tasks
+
+## System status unknown
+![](fiEmptyState01.jpg)
+
+## System status displayed
+![](fiEmptyState02.jpg)
+
+## System status update delayed
+![](fiEmptyState03.jpg)
+
+::: {.notes}
+In this case, the system displays a misleading message
+while it searches for records, eventually switching to a
+display of found records.
+:::
+
+## Missed opportunity for learning
+![](fiEmptyState04.png)
+
+## Message improves learnability
+![](fiEmptyState05.jpg)
+
+## Another message improves learnability
+![](fiEmptyState06.jpg)
+
+## Another missed opportunity
+![](fiEmptyState07.png)
+
+## Providing a pathway
+![](fiEmptyState08.jpg)
+
+## Conclusion
+- Don't default to totally empty states
+- Provide help cues
+- Provide direct pathways
+- Use progress indicators
+- Show system status if nothing else
+
+## Exercise: Design three empty state screens
+- One showing system status
+- One enhancing learnability
+- One providing one or more direct pathways
+- Use any existing website or app as the basis
+
+# Heuristic Evaluation
+
+## User research as described and as practiced
+
+::: {.container}
+:::: {.col}
+![](fiOrderlyTraffic.jpg){width=70%}
+::::
+:::: {.col}
+![](fiSnowInRaleigh2014.jpg)
+::::
+:::
+
+## Promotional picture of Jakob Nielsen
+
+![](fiJakobNielsen.jpg)
+
+## Nielsen's Heuristics
+
+<small>
+
+1. Visibility of system status
+2. Match between system and the real world
+3. User control and freedom
+4. Consistency and standards
+5. Error prevention
+6. Recognition rather than recall
+7. Flexibility and efficiency of use
+8. Aesthetic and minimalist design
+9. Help users recognize, diagnose, and recover from errors
+10. Help and documentation
+
+Nielsen developed two sets of these heuristics,
+@Nielsen1990 and @Nielsen1994. This is the second and enduring one, still popular after twenty years.
+
+</small>
+
+# Affinity Mapping
+I usually call this *affinity diagramming* but every
+online source I've found uses the terms interchangeably.
+
+## Good affinity diagrams start with good affinity notes
+
+## Good affinity notes happen in an interview
+
+## Getting there in the interview
+- Transition to work focus
+- Observe and discuss
+- Be nosy
+- Take notes (avoid using a laptop)
+- Know what to take notes about!
+
+## What to take notes about
+- The user's role
+- The user's responsibilities
+- The user's communication types
+- The user's organization of physical space
+- The user's artifacts (get copies if possible)
+- Breakdowns in the user's work
+- What works and what doesn't
+
+## Interview activities
+- Share design ideas stimulated by events
+- Draw the physical space
+- Take photos (if you get permission)
+
+## Wrap up
+- Summarize what you learned, check your high-level understanding
+- Ask about pet issues
+- Give tips about system use (avoid doing so earlier)
+- Thank the user and give a gift if possible
+- Be sure you followed the tips in @Holtzblatt2005 in Tables 4-1 through 4-5!
+
+## Views of the CI interview
+
+##
+![](fiCIinterview1.jpg)
+
+##
+![](fiCIinterview2.jpg)
+
+##
+![](fiCIinterview3.jpg)
+
+##
+![](fiCIinterview4.jpg)
+
+##
+![](fiCIvsIntvwvsObs.jpg)
+
+# Interpret the interviews
+
+## Intro
+- Today usually done via FigJam or Miro instead of on a wall with post-its
+- Should happen 48 hours after the interviews (or sooner)
+- You should NOT talk to your teammates (or anyone else) about the interviews before the interpretation session
+- You should never do it alone
+- Must be synchronous
+- Usually takes all day
+
+## Interpretation session steps overview
+1. Create affinity notes from your atomic observations
+2. Add 500 affinity notes to the diagram
+3. Organize the affinity notes by similarity
+4. Add the bottom level of labels above the affinity notes
+5. Add the temporary top level of labels and reorganize the bottom level of labels and affinity notes to fit them
+6. Remove the temporary top level labels
+7. Add the middle level of labels
+8. Add the top level of labels
+
+::: {.notes}
+Note that there are three levels of affinity labels and one level of affinity notes. The affinity note copies one thing a participant said. It is the *atom* of the contextual inquiry universe. For example, a participant might say "I hate the menus because they are hard to navigate." The affinity labels are top, middle, and bottom. For example, the bottom level label above the note just mentioned might be "challenges navigating the menus", while a midle level label above that might be "menus" or "navigation", depending on other affinity notes.
+:::
+
+## First steps
+- Write affinity notes in the first person
+- Use words that mean the same to everyone
+- Let the meaning emerge from the groups instead of predefining
+- Reorganize hard-to-label groups rather than wrestling with unsatisfying label wording
+
+## Bottom level of affinity labels
+- Start when you can't keep track of the affinity notes
+- Give them design relevance
+- Highlight distinctions rather than trying to bring groups together
+
+## Temporary top level of affinity labels
+- Helps you move the affinity notes around into positions closer to their final positions
+- Only half a dozen temporary top labels
+- Remove them when this step is complete
+
+## Middle level of affinity labels
+- Highlight highlevel work concepts
+- Steps in work
+- Communication strategies in work
+- Tool use
+- Organizational structure
+
+## Top level of affinity labels
+- Describe the key issues relevant to the design
+- Inform the behavior patterns that will be the basis for personas
+- Any break in the chain from interview to key issues jeopardizes the persona milestone, coming up next
+
+##
+
+::: {.container}
+:::: {.col}
+*Example of the relationship between a top level label and those below it*
+::::
+:::: {.col}
+![](fiAffinityExample.png)
+::::
+:::
+
+## Different views of the process
+
+##
+![](fiAffinityVariety.png)
+
+##
+![](fiAffinityTiny.png)
+
+##
+![](fiAffinityInProcess.jpg)
+
+##
+![](fiAffinityLarge.jpg)
+
+## Summary
+Affinity diagramming or mapping is similar to many other
+techniques. It's a summarizing activity, originally
+developed to support contextual design or personas or
+scenarios, but eventually adapted to many other uses.
+The keys, in my view, are
+
+1. Good affinity notes, written in the first person so that they speak with the voice of the user
+2. Too many of them to make sense of directly
+3. A rearranging and grouping and labeling process
+
+# Team Work
+Sorry, I can't show you an example of a successful team,
+which is what was asked for. Why do you suppose that is?
+
+Instead, I will provide some guidelines for effective
+teamwork.
+
+## @West2012
+
+Michael West wrote the book, Effective Teamwork, from
+which this section was developed.
+We'll cover two main topics, team development and team leadership.
+
+# Team Development
+
+## Team Development, @Tuckman1977
+
+- Forming
+- Storming
+- Norming
+- Performing
+- Adjourning
+
+## Forming
+
+- Anxiety is felt early on
+- Members ask testing questions
+- Members seek roles
+- Members are guarded
+- Goals must be clearly stated and agreed
+- Optimism at this stage is a big predictor of outcomes
+
+## Storming
+
+- Conflict emerges
+- Authority of the leader is challenged
+- Members question the value and validity of the task
+- Hidden tensions surface
+- Honesty and openness emerge
+- Leader must gain shared commitment, build trust, define roles, and establish conflict resolution strategies
+
+## Norming
+
+- Conflicts are resolved
+- Positive cooperation emerges
+- Work standards are established; plans are made
+- Agreed rules or norms emerge
+- Team members readily communicate
+- Networks for mutual support emerge
+- Leader allows team to take more responsibility
+
+## Performing
+
+- Members begin to see successful outcomes
+- Members settle into an effective team-working structure
+- Leader can withdraw from daily involvement
+- Systems of regular review are established
+
+## Adjourning
+
+- Optional stage
+- But all teams face members leaving, projects ending
+- Teams may revert to earlier stages through turnover
+- Teams may celebrate transitions
+
+# Leadership
+
+## Leadership tasks
+
+- Create the conditions to enable the team to do its job
+- Build and maintain the team as a performing unit
+- Coach and support the team to success
+
+## Create the right conditions
+
+- Fight for resources
+- Clarify team boundaries, identify core members
+- Teams should not exceed six to eight members
+
+## Build and maintain the team
+
+- Ensure the right mix of skills and abilities
+- Ensure adequate diversity
+- Nurture good decision making, problem solving, conflict management
+- Develop new ways to work together
+
+## Coach and support the team
+
+- Directly interact with team members
+- Help team members coordinate and work effectively
+- Intervene with direction and support
+- Be sensitive to team mood and quality of interaction and communication
+- Encourage meetings or exchange of information
+- Shape a supportive approach to suggestions
+- Help team members develop skills and abilities
+
+## Elements of leading teams
+
+- Leading: long term, focused on strategic direction
+- Managing: medium term, focused on planning and clarification of objectives
+- Coaching: day to day business of close interaction with team members
+
+## Leading
+
+- Create a real team
+- Communicate a compelling direction for the team's work (people respond better to clear and challenging and consequential rather than do your best)
+- Mold the team to enable it to perform effectively
+- Win organizational support to enable the team's success
+- Time interventions appropriately (at the beginning, middle, or natural breaks)
+
+## Managing
+
+- Set clear shared team objectives
+- Clarify the roles of team members
+- Develop individual roles
+- Evaluate individual contributions
+- Provide feedback on team performance (outcomes, viability, member growth, member engagement, innovation, inter-team relations)
+- Review group processes, strategies, objectives
+
+## Coaching
+
+- Listen
+  - Active listening (effort)
+  - Open listening (suspend judgment)
+  - Drawing out (encouragement)
+  - Reflective listening (summarize)
+- Recognize and reveal feelings
+- Give feedback
+- Set goals
+
+## Tripwires
+
+- Call it a team but manage individuals
+- Exercising authority too much or too little
+- Assembling a group
+- Skimping on organizational support
+- Assume team members already have all needed competencies
+
+# References
+
+::: {#refs}
+:::
+
+---
+
+::: {.r-fit-text}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *League Gothic* and *Lato*
+

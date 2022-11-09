@@ -33,3 +33,5 @@ icon: fa-edit
 
 [11moreTesting](/rapidproto/11moreTesting/index.html) further talks about testing.
 
+[12classRequests](/rapidproto/12classRequests/index.html) discusses some topics requested by class members.
+
