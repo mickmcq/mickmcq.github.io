@@ -8,6 +8,8 @@ icon: fa-edit
 
 I've been fortunate to be involved in some interesting research. Following are some recent publications.
 
+[Shinohara (2022)](/assets/Shinohara2022.pdf) continues the Disabled Grad Student project.
+
 [Tamjeed (2021)](/assets/Tamjeed2021.pdf) continues the Disabled Grad Student project.
 
 [Shinohara (2021)](/assets/Shinohara2021.pdf) continues the Disabled Grad Student project. This version, by the way, is more accessible than the copy in the ACM DL (growl!). This paper won an [Honorable Mention](/assets/honmention2021.pdf) at CHI 2021.
