@@ -35,3 +35,5 @@ icon: fa-edit
 
 [12classRequests](/rapidproto/12classRequests/index.html) discusses some topics requested by class members.
 
+[13moreClassRequests](/rapidproto/13moreClassRequests/index.html) discusses some more topics requested by class members.
+
