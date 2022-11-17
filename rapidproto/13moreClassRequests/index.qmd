@@ -1,0 +1,213 @@
+---
+title: "Rapid Prototyping:<br>More Class Requests"
+author: Mick McQuaid
+date: 2022-11-17
+bibliography: master.bib
+format:
+  revealjs:
+    logo: iSchoolLogo.png
+    theme: moon
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+::: {.r-fit-text}
+Week TWELVE
+:::
+
+# Class Requests
+- Microinteractions
+- Pair designing
+
+# But first, individual projects
+The hwInstr document has been modified. Please check it out.
+
+# But first, @Nielsen1994
+A student asked, so I checked: Nielsen didn't address
+accessibility but provided an appendix of other people's
+heuristics. It turns out that Apple's heuristics from
+1992 explicitly required accessibility, probably
+because of the influence of Gregg Vanderheiden.
+
+# But first, design challenge 09
+
+# Microinteractions
+Definition from NNgroup: Microinteractions are trigger-feedback pairs in which (1) the trigger can be a user action or an alteration in the system's state; (2) the feedback is a narrowly targeted response to the trigger and is communicated through small, highly contextual (usually visual) changes in the user interface.
+
+::: {.notes}
+Source for this definition and the following slides [https://www.nngroup.com/articles/microinteractions/](https://www.nngroup.com/articles/microinteractions/)
+:::
+
+## Microinteraction flow
+
+##
+![](fiMicrointeractionFlow.png)
+
+## Some are, some aren't
+
+<small>
+
+-------------------------------------------------------------------
+*Digital element*   *Is it a microinteraction?*
+-----------------   -----------------------------------------------
+Scrollbar           Yes: User triggered; visual feedback to
+                    user changing location within a page
+
+Digital alarm       Yes: System triggered; auditory (and visual)
+                    feedback to time condition being met
+
+Button              It depends: If there is no feedback when a user
+                    clicks the button, there is no microinteraction
+
+Pull-to-refresh
+animation           Yes: User triggered; visual feedback to a user
+                      action
+
+GIFs                No: Not triggered by the system or a user
+
+Video player        No: It's a feature, not a microinteraction;
+                    volume control would be a microinteraction
+---------------     -----------------------------------------------
+
+</small>
+
+## Why?
+Microinteractions can improve a product’s user experience by:
+
+- Encouraging engagement
+- Displaying system status
+- Providing error prevention
+- Communicating brand
+
+## Encouraging engagement
+
+##
+![](fiAsanaUnicorn.png)
+
+## Displaying system status
+
+##
+![](fiLinkedinProgress.png)
+
+## Providing error prevention
+
+##
+![](fiiOSappDelete.png)
+
+## Communicating brand
+
+##
+![](fiGoogleHomeLights.png)
+
+## Error prevention
+
+##
+![](fiGapFavorited.png)
+
+## Prevent rework
+
+##
+![](fiEbayPasswordReqs.png)
+
+## Communicate brand
+
+##
+![](fiiMessage.png)
+
+## Encouraging engagement
+
+##
+![](fiSnapchat.png)
+
+## Auditory microinteraction
+
+##
+![](fiXboxOne.png)
+
+## Exercise
+Design and share a microinteraction for your individual
+course project.
+
+## For more info
+Read @Saffer2013!
+
+# Pair designing
+... getting more and better UX design done by putting two designers together as thought partners to solve design problems
+
+::: {.notes}
+Source for this and the following slides is
+[https://www.oreilly.com/content/pair-design/](https://www.oreilly.com/content/pair-design/)
+:::
+
+## Related practice: feedback relationship
+part time, checking in with each other on work that’s been accomplished separately
+
+## Pair designing differs from feedback relationship
+being in the same room, working on the same problem, with both brains focused on the problem simultaneously for the duration of the project
+
+## Roles
+- One designer is the generator (or gen)
+- One designer is the synthesizer (or synth)
+
+## Gen
+- Conveys an idea clearly and quickly
+- Usually at the whiteboard or tablet
+- Comfortable drawing in front of their partner
+- Leaves ego out of it
+- Has sophisticated understanding of contemporary design
+
+## Synth
+- Tests ideas as they are generated
+- Keeps bigger picture in mind
+- Writes design choices and rationales after debate
+- Is detail-oriented and has strong memory
+- Has sophisticated understanding of first principles and psychology
+
+## Role swaps
+- Gen gives the "pen" to the synth
+- Usually gen has run out of ideas or swap is timed
+
+## Why divide the work?
+- Confirmation bias is part of gen's role
+- Easier for another person (synth) to overcome
+  confirmation bias on a given idea
+
+## Why not remote collaboration?
+- Distractions
+- Network problems
+- Lack of body language
+
+## Stages
+- Research (one member transcribes)
+- Sensemaking (synth builds big picture, takes the lead)
+- Wireframing / sketching (gen takes the lead in drawing)
+- Detailed design (synth produces narrative, gen produces visuals)
+
+## Exercise: pair design a piece of DC 10
+- Break into pairs
+- Choose some aspect of DC10 to work on
+- Spend the rest of class in gen and synth roles,
+  swapping at least once
+
+# References
+
+::: {#refs}
+:::
+
+---
+
+::: {.r-fit-text}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *League Gothic* and *Lato*
+
