@@ -1,0 +1,105 @@
+---
+title: "Human Computer Interaction:<br>INTRO"
+author: Mick McQuaid
+date: 2022-11-24
+bibliography: master.bib
+format:
+  revealjs:
+    logo: iSchoolLogo.png
+    theme: moon
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+::: {.r-fit-text}
+Week ONE
+:::
+
+---
+
+::: {.r-fit-text}
+hello
+:::
+
+# Who am I?
+Call me Mick. I am in my first year at UT-Austin, but have been a professor elsewhere since 2004. I do research, mainly in accessibility, and teach in HCI and data science. In my spare time I play the irish flute and do woodworking. I have a wonderful family including two adorable teenagers.
+
+# Who are you?
+Let's go around the room and have you introduce yourselves and say a bit about yourselves.
+
+# What are we doing?
+We're following the syllabus. If you look under week one, it says *In class introductions*. There is an *In class* item (or items) every week. There are also topic items, reading items, and assignment items.
+
+## Altogether it looks like this
+
+[Week 1 (12 Jan)]{.weekn}
+Introduction ---
+What is HCI / UX? ---
+UX lifecycle ---
+Read @Hartson2019: Ch 1, 2, 4 ---
+Read @Norman2013: Ch 1 ---
+In class: introductions ---
+Assignment: HCI background questions (not graded)
+
+## So you can see ...
+... that our schedule is packed!
+
+There's a lot of reading in this class, some writing, some presentation, and some use of typical UX tools.
+
+# What do we have to work with?
+- Syllabus
+- Canvas site
+- My personal website
+
+So let's look at each of those in turn ...
+
+# Next, what is HCI / UX?
+- HCI has been a field of study since the early 1980s
+- UX is a term that is replacing HCI in the minds of many people who want to emphasize the context of the human computer interaction
+- Early HCI was promulgated mostly by cognitive psychologists, so we have to study a bit of cognitive psychology to understand where they were coming from
+- HCI is one of three similar disciplines in universities, the other two being Human Factors in engineering schools and MIS in business schools
+
+## More on what HCI is
+- Early HCI researchers were focused on the interface between a single idealized user and a desktop computer
+- Gradually, the words *interface*, *single*, *idealized*, and *desktop* got dropped as researchers began to consider workgroups of people, casual users, communities of users, computers with different form factors, and "invisible" computers that operate appliance, automobiles, and many of the machines we use. This transition was driven mostly by the plummeting costs of computers
+
+# UX lifecycle
+![](fiUXlifecycle.png)
+
+# Readings
+Readings this week include  @Hartson2019: Ch 1, 2, 4 and
+@Norman2013: Ch 1. These are pretty serious readings and you need to carve out time to devote to them. In addition, the readings in future weeks have to be done before class, not after. We're only saving these readings for after class because it's the first week.
+
+# Assignment
+The only assignment this week is to do the HCI questionnaire. Please do it now.
+
+# Jacek's slideshow
+There are two instructors for this course. I want to make the course as similar as possible for the two groups taking it. Therefore, I'm going to go over Jacek's slides on a weekly basis. 〈pause for Jacek's slides〉
+
+# Conclusion
+I don't plan to go over the syllabus in detail in future lectures. I expect you to use it daily or weekly to stay up todate with the readings and assignments. If you're not opening the syllabus every week, you're in trouble.
+
+# References
+
+::: {#refs}
+:::
+
+---
+
+::: {.r-fit-text}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *League Gothic* and *Lato*
+
+<!--
+vim:filetype=pandoc -->
