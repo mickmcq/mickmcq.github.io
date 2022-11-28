@@ -37,3 +37,5 @@ icon: fa-edit
 
 [13moreClassRequests](/rapidproto/13moreClassRequests/index.html) discusses some more topics requested by class members.
 
+[14individual](/rapidproto/14individual/index.html) is a framework for discussing the individual course projects.
+
