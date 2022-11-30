@@ -1,7 +1,7 @@
 ---
 title: "Info & Interaction Design:<br>Conclusion"
 author: Mick McQuaid
-date: 2022-11-16
+date: 2022-11-30
 bibliography: master.bib
 format:
   revealjs:
