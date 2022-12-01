@@ -20,7 +20,14 @@ format:
 Week FOURTEEN
 :::
 
-# What it is
+# But first, Group 10 feedback ...
+
+# But first, Course Evaluations
+Let's take ten minutes to do them now!
+
+# Individual course project
+
+## What it is
 This app explores a resource that consists of metadata
 about books. It can answer questions like "How many
 celebrities published autobiographies over the years
@@ -28,10 +35,10 @@ celebrities published autobiographies over the years
 
 *How should you answer such questions?*
 
-# What it is not
+## What it is not
 It is not a way to search for a book to read.
 
-# What problems can you solve?
+## What problems can you solve?
 
 ## Browsing
 - How can you help the user understand what is available at a glance?
@@ -50,14 +57,14 @@ helpful. When would you present that?
 Note that searching for variant titles or authors takes
 time. What does the user see in that time?
 
-# Talent
+## Talent
 *In your choice lies your talent.* (This was a popular
 maxim of the actress Stella Adler.)
 
 Your rationale for your choice reveals a great deal that
 is not obvious to the casual observer.
 
-# My job
+## My job
 I have to render a subjective judgment about your work
 in which I try to represent *good taste* as it is popularly
 defined in our era. To some extent I have prejudices and
@@ -65,7 +72,7 @@ inherit prejudices of our era. Some of you may be ahead
 of your time and some may be behind the times. I have to
 manage my expectations of your work with that in mind.
 
-# Now
+## Now
 Please share any work that you have done so far for which you would like feedback.
 
 ---
