@@ -1,0 +1,115 @@
+---
+title: "Statistics: Overview"
+author: Mick McQuaid
+date: 2023-01-10
+bibliography: master.bib
+format:
+  revealjs:
+    logo: iSchoolLogo.png
+    theme: statstheme.scss
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+::: {.r-fit-text}
+Week ZERO
+:::
+
+# Pre-Intro
+
+## Two things: deterministic and stochastic processes
+- deterministic process: If you repeat it, you get the same result, e.g., add two numbers together
+- stochastic process: If you repeat it, you may get different results, e.g., generate a random normally distributed dataset
+
+## Two things: probability and stats
+- probability: originated with gambling, trying to guess a single outcome from a known distribution
+- stats: "originated" with farming, trying to infer general knowledge from small samples
+
+## Two things: frequentists and bayesians
+- frequentists: believe that the frequency with which events happen IS the probability of events happening
+- Bayesians: believe in incorporating prior knowledge into guesses about future events
+
+## Two things: description and inference (okay, three: also prediction)
+- description: find a number or numbers or picture that summarizes data
+- inference: understand the machinery of cause and effect
+- prediction: guess a future event based on a sample of past events
+
+## Two things: statisticians and stats users
+- statisticians: write packages in R
+- stats users: write code to use existing packages in R
+
+## Two things: statisticians and data scientists
+- statisticians: use old-fashioned language
+- data scientists: use fashionable language to mean the same thing
+
+## Two things: neutral data and discipline-specific data
+- neutral data: textbook uses examples from non-IT disciplines
+- discipline-specific data: the last two lectures will cover data specific to data scientists and ux people
+
+## The reproducibility crisis and what we're going to do about it
+Scientists have found that most publishable results are not reproducible. Therefore, they have started to use tools like Quarto to make research reproducible. We'll use Quarto to make our results reproducible.
+
+# Skill aspect of the course
+
+## Check your computer
+- You can't take the final exam with 4GB RAM
+- 16GB Ram is preferred---you'll struggle with 8GB
+- You will need at least 12GB free drive space to take the final
+- Mac is preferred if you don't already have a computer
+- If you already have a Windows computer, you may need some tech support which you'll need to find outside of class because I can't solve most Windows-specific problems
+
+## Download R and RStudio in that order
+You need R to be installed before you try to install RStudio.
+You may prefer to use Python but you can not turn in any Python code or Jupyter notebooks in this class. There are numerous reasons for this which can be discussed outside of class.
+
+# Your part
+
+## HW Format
+All homework assignments will be Quarto documents (qmd extension on filename) described at [https://quarto.org](https://quarto.org)
+
+Do not attempt to use any microsoft products in this
+course. E.g., no reports will be in word and no
+calculations will be in excel. I'm not joking. I'll just
+give you a zero if you turn in that stuff.
+
+## Two kinds of homework: group and individual
+- Group work: analyze the *craiglist* data
+- Individual work: demonstrate understanding on the *penguins* dataset
+
+## One individual exam
+It will be a take-home exam where I'll give you a large (approximately 4GB) dataset and you have to analyze it and turn in a .qmd file and a .pdf file summarizing your work.
+
+## Grading
+- 4×10 milestones as group: description 1 (tables, summary stats), description 2 (visualization), regression, diagnostics
+- 3×10 individual assignments: description, simple regression, multiple regression
+- 1×30 take-home exam: analyze nyc311 dataset (subject to change)
+
+# Texts
+- @Wickham2023
+- @Diez2019
+
+# References
+
+::: {#refs}
+:::
+
+---
+
+::: {.r-fit-text}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *League Gothic* and *Stix*
+
+<!--
+vim:filetype=pandoc
+-->
