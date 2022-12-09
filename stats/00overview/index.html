@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.2.269">
 
   <meta name="author" content="Mick McQuaid">
-  <title>Statistics: Overview</title>
+  <title>Statistics for Informatics: Overview</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -344,7 +344,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Statistics: Overview</h1>
+  <h1 class="title">Statistics for Informatics:<br>Overview</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -378,15 +378,29 @@ Mick McQuaid
 <h2>Two things: probability and stats</h2>
 <ul>
 <li>probability: originated with gambling, trying to guess a single outcome from a known distribution</li>
-<li>stats: “originated” with farming, trying to infer general knowledge from small samples</li>
+<li>stats: “originated” mostly with farming, trying to infer general knowledge from small samples of crops</li>
 </ul>
 </section>
 <section id="two-things-frequentists-and-bayesians" class="slide level2 center">
 <h2>Two things: frequentists and bayesians</h2>
 <ul>
-<li>frequentists: believe that the frequency with which events happen IS the probability of events happening</li>
-<li>Bayesians: believe in incorporating prior knowledge into guesses about future events</li>
+<li>The frequentist approach deals with long-run probabilities (ie, how probable is this data set given the null hypothesis), whereas the Bayesian approach deals with the probability of a hypothesis given a particular data set.</li>
+<li>Bayesian analysis incorporates prior information into the analysis, whereas a frequentist analysis is purely driven by the data.</li>
+<li>The Bayesian approach can calculate the probability that a particular hypothesis is true, whereas the frequentist approach calculates the probability of obtaining another data set at least as extreme as the one collected (giving the <span class="math inline">\(p\)</span> value).</li>
 </ul>
+<aside class="notes">
+<p>See <span class="citation" data-cites="Fornacon-Wood2022">Fornacon-Wood et al. (<a href="#/references" role="doc-biblioref" onclick="">2022</a>)</span> for these bullet points and more.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="two-things-description-and-inference-okay-three-also-prediction" class="slide level2 center">
 <h2>Two things: description and inference (okay, three: also prediction)</h2>
@@ -410,10 +424,10 @@ Mick McQuaid
 <li>data scientists: use fashionable language to mean the same thing</li>
 </ul>
 </section>
-<section id="two-things-neutral-data-and-discipline-specific-data" class="slide level2 center">
-<h2>Two things: neutral data and discipline-specific data</h2>
+<section id="two-things-general-data-and-discipline-specific-data" class="slide level2 center">
+<h2>Two things: general data and discipline-specific data</h2>
 <ul>
-<li>neutral data: textbook uses examples from non-IT disciplines</li>
+<li>general data: textbook uses examples from non-IT disciplines</li>
 <li>discipline-specific data: the last two lectures will cover data specific to data scientists and ux people</li>
 </ul>
 </section>
@@ -484,6 +498,9 @@ Mick McQuaid
 <div id="ref-Diez2019" class="csl-entry" role="doc-biblioentry">
 Diez, David, Mine Çetinkaya-Rundel, and Cristopher D Barr. 2019. <em>OpenIntro Statistics, Fourth Edition</em>. self-published. <a href="https://openintro.org/os">https://openintro.org/os</a>.
 </div>
+<div id="ref-Fornacon-Wood2022" class="csl-entry" role="doc-biblioentry">
+Fornacon-Wood, Isabella, Hitesh Mistry, Corinne Johnson-Hart, Corinne Faivre-Finn, James P. B. OConnor, and Gareth J. Price. 2022. <span>“Understanding the Differences Between Bayesian and Frequentist Statistics.”</span> <em>International Journal of Radiation Oncology<span></span>Biology<span></span>Physics</em> 112 (5): 1076–82. <a href="https://doi.org/10.1016/j.ijrobp.2021.12.011">https://doi.org/10.1016/j.ijrobp.2021.12.011</a>.
+</div>
 <div id="ref-Wickham2023" class="csl-entry" role="doc-biblioentry">
 Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. 2nd ed. O’Reilly Media, Inc. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>.
 </div>
@@ -498,7 +515,7 @@ Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. <em>R for 
 <section id="colophon" class="title-slide slide level1 center">
 <h1>Colophon</h1>
 <p>This slideshow was produced using <code>quarto</code></p>
-<p>Fonts are <em>League Gothic</em> and <em>Stix</em></p>
+<p>Fonts are <em>Roboto Condensed</em> and <em>Stix</em></p>
 <!--
 vim:filetype=pandoc
 -->

@@ -1,5 +1,5 @@
 ---
-title: "Statistics: Overview"
+title: "Statistics for Informatics:<br>Overview"
 author: Mick McQuaid
 date: 2023-01-10
 bibliography: master.bib
@@ -28,11 +28,16 @@ Week ZERO
 
 ## Two things: probability and stats
 - probability: originated with gambling, trying to guess a single outcome from a known distribution
-- stats: "originated" with farming, trying to infer general knowledge from small samples
+- stats: "originated" mostly with farming, trying to infer general knowledge from small samples of crops
 
 ## Two things: frequentists and bayesians
-- frequentists: believe that the frequency with which events happen IS the probability of events happening
-- Bayesians: believe in incorporating prior knowledge into guesses about future events
+- The frequentist approach deals with long-run probabilities (ie, how probable is this data set given the null hypothesis), whereas the Bayesian approach deals with the probability of a hypothesis given a particular data set.
+- Bayesian analysis incorporates prior information into the analysis, whereas a frequentist analysis is purely driven by the data.
+- The Bayesian approach can calculate the probability that a particular hypothesis is true, whereas the frequentist approach calculates the probability of obtaining another data set at least as extreme as the one collected (giving the $p$ value).
+
+::: {.notes}
+See @Fornacon-Wood2022 for these bullet points and more.
+:::
 
 ## Two things: description and inference (okay, three: also prediction)
 - description: find a number or numbers or picture that summarizes data
@@ -47,8 +52,8 @@ Week ZERO
 - statisticians: use old-fashioned language
 - data scientists: use fashionable language to mean the same thing
 
-## Two things: neutral data and discipline-specific data
-- neutral data: textbook uses examples from non-IT disciplines
+## Two things: general data and discipline-specific data
+- general data: textbook uses examples from non-IT disciplines
 - discipline-specific data: the last two lectures will cover data specific to data scientists and ux people
 
 ## The reproducibility crisis and what we're going to do about it
@@ -108,7 +113,7 @@ END
 
 This slideshow was produced using `quarto`
 
-Fonts are *League Gothic* and *Stix*
+Fonts are *Roboto Condensed* and *Stix*
 
 <!--
 vim:filetype=pandoc
