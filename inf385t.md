@@ -1,41 +1,40 @@
 ---
 title: INF385T
-subtitle: Rapid Prototyping
+subtitle: UX Prototyping
 layout: default
 rank: 2
 icon: fa-edit
 ---
 
 
-[The syllabus](/rapidproto/syllabus.pdf) is the course's main document. Expect it to be followed to the letter.
+[The syllabus](/uxproto/syllabus.html) is the course's main document. Expect it to be followed to the letter.
 
 ## Lectures
 
-[01designThinking](/rapidproto/01designThinking/index.html) covers an exercise in design thinking and provides placeholders for a few introductory items, as well as a description of design challenge 1
+[01designThinking](/uxproto/01designThinking/index.html) covers an exercise in design thinking and provides placeholders for a few introductory items
 
-[02storyMapping](/rapidproto/02storyMapping/index.html) recaps the previous week and introduces user story mapping as preparation for design challenge 2.
+<!--
 
-[03sketching](/rapidproto/03sketching/index.html) recaps the previous week and introduces mood boards, sketching, and crazy eights.
+[02accessibility](/uxproto/02accessibility/index.html) offers five other slideshows as an introduction to accessibility.
 
-[04clients](/rapidproto/04clients/index.html) recaps the previous week and discusses clients and stakeholders.
+[03sketching](/uxproto/03sketching/index.html) recaps the previous week and introduces mood boards, sketching, and crazy eights.
 
-[05ucdAgile](/rapidproto/05ucdAgile/index.html) describes the relationship between User Centered Design and Agile.
+[04storyMapping](/uxproto/04storyMapping/index.html) recaps the previous week and introduces user story mapping.
 
-[06hifi](/rapidproto/06hifi/index.html) describes four components of hifi prototyping: color, typography, layout, and animation.
+[05lofi](/uxproto/05lofi/index.html) describes lofi prototyping and the related concepts of ideation, *how might we* statements, diverging and converging, and the distinctions between lofi and hifi.
 
-[07lofi](/rapidproto/07lofi/index.html) describes lofi prototyping and the related concepts of ideation, *how might we* statements, diverging and converging, and the distinctions between lofi and hifi.
+[06hifi](/uxproto/06hifi/index.html) describes four components of hifi prototyping: color, typography, layout, and animation.
 
-[08accessibility](/rapidproto/08accessibility/index.html) offers five other slideshows as an introduction to accessibility.
+[07ucdAgile](/uxproto/07ucdAgile/index.html) describes the relationship between User Centered Design and Agile.
 
-[09workshop](/rapidproto/09workshop/index.html) discusses how to lead a design thinking workshop to get developers and other stakeholders on the same page as designers.
+[08clients](/uxproto/08clients/index.html) recaps the previous week and discusses clients and stakeholders.
 
-[10testing](/rapidproto/10testing/index.html) explains user testing and its aftermath.
+[09workshop](/uxproto/09workshop/index.html) discusses how to lead a design thinking workshop to get developers and other stakeholders on the same page as designers.
 
-[11moreTesting](/rapidproto/11moreTesting/index.html) further talks about testing.
+Week 10 is Spring Break.
 
-[12classRequests](/rapidproto/12classRequests/index.html) discusses some topics requested by class members.
+[11testing](/uxproto/11testing/index.html) explains user testing and its aftermath.
 
-[13moreClassRequests](/rapidproto/13moreClassRequests/index.html) discusses some more topics requested by class members.
+[12moreTesting](/uxproto/12moreTesting/index.html) further talks about testing.
 
-[14individual](/rapidproto/14individual/index.html) is a framework for discussing the individual course projects.
-
+-->
