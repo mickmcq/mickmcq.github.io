@@ -9,6 +9,8 @@ icon: fa-edit
 
 [The syllabus](/uxproto/syllabus.html) is the course's main document. Expect it to be followed to the letter.
 
+[The homework instructions](/uxproto/hwInstructions.html) detail what is expected of you in this course.
+
 ## Lectures
 
 [01designThinking](/uxproto/01designThinking/index.html) covers an exercise in design thinking and provides placeholders for a few introductory items
