@@ -101,7 +101,7 @@ Materials
 :::
 
 - three pages
-- some index cards (about 6)
+- some index cards (about 4)
 - some colored sharpies (at least 2)
 - a pen or pencil
 
@@ -204,6 +204,12 @@ I casually mention on this slide that you should write something in your sketchb
 ---
 
 ::: {.r-fit-text}
+‹academic assistant›
+:::
+
+---
+
+::: {.r-fit-text}
 ‹intros›
 :::
 
@@ -272,49 +278,14 @@ Use any one or any combination of these guidelines in developing your prototypes
 I'm high on Framer because of its excellent JavaScript output, which cuts down on cycle time. You will often hear me say that cutting down cycle time is a high priority in rapid prototyping. Framer easily beats Figma in this regard, but Framer only recently acquired a free tier, so Figma has captured most of the mindshare. I want to expose you to Framer as well, but the Framer tutorial we will follow isn't ready yet.
 :::
 
----
-
-::: {.r-fit-text}
-milestone 1
-:::
-
-## Njideka Akunyili Crosby
-
-![](fiNjidekaAkunyiliCrosby.png){width=70% fig-alt="photo of the artist seated"}
-
-::: {.notes}
-This is a photo of an artist named Njideka Akunyili Crosby. Her first name is evidently pronounced nnn-jee-deh-car even though there is no R in it! The photo was given to me on a piece of paper by a curator at a museum, with no attribution on the page. It simply says that she is from Enugu, Nigeria, which is a large city of 722,000 in southeastern Nigeria. She was born in 1983 and currently works in Los Angeles, CA.
-:::
-
-## Protocol
-
-1. Go to the Blanton Museum of Art on campus
-2. Obtain a small stool from one of the curators
-3. Find the room on the next slide
-4. Stare at the largest painting in the room for at least ten minutes
-5. Create a prototype of a digital artifact to satisfy some need of one of the two people in the painting
-6. Submit the prototype by a week from Monday evening at 9PM
-
-## The exhibit at Blanton
-
-![](fiCrosbyExhibit.jpg){fig-alt="Photo of Blanton museum room with Crosby exhibit"}
-
-## The painting itself
-
-![](fiMotherChild.jpg){fig-alt="Photo of painting by Crosby, depicting a seated woman with a small child on her lap"}
-
-## How can you approach this task?
-1. First just look at the painting for ten minutes without learning anything about it.
-2. Optionally learn about the painting and its background, using the plaque beside it and web or curatorial resources
-3. Think about the environment of these two people, their needs, and values
-4. Design a prototype that reflects what you know about them
-
 ## File submission
-- How can you submit a prototype created in Framer, Figma, XD, etc., to Canvas?
-- There are several ways possible
-- My preference is that you create a narrated video of navigating the prototype
-- You may lack the skill to do so
-- Should we teach that skill as part of prototyping?
+- Create a website that will be used for the entire
+  semester. You can use Framer to do so, or Github
+  pages, or any other system
+- Add seven pages to the website, one for each milestone
+  (just the first one is needed now)
+- The page for milestone 1 should contain a link to your
+  prototype and an explanation of how it is accessible
 
 # Form groups
 
