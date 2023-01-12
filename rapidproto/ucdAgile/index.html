@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="syllabus_files/libs/clipboard/clipboard.min.js"></script>
-<script src="syllabus_files/libs/quarto-html/tabby.min.js"></script>
-<script src="syllabus_files/libs/quarto-html/popper.min.js"></script>
-<script src="syllabus_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="syllabus_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="syllabus_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="syllabus_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.2.313">
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/tabby.min.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.0.37">
 
-  <title>UT-Austin iSchool Syllabus INF385T UX Prototyping Spring 2023</title>
+  <meta name="author" content="Mick McQuaid">
+  <meta name="dcterms.date" content="2022-07-10">
+  <title>UCD and Agile</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="syllabus_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="syllabus_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
@@ -47,11 +44,12 @@
       margin-left: 2em;
     }
   </style>
-  <link rel="stylesheet" href="syllabus_files/libs/revealjs/dist/theme/quarto.css" id="theme">
-  <link href="syllabus_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="syllabus_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="syllabus_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="syllabus_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link rel="stylesheet" href="style.css">
+  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -337,259 +335,561 @@
     }
   </style>
 </head>
-<body class="quarto-light">
+<body class="quarto-dark">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">UT-Austin iSchool Syllabus<br>INF385T UX Prototyping<br>Spring 2023</h1>
+<section id="title-slide" class="center">
+  <h1 class="title">UCD and Agile</h1>
+  <p class="author">Mick McQuaid</p>
+  <p class="date">2022-07-10</p>
+</section>
 
-<div class="quarto-title-authors">
+<section>
+<section id="intro" class="title-slide slide level1 center">
+<h1>Intro</h1>
+<p>Most of this material comes from a NordiCHI conference workshop on UCD and Agile, documented in <span class="citation" data-cites="Cockton2016">Cockton et al. (<a href="#/ref-Cockton2016" role="doc-biblioref" onclick="return false;">2016</a>)</span>.</p>
+</section>
+<section id="what-is-ucd-user-centered-design" class="slide level2">
+<h2>What is UCD (User Centered Design)?</h2>
+<ul>
+<li>When did it start?</li>
+<li>What was the software environment in which it began?</li>
+<li>How has it developed?</li>
+<li>How can it be integrated with Agile development?</li>
+</ul>
+<aside class="notes">
+<p>First we’ll talk a little about UCD, then a little about Agile, then both. We can start by answering a few questions about UCD.</p>
+<p>(then read the slide)</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="some-facts-about-ucd" class="slide level2">
+<h2>Some facts about UCD</h2>
+<ul>
+<li>It started in the eighties, as a result of plummeting hardware costs, leading to the rise of casual users</li>
+<li>Software engineering at the time was concerned with the software artifact, not users, and waterfall processes dominated the landscape</li>
+<li>Its initial focus was usability, later defined by ISO 9241 as “the extent to which a product can be used by specified users to achieve specified goals with effectiveness, efficiency and satisfaction in a specified context of use”</li>
+<li>The above definition grew and developed over time</li>
+</ul>
+<aside class="notes">
+<p>(first read the slide)</p>
+<p>In the early days, efficiency dominated the discussion of users as computers were still a scarce resource. Efficiency receded in importance over time while effectiveness and later satisfaction came to the foreground. Satisfaction originally had to be linked to productivity to be justified, rather than being an end itself. Later that changed and context became more important.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="still-later-ucd-embraced-ux" class="slide level2">
+<h2>Still later, UCD embraced UX</h2>
+<ul>
+<li>UI ⇒ user interface, focused on the human-computer interaction</li>
+<li>UX ⇒ user experience, more broadly focused on the user’s world</li>
+</ul>
+<aside class="notes">
+<p>(first read the slide)</p>
+<p>We started with a pure focus on the <em>liminal state</em> between the human and computer, then later thought about <em>context</em>.</p>
+<p>Eventually, UCD took on the form we see today, a combination of UI and UX, which takes into account the context of use and overarching goals that may be served by the software.</p>
+<p>But first, we have to consider the road UCD took to get there.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="early-challenges-for-ucd" class="slide level2">
+<h2>Early Challenges for UCD</h2>
+<ul>
+<li>The phased approach of waterfall methods meant that UCD had to find a place in each phase (not easy)</li>
+<li>UCD fit better into an iterative approach than a phased approach</li>
+<li>UCD activities like Contextual Inquiry fit into the problem analysis phase</li>
+<li>UCD activities like user testing fit the verification phase</li>
+</ul>
+<aside class="notes">
+<p>(first read the slide)</p>
+<p>Other phases were harder and the whole arduous process was made more difficult by one of the hallmarks of waterfall: that there’s no going back from one phase to a previous phase. If you find out you’ve taken a wrong turn, that’s tough. This rigidity about phases allows for easier budgeting and accounting and makes waterfall appealing for expensive projects. Line for line of code, waterfall is always cheaper than iterative, although it is more likely to fail because of its rigidity.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="waterfall-phases" class="slide level2">
+<h2>Waterfall phases</h2>
+<ul>
+<li>problem analysis</li>
+<li>requirements specification</li>
+<li>design</li>
+<li>implementation</li>
+<li>verification</li>
+<li>operation</li>
+</ul>
+<aside class="notes">
+<p>(first read the slide)</p>
+<p>Different authors use different names and numbers of phases. In fact, we’ll see a slightly different picture in the next frame.</p>
+<p>On paper, this phased approach looks like a good idea. It breaks work up into manageable chunks. The fatal flaw is that everyone signs an agreement at the end of each phase, declaring that they are satisfied that that phase is complete. Hence, waterfall is commonly used when the administrative distance between parties is great. That distance can occur between departments, agencies, or companies. The farther up the food chain you have to travel to resolve disputes, the greater the administrative distance.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-waterfall-picture" class="slide level2">
+<h2>A waterfall picture</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="fiWaterfall.png"></p>
+<p></p><figcaption>waterfall phases and products</figcaption><p></p>
+</figure>
 </div>
-
-  <p class="date">1/12/23</p>
+<aside class="notes">
+<p>This picture emphasizes the no-going-back aspect of each phase and shows the product of each phase, which must be approved by all parties before moving on.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="description" class="title-slide slide level1 center">
-<h1>Description</h1>
-<p>This course covers the prototyping aspect of the iterative design cycle, which also includes a design aspect and an evaluation aspect. Prototyping includes both lofi and hifi prototypes, distinguished from each other by both their purpose and form. The lofi prototype proposes design ideas to be questioned, while the hifi prototype proposes design answers to those questions. Students will produce both types of prototypes using both pencil and paper, as well as contemporary software tools. To the extent that it supports prototyping, students will also engage in the design and evaluation aspects of the iterative design cycle.</p>
+<section id="iterative-software-development" class="slide level2">
+<h2>Iterative software development</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="fiIterativeSWdevel.png"></p>
+<p></p><figcaption>Iterative software development is a three-part circle</figcaption><p></p>
+</figure>
+</div>
+<aside class="notes">
+<p>Another approach, and the dominant one for small to medium projects, is the iterative approach. Different authors use different names and numbers of nodes in the circle, but they all feature a circle and an emphasis on getting everyone on the same page, often through joint activities. The small boxes list some of the activities.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-
-<section>
-<section id="details" class="title-slide slide level1 center">
-<h1>Details</h1>
-<p>Important note: The information presented in this syllabus is subject to expansion, contraction, change, or stasis during the semester. In case of conflict between versions, the copy on Canvas takes precedence.</p>
-</section>
-<section id="course-number" class="slide level2">
-<h2>Course Number</h2>
-<p>28460</p>
-</section>
-<section id="prerequisites" class="slide level2">
-<h2>Prerequisites</h2>
-<p>graduate standing</p>
-</section>
-<section id="time" class="slide level2">
-<h2>Time</h2>
-<p>W 1500–1800</p>
-</section>
-<section id="place" class="slide level2">
-<h2>Place</h2>
-<p>UTA-1.208</p>
-</section>
-<section id="dates" class="slide level2">
-<h2>Dates</h2>
-<p>09 JAN 2023–24 APR 2023</p>
-</section>
-<section id="final-exam" class="slide level2">
-<h2>Final Exam</h2>
-<p>Take-home reflection, due date to be announced</p>
-</section>
-<section id="instructor" class="slide level2">
-<h2>Instructor</h2>
-<p>Mick McQuaid</p>
-</section>
-<section id="email" class="slide level2">
-<h2>Email</h2>
-<p><code>mcq@utexas.edu</code></p>
-</section>
-<section id="office" class="slide level2">
-<h2>Office</h2>
-<p>1616 Guadalupe St, Room 5.402</p>
-</section>
-<section id="office-hours" class="slide level2">
-<h2>Office Hours</h2>
-<p>TUE 1430–1630, WED 1300–1500 or by appointment</p>
-</section></section>
-<section id="materials" class="title-slide slide level1 center">
-<h1>Materials</h1>
-<p>No single textbook will suffice for such a rapidly changing subject. Instead, many sources must be consulted with the guidance of the instructor. These include <span class="citation" data-cites="Baker2017">Baker (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, <span class="citation" data-cites="Buxton2007">Buxton (<a href="#/references" role="doc-biblioref" onclick="">2007</a>)</span>, <span class="citation" data-cites="Cockton2016">Cockton et al. (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span>, <span class="citation" data-cites="Cooper2014">Cooper et al. (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>, <span class="citation" data-cites="Goodman2012">Goodman, Kuniavsky, and Moed (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span>, <span class="citation" data-cites="Holtzblatt2005">Holtzblatt, Wendell, and Wood (<a href="#/references" role="doc-biblioref" onclick="">2005</a>)</span>, <span class="citation" data-cites="Holtzblatt2016">Holtzblatt and Beyer (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span>, <span class="citation" data-cites="Lazar2017">Lazar, Feng, and Hochheiser (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, <span class="citation" data-cites="Matsudaira2019">Matsudaira (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, <span class="citation" data-cites="Patton2014a">Patton (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>, <span class="citation" data-cites="Rubin2008">Rubin and Chisnell (<a href="#/references" role="doc-biblioref" onclick="">2008</a>)</span>, <span class="citation" data-cites="Shneiderman2017">Shneiderman (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, <span class="citation" data-cites="Spiekermann2014">Spiekermann (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>, and <span class="citation" data-cites="Wixon2003">Wixon (<a href="#/references" role="doc-biblioref" onclick="">2003</a>)</span>. Students will need to make extensive use of Google and Wikipedia, as well as popular design websites such as A List Apart, Behance, and dribbble, in addition to readings provided on Canvas.</p>
-</section>
-
-<section id="learning-outcomes" class="title-slide slide level1 center">
-<h1>Learning Outcomes</h1>
-<p>The student successfully completing this class will:</p>
+<section id="iterative-software-development-1" class="slide level2">
+<h2>Iterative software development</h2>
 <ul>
-<li>learn multiple techniques for creating lofi and hifi prototypes using pencil and paper and contemporary software tools</li>
-<li>have experience implementing multiple lofi prototypes as individuals</li>
-<li>have experience implementing multiple hifi prototypes as a group</li>
-<li>be able to articulately describe and evaluate tools and techniques for creating lofi and hifi prototypes</li>
+<li>It is less risky, but more expensive, to iterate</li>
+<li>The iterative process is design, build, test, over and over</li>
+<li>Why is it less risky?</li>
+<li>Why is it more expensive?</li>
+</ul>
+<aside class="notes">
+<p>(read the slide first)</p>
+<p>It’s less risky because client and provider have more chances to be on the same page. It’s more expensive because there’s a lot of intermediate work that just gets thrown away: intermediate prototypes and demos that help get everyone on the same page but can’t be used in the actual software product.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="ucd-today" class="slide level2">
+<h2>UCD Today</h2>
+<ul>
+<li>A major approach to UCD is goal-directed design</li>
+<li>It’s exemplified by <span class="citation" data-cites="Cooper2014">Cooper et al. (<a href="#/ref-Cooper2014" role="doc-biblioref" onclick="return false;">2014</a>)</span></li>
+<li>It’s covered in I320U Information and Interaction Design</li>
+</ul>
+</section></section>
+<section>
+<section id="enter-agile" class="title-slide slide level1 center">
+<h1>Enter Agile</h1>
+
+</section>
+<section id="what-is-agile" class="slide level2">
+<h2>What is Agile?</h2>
+<ul>
+<li>First and foremost, it is a manifesto, posted in 2001, featuring twelve principles</li>
+<li>Everybody and his brother loved the manifesto</li>
+<li>Pretty soon, everybody and his brother started saying they were Agile</li>
+<li>Agile started to lose meaning</li>
+<li>Let’s try to capture some of that meaning</li>
+</ul>
+<aside class="notes">
+<p>(read the slide first)</p>
+<p>Let’s review the Agile Manifesto to see why it was so attractive to so many people, then talk a bit about measuring Agile development.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="agile-software-development-principles-1" class="slide level2">
+<h2>Agile software development principles (1)</h2>
+<ol type="1">
+<li>Customer satisfaction by early and continuous delivery of valuable software.</li>
+<li>Welcome changing requirements, even in late development.</li>
+<li>Deliver working software frequently (weeks rather than months)</li>
+<li>Close, daily cooperation between business people and developers</li>
+</ol>
+<aside class="notes">
+<p>The Agile Manifesto listed twelve principles, of which these are the first four. Let’s read them.</p>
+<p>(read the slide)</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="agile-software-development-principles-2" class="slide level2">
+<h2>Agile software development principles (2)</h2>
+<ol start="5" type="1">
+<li>Projects are built around motivated individuals, who should be trusted</li>
+<li>Face-to-face conversation is the best form of communication (co-location)</li>
+<li>Working software is the primary measure of progress</li>
+<li>Sustainable development, able to maintain a constant pace</li>
+</ol>
+<aside class="notes">
+<p>(first read the slide)</p>
+<p>The items on this list are intuitively appealing to a lot of people despite little empirical evidence for their value. For example, managers often micromanage because they don’t understand what developers are doing. They require time-consuming reports of little real value in lieu of understanding. Principle 5 seems like a sensible reaction to this phenomenon.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="agile-software-development-principles-3" class="slide level2">
+<h2>Agile software development principles (3)</h2>
+<ol start="9" type="1">
+<li>Continuous attention to technical excellence and good design</li>
+<li>Simplicity—the art of maximizing the amount of work not done—is essential</li>
+<li>Best architectures, requirements, and designs emerge from self-organizing teams</li>
+<li>Regularly, the team reflects on how to become more effective, and adjusts accordingly</li>
+</ol>
+<aside class="notes">
+<p>(read the slide first)</p>
+<p>Again, these principles react to overly rigid top-down management of the development process by managers unfamiliar with that process. It sounds good, albeit very expensive. It sounds like it reduces risk.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="what-agile-looks-like" class="slide level2">
+<h2>What agile looks like</h2>
+<p>Collaboration between</p>
+<ul>
+<li>Cross-functional teams</li>
+<li>Self-organizing teams</li>
+<li>Users / Stakeholders on the team</li>
+</ul>
+<p>Focus on</p>
+<ul>
+<li>flexibility</li>
+<li>early delivery</li>
+<li>continuous improvement</li>
 </ul>
 </section>
-
-<section id="class-format" class="title-slide slide level1 center">
-<h1>Class Format</h1>
-<p>This is a hands-on, project focused course, so attendance and participation in class are critical to individual success in this course and to the success of the course. You need to come to class prepared to participate in small group and full class discussions and project work, to complete all required readings prior to class, and to submit assignments on time.</p>
+<section id="further-reading-on-agile" class="slide level2">
+<h2>Further reading on Agile</h2>
+<p>Vastly many agile processes and practices are documented on Wikipedia’s <em>Agile Software Development</em> page, including the following diagram of one attempt to merge the best parts of agile and waterfall.</p>
 </section>
+<section class="slide level2">
 
-<section id="schedule" class="title-slide slide level1 center">
-<h1>Schedule</h1>
-<p><span class="weekn">Week 1 (11 Jan)</span> Design Thinking Exercise — Introductions — Syllabus — Canvas — Design Principles — Milestone 1 (accessible prototype) assigned</p>
-<p><span class="weekn">Week 2 (18 Jan)</span> Accessibility — Sketches 1, due Friday at midnight</p>
-<p><span class="weekn">Week 3 (25 Jan)</span> Mood boards — Design Inspiration — Sketching — Crazy Eights — Milestone 1 (accessibility) due on Monday at 9PM — Milestone 2 (using inspiration) assigned</p>
-<p><span class="weekn">Week 4 (1 Feb)</span> Story Mapping — <span class="citation" data-cites="Patton2014a">Patton (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span> — Scenarios — Sketches 2, due Friday at midnight</p>
-<p><span class="weekn">Week 5 (8 Feb)</span> How Might We (HMW) statements — Ideation — Diverging &amp; Converging — Prototyping Levels — System diagramming — <span class="citation" data-cites="Becker2020">Becker (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span> (Ch 7) — Prototyping definitions — <span class="citation" data-cites="Buxton2007">Buxton (<a href="#/references" role="doc-biblioref" onclick="">2007</a>)</span> — Individual course project assigned — Milestone 2 (using inspiration) due on Monday at 9PM — Milestone 3 (using story mapping) assigned</p>
-<p><span class="weekn">Week 6 (15 Feb)</span> Prototyping elements — Color — Typography — Layout — Animation — Sketches 3, due Friday at midnight</p>
-<p><span class="weekn">Week 7 (22 Feb)</span> Agile Development — Milestone 3 (using story mapping) due on Monday at 9PM — Milestone 4 (aesthetics) assigned</p>
-<p><span class="weekn">Week 8 (1 Mar)</span> Working with clients — <span class="citation" data-cites="Greever2020">Greever (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span> — Sketches 4, due Friday at midnight</p>
-<p><span class="weekn">Week 9 (8 Mar)</span> Micro interactions — Bad UX and UX writing— Milestone 4 (aesthetics) due on Monday at 9PM — Milestone 5 (microinteractions) assigned</p>
-<p><span class="weekn">Week 10 (15 Mar)</span> Spring Break</p>
-<p><span class="weekn">Week 11 (22 Mar)</span> Formative &amp; Summative Testing — Sketches 5, due Friday at midnight</p>
-<p><span class="weekn">Week 12 (29 Mar)</span> Heuristic Evaluation — Affinity Mapping — Team work — Milestone 5 (microinteractions) due on Monday at 9PM — Milestone 6 (testing) assigned</p>
-<p><span class="weekn">Week 13 (5 Apr)</span> User Testing dot Com — Fuel Cycle — Empty States — Sketches 6, due Friday at midnight</p>
-<p><span class="weekn">Week 14 (12 Apr)</span> Leading a prototyping workshop — <span class="citation" data-cites="Stackowiak2020">Robert Stackowiak (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span> Chapter 2 — Milestone 6 (testing) due on Monday at 9PM Milestone 7 (improvements from tests) assigned</p>
-<p><span class="weekn">Week 15 (19 Apr)</span> Summary / Presentations / Feedback</p>
-<p><span class="weekn">Week 16 (26 Apr)</span> Finals week — Milestone 7 (improvements from tests) due on Monday at 9PM — Final exam “Reflections” due on official exam date (to be announced)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="fiUnifiedProcessModel.png"></p>
+<p></p><figcaption>Unified Process Model</figcaption><p></p>
+</figure>
+</div>
+<aside class="notes">
+<p>Diagram found at <a href="https://commons.wikimedia.org/wiki/File:Unified_Process_Model_for_Iterative_Development.svg">https://commons.wikimedia.org/wiki/File:Unified_Process_Model_for_Iterative_Development.svg</a></p>
+<p>The key issues in my mind are whether the people in charge can say “It’s too early to test” or “It’s too late to change”. If they can say those things, the process is too waterfally. Can a process be too agiley? The Wikipedia article gives a long list of Agile pitfalls.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section id="major-concerns-with-agile" class="title-slide slide level1 center">
+<h1>Major Concerns with Agile</h1>
+<ul>
+<li>Cultures</li>
+<li>Teams</li>
+<li>Tasks</li>
+<li>Work per iteration</li>
+</ul>
+<aside class="notes">
+<p>(read the slide first)</p>
+<p>Culture can be a problem since agile is inimical to traditional top-down management.</p>
+<p>Teams are often not trained and team roles are not properly specified. Teams may have trouble focusing on the project given other work.</p>
+<p>Tasks are often assigned by people who are removed or tasks are assigned too early in the process.</p>
+<p>Taking on too much per iteration builds up too much work in progress.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 
 <section>
-<section id="grading" class="title-slide slide level1 center">
-<h1>Grading</h1>
-<p>I plan to grade assignments within two weeks of their due date except where circumstances interfere. The grading scale used along with the grade components follow.</p>
+<section id="agile-ucd" class="title-slide slide level1 center">
+<h1>Agile + UCD</h1>
+
+</section>
+<section id="compatibility" class="slide level2">
+<h2>Compatibility</h2>
 <ul>
-<li>A &gt;= 94.0%</li>
-<li>A- &gt;= 90.0% &amp; &lt; 94%</li>
-<li>B+ &gt;= 87.0% &amp; &lt; 90%</li>
-<li>B &gt;= 83.0% &amp; &lt; 87%</li>
-<li>B- &gt;= 80.0% &amp; &lt; 83%</li>
-<li>C+ &gt;= 77.0% &amp; &lt; 80.0%</li>
-<li>C &gt;= 73.0% &amp; &lt; 77.0%</li>
-<li>C- &gt;= 70.0% &amp; &lt; 73.0%</li>
-<li>D &gt;= 60.0% &amp; &lt; 70.0%</li>
-<li>F &lt; 60.0%</li>
+<li>evolving requirements</li>
+<li>incremental development</li>
+<li>close collaboration with customer reps</li>
+</ul>
+<aside class="notes">
+<p>(read the slide first)</p>
+<p>These characteristics of Agile are compatible with UCD.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="incompatibility" class="slide level2">
+<h2>Incompatibility</h2>
+<ul>
+<li>reduced opportunities for user testing</li>
+<li>less upfront planning before software implementation</li>
+</ul>
+<aside class="notes">
+<p>(read the slide first)</p>
+<p>These characteristics of Agile are <em>not</em> compatible with UCD.</p>
+<p>On the other hand, Agile means different things to different people, so not all approaches that call themselves Agile face all the same problems. Here we’ll stick with the NordiCHI findings, which are mainstream but not completely pervasive.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="best-practices-from-nordichi" class="title-slide slide level1 center">
+<h1>Best practices from NordiCHI</h1>
+
+</section>
+<section id="four-themes" class="slide level2">
+<h2>Four themes</h2>
+<p>The following slides review the four themes that coalesced at the NordiCHI workshop:</p>
+<ol type="1">
+<li>Culture</li>
+<li>Teams</li>
+<li>Tasks</li>
+<li>Research</li>
+</ol>
+</section>
+<section id="cultural-differences" class="slide level2">
+<h2>Cultural differences</h2>
+<ul>
+<li>What constitutes a valid problem and what can be ignored</li>
+<li>What resources are provided and how allocated</li>
+<li>Adequacy and excellence in design work</li>
 </ul>
 </section>
-<section id="milestones-35" class="slide level2">
-<h2>Milestones (35%)</h2>
-<p>You will complete seven milestones as a group of five.</p>
-<p>Details are in the <code>hwInstructions.html</code> document.</p>
+<section id="agile-and-ucd-values-first-agile" class="slide level2">
+<h2>Agile and UCD Values, first Agile</h2>
+<ul>
+<li>Self-empowered independent autonomous teams</li>
+<li>working software that customers accept</li>
+<li>customer collaboration</li>
+<li>rapid reaction to feedback</li>
+<li>velocity</li>
+<li>visibility, awareness, accountability</li>
+<li>productivity without interruption</li>
+<li>clear roles, short term goals (not vague and fuzzy)</li>
+<li>low waste</li>
+<li>being fashionable</li>
+</ul>
 </section>
-<section id="sketches-lofi-prototypes-30" class="slide level2">
-<h2>Sketches (Lofi Prototypes) (30%)</h2>
-<p>You will keep a 5×8 inch (approximately) sketchbook throughout the semester. This may be a Moleskine Cahier or similarly sized sketchbook. The size is important.</p>
-<p>You will submit pictures of sketches from that sketchbook, a total of 18 sketches in six groups of three.</p>
-<p>Details are in the <code>hwInstructions.html</code> document.</p>
+<section id="agile-and-ucd-values-next-ucd" class="slide level2">
+<h2>Agile and UCD Values, next UCD</h2>
+<ul>
+<li>iterative processes and tools to support planning of comprehensive user-focused research and objective empirical evaluation</li>
+<li>well documented evidence and data analysis</li>
+<li>understanding users before software development</li>
+<li>coherent, holistic picture of what will be developed</li>
+<li>superior expert knowledge of HCI</li>
+<li>attention to detail</li>
+<li>satisfied users</li>
+</ul>
 </section>
-<section id="final-exam---reflection-25" class="slide level2">
-<h2>Final Exam - Reflection (25%)</h2>
-<p>The final exam will be a take-home reflection document.</p>
-<p>Details are in the <code>hwInstructions.html</code> document.</p>
+<section id="recall-the-values-from-the-manifesto" class="slide level2">
+<h2>Recall the values from the Manifesto</h2>
+<ol type="1">
+<li>Individuals and interactions over processes and tools</li>
+<li>Working software over comprehensive documentation</li>
+<li>Customer collaboration over contract negotiation</li>
+<li>Responding to change over following a plan</li>
+</ol>
 </section>
-<section id="peer-review-10" class="slide level2">
-<h2>Peer Review (10%)</h2>
-<p>Each group member will rate their peers on a scale of 0-10. Your peers’ scores for you will be averaged and entered on the grade sheet as a numerical score.</p>
+<section id="note-the-nature-of-the-four-preceding-pairs" class="slide level2">
+<h2>Note the nature of the four preceding pairs</h2>
+<ul>
+<li>They are matters of degree</li>
+<li>You should favor the left side, but how much?</li>
+<li>Crudest solution would be to make the LHS simple rules, as follows</li>
+</ul>
+<!-- ## Crude rules that [could]{style="color:#cc0000"} follow from the four pairs -->
 </section>
-<section id="attendance" class="slide level2">
-<h2>Attendance</h2>
-<p>I will take attendance every day and your final grade for the class will be dropped one-half letter grade if you are only present for 70 to 80 percent of classes. It will be dropped a full letter grade if you are only present for 60 to 70 percent of classes. If you are present less than 60 percent of the classes, your final grade will be dropped by two letter grades and it will be difficult for you to achieve a passing grade so, in that case, you should drop the class.</p>
-<p>If you have a legitimate need for absence, such as illness or job interview, notify the instructor by email as soon as possible and you may receive an excused absence.</p>
+<section id="crude-rules-that-could-follow-from-the-four-pairs" class="slide level2">
+<h2>Crude rules that <span class="emph">could</span> follow from the four pairs</h2>
+<ol type="1">
+<li>Just have individuals and interactions: no need for processes and tools</li>
+<li>Just make working software and no documentation</li>
+<li>Just collaborate: no need for a contract</li>
+<li>Just keep responding to change with no plan</li>
+</ol>
+</section>
+<section id="good-news-about-culture" class="slide level2">
+<h2>Good news about culture</h2>
+<ul>
+<li>Only half the Agile Manifesto rules <em>could</em> block UCD</li>
+<li>Compromises are possible, even with those</li>
+<li>Other values, such as safety and security and inclusiveness, are important and outside the possible Agile / UCD tension</li>
+</ul>
+</section>
+<section id="culture-and-methodology" class="slide level2">
+<h2>Culture and methodology</h2>
 </section></section>
 <section>
-<section id="policies" class="title-slide slide level1 center">
-<h1>POLICIES</h1>
-
-</section>
-<section id="accessible-inclusive-and-compliant-statement" class="slide level2">
-<h2>Accessible, Inclusive, and Compliant Statement</h2>
-<p>The university is committed to creating an accessible and inclusive learning environment consistent with university policy and federal and state law. Please let me know if you experience any barriers to learning so I can work with you to ensure you have equal opportunity to participate fully in this course. If you are a student with a disability, or think you may have a disability, and need accommodations please contact Disability and Access (D&amp;A). Please refer to D&amp;A’s website for contact and more information: <a href="http://diversity.utexas.edu/disability/">http://diversity.utexas.edu/disability/</a>. If you are already registered with D&amp;A , please deliver your Accommodation Letter to me as early as possible in the semester so we can discuss your approved accommodations and needs in this course.</p>
-</section>
-<section id="policy-on-academic-integrity" class="slide level2">
-<h2>Policy on Academic Integrity</h2>
-<p>Students who violate University rules on academic misconduct are subject to the student conduct process and potential disciplinary action. A student found responsible for academic misconduct may be assigned both a status sanction and a grade impact for the course. The grade impact could range from a zero on the assignment in question up to a failing grade in the course. A status sanction can range from probation, deferred suspension and/or dismissal from the University. To learn more about academic integrity standards, tips for avoiding a potential academic misconduct violation, and the overall conduct process, please visit the Student Conduct and Academic Integrity website at: <a href="http://deanofstudents.utexas.edu/conduct">http://deanofstudents.utexas.edu/conduct</a>.</p>
-</section>
-<section id="class-recordings" class="slide level2">
-<h2>Class Recordings</h2>
-<p>Class recordings are reserved only for students in this class for educational purposes and are protected under FERPA. The recordings should not be shared outside the class in any form. Violation of this restriction by a student could lead to Student Misconduct proceedings.</p>
-</section>
-<section id="personal-pronouns" class="slide level2">
-<h2>Personal Pronouns</h2>
-<p>Professional courtesy and sensitivity are especially important with respect to individuals and topics dealing with differences of race, culture, religion, politics, sexual orientation, gender identity &amp; expression, and nationalities. Class rosters are provided to the instructor with the student’s legal name, unless they have added a “chosen name” with the registrar’s office, which you can do so here: <a href="https://utdirect.utexas.edu/apps/ais/chosen_name/">https://utdirect.utexas.edu/apps/ais/chosen_name/</a>. I will gladly honor your request to address you by a name that is different from what appears on the official roster, and by the pronouns you use (she/he/they/ze, etc). Please advise me of any changes early in the semester so that I may make appropriate updates to my records. For instructions on how to add your pronouns to Canvas, visit <a href="https://utexas.instructure.com/courses/633028/pages/profile-pronouns">https://utexas.instructure.com/courses/633028/pages/profile-pronouns</a>. More resources available on the Gender and Sexuality Center’s website, <a href="https://www.utgsc.org">https://www.utgsc.org</a>.</p>
-</section>
-<section id="basic-needs-security" class="slide level2">
-<h2>Basic Needs Security</h2>
-<p>Any student who faces challenges securing their food or housing and believes this may affect their performance in the course is urged to contact the Dean of Students for support. UT maintains the UT Outpost (<a href="https://deanofstudents.utexas.edu/emergency/utoutpost.php">https://deanofstudents.utexas.edu/emergency/utoutpost.php</a>) which is a free on-campus food pantry and career closet. Furthermore, please notify the professor if you are comfortable in doing so. This will enable him to provide any resources that he may possess.</p>
-</section>
-<section id="mental-health-information" class="slide level2">
-<h2>Mental Health Information</h2>
-<p>I urge students who are struggling for any reason and who believe that it might impact their performance in the course to reach out to me if they feel comfortable. This will allow me to provide any resources or accommodations that I can. If immediate mental health assistance is needed, call the Counseling and Mental Health Center (CMHC) at 512-471-3515 or you may also contact Bryce Moffett, LCSW (iSchool CARE counselor) at 512-232-2983. Outside CMHC business hours (8am-5pm, Monday-Friday), contact the CMHC 24/7 Crisis Line at 512-471-2255.</p>
-</section></section>
 <section id="references" class="title-slide slide level1 smaller scrollable">
 <h1>References</h1>
-<!--
-vim:filetype=pandoc
--->
-<div class="footer footer-default">
-
-</div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-Baker2017" class="csl-entry" role="doc-biblioentry">
-Baker, Rebecca. 2017. <em>Agile UX Storytelling: Crafting Stories for Better Software Development</em>. New York, NY: Apress. <a href="https://doi.org/10.1007/978-1-4842-2997-2">https://doi.org/10.1007/978-1-4842-2997-2</a>.
-</div>
-<div id="ref-Becker2020" class="csl-entry" role="doc-biblioentry">
-Becker, Christopher Reid. 2020. <em>Learn Human-Computer Interaction: Solve Human Problems and Focus on Rapid Prototyping and Validating Solutions Through User Testing</em>. Packt Publishing.
-</div>
-<div id="ref-Buxton2007" class="csl-entry" role="doc-biblioentry">
-Buxton, Bill. 2007. <em>Sketching User Experiences: Getting the Design Right and the Right Design</em>. San Francisco: Morgan Kaufman.
-</div>
 <div id="ref-Cockton2016" class="csl-entry" role="doc-biblioentry">
 Cockton, Gilbert, Marta Lárusdóttir, Peggy Gregory, and Åsa Cajander. 2016. <em>Integrating User-Centred Design in Agile Development</em>. Cham, Switzerland: Springer.
 </div>
 <div id="ref-Cooper2014" class="csl-entry" role="doc-biblioentry">
 Cooper, Alan, Robert Reimann, David Cronin, and Christopher Noessel. 2014. <em>About Face 4.0: The Essentials of Interaction Design</em>. Indianapolis, IN: Wiley.
 </div>
-<div id="ref-Goodman2012" class="csl-entry" role="doc-biblioentry">
-Goodman, Elizabeth, Mike Kuniavsky, and Andrea Moed. 2012. <em>Observing the User Experience: A Practitioner’s Guide to User Research</em>. Waltham, MA: Morgan Kaufman.
 </div>
-<div id="ref-Greever2020" class="csl-entry" role="doc-biblioentry">
-Greever, Tom. 2020. <em>Articulating Design Decisions: Communicate with Stakeholders, Keep Your Sanity, and Deliver the Best User Experience</em>. 2nd ed. O’Reilly Media.
+</section>
+<section class="slide level2">
+
+<div class="r-fit-text">
+<p>END</p>
 </div>
-<div id="ref-Holtzblatt2016" class="csl-entry" role="doc-biblioentry">
-Holtzblatt, Karen, and Hugh Beyer. 2016. <em>Contextual Design, Second Edition: Design for Life</em>. San Francisco, CA: Morgan Kaufmann.
-</div>
-<div id="ref-Holtzblatt2005" class="csl-entry" role="doc-biblioentry">
-Holtzblatt, Karen, Jessamyn Burns Wendell, and Shelley Wood. 2005. <em>Rapid Contextual Design: A How-to Guide to Key Techniques for User-Centered Design</em>. San Francisco, CA: Morgan Kaufmann.
-</div>
-<div id="ref-Lazar2017" class="csl-entry" role="doc-biblioentry">
-Lazar, Jonathan, Jinjuan Heidi Feng, and Harry Hochheiser. 2017. <em>Research Methods in Human-Computer Interaction, 2nd Ed.</em> West Sussex, UK: Wiley.
-</div>
-<div id="ref-Matsudaira2019" class="csl-entry" role="doc-biblioentry">
-Matsudaira, Kate. 2019. <span>“Design Patterns for Managing Up.”</span> <em>Commun. ACM</em> 62 (3): 43–45. <a href="https://doi.org/10.1145/3303878">https://doi.org/10.1145/3303878</a>.
-</div>
-<div id="ref-Patton2014a" class="csl-entry" role="doc-biblioentry">
-Patton, Jeff. 2014. <em>User Story Mapping</em>. Sebastopol, CA: O’Reilly Media.
-</div>
-<div id="ref-Stackowiak2020" class="csl-entry" role="doc-biblioentry">
-Robert Stackowiak, Tracey Kelly. 2020. <em>Design Thinking in Software and AI Projects: Proving Ideas Through Rapid Prototyping</em>. Apress. <a href="https://doi.org/10.1007/978-1-4842-6153-8">https://doi.org/10.1007/978-1-4842-6153-8</a>.
-</div>
-<div id="ref-Rubin2008" class="csl-entry" role="doc-biblioentry">
-Rubin, Jeffrey, and Dana Chisnell. 2008. <em>Handbook of Usability Testing: How to Plan, Design, and Conduct Effective Tests</em>. Wiley.
-</div>
-<div id="ref-Shneiderman2017" class="csl-entry" role="doc-biblioentry">
-Shneiderman, Ben. 2017. <span>“Revisiting the Astonishing Growth of Human–Computer Interaction Research.”</span> <em>Computer</em>, no. 10: 8–11.
-</div>
-<div id="ref-Spiekermann2014" class="csl-entry" role="doc-biblioentry">
-Spiekermann, Erik. 2014. <em>Stop Stealing Sheep, 3rd Edition</em>. San Jose, CA: Adobe Press.
-</div>
-<div id="ref-Wixon2003" class="csl-entry" role="doc-biblioentry">
-Wixon, Dennis. 2003. <span>“Evaluating Usability Methods: Why the Current Literature Fails the Practitioner.”</span> <em>Interactions</em> 10 (4): 28–34. <a href="https://doi.org/10.1145/838830.838870">https://doi.org/10.1145/838830.838870</a>.
-</div>
+</section></section>
+<section id="colophon" class="title-slide slide level1 center">
+<h1>Colophon</h1>
+<p>This slideshow was produced using <code>quarto</code></p>
+<p>Fonts are <em>League Gothic</em> and <em>Lato</em></p>
+<div class="footer footer-default">
+
 </div>
 </section>
     </div>
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="syllabus_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="syllabus_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="syllabus_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="syllabus_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="syllabus_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="syllabus_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="syllabus_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="syllabus_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="syllabus_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="syllabus_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -597,8 +897,8 @@ Wixon, Dennis. 2003. <span>“Evaluating Usability Methods: Why the Current Lite
       // Full list of configuration options available at:
       // https://revealjs.com/config/
       Reveal.initialize({
-'controlsAuto': true,
-'previewLinksAuto': false,
+'controlsAuto': false,
+'previewLinksAuto': true,
 'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
@@ -608,14 +908,14 @@ Wixon, Dennis. 2003. <span>“Evaluating Usability Methods: Why the Current Lite
 'smaller': false,
  
         // Display controls in the bottom right corner
-        controls: false,
+        controls: true,
 
         // Help the user learn the controls by providing hints, for example by
         // bouncing the down arrow when they first encounter a vertical slide
         controlsTutorial: false,
 
         // Determines where controls appear, "edges" or "bottom-right"
-        controlsLayout: 'edges',
+        controlsLayout: 'bottom-right',
 
         // Visibility rule for backwards navigation arrows; "faded", "hidden"
         // or "visible"
@@ -730,14 +1030,14 @@ Wixon, Dennis. 2003. <span>“Evaluating Usability Methods: Why the Current Lite
         previewLinks: false,
 
         // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'none',
+        transition: 'slide',
 
         // Transition speed (default/fast/slow)
         transitionSpeed: 'default',
 
         // Transition style for full page slide backgrounds
         // (none/fade/slide/convex/concave/zoom)
-        backgroundTransition: 'none',
+        backgroundTransition: 'fade',
 
         // Number of slides away from the current that are visible
         viewDistance: 3,
@@ -784,44 +1084,6 @@ Wixon, Dennis. 2003. <span>“Evaluating Usability Methods: Why the Current Lite
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
@@ -860,24 +1122,7 @@ Wixon, Dennis. 2003. <span>“Evaluating Usability Methods: Why the Current Lite
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
         button.setAttribute("title", "Copied!");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
         setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
-          }
           button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
@@ -907,50 +1152,31 @@ Wixon, Dennis. 2003. <span>“Evaluating Usability Methods: Why the Current Lite
       for (var i=0; i<noterefs.length; i++) {
         const ref = noterefs[i];
         tippyHover(ref, function() {
-          // use id or data attribute instead here
-          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          let href = ref.getAttribute('href');
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
           return note.innerHTML;
         });
       }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
-          }
-        } else {
-          return undefined;
-        }
-      };
       var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
       for (var i=0; i<bibliorefs.length; i++) {
         const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
-              }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
+        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+        tippyHover(ref, function() {
+          var popup = window.document.createElement('div');
+          cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
           });
-        }
+          return popup.innerHTML;
+        });
       }
     });
     </script>
