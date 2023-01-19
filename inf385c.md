@@ -13,3 +13,5 @@ icon: fa-edit
 
 [01intro](/hci/01intro/index.html) gives a brief introduction to the course.
 
+[02perception](/hci/02perception/index.html) discusses perception and some cognition.
+

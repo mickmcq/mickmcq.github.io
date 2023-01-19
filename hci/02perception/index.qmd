@@ -1,0 +1,259 @@
+---
+title: "Human Computer Interaction:<br>Perception"
+author: Mick McQuaid
+date: 2023-01-19
+bibliography: master.bib
+format:
+  revealjs:
+    logo: iSchoolLogo.png
+    theme: moon
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+::: {.r-fit-text}
+Week TWO
+:::
+
+# Today
+
+- Q and A from last time
+- Feedback from TA
+- In class presentations
+- Groups
+- Perception
+- Readings
+- Framer tutorial
+
+# Q and A from last time
+
+## Other methods
+Q: I'm curious to see if we'll learn about methods (not waterfall and agile) that are more effective for designers.
+
+A: My view is that the iterative model (design, prototype, evaluate) is the most effective for designers. That's the main method I like to teach because of its effectiveness. I also like to teach contextual design, which is (again in my opinion) the most effective toolset for designers.
+
+## Mental models
+Q: "I have questions about mental models. Are they created naturally or do we create them with how we design technology? I know we will be going over psychology next, which may answer my question. 
+
+A: There are several definitions of the term *mental model*. The most prevalent definition holds that they are created naturally but can be influenced. A related term, *conceptual model* is used by Don Norman to illustrate how we can influence them in a positive way.
+
+## Accessibility and Ethnography
+Q: I would like to know more about accessibility guidelines and ethnographic research in the context of user research and design.
+
+A: I have a series of accessibility slides on my website at
+
+[https://mickmcquaid.com/accessibilitySlides.html](https://mickmcquaid.com/accessibilitySlides.html)
+
+You can look at those for an intro. If you look at the syllabus, you'll see we don't explicitly address accessibility or ethnographic research! I consider those important areas and will lobby Jacek to make them standard in a future semester.
+
+## More on ethnography
+Ethnographic research is not used a lot in user research except in exotic fields like software intended to be used by physicians. For another class, I have some Youtube videos on ethnographic research because it is important in academic research on users (as opposed to industrial research). Those videos are at
+
+- [Content Analysis](https://youtu.be/vntuKCTqRZg)
+- [Grounded Theory](https://youtu.be/D1BYdOKf_GA)
+- [Thick Description](https://youtu.be/Owuwc1pCMNM)
+
+They are not up to date with my thinking because I made them three years ago, but they will get you started.
+
+## Waterfall problem
+Q: Even when there are valid proofs out there where the waterfall model is not an effective model, why are companies even today which are considered giants still follow the same model? 
+
+A: Money! Accountants rule many companies!
+
+## AI
+Q: How is HCI affected by AI? 
+
+A: Big question! It's being affected in very many ways. I can hardly go to a talk on HCI without hearing ChatGPT being mentioned, for instance. I urge you to follow Hacker News discussions on AI, particularly large language models and image recognition, to begin to appreciate what's going on right now that affects HCI. It really deserves its own course.
+
+## Future trends
+Q: We discussed in class today that a lot of companies in the industry today follow set rules/ guidelines when it comes to information architecture design and user interface design. My question is how can we, as HCI masters students push this envelope forward and innovate on these fronts? Or will the future of these areas of HCI continue to follow set industry trends?
+
+A: You are the future! You will make the industry trends! You may not realize it yet, but recruiters and people hiring you for the first time are looking to you for the latest trends and freshest ideas. I can't emphasize enough the importance of new blood to industry.
+
+## Unclear question
+Q: How being a new to this HCI can I cope up with the preset and foundation clear in UX?
+
+A: I don't understand this question. Can you rephrase it at the end of today's class (or even during class)?
+
+## Best practices
+Q: What are the best practices for student of HCI other than readings?
+
+A: My personal opinion is that *passion projects* are the most important things that HCI students do. These are UX projects where you notice a gap or problem that interests you and design a solution. You describe it on your portfolio site and you tell friends and recruiters about it to get feedback and refine it.
+
+# Feedback from TA
+I've received some excellent feedback from the TA, both things that you've said and things that previous HCI students have said
+
+- You don't want me to use the other instructor's slides
+- The other instructor didn't dwell too much on slides in previous course iterations
+- Previous students didn't have time to do all the readings (there are strategies for this)
+- You're hoping for more hands-on work and less lecture
+
+# In class presentations
+Few people signed up for in class presentations and those who did signed up for more than one. Let's straighten this out right now.
+
+# Groups
+Are you all in groups now? Are you satisfied with your groups? Let's make sure you're on track right now. (Vaishnavi will ask you to sit with your groups in the second part of the class.)
+
+# Perception
+
+## Human Capabilities
+
+- What are our limits?
+-  What are we on average?
+-  What state are we in?
+-  ...
+
+We can think about human capabilities from different perspectives. Can you think of others besides the list above?
+
+## Limits, averages, and states
+What can you say about the previous list? For example, limits might include the limits of what a person can see or remember. The average might include what "most" people can see and remember, whatever "most" means. The state we are in might be bright sunlight or a loud nightclub or sitting in front of a computer in a dark room, all of which affect our limits temporarily.
+
+## Some limits
+- Magical number seven, from @Miller1956
+- Resolving power of the human eye in lines per inch at distance
+- Color blindness
+
+## Chunking
+![](fiMagicalNumber.jpg)
+
+## Details of chunking
+The preceding list shows several common limits you might need to be aware of when designing digital artifacts.
+@Miller1956 found that people chunked items in short term memory into groups of seven, plus or minus two, as shown in the previous frame. That might suggest a limit for what you ask people to remember.
+
+## Jobs focused public attention on resolving power
+![](fiJobsRetina.png)
+
+::: {.notes}
+Steve Jobs, depicted here at the iPhone introduction, famously introduced the so-called retina display with a discussion of the resolving power of the human eye in lines per inch at a given distance to arrive at the optimal effective resolution for a smartphone display, typically held at a given distance from the eye.
+:::
+
+## A typical test for color blindness
+![](fiColorBlindness.png)
+
+::: {.notes}
+About eight percent of Northern European males in your audience probably suffer from red-green color blindness, for example, and mobile apps exist specifically to help people identify colors.
+
+This frame shows an example of a color blindness test from the Color blindness article on Wikipedia. If you are not color blind, you should see the number 74. If you are red-green color blind, you should see the number 21. If you have total color blindness, you should see no numbers. By the way, Wikipedia reports that several famous artists throughout history are thought to have been color blind, so color blindness should not preclude a career as an artist or designer.
+
+One note on Wikipedia is that I refer to it a lot, in contrast to instructors who note that there is a lot of misinformation on Wikipedia and ask you to refrain from using it. I view Wikipedia as valuable but flawed, and I believe there is a skill you can develop with experience of using it and triangulating with other sources to overcome the misinformation problem. Wikipedia is often a good starting point for a search even for poorly researched articles. It just shouldn't be the ending point.
+:::
+
+## Some findings of Gestalt psychology, 1927
+![](fiGestaltPrinc1.png)
+
+::: {.notes}
+@Wertheimer1938, originally published in German in the 1920s, introduced Gestalt principles to an English-speaking audience. Some views of Gestalt principles of perception are shown in this and the following frames.
+
+The Gestalt psychologists were enormously influential in spreading these principles, first in Germany, where they met with artists of the Bauhaus as well as psychologists working in other specialties, then all over the world as they fled the Nazis and settled in different countries. You have probably encountered the Gestalt principles in an Intro to Psychology class, and will find that designers use them everywhere, even unconsciously, so you might as well do it consciously.
+:::
+
+## A view of Gestalt principles
+![](fiGestaltPrinc2.jpg)
+
+::: {.notes}
+As an exercise, try to identify the Gestalt principle illustrated in each element of this frame. This is an exercise you can repeat with your own designs or those you encounter.
+:::
+
+## More on Gestalt principles
+![](fiGestaltPrinc3.png)
+
+::: {.notes}
+This frame gives names for the principles and you may notice that some of these names differ from the names you may have seen elsewhere (and some are misspelled). Bear in mind that all of these are translations from the German and may arise from different perspectives on what the words mean. One of the most interesting Gestalt principles has the German name Prägnanz, which is often translated as *figural goodness* and refers to the property that your brain will try to make sense of ambiguous figures and fit them into a familiar form.
+:::
+
+## An example of Colorbrewer usage
+![](fiColorbrewer.png)
+
+::: {.notes}
+Colorbrewer is an idea and an application and a website and the basis for several tools, conceived by geography professor Cynthia Brewer. The main idea is that people have an easier time interpreting information represented by some colors than by others.
+
+Brewer and her students have conducted countless experiments with colored maps, asking participants quantitative questions about information depicted by the maps. They've kept a carefu record of how well participants answered questions using different color schemes, and developed a set of color palettes representing the most successful combinations.
+
+The [colorbrewer](http://colorbrewer2.org) website, shown in this frame, shows the control panel on the left and the result on the right. The user is asked to tell the number of data classes to be represented on the map. Then the user has to decide whether their data is sequential, diverging, or qualitative. Next, on the basis of these choices, a set of color schemes is presented to choose from. Further choices offered include whether the color scheme should be colorblind safe, print friendly, or photocopy safe. You get a depiction of the color scheme in the map on the right hand side, and a list of the colors in either hexadecimal, RGB, or CMYK format.
+:::
+
+## You don't notice the gorilla when counting
+![](fiBasketballPassing.png)
+
+::: {.notes}
+Inattention blindness is depicted in this frame. In this famous experiment, the participant is asked to watch two basketball teams, one wearing white and the other wearing black. The participant is asked to count the number of passes made by one of the teams, but not the passes made by the other team. After a few seconds, a person in a gorilla costume walks through the scene but the participant is so intent on the counting task as to not see the gorilla!
+
+You can find many examples of similar experiments with similar results online by searching for inattention blindness or cognitive overload. One of my favorites is shown on Youtube where a researcher on the sidewalk asks a random person for help with a map. As soon as the random person starts looking at the map and trying to make sense of it, a pair of workmen holding a large mirror pass between the two. Unbeknownst to the random person, a confederate is hiding behind the mirror with the same map folded in the same orientation. The confederate replaces the researcher, who walks on behind the mirror. The confederate is of a different race and gender than the researcher, but the video evidence suggests that the random person does not know the difference. As a side note, there may be a serious ethical issue with this experiment because the random person is drawn into it without informed consent.
+:::
+
+## An influential and controversial book
+![](fiThinkingFastSlow1.jpg)
+
+::: {.notes}
+This frame depicts the cover of a famous book by Nobel Laureate Daniel Kahneman, based on research he conducted with Amos Tversky, who sadly passed away before the Nobel prize could be awarded jointly to them. The book covers work in cognitive biases, prospect theory, and happiness. The book is controversial because of the difficulty other researchers have faced in replicating its results.
+:::
+
+## Being watched by a picture influences you
+![](fiThinkingFastSlow2.jpg)
+
+::: {.notes}
+One interesting experiment reported in the book suggests that being watched by eyes in a picture can influence your behavior. The researchers found an office with a kitchen where people were supposed to put money in a box every time they took milk from the refrigerator. Over the box was a framed picture. The researchers manipulated the picture, changing it for a different one every week. The two kinds of subjects for the picture were flowers and eyes watching the viewer. As shown in Figure \ref{fiThinkingFastSlow2.jpg}, people were more apt to put money in the box while they were being watched! Could this be conscious behavior? The researchers thought not and sought to explain this behavior as unconscious and based on a dichotomy between two systems vying for control of the human mind.
+:::
+
+## Two systems controlling you
+![](fiThinkingFastSlow3.jpg)
+
+::: {.notes}
+This frame depicts the two systems the researchers hypothesized, System 1 and System 2. System 1 is fast, unconscious, automatic, controls everyday decisions, and is error prone. This is the system they hypothesized to be responsible for the milk money behavior. The other system, System 2, is slow, conscious, effortful, responsible for complex decisions, and is reliable. Many of their experiments sought to isolate these two systems and learn of their characteristics. There is some support in neurology for these claims, although my source is packed away as I write this and I can't cite it now.
+:::
+
+## Causes and consequences of cognitive ease
+![](fiThinkingFastSlow4.jpg)
+
+::: {.notes}
+The book includes an important figure for human centered computing professionals, shown in this frame. This is a model of the causes and consequences of cognitive ease, a state designers often try to achieve in devising interfaces to computer-based tools to support cognitive work. This model gives us some ideas of things we can do as designers on the left, as well as some potential metrics for determining our success in design on the right.
+:::
+
+## Critique of Kahneman
+The common critique of Kahneman is that the experiments can't be replicated, in particular much of the research on priming. For example, a blog post at [replication index](https://replicationindex.com/2020/12/30/a-meta-scientific-perspective-on-thinking-fast-and-slow/) summarizes some of the critiques.
+
+## An example of an optical illusion
+![](fiCogIllusions.png)
+
+::: {.notes}
+Cognitive illusions and biases are everywhere. @Pohl2004 reports on a whole catalog of them. Wikipedia devotes an article to a list of cognitive biases at [cognitive biases](https://en.wikipedia.org/wiki/List_of_cognitive_biases). This frame shows an example of an optical illusion where, if you stare at it intently, you are likely to see it move although it is a static picture.
+:::
+
+## Jacek's perception slides
+〈pause for Jacek's slides〉
+
+# Readings
+Readings last week included  @Hartson2019: Ch 1, 2, 4 and
+@Norman2013: Ch 1. These are pretty serious readings and you need to carve out time to devote to them. In addition, the readings in future weeks have to be done before class, not after. We're only saving these readings for after class because it's the first week.
+
+Readings this week include @Johnson2020: Ch 1--5
+
+::: {.notes}
+I once worked with a group of junior Naval officers who were required by their commander to be responsible for all the information in their email and military message traffic, some 5,000 items per day. The group got together and devised a strategy of dividing up the material and briefing each other on the points of importance, so that no one person had to read 5,000 items, which would have been physically impossible anyway. You could use a similar divide and conquer strategy on our reading material.
+:::
+
+# Assignment
+none due this week (but you could get a head start!)
+
+# References
+
+::: {#refs}
+:::
+
+---
+
+::: {.r-fit-text}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *League Gothic* and *Lato*
+
