@@ -15,3 +15,5 @@ icon: fa-edit
 
 [02perception](/hci/02perception/index.html) discusses perception and some cognition.
 
+[03cognition](/hci/03cognition/index.html) discusses cognition.
+
