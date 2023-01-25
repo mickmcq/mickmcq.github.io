@@ -1,0 +1,360 @@
+---
+title: "Human Computer Interaction:<br>Cognition"
+author: Mick McQuaid
+date: 2023-01-26
+bibliography: master.bib
+format:
+  revealjs:
+    logo: iSchoolLogo.png
+    theme: moon
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+::: {.r-fit-text}
+Week THREE
+:::
+
+# Today
+
+- Q and A from last time
+- Feedback from TA
+- In class presentations
+- Groups
+- Cognition
+- Readings
+- Figma tutorial
+
+# Q and A from last time
+
+## Learning
+- gestalt principles and human perception
+- model human processor
+- gestalt principles
+- human visual system
+- Gestalt principles, how vulnerable and unreliable the human mind can be but also how it predicts details based on unconscious instincts and habits
+- I think Model Human Processor (MHP) is the most important point I learned today. We could use that many time on our career.
+
+## More on Learning
+- I think the most interesting, but not shocking, item of information was that Ronald Reagan cut funding for research in human factors. I wonder what research is still happening in the military.
+- I found the relation between human cognition and visual perception to be very interesting. Especially the example of the human eyes looking at the person putting money in the jar. I think its important to study these things and how they relate to digital product design.
+- Visual perception is a major factor that affects the usability and understanding of a design. Use it as a tool.
+
+## Still more on learning
+- Design is not something that can be straightforward applied/taught. It’s helpful to know psychological principles but a lot of standards are up to fashion/taste/stakeholders
+- Learning about the Gestalt principles. I enjoyed the examples presented.
+- Using Framer!
+- I found the 'Big Brother' Eyes experiment fascinating, and wonder in the role it can play to promote honesty-based systems.
+
+## Even more on learning
+- Human capabilities and perception are complex variables HCI professionals must consider in designing products/services
+
+## Group impacts
+How do font sizes, colors and contrast impact people from different groups?
+
+*This is an open question and depends on fads, fashions, how you define groups, and more.*
+
+## Color theory
+Before color accurate displays were invented, how was color theory and perception of digital interfaces studied? Or is this a relatively new area of HCI research which came to the surface even more so after significant advances in display technologies
+
+*Color theory is pretty old and exists as a science separate from HCI. There have been two different approaches to color theory in the present century, a psychological approach and a physiological approach. As for its age, I know that Newton explored it over 300 years ago.*
+
+## Framer; Guest speakers
+How do we plan to use framer in class? I’d be curious to hear other perspectives, will we have guest speakers?
+
+*Framer can be used in two ways in this course: to make a website and to make prototypes.*
+
+*I don't plan on any guest speakers but will entertain suggestions.*
+
+# In class presentations
+- article: Sree Teja Kalakota
+- design critique: Christina Jia
+- discussion leading: Asma Sifaoul
+
+# Groups
+Are you all in groups now? Are you satisfied with your groups? Let's make sure you're on track right now.
+
+# Cognition
+We talked a bit about cognitive psychology last week, particularly about Tversky and Kahneman's work. This week we continue with some historical information.
+
+## Human cognition and emotion, from Norman (2013) pp 49--55
+
+## Levels of emotional design
+
+```{r, engine='tikz'}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{arrows}
+%\definecolor{slidebkgrnd}{rgb}{0.01,0.170,0.210}
+%\pagecolor{slidebkgrnd}
+\pagecolor[rgb]{0.01,0.17,0.21}
+% note: above gets "approximated" to 0.01,0.15,0.20
+\begin{tikzpicture}[scale=2,font=\sffamily]
+  \node (A) at (0,0)
+     [ellipse,fill=red,draw=none,text=white]
+     {visceral};
+  \node (B) at (1,1)
+     [ellipse,fill=red,draw=none,text=white]
+     {behavioral};
+  \node (C) at (2,2)
+     [ellipse,fill=red,draw=none,text=white]
+     {reflective};
+  \draw [->,>=stealth',shorten >=1pt,semithick,draw=white] (A) -- (B);
+  \draw [->,>=stealth',shorten >=1pt,semithick,draw=white] (B) -- (C);
+\end{tikzpicture}
+```
+
+## Visceral level
+basic, similar in all people, recoil from hot stove;
+input is immediate present, output is an affective state;
+not emotions but precursors to emotions;
+dismissed by people who don't believe they are influenced by it;
+
+## Behavioral level
+learned skills, subconscious response to patterns;
+overall awareness but no conscious awareness of details, e.g., speaking, sports;
+conscious of goals while behavioral level handles details;
+actions are associated with expectations as well as outcomes and lead to affect, both before and after;
+
+## Reflective level
+conscious cognition, deep understanding, reasoning, slow, guilt, pride, blame, admiration;
+design takes place at all three levels: high-level cognition can trigger low-level emotion just as low-level emotion can trigger high-level cognition;
+
+## Levels of human processing
+
+```{r, engine='tikz'}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{arrows}
+\definecolor{slidebkgrnd}{rgb}{0.01,0.170,0.210}
+\pagecolor{slidebkgrnd}
+\begin{tikzpicture}[scale=2,font=\sffamily]
+  \node (A) at (0,0)
+     [ellipse,fill=red,draw=none,text=white]
+     {hardwired};
+  \node (B) at (1,1)
+     [ellipse,fill=red,draw=none,text=white]
+     {short-term};
+  \node (C) at (2,2)
+     [ellipse,fill=red,draw=none,text=white]
+     {abstract};
+  \draw [->,>=stealth',shorten >=1pt,semithick,draw=white] (A) -- (B);
+  \draw [->,>=stealth',shorten >=1pt,semithick,draw=white] (B) -- (C);
+\end{tikzpicture}
+```
+
+## More on levels of human processing
+Another way to think of these levels is illustrated in the previous frame: hardwired or prewired, short-term, and abstract or contemplative. All three levels play a role in our reactions to our environment, including designed artifacts.
+
+# Model human processor
+
+![](fiModelHumanProc1.png)
+
+Baby bubblehead, aka model human processor
+
+::: {.notes}
+Treat the user like a computer and the user's work like a program. Break both into cognitive and motor processing components and assess performance time until completion under ideal conditions. That was one of the early approaches to human computer interaction, illustrated in this frame.
+:::
+
+## A model human processor schema from wikipedia
+
+![](fiModelHumanProc2.jpg)
+
+::: {.notes}
+This frame shows a typical schema used in this early model of human processing, dividing everything into three subsystems. Notice that these three subsystems are a bit less sophisticated than the three levels of emotional design explored in @Norman2005.
+:::
+
+## Keystroke level model
+
+Keystroke level model includes
+
+- *operators*, such as key presses, mouse pointing, choosing
+- *encoding*, lists of operators and operands for calculating time
+- *heuristics*, rules to apply to cognitive operators (e.g., choosing)
+
+::: {.notes}
+The model human processor isn't granular enough, so the same people thought of another model, consisting of operators, encoding methods, and heuristics, illustrated in this frame.
+
+Operators include key presses, mouse pointing, waiting, mentally preparing to operate, and a very few others; extended version includes saccades, retrieve from memory, choose among methods, and a few others.
+
+Encoding includes using the operators with operands to record actions and calculate the length of time it takes to perform those actions.
+
+Heuristics include rules that apply to the cognitive operators, such as "mentally prepare".
+:::
+
+## Keystroke model limitations
+
+- error
+- learning
+- functionality
+- recall
+- concentration
+- fatigue
+- acceptability
+
+## GOMS
+
+GOMS stands for
+
+- Goals
+- Operators (elementary actions)
+- Methods (groups of operators)
+- Selection rules (to choose methods)
+
+::: {.notes}
+Another major theory discussed in textbooks is the Goals,
+Operators, Methods, and Selection Rules Model, usually
+pronounced as a one-syllable word, GOMS, illustrated in this frame.
+
+This model was
+widely studied from the mide eighties to the mid nineties.  The basic
+idea is that people form goals and subgoals and think in
+terms of elementary actions called operators.  People
+group these operators together into methods and form
+selection rules to determine which methods will best
+achieve goals.  Here's an example to clarify
+GOMS.  Suppose I'm using a word processor and
+realize I've been incorrectly citing Norman's *Emotional
+Design* book when I meant to cite *Design of Everyday
+Things*, my *goal* is to correct the same mistake in
+several places.  Several *methods* might work, such as
+using a find and replace function, or looking through
+the stack of recent changes.  I employ *selection
+rules* to these *methods*, such as my comfort
+level with the find and replace function, or my
+awareness that every mistake is near the top of the
+stack of recent changes.
+Having chosen one of these
+*methods* as the best, I employ the
+*operators* aggregated
+by the chosen *method*.  The *operators* are the specific
+keystrokes, mouse movements, or menu choices my
+fingers do automatically.
+
+GOMS fits in well with the notions of bounded
+rationality and satisficing that were pioneered by
+Herbert Simon.  Like those ideas, it lost some favor as
+researchers became more interested in studying non
+expert users and less interested in the idealized human
+described with GOMS and its variants.
+As the attention of researchers shifted to topics like
+emotion and learning, the number of studies related to
+GOMS waned.
+Nevertheless, GOMS and its descendants still
+occupy an important place, especially in large systems
+where great economies of scale can be achieved, systems
+that rely on many skilled users,
+and critical systems like space vehicle launching and
+nuclear power plant operation.
+:::
+
+## protocol & verbal analysis
+
+protocol analysis $\rightarrow$ *think-aloud process*
+
+Protocol analysis was an early hci tool
+
+::: {.notes}
+The main idea in @Ericsson1984 is to elicit
+information from a person \textit{while} they accomplish
+a task by asking them to think aloud about the
+information they attend to while solving problems, but
+not to describe or explain.
+:::
+
+## Verbal analysis differs in goals from protocol analysis
+
+verbal analysis $\rightarrow$ *knowledge representation*
+
+::: {.notes}
+@Chi1997 contrasts protocol analysis with an
+approach designed to elicit the structure of knowledge
+of the problem solver, rather than the problem solving
+process. This leads to a knowledge representation, as illustrated in this frame.
+:::
+
+## Both analyses lead to maps
+
+protocol analysis $\rightarrow$ *process map*
+
+verbal analysis $\rightarrow$ *knowledge map*
+
+::: {.notes}
+Both processes result in maps, as seen in this frame, one of a process and one of a knowledge structure.
+:::
+
+# Hick's Law
+
+Hick’s law predicts the
+time it will take for a user to make a choice, given the
+number of choices.
+
+Hick’s law can be expressed as
+
+$$t = b \log_2 (n + 1)$$
+
+::: {.notes}
+Here, $t$ is reaction time, $b$ is a constant to be found
+empirically, and $n$ is the number of choices with which the
+user is confronted. The extra 1 represents the concept *none
+of the above*.
+
+This law has influenced the development of menus in computers and the number of choices that are offered in each submenu. The shape of a menu tree is a reflection of Hick's law.
+:::
+
+# Fitts's Law
+
+Fitts's law was actually discovered by Paul Fitts in the 1950s, but has been applied to the use of mice and other pointing devices as well as screen layouts since. It is perhaps the most widely invoked theory in the world of human computer interaction, and is depicted in the next frame.
+
+## Fitts's law formulation
+
+$$t = a + b \log_2\left(\frac{D}{W} + 1\right)$$
+
+::: {.notes}
+where $t$ is time, $a$ is start / stop time in seconds
+for a given device and $b$ is the inherent time for a
+device, $D$ is distance, and $W$ is the size of a
+target.  This law, one of the most robust models in
+HCI, predicts how long (in seconds) it takes
+an adult to point to an object with a given device.
+I believe that Fitts's law is the most important theory
+in HCI.
+
+Fitts's law is the basis for the original Apple menu bar and Dock, among other influences. By expanding the target, $W$, to be the entire width of the display instead of the current window, the developers of the Dock and menu bar hoped to reduce the time it would take for people to point to them. Contrast this with the situation in Microsoft Windows, where the menu bar is particular to a given window. In this situation, a person must exhibit much finer motor control to point to the menu bar target than to point to a menu bar at the edge of the screen, where $D$ can be any amount without missing the target. In other words, you can push the mouse as hard as you want against the top of the screen: it can't go any further than the top of the screen.
+:::
+
+# Readings
+
+Readings last week include @Johnson2020: Ch 1--5
+
+Readings this week include @Johnson2020: Ch 7--9, @Norman2013: Ch 2, 4
+
+::: {.notes}
+I once worked with a group of junior Naval officers who were required by their commander to be responsible for all the information in their email and military message traffic, some 5,000 items per day. The group got together and devised a strategy of dividing up the material and briefing each other on the points of importance, so that no one person had to read 5,000 items, which would have been physically impossible anyway. You could use a similar divide and conquer strategy on our reading material.
+:::
+
+# Assignment
+Milestone 0
+
+# References
+
+::: {#refs}
+:::
+
+---
+
+::: {.r-fit-text}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *League Gothic* and *Lato*
+
