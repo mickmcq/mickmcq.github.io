@@ -23,12 +23,13 @@ Week THREE
 # Today
 
 - Q and A from last time
-- Feedback from TA
-- In class presentations
-- Groups
 - Cognition
 - Readings
-- Figma tutorial
+- Break (may happen later depending on time)
+- Discussion leading (Asma Sifaoul)
+- Design Critique (Christina Jia)
+- Article Presentation (Sree Teja Kalakota)
+- Figma tutorial (Vaishnavi Dwivedi)
 
 # Q and A from last time
 
@@ -70,14 +71,6 @@ How do we plan to use framer in class? I’d be curious to hear other perspectiv
 *Framer can be used in two ways in this course: to make a website and to make prototypes.*
 
 *I don't plan on any guest speakers but will entertain suggestions.*
-
-# In class presentations
-- article: Sree Teja Kalakota
-- design critique: Christina Jia
-- discussion leading: Asma Sifaoul
-
-# Groups
-Are you all in groups now? Are you satisfied with your groups? Let's make sure you're on track right now.
 
 # Cognition
 We talked a bit about cognitive psychology last week, particularly about Tversky and Kahneman's work. This week we continue with some historical information.
@@ -334,12 +327,16 @@ Readings last week include @Johnson2020: Ch 1--5
 
 Readings this week include @Johnson2020: Ch 7--9, @Norman2013: Ch 2, 4
 
+Let's look at the Johnson book together, then the Norman book.
+
 ::: {.notes}
 I once worked with a group of junior Naval officers who were required by their commander to be responsible for all the information in their email and military message traffic, some 5,000 items per day. The group got together and devised a strategy of dividing up the material and briefing each other on the points of importance, so that no one person had to read 5,000 items, which would have been physically impossible anyway. You could use a similar divide and conquer strategy on our reading material.
 :::
 
 # Assignment
-Milestone 0
+Milestone 0: Topic Idea
+
+Can one person from each group report on theirs?
 
 # References
 
