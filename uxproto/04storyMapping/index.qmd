@@ -1,0 +1,196 @@
+---
+title: UX Prototyping<br>Story Mapping
+author: Mick McQuaid
+date: 2023-02-01
+bibliography: master.bib
+format:
+  revealjs:
+    logo: iSchoolLogo.png
+    theme: moon
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+::: {.r-fit-text}
+WEEK FOUR
+:::
+
+# Story Mapping
+
+---
+
+![](fiPatton2014cover.png){fig-alt="Cover of Jeff Patton's 2014 book, User Story Mapping, depicting a bird"}
+
+::: {.notes}
+The bird on the cover of Jeff Patton's book, *User Story Mapping*, @Patton2014a, is a lilac-breasted roller.
+
+You should certainly read at least the *Read this first* chapter, followed by chapters 1 and 2. I'm just going to show you some pictures of story maps and give you some pointers on features they may share. Throughout this, bear in mind that the story map is not an outcome, but a prop in your conversation leading to a shared understanding of how your prototype will look.
+:::
+
+## A basic story map
+
+![](fiBasicStoryMap.png){fig-alt="People stand in front of a story map, a series of steps with details underneath"}
+
+::: {.notes}
+Here the steps are the steps in the user's journey toward some favorable outcome. The details can be components of the steps, both technology-based and other.
+:::
+
+## Giving instructions doesn't always go well
+
+![](fiCakeWrecks1.png){fig-alt="A cake decorated with the actual instructions to decorate the cake"}
+
+## Here are some instructions
+::: {.incremental}
+- Customer: Hello, I’d like to order a cake.
+- Employee: Sure, what would you like written on it?
+- Customer: Could you write "So long, Alicia" in purple?
+- Employee: Sure.
+- Customer: And put stars around it?
+- Employee: No problem. I’ve written this up, and will hand it to my cake decorator right away. We’ll have it for you in the morning.
+:::
+
+::: {.notes}
+Try to imagine what the employee is writing down while listening to the customer. Try to imagine the scenario of the employee. For example, is the employee juggling the phone and a notepad and pen? Or perhaps trying to write into a computer program with both hands while holding the phone against their shoulder? Details may matter in this communication breakdown.
+:::
+
+## And here is the result
+
+![](fiCakeWrecks2.png){fig-alt="A cake decorated with the instructions instead of the result of the instructions"}
+
+::: {.notes}
+This and the previous picture are from the CakeWrecks website, in this case documenting what the maintainer calls *literals* but which Jeff Patton refers to as failures in *system requirements*.
+:::
+
+## We need some way to get on the same page
+
+![](fiWeAllAgree.png){fig-alt="A cartoon depicts people with different ideas converging after blackboarding"}
+
+::: {.notes}
+The key feature of this cartoon is that everyone is contributing their take on what the solution looks like, and their take is exposed to everyone else. Everyone needs to speak, to write, and to draw for this to work.
+:::
+
+## A productive conversation with supporting artifacts
+
+![](fiConversationPlusArtifacts.png){fig-alt="A conversation where people share an idea and have notes and pictures on the wall, supporting the conversation"}
+
+::: {.notes}
+The centerpiece of developing requirements is a *conversation*. The words and pictures are supporting artifacts, not the main attraction. The artifacts: post-its, diagrams, sketches, can be quite messy, not at all like a refined requirements document. That's fine. People misunderstand refined requirements documents.
+:::
+
+## A basic change-the-world model
+
+![](fiChangeTheWorld1.png){fig-alt="Patton's diagram of current state and outcome state"}
+
+::: {.notes}
+Patton claims that, every time you set out to build software, you are setting out to change the world somehow. It may be a small change but it should be a worthy change, a change that will impact someone's life. He claims that, every time you set out to build software, there are *outputs* and *outcomes*. He identifies the outcomes as the important things, the things you want to maximize, and the outputs as intermediate products, the things you want to minimize. So the requirements documents are not the important things, the shared conversation that gets everyone moving in the same direction is the important thing. He asserts that the purpose of this book is not so much to help you create better stories as to have a better story mapping process that supports the shared conversation.
+:::
+
+## A more refined change-the-world model
+
+![](fiChangeTheWorld2.png){fig-alt="Patton's refined diagram of current state and outcome state"}
+
+::: {.notes}
+In Patton's refined model, the emphasis is on the impacts of the outcomes. What does the software do in the real world?
+:::
+
+## A yet more refined change-the-world model
+
+![](fiChangeTheWorld3.png){fig-alt="Patton's more refined diagram of current state and outcome state"}
+
+::: {.notes}
+The final picture in this series says to minimize outputs and maximize outcomes and impacts. So you have to understand the difference between outputs and outcomes. Outputs include things like requirements documents and product specifications. These are typically difficult to understand. For example, I once participated in the creation of an RFP (request for proposals), where we wanted to buy a system from vendor A and avoid vendor B. So we put in code words and phrases that would be favorable to vendor A and unfavorable to vendor B, based on what we knew about their computer systems. We were a government agency, so we were required by law and regulation to accept the lowest cost bid that *met our requirements*. We weren't really saying what we meant with our requirements. We were writing defensively, trying to stave off a vendor we knew to be clever in adding costs after the contract was concluded. We knew that they would come in with a lower bid, but would make their implementation more expensive in the long run. None of this stuff was about the software outcomes. Our documents were indecipherable to the average reader, but a land mine field for vendor B.
+:::
+
+## An early story map by the author and a collaborator
+
+![](fiEarlyStoryMap1.png){fig-alt="A person kneels on the floor behind an enormous number of post-its, arranged in rows and columns"}
+
+::: {.notes}
+When Patton started using story maps, he created some very large story maps for elaborate processes. He used index cards and created a row of "big picture" activities in the real world, seen across the top in this picture. There appear to be about ten of these in the picture. Next is a row of concrete steps, perhaps thirty in number. Some of these steps have been expanded into details in columns of cards beneath them. The longest columns have about ten cards. So there are essentially three levels: activities in the real world, concrete steps, and details.
+:::
+
+## Flow of the early story map
+![](fiEarlyStoryMap2.png){fig-alt="Same photo as before but annotated with story flow from left to right"}
+
+::: {.notes}
+The story is read from left to right. In this case, the software under consideration is supposed to support the promotional activities of musicians and musical event producers. There are two groups of people to consider in this story: band managers and fans. The software creates and manages promotional emails. This seems like an extremely simple task, yet notice how many index cards are needed to document the entire story.
+:::
+
+## One branch of the early story map
+![](fiEarlyStoryMap3.png){fig-alt="Same photo as before but annotated with one story branch"}
+
+::: {.notes}
+Here we see one branch of the story, with a single activity card, five step cards, and the six detail cards for one of the steps highlighted.
+:::
+
+## Annotated early story map
+![](fiEarlyStoryMap4.png){fig-alt="Same photo as before but fully annotated"}
+
+::: {.notes}
+We may think of the story as the big left to right arrow, but there are many contextual items that don't fit the flow, including
+
+- products
+- goals
+- users
+- ideas
+- product principles
+- details that don't fit particular steps
+
+We need all these contextual things, although they look like a big mess because they don't fit into the flow.
+:::
+
+---
+
+::: {.r-fit-text}
+THINK - WRITE - EXPLAIN - PLACE
+:::
+
+::: {.notes}
+As you develop the story map, you will THINK of things to add. When you THINK of something, immediately WRITE it down before explaining it to the others. Then EXPLAIN it, then PLACE your written artifact (probably a post-it) on the map. By the way, you are likely to use Figjam, Miro, or some similar software to create the map rather than physical post-its, especially if you want to work remotely.
+:::
+
+## Another story map
+![](fiAnotherStoryMap.png){fig-alt="A story map depicting different users at different stages"}
+
+::: {.notes}
+Suppose you have different users at different stages of the story. You annotate the flow with cards depicting those users at the appropriate activity stages. Bonus points for you if you recognize the Dalek from Doctor Who.
+:::
+
+## Organizing details into three product release slices
+![](fiReleaseSlices.png){fig-alt="Two designers organize detail post-its into three layers corresponding to three product releases"}
+
+::: {.notes}
+Notice the three horizontal sections numbered 1, 2, 3, and separated by thick lines. Each one of these represents a specific product release, perhaps beta, release, and version 2. The details are the aspects of the software that will be implemented for each of these releases.
+:::
+
+## Story maps support a conversation that builds shared understanding
+- The map is a prop, not an outcome
+- Maximize outcomes, minimize output
+- Prioritize outcomes, not features
+
+::: {.notes}
+Agile software development is generally organized around product features. Patton argues that this approach misses the impactful nature of software on real world outcomes. He suggests keeping these points in mind during the creation of a story map. He also places the map in a very humble position as a prop. Don't highlight the story map---instead use it to promote outcomes. There's no need to formalize the story map after it's been created. You can revisit it, but not with a view to formalizing it.
+:::
+
+# References
+
+::: {#refs}
+:::
+
+---
+
+::: {.r-fit-text}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *League Gothic* and *Lato*
+
