@@ -17,3 +17,5 @@ icon: fa-edit
 
 [03cognition](/hci/03cognition/index.html) discusses cognition.
 
+[04userResearch](/hci/04userResearch/index.html) introduces ways to learn about users of software.
+

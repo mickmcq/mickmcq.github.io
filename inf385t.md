@@ -19,9 +19,9 @@ icon: fa-edit
 
 [03sketching](/uxproto/03sketching/index.html) recaps the previous week and introduces mood boards, sketching, and crazy eights.
 
-<!--
-
 [04storyMapping](/uxproto/04storyMapping/index.html) recaps the previous week and introduces user story mapping.
+
+<!--
 
 [05lofi](/uxproto/05lofi/index.html) describes lofi prototyping and the related concepts of ideation, *how might we* statements, diverging and converging, and the distinctions between lofi and hifi.
 
