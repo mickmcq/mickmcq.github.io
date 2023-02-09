@@ -19,3 +19,5 @@ icon: fa-edit
 
 [04userResearch](/hci/04userResearch/index.html) introduces ways to learn about users of software.
 
+[05modeling](/hci/05modeling/index.html) introduces modeling of users, tasks, flows.
+
