@@ -23,9 +23,9 @@ icon: fa-edit
 
 [05lofi](/uxproto/05lofi/index.html) describes lofi prototyping and the related concepts of ideation, *how might we* statements, diverging and converging, and the distinctions between lofi and hifi.
 
-<!--
-
 [06hifi](/uxproto/06hifi/index.html) describes four components of hifi prototyping: color, typography, layout, and animation.
+
+<!--
 
 [07ucdAgile](/uxproto/07ucdAgile/index.html) describes the relationship between User Centered Design and Agile.
 
