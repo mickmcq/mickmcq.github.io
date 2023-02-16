@@ -21,3 +21,5 @@ icon: fa-edit
 
 [05modeling](/hci/05modeling/index.html) introduces modeling of users, tasks, flows.
 
+[06sketching](/hci/06sketching/index.html) introduces sketching or lofi prototyping.
+
