@@ -25,9 +25,9 @@ icon: fa-edit
 
 [06hifi](/uxproto/06hifi/index.html) describes four components of hifi prototyping: color, typography, layout, and animation.
 
-<!--
-
 [07ucdAgile](/uxproto/07ucdAgile/index.html) describes the relationship between User Centered Design and Agile.
+
+<!--
 
 [08clients](/uxproto/08clients/index.html) recaps the previous week and discusses clients and stakeholders.
 
