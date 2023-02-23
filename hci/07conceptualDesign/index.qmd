@@ -1,0 +1,116 @@
+---
+title: "Human Computer Interaction:<br>Conceptual Design"
+author: Mick McQuaid
+date: 2023-02-23
+bibliography: master.bib
+format:
+  revealjs:
+    logo: iSchoolLogo.png
+    theme: moon
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+::: {.r-fit-text}
+Week SEVEN
+:::
+
+# Today
+
+- Q and A from last time
+- Discussion leading (Bhanu Kowshik)
+- Design Critique (Madhav Varma)
+- Article Presentation (Nimra Ishfaq)
+- Break (break may be earlier or later in sequence)
+- Conceptual Design
+- Figma Exercise
+
+# Q and A from last time
+
+## Learning
+
+- mind-create-sketch-read
+- Iteration, sketching, critiquing and refinement all go together / occur at once in the design process.
+- From the design critique we had today on cat person box where the presenter had shown few pictures. I learned how we can create opportunity through crisis
+- Personas. I really did not understand the criticism of personas, but after discussing how they can be misused it made sense.
+
+## More learning
+- I know this is like what we always talk about but it really hit home today - Design is a process, and each of the steps making it up are done with the goal of creating a thing which is useful to people. This sounds obvious but I try to keep this viewpoint in mind when we get into very specific techniques
+- I think the discussion leading is very helpful,  Let me reinforce the reading once again, and better understanding of the reading.
+
+## Still more learning
+- I found the discussion about habits for approaching design as a creative process that involves looking up inspiration, resting, utilizing knowledge from seemingly irrelevant domains insightful because it makes the design process more human and focuses on growing as a person outside of UX.
+- I really liked the Eames quotes, I hadn't ever considered design as almost art with constraints. And it makes a lot of sense for myself considering, I started out as an artist and found design after getting a degree in IT.
+- Contextual inquiry had a great role to play in the design process.
+
+## Even more learning
+- Buxton has simplified the concept of the dialogue between mind and sketching process.
+- How persona could be a good way to crack a better target audience also how it depends on the chain and series of pre-defined things.
+- I enjoyed the discussion about empathy and if it is measurable or not. It is definitely making me think about my interactions with technology (social media, website, AI assistants, etc.).
+- The discussion about personas was also interesting.
+
+## Even still yet more learning
+- I really found the generative AI article and how it affects design interesting in today's class. It was also great to discuss about personas and where they work and where they don't.
+- It was interesting to learn that unethical design is an outcome of a designer's ethical lapse. And how easy it might be to overlook these patterns while creating products, especially when there are business requirements, and stakeholder feedback that needs to be prioritized.
+- Another takeaway from the class was that design is all about constraints and that's how it differs from art.
+
+
+## QandA
+
+## Eames quote
+- I'm interested in the Charles Eames quote about design being all about constraints, and how this is the only distinction from art. Is this really all that is different between design and art? They seem very similar, but often serve much different functions.
+- *There are at least as many opinions on this topic as there are artists and designers! What's yours?*
+
+## Comment on books
+- Since we caught up on discussions today, I did not have any questions. Thank you for creating a folder for books and articles. One book I did not mention, that promotes creativity but is not advertised as design related, is *A Curious Mind* by Brian Grazer.
+
+## Research methods
+- How can I learn more about individual research methods to be able to compare them from a research/ epistemology perspective?
+- *One way is to read books like @Olson2014 that try to compare the research methods on various axes.*
+
+## Mid-fi
+- Im still unsure what are the limitations of mid fi prototyping?
+- *My take is that the mid-fi is not suitable for a final developer handoff because it leaves too many questions open, but that it could be used to consult with the developer during the iterative process*.
+
+## Seeing that and seeing as
+- Is Buxton's seeing that and seeing as could be compared with our design tool's view as (editor/user)?
+- *I'm not sure I understand the question. But I would say to bear in mind that it's a dialectic process undertaken by the same person in both cases. First, seeing that, then seeing as, then returning to seeing that. By the way, the concept of __Seeing That and Seeing As__ was introduced by @Goldschmidt1991 and just cited by @Buxton2007*.
+
+## Group time
+- Would it be possible to have some time at the end of class for group projects? It would be helpful if we can have 10 minutes at the end of the lecture to talk about group projects and meet with the team (in-person), it's been challenging to find times where we can meet in-person because of our different schedules.
+- *Not sure. We can certainly try!*
+
+# Conceptual Design
+Instead of droning on about this topic, I'd like to do the exercises in the chapters.
+
+# Readings
+
+Readings last week include @Hartson2019: Ch 12, 13, 14
+
+Readings this week include @Hartson2019: Ch 15, 16, 17, @Norman2013: Ch 3, 4
+
+# Assignments
+none
+
+# References
+
+::: {#refs}
+:::
+
+---
+
+::: {.r-fit-text}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *League Gothic* and *Lato*
+
