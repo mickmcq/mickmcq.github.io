@@ -23,3 +23,5 @@ icon: fa-edit
 
 [06sketching](/hci/06sketching/index.html) introduces sketching or lofi prototyping.
 
+[07conceptualDesign](/hci/07conceptualDesign/index.html) introduces conceptual design, ecology, pervasive information architecture, and interaction design.
+
