@@ -27,9 +27,9 @@ icon: fa-edit
 
 [07ucdAgile](/uxproto/07ucdAgile/index.html) describes the relationship between User Centered Design and Agile.
 
-<!--
-
 [08clients](/uxproto/08clients/index.html) recaps the previous week and discusses clients and stakeholders.
+
+<!--
 
 [09workshop](/uxproto/09workshop/index.html) discusses how to lead a design thinking workshop to get developers and other stakeholders on the same page as designers.
 
