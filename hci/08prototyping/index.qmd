@@ -1,0 +1,193 @@
+---
+title: "Human Computer Interaction:<br>Prototyping"
+author: Mick McQuaid
+date: 2023-03-02
+bibliography: master.bib
+format:
+  revealjs:
+    logo: iSchoolLogo.png
+    theme: moon
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+::: {.r-fit-text}
+Week EIGHT
+:::
+
+# Today
+
+- Q and A from last time
+- Discussion leading ()
+- Design Critique ()
+- Article Presentation ()
+- Break (break may be earlier or later in sequence)
+- Prototyping
+
+# Q and A from last time
+
+## Learning
+- I've never considered the way that certain hardwares (e.g. the CVS self-checkout system) can be fairly badly designed yet intuitively useful. This kind of reminds me of Norman's (2013) point on when things are difficult to use, it's not because of the person using it, it's bad design.
+- I liked the class-led discussion today about the ecology of Apple and how it is both useful and entrapping.
+- Discussion over read only mode helps to understand better.
+
+## More learning
+Art vs Design - After considering everyone's perspectives, a few things sprang to mind: both art and design are answers to some significant problems. Art is an aesthetic remedy, whereas design is an optimum solution. A royal throne is an example of art, whereas an ergonomic chair is an example of design. In fact, both are intended to sit. All presentations were exceptional.
+
+## Possible learnings, possible questions
+- A brief understanding on Mental model,
+- Which user research to use at what timeline.
+
+## QandA: Storyboards
+Is it best to complete storyboards before modeling or after?
+
+*Answer: In my mind it depends on the type of modeling you mean. I would do storyboards after user modeling. What do others think?*
+
+## QandA: Apple
+Is Apple, which has a stranglehold on the market and is a leader in globalization for its goods, truly concentrating on its main objective to genuinely make design simple for everybody or forcing people to adapt?
+
+*Answer: (1) I would argue that Apple does __not__ have a stranglehold. Apple is only as good as consumers think it is. Microsoft, on the other hand, has what I would call a stranglehold. I don't choose Microsoft products---they are chosen for me. I can't avoid them. (2) I agree Apple is a leader in globalization and I think globalization is in many ways a bad thing. It is a boutique maker, trying to concentrate on a small number of products and a small number of choices, especially during the tenure of Tim Cook, an operations guy. What do other think?*
+
+# Discussion
+
+## Prototyping
+I teach a course on this topic and a couple of you are in that course! What do you think are the most important things to say about prototyping after seven weeks of it?
+
+## Where do prototypes fit?
+
+```{r}
+#| engine = 'tikz',
+#| echo=FALSE,
+#| fig.alt='a wheel featuring the words design, prototype, and evaluate, separated by triangular arrows',
+#| out.width='25%'
+\usetikzlibrary{arrows,decorations.text,decorations.markings}
+\begin{tikzpicture}
+  \filldraw[fill=green!20!white, draw=white] (0,0) circle (1.41cm);
+  \filldraw[fill=white, draw=white] (0,0) circle (0.97cm);
+  \path
+    [decorate,decoration={
+      text along path,
+      text={|\sffamily|\ DESIGN PROTOTYPE EVALUATE \ },
+      text color={green!50!black},
+      text align={fit to path stretching spaces},
+      reverse path}
+    ]
+    (0,0) circle (1.1cm);
+  \path
+    [decorate,decoration={
+      markings,
+      mark=at position 0.6cm with {\arrow[green!50!black,line width=0.40mm]{triangle 90 reversed}},
+      mark=at position 3.1cm with {\arrow[green!50!black,line width=0.40mm]{triangle 90 reversed}},
+      mark=at position 6.0cm with {\arrow[green!50!black,line width=0.40mm]{triangle 90 reversed}}
+      }
+    ]
+    (0,0) circle (1.19cm);
+\end{tikzpicture}
+```
+
+::: {.notes}
+This is a picture of design from the designer's point of view. It doesn't mention the developers or clients. It's a picture of design activities apart from communicating with stakeholders, because communicating with stakeholders may happen at any moment in the process.
+
+Design could also be called *generate alternatives*. Prototyping could also be called *implement one alternative*. So you could say evaluate means to *evalauate one alternative*.
+:::
+
+## How many kinds of prototypes are there?
+I claim there are only two: prototypes for contention and prototypes for refinement. Of course, that raises the question of where Wizard of Oz prototypes fit into that dichotomy.
+
+How many kinds of prototypes do you believe there are?
+
+## What is the purpose of different levels of fidelity?
+
+## Do different companies have different prototyping processes?
+A VP of Oracle Medical Systems told me that his customers don't want to see lofi prototypes at all. They want their branding in everything they see.
+
+A guest speaker from ExxonMobil told my other class that he wants to see paper and pencil sketches or whiteboard sketches.
+
+## Wizard of Oz
+I disagree with the book that this method is rare. I saw a demo of it yesterday for a study of new VR technology that is not yet implemented. The designers are trying to decide which technology to implement, so they're doing a Wizard of Oz study of five possibilities.
+
+## Misinformation in affordances
+Christina pointed out that this can occur anywhere, not just doors. Can we think of some examples?
+
+## Is affordance only relevant as an influence?
+Well, is it?
+
+## Do designers bear responsibility for privacy?
+What if privacy conflicts with engagement?
+
+## How much information should affordances share?
+Can there be too much? Too little?
+
+## Do people make prototypes that require different skills?
+What about physical prototypes? (I've seen plenty for a wide assortment of reasons---can you imagine some of the kinds and some of the reasons?)
+
+## What terminology is common in industry?
+What industry do you mean? Tech may be homogeneous because of groupthink, but others may be less so.
+
+# Prototyping
+
+## All you need is here
+![](fiElementarySchoolDesign.png)
+
+## A view from @Becker2020
+![](fiLaseauFunnel.png)
+
+## lofi from @Buxton2007
+![](fiConversation.png)
+
+::: {.notes}
+The “conversation” between the sketch (right bubble) and the mind (left
+bubble). A sketch is created from current knowledge (top arrow). Reading,
+or interpreting the resulting representation (bottom arrow), creates new
+knowledge. The creation results from what @Goldschmidt1991 calls “seeing
+that” reasoning, and the extraction of new knowledge results from what
+she calls “seeing as.”
+:::
+
+## lofi and hifi from @Buxton2007
+![](fiSketchPrototype.png)
+
+## Sketch but Hifi
+![](fiGoogleMusicSketch.png)
+
+## What can you refine?
+- Color
+- Typography
+- Layout
+- Animation
+
+## Prototyping tools
+- Components
+- Design Systems
+
+# Readings
+
+Readings last week include @Hartson2019: Ch 15, 16, 17, @Norman2013: Ch 3, 4
+
+Readings this week include @Hartson2019: Ch 20
+
+# Assignments
+Milestone 3
+
+# References
+
+::: {#refs}
+:::
+
+---
+
+::: {.r-fit-text}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *League Gothic* and *Lato*
+
