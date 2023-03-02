@@ -25,3 +25,5 @@ icon: fa-edit
 
 [07conceptualDesign](/hci/07conceptualDesign/index.html) introduces conceptual design, ecology, pervasive information architecture, and interaction design.
 
+[08prototyping](/hci/08prototyping/index.html) introduces prototyping, both lofi and hifi.
+
