@@ -20,6 +20,11 @@ format:
 Week NINE
 :::
 
+# Report out from last week's exercise
+- What did you do?
+- What were the outcomes?
+- What best practices can you report?
+
 # Microinteractions
 Definition from NNgroup: Microinteractions are trigger-feedback pairs in which (1) the trigger can be a user action or an alteration in the system's state; (2) the feedback is a narrowly targeted response to the trigger and is communicated through small, highly contextual (usually visual) changes in the user interface.
 
