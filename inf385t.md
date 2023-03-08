@@ -29,7 +29,7 @@ icon: fa-edit
 
 [08clients](/uxproto/08clients/index.html) recaps the previous week and discusses clients and stakeholders.
 
-[09microinteractions](/uxproto/0microinteractions/index.html) recaps the previous week and discusses microinteractions and pair designing.
+[09microinteractions](/uxproto/09microinteractions/index.html) recaps the previous week and discusses microinteractions and pair designing.
 
 <!--
 
