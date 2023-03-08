@@ -29,6 +29,8 @@ icon: fa-edit
 
 [08clients](/uxproto/08clients/index.html) recaps the previous week and discusses clients and stakeholders.
 
+[09microinteractions](/uxproto/0microinteractions/index.html) recaps the previous week and discusses microinteractions and pair designing.
+
 <!--
 
 [09workshop](/uxproto/09workshop/index.html) discusses how to lead a design thinking workshop to get developers and other stakeholders on the same page as designers.
