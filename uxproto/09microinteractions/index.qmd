@@ -178,10 +178,27 @@ being in the same room, working on the same problem, with both brains focused on
 - Detailed design (synth produces narrative, gen produces visuals)
 
 ## Exercise: pair design your microinteraction
-- Break into pairs
+- Break into pairs (not necessarily your project teammate)
 - Choose some aspect of your project
-- Spend the rest of class in gen and synth roles,
+- Spend the allocated time in gen and synth roles,
   swapping at least once
+
+## Did this work? If so, why?
+- Pairing forces constant iteration: idea testing and course correction
+- It brings to bear two brains and two stances
+- Designers are happier
+- Each partner can focus on their core aptitudes
+
+## Other reasons
+- Partners learn from each other
+- Materialize ideas early
+- Vocalize rationale
+- Constant course correction
+
+# Bad UX
+It's everywhere! Time now for you to share your examples!
+
+(I can start with an example of an LMS)
 
 # References
 
