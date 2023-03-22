@@ -1,0 +1,849 @@
+---
+title: "UX Prototyping: Testing"
+author: Mick McQuaid
+date: 2023-03-22
+bibliography: master.bib
+format:
+  revealjs:
+    logo: iSchoolLogo.png
+    theme: moon
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+::: {.r-fit-text}
+Week ELEVEN
+:::
+
+(ten if you don't count spring break)
+
+# Definition of usability testing
+
+## definition
+
+usability testing: the process of learning about users from users by observing them using a product to accomplish some specific goals of interest to them, from @Barnum2010, page 6
+
+## definition
+
+usability: the extent to which a product can be used by specified users to achieve specified goals with effectiveness, efficiency, and satisfaction in a specified context of use, from ISO 9241-11, quoted in @Barnum2010, page 11
+
+# Formative and Summative Testing
+
+## formative
+- exploratory
+- early in process
+- used on lofi prototypes
+- more communication between moderator and participant
+- focus on user perceptions rather than task completion
+- more likely to think aloud
+
+## summative
+- more formal
+- evaluating design choices
+- used on hifi prototypes
+- less likely to think aloud
+- metrics
+- quantitative measurements
+
+# Testing Low Fidelity Prototypes
+
+## We've discussed lofi prototypes
+
+Recall Buxton's characteristics
+
+- explore
+- suggest
+- question
+- propose
+- tentative
+
+## Lofi purpose drives lofi testing
+
+- to initiate a conversation
+- to help people envision one alternative
+- to stimulate ideas
+
+## How to initiate a conversation?
+
+- show paper pictures of artifact
+- ask participant where they might "click"
+- offer participant a pointer to "click" with, e.g., a pen
+- provide a different piece of paper as the result of the "click"
+
+## Encourage think-aloud
+
+- ask the participant to reveal thoughts
+- ask what do you want to do next
+- ask what is holding you up
+
+## Watch the response
+
+- Watch for body language
+- Observe pauses---they may indicate confusion
+- Indecision about where to point may highlight ambiguity
+
+## Don't be afraid of pauses
+
+- but don't get sidetracked
+- maintain focus on the test
+- but let the test "breathe"
+- pauses may be a natural part of the process
+
+## Put the participant at ease
+
+- remind the participant that *they* are not being tested
+- thank the participant
+- assure the participant that what they are doing is valuable
+- make sure they don't feel you are too invested in the prototype
+
+## Aids
+
+- Scripts, forms, advice, and checklists from the book *Rocket Surgery Made Easy*
+- Available at [http://sensible.com/downloads-rsme.html](http://sensible.com/downloads-rsme.html)
+- Also watch Steve Krug at [https://youtu.be/VTW1yYUqBm8](https://youtu.be/VTW1yYUqBm8)
+
+
+# Amateur and Professional Testing
+
+## how serious are you?
+Here are two books: one is for amateur usability testers and one is for professional usability testers. (You can still be a UX professional and be an amateur usability tester. They catch many problems.)
+
+How many problems can you catch? As many as you can fix, plus any that don't matter
+
+## first, the amateur's book
+
+Most professionals of my acquaintance have read the amateur's book, by the way. Maybe they want to be sure that they are not missing anything an amateur would catch.
+
+The book is called *Rocket surgery made easy, the do-it-yourself guide to finding and fixing usability problems* by Steve Krug, 2010.
+
+##
+![](fiKrug2010.png)
+
+## Steve Krug
+
+Krug is best known for the book *Don't Make Me Think*, @Krug2005. I've always resisted reading that book because the title gives a questionable command.
+
+I was taught the goodness of thinking as an axiom.
+
+## Steve Krug's maxims
+
+1. Start earlier than you think makes sense
+2. A morning a month, that's all we ask
+3. Recruit loosely and grade on a curve
+4. Make it a spectator sport
+5. Focus ruthlessly on a small number of the most important problems
+6. When fixing problems, always do the least you can do
+
+## A morning a month, that's all we ask.
+- three users, debrief over lunch;
+- morning means half a day;
+- monthly sets expectations;
+- keeps it simple;
+- tester spends a couple of days prepping
+
+## Start earlier than you think makes sense.
+Even test a similar product before you've done any design work at all!
+
+## Recruit loosely and grade on a curve.
+It's more important to test frequently than to get the *right* participants or *more* participants.
+
+## Make it a spectator sport.
+Seeing is believing. Observing makes you realize how different users are from you. More observers are better.
+
+## Focus ruthlessly on a small number of the most important problems.
+How many experience the problem and how severe is it for those who do?
+
+## When fixing problems, always do the least you can do.
+Do something and don't try to do everything. Tweak, don't redesign. Take something away.
+
+## Krug's common problems
+
+- Getting off on the wrong foot
+- Failure to shout
+
+## task-level measurements
+
+Make a list of tasks!
+
+Make each task into a scenario.
+
+The scenario adds context, e.g., you are ..., you need ..., and supplies information, e.g., username and password, but doesn't give clues!
+
+Pilot test the scenarios.
+
+##
+
+::: {style="text-indent: -1em;"}
+〈 pause to watch a Steve Krug usability test 〉
+:::
+
+[https://youtu.be/VTW1yYUqBm8](https://youtu.be/VTW1yYUqBm8)
+
+## the professional's book
+
+*Usability testing essentials: ready, set... test!* by Carol Barnum, 2010.
+
+After you digest the amateur's book, it's time to tackle this one, especially chapters 5 through 7, describing planning, preparing, and conducting a test.
+
+##
+![](fiBarnum2010.png)
+
+## ideas from the professional's book
+
+- Focus on the user, not the product
+- Focus on the user's experience rather than the product's performance
+- People are goal-oriented
+- Use a think-aloud process
+- Think of usability testing as hill-climbing
+(There are many paths up a hill and different combinations of tests may still lead to the same place)
+
+## small studies
+
+- define a user profile
+- create task-based scenarios
+- use a think-aloud process
+- make changes and test again
+
+##
+![](fiUserCenteredDesign.png)
+
+Figure 3.1 from Barnum (2010) p 55 shows the user centered design process in which usability testing is embedded.
+
+## user-centered design according to Barnum (2010)
+
+- distinguishes between heuristic evaluation (evaluators) and usability testing (participants)
+- advocates both, and reports some research that says usability testing is better and some that calls them equal
+- suggests an order: heuristic evaluation first and usability testing second
+
+## process according to Barnum (2010)
+
+- planning the usability test
+- preparing the usability test
+- conducting the usability test
+
+Consider each of these in turn ...
+
+## planning for usability testing (Barnum, 2010, ch 5)
+
+- establish test goals
+- determine how to test
+- agree on user subgroups
+- determine participant incentive
+- draft screeners for recruiting
+- create scenarios from tasks matching test goals
+- determine qualitative and quantitative feedback methods
+- set dates for testing and deliverables
+
+## preparing for usability testing (Barnum, 2010, ch 6)
+
+- recruit participants
+- assign team roles and responsibilities
+- develop checklists
+- write the moderator's script
+- prepare other forms (consent forms)
+- choosing / preparing questionnaires
+- choosing / creating qualitative feedback methods
+- test the test
+
+(Remember to arrange for a backup participant)
+
+## conducting a usability test (Barnum, 2010, ch 7)
+
+- set up for testing
+- the moderator can create a comfortable situation
+- the moderator can administer post-test feedback
+- decide what to do when participants ask for help
+- log findings with software or forms
+- manage observers and visitors
+
+## summative testing, according to Barnum
+
+- Summative testing happens near release time.
+- Summative testing generates quantitative measures.
+- Summative testing evaluates specific design choices that can be compared to other design choices.
+- Summative tests are larger and more rigidly controlled than formative tests.
+
+## metrics
+
+quantitative measurements
+
+- time
+- tasks completed
+- errors
+- interruptions
+- questions
+
+(measure anything you can quantify that might correlate with success)
+
+## system usability scale (SUS)
+
+As a well-researched instrument, plenty is known about what it means. For example, the average score for 19 studies reported by Lewis (2009) was 62.1 rather than the 50/100 that might be expected at a glance. Another study (Bangor, 2008) reported an average score even higher, at 70/100.
+
+## tools
+
+- Screen recording: morae, silverback, camtasia
+- Screen sharing: morae, gotomeeting, teamviewer
+- Media analysis: morae
+
+## resources
+
+[http://rocketsurgerymadeeasy.com](http://rocketsurgerymadeeasy.com)
+
+[http://usability.gov](http://usability.gov)
+
+[http://uxpa.org](http://uxpa.org)
+
+[http://credibility.stanford.edu/guidelines/index.html](http://credibility.stanford.edu/guidelines/index.html)
+
+
+# Academic and Industrial Testing
+
+## @Lazar2017
+The source for this material is a book
+   called *Research methods in hci*
+
+## what is being tested?
+- paper prototypes
+- wireframes
+- functional layouts
+- Wizard of Oz
+- working software
+- in situ software
+
+## goals
+- finding flaws
+- improving quality
+- having an impact
+- practical improvement
+
+## differences from academic research
+- not expanding base of human knowledge
+- trying to improve an artifact
+- not strictly controlled
+- more like engineering than trad research
+- no goal of generalization
+- smaller number of participants
+
+## success of usability testing
+- build successful product
+- shortest time
+- fewest resources
+- fewest risks
+- optimizing trade-offs
+- @Wixon2003
+
+## process drivers
+- scheduling issues
+- resource issues
+- not theory
+- (Wixon, 2003)
+
+## changing treatment during process
+- experimental design would require same treatment for all subjects
+- usability testing may change treatment as soon as you're confident about change
+
+## observation differs from ethnography
+- no embedding in community
+- short term
+- not *deeply* studying context
+
+## categories
+- expert-based
+- automated
+- user-based
+
+## expert-based testing
+- interface experts use structured methods
+
+## expert review types
+- heuristic review
+- consistency inspection (review layout, color, terminology, language)
+- cognitive walkthrough (experts simulate users and walk through task series)
+
+## shneiderman's heuristics:
+Following are eight heuristics known as Shneiderman's Golden Rules of Interface Design, @Shneiderman2017
+
+## Eight golden rules
+- strive for consistency
+- cater to universal usability
+- offer informative feedback (but security disagrees)
+- design dialogs to yield closure
+- prevent errors
+- permit easy reversal of actions
+- support internal locus of control
+- reduce short-term memory load
+
+## automated testing
+- Software program applies guidelines and determines where guidelines aren't met
+- advantage: speed of code reading
+- advantage: easy to identify features such as alt text on web pages
+
+##
+Automated testing isoften used for WCAG checking
+(web content accessibility guidelines)
+
+## user-based testing
+This is what people think of when they think of usability testing
+
+## validation testing
+- testing against benchmarks
+    from other interfaces
+- just before release
+- when you think it's ready
+
+
+## stages of testing
+Here are two views of the testing process
+
+## First view
+@Rubin2008 proposed eight steps in their *Handbook of Usability Testing*
+
+## Eight stages
+- develop test plan
+- set up test environment
+- find and select participants
+- prepare test materials
+- conduct test sessions
+- debrief participants
+- analyze data and observations
+- report findings and recommendations
+
+## Second view
+@Lazar2006 also proposed eight steps in the book *Web Usability*
+
+## Lazar's stages
+<small>
+
+- select representative users
+- select setting
+- decide tasks users should perform
+- decide what data to collect
+- before test session
+  - informed consent
+- during test session
+- after test session
+  - debriefing
+  - summarize results and suggest improvements
+
+</small>
+
+# how many users?
+
+## five
+(Virzi, 1992)
+
+## no, seven or fifteen
+(Nielsen and Landauer, 1993)
+
+## three point two!
+(Nielsen and Landauer, 1993)
+
+## no, ten
+(Hwang and Salvendy, 2010)
+
+## no, twelve
+(Caine, 2016)
+
+## all numbers are correct
+(Lewis, 2006)
+
+... for the following reasons
+
+## Choosing the number
+- how accurate do you need to be?
+- what are your problem discovery goals?
+- how many participants are available?
+
+## numbers don't matter
+(Lindgaard and Chattratichart, 2007)
+
+Instead, number of flaws found will depend on design and scope of tasks!
+
+## testing groups
+Do you need one representative from
+each group?
+or five? or ten?
+
+## testing pairs
+Children alone are less likely to
+criticize than children in pairs
+
+## More on numbers
+- keep goals in mind
+- how many can we afford?
+- how many can we get?
+- how many do we have time for?
+
+## The final word on numbers: five
+(folklore)
+
+# location
+- traditional setting two room setup with one-way mirror and recording  devices
+- usability lab
+- usability van
+- user's workplace or home
+
+## what do you need?
+Do you need recordings?
+
+## remote testing
+Why not test users you can not meet?
+
+e.g., Amazon's mechanical turk
+
+## pros of mechanical turk
+- number of participants
+- scheduling flexibility
+- good for quantitative metrics
+- clickstream data easy to get
+
+## cons of mechanical turk
+- can't pick up interpersonal cues
+- can't recover from errors
+- can't ask questions contingent on what happens
+- may miss important context
+
+## user nights at yahoo!
+- Yahoo ran a user night every Tuesday from 7 to 9
+- testing preceded by food for those who show up on time
+- orientation time, followed by testing whatever is ready for testing
+- after users leave, Yahoos remain and discuss
+
+## task lists
+You usually need a list of tasks for the participant to perform
+
+## qualities of the task list
+- unambiguous
+- keeping participant goal-directed
+- key features exercised
+- shouldn't require user to ask additional questions
+
+## workload
+One study found participants had to be paid more for tasks involving own financial data
+
+## navigation
+The task list may have an order or not, so explicit instructions about navigation are necessary
+
+## interventions
+Plan for whether interventions are to be
+allowed and, if so, how they'll work.
+Should they only be for insurmountable obstacles?
+
+# measurement
+
+## three main kinds
+- task performance
+- time performance
+- user satisfaction
+
+## others?
+- number of errors
+- time to recover from errors
+- time spent on help
+- number of visits to search
+
+## key logging
+
+## eye tracking
+
+## think aloud
+Or a reflection session to get verbal feedback
+in case think aloud would interfere with
+task performance
+
+# the test session itself
+
+## reminders
+People don't show up unless you send
+reminders
+
+## extra time
+People show up late or get interrupted, so
+you have to allow extra time
+
+## follow protocol
+May have an irb (Institutional Review Board) protocol but should have some protocol anyway
+
+## testing the artifact, not the user
+The participant should be reminded of this because it will otherwise appear that the user is being tested
+
+## flexible when compared with experiments
+The protocol for the session should be followed but can be looser than for an
+experiment
+
+## debriefing
+- find out what they know
+- debriefing may be more for participant than for researcher
+
+## analysis
+- descriptive statistics are always possible
+- pictures are always possible
+
+# Usability testing software
+
+## morae
+Why would you even care about Morae? It's obsolete and discontinued. But ... some people still use it and the workflow is quite good even if you don't use it. So let's explore it from the workflow standpoint.
+
+## suggested morae workflow
+
+1. plan
+2. setup
+3. record, view, log
+4. create project
+5. view, analyze
+6. present
+
+## morae includes three programs
+- *recorder* records a session
+- *observer* lets you watch a session in progress
+- *manager* does everything else
+
+## but first ...
+
+Think about the kind of session you'll run
+
+- paper prototype
+- moderated computer
+- autopilot computer
+
+## paper prototype
+
+If you're testing a paper prototype, you probably need both cameras. You can set up Morae in paper prototype mode so that it does not record the PC screen.
+
+## moderated computer prototype
+
+You can set up Morae in moderated usability test mode in a lab and run the test solo or with observers in the control room.
+
+This is the most likely setup.
+
+## autopilot
+
+Don't discount the value of autopilot. This is meant for unmoderated sessions but you can use it to free you from having to juggle too many things to remember during the session. The only caveat is that you have to set it up properly or you will wind up abandoning it and returning to moderated mode.
+
+## process (one of three)
+- Visit a lab with Morae (before the day of your tests) and set up a configuration in recorder. Save that configuration to a USB drive, Google Drive, or somewhere. Leave the lab.
+- Return to the lab and verify that your config works. Pretend you're doing the test. Actually record yourself playing both parts.
+- Save your recording.
+
+## process (two of three)
+- Go to any computer with Morae and verify that the copy of Morae can open your recording (rdg file)
+- Obtain a web cam
+- Return to the user testing lab and start your recording again using your config file.
+- Verify that you can plug in the web cam and select it as one of the video sources.
+- Use a touch screen in the user testing lab. Verify that you can use it and it works.
+
+## process (three of three)
+- If you have observers, connect them to the recording.
+- Log some tasks and markers.
+- Close down and save your recording.
+- Again, verify that your recording works.
+- Now you're probably ready for your test.
+
+## during the test
+- Make sure you record!
+- Try to relax! Think of specific things you can do to reduce stress, both for you and your participant.
+- Take good care of your participant!
+- Be sure to save your recording afterward.
+
+## after the test
+Now it is time get some evidence from your recordings and prepare it for presentation.
+
+You'll want to find video clips that illustrate important points.
+
+You'll want to log markers so you can get a graph that supports your findings.
+
+# results
+
+## report writing @Mensh2017
+
+caveat: This is about academic writing and industrial writing is usually less strict
+
+## four principles
+- focus on a central contribution, communicated in the title
+- write for people who don't know your work
+- stick to a context-content-conclusion scheme
+- avoid zig-zagging; use parallelism
+
+## components of a report
+- tell a complete story in the abstract
+- communicate why it matters in the intro
+- deliver results as a sequence of statements, supported by figures, that connect logically to support the central contribution
+- discuss how the gap was filled
+
+## process
+- allocate time where it matters: title, abstract, figures, outlining
+- get feedback to reduce, reuse, recycle
+
+## usual report format
+- abstract
+- introduction
+- background
+- method
+- results
+- conclusion
+
+## using published information
+- many public studies of technology use are available
+- you may be able to use them
+- you should develop a feel for where you can get good numbers
+- e.g., Gartner Hype Curve, Pew Internet Studies, Mary Meeker Internet report
+
+## validity @Lazar2017
+
+Did we measure what we said we measured?
+
+- face validity, aka content validity
+- criterion validity
+- construct validity
+
+## face validity
+- does the content seem to be valid on its face?
+- face validity is highly subjective
+- weakest form of validity because susceptible to bias
+- classic example is IQ tests using cultural artifacts
+
+## criterion validity
+- how accurately does a new measure predict a previously validated criterion?
+- e.g., NASA Task Load Index is a previously validated set of measures
+- measure the correlation between new and previous criterion
+
+## construct validity
+- aka factorial validity
+- what if no previous criterion is suitable?
+- then ask what constructs account for variability
+- conduct a factor analysis to discover factors
+
+## establishing validity
+- always a multifaceted approach
+- may construct a database
+- at least need well-documented data
+- may triangulate among various data sources
+- try to account for all variability, not just that which is agreeable to your theory
+
+## using statistics
+- often problematic in hci work, where 15 subjects are often considered adequate
+- hard to generate statistics from 15 data points
+- on the other hand, easy to use statistics on live websites
+- a/b testing is a well-studied area
+
+## using grounded theory
+- usually used in academic study of hci
+- theory emerges from the data
+
+##
+![](fiOpenAxialCodes.png)
+
+## using content analysis
+![](fiCao2010refl.png)
+
+# after evaluation
+
+*what's next?*
+
+## design thinking process
+
+1. empathize
+2. define
+3. ideate
+4. prototype
+5. test
+
+... but should it really end there?
+
+## another round
+
+*more design!*
+
+
+## iterative development
+
+```{r,engine='tikz',engine.opts=list(extra.preamble=c("\\usepackage{lato}"))}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{shapes.geometric}
+\tikzstyle{background rectangle}=[rounded corners,fill=yellow!05]
+\definecolor{protocolor}{rgb}{0.2,0.60,0.25} 
+\definecolor{designcolor}{rgb}{0.9,0.1,0.0} 
+\definecolor{evalcolor}{rgb}{0.3,0.4,0.5} 
+\definecolor{arrowcolor}{rgb}{0.7,0.8,0.9} 
+  \begin{tikzpicture}[show background rectangle,scale=1.35] 
+\node (p) at (0,2)
+  [shape=ellipse,draw=none,fill=protocolor,text=white,scale=0.85]
+  {\sf prototype};
+\node (pa) at (-1.5,2.6)
+  [shape=rectangle,draw=none,fill=protocolor!60,text=white,scale=0.5]
+  {\sf lowfi, hifi};
+\node (d) at (4,3)
+  [shape=ellipse,draw=none,fill=designcolor,text=white,scale=0.85]
+  {\sf design};
+\node (da) at (4.7,4.3)
+  [shape=rectangle,draw=none,fill=designcolor!60,text=white,text
+  width=4cm,scale=0.5]
+  {\sf contextual inquiry, personas, scenarios, sketching};
+\node (e) at (2,0)
+  [shape=ellipse,draw=none,fill=evalcolor,text=white,scale=0.85]
+  {\sf evaluate};
+\node (ea) at (4,-0.4)
+  [shape=rectangle,draw=none,fill=evalcolor!60,text=white,text
+  width=5cm,scale=0.5]
+  {\sf heuristic evaluation, usability testing};
+\draw [->,very thick,arrowcolor] (d) to [bend right=45] (p);
+\draw [->,very thick,arrowcolor] (p) to [bend right=45] (e);
+\draw [->,very thick,arrowcolor] (e) to [bend right=45] (d);
+  \end{tikzpicture} 
+```
+
+## product of evaluation
+
+more design ideas
+
+## should you do whatever participants asked?
+
+NO!
+
+*At least, not necessarily*
+
+## what can you do?
+
+*Understand participants better first!*
+
+... before you try to make design choices
+
+## first thoughts may scratch the surface
+
+ask *why?* three times
+
+## why keep asking why?
+
+to get beneath the surface
+
+## evaluation is not really finished
+
+*until you understand the usability problems*
+
+## when do you understand the problems?
+
+*when you're ready to make design choices*
+
+
+# References
+
+::: {#refs}
+:::
+
+---
+
+::: {.r-fit-text}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *League Gothic* and *Lato*
+
