@@ -27,3 +27,7 @@ icon: fa-edit
 
 [08prototyping](/hci/08prototyping/index.html) introduces prototyping, both lofi and hifi.
 
+[09empirical](/hci/09empirical/index.html) introduces empirical evaluation.
+
+[11analytical](/hci/11analytic/index.html) introduces analytic evaluation.
+

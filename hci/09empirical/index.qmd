@@ -1,0 +1,163 @@
+---
+title: "Human Computer Interaction:<br>Empirical Evaluation"
+author: Mick McQuaid
+date: 2023-03-09
+bibliography: master.bib
+format:
+  revealjs:
+    logo: iSchoolLogo.png
+    theme: moon
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+::: {.r-fit-text}
+Week NINE
+:::
+
+# Today
+
+- Q and A from last time
+- Discussion leading ()
+- Design Critique (Swaraj?, Keyur)
+- Article Presentation ()
+- Break (break may be earlier or later in sequence)
+- Empirical Evaluation
+
+# Q and A from last time
+
+## Learning
+- I learned some prototype ways and different animation effects.
+- Prototype transitions. It has been a long time since I have played with Figma. It was intimidating at first, but doing it as a class helped.
+- Learning to use Figma was helpful, I have no background in design but my classmate's work makes it easier for me to understanding how to work in Figma.
+
+## Q&A
+In Figma, I noticed that Design refers to creating the interface and what it visually looks like, but Prototype refers to creating the interaction. Is this the case outside of Figma? Is this the best way to understand prototyping?
+
+*Answer: I think it is particular to Figma and is not how I understand the dichotomy between design and prototyping, which I see as the difference between generating alternatives and implementing one of those alternatives.*
+
+# Discussion
+
+## Reusing participants
+My question is from chapter 23 of the UX book. The chapter suggests that using the same participants for more than one cycle of formative evaluation. However, wouldn't this technique fail if the design/research team is doing A/B testing with two new prototypes? Wouldn't the participant be influenced by their thoughts regarding previous versions? In that case I believe it wouldn't be true A/B testing, but A/B/C testing essentially.
+
+## Recency bias
+I had a similar question, as I know this is a problem with a lot of social science experiments as well. To counteract the recency bias (remembering what you just did/responded to in the last simulation), there's usually a time break of a couple days between each task. I wonder how practical this is to in UX work, though, especially give the constraints of time/money.
+
+## Remote user testing
+I am interested in the ways that UX designers interact with participants in testing their prototypes. A lot of the methods described in the book seemed to be performed in person. I know a lot of UX positions are now completely remote, though. I’m wondering how an online-simulated user testing experience would differ from in-person, and the pros and cons to both.
+
+## Teaching and managing up
+Chapter 22’s breakdown of the UX Target Table was beneficial, and I hope to implement the model in my work. Last year there was a spike in the requests for benchmarking our products. After each product area received a score it became less of interest. Even when collecting our scores, I don't recall using Target Tables or anything similar. How do we as entry-to-mid-level researchers evangelize these processes in organizations that are less mature in their UX strategy? What are some best practices for teaching / managing up?
+
+## Sophisticated techniques
+Empirical evaluation is a more systematic way of collecting data and evaluating the usability of a product. A lot of the methods described are ones I'm very familiar with after having used them often in school and at different workplaces such as using the think-aloud technique or administering questionnaires using the likert scale. I have yet to encounter it but are there more sophisticated methods of measuring user engagement, potentially some that require specific and advanced tools?
+
+## User testing facilitators and observers
+... I find the testing process itself to be rigorous and wonder if it requires more than two people (a facilitator and a notetaker) to capture all data points, including quantitative (such as number of errors, time-on-task, task path) and qualitative (such as user expression, verbal feedback, etc.) data. But having tools to automate a portion of data collection might simplify the process.
+
+## Risks
+How do UX designers manage the limitations of the different methods used? User testing may not provide a complete understanding of user needs and experiences as there may always be gaps in our knowledge of user experience that cannot be fully captured through testing. In such cases, how do we acknowledge these limitations?
+
+##
+![](fiRisksOpptys.png)
+
+## Recordings
+While Chapter 24 acknowledges that video recording can be unreliable, it also provides the most accurate data in its raw form. Summarizing user interviews inevitably involves some degree of subjective interpretation, but is it worth avoiding video recording despite the potential loss of valuable information?
+
+# Empirical evaluation
+
+## Spectrum of measurement
+I claim that there is a gray area between objective and subjective and that it's a spectrum from objective to subjective measurements. Do you believe that?
+
+I also claim that there is a gray area between quantitative and qualitative. What do you think?
+
+## Scales
+- Ratio: can say this is twice as much as that, e.g., money
+- Interval: can say this is a certain amount more than that, e.g., temperature
+- Ordinal: can rank, can say this is more than that but not how much, e.g., competitors in a dance contest
+- Nominal: can say this differs from that, e.g., gender
+
+## Formative evaluation
+- conducted while in process
+- conducted to refine
+
+## Summative evaluation
+- conducted after process
+- conducted to determine final fitness
+- usually only done in big software contracts, often after a waterfall process
+
+## Empirical vs analytic evaluation
+- real users vs experts
+- observation vs automated checks
+
+## Planning
+- Decide a priori what you plan to evaluate and establish measures in advance
+- Consider new users, experts, consequences of errors, sources of satisfaction
+
+## Whitney Quesenbery posits 5 Es
+
+- Effective: How completely and accurately the work or experience is completed or goals reached
+- Efficient: How quickly this work can be completed
+- Engaging: How well the interface draws the user into the interaction and how pleasant and satisfying it is to use
+- Error Tolerant: How well the product prevents errors and can help the user recover from mistakes that do occur
+- Easy to Learn: How well the product supports both the initial orientation and continued learning throughout the complete lifetime of use
+
+::: {.notes}
+Described in a book chapter, "Dimensions of Usability", in a book, *Content and Complexity*, Erlbaum, 2003.
+:::
+
+## Five E techniques (1 of 3)
+- Effective: Watch for the results of each task, and see how often they are done accurately and completely. Look for problems like information that is skipped or mistakes that are made by several users.
+- Efficient: Time users as they work to see how long each task takes to complete. Look for places where the screen layout or navigation make the work harder than it needs to be.
+
+## Five E techniques (2 of 3)
+- Engaging: Watch for signs that the screens are confusing, or difficult to read. Look for places where the interface fails to draw the users into their tasks. Ask questions after the test to see how well they liked the product and listen for things that kept them from being satisfied with the experience
+- Error Tolerant: Create a test in which mistakes are likely to happen, and see how well users can recover from problems and how helpful the product is. Count the number of times users see error messages and how they could be prevented.
+
+## Five E techniques (3 of 3)
+- Easy to Learn: Control how much instruction is given to the test participants, or ask experienced users to try especially difficult, complex or rarely-used tasks. Look for places where the on-screen text or work flow helps…or confuses the
+
+## UX target table
+- Work role: user class
+- UX goal
+- UX measure (what is measured)
+- Measuring instrument
+- UX metric (how it is measured)
+- Baseline level
+- Target level
+- Observed results
+
+## Steve Krug's approach
+(pause for video)
+# Readings
+
+Readings last week included @Hartson2019: Ch 20
+
+Readings last week include @Hartson2019: Ch 22--24
+
+# Assignments
+None
+
+# References
+
+::: {#refs}
+:::
+
+---
+
+::: {.r-fit-text}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *League Gothic* and *Lato*
+
