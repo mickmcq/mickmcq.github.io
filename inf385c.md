@@ -29,5 +29,5 @@ icon: fa-edit
 
 [09empirical](/hci/09empirical/index.html) introduces empirical evaluation.
 
-[11analytical](/hci/11analytic/index.html) introduces analytic evaluation.
+[11analytic](/hci/11analytic/index.html) introduces analytic evaluation.
 
