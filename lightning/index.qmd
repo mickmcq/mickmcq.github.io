@@ -1,0 +1,113 @@
+---
+title: "Lightning Talk:<br>Accessibility<br>for<br>Disabled Scholars"
+author: Mick McQuaid
+date: 2023-04-06
+bibliography: master.bib
+format:
+  revealjs:
+    logo: iSchoolLogo.png
+    theme: moon
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+# Abstract
+Disabled people are drastically underrepresented in the academic community. Why? In a series of four papers, we have interviewed blind and low vision, as well as deaf and hard of hearing graduate students, their advisors, the disability services staff who try to help them, and have explored the advanced tools they use in computationally intensive disciplines. We have found that many of the usual suspects, such as inaccessible pdfs, stand in their way, but have also encountered a few surprises!
+
+# Who?
+- Disabled doctoral students in computing-intensive disciplines
+- Doctoral students with disabilities are drastically underrepresented, according to
+[NSF](https://ncses.nsf.gov/pubs/nsf20301/report)
+
+
+(*I alternate person-first and identity-first language in recognition of the community divide over this terminology.*)
+
+# What?
+Why are doctoral students with disabilities underrepresented? Are there barriers standing in their way?
+
+# How?
+- Interviews with disabled doctoral students
+- Interviews specifically concerning tool accessibility
+- Interviews with disabilities services staff / Analysis of disabilities services websites
+- Interviews with advisors of doctoral students with disabilities
+
+# Method
+Reflexive thematic analysis, @Braun2022
+
+![](fiThematicGuide.png)
+
+# Prereqs
+If you don't know anything about ableism, disability identity, or the history of disability rights, check out
+[https://mickmcquaid.com/accessibilitySlides.html](https://mickmcquaid.com/accessibilitySlides.html)
+
+#
+
+![](fiSteps.jpg){fig-align="center"}
+
+# Initial interviews found ...
+... two forms of access inequality
+
+1. Access differential: the gap between the access that non/disabled students experience, and
+2. Inequitable access: the degree of inadequacy ofexisting accommodations to address inaccessibility
+
+reported in @Shinohara2020
+
+# Bridging the chasm of inaccessibility
+- graduate-level productivity is one thing, but ...
+- the burden of survival means extra effort disabled scholars must sustain
+
+reported in @Shinohara2021
+
+# Understanding disability services
+
+- Policies and attitudes ascribed to disability, technology, and faculty
+- Impacts of policies and perspectives on accommodation decisions for graduate students
+
+reported in @Tamjeed2021
+
+# Advanced tool use by scholars with disabilities
+
+- Inaccessible tools complicate research tasks, and
+- contribute to social entanglements in collaborative relationship
+
+reported in @Shinohara2022
+
+# Future: faculty advisors
+
+- Do faculty advisors know what obstacles students face?
+- How do faculty see themselves as advocates for students?
+- Are super-students disguising the inherent challenges scholars face?
+
+## Team
+
+- Kristen Shinohara, leader
+- Murtaza Tamjeed, doctoral student
+- Mick McQuaid
+
+### Former members
+- Dymen Barkins
+- Nayeri Jacobo
+- Tom Oh
+
+# References
+
+::: {#refs}
+:::
+
+---
+
+::: {.r-fit-text}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *League Gothic* and *Lato*
+
