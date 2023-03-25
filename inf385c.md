@@ -31,3 +31,5 @@ icon: fa-edit
 
 [11analytic](/hci/11analytic/index.html) introduces analytic evaluation.
 
+[hciExperiments](/hciExperiments/index.html) introduces quantitative evaluation.
+
