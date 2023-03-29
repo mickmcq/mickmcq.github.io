@@ -35,10 +35,10 @@ Week 10 is Spring Break.
 
 [11testing](/uxproto/11testing/index.html) explains user testing and its aftermath.
 
+[12moreTesting](/uxproto/12moreTesting/index.html) further talks about testing.
+
 <!--
 
 [09workshop](/uxproto/09workshop/index.html) discusses how to lead a design thinking workshop to get developers and other stakeholders on the same page as designers.
-
-[12moreTesting](/uxproto/12moreTesting/index.html) further talks about testing.
 
 -->
