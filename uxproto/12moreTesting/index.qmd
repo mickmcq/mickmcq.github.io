@@ -1,0 +1,140 @@
+---
+title: "UX Prototyping:<br>More on Testing"
+author: Mick McQuaid
+date: 2023-03-29
+bibliography: master.bib
+format:
+  revealjs:
+    logo: iSchoolLogo.png
+    theme: moon
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+::: {.r-fit-text}
+Week ELEVEN
+:::
+
+# UserTesting Dot Com
+
+*Thanks to the student who pointed out that I shouldn't
+ignore UserTesting.com just because it lacks a free
+student tier---in fact, it turns out to have a (limited)
+free student tier!*
+
+::: {.notes}
+I applied for this academic program:
+[https://www.usertesting.com/company/programs-initiatives/education-partner-program](https://www.usertesting.com/company/programs-initiatives/education-partner-program)
+:::
+
+## UserTesting Testimonials
+![](fiUserTestingTestimonials.png)
+
+## UserTesting Guides
+![](fiUserTestingGuides.png)
+
+## Supported Testing
+- Tasks
+- Five-second test
+- Verbal response
+- Written response
+- Multiple choice
+- Rating scale
+- Card sort
+- Tree test
+
+## Five second test
+The five second test function will show the URL listed in the Starting URL field to your contributors for five seconds only. Afterward, we'll ask them three questions to recall their impressions and understanding of the page. (requires Google Chrome browser)
+
+- What do you remember?
+- What can you do on this site?
+- Who's this site for?
+
+## Card sorting example
+![](fiCardSortA.jpg)
+
+## Card sorting example
+![](fiCardSortB.jpg)
+
+## Tree testing with TreeJack
+
+::: {.notes}
+[https://www.optimalworkshop.com/learn/101s/tree-testing/](https://www.optimalworkshop.com/learn/101s/tree-testing/)
+:::
+
+## Tree testing input
+![](fiTreeTest1.png)
+
+## More tree testing input
+![](fiTreeTest2.png)
+
+## Tree testing output
+![](fiTreeTestOutput1.png)
+
+## More tree testing output
+![](fiTreeTestOutput2.png)
+
+## Still more tree testing output
+![](fiTreeTestOutput3.png)
+
+# FuelCycle
+*... claims to be an all-in-one solution for user research ...*
+
+##
+![](fiFuelCyclePromo.png)
+
+## User research according to FuelCycle
+*Five steps*
+
+::: {.notes}
+This comes from the following URL
+[https://fuelcycle.com/blog/what-is-user-research/](https://fuelcycle.com/blog/what-is-user-research/)
+:::
+
+## 1. Objectives
+
+- Identify the knowledge gaps that need to be filled
+- Identify the problems that need to be solved
+- Specify over-all research goals
+
+## 2. Hypotheses
+
+- Identify what you understand about users
+- Speculate outcomes
+
+## 3. Methods
+
+- Based on time and manpower, select the proper research methods
+- Identify resources needed
+
+## 4. Conduct
+
+- Gather the research data utilizing the selected methods
+- Thoroughly and accurately record the results
+
+## 5. Synthesize
+
+- Analyze the research outcomes and findings
+- Use the analysis to fill in the knowledge gaps, prove or disprove our hypotheses, and recommend opportunities for UX design efforts.
+
+#
+
+![](fiPartyTimeExcellent.jpg)
+
+---
+
+::: {.r-fit-text}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *League Gothic* and *Lato*
+
