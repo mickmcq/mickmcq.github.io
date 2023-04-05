@@ -37,6 +37,8 @@ Week 10 is Spring Break.
 
 [12moreTesting](/uxproto/12moreTesting/index.html) further talks about testing.
 
+[13misc](/uxproto/13misc/index.html) introduces four miscellaneous topics.
+
 <!--
 
 [09workshop](/uxproto/09workshop/index.html) discusses how to lead a design thinking workshop to get developers and other stakeholders on the same page as designers.
