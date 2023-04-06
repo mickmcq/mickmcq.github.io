@@ -19,6 +19,10 @@ format:
 # Abstract
 Disabled people are drastically underrepresented in the academic community. Why? In a series of four papers, we have interviewed blind and low vision, as well as deaf and hard of hearing graduate students, their advisors, the disability services staff who try to help them, and have explored the advanced tools they use in computationally intensive disciplines. We have found that many of the usual suspects, such as inaccessible pdfs, stand in their way, but have also encountered a few surprises!
 
+::: {.notes}
+This is the abstract that may have attracted you to the talk. You can read it later because I'm going to tell you everything ...
+:::
+
 # Who?
 - Disabled doctoral students in computing-intensive disciplines
 - Doctoral students with disabilities are drastically underrepresented, according to
@@ -27,41 +31,76 @@ Disabled people are drastically underrepresented in the academic community. Why?
 
 (*I alternate person-first and identity-first language in recognition of the community divide over this terminology.*)
 
+::: {.notes}
+We've published four papers so far on disabled doctoral students in computing-intensive disciplines. We're motivated by the desire to improve the pipeline from research consumers to research producers.
+:::
+
 # What?
 Why are doctoral students with disabilities underrepresented? Are there barriers standing in their way?
 
+::: {.notes}
+Are there barriers to disabled doctoral students? Yes! There are plenty of barriers, especially academic ableism, which has been written about but remains understudied in peer-reviewed venues.
+:::
+
 # How?
-- Interviews with disabled doctoral students
-- Interviews specifically concerning tool accessibility
-- Interviews with disabilities services staff / Analysis of disabilities services websites
-- Interviews with advisors of doctoral students with disabilities
+
+::: {.incremental}
+- Interviews with disabled doctoral [students]{.emph}
+- Interviews with [students]{.emph} specifically concerning tool accessibility
+- Interviews with disabilities services [staff]{.emph} / Analysis of disabilities services websites
+- Interviews with [advisors]{.emph} of doctoral students with disabilities
+:::
+
+::: {.notes}
+We conducted interviews with three groups of people, students, staff, and faculty advisors (haven't published on advisors yet) and analyzed websites
+:::
 
 # Method
 Reflexive thematic analysis, @Braun2022
 
 ![](fiThematicGuide.png)
 
+::: {.notes}
+We used what is currently the most popular method in the Human Computer Interaction research world for analyzing interview data. Actually this book was just published but the method in one form or another has been around since the mid oughts. There is some debate within our group over whether we're really using it or just using our own form of grounded theory.
+:::
+
 # Prereqs
 If you don't know anything about ableism, disability identity, or the history of disability rights, check out
 [https://mickmcquaid.com/accessibilitySlides.html](https://mickmcquaid.com/accessibilitySlides.html)
+
+::: {.notes}
+If you have no background in these topics, you can better understand this research by reviewing five introductory slideshows I produced as part of a TeachAccess grant to spread the word.
+:::
 
 #
 
 ![](fiSteps.jpg){fig-align="center"}
 
+::: {.notes}
+This is just a picture of something that looks good but turns out to be completely inaccessible!
+:::
+
 # Initial interviews found ...
 ... two forms of access inequality
 
 1. Access differential: the gap between the access that non/disabled students experience, and
-2. Inequitable access: the degree of inadequacy ofexisting accommodations to address inaccessibility
+2. Inequitable access: the degree of inadequacy of existing accommodations to address inaccessibility
 
 reported in @Shinohara2020
+
+::: {.notes}
+It was unsurprising to find a big access gap, particularly given that we know that disabled doctoral students are underrepresented. This first phase of our project just delineated the size of the gap.
+:::
 
 # Bridging the chasm of inaccessibility
 - graduate-level productivity is one thing, but ...
 - the burden of survival means extra effort disabled scholars must sustain
 
 reported in @Shinohara2021
+
+::: {.notes}
+What was more eye-opening was the discovery of the exhausting survival effort required of doctoral students with disabilities. Just to reach equity takes as much time and effort as doctoral studies themselves. Students described, for example, that there are such extensive delays in making pdfs accessible that they sometimes give up working with disability services offices. Similarly, they give up working with disability services because the quality of the work translating pdfs is unacceptable.
+:::
 
 # Understanding disability services
 
@@ -70,6 +109,12 @@ reported in @Shinohara2021
 
 reported in @Tamjeed2021
 
+::: {.notes}
+We were surprised to find that all the staff we spoke to were generalists who fell into the disability services field accidentally through serving as college staff in other areas and feeling that disability services represented a worthy effort to get involved in. They had no special training and several expressed difficulties understanding assistive technology, as well as difficulty understanding applicable laws and regulations.
+
+Further, they were uncomfortable providing accommodations for research activity as opposed to classroom activity, and graduates as opposed to undergraduates.
+:::
+
 # Advanced tool use by scholars with disabilities
 
 - Inaccessible tools complicate research tasks, and
@@ -77,10 +122,18 @@ reported in @Tamjeed2021
 
 reported in @Shinohara2022
 
+::: {.notes}
+We interviewed doctoral students about their use of tools required in research, including statistical software, software development software such as IDEs, molecular modeling software used in computational chemistry, and document production software such as LaTeX and Microsoft Word. A particularly surprising finding was the difficulty in asking more senior colleagues to alter work practices to accommodate screen reader issues. For example, one participant hesitated to ask colleagues to add their initials to document comments because their screen reader skipped over names on comments. Another hesitated to ask senior colleagues why they hadn't entered comments, even though they had but Microsoft Word divided the comments into frames that were not available to the screen reader.
+:::
+
 # Future: faculty advisors
 
 - Do faculty advisors know what obstacles students face?
 - How do faculty see themselves as advocates for students?
+
+::: {.notes}
+It remains to study faculty advisors of doctoral students. We want to know if they are aware of the situation and whether they see themselves as advocates for their students.
+:::
 
 ## Team
 
