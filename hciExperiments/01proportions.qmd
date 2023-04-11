@@ -7,10 +7,11 @@ Sixty subjects were asked whether they preferred website A or B. Their answer an
 ```{r}
 prefsAB <- read_csv("prefsAB.csv")
 tail(prefsAB) # displays the last few rows of the data frame
-prefsAB$Subject = factor(prefsAB$Subject) # convert to nominal factor
+prefsAB$Subject <- factor(prefsAB$Subject) # convert to nominal factor
+prefsAB$Pref <- factor(prefsAB$Pref) # convert to nominal factor
 summary(prefsAB)
 ggplot(prefsAB,aes(Pref)) +
-  geom_bar(width=0.5,alpha=0.4,fill="green") +
+  geom_bar(width=0.5,alpha=0.4,fill="lightskyblue1") +
   theme_tufte(base_size=7)
 ```
 
@@ -42,10 +43,11 @@ Convert Subject to a factor because R reads any numerical data as, well, numeric
 prefsABC <- read_csv("prefsABC.csv")
 head(prefsABC) # displays the first few rows of the data frame
 prefsABC$Subject <- factor(prefsABC$Subject)
+prefsABC$Pref <- factor(prefsABC$Pref)
 summary(prefsABC)
 par(pin=c(2.75,1.25),cex=0.5)
 ggplot(prefsABC,aes(Pref))+
-  geom_bar(width=0.5,alpha=0.4,fill="green")+
+  geom_bar(width=0.5,alpha=0.4,fill="lightskyblue1")+
   theme_tufte(base_size=7)
 ```
 
@@ -91,6 +93,8 @@ Revisit our data file with 2 response categories, but now with sex (M/F).
 prefsABsex <- read_csv("prefsABsex.csv")
 tail(prefsABsex)
 prefsABsex$Subject <- factor(prefsABsex$Subject)
+prefsABsex$Pref <- factor(prefsABsex$Pref)
+prefsABsex$Sex <- factor(prefsABsex$Sex)
 summary(prefsABsex)
 ```
 
@@ -98,7 +102,7 @@ Plotting is slightly more complicated by the fact that we want to represent two 
 
 ```{r}
 ggplot(prefsABsex,aes(Pref)) +
-  geom_bar(width=0.5,alpha=0.4,fill="green") +
+  geom_bar(width=0.5,alpha=0.4,fill="lightskyblue1") +
   facet_wrap(~Sex) +
   theme_tufte(base_size=7)
 ```
@@ -139,9 +143,11 @@ Revisit our data file with 3 response categories, but now with sex (M/F).
 prefsABCsex <- read_csv("prefsABCsex.csv")
 head(prefsABCsex)
 prefsABCsex$Subject <- factor(prefsABCsex$Subject)
+prefsABCsex$Pref <- factor(prefsABCsex$Pref)
+prefsABCsex$Sex <- factor(prefsABCsex$Sex)
 summary(prefsABCsex)
 ggplot(prefsABCsex,aes(Pref)) +
-  geom_bar(width=0.5,alpha=0.4,fill="green") +
+  geom_bar(width=0.5,alpha=0.4,fill="lightskyblue1") +
   facet_wrap(~Sex) +
   theme_tufte(base_size=7)
 
