@@ -9,7 +9,7 @@ format:
     embed-resources: true
     include-in-header: \pgfplotsset{compat=1.18}
 bibliography: master.bib
-mainfont: TexGyreSchola
+mainfont: Tex Gyre Schola
 monofont: JetBrainsMono Nerd Font
 mathfont: Tex Gyre Schola Math
 ---

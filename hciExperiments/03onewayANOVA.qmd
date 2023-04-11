@@ -19,9 +19,9 @@ ggplot(ide2,aes(Time,fill=IDE)) +
   geom_histogram(binwidth=50,position=position_dodge()) +
   scale_fill_brewer(palette="Paired") +
   theme_tufte(base_size=7)
-ggplot(ide2,aes(IDE,Time)) +
-  geom_boxplot() +
-  scale_fill_brewer(palette="Greens") +
+ggplot(ide2,aes(IDE,Time,fill=IDE)) +
+  geom_boxplot(show.legend=FALSE) +
+  scale_fill_brewer(palette="Blues") +
   theme_tufte(base_size=7)
 
 #. independent-samples t-test (suitable? maybe not, because...)
@@ -81,9 +81,9 @@ ggplot(ide2,aes(logTime,fill=IDE)) +
   geom_histogram(binwidth=0.2,position=position_dodge()) +
   scale_fill_brewer(palette="Paired") +
   theme_tufte(base_size=7)
-ggplot(ide2,aes(IDE,logTime)) +
-  geom_boxplot() +
-  scale_fill_brewer(palette="Greens") +
+ggplot(ide2,aes(IDE,logTime,fill=IDE)) +
+  geom_boxplot(show.legend=FALSE) +
+  scale_fill_brewer(palette="Blues") +
   theme_tufte(base_size=7)
 
 #. re-test for normality
