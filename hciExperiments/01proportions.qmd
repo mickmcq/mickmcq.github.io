@@ -163,7 +163,7 @@ G.test(prfs)
 fisher.test(prfs)
 ```
 
-Now conduct manual post hoc binomial tests for (m)ales---do any prefs for A-C significantly differ from chance for males?
+Now conduct manual post hoc binomial tests for (m)ales---do any prefs for A--C significantly differ from chance for males?
 
 ```{r}
 ma <- binom.test(sum(prefsABCsex[prefsABCsex$Sex == "M",]$Pref == "A"),

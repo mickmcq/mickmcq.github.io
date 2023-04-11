@@ -20,6 +20,7 @@ These course notes are an example of *reproducible research* and *literate progr
 
 
 ```{r}
+options(readr.show_col_types=FALSE) # supress column type messages
 library(tidyverse)
 library(ggthemes)
 ```
