@@ -31,16 +31,16 @@ icon: fa-edit
 
 [09microinteractions](/uxproto/09microinteractions/index.html) recaps the previous week and discusses microinteractions and pair designing.
 
-Week 10 is Spring Break.
+Spring Break follows.
 
-[11testing](/uxproto/11testing/index.html) explains user testing and its aftermath.
+[10testing](/uxproto/10testing/index.html) explains user testing and its aftermath.
 
-[12moreTesting](/uxproto/12moreTesting/index.html) further talks about testing.
+[11moreTesting](/uxproto/11moreTesting/index.html) further talks about testing.
 
-[13misc](/uxproto/13misc/index.html) introduces four miscellaneous topics.
+[12misc](/uxproto/12misc/index.html) introduces four miscellaneous topics.
+
+[13workshop](/uxproto/13workshop/index.html) discusses how to lead a design thinking workshop to get developers and other stakeholders on the same page as designers.
 
 <!--
-
-[09workshop](/uxproto/09workshop/index.html) discusses how to lead a design thinking workshop to get developers and other stakeholders on the same page as designers.
 
 -->
