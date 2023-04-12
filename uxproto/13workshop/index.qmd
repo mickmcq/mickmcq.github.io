@@ -31,7 +31,7 @@ Week THIRTEEN
 ![](fiDoubleDiamond.png)
 
 ::: {.notes}
-Picture from @Stackowiak2020, page 11.
+Picture from @Stackowiak2020, page 11. I've put the first three chapters of this book on Canvas. UT's interpretation of Fair Use permits three chapters of any book to be placed online.
 :::
 
 ## Double Diamond Problem Space
@@ -54,11 +54,19 @@ Picture from @Stackowiak2020, page 11.
   - Converge on one solution
 - Phases are nonlinear
 
+::: {.notes}
+In some places they say Design, while in others, it's Develop---an interesting ambiguity, depending on how designers work with developers.
+:::
+
 ## DD Design Principles
 - Put people first---start with an understanding of the people using a service: their needs, strengths, and aspirations
 - Communicate visually and inclusively---help people gain a shared understanding of the problem and ideas
 - Collaborate and co-create---work together and be inspired by co-workers
 - Iterate---spot errors early, mitigate risk, and build confidence in ideas
+
+::: {.notes}
+How would you mitigate risk without hampering creativity?
+:::
 
 # Leading a prototyping workshop
 
@@ -73,16 +81,28 @@ This is all based on @Stackowiak2020
 - Workshop facility and supplies
 - Summary
 
+::: {.notes}
+Each of these bullet points is a section in this slideshow.
+:::
+
 # Conveying what the workshop is all about
 
 ## You need a concise statement
 
 *A diverse group of business and technology stakeholders and potential users of software and AI solutions are brought together in a Design Thinking workshop to define and prioritize the challenges that they face and collaborate in an innovative fashion to determine possible solutions to those challenges. They share a common goal of driving significant business impact. A Design Thinking workshop typically takes place over a period of one or two days.*
 
+::: {.notes}
+Bear in mind the title of Stackowiak's book, which includes AI solutions. Your mileage may vary.
+:::
+
 ## Conveying the benefits
 - Creates alignment by gathering a diverse team that breaks down silos in an organization and unifies exploration of problems and solutions
 - Provides a highly interactive experience that assures engagement of all interested parties present
 - Leads to new insight by collaboratively looking at problems, solutions, and potential impacts at a deeper level from many diverse points of view
+
+::: {.notes}
+Why are there silos in the first place? Could it be that silos make a lot of work and allocation of responsibility tractable?
+:::
 
 ## Another benefit to convey
 - For all engaged, creates a feeling of ownership of the problems and solutions that are identified in the workshop (each person develops a vested interest in addressing what is uncovered)
@@ -95,6 +115,10 @@ This is all based on @Stackowiak2020
 5. Creating a unified vision around the goal(s)
 6. Choosing scope(s) to address the goal(s)
 7. Creating a stakeholder map and describing personas of select stakeholders
+
+::: {.notes}
+The agenda is long but each item certainly does not get equal time. It's often said that planning a meeting requires approximately as much time as the meeting itself. Deciding how much time to allocate to each item could be a time-consuming task.
+:::
 
 ## Providing the agenda (2 of 2)
 8. Denoting positives, negatives, and opportunities for identified scope(s) and stakeholders
@@ -127,7 +151,6 @@ Best practice is pre-call between facilitator and sponsors or key participants t
 
 ## Define workshop value and outcomes
 Get client to agree that it's important to disrupt work for one to two days
-
 
 ## Get client on board with activities
   - Identification of a “north star” vision of where to focus improvements in the business
@@ -163,13 +186,17 @@ Get client to agree that it's important to disrupt work for one to two days
 - Proctors
 - Scribe(s)
 
+::: {.notes}
+One of the worst things that can happen during the workshop is for someone to say, "We have to check with person X about issue Y before we can proceed," meaning you don't have the right people in the workshop. If no one in the workshop has the authority to delegate time to design thinking activities, motivation will quickly dissipate.
+:::
+
 # Pre-workshop research
 
 ## Ask for additional information
 - Areas that the client wants to focus upon, possibly including the biggest challenges motivating executives
 - Workshop outcomes desired by the executive sponsor
 - A list of primary stakeholders impacted by the defined areas of focus including their ability to attend the workshop, their areas of interest, and their incentives
-- Their “service blueprint” that provides a customer/support/ operational view of their organization (and its relationship to their areas of focus)
+- Their “service blueprint” that provides a customer / support / operational view of their organization (and its relationship to their areas of focus)
 
 ## Even more additional information
 - Any history they have with previous Design Thinking workshops or similar workshops and possible barriers to success
@@ -209,6 +236,7 @@ Find out about tailwinds and headwinds, such as
 *Cautionary note: Research can cause bias and so you should not be married to all this pre-workshop research if it turns out that sponsors or other key participants disagree with your findings.*
 
 # Top-of-mind industry topics
+What are people most concerned with in different industries? (Don't just assume you're going to work for one of the big tech platforms!)
 
 ## Agribusiness
 - Improving production, quality, and yield including optimized planting, growing, and harvesting of crops and care of livestock
