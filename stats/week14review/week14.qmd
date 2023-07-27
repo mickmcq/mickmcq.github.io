@@ -1,0 +1,91 @@
+---
+title: "Stats for Informatics:<br>Data Science exercises<br>&<br>Review"
+author: Mick McQuaid
+date: 2023-04-18
+bibliography: master.bib
+format:
+  revealjs:
+    logo: iSchoolLogo.png
+    theme: moon
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+::: {.r-fit-text}
+Week FOURTEEN
+:::
+
+# Data Science
+
+## A classic intro textbook, @James2021
+![](fiISLR2.png)
+
+##
+![](fiFlexibilityInterp.png)
+
+##
+![](fiBiasVariance.png)
+
+##
+![](fiMultRegr.png)
+
+##
+
+::: {.r-fit-text}
+*pause for exercises*
+:::
+
+# Review
+*What have you learned?*
+
+##
+![](fiPowerSymbol.png){fig-align="center"}
+
+##
+![](fiPowerPowerPower.jpg){fig-align="center"}
+
+##
+![](fiMeditation.jpg){fig-align="center"}
+
+##
+![](fiSpidermanPower.jpg){fig-align="center"}
+
+##
+![](fiHowToLie.jpg){fig-align="center"}
+
+## Four things you can do
+
+::: {.incremental}
+- Summarize numbers (tables and summaries)
+- Visualize numbers (bar charts, scatter plots)
+- Make predictions from data (linear regression, logistic regression)
+- Diagnose the quality of those predictions (plots of residuals)
+:::
+
+# Course evals
+Please use the open-ended question(s) to let me know (among other things) whether you would prefer a study-guide approach to lecture as I've taken most of this semester, or a slideshow approach (such as I did today), where I say less explicit stuff in lecture and you look up more in the textbook for exercise completion.
+
+So please say whatever you were going to say anyway, but also address the study-guide vs slideshow approach.
+
+# References
+
+::: {#refs}
+:::
+
+---
+
+::: {.r-fit-text}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *League Gothic* and *Lato*
+

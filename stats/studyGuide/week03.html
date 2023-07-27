@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Study Guide: Statistics for Informatics - 3&nbsp; More R and Quarto</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./week04.html" rel="next">
+<link href="./week02.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week03.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">More R and Quarto</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Study Guide: Statistics for Informatics</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Summaries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week03.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">More R and Quarto</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Distributions of random variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ggplot2; Inference</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">More inference</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Inference for numerical data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Linear regression</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">More linear regression; logistic regression</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Coping with time and joins</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Milestone 4; Individual work</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Experiments</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#recap-week-02" id="toc-recap-week-02" class="nav-link active" data-scroll-target="#recap-week-02"><span class="header-section-number">3.1</span> Recap Week 02</a></li>
+  <li><a href="#week-03-more-on-r-and-quarto" id="toc-week-03-more-on-r-and-quarto" class="nav-link" data-scroll-target="#week-03-more-on-r-and-quarto"><span class="header-section-number">3.2</span> Week 03: More on R and Quarto</a>
+  <ul class="collapse">
+  <li><a href="#the-template-files" id="toc-the-template-files" class="nav-link" data-scroll-target="#the-template-files"><span class="header-section-number">3.2.1</span> The template files</a></li>
+  <li><a href="#categorical-data" id="toc-categorical-data" class="nav-link" data-scroll-target="#categorical-data"><span class="header-section-number">3.2.2</span> Categorical Data</a></li>
+  <li><a href="#numerical-data" id="toc-numerical-data" class="nav-link" data-scroll-target="#numerical-data"><span class="header-section-number">3.2.3</span> Numerical Data</a></li>
+  <li><a href="#combining-numerical-and-categorical-selection" id="toc-combining-numerical-and-categorical-selection" class="nav-link" data-scroll-target="#combining-numerical-and-categorical-selection"><span class="header-section-number">3.2.4</span> Combining numerical and categorical selection</a></li>
+  <li><a href="#getting-the-data-displayed-as-you-wish" id="toc-getting-the-data-displayed-as-you-wish" class="nav-link" data-scroll-target="#getting-the-data-displayed-as-you-wish"><span class="header-section-number">3.2.5</span> Getting the data displayed as you wish</a></li>
+  <li><a href="#a-function-between-numeric-and-visual" id="toc-a-function-between-numeric-and-visual" class="nav-link" data-scroll-target="#a-function-between-numeric-and-visual"><span class="header-section-number">3.2.6</span> A function between numeric and visual</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">More R and Quarto</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="recap-week-02" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="recap-week-02"><span class="header-section-number">3.1</span> Recap Week 02</h2>
+<p>We did some exercises, for which there are now solutions in the file <code>week02.qmd</code> and <code>week02.html</code>. You should examine and compare these two files, especially the exercise parts.</p>
+<p>I deleted the <code>week02a.qmd</code> and <code>week02a.html</code> files and you should too. The <code>week02.qmd</code> file and the <code>week02.html</code> file contain both corrections and additions, so only refer to those.</p>
+</section>
+<section id="week-03-more-on-r-and-quarto" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="week-03-more-on-r-and-quarto"><span class="header-section-number">3.2</span> Week 03: More on R and Quarto</h2>
+<p>I’ve established groups for the milestones. I’m open to moving you around if needed, subject to the constraint that we have no more than five members in a group. Currently we have six groups of five so, if you want to switch groups, you need to find someone in the other group who wants to switch to your group.</p>
+<p>I’ve added a bunch of files to the Files section on Canvas, pertaining to Milestone 1. You need to download these files. One of them (<code>vehicles.csv</code>) is quite large and time-consuming to download, so don’t wait.</p>
+<section id="the-template-files" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="the-template-files"><span class="header-section-number">3.2.1</span> The template files</h3>
+</section>
+<section id="categorical-data" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="categorical-data"><span class="header-section-number">3.2.2</span> Categorical Data</h3>
+<p>The template files show how you can begin the milestones. Notice that I have named the data frame as <code>df</code> in the <code>template.qmd</code> file. As a result, I can write functions like the following.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"vehicles.csv"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">count</span>(title_status,<span class="at">sort=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 2
+  title_status      n
+  &lt;chr&gt;         &lt;int&gt;
+1 clean        405117
+2 &lt;NA&gt;           8242
+3 rebuilt        7219
+4 salvage        3868
+5 lien           1422
+6 missing         814
+7 parts only      198</code></pre>
+</div>
+</div>
+<p>The above is a good way to investigate categorical data. Notice that I’ve used the pipe character, so that the data frame <code>df</code> is sent to the <code>count()</code> function. Then a particular categorical column of <code>df</code> is counted and sorted in descending numerical order. The <code>count()</code> function is part of the <code>dplyr</code> package, which is one of the <code>tidyverse</code> packages. You only need to load the <code>tidyverse</code> set of packages once in a document, preferably near the beginning.</p>
+<p>Another point about the above result is that the <code>count()</code> function behaves different for large numbers of values. For example, <code>region</code> has 404 values. The <code>count()</code> function will just display the first and last 5 by default. I can make it work by adding the print fuction:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">count</span>(region,<span class="at">sort=</span><span class="cn">TRUE</span>) <span class="sc">|&gt;</span> <span class="fu">print</span>(<span class="at">n=</span><span class="dv">404</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 404 × 2
+    region                         n
+    &lt;chr&gt;                      &lt;int&gt;
+  1 columbus                    3608
+  2 jacksonville                3562
+  3 spokane / coeur d'alene     2988
+  4 eugene                      2985
+  5 fresno / madera             2983
+  6 orlando                     2983
+  7 bend                        2982
+  8 omaha / council bluffs      2982
+  9 kennewick-pasco-richland    2981
+ 10 new hampshire               2981
+ 11 nashville                   2980
+ 12 salem                       2980
+ 13 oklahoma city               2979
+ 14 reno / tahoe                2979
+ 15 boston                      2978
+ 16 rochester                   2978
+ 17 sarasota-bradenton          2977
+ 18 stockton                    2977
+ 19 boise                       2976
+ 20 portland                    2976
+ 21 houston                     2975
+ 22 south jersey                2974
+ 23 minneapolis / st paul       2973
+ 24 modesto                     2973
+ 25 philadelphia                2973
+ 26 seattle-tacoma              2973
+ 27 grand rapids                2972
+ 28 baltimore                   2971
+ 29 las vegas                   2971
+ 30 milwaukee                   2971
+ 31 pittsburgh                  2971
+ 32 cincinnati                  2970
+ 33 sacramento                  2970
+ 34 tulsa                       2970
+ 35 washington, DC              2970
+ 36 austin                      2969
+ 37 north jersey                2969
+ 38 tucson                      2969
+ 39 charlotte                   2968
+ 40 maine                       2966
+ 41 atlanta                     2965
+ 42 hawaii                      2964
+ 43 long island                 2964
+ 44 central NJ                  2961
+ 45 phoenix                     2960
+ 46 detroit metro               2959
+ 47 dallas / fort worth         2957
+ 48 kansas city, MO             2957
+ 49 ft myers / SW florida       2955
+ 50 cleveland                   2953
+ 51 san diego                   2953
+ 52 albuquerque                 2952
+ 53 denver                      2952
+ 54 orange county               2952
+ 55 inland empire               2950
+ 56 new york city               2950
+ 57 norfolk / hampton roads     2946
+ 58 tampa bay area              2945
+ 59 st louis, MO                2940
+ 60 los angeles                 2937
+ 61 SF bay area                 2936
+ 62 chicago                     2929
+ 63 des moines                  2923
+ 64 south florida               2920
+ 65 raleigh / durham / CH       2918
+ 66 colorado springs            2914
+ 67 san antonio                 2891
+ 68 knoxville                   2763
+ 69 anchorage / mat-su          2742
+ 70 hartford                    2564
+ 71 albany                      2537
+ 72 bakersfield                 2528
+ 73 redding                     2526
+ 74 springfield                 2520
+ 75 ventura county              2518
+ 76 vermont                     2513
+ 77 fayetteville                2415
+ 78 madison                     2387
+ 79 fort collins / north CO     2385
+ 80 richmond                    2346
+ 81 greenville / upstate        2327
+ 82 rhode island                2320
+ 83 bellingham                  2313
+ 84 indianapolis                2303
+ 85 akron / canton              2211
+ 86 greensboro                  2078
+ 87 western massachusetts       2039
+ 88 buffalo                     2006
+ 89 palm springs                1978
+ 90 el paso                     1977
+ 91 medford-ashland             1962
+ 92 louisville                  1938
+ 93 worcester / central MA      1914
+ 94 little rock                 1841
+ 95 ocala                       1828
+ 96 dayton / springfield        1787
+ 97 yuba-sutter                 1747
+ 98 memphis                     1724
+ 99 yakima                      1704
+100 billings                    1701
+101 wichita                     1694
+102 hudson valley               1692
+103 birmingham                  1647
+104 new haven                   1644
+105 daytona beach               1633
+106 charleston                  1509
+107 chico                       1486
+108 san luis obispo             1455
+109 monterey bay                1451
+110 asheville                   1423
+111 toledo                      1406
+112 columbia                    1388
+113 missoula                    1378
+114 lansing                     1367
+115 jackson                     1351
+116 space coast                 1346
+117 syracuse                    1338
+118 fredericksburg              1328
+119 wenatchee                   1324
+120 new orleans                 1321
+121 huntsville / decatur        1273
+122 appleton-oshkosh-FDL        1261
+123 lehigh valley               1261
+124 flint                       1258
+125 columbia / jeff city        1257
+126 bozeman                     1249
+127 kalamazoo                   1236
+128 western slope               1188
+129 corpus christi              1176
+130 treasure coast              1173
+131 corvallis/albany            1168
+132 roanoke                     1121
+133 lexington                   1115
+134 tri-cities                  1110
+135 ann arbor                   1085
+136 rockford                    1059
+137 east idaho                  1052
+138 santa barbara               1052
+139 lakeland                    1048
+140 myrtle beach                1043
+141 chattanooga                 1038
+142 green bay                   1033
+143 winston-salem               1027
+144 mcallen / edinburg          1019
+145 scranton / wilkes-barre     1008
+146 moses lake                   994
+147 tyler / east TX              992
+148 lancaster                    988
+149 kalispell                    978
+150 harrisburg                   976
+151 wilmington                   975
+152 fargo / moorhead             969
+153 south bend / michiana        969
+154 st cloud                     954
+155 delaware                     949
+156 gainesville                  926
+157 visalia-tulare               922
+158 eastern NC                   895
+159 flagstaff / sedona           881
+160 saginaw-midland-baycity      876
+161 hickory / lenoir             853
+162 eau claire                   846
+163 jersey shore                 838
+164 erie                         805
+165 santa fe / taos              801
+166 twin falls                   794
+167 fort wayne                   788
+168 clarksville                  785
+169 york                         777
+170 tallahassee                  771
+171 gold country                 765
+172 duluth / superior            763
+173 kenosha-racine               757
+174 prescott                     746
+175 pueblo                       746
+176 santa maria                  740
+177 baton rouge                  733
+178 wausau                       726
+179 east oregon                  720
+180 olympic peninsula            717
+181 lewiston / clarkston         710
+182 skagit / island / SJI        701
+183 boulder                      694
+184 oregon coast                 694
+185 macon / warner robins        687
+186 quad cities, IA/IL           687
+187 waco                         681
+188 winchester                   672
+189 youngstown                   664
+190 killeen / temple / ft hood   662
+191 merced                       654
+192 cedar rapids                 648
+193 south coast                  645
+194 charlottesville              642
+195 battle creek                 639
+196 mobile                       626
+197 pensacola                    622
+198 sioux falls / SE SD          621
+199 northern michigan            612
+200 wyoming                      610
+201 athens                       607
+202 utica-rome-oneida            607
+203 lincoln                      604
+204 cape cod / islands           598
+205 pullman / moscow             595
+206 wichita falls                589
+207 eastern CT                   583
+208 topeka                       582
+209 amarillo                     564
+210 southern illinois            555
+211 waterloo / cedar falls       555
+212 holland                      534
+213 brainerd                     533
+214 monroe                       530
+215 great falls                  524
+216 la crosse                    521
+217 savannah / hinesville        516
+218 rapid city / west SD         502
+219 lynchburg                    496
+220 lubbock                      492
+221 lima / findlay               485
+222 salt lake city               485
+223 augusta                      480
+224 southwest michigan           476
+225 binghamton                   474
+226 muskegon                     473
+227 poconos                      464
+228 north mississippi            462
+229 central michigan             461
+230 mankato                      445
+231 finger lakes                 439
+232 mohave county                435
+233 odessa / midland             433
+234 peoria                       432
+235 danville                     427
+236 fairbanks                    427
+237 shreveport                   422
+238 reading                      416
+239 bowling green                415
+240 northwest GA                 415
+241 watertown                    414
+242 evansville                   413
+243 montgomery                   408
+244 southern maryland            405
+245 northwest CT                 397
+246 sioux city                   393
+247 humboldt county              385
+248 elmira-corning               379
+249 harrisonburg                 375
+250 eastern shore                368
+251 bemidji                      365
+252 altoona-johnstown            364
+253 st george                    362
+254 williamsport                 362
+255 brownsville                  361
+256 mansfield                    359
+257 las cruces                   358
+258 port huron                   358
+259 upper peninsula              355
+260 janesville                   343
+261 klamath falls                343
+262 boone                        338
+263 jonesboro                    337
+264 laredo                       337
+265 yuma                         335
+266 joplin                       328
+267 st augustine                 328
+268 fort smith                   327
+269 dothan                       325
+270 florence                     324
+271 st joseph                    323
+272 college station              313
+273 zanesville / cambridge       313
+274 morgantown                   307
+275 ithaca                       303
+276 panama city                  298
+277 roseburg                     294
+278 frederick                    288
+279 beaumont / port arthur       287
+280 the thumb                    286
+281 annapolis                    285
+282 western maryland             285
+283 texoma                       284
+284 imperial county              282
+285 champaign urbana             281
+286 sheboygan                    281
+287 new river valley             275
+288 glens falls                  274
+289 ashtabula                    270
+290 northern panhandle           268
+291 parkersburg-marietta         264
+292 northern WI                  262
+293 valdosta                     262
+294 lafayette / west lafayette   260
+295 chillicothe                  257
+296 plattsburgh-adirondacks      256
+297 helena                       255
+298 southwest VA                 254
+299 iowa city                    253
+300 eastern panhandle            251
+301 manhattan                    251
+302 muncie / anderson            248
+303 southeast missouri           245
+304 sandusky                     244
+305 victoria                     243
+306 sierra vista                 241
+307 mendocino county             238
+308 lake of the ozarks           236
+309 abilene                      235
+310 north central FL             230
+311 dubuque                      228
+312 galveston                    225
+313 chautauqua                   221
+314 kenai peninsula              221
+315 bloomington                  217
+316 bloomington-normal           217
+317 mason city                   217
+318 eastern kentucky             213
+319 grand island                 212
+320 western KY                   212
+321 texarkana                    211
+322 state college                210
+323 gadsden-anniston             207
+324 lawton                       207
+325 florida keys                 203
+326 lawrence                     199
+327 stillwater                   198
+328 terre haute                  198
+329 ames                         194
+330 okaloosa / walton            194
+331 grand forks                  192
+332 cookeville                   189
+333 brunswick                    187
+334 hilton head                  186
+335 cumberland valley            179
+336 lafayette                    179
+337 san marcos                   179
+338 hanford-corcoran             178
+339 meadville                    177
+340 southeast IA                 175
+341 decatur                      171
+342 heartland florida            170
+343 high rockies                 169
+344 salina                       168
+345 florence / muscle shoals     165
+346 tuscaloosa                   162
+347 san angelo                   161
+348 kokomo                       156
+349 lake charles                 156
+350 mattoon-charleston           156
+351 tuscarawas co                154
+352 logan                        152
+353 catskills                    147
+354 northwest OK                 145
+355 northwest KS                 143
+356 auburn                       142
+357 owensboro                    140
+358 statesboro                   140
+359 farmington                   136
+360 twin tiers NY/PA             136
+361 butte                        134
+362 central louisiana            132
+363 gulfport / biloxi            127
+364 north dakota                 126
+365 elko                         120
+366 kirksville                   119
+367 southeast KS                 119
+368 susanville                   119
+369 huntington-ashland           118
+370 scottsbluff / panhandle      117
+371 la salle co                  116
+372 show low                     112
+373 outer banks                  109
+374 del rio / eagle pass         108
+375 potsdam-canton-massena       102
+376 roswell / carlsbad           100
+377 hattiesburg                   99
+378 southwest KS                  96
+379 bismarck                      92
+380 south dakota                  90
+381 deep east texas               88
+382 houma                         88
+383 fort dodge                    87
+384 southeast alaska              84
+385 siskiyou county               83
+386 north platte                  80
+387 clovis / portales             78
+388 ogden-clearfield              76
+389 eastern montana               75
+390 provo / orem                  75
+391 western IL                    63
+392 oneonta                       62
+393 southwest MN                  56
+394 pierre / central SD           55
+395 eastern CO                    40
+396 southern WV                   36
+397 st louis                      35
+398 northeast SD                  34
+399 southwest TX                  30
+400 meridian                      28
+401 southwest MS                  14
+402 kansas city                   11
+403 fort smith, AR                 9
+404 west virginia (old)            8</code></pre>
+</div>
+</div>
+<p>The number 404 is because there are 404 elements in the list.</p>
+<p>Another solution (more cumbersome) follows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(region) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do</span>(<span class="fu">data.frame</span>(<span class="at">nrow=</span><span class="fu">nrow</span>(.))) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(nrow)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n=</span><span class="dv">40</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 404 × 2
+# Groups:   region [404]
+   region                    nrow
+   &lt;chr&gt;                    &lt;int&gt;
+ 1 columbus                  3608
+ 2 jacksonville              3562
+ 3 spokane / coeur d'alene   2988
+ 4 eugene                    2985
+ 5 fresno / madera           2983
+ 6 orlando                   2983
+ 7 bend                      2982
+ 8 omaha / council bluffs    2982
+ 9 kennewick-pasco-richland  2981
+10 new hampshire             2981
+11 nashville                 2980
+12 salem                     2980
+13 oklahoma city             2979
+14 reno / tahoe              2979
+15 boston                    2978
+16 rochester                 2978
+17 sarasota-bradenton        2977
+18 stockton                  2977
+19 boise                     2976
+20 portland                  2976
+21 houston                   2975
+22 south jersey              2974
+23 minneapolis / st paul     2973
+24 modesto                   2973
+25 philadelphia              2973
+26 seattle-tacoma            2973
+27 grand rapids              2972
+28 baltimore                 2971
+29 las vegas                 2971
+30 milwaukee                 2971
+31 pittsburgh                2971
+32 cincinnati                2970
+33 sacramento                2970
+34 tulsa                     2970
+35 washington, DC            2970
+36 austin                    2969
+37 north jersey              2969
+38 tucson                    2969
+39 charlotte                 2968
+40 maine                     2966
+# ℹ 364 more rows</code></pre>
+</div>
+</div>
+<p>Another way to investigate categorical data is through contingency tables. You have already made some of these using the <code>table()</code> function and some associated functions that are mentioned in the <code>week02.qmd</code> file. It will take some intuition to figure out which pairs of categorical columns should be tabulated for Milestone 1.</p>
+</section>
+<section id="numerical-data" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="numerical-data"><span class="header-section-number">3.2.3</span> Numerical Data</h3>
+<p>For numerical data, you can do what we did last week to investigate a single column.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>price)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+0.000e+00 5.900e+03 1.395e+04 7.520e+04 2.649e+04 3.737e+09 </code></pre>
+</div>
+</div>
+<p>or</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>price <span class="ot">&lt;-</span> <span class="fu">as.double</span>(df<span class="sc">$</span>price)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">Min=</span><span class="fu">comma</span>(<span class="fu">min</span>(price)),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">firstq=</span><span class="fu">comma</span>(<span class="fu">quantile</span>(price,<span class="fl">0.25</span>)),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">Median=</span><span class="fu">comma</span>(<span class="fu">median</span>(price)),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">Mean=</span><span class="fu">comma</span>(<span class="fu">mean</span>(price)),</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">thirdq=</span><span class="fu">comma</span>(<span class="fu">quantile</span>(price,<span class="fl">0.75</span>)),</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">Max=</span><span class="fu">comma</span>(<span class="fu">max</span>(price)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 6
+  Min   firstq Median Mean   thirdq Max          
+  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;        
+1 0     5,900  13,950 75,199 26,486 3,736,928,711</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>price <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(df<span class="sc">$</span>price)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: NAs introduced by coercion to integer range</code></pre>
+</div>
+</div>
+<p>You’ll notice that one of the prices is 3.7 billion dollars for a Toyota truck! This is obviously a misprint! You should probably remove this row from the data frame and save the data frame without it. A more sophisticated alternative would be to impute a value for this truck. There are many advanced statistical ways to do this, but they are beyond the scope of this course. <span class="citation" data-cites="vanBuuren2018">van Buuren (<a href="references.html#ref-vanBuuren2018" role="doc-biblioref">2018</a>)</span> describes several excellent ways to do so, particularly in that book’s Section 5.1.1, Recommended Workflows. It is usually a mistake to use an average for missing (NA) values because to do so compresses the variance unnaturally. You may remove that particular row by saying <code>df &lt;- df[-(which.max(df$price)),]</code>. Unfortunately, you will find that not to be very useful because there are several prices of over a billion dollars for generic cars! In fact, there are several with prices listed as <code>1234567890</code> and some listed at <code>987654321</code>. Many other ridiculous patterns can be found for price. So what can you do? Personally, I would add the following line right after reading in the file:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[df<span class="sc">$</span>price<span class="sc">&lt;</span><span class="dv">100000</span><span class="sc">&amp;</span>df<span class="sc">$</span>price<span class="sc">&gt;</span><span class="dv">0</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This will rid the data frame of cars priced at greater than 100,000 dollars and still leave you with over 300,000 automobiles to analyze. Of course, there are will still be spurious entries, but at least it’s a start. The above code will also get rid of cars priced at exactly zero dollars. Examination of the data frame will show that many of the zero dollar entries are just ads for used car dealers. The expression <code>price&lt;100000&amp;price&gt;0</code> is called a compound Boolean expression. It is compound because of the ampersand, which stands for the word <em>and</em>. It means that the row has to contain a price less than 100,000 AND it also has to be a price greater than zero.</p>
+<p>By the way, this is a good reminder that a data frame has a row and a column index. You can refer to rows by saying <code>df[</code><em>expression</em><code>,]</code> and to columns by saying <code>df[,</code><em>expression</em><code>]</code>. The <em>expression</em> can be any mathematical expression that resolves to TRUE or FALSE. The above expression resolves to TRUE for cars priced at greater than zero but less than 100,000 dollars, and FALSE for cars priced at any integer greater than or equal to 100,000. You can tell that <code>price</code> is a 64 bit integer by saying <code>str(df)</code> which will tell the structure of the <code>df</code> data frame. You should be able to see that most of the columns are classified as <code>chr</code> or character. This is not desirable. Most of the columns clasified as <code>chr</code> should more properly be classified as factors. Factors take up less space on your computer, are faster to process, and allow more types of processing than <code>chr</code>. Unfortunately, if you store your intermediate work as a <code>.csv</code> file, you will lose the factor designation. Therefore, I recommend that you do the following.</p>
+<p>Step 1. Get rid of rows you don’t want, such as those with prices over or under some threshold value you choose.</p>
+<p>Step 2. Get rid of columns you don’t want to analyze, such as url or VIN.</p>
+<p>Step 3. Convert some of the <code>chr</code> columns to factor. For instance, you can say <code>df$state &lt;- as.factor(df$state)</code>.</p>
+<p>Step 4. Save your file by saying something like <code>save(df,file="df.RData")</code></p>
+<p>Step 5. Quit using this file and open a file called <code>intermediate.qmd</code></p>
+<p>Step 6. At the beginning of that file, say <code>load("df.RData")</code>.</p>
+<p>Step 7. Do all your work in that file, then paste the work back into your <code>template.qmd</code> file so you can run it as required. (Remember, you are not turning in a <code>.RData</code> file. Your <code>m1.qmd</code> file must start with reading in the <code>vehicles.csv</code> file and do processing on the resulting data frame.)</p>
+<p>Step 8. Merge your <code>template.qmd</code> file with those of your group members into one <code>m1.qmd</code> file. For example, you could name all your individual template files with your names and one group member could merge them together. This should be easy for Milestone 1 since an obvious way to divide up your work is to assign different columns to different group members.</p>
+</section>
+<section id="combining-numerical-and-categorical-selection" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="combining-numerical-and-categorical-selection"><span class="header-section-number">3.2.4</span> Combining numerical and categorical selection</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>dfX <span class="ot">&lt;-</span> <span class="fu">subset</span>(df,state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ca"</span>,<span class="st">"ny"</span>) <span class="sc">&amp;</span> type <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"sedan"</span>,<span class="st">"SUV"</span>) <span class="sc">&amp;</span> price<span class="sc">&lt;</span><span class="dv">99999</span> <span class="sc">&amp;</span> price<span class="sc">&gt;</span><span class="dv">0</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">table</span>(dfX<span class="sc">$</span>state,dfX<span class="sc">$</span>type)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     
+      sedan   SUV   Sum
+  ca  11086  7429 18515
+  ny   3747  3224  6971
+  Sum 14833 10653 25486</code></pre>
+</div>
+</div>
+<p>Above is an example of getting a small contingency table with only the data you want. The first line selects only cars offered in ca or ny, only sedans or SUVs, and only with prices below 99,999 dollars and more than zero dollars. Then we can make a compact contingency table of that new data frame and add the margins to it.</p>
+</section>
+<section id="getting-the-data-displayed-as-you-wish" class="level3" data-number="3.2.5">
+<h3 data-number="3.2.5" class="anchored" data-anchor-id="getting-the-data-displayed-as-you-wish"><span class="header-section-number">3.2.5</span> Getting the data displayed as you wish</h3>
+<p>Someone asked me how to display price ranges by manufacturer. Here’s one way to do that:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(manufacturer) <span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">reframe</span>(<span class="at">min =</span> <span class="fu">min</span>(price),<span class="at">max=</span><span class="fu">max</span>(price)) <span class="sc">|&gt;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n=</span><span class="dv">43</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 43 × 3
+   manufacturer      min        max
+   &lt;chr&gt;           &lt;int&gt;      &lt;int&gt;
+ 1 acura               0     139999
+ 2 alfa-romeo          0      62950
+ 3 aston-martin        0     179888
+ 4 audi                0     160000
+ 5 bmw                 0  113456789
+ 6 buick               0  123456789
+ 7 cadillac            0     195000
+ 8 chevrolet          NA         NA
+ 9 chrysler            0     655000
+10 datsun              1      30000
+11 dodge               0    6995495
+12 ferrari             0     449500
+13 fiat                0      32500
+14 ford                0 1111111111
+15 gmc                 0  123456789
+16 harley-davidson     0      39900
+17 honda               0     123456
+18 hyundai             0      50000
+19 infiniti            0      69995
+20 jaguar              0     150000
+21 jeep                0 1410065407
+22 kia                 0      55325
+23 land rover          0      55000
+24 lexus               0     114950
+25 lincoln             0    1234567
+26 mazda               0      45000
+27 mercedes-benz      NA         NA
+28 mercury             0      95000
+29 mini                0      42500
+30 mitsubishi          0      40000
+31 morgan           1000      36500
+32 nissan              0  135008900
+33 pontiac             0     105000
+34 porsche             0     304995
+35 ram                 0   17000000
+36 rover               0     129888
+37 saturn              0    2000000
+38 subaru              0     195000
+39 tesla               0     104990
+40 toyota             NA         NA
+41 volkswagen          0     149000
+42 volvo               0 1234567890
+43 &lt;NA&gt;                0  123456789</code></pre>
+</div>
+</div>
+<p>The number 43 is because there are 43 manufacturers in the data frame. Note that, using the <code>reframe()</code> function, I could add a few more comma-separated statistics to the output.</p>
+</section>
+<section id="a-function-between-numeric-and-visual" class="level3" data-number="3.2.6">
+<h3 data-number="3.2.6" class="anchored" data-anchor-id="a-function-between-numeric-and-visual"><span class="header-section-number">3.2.6</span> A function between numeric and visual</h3>
+<p>Milestone 1 is supposed to be entirely about numeric descriptions of the data, not visual descriptions, which will be covered in Milestone 2. Yet there is one function that exists in a gray area between numeric and graphical. That is the stem and leaf plot. Consider the following output.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stem</span>(df<span class="sc">$</span>odometer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  The decimal point is 6 digit(s) to the right of the |
+
+  0 | 00000000000000000000000000000000000000000000000000000000000000000000+421502
+  1 | 00000000000000000000000000000000000000000000000000000000000000000000+562
+  2 | 000000000000000000111122223333333335555566666677789
+  3 | 02333357
+  4 | 0577777777
+  5 | 005556666666669
+  6 | 15
+  7 | 555678888888888888
+  8 | 04789999
+  9 | 000189
+  10 | 00000000000000000000000000000000000000000000000000000000000000000000+58</code></pre>
+</div>
+</div>
+<p>The output does not need any graphical processor. It is only characters that can be included in text. Yet it is a kind of graphic because you can see, for instance, that of the cars have either very little mileage on the odometer or very much. Read it like this:</p>
+<ul>
+<li>The <em>stem</em> is the vertical line.</li>
+<li>The numbers to the left of the stem are, in this case, numbers in the sixth place to the left of the decimal point. In other words the first row represents zero to 999999.</li>
+<li>Each character to the right of the stem represents one car. There are probably 80 zeros in the first row. The <code>+390151</code> indicates that there are 390,151 cars in that category that are not represented. The numbers in these cases represent the next significant digit after the one on the stem.</li>
+<li>It is probably easier to read a stem and leaf plot for a smaller data frame, in the following case for the first 100 cars in the above data frame.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stem</span>(df<span class="sc">$</span>odometer[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  The decimal point is 4 digit(s) to the right of the |
+
+   0 | 0222788900012223447789999
+   2 | 11267799000004555678
+   4 | 01123335568
+   6 | 39117
+   8 | 0804567
+  10 | 0
+  12 | 8
+  14 | 5
+  16 | 6
+  18 | 2</code></pre>
+</div>
+</div>
+<p>These entries come from a reduced data frame where I first ran the above code, getting rid of the high-priced and free cars. It may make it easier to understand to look at the entries themselves.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df<span class="sc">$</span>odometer,<span class="at">n=</span>100L) <span class="sc">|&gt;</span> <span class="fu">sort</span>(<span class="at">decreasing=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 192000 176144 144700 128000  99615  97000  96003  95000  94020  90000
+[11]  88000  80318  77087  71229  70760  68696  63129  57923  55783  55251
+[21]  55068  43182  43000  42755  41568  41124  40784  39508  37725  37332
+[31]  35835  35320  35290  34940  34152  30237  30176  30047  30041  29652
+[41]  29499  28942  26978  26685  26129  22120  20856  20581  19179  19160
+[51]  18650  18531  17805  17302  16594  14230  14169  13035  12302  12231
+[61]  12102  10688   9954   9859   9704   8663   8141   7885   6897   2195
+[71]   1834   1722     21</code></pre>
+</div>
+</div>
+<p>The very first row in the stem and leaf plot above counts cars priced at less than 20,000 dollars. There are 28 of them. They all have 0 or 1 in the fifth position to the left of the decimal. Only one of those, which is offered at 21 dollars, has zeros in both of the first two positions. It is the very first entry after the stem, represented as a zero. The next three entries are the cars that sell for the next lowest prices, between zero and 2 in the next decimal position. They are represented as 2s. You can see at a glance that, in this group of 100 cars, the lower odometer readings predominate. By the way, the <code>stem()</code> function discards <code>NA</code> values before processing the remainder. So there are only a total of 78 characters to the right of the stem on all the rows put together.</p>
+<p>There is some difference of opinion as to whether <code>stem()</code> is graphical or numerical. What do you think?</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-vanBuuren2018" class="csl-entry" role="listitem">
+van Buuren, Stef. 2018. <em>Flexible Imputation of Missing Data</em>. Boca Raton, FL: CRC Press.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./week02.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Summaries</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./week04.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Probability</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
