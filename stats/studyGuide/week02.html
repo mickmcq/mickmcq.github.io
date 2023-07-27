@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Study Guide: Statistics for Informatics - 2&nbsp; Data Summaries</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./week03.html" rel="next">
+<link href="./week01.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week02.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Summaries</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Study Guide: Statistics for Informatics</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week02.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Summaries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">More R and Quarto</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Distributions of random variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ggplot2; Inference</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">More inference</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Inference for numerical data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Linear regression</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">More linear regression; logistic regression</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Coping with time and joins</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Milestone 4; Individual work</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Experiments</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#recap-week-01" id="toc-recap-week-01" class="nav-link active" data-scroll-target="#recap-week-01"><span class="header-section-number">2.1</span> Recap Week 01</a></li>
+  <li><a href="#textbook-section-1.1-an-example-experiment-stents" id="toc-textbook-section-1.1-an-example-experiment-stents" class="nav-link" data-scroll-target="#textbook-section-1.1-an-example-experiment-stents"><span class="header-section-number">2.2</span> Textbook Section 1.1, An Example Experiment (stents)</a>
+  <ul class="collapse">
+  <li><a href="#textbook-exercise-1.1-the-migraine-data-set" id="toc-textbook-exercise-1.1-the-migraine-data-set" class="nav-link" data-scroll-target="#textbook-exercise-1.1-the-migraine-data-set"><span class="header-section-number">2.2.1</span> Textbook Exercise 1.1, the <code>migraine</code> data set</a></li>
+  </ul></li>
+  <li><a href="#textbook-section-1.2-data-basics" id="toc-textbook-section-1.2-data-basics" class="nav-link" data-scroll-target="#textbook-section-1.2-data-basics"><span class="header-section-number">2.3</span> Textbook Section 1.2, Data Basics</a>
+  <ul class="collapse">
+  <li><a href="#textbook-exercise-1.7" id="toc-textbook-exercise-1.7" class="nav-link" data-scroll-target="#textbook-exercise-1.7"><span class="header-section-number">2.3.1</span> Textbook Exercise 1.7</a></li>
+  <li><a href="#textbook-exercise-1.12" id="toc-textbook-exercise-1.12" class="nav-link" data-scroll-target="#textbook-exercise-1.12"><span class="header-section-number">2.3.2</span> Textbook Exercise 1.12</a></li>
+  </ul></li>
+  <li><a href="#textbook-section-1.3-sampling" id="toc-textbook-section-1.3-sampling" class="nav-link" data-scroll-target="#textbook-section-1.3-sampling"><span class="header-section-number">2.4</span> Textbook Section 1.3, Sampling</a>
+  <ul class="collapse">
+  <li><a href="#textbook-exercise-1.15-asthma" id="toc-textbook-exercise-1.15-asthma" class="nav-link" data-scroll-target="#textbook-exercise-1.15-asthma"><span class="header-section-number">2.4.1</span> Textbook Exercise 1.15, Asthma</a></li>
+  </ul></li>
+  <li><a href="#textbook-section-1.4-experiments" id="toc-textbook-section-1.4-experiments" class="nav-link" data-scroll-target="#textbook-section-1.4-experiments"><span class="header-section-number">2.5</span> Textbook Section 1.4, Experiments</a>
+  <ul class="collapse">
+  <li><a href="#textbook-exercise-1.34-exercise-and-mental-health" id="toc-textbook-exercise-1.34-exercise-and-mental-health" class="nav-link" data-scroll-target="#textbook-exercise-1.34-exercise-and-mental-health"><span class="header-section-number">2.5.1</span> Textbook Exercise 1.34, Exercise and mental health</a></li>
+  <li><a href="#answers" id="toc-answers" class="nav-link" data-scroll-target="#answers"><span class="header-section-number">2.5.2</span> Answers</a></li>
+  </ul></li>
+  <li><a href="#textbook-chapter-2-summarizing-data" id="toc-textbook-chapter-2-summarizing-data" class="nav-link" data-scroll-target="#textbook-chapter-2-summarizing-data"><span class="header-section-number">2.6</span> Textbook Chapter 2: Summarizing data</a>
+  <ul class="collapse">
+  <li><a href="#numerical-data" id="toc-numerical-data" class="nav-link" data-scroll-target="#numerical-data"><span class="header-section-number">2.6.1</span> Numerical data</a></li>
+  </ul></li>
+  <li><a href="#categorical-data" id="toc-categorical-data" class="nav-link" data-scroll-target="#categorical-data"><span class="header-section-number">2.7</span> Categorical Data</a></li>
+  <li><a href="#thursdays-class" id="toc-thursdays-class" class="nav-link" data-scroll-target="#thursdays-class"><span class="header-section-number">2.8</span> Thursday’s class</a>
+  <ul class="collapse">
+  <li><a href="#statistical-summary-tools" id="toc-statistical-summary-tools" class="nav-link" data-scroll-target="#statistical-summary-tools"><span class="header-section-number">2.8.1</span> Statistical summary tools</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">2.8.2</span> Exercises</a></li>
+  <li><a href="#solutions-to-exercises" id="toc-solutions-to-exercises" class="nav-link" data-scroll-target="#solutions-to-exercises"><span class="header-section-number">2.8.3</span> Solutions to exercises</a></li>
+  <li><a href="#exercise-notes" id="toc-exercise-notes" class="nav-link" data-scroll-target="#exercise-notes"><span class="header-section-number">2.8.4</span> Exercise Notes</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Summaries</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="recap-week-01" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="recap-week-01"><span class="header-section-number">2.1</span> Recap Week 01</h2>
+<p>We looked at four things:</p>
+<ul>
+<li>An example experiment (stents)</li>
+<li>data basics</li>
+<li>sampling</li>
+<li>experiments</li>
+</ul>
+<p>The best way to read the textbook is to do some of the exercises. I expect you to spend 6 to 9 hours doing so outside of class each week. This is based on the popular rule of thumb that three class hours implies six to nine study hours.</p>
+<p>Let’s look at some of the Chapter 1 exercises briefly.</p>
+</section>
+<section id="textbook-section-1.1-an-example-experiment-stents" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="textbook-section-1.1-an-example-experiment-stents"><span class="header-section-number">2.2</span> Textbook Section 1.1, An Example Experiment (stents)</h2>
+<p>Here we looked at treatment groups and control groups.</p>
+<section id="textbook-exercise-1.1-the-migraine-data-set" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="textbook-exercise-1.1-the-migraine-data-set"><span class="header-section-number">2.2.1</span> Textbook Exercise 1.1, the <code>migraine</code> data set</h3>
+<p>In class we loaded the data set and made a contingency table, with which we can answer the four questions in Exercise 1.1.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">digits=</span><span class="dv">1</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"migraine.rda"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(migraine)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      group pain_free
+1 treatment       yes
+2 treatment       yes
+3 treatment       yes
+4 treatment       yes
+5 treatment       yes
+6 treatment       yes</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">with</span>(migraine,<span class="fu">table</span>(pain_free,group))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         group
+pain_free control treatment
+      no       44        33
+      yes       2        10</code></pre>
+</div>
+</div>
+<p>The four questions are:</p>
+<ol type="a">
+<li>What percent of patients in the treatment group were pain free 24 hours after receiving acupuncture?</li>
+<li>What percent were pain free in the control group?</li>
+<li>In which group did a higher percent of patients become pain free 24 hours after receiving acupuncture?</li>
+<li>Your findings so far might suggest that acupuncture is an effective treatment for migraines for all people who suffer from migraines. However, this is not the only possible conclusion that can be drawn based on your findings so far. What is one other possible explanation for the observed difference between the percentages of patients that are pain free 24 hours after receiving acupuncture in the two groups?</li>
+</ol>
+<p>We can use the <code>tbl</code> object we created to answer these questions.</p>
+<ol type="a">
+<li>The percentage of patients in the treatment group who were pain free was 23.3%.</li>
+<li>The percentage of patients in the control group who were pain free was 4.3%.</li>
+<li>A higher percent of the treatment group became pain free.</li>
+<li>Not all migraine headaches are alike. It is possible that, due to chance, the patients in the treatment group had less severe migraine headaches that were easier to cure.</li>
+</ol>
+<p>Examine the <code>.qmd</code> file that renders into this <code>.html</code> file. You’ll see that, rather than specify the numbers in the answers above, we actually did the calculations inline. What is good about doing this? (Hint: what happens if you add patients to the data set and rerender the document?) What is bad about doing this? (Hint: it looks clumsy and we could just as easily run the calculations in an <code>r</code> chunk, assign the results to object, and name the objects inline.)</p>
+<p>Another issue is the code for part c.&nbsp;I only accounted for the case where the treatment group has the greater percent. It would be much better to add an <code>else</code> clause to account for the possibility that the answer should be <code>control</code> and an else to account for the two to be equal. The best way to do that is to create a non-echoing chunk and use the results inline. For example, the following chunk only appears in the <code>.qmd</code> file, not the <code>.html</code> file, but its results can be used inline.</p>
+<p>Now we can say that the treatment group had the higher percentage. Only one problem remains and it is a software engineering problem. We haven’t tested the above code on a case where the control group or neither group had the higher percentages. We’ll leave that for now as a more advanced topic.</p>
+</section>
+</section>
+<section id="textbook-section-1.2-data-basics" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="textbook-section-1.2-data-basics"><span class="header-section-number">2.3</span> Textbook Section 1.2, Data Basics</h2>
+<p>Here we looked at</p>
+<ul>
+<li>observations (rows), variables (columns), and data matrices (data frames)</li>
+<li>types of variables (dbl or continuous, int or discrete, fctr or nominal, and ordered fctr or ordinal)</li>
+<li>relationships between variables</li>
+<li>explanatory (x or features or input) and response (y or targets or output) variables</li>
+<li>observational studies and experiments (and we mentioned an in-between activity called quasi-experiments)</li>
+</ul>
+<table class="table">
+<caption><em>Data Type terminology: R vs the Textbook</em></caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">R</th>
+<th style="text-align: left;">Openintro Stats textbook</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">dbl, as.numeric()</td>
+<td style="text-align: left;">numerical, continuous</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">int, as.integer()</td>
+<td style="text-align: left;">numerical, discrete</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">fctr, factor()</td>
+<td style="text-align: left;">categorical, nominal</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ord, ordered()</td>
+<td style="text-align: left;">categorical, ordinal</td>
+</tr>
+</tbody>
+</table>
+<p>On the left of the above table, you see how R refers to data types. On the right is how the OpenIntro Stats textbook refers to data types. When you display a <em>tibble</em> (a tibble is a data frame with some extra information) using R, each variable column will be headed with <code>dbl</code>, <code>int</code>, <code>fctr</code>, or <code>ord</code> to indicate the four kinds of numbers. If a variable is not interpreted as a number, R will display <code>chr</code> as an abbreviation of character.</p>
+<section id="textbook-exercise-1.7" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="textbook-exercise-1.7"><span class="header-section-number">2.3.1</span> Textbook Exercise 1.7</h3>
+<p>What were the explanatory and response variables in the migraine study? The <code>group</code> was explanatory and <code>pain_free</code> was the response variable.</p>
+</section>
+<section id="textbook-exercise-1.12" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="textbook-exercise-1.12"><span class="header-section-number">2.3.2</span> Textbook Exercise 1.12</h3>
+<p>This is a hard question in two parts.</p>
+<ol type="a">
+<li>List the variables used in creating this visualization.</li>
+<li>Indicate whether each variable in the study is numerical or categorical. If numerical, identify as contin- uous or discrete. If categorical, indicate if the variable is ordinal.</li>
+</ol>
+<p>There is actually an <code>r</code> package underlying this question. If you visit <a href="https://github.com/dgrtwo/unvotes">https://github.com/dgrtwo/unvotes</a> you will see the data represented as a tibble. If you recall, during week one we said that a tibble is a data frame that <em>behaves</em> well. Among its features is a list of the data types, so you can answer parts a and b by looking at a tibble of the data, where you’ll see that</p>
+<ul>
+<li>year is stored as dbl although it is really discrete and could be stored as int</li>
+<li>country is stored as chr which means <em>characters</em> although it is really a nominal factor</li>
+<li>percent_yes is stored as a dbl which is appropriate</li>
+<li>issue is stored as chr although it is really a nominal factor</li>
+</ul>
+<p>Later we’ll learn how to produce a visualization like this, although you are welcome to try based on the code at the unvotes website mentioned above. If you want the actual code itself, you can slightly modify the code at <a href="https://rpubs.com/minebocek/unvotes">https://rpubs.com/minebocek/unvotes</a> to include Mexico.</p>
+</section>
+</section>
+<section id="textbook-section-1.3-sampling" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="textbook-section-1.3-sampling"><span class="header-section-number">2.4</span> Textbook Section 1.3, Sampling</h2>
+<p>Here we talked about random sampling, stratified sampling, cluster sampling, and observational studies.</p>
+<section id="textbook-exercise-1.15-asthma" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="textbook-exercise-1.15-asthma"><span class="header-section-number">2.4.1</span> Textbook Exercise 1.15, Asthma</h3>
+<ol type="a">
+<li>What is the population of interest and the sample? Note that the population is NOT all asthma sufferers. The population of interest is all asthma patients aged 18-69 who rely on medication for asthma treatment. The sample consists of 600 such patients.</li>
+<li>Is the study generalizable? Can we establish cause and effect? The patients are probably not randomly sampled, so we need to know more to say whether they represent all asthma patients 18–69 who rely on medication. For example, they could all be from a high-pollution city. We would need to know that. The cause and effect determination is easier. An experiment can determine cause and effect, while an observational study only determines association.</li>
+</ol>
+</section>
+</section>
+<section id="textbook-section-1.4-experiments" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="textbook-section-1.4-experiments"><span class="header-section-number">2.5</span> Textbook Section 1.4, Experiments</h2>
+<p>Here we discussed four issues:</p>
+<ul>
+<li>control</li>
+<li>randomization</li>
+<li>replication</li>
+<li>blocking</li>
+</ul>
+<section id="textbook-exercise-1.34-exercise-and-mental-health" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="textbook-exercise-1.34-exercise-and-mental-health"><span class="header-section-number">2.5.1</span> Textbook Exercise 1.34, Exercise and mental health</h3>
+<p>A researcher is interested in the effects of exercise on mental health and he proposes the following study: Use stratified random sampling to ensure representative proportions of 18-30, 31-40 and 41-55 year olds from the population. Next, randomly assign half the subjects from each age group to exercise twice a week, and instruct the rest not to exercise. Conduct a mental health exam at the beginning and at the end of the study, and compare the results.</p>
+<ol type="a">
+<li>What type of study is this?</li>
+<li>What are the treatment and control groups in this study?</li>
+<li>Does this study make use of blocking? If so, what is the blocking variable?</li>
+<li>Does this study make use of blinding?</li>
+<li>Comment on whether or not the results of the study can be used to establish a causal relationship between exercise and mental health, and indicate whether or not the conclusions can be generalized to the population at large.</li>
+<li>Suppose you are given the task of determining if this proposed study should get funding. Would you have any reservations about the study proposal?</li>
+</ol>
+</section>
+<section id="answers" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="answers"><span class="header-section-number">2.5.2</span> Answers</h3>
+<ol type="a">
+<li>This is an experiment.</li>
+<li>The treatment is exercise twice a week and control is no exercise.</li>
+<li>Yes, the blocking variable is age.</li>
+<li>No, the study is not blinded since the patients will know whether or not they are exercising.</li>
+<li>Since this is an experiment, we can make a causal statement. Since the sample is random, the causal statement can be generalized to the population at large. However, we should be cautious about making a causal statement because of a possible placebo effect.</li>
+<li>It would be very difficult, if not impossible, to successfully conduct this study since randomly sampled people cannot be required to participate in a clinical trial</li>
+</ol>
+</section>
+</section>
+<section id="textbook-chapter-2-summarizing-data" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="textbook-chapter-2-summarizing-data"><span class="header-section-number">2.6</span> Textbook Chapter 2: Summarizing data</h2>
+<p>This week, we’ll look at numerical data, categorical data, and a case study.</p>
+<section id="numerical-data" class="level3" data-number="2.6.1">
+<h3 data-number="2.6.1" class="anchored" data-anchor-id="numerical-data"><span class="header-section-number">2.6.1</span> Numerical data</h3>
+<p>There are graphical and numerical methods for summarizing numerical data, including</p>
+<ul>
+<li>scatterplots</li>
+<li>dot plots</li>
+<li>mean</li>
+<li>histograms</li>
+<li>variance and standard deviation</li>
+<li>box plots, quartiles, and the median</li>
+<li>robust statistics</li>
+<li>cartographic maps and cartograms</li>
+</ul>
+<p>We can draw a scatterplot of two variables of the <code>loan50</code> data as follows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos=</span><span class="fu">structure</span>(<span class="fu">c</span>(<span class="at">CRAN=</span><span class="st">"https://cran.microsoft.com/"</span>)))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(tidyverse)) {</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(tidyverse)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"loan50.rda"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>loan50 <span class="sc">|&gt;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(annual_income,loan_amount)) <span class="sc">+</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week02_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The above is a very basic scatterplot. Later, we’ll learn to change colors, background, labels, legends, and more. Bear in mind that the scatterplot is meant to compare two numeric variables. You can’t use it for a numeric variable and a categorical variable.</p>
+<p>We can create a basic dotplot as follows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>loan50 <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(homeownership)) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week02_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>A dotplot may be helpful to illustrate a categorical variable, but I seldom use them. Using them in concert with a boxplot may make more sense. We’ll look at boxplots later.</p>
+<p>The mean is part of a good summary of data. We can find the mean of a variable by saying <code>mean(variable_name)</code> or as part of a summary. For instance</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan50,<span class="fu">mean</span>(annual_income))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 86170</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan50,<span class="fu">summary</span>(annual_income))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  28800   55750   74000   86170   99500  325000 </code></pre>
+</div>
+</div>
+<p>Notice that the <code>summary()</code> function also gives us the minimum, the first quartile, the median, the 3rd quartile, and the maximum value of the variable, in addition to the mean. We’ll discuss all these statistics in the context of other ways to extract them. The problem with the mean that is demonstrated in the textbook is that two variables may have very different shapes but the same mean. So the textbook then describes histograms, which are a good way to identify the shape of a variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>loan50 <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(annual_income)) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week02_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Notice that the <em>x</em>-axis labels are shown in scientific notation. We can fix this using the <code>scales</code> package. By the way, in case I haven’t mentioned it before, we always refer to the horizontal axis as the <em>x</em>-axis and the vertical axis as the <em>y</em>-axis. This is the default for <code>r</code> and many other languages that create graphical displays.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(scales)) {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"scales"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(scales)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>loan50 <span class="sc">|&gt;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(annual_income)) <span class="sc">+</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">comma_format</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week02_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>You may have noticed that Hadley Wickham, the inventor of the Tidyverse, dislikes the default number of bins in a histogram. So he programmed <code>ggplot()</code> to always show a warning message saying to pick a better number, depending on your data. We can fix that easily with a parameter to <code>geom_histogram()</code>. Then each bin (vertical stripe) will represent a thousand dollars.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>loan50 <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(annual_income)) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">1000</span>) <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">comma_format</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week02_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>You may notice that warning messages aren’t dealbreakers. An error message on the other hand, will often stop output dead in its tracks.</p>
+<p>The next concepts covered in the textbook are variance and standard deviation. We can calculate them as follows. When you do this, you may notice that <code>sd()</code> is the square root of <code>var()</code>. Why would you prefer one over the other? Usually you use <code>sd()</code> because it’s in the same units as the data, dollars in the following case, unlike <code>var()</code>, which is in squared units, squared dollars in the following case.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan50,<span class="fu">var</span>(annual_income))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3e+09</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan50,<span class="fu">sd</span>(annual_income))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 57566</code></pre>
+</div>
+</div>
+<p>Together, the mean and standard deviation are often a good, yet compact, description of a data set.</p>
+<p>You may want to find the means of all the columns in a data set. If you try to do that with the <code>colMeans()</code> function, you’ll get an error message as follows. (Actually, I’ve disabled the following code chunk by saying <code>#| eval: false</code> in the <code>.qmd</code> file because otherwise the rendering would halt.)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(loan50)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The remedy is to use a logical function to identify only the numeric columns.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(loan50[<span class="fu">sapply</span>(loan50, is.numeric)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             emp_length                    term           annual_income 
+                     NA                   4e+01                   9e+04 
+         debt_to_income      total_credit_limit   total_credit_utilized 
+                  7e-01                   2e+05                   6e+04 
+num_cc_carrying_balance             loan_amount           interest_rate 
+                  5e+00                   2e+04                   1e+01 
+ public_record_bankrupt            total_income 
+                  8e-02                   1e+05 </code></pre>
+</div>
+</div>
+<p>This is okay, but the results are in scientific notation. You can use the <code>format()</code> function to supress scientific notation as follows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span>(<span class="fu">colMeans</span>(loan50[<span class="fu">sapply</span>(loan50, is.numeric)]),<span class="at">scientific=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             emp_length                    term           annual_income 
+            "       NA"             "    42.72"             " 86170.00" 
+         debt_to_income      total_credit_limit   total_credit_utilized 
+            "     0.72"             "208546.64"             " 61546.54" 
+num_cc_carrying_balance             loan_amount           interest_rate 
+            "     5.06"             " 17083.00"             "    11.57" 
+ public_record_bankrupt            total_income 
+            "     0.08"             "105220.56" </code></pre>
+</div>
+</div>
+<p>Notice that you often wrap a function inside another function. The only problem is that it’s easy to lose track of all the parentheses.</p>
+<p>The next topic in the textbook is the box plot. This also gives an opportunity to talk about the quartiles and the median. We can display a box plot as follows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>loan50 <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(annual_income)) <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">comma_format</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week02_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The thick line in the middle of the box is the median, the middle value of the data set. The box itself is bound by the first and third quartiles, known as <em>hinges</em>. The full name of this construct is actually a <em>box and whiskers plot</em> and the lines extending horizontally from the box are called whiskers. The upper whisker extends from the hinge to the largest value no further than 1.5 * IQR from the hinge (where IQR is the inter-quartile range, or distance between the first and third quartiles). The lower whisker extends from the hinge to the smallest value at most 1.5 * IQR of the hinge. Data beyond the end of the whiskers are called “outlying” points and are plotted individually.</p>
+<p>We often want to create several box plots and compare them. This is easy to do as follows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>loan50 <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(annual_income,homeownership)) <span class="sc">+</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">comma_format</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week02_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The textbook’s next topic is <em>Robust Statistics</em> and we’re going to pretty much skip that for now, except to say that outliers, as shown in the textbook, can affect the value of some statistics more than others. The mean and median are a good example. The median is much more robust to outliers than is the mean, which can be dragged way up or down by the presence of just one or a few outliers, whereas the median can not. As a kind of thought experiment, consider the following data set and the addition of an outlier and the effect of the outlier on the mean and median.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">6</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>y<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">800</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 70</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+<p>Finally, the chapter considers maps. There is a kind of map called a choropleth map that shows the value of a numeric variable in a geographic region. An example of density of French restaurants follows. First, here’s an open source map of Sagarmatha, aka Mount Everest, followed by one of London, followed by one of Austin. To get the bounding box for Austin, I used <a href="https://norbertrenner.de/osm/bbox.html">https://norbertrenner.de/osm/bbox.html</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(ggmap)) {</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"ggmap"</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ggmap)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>bbox_everest <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">left =</span> <span class="fl">86.05</span>, <span class="at">bottom =</span> <span class="fl">27.21</span>, <span class="at">right =</span> <span class="fl">87.81</span>, <span class="at">top =</span> <span class="fl">28.76</span>)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggmap</span>(<span class="fu">get_stamenmap</span>(bbox_everest, <span class="at">zoom =</span> <span class="dv">9</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week02_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>bbox_london<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.489</span>,<span class="fl">51.28</span>,<span class="fl">0.236</span>,<span class="fl">51.686</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggmap</span>(<span class="fu">get_stamenmap</span>(bbox_london))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week02_files/figure-html/unnamed-chunk-17-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>bbox_austin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">97.818</span>,<span class="fl">30.179</span>,<span class="sc">-</span><span class="fl">97.604</span>,<span class="fl">30.336</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggmap</span>(<span class="fu">get_stamenmap</span>(bbox_austin,<span class="at">zoom=</span><span class="dv">12</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week02_files/figure-html/unnamed-chunk-17-3.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+
+<!--
+
+Once we have a map, we can plot shapes on it. It can be quite a lengthy and time-consuming process, as this map of restaurant density in Southern France shows. This code is from the R Graph Gallery, which I consult frequently for examples of visualizations. The URL for this particular map is
+[link](https://r-graph-gallery.com/327-chloropleth-map-from-geojson-with-ggplot2.html).
+
+
+::: {.cell}
+
+```{.r .cell-code}
+#. Geospatial data available at the geojson format
+if(!require("geojsonio")) {
+  install.packages("geojsonio")
+  library(geojsonio)
+}
+spdf <- geojson_read("https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/communes.geojson",  what = "sp")
+
+#. Since it is a bit too much data, I select only a subset of it:
+spdf <- spdf[ substr(spdf@data$code,1,2)  %in% c("06", "83", "13", "30", "34", "11", "66") , ]
+
+#. I need to fortify the data AND keep trace of the commune code! (Takes ~2 minutes)
+if(!require("broom")) {
+  install.packages("broom")
+  library(broom)
+}
+spdf_fortified <- tidy(spdf)
+```
+
+::: {.cell-output .cell-output-stderr}
+```
+Warning: `tidy.SpatialPolygonsDataFrame()` was deprecated in broom 1.0.4.
+ℹ Please use functions from the sf package, namely `sf::st_as_sf()`, in favor
+  of sp tidiers.
+```
+:::
+
+```{.r .cell-code}
+#. Now I can plot this shape easily as described before:
+ggplot() +
+  geom_polygon(data = spdf_fortified, aes( x = long, y = lat, group = group), fill="white", color="grey") +
+  theme_void() +
+  coord_map()
+```
+
+::: {.cell-output-display}
+![](week02_files/figure-html/unnamed-chunk-18-1.png){width=672}
+:::
+
+```{.r .cell-code}
+#. Now I have a map of the communes of Southern France
+
+#. Next I want the number of restaurants in each commune
+#. read data
+data <- read.table("https://raw.githubusercontent.com/holtzy/R-graph-gallery/master/DATA/data_on_french_states.csv", header=T, sep=";")
+
+#. Distribution of the number of restaurants
+data |>
+  ggplot( aes(x=nb_equip)) +
+    geom_histogram(bins=20, fill='skyblue', color='#69b3a2') + scale_x_log10()
+```
+
+::: {.cell-output-display}
+![](week02_files/figure-html/unnamed-chunk-18-2.png){width=672}
+:::
+
+```{.r .cell-code}
+#. Now I have a histogram of the number of restaurants on a log scale
+
+#. Make the merge between the numbers of restaurants and the geography using the fact that id in one data set is the same as depcom in the other
+spdf_fortified <- spdf_fortified %>%
+  left_join(. , data, by=c("id"="depcom"))
+```
+
+::: {.cell-output .cell-output-stderr}
+```
+Warning in left_join(., data, by = c(id = "depcom")): Detected an unexpected many-to-many relationship between `x` and `y`.
+ℹ Row 45923 of `x` matches multiple rows in `y`.
+ℹ Row 5637 of `y` matches multiple rows in `x`.
+ℹ If a many-to-many relationship is expected, set `relationship =
+  "many-to-many"` to silence this warning.
+```
+:::
+
+```{.r .cell-code}
+#. Note that if the number of restaurant is NA, it is in fact 0
+spdf_fortified$nb_equip[ is.na(spdf_fortified$nb_equip)] = 0.001
+
+if(!require(viridis)) {
+  install.packages("viridis")
+  library(viridis)
+}
+p <- ggplot() +
+  geom_polygon(data = spdf_fortified, aes(fill = nb_equip, x = long, y = lat, group = group) , size=0, alpha=0.9) +
+  theme_void() +
+  scale_fill_viridis(trans = "log", breaks=c(1,5,10,20,50,100), name="Number of restaurant", guide = guide_legend( keyheight = unit(3, units = "mm"), keywidth=unit(12, units = "mm"), label.position = "bottom", title.position = 'top', nrow=1) ) +
+  labs(
+    title = "South of France restaurant concentration",
+    subtitle = "Number of restaurants per city district",
+    caption = "Data: INSEE | Creation: Yan Holtz | r-graph-gallery.com"
+  ) +
+  theme(
+    text = element_text(color = "#22211d"),
+    plot.background = element_rect(fill = "#f5f5f2", color = NA),
+    panel.background = element_rect(fill = "#f5f5f2", color = NA),
+    legend.background = element_rect(fill = "#f5f5f2", color = NA),
+
+    plot.title = element_text(size= 22, hjust=0.01, color = "#4e4d47", margin = margin(b = -0.1, t = 0.4, l = 2, unit = "cm")),
+    plot.subtitle = element_text(size= 17, hjust=0.01, color = "#4e4d47", margin = margin(b = -0.1, t = 0.43, l = 2, unit = "cm")),
+    plot.caption = element_text( size=12, color = "#4e4d47", margin = margin(b = 0.3, r=-99, unit = "cm") ),
+    legend.position = c(0.7, 0.09)) +
+  coord_map()
+```
+
+::: {.cell-output .cell-output-stderr}
+```
+Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.
+```
+:::
+
+```{.r .cell-code}
+p
+```
+
+::: {.cell-output-display}
+![](week02_files/figure-html/unnamed-chunk-18-3.png){width=672}
+:::
+:::
+
+
+Bear in mind that I don't expect you to make maps this sophisticated. I just want you to know what's possible and to get a general idea of the code involved. As you read this chapter, it would be good to do a few of the exercises, just as I've shown you the exercises from Chapter 1.
+
+-->
+</section>
+</section>
+<section id="categorical-data" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="categorical-data"><span class="header-section-number">2.7</span> Categorical Data</h2>
+<p>We’ve already seen contingency tables and how to manipulate them, which are introduced in more detail in this section. We’ve also seen a mosaic plot. Another kind of plot introduced in this section is the bar plot. We’ll examine each of these.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"migraine.rda"</span>)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">with</span>(migraine,<span class="fu">table</span>(pain_free,group))</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">addmargins</span>(tbl)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(kableExtra)) {</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"kableExtra"</span>)</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(kableExtra)</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>tbl <span class="sc">|&gt;</span></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">|&gt;</span></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width=</span>F) <span class="sc">|&gt;</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">3</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">background =</span> <span class="st">"#AAAAAA"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">4</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">background =</span> <span class="st">"#AAAAAA"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">background =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="lightable-classic table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">control</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">treatment</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; color: black !important; background-color: white !important;">no</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">77</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: black !important; background-color: white !important;">yes</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: white !important; background-color: #AAAAAA !important; color: black !important; background-color: white !important;">Sum</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">46</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">43</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important; color: white !important; background-color: #AAAAAA !important;">89</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>As before, we can create a mosaic plot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">with</span>(migraine,<span class="fu">table</span>(pain_free,group))</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mosaicplot</span>(tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week02_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>We can also create bar plots.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>loan50 <span class="sc">|&gt;</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(homeownership)) <span class="sc">+</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week02_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>loan50 <span class="sc">|&gt;</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(homeownership,<span class="at">fill=</span>loan_purpose)) <span class="sc">+</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week02_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The above looks better but is misleading because it implies an ordinal relationship between the loan purposes and there is no such relationship. We would be better of specifying that the <code>loan_purpose</code> variable is qualitative.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>loan50 <span class="sc">|&gt;</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(homeownership,<span class="at">fill=</span>loan_purpose)) <span class="sc">+</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>(<span class="at">type=</span><span class="st">"qual"</span>,<span class="at">palette=</span><span class="st">"Set1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week02_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>I find the above palette to be ugly but several others are available. Google <em>colorbrewer</em> for more info. By the way, these colors have been extensively psychologically tested to verify that people can easily distinguish between them. I’m uncertain about colorblind people because the most prevalent form of color blindness is red-green.</p>
+</section>
+<section id="thursdays-class" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="thursdays-class"><span class="header-section-number">2.8</span> Thursday’s class</h2>
+<section id="statistical-summary-tools" class="level3" data-number="2.8.1">
+<h3 data-number="2.8.1" class="anchored" data-anchor-id="statistical-summary-tools"><span class="header-section-number">2.8.1</span> Statistical summary tools</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(ISLR2)) {</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"ISLR2"</span>)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ISLR2)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Auto)</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>Auto <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(Auto)</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(Auto,cylinders<span class="ot">&lt;-</span><span class="fu">as.factor</span>(cylinders))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here are some statistical summary questions we can answer about the <code>Auto</code> data set.</p>
+<ol type="a">
+<li>What is the range of each quantitative predictor? You can answer this using the <code>range()</code> function.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(Auto,<span class="fu">range</span>(mpg))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  9 47</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(Auto,<span class="fu">range</span>(displacement))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  68 455</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(Auto[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>)],range)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     mpg displacement horsepower weight acceleration year
+[1,]   9           68         46   1613            8   70
+[2,]  47          455        230   5140           25   82</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(Auto[,<span class="fu">sapply</span>(Auto,is.numeric)],range)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     mpg cylinders displacement horsepower weight acceleration year origin
+[1,]   9         3           68         46   1613            8   70      1
+[2,]  47         8          455        230   5140           25   82      3</code></pre>
+</div>
+</div>
+<ol start="2" type="a">
+<li>What is the mean and standard deviation of each quantitative predictor?</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(Auto[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>)],mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         mpg displacement   horsepower       weight acceleration         year 
+          23          194          104         2978           16           76 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(Auto[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>)],sd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         mpg displacement   horsepower       weight acceleration         year 
+           8          105           38          849            3            4 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>(<span class="fu">t</span>(<span class="fu">sapply</span>(Auto[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>)],<span class="cf">function</span>(bla) <span class="fu">list</span>(<span class="at">means=</span><span class="fu">mean</span>(bla),<span class="at">sds=</span><span class="fu">sd</span>(bla),<span class="at">ranges=</span><span class="fu">range</span>(bla)))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             means sds     ranges
+mpg             23   8      9, 47
+displacement   194 105    68, 455
+horsepower     104  38    46, 230
+weight        2978 849 1613, 5140
+acceleration    16   3      8, 25
+year            76   4     70, 82</code></pre>
+</div>
+</div>
+<ol start="3" type="a">
+<li>Now remove the 10th through 85th observations. What is the range, mean, and standard deviation of each predictor in the subset of the data that remains?</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>(<span class="fu">t</span>(<span class="fu">sapply</span>(Auto[<span class="sc">-</span><span class="dv">10</span><span class="sc">:-</span><span class="dv">85</span>,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>)],<span class="cf">function</span>(bla) <span class="fu">list</span>(<span class="at">means=</span><span class="fu">mean</span>(bla),<span class="at">sds=</span><span class="fu">sd</span>(bla),<span class="at">ranges=</span><span class="fu">range</span>(bla)))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             means sds     ranges
+mpg             24   8     11, 47
+displacement   187 100    68, 455
+horsepower     101  36    46, 230
+weight        2936 811 1649, 4997
+acceleration    16   3      8, 25
+year            77   3     70, 82</code></pre>
+</div>
+</div>
+</section>
+<section id="exercises" class="level3" data-number="2.8.2">
+<h3 data-number="2.8.2" class="anchored" data-anchor-id="exercises"><span class="header-section-number">2.8.2</span> Exercises</h3>
+<p>Create a Quarto document called <code>week02exercises.qmd</code>. Use your name as the author name and the date as the current date. Make the title within the document “Week 2 Exercises”.</p>
+<p>Answer the following questions in the document, using a combination of narration and R chunks.</p>
+<ol type="1">
+<li><p>Use the <code>loan50</code> data set. Find the mean and median of <code>annual_income</code> using R. Tell why they differ in words.</p></li>
+<li><p>Use the <code>loan50</code> data set. Make a contingency table of <code>loan_purpose</code> and <code>grade</code>. Tell the most frequently occurring grade and most frequently occurring loan purpose in words.</p></li>
+<li><p>Use the <code>loan50</code> data set. Provide a statistical summary of <code>total_credit_limit</code>.</p></li>
+<li><p>Use the <code>loan50</code> data set. Show the column means for all numeric columns.</p></li>
+<li><p>Use the <code>loan50</code> data set. Make a contingency table of <code>state</code> and <code>homeownership</code>. Tell which state has the most mortgages in words.</p></li>
+</ol>
+<p>Now render the document and submit both the <code>.qmd</code> file and the <code>.html</code> file to Canvas under “week02exercises”.</p>
+</section>
+<section id="solutions-to-exercises" class="level3" data-number="2.8.3">
+<h3 data-number="2.8.3" class="anchored" data-anchor-id="solutions-to-exercises"><span class="header-section-number">2.8.3</span> Solutions to exercises</h3>
+<!-- -->
+<ol type="1">
+<li>Use the <code>loan50</code> data set. Find the mean and median of <code>annual_income</code> using R. Tell why they differ in words.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"loan50.rda"</span>)</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan50,<span class="fu">mean</span>(annual_income))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 86170</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan50,<span class="fu">median</span>(annual_income))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 74000</code></pre>
+</div>
+</div>
+<p>They differ because the mean is susceptible to outliers. There are about four outliers in this data set (high annual incomes) and they drag the mean upward but not the median. The median is a more reliable measure of centrality when there are influential outliers.</p>
+<ol start="2" type="1">
+<li>Use the <code>loan50</code> data set. Make a contingency table of <code>loan_purpose</code> and <code>grade</code>. Tell the most frequently occurring grade and most frequently occurring loan purpose in words.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan50,<span class="fu">addmargins</span>(<span class="fu">table</span>(loan_purpose,grade)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                    grade
+loan_purpose             A  B  C  D  E  F  G Sum
+                      0  0  0  0  0  0  0  0   0
+  car                 0  0  1  1  0  0  0  0   2
+  credit_card         0  6  4  1  1  1  0  0  13
+  debt_consolidation  0  2  9  4  7  1  0  0  23
+  home_improvement    0  1  4  0  0  0  0  0   5
+  house               0  0  1  0  0  0  0  0   1
+  major_purchase      0  0  0  0  0  0  0  0   0
+  medical             0  0  0  0  0  0  0  0   0
+  moving              0  0  0  0  0  0  0  0   0
+  other               0  4  0  0  0  0  0  0   4
+  renewable_energy    0  1  0  0  0  0  0  0   1
+  small_business      0  1  0  0  0  0  0  0   1
+  vacation            0  0  0  0  0  0  0  0   0
+  wedding             0  0  0  0  0  0  0  0   0
+  Sum                 0 15 19  6  8  2  0  0  50</code></pre>
+</div>
+</div>
+<p>The most frequently occurring purpose is debt consolidation, while the most frequently occurring grade is B.</p>
+<ol start="3" type="1">
+<li>Use the <code>loan50</code> data set. Provide a statistical summary of <code>total_credit_limit</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan50,<span class="fu">summary</span>(total_credit_limit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  15980   70526  147364  208547  299766  793009 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan50,scales<span class="sc">::</span><span class="fu">comma_format</span>(<span class="fu">summary</span>(total_credit_limit)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>function (x) 
+{
+    number(x, accuracy = accuracy, scale = scale, prefix = prefix, 
+        suffix = suffix, big.mark = big.mark, decimal.mark = decimal.mark, 
+        style_positive = style_positive, style_negative = style_negative, 
+        scale_cut = scale_cut, trim = trim, ...)
+}
+&lt;bytecode: 0x7f9003a51a50&gt;
+&lt;environment: 0x7f90013eb440&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. same info with commas in numbers</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>loan50 <span class="sc">|&gt;</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">Min=</span><span class="fu">comma</span>(<span class="fu">min</span>(total_credit_limit)),</span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">firstq=</span><span class="fu">comma</span>(<span class="fu">quantile</span>(total_credit_limit,<span class="fl">0.25</span>)),</span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">Median=</span><span class="fu">comma</span>(<span class="fu">median</span>(total_credit_limit)),</span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">Mean=</span><span class="fu">comma</span>(<span class="fu">mean</span>(total_credit_limit)),</span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">thirdq=</span><span class="fu">comma</span>(<span class="fu">quantile</span>(total_credit_limit,<span class="fl">0.75</span>)),</span>
+<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">Max=</span><span class="fu">comma</span>(<span class="fu">max</span>(total_credit_limit)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Min firstq  Median    Mean  thirdq     Max
+1 15,980 70,526 147,364 208,547 299,766 793,009</code></pre>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Use the <code>loan50</code> data set. Show the column means for all numeric columns.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">digits=</span><span class="dv">1</span>)</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span>(<span class="fu">colMeans</span>(loan50[<span class="fu">sapply</span>(loan50, is.numeric)]),<span class="at">scientific=</span><span class="cn">FALSE</span>,<span class="at">big.mark=</span><span class="st">","</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             emp_length                    term           annual_income 
+           "        NA"            "     42.72"            " 86,170.00" 
+         debt_to_income      total_credit_limit   total_credit_utilized 
+           "      0.72"            "208,546.64"            " 61,546.54" 
+num_cc_carrying_balance             loan_amount           interest_rate 
+           "      5.06"            " 17,083.00"            "     11.57" 
+ public_record_bankrupt            total_income 
+           "      0.08"            "105,220.56" </code></pre>
+</div>
+</div>
+<ol start="5" type="1">
+<li>Use the <code>loan50</code> data set. Make a contingency table of <code>state</code> and <code>homeownership</code>. Tell which state has the most mortgages in words.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan50,<span class="fu">table</span>(state,homeownership))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     homeownership
+state rent mortgage own
+         0        0   0
+   AK    0        0   0
+   AL    0        0   0
+   AR    0        0   0
+   AZ    0        0   1
+   CA    7        2   0
+   CO    0        0   0
+   CT    1        0   0
+   DC    0        0   0
+   DE    0        0   0
+   FL    1        2   0
+   GA    0        0   0
+   HI    1        1   0
+   ID    0        0   0
+   IL    3        0   1
+   IN    0        1   1
+   KS    0        0   0
+   KY    0        0   0
+   LA    0        0   0
+   MA    1        1   0
+   MD    2        1   0
+   ME    0        0   0
+   MI    0        1   0
+   MN    0        1   0
+   MO    0        1   0
+   MS    0        1   0
+   MT    0        0   0
+   NC    0        0   0
+   ND    0        0   0
+   NE    0        1   0
+   NH    1        0   0
+   NJ    2        1   0
+   NM    0        0   0
+   NV    0        2   0
+   NY    1        0   0
+   OH    0        1   0
+   OK    0        0   0
+   OR    0        0   0
+   PA    0        0   0
+   RI    0        1   0
+   SC    0        1   0
+   SD    0        0   0
+   TN    0        0   0
+   TX    0        5   0
+   UT    0        0   0
+   VA    1        0   0
+   VT    0        0   0
+   WA    0        0   0
+   WI    0        1   0
+   WV    0        1   0
+   WY    0        0   0</code></pre>
+</div>
+</div>
+<p>Texas has five mortgages, more than any other state.</p>
+</section>
+<section id="exercise-notes" class="level3" data-number="2.8.4">
+<h3 data-number="2.8.4" class="anchored" data-anchor-id="exercise-notes"><span class="header-section-number">2.8.4</span> Exercise Notes</h3>
+<ol type="1">
+<li>Many students did not follow instructions on file naming. I will take off a lot of points if this happens when you turn in a graded assignment. I expect all files to be uniformly named.</li>
+<li>Several students left the boilerplate verbiage in their <code>.qmd</code> file. I will take off a lot of points if this happens when you turn in a graded assignment.</li>
+<li>One student put their narrative inside the code chunks as R comments. Don’t do this. It undercuts the purpose of mixing narrative and code in a Quarto document.</li>
+<li>Some students didn’t try to answer the second part of question 1. One way to understand this is to draw a boxplot of the data, showing that there are four outliers at the top end, dragging the mean upward but leaving the median pretty much alone.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>loan50 <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(annual_income)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week02_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ol start="5" type="1">
+<li>Some students included graphics, which don’t show up in the copy on Canvas. One way to make these graphics show up is to add the following code to the front matter (the front matter is the stuff between two sets of three dashes at the beginning of the file):</li>
+</ol>
+<pre><code>format:
+  html:
+    embed-resources: true</code></pre>
+<p>The indentation shown above is essential for it to work.</p>
+<ol start="6" type="1">
+<li>Some students highlighted relevant rows and columns as shown below. This was a really great addition.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">with</span>(loan50,<span class="fu">table</span>(loan_purpose,grade))</span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">addmargins</span>(tbl)</span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(kableExtra)) {</span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"kableExtra"</span>)</span>
+<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(kableExtra)</span>
+<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb76-7"><a href="#cb76-7" aria-hidden="true" tabindex="-1"></a>tbl <span class="sc">|&gt;</span></span>
+<span id="cb76-8"><a href="#cb76-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">|&gt;</span></span>
+<span id="cb76-9"><a href="#cb76-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width=</span>F) <span class="sc">|&gt;</span></span>
+<span id="cb76-10"><a href="#cb76-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">4</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">background =</span> <span class="st">"#AAAAAA"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb76-11"><a href="#cb76-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">4</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">background =</span> <span class="st">"#AAAAAA"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb76-12"><a href="#cb76-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">background =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="lightable-classic table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">A</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">B</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">C</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">D</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">E</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">F</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">G</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; color: black !important; background-color: white !important;"></td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: black !important; background-color: white !important;">car</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: black !important; background-color: white !important;">credit_card</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: white !important; background-color: #AAAAAA !important; color: black !important; background-color: white !important;">debt_consolidation</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">2</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important; color: white !important; background-color: #AAAAAA !important;">9</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">4</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">7</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">1</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">23</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: black !important; background-color: white !important;">home_improvement</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: black !important; background-color: white !important;">house</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: black !important; background-color: white !important;">major_purchase</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: black !important; background-color: white !important;">medical</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: black !important; background-color: white !important;">moving</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: black !important; background-color: white !important;">other</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: black !important; background-color: white !important;">renewable_energy</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: black !important; background-color: white !important;">small_business</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: black !important; background-color: white !important;">vacation</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: black !important; background-color: white !important;">wedding</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: black !important; background-color: white !important;">Sum</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">19</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">50</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>Another way to do this is to say</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>maxrow<span class="ot">&lt;-</span><span class="fu">max</span>(tbl[<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">levels</span>(loan50<span class="sc">$</span>loan_purpose))<span class="sc">-</span><span class="dv">1</span>,<span class="st">"Sum"</span>])</span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>maxcol<span class="ot">&lt;-</span><span class="fu">max</span>(tbl[<span class="st">"Sum"</span>,<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">levels</span>(loan50<span class="sc">$</span>grade))<span class="sc">-</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>and</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>maxrownum <span class="ot">&lt;-</span> <span class="fu">which.max</span>(tbl[<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">levels</span>(loan50<span class="sc">$</span>loan_purpose))<span class="sc">-</span><span class="dv">1</span>,<span class="st">"Sum"</span>])</span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>maxcolnum <span class="ot">&lt;-</span> <span class="fu">which.max</span>(tbl[<span class="st">"Sum"</span>,<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">levels</span>(loan50<span class="sc">$</span>grade))<span class="sc">-</span><span class="dv">1</span>])<span class="sc">+</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now you can plug <code>maxrownum</code> and <code>maxcolnum</code> into the formula without having to know which row and column you’re talking about.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>tbl <span class="sc">|&gt;</span></span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">|&gt;</span></span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width=</span>F) <span class="sc">|&gt;</span></span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(maxrownum, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">background =</span> <span class="st">"#AAAAAA"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(maxcolnum, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">background =</span> <span class="st">"#AAAAAA"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">background =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="lightable-classic table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">A</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">B</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">C</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">D</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">E</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">F</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">G</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; color: black !important; background-color: white !important;"></td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: black !important; background-color: white !important;">car</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: black !important; background-color: white !important;">credit_card</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: white !important; background-color: #AAAAAA !important; color: black !important; background-color: white !important;">debt_consolidation</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">2</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important; color: white !important; background-color: #AAAAAA !important;">9</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">4</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">7</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">1</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">23</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: black !important; background-color: white !important;">home_improvement</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: black !important; background-color: white !important;">house</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: black !important; background-color: white !important;">major_purchase</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: black !important; background-color: white !important;">medical</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: black !important; background-color: white !important;">moving</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: black !important; background-color: white !important;">other</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: black !important; background-color: white !important;">renewable_energy</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: black !important; background-color: white !important;">small_business</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: black !important; background-color: white !important;">vacation</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: black !important; background-color: white !important;">wedding</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: black !important; background-color: white !important;">Sum</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">19</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">50</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>And, in the narrative you can say that the maximum frequency of loan_purpose is 23. In the narrative you can alo say that the maximum frequency of grade is 19.</p>
+<ol start="7" type="1">
+<li>One student stipulated that the mean and median could not ever be the same except in two unusual circumstances. Actually it is quite easy for the mean to equal the mean as you can see from this simple example.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>)</span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./week01.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./week03.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">More R and Quarto</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

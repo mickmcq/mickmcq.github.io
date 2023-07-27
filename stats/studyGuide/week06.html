@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Study Guide: Statistics for Informatics - 6&nbsp; ggplot2; Inference</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./week07.html" rel="next">
+<link href="./week05.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week06.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ggplot2; Inference</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Study Guide: Statistics for Informatics</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Summaries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">More R and Quarto</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Distributions of random variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week06.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ggplot2; Inference</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">More inference</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Inference for numerical data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Linear regression</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">More linear regression; logistic regression</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Coping with time and joins</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Milestone 4; Individual work</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Experiments</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#recap-week-05" id="toc-recap-week-05" class="nav-link active" data-scroll-target="#recap-week-05"><span class="header-section-number">6.1</span> Recap Week 05</a></li>
+  <li><a href="#ggplot2" id="toc-ggplot2" class="nav-link" data-scroll-target="#ggplot2"><span class="header-section-number">6.2</span> ggplot2</a></li>
+  <li><a href="#base-layer" id="toc-base-layer" class="nav-link" data-scroll-target="#base-layer"><span class="header-section-number">6.3</span> Base layer</a>
+  <ul class="collapse">
+  <li><a href="#graphical-primitives" id="toc-graphical-primitives" class="nav-link" data-scroll-target="#graphical-primitives"><span class="header-section-number">6.3.1</span> Graphical primitives</a></li>
+  <li><a href="#one-variablecontinuous" id="toc-one-variablecontinuous" class="nav-link" data-scroll-target="#one-variablecontinuous"><span class="header-section-number">6.3.2</span> One variable—continuous</a></li>
+  <li><a href="#one-variablediscrete" id="toc-one-variablediscrete" class="nav-link" data-scroll-target="#one-variablediscrete"><span class="header-section-number">6.3.3</span> One variable—discrete</a></li>
+  <li><a href="#two-variablesboth-continuous" id="toc-two-variablesboth-continuous" class="nav-link" data-scroll-target="#two-variablesboth-continuous"><span class="header-section-number">6.3.4</span> Two variables—both continuous</a></li>
+  <li><a href="#two-variablesone-discrete-one-continuous" id="toc-two-variablesone-discrete-one-continuous" class="nav-link" data-scroll-target="#two-variablesone-discrete-one-continuous"><span class="header-section-number">6.3.5</span> Two variables—one discrete, one continuous</a></li>
+  <li><a href="#two-variablesboth-discrete" id="toc-two-variablesboth-discrete" class="nav-link" data-scroll-target="#two-variablesboth-discrete"><span class="header-section-number">6.3.6</span> Two variables—both discrete</a></li>
+  <li><a href="#continuous-bivariate-distribution" id="toc-continuous-bivariate-distribution" class="nav-link" data-scroll-target="#continuous-bivariate-distribution"><span class="header-section-number">6.3.7</span> Continuous bivariate distribution</a></li>
+  <li><a href="#continuous-function" id="toc-continuous-function" class="nav-link" data-scroll-target="#continuous-function"><span class="header-section-number">6.3.8</span> Continuous function</a></li>
+  <li><a href="#visualizing-error" id="toc-visualizing-error" class="nav-link" data-scroll-target="#visualizing-error"><span class="header-section-number">6.3.9</span> Visualizing error</a></li>
+  <li><a href="#maps" id="toc-maps" class="nav-link" data-scroll-target="#maps"><span class="header-section-number">6.3.10</span> Maps</a></li>
+  </ul></li>
+  <li><a href="#additional-plots" id="toc-additional-plots" class="nav-link" data-scroll-target="#additional-plots"><span class="header-section-number">6.4</span> Additional plots</a></li>
+  <li><a href="#foundations-for-inference" id="toc-foundations-for-inference" class="nav-link" data-scroll-target="#foundations-for-inference"><span class="header-section-number">6.5</span> Foundations for Inference</a></li>
+  <li><a href="#normal-distribution" id="toc-normal-distribution" class="nav-link" data-scroll-target="#normal-distribution"><span class="header-section-number">6.6</span> normal distribution</a>
+  <ul class="collapse">
+  <li><a href="#using-the-normal-distribution" id="toc-using-the-normal-distribution" class="nav-link" data-scroll-target="#using-the-normal-distribution"><span class="header-section-number">6.6.1</span> Using the normal distribution</a></li>
+  <li><a href="#calculating-z-scores" id="toc-calculating-z-scores" class="nav-link" data-scroll-target="#calculating-z-scores"><span class="header-section-number">6.6.2</span> calculating z scores</a></li>
+  <li><a href="#sketch-the-graphs-of-probabilities" id="toc-sketch-the-graphs-of-probabilities" class="nav-link" data-scroll-target="#sketch-the-graphs-of-probabilities"><span class="header-section-number">6.6.3</span> sketch the graphs of probabilities</a></li>
+  </ul></li>
+  <li><a href="#central-limit-theorem" id="toc-central-limit-theorem" class="nav-link" data-scroll-target="#central-limit-theorem"><span class="header-section-number">6.7</span> central limit theorem</a>
+  <ul class="collapse">
+  <li><a href="#heres-the-definition-of-the-central-limit-theorem." id="toc-heres-the-definition-of-the-central-limit-theorem." class="nav-link" data-scroll-target="#heres-the-definition-of-the-central-limit-theorem."><span class="header-section-number">6.7.1</span> Here’s the definition of the central limit theorem.</a></li>
+  <li><a href="#why-care-about-the-central-limit-theorem" id="toc-why-care-about-the-central-limit-theorem" class="nav-link" data-scroll-target="#why-care-about-the-central-limit-theorem"><span class="header-section-number">6.7.2</span> Why care about the central limit theorem?</a></li>
+  <li><a href="#normal-distribution-example-problem" id="toc-normal-distribution-example-problem" class="nav-link" data-scroll-target="#normal-distribution-example-problem"><span class="header-section-number">6.7.3</span> normal distribution example problem</a></li>
+  </ul></li>
+  <li><a href="#apply-the-z-score-to-the-table." id="toc-apply-the-z-score-to-the-table." class="nav-link" data-scroll-target="#apply-the-z-score-to-the-table."><span class="header-section-number">6.8</span> Apply the <span class="math inline">\(z\)</span>-score to the table.</a>
+  <ul class="collapse">
+  <li><a href="#some-z-score-tables-differ-from-ours." id="toc-some-z-score-tables-differ-from-ours." class="nav-link" data-scroll-target="#some-z-score-tables-differ-from-ours."><span class="header-section-number">6.8.1</span> Some <span class="math inline">\(z\)</span>-score tables differ from ours.</a></li>
+  <li><a href="#typical-exam-questions-for-z-scores" id="toc-typical-exam-questions-for-z-scores" class="nav-link" data-scroll-target="#typical-exam-questions-for-z-scores"><span class="header-section-number">6.8.2</span> typical exam questions for <span class="math inline">\(z\)</span>-scores</a></li>
+  <li><a href="#how-do-you-find-areas-in-z-score-tables" id="toc-how-do-you-find-areas-in-z-score-tables" class="nav-link" data-scroll-target="#how-do-you-find-areas-in-z-score-tables"><span class="header-section-number">6.8.3</span> How do you find areas in <span class="math inline">\(z\)</span>-score tables?</a></li>
+  </ul></li>
+  <li><a href="#estimate-a-population-parameter" id="toc-estimate-a-population-parameter" class="nav-link" data-scroll-target="#estimate-a-population-parameter"><span class="header-section-number">6.9</span> estimate a population parameter</a>
+  <ul class="collapse">
+  <li><a href="#use-a-large-sample-confidence-interval." id="toc-use-a-large-sample-confidence-interval." class="nav-link" data-scroll-target="#use-a-large-sample-confidence-interval."><span class="header-section-number">6.9.1</span> Use a large-sample confidence interval.</a></li>
+  </ul></li>
+  <li><a href="#elements-of-a-hypothesis-test" id="toc-elements-of-a-hypothesis-test" class="nav-link" data-scroll-target="#elements-of-a-hypothesis-test"><span class="header-section-number">6.10</span> elements of a hypothesis test</a>
+  <ul class="collapse">
+  <li><a href="#work-out-a-standard-deviation-example." id="toc-work-out-a-standard-deviation-example." class="nav-link" data-scroll-target="#work-out-a-standard-deviation-example."><span class="header-section-number">6.10.1</span> Work out a standard deviation example.</a></li>
+  </ul></li>
+  <li><a href="#make-an-inference-about-a-population-parameter." id="toc-make-an-inference-about-a-population-parameter." class="nav-link" data-scroll-target="#make-an-inference-about-a-population-parameter."><span class="header-section-number">6.11</span> Make an inference about a population parameter.</a>
+  <ul class="collapse">
+  <li><a href="#first-distinguish-between-small-and-large." id="toc-first-distinguish-between-small-and-large." class="nav-link" data-scroll-target="#first-distinguish-between-small-and-large."><span class="header-section-number">6.11.1</span> First distinguish between small and large.</a></li>
+  <li><a href="#sampling-leads-to-a-new-statistic." id="toc-sampling-leads-to-a-new-statistic." class="nav-link" data-scroll-target="#sampling-leads-to-a-new-statistic."><span class="header-section-number">6.11.2</span> Sampling leads to a new statistic.</a></li>
+  </ul></li>
+  <li><a href="#estimate-a-population-mean" id="toc-estimate-a-population-mean" class="nav-link" data-scroll-target="#estimate-a-population-mean"><span class="header-section-number">6.12</span> estimate a population mean</a>
+  <ul class="collapse">
+  <li><a href="#find-a-confidence-interval." id="toc-find-a-confidence-interval." class="nav-link" data-scroll-target="#find-a-confidence-interval."><span class="header-section-number">6.12.1</span> Find a confidence interval.</a></li>
+  <li><a href="#for-a-small-sample-use-t." id="toc-for-a-small-sample-use-t." class="nav-link" data-scroll-target="#for-a-small-sample-use-t."><span class="header-section-number">6.12.2</span> For a small sample, use <span class="math inline">\(t\)</span>.</a></li>
+  <li><a href="#find-a-probability-to-estimate-a-mean." id="toc-find-a-probability-to-estimate-a-mean." class="nav-link" data-scroll-target="#find-a-probability-to-estimate-a-mean."><span class="header-section-number">6.12.3</span> Find a probability to estimate a mean.</a></li>
+  <li><a href="#alpha-selection-is-driven-by-criticality." id="toc-alpha-selection-is-driven-by-criticality." class="nav-link" data-scroll-target="#alpha-selection-is-driven-by-criticality."><span class="header-section-number">6.12.4</span> <span class="math inline">\(\alpha\)</span> selection is driven by criticality.</a></li>
+  <li><a href="#practice-estimating-a-population-mean" id="toc-practice-estimating-a-population-mean" class="nav-link" data-scroll-target="#practice-estimating-a-population-mean"><span class="header-section-number">6.12.5</span> practice estimating a population mean</a></li>
+  </ul></li>
+  <li><a href="#test-a-hypothesis-about-a-population-mean" id="toc-test-a-hypothesis-about-a-population-mean" class="nav-link" data-scroll-target="#test-a-hypothesis-about-a-population-mean"><span class="header-section-number">6.13</span> test a hypothesis about a population mean</a>
+  <ul class="collapse">
+  <li><a href="#choose-a-null-and-alternative-hypothesis." id="toc-choose-a-null-and-alternative-hypothesis." class="nav-link" data-scroll-target="#choose-a-null-and-alternative-hypothesis."><span class="header-section-number">6.13.1</span> Choose a null and alternative hypothesis.</a></li>
+  <li><a href="#type-i-error-is-worse-than-type-ii-error." id="toc-type-i-error-is-worse-than-type-ii-error." class="nav-link" data-scroll-target="#type-i-error-is-worse-than-type-ii-error."><span class="header-section-number">6.13.2</span> Type I error is worse than Type II error.</a></li>
+  <li><a href="#identify-rejection-region-marker" id="toc-identify-rejection-region-marker" class="nav-link" data-scroll-target="#identify-rejection-region-marker"><span class="header-section-number">6.13.3</span> identify rejection region marker</a></li>
+  </ul></li>
+  <li><a href="#test-a-hypothesis-about-a-sample-mean" id="toc-test-a-hypothesis-about-a-sample-mean" class="nav-link" data-scroll-target="#test-a-hypothesis-about-a-sample-mean"><span class="header-section-number">6.14</span> test a hypothesis about a sample mean</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ggplot2; Inference</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="recap-week-05" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="recap-week-05"><span class="header-section-number">6.1</span> Recap Week 05</h2>
+<ul>
+<li>Normal distribution</li>
+<li>Geometric distribution</li>
+<li>Binomial distribution</li>
+<li>Negative binomial distribution</li>
+<li>Poisson distribution</li>
+</ul>
+</section>
+<section id="ggplot2" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="ggplot2"><span class="header-section-number">6.2</span> ggplot2</h2>
+<p>We’ll follow the <code>ggplot2</code> cheatsheet, available at <a href="https://posit.co/wp-content/uploads/2022/10/data-visualization-1.pdf">https://posit.co/wp-content/uploads/2022/10/data-visualization-1.pdf</a>.</p>
+<p>By the way, there are many more cheatsheets for different aspects of R and RStudio available at <a href="https://posit.co/resources/cheatsheets/">https://posit.co/resources/cheatsheets/</a>.</p>
+</section>
+<section id="base-layer" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="base-layer"><span class="header-section-number">6.3</span> Base layer</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The above code doesn’t produce a plot by itself. We would have to add a layer, such as a geom or stat. (Every geom has a default stat and every stat has a default geom.) For example,</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>adds a scatterplot, whereas</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color=</span>displ,<span class="at">size=</span>displ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>adds the aesthetics from the second example on the cheatsheet.</p>
+<section id="graphical-primitives" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="graphical-primitives"><span class="header-section-number">6.3.1</span> Graphical primitives</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics,<span class="fu">aes</span>(date,unemploy))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(seals,<span class="fu">aes</span>(<span class="at">x=</span>long,<span class="at">y=</span>lat))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>a <span class="sc">+</span> <span class="fu">geom_blank</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">+</span> <span class="fu">expand_limits</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in max(lengths(data)): no non-missing arguments to max; returning -Inf</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>b <span class="sc">+</span> <span class="fu">geom_curve</span>(<span class="fu">aes</span>(<span class="at">yend =</span> lat <span class="sc">+</span> <span class="dv">1</span>, <span class="at">xend =</span> long <span class="sc">+</span> <span class="dv">1</span>), <span class="at">curvature =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">+</span> <span class="fu">geom_path</span>(<span class="at">lineend =</span> <span class="st">"butt"</span>, <span class="at">linejoin =</span> <span class="st">"round"</span>, <span class="at">linemitre =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-5-4.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">+</span> <span class="fu">geom_polygon</span>(<span class="fu">aes</span>(<span class="at">alpha =</span> <span class="dv">50</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-5-5.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>b <span class="sc">+</span> <span class="fu">geom_rect</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> long, <span class="at">ymin =</span> lat, <span class="at">xmax =</span> long <span class="sc">+</span> <span class="dv">1</span>, <span class="at">ymax =</span> lat <span class="sc">+</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-5-6.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">+</span> <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> unemploy <span class="sc">-</span> <span class="dv">900</span>, <span class="at">ymax =</span> unemploy <span class="sc">+</span> <span class="dv">900</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-5-7.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<section id="line-segments" class="level4" data-number="6.3.1.1">
+<h4 data-number="6.3.1.1" class="anchored" data-anchor-id="line-segments"><span class="header-section-number">6.3.1.1</span> Line segments</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>b <span class="sc">+</span> <span class="fu">geom_abline</span>(<span class="fu">aes</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>b <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> lat))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>b <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> long))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-6-3.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="one-variablecontinuous" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="one-variablecontinuous"><span class="header-section-number">6.3.2</span> One variable—continuous</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(hwy)); c2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>c <span class="sc">+</span> <span class="fu">geom_area</span>(<span class="at">stat =</span> <span class="st">"bin"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>c <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="at">kernel =</span> <span class="st">"gaussian"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>c <span class="sc">+</span> <span class="fu">geom_dotplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-7-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>c <span class="sc">+</span> <span class="fu">geom_freqpoly</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-7-4.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>c <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-7-5.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>c2 <span class="sc">+</span> <span class="fu">geom_qq</span>(<span class="fu">aes</span>(<span class="at">sample =</span> hwy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-7-6.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="one-variablediscrete" class="level3" data-number="6.3.3">
+<h3 data-number="6.3.3" class="anchored" data-anchor-id="one-variablediscrete"><span class="header-section-number">6.3.3</span> One variable—discrete</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(fl))</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>d <span class="sc">+</span> <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="two-variablesboth-continuous" class="level3" data-number="6.3.4">
+<h3 data-number="6.3.4" class="anchored" data-anchor-id="two-variablesboth-continuous"><span class="header-section-number">6.3.4</span> Two variables—both continuous</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>e <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg,<span class="fu">aes</span>(cty,hwy))</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>e <span class="sc">+</span> <span class="fu">geom_label</span>(<span class="fu">aes</span>(<span class="at">label =</span> cty), <span class="at">nudge_x =</span> <span class="dv">1</span>, <span class="at">nudge_y =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>e <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>e <span class="sc">+</span> <span class="fu">geom_quantile</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-9-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>e <span class="sc">+</span> <span class="fu">geom_rug</span>(<span class="at">sides =</span> <span class="st">"bl"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-9-4.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>e <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-9-5.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>e <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> cty), <span class="at">nudge_x =</span> <span class="dv">1</span>, <span class="at">nudge_y =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-9-6.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="two-variablesone-discrete-one-continuous" class="level3" data-number="6.3.5">
+<h3 data-number="6.3.5" class="anchored" data-anchor-id="two-variablesone-discrete-one-continuous"><span class="header-section-number">6.3.5</span> Two variables—one discrete, one continuous</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg,<span class="fu">aes</span>(class,hwy))</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>f <span class="sc">+</span> <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>f <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>f <span class="sc">+</span> <span class="fu">geom_dotplot</span>(<span class="at">binaxis =</span> <span class="st">"y"</span>, <span class="at">stackdir =</span> <span class="st">"center"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-10-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>f <span class="sc">+</span> <span class="fu">geom_violin</span>(<span class="at">scale =</span> <span class="st">"area"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-10-4.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="two-variablesboth-discrete" class="level3" data-number="6.3.6">
+<h3 data-number="6.3.6" class="anchored" data-anchor-id="two-variablesboth-discrete"><span class="header-section-number">6.3.6</span> Two variables—both discrete</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(cut, color))</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> <span class="fu">geom_count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">height =</span> <span class="dv">2</span>, <span class="at">width =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-11-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="continuous-bivariate-distribution" class="level3" data-number="6.3.7">
+<h3 data-number="6.3.7" class="anchored" data-anchor-id="continuous-bivariate-distribution"><span class="header-section-number">6.3.7</span> Continuous bivariate distribution</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(carat, price))</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>h <span class="sc">+</span> <span class="fu">geom_bin2d</span>(<span class="at">binwidth =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="dv">500</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>h <span class="sc">+</span> <span class="fu">geom_density_2d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-12-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>h <span class="sc">+</span> <span class="fu">geom_hex</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Computation failed in `stat_binhex()`
+Caused by error in `compute_group()`:
+! The package "hexbin" is required for `stat_binhex()`</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-12-3.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="continuous-function" class="level3" data-number="6.3.8">
+<h3 data-number="6.3.8" class="anchored" data-anchor-id="continuous-function"><span class="header-section-number">6.3.8</span> Continuous function</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, unemploy))</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>i <span class="sc">+</span> <span class="fu">geom_area</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>i <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-13-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>i <span class="sc">+</span> <span class="fu">geom_step</span>(<span class="at">direction =</span> <span class="st">"hv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-13-3.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="visualizing-error" class="level3" data-number="6.3.9">
+<h3 data-number="6.3.9" class="anchored" data-anchor-id="visualizing-error"><span class="header-section-number">6.3.9</span> Visualizing error</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">grp =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>), <span class="at">fit =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">se =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>j <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(grp, fit, <span class="at">ymin =</span> fit <span class="sc">-</span> se, <span class="at">ymax =</span> fit <span class="sc">+</span> se))</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>j <span class="sc">+</span> <span class="fu">geom_crossbar</span>(<span class="at">fatten =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>j <span class="sc">+</span> <span class="fu">geom_errorbar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-14-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>j <span class="sc">+</span> <span class="fu">geom_linerange</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-14-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>j <span class="sc">+</span> <span class="fu">geom_pointrange</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-14-4.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="maps" class="level3" data-number="6.3.10">
+<h3 data-number="6.3.10" class="anchored" data-anchor-id="maps"><span class="header-section-number">6.3.10</span> Maps</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">murder =</span> USArrests<span class="sc">$</span>Murder,</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="at">state =</span> <span class="fu">tolower</span>(<span class="fu">rownames</span>(USArrests)))</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>map <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="st">"state"</span>)</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">fill =</span> murder))</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>k <span class="sc">+</span> <span class="fu">geom_map</span>(<span class="fu">aes</span>(<span class="at">map_id =</span> state), <span class="at">map =</span> map) <span class="sc">+</span> <span class="fu">expand_limits</span>(<span class="at">x =</span> map<span class="sc">$</span>long, <span class="at">y =</span> map<span class="sc">$</span>lat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>There is more, but you can go through that on your own and, if you wish, add it to this file.</p>
+</section>
+</section>
+<section id="additional-plots" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="additional-plots"><span class="header-section-number">6.4</span> Additional plots</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'vehicles.csv'</span>)</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>cylinders <span class="ot">&lt;-</span> <span class="fu">as_factor</span>(df<span class="sc">$</span>cylinders)</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[df<span class="sc">$</span>price<span class="sc">&lt;</span><span class="dv">500000</span><span class="sc">&amp;</span>df<span class="sc">$</span>price<span class="sc">&gt;</span><span class="dv">500</span>,]</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span>df[df<span class="sc">$</span>cylinders<span class="sc">==</span><span class="st">"10 cylinders"</span><span class="sc">|</span>df<span class="sc">$</span>cylinders<span class="sc">==</span><span class="st">"12 cylinders"</span>,]</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>price<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(df<span class="sc">$</span>price)</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen=</span><span class="dv">999</span>)</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(price,cylinders))<span class="sc">+</span><span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 156391 rows containing non-finite values (`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>dfa <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">count</span>(condition,cylinders)</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(treemap)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>palette.HCL.options <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">hue_start=</span><span class="dv">270</span>, <span class="at">hue_end=</span><span class="dv">360</span><span class="sc">+</span><span class="dv">150</span>)</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">treemap</span>(dfa,</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">index=</span><span class="fu">c</span>(<span class="st">"condition"</span>,<span class="st">"cylinders"</span>),</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">vSize=</span><span class="st">"n"</span>,</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">type=</span><span class="st">"index"</span>,</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">palette=</span><span class="st">"Reds"</span></span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The palette in this case is selected from RColorbrewer. You can find the full set of RColorbrewer palettes at the R Graph Gallery.</p>
+</section>
+<section id="foundations-for-inference" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="foundations-for-inference"><span class="header-section-number">6.5</span> Foundations for Inference</h2>
+<p>The following material comes from Mick McQuaid’s study guide for a previous course. In that course, we used <span class="citation" data-cites="Mendenhall2012">Mendenhall and Sincich (<a href="references.html#ref-Mendenhall2012" role="doc-biblioref">2012</a>)</span> as a textbook, so there are innumerable references to that textbook in the following material. You don’t actually need that textbook and I will eventually delete references to it from this file. I just don’t have time right now.</p>
+</section>
+<section id="normal-distribution" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="normal-distribution"><span class="header-section-number">6.6</span> normal distribution</h2>
+<p>This picture illustrates the normal distribution. The mound-shaped curve represents the probability density function and the area between the curve and the horizontal line represents the value of the cumulative distribution function.</p>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Consider a normally distributed nationwide test.</p>
+<p>The total shaded area between the curve and the straight horizontal line can be thought of as one hundred percent of that area. In the world of probability, we measure that area as 1. The curve is symmetrical, so measure all the area to the left of the highest point on the curve as 0.5. That is half, or fifty percent, of the total area between the curve and the horizontal line at the bottom. Instead of saying <em>area between the curve and the horizontal line at the bottom</em>, people usually say <em>the area under the curve</em>.</p>
+<p>For any value along the <span class="math inline">\(x\)</span>-axis, the <span class="math inline">\(y\)</span>-value on the curve represents the value of the probability density function.</p>
+<p>The area bounded by the vertical line between the <span class="math inline">\(x\)</span>-axis and the corresponding <span class="math inline">\(y\)</span>-value on the curve, though, is what we are usually interested in because that area represents probability.</p>
+<p>Here is a graph of the <em>size</em> of that area. It’s called the cumulative distribution function.</p>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+<p>The above graph can be read as having an input and output that correspond to the previous graph of the probability density function. As we move from right to left on the <span class="math inline">\(x\)</span>-axis, the area that would be to the left of a given point on the probability density function is the <span class="math inline">\(y\)</span>-value on this graph. For example, if we go half way across the <span class="math inline">\(x\)</span>-axis of the probability density function, the area to its left is one half of the total area, so the <span class="math inline">\(y\)</span>-value on the cumulative distribution function graph is one half.</p>
+<p>The shape of the cumulative distribution function is called a sigmoid curve. You can see how it gets this shape by looking again at the probability density function graph above. As you move from left to right on that graph, the area under the curve increases very slowly, then more rapidly, then slowly again. The places where the area grows more rapidly and then more slowly on the probability density function curve correspond to the s-shaped bends on the cumulative distribution curve.</p>
+<p>At the left side of the cumulative distribution curve, the <span class="math inline">\(y\)</span>-value is zero meaning zero probability. When we reach the right side of the cumulative distribution curve, the <span class="math inline">\(y\)</span>-value is 1 or 100 percent of the probability.</p>
+<p>Let’s get back to the example of a nationwide test. If we say that students nationwide took an test that had a mean score of 75 and that the score was normally distributed, we’re saying that the value on the <span class="math inline">\(x\)</span>-axis in the center of the curve is 75. Moreover, we’re saying that the area to the left of 75 is one half of the total area. We’re saying that the probability of a score less than 75 is 0.5 or fifty percent. We’re saying that half the students got a score below 75 and half got a score above 75.</p>
+<p>That is called the frequentist interpretation of probability. In general, that interpretation says that a probability of 0.5 is properly measured by saying that, if we could repeat the event enough times, we would find the event happening half of those times.</p>
+<p>Furthermore, the frequentist interpretation of the normal distribution is that, if we could collect enough data, such as administering the above test to thousands of students, we would see that the graph of the frequency of their scores would look more and more like the bell curve in the picture, where <span class="math inline">\(x\)</span> is a test score and <span class="math inline">\(y\)</span> is the number of students receiving that score.</p>
+<p>Suppose we have the same test and the same distribution but that the mean score is 60. Then 60 is in the middle and half the students are on each side. That is easy to measure. But what if, in either case, we would like to know the probability associated with scores that are not at that convenient midpoint?</p>
+<p>It’s hard to measure any other area under the normal curve except for <span class="math inline">\(x\)</span>-values in the middle of the curve, corresponding to one half of the area. Why is this?</p>
+<p>To see why it’s hard to measure the area corresponding to any value except the middle value, let’s first consider a different probability distribution, the uniform distribution. Suppose I have a machine that can generate any number between 0 and 1 at random. Further, suppose that any such number is just as likely as any other such number.</p>
+<p>Here’s a graph of the the uniform distribution of numbers generated by the machine. The horizontal line is the probability density function and the shaded area is the cumulative distribution function from 0 to 1/2. In other words, the probability of the machine generating numbers from 0 to 1/2 is 1/2. The probability of generating numbers from 0 to 1 is 1, the area of the entire rectangle.</p>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>It’s very easy to calculate any probability for this distribution, in contrast to the normal distribution. The reason it is easy is that you can just use the formula for the area of a rectangle, where area is base times side. The probability of being in the entire rectangle is <span class="math inline">\(1\times1=1\)</span>, and the probability of being in the part from <span class="math inline">\(x=0\)</span> to <span class="math inline">\(x=1/4\)</span> is just <span class="math inline">\(1\times(1/4)=1/4\)</span>.</p>
+<p>The cumulative distribution function of the uniform distribution is simpler than that of the normal distribution because area is being added at the same rate as we move from left to right on the above graph. Therefore it is just a straight diagonal line from (0,1) on the left to (1,1) on the right.</p>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+<p>Reading it is the same as reading the cumulative distribution function for the normal distribution. For any value on the <span class="math inline">\(x\)</span>-axis, say, 1/2, go up to the diagonal line and over to the value on the <span class="math inline">\(y\)</span>-axis. In this case, that value is 1/2. That is the area under the horizontal line in the probability density function graph from 0 to 1/2 (the shaded area). For a rectangle, calculating area is trivial.</p>
+<p>Calculating the area of a curved region, like the normal distribution, though, can be more difficult. If you’ve studied any calculus, you know that there are techniques for calculating the area under a curve. These techniques are called integration techniques. In the case of the normal distribution the formula for the height of the curve at any point on the <span class="math inline">\(x\)</span>-axis is <span class="math display">\[\begin{equation*}
+\frac{1}{\sigma\sqrt{2\pi}}e^{-(x-\mu)^2/2\sigma^2}
+\end{equation*}\]</span> and the area is the integral of that quantity from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(x\)</span>, which can be rewritten as <span class="math display">\[\begin{equation*}
+\frac{1}{\sqrt{2\pi}}\int^x_{-\infty}e^{-t^2/2}dt
+=(1/2)\left(1+\text{erf}\left(\frac{x-\mu}{\sigma\sqrt{2}}\right)\right)
+\end{equation*}\]</span> The integral on the left is difficult to evaluate so people use numerical approximation techniques to find the expression on the right in the above equation. Those techniques are so time-consuming that, rather than recompute them every time they are needed, a very few people used to write the results into a table and publish it and most people working with probability would just consult the tables. Only in the past few decades have calculators become available that can do the tedious approximations. Hence, most statistics books, written by people who were educated decades ago, still teach you how to use such tables. There is some debate as to whether there is educational value in using the tables vs using calculators or smartphone apps or web-based tables or apps. We’ll demonstrate them and assume that you use a calculator or smartphone app on exams.</p>
+<section id="using-the-normal-distribution" class="level3" data-number="6.6.1">
+<h3 data-number="6.6.1" class="anchored" data-anchor-id="using-the-normal-distribution"><span class="header-section-number">6.6.1</span> Using the normal distribution</h3>
+<p>Since there is no convenient integration formula, people used tables until recently. Currently you can google tables or apps that do the work of tables. We’re going to do two exercises with tables that help give you an idea of what’s going on. You can use your calculator afterward. The main reason for what follows is so you understand the results produced by your calculator to avoid ridiculous mistakes.</p>
+</section>
+<section id="calculating-z-scores" class="level3" data-number="6.6.2">
+<h3 data-number="6.6.2" class="anchored" data-anchor-id="calculating-z-scores"><span class="header-section-number">6.6.2</span> calculating z scores</h3>
+<p><span class="math display">\[z=\frac{y-\mu}{\sigma}\]</span></p>
+<p>Calculations use the fact that the <em>bell curve</em> is symmetric and adds up to 1, so you can calculate one side and add it, subtract it, or double it</p>
+<p>Following are four examples.</p>
+<ol type="a">
+<li><p><span class="math inline">\(P(-1 \leqslant z \leqslant 1)\)</span>: Since the bell curve is symmetric, find the area from <span class="math inline">\(z=0\)</span> to <span class="math inline">\(z=1\)</span> and double that area. The table entry for <span class="math inline">\(z=1\)</span> gives the relevant area under the curve, .3413. Doubling this gives the area from -1 to 1: .6826. Using a calculator may give you .6827 since a more accurate value than that provided by the table would be .6826895. This is an example where no points would be deducted from your score for using either answer.</p></li>
+<li><p><span class="math inline">\(P(-1.96 \leqslant z \leqslant 1.96)\)</span>: This is one of the three most common areas of interest in this course, the other two being the one in part (c) below and the one I will add on after I show part (d) below. Here again, we can read the value from the table as .4750 and double it, giving .95. This is really common because because 95% is the most commonly used confidence interval.</p></li>
+<li><p><span class="math inline">\(P(-1.645 \leqslant z \leqslant 1.645)\)</span>: The table does not have an entry for this extremely commonly desired value. A statistical calculator or software package will show that the result is .45, which can be doubled to give .90, another of the three most frequently used confidence intervals. If you use interpolation, you will get the correct answer in this case. Interpolation means to take the average of the two closest values, in this case <span class="math inline">\((.4495+ .4505) / 2\)</span>. You will rarely, if ever need to use interpolation in real life because software has made the tables obsolete and we only use them to try to drive home the concept of <span class="math inline">\(z\)</span>-scores relating to area under the curve, rather than risking the possibility that you learn to punch numbers into an app without understanding them. Our hope is that, by first learning this method, you will be quick to recognize the results of mistakes, rather than naively reporting wacky results like <em>the probability is 1.5</em> just because you typed a wrong number.</p></li>
+<li><p><span class="math inline">\(P(-3 \leqslant z \leqslant 3)\)</span>: The table gives .4987 and doubling that gives .9974. A calculator would give the more correct (but equally acceptable in this course) result of .9973.</p></li>
+</ol>
+<p>The other common confidence interval I mentioned above is the 99% confidence interval, used in cases where the calculation relates to something life-threatening, such as a question involving a potentially life-saving drug or surgery. A table or calculator will show that the <span class="math inline">\(z\)</span>-score that would lead to this result is 2.576. So if you were asked to compute <span class="math inline">\(P(-2.576 \leqslant z \leqslant 2.576)\)</span>, the correct answer would be .99 or 99%. To use a calculator or statistical app to find the <span class="math inline">\(z\)</span>-score given the desired probability, you would look in an app for something called a quantile function.</p>
+</section>
+<section id="sketch-the-graphs-of-probabilities" class="level3" data-number="6.6.3">
+<h3 data-number="6.6.3" class="anchored" data-anchor-id="sketch-the-graphs-of-probabilities"><span class="header-section-number">6.6.3</span> sketch the graphs of probabilities</h3>
+<p>Sketch the normal curve six times, identifying a different region on it each time. For these graphs, let <span class="math inline">\(y\sim N(100,8)\)</span>.</p>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="central-limit-theorem" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="central-limit-theorem"><span class="header-section-number">6.7</span> central limit theorem</h2>
+<section id="heres-the-definition-of-the-central-limit-theorem." class="level3" data-number="6.7.1">
+<h3 data-number="6.7.1" class="anchored" data-anchor-id="heres-the-definition-of-the-central-limit-theorem."><span class="header-section-number">6.7.1</span> Here’s the definition of the central limit theorem.</h3>
+<p>For large sample sizes, the sample mean <span class="math inline">\(\overline{y}\)</span> from a population with mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span> has a sampling distribution that is approximately normal, regardless of the probability distribution of the sampled population.</p>
+</section>
+<section id="why-care-about-the-central-limit-theorem" class="level3" data-number="6.7.2">
+<h3 data-number="6.7.2" class="anchored" data-anchor-id="why-care-about-the-central-limit-theorem"><span class="header-section-number">6.7.2</span> Why care about the central limit theorem?</h3>
+<p>In business, distributions of phenomena like waiting times and customer choices from a catalog are typically not normally distributed, but instead long-tailed. The central limit theorem means that resampling the mean of any of these distributions can be done on a large scale using the normal distribution assumptions without regard to the underlying distribution. This simplifies many real-life calculations. For instance, waiting times at each bus stop are exponentially distributed but if we take the mean waiting time at each of 100 bus stops, the mean of those 100 times is normally distributed, even though the individual waiting times are drawn from an exponential distribution.</p>
+<!---
+% The following function takes two parameters, mean and
+% standard deviation, so it's called, for instance, by
+% saying
+%    gauss(6.5,1)
+% to specify a gaussian distribution with mean 6.5 and
+% standard deviation 1.
+%
+--->
+<!---
+% PGFPlots notes:
+%
+% The parameter
+%    no markers
+% when applied to an entire axis disables all markers.
+%
+% The parameters
+%    domain=0:10, samples=100
+% cause the gauss function to be sampled 100 times in
+% that interval - doesn't control the display.
+%
+% The parameter
+%    axis lines*=left
+% includes a * that causes no arrow heads on axis,
+% according to the pgfplots manual, p. 218.
+%
+% The directive
+%    \closedcycle
+% at the end of the filled plot is necessary for any
+% filled area and completes a path from the last point
+% back to the first point in the path.
+%
+--->
+</section>
+<section id="normal-distribution-example-problem" class="level3" data-number="6.7.3">
+<h3 data-number="6.7.3" class="anchored" data-anchor-id="normal-distribution-example-problem"><span class="header-section-number">6.7.3</span> normal distribution example problem</h3>
+<p>Consider an example for calculating a <span class="math inline">\(z\)</span>-score where <span class="math inline">\(x\sim N(50,15)\)</span>, which is a statistical notation for saying <span class="math inline">\(x\)</span> is a random normal variable with mean 50 and standard deviation 15. It is also read as if you said that <span class="math inline">\(x\)</span> has the normal distribution with mean 50 and standard deviation 15.</p>
+<section id="picture-the-example." class="level4" data-number="6.7.3.1">
+<h4 data-number="6.7.3.1" class="anchored" data-anchor-id="picture-the-example."><span class="header-section-number">6.7.3.1</span> Picture the example.</h4>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+</section>
+<section id="heres-what-we-input-into-the-z-calculation." class="level4" data-number="6.7.3.2">
+<h4 data-number="6.7.3.2" class="anchored" data-anchor-id="heres-what-we-input-into-the-z-calculation."><span class="header-section-number">6.7.3.2</span> Here’s what we input into the <span class="math inline">\(z\)</span> calculation.</h4>
+<p>In order to identify the size of the shaded area, we can use the table of <span class="math inline">\(z\)</span>-scores by standardizing the parameters we believe to apply, as if they were the population parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>. We only do this if we have such a large sample that we have reason to believe that the sample values approach the population parameters. For the much, much more typical case where we have a limited amount of data, we’ll learn a more advanced technique that you will use much more frequently in practice.</p>
+</section>
+<section id="we-input-a-z-to-get-an-output-probability." class="level4" data-number="6.7.3.3">
+<h4 data-number="6.7.3.3" class="anchored" data-anchor-id="we-input-a-z-to-get-an-output-probability."><span class="header-section-number">6.7.3.3</span> We input a <span class="math inline">\(z\)</span> to get an output probability.</h4>
+<p>The table in our textbook contains an input in the left and top margins and an output in the body. The input is a <span class="math inline">\(z\)</span>-score, the result of the calculation <span class="math display">\[z=\frac{y-\mu}{\sigma}\]</span> where <span class="math inline">\(z\geq 0\)</span>. The output is a number in the body of the table, expressing the probability for the area between the normal curve and the axis, from the mean (0) to <span class="math inline">\(z\)</span>. Note that the values of <span class="math inline">\(z\)</span> start at the mean and grow toward the right end of the graph. If <span class="math inline">\(z\)</span> were <span class="math inline">\(\infty\)</span>, the shaded area would be 0.5, also known as 50 percent.</p>
+</section>
+<section id="this-is-the-z-score-table-concept." class="level4" data-number="6.7.3.4">
+<h4 data-number="6.7.3.4" class="anchored" data-anchor-id="this-is-the-z-score-table-concept."><span class="header-section-number">6.7.3.4</span> This is the <span class="math inline">\(z\)</span>-score table concept.</h4>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+</section>
+<section id="calculate-the-z-score-to-input." class="level4" data-number="6.7.3.5">
+<h4 data-number="6.7.3.5" class="anchored" data-anchor-id="calculate-the-z-score-to-input."><span class="header-section-number">6.7.3.5</span> Calculate the <span class="math inline">\(z\)</span>-score to input.</h4>
+<p>For now, let’s calculate the <span class="math inline">\(z\)</span>-score as <span class="math display">\[z=\frac{y-\mu}{\sigma}=\frac{70-50}{15}=1.33\]</span> giving half of the answer we’re seeking:</p>
+</section>
+</section>
+</section>
+<section id="apply-the-z-score-to-the-table." class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="apply-the-z-score-to-the-table."><span class="header-section-number">6.8</span> Apply the <span class="math inline">\(z\)</span>-score to the table.</h2>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+<section id="obtain-an-intermediate-result." class="level4" data-number="6.8.0.1">
+<h4 data-number="6.8.0.1" class="anchored" data-anchor-id="obtain-an-intermediate-result."><span class="header-section-number">6.8.0.1</span> Obtain an intermediate result.</h4>
+<p>Now use this to read the table. The input is 1.33 and you’ll use the left and top margins to find it. The output is the corresponding entry in the body of the table, .4082, also known as 40.82 percent of the area under the curve.</p>
+</section>
+<section id="finish-the-example." class="level4" data-number="6.8.0.2">
+<h4 data-number="6.8.0.2" class="anchored" data-anchor-id="finish-the-example."><span class="header-section-number">6.8.0.2</span> Finish the example.</h4>
+<p>Recall that our initial problem was to find <span class="math inline">\(P(30&lt;y&lt;70)\)</span> and what we’ve just found, .4082, is <span class="math inline">\(P(50&lt;y&lt;70)\)</span>. We must multiply this result by 2 to obtain the correct answer, .8164 or 81.64 percent. That is to say that the probability that <span class="math inline">\(y\)</span> is somewhere between 30 and 70 is .8164 or 81.64 percent. As a reality check, all probabilities for any single event must sum to 1, and the total area under the curve is 1, so it is a relief to note that the answer we’ve found is less than 1. It’s also comforting to note that the shaded area in the original picture of the example looks like it could plausibly represent about 80 percent of the total area. It is easy to get lost in the mechanics of calculations and come up with a wildly incorrect answer because of a simple arithmetic error.</p>
+</section>
+<section id="some-z-score-tables-differ-from-ours." class="level3" data-number="6.8.1">
+<h3 data-number="6.8.1" class="anchored" data-anchor-id="some-z-score-tables-differ-from-ours."><span class="header-section-number">6.8.1</span> Some <span class="math inline">\(z\)</span>-score tables differ from ours.</h3>
+<p>Bear in mind that anyone can publish a <span class="math inline">\(z\)</span>-score table using their own customs. Students have found such tables that define <span class="math inline">\(z\)</span> as starting at the extreme left of the curve. If we used such a table for the above example, the output would have been .9082 instead of .4082 and we would have had to subtract the left side, .5, from that result before multiplying by 2.</p>
+</section>
+<section id="typical-exam-questions-for-z-scores" class="level3" data-number="6.8.2">
+<h3 data-number="6.8.2" class="anchored" data-anchor-id="typical-exam-questions-for-z-scores"><span class="header-section-number">6.8.2</span> typical exam questions for <span class="math inline">\(z\)</span>-scores</h3>
+<p>Many exam-style problems will ask questions such that you must do more or less arithmetic with the result from the table. Consider these questions, still using the above example where <span class="math inline">\(y\sim N(50,15)\)</span>:</p>
+<ul>
+<li>What is the probability that <span class="math inline">\(y\)</span> is greater than 50?</li>
+<li>What is the probability that <span class="math inline">\(y\)</span> is greater than 70?</li>
+<li>What is the probability that <span class="math inline">\(y\)</span> is less than 30?</li>
+<li>What is the probability that <span class="math inline">\(y\)</span> is between 30 and 50?</li>
+</ul>
+<section id="answer-the-preceding-questions." class="level4" data-number="6.8.2.1">
+<h4 data-number="6.8.2.1" class="anchored" data-anchor-id="answer-the-preceding-questions."><span class="header-section-number">6.8.2.1</span> Answer the preceding questions.</h4>
+<p>Each of these questions can be answered using <span class="math inline">\(z=1.33\)</span> except the first. Since we know that <span class="math inline">\(y\)</span> is normally distributed, we also know that the probability of <span class="math inline">\(y\)</span> being greater than its mean is one half, so the answer to the first question is 0.5 or fifty percent. The second question simply requires us to subtract the result from the table, .4082, from .5 to find the area to the right of 1.33, which is .0918 or 9.18 percent. The third question is symmetrical with the second, so we can just use the method from the second question to find that it is also .0918. Similarly, the fourth question is symmetrical with the first step from the book example, so the answer is the answer to that first step, .4082.</p>
+</section>
+<section id="this-one-takes-an-extra-step." class="level4" data-number="6.8.2.2">
+<h4 data-number="6.8.2.2" class="anchored" data-anchor-id="this-one-takes-an-extra-step."><span class="header-section-number">6.8.2.2</span> This one takes an extra step.</h4>
+<p>What is the probability that <span class="math inline">\(y\)</span> is between 30 and 40?</p>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+</section>
+<section id="find-the-difference-between-areas." class="level4" data-number="6.8.2.3">
+<h4 data-number="6.8.2.3" class="anchored" data-anchor-id="find-the-difference-between-areas."><span class="header-section-number">6.8.2.3</span> Find the difference between areas.</h4>
+<p>Subtract the probability that <span class="math inline">\(y\)</span> is between 50 and 60 from the probability that <span class="math inline">\(y\)</span> is between 50 and 70.</p>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="how-do-you-find-areas-in-z-score-tables" class="level3" data-number="6.8.3">
+<h3 data-number="6.8.3" class="anchored" data-anchor-id="how-do-you-find-areas-in-z-score-tables"><span class="header-section-number">6.8.3</span> How do you find areas in <span class="math inline">\(z\)</span>-score tables?</h3>
+<ul>
+<li>draw picture to help you understand the question</li>
+<li>standardize the picture so you can use a table or a</li>
+<li>draw the standardized picture</li>
+<li>pick one of three kinds of tables / apps</li>
+<li>write the standardized result (may do this multiple times)</li>
+<li>fit the standardized result(s) into the original problem</li>
+</ul>
+<p>Let’s look at these steps with an example. Suppose that <span class="math inline">\(y\sim N(50,8)\)</span>. In words, this means that <span class="math inline">\(y\)</span> has the normal distribution with true mean 50 and true standard deviation 8. Let’s answer the question <em>What’s the probability that <span class="math inline">\(y&gt;40\)</span>?</em></p>
+<p>Step 1 is to draw a picture to make sense of the question. The picture shows the area under the curve where the scale marking is to the right of 40. This picture tells you right away that the number that will answer the question is less than 1 (the entire curve would be shaded if it were 1) and more than 1/2 (the portion to the right of 50 would be 1/2 and we have certainly shaded more than that).</p>
+<p>Step 2 is to standardize the question so we can use a table or app to find the probability / area. We use the equation <span class="math inline">\(z=(y-\mu)/\sigma\)</span> with values from the original question: <span class="math inline">\((50-40)/8=-10/8=-1.25\)</span>. Now we know the labels that would go on a standardized picture similar to the picture above. Now we can ask the standardized question <em>What’s the probability that <span class="math inline">\(z&gt;-1.25\)</span>?</em></p>
+<p>Step 3 is to draw that standardized picture. It’s the same as the picture above except standardized so that it fits the tables / apps for calculating probability / area. Now, instead of <span class="math inline">\(y\)</span> we’re looking for <span class="math inline">\(z\)</span> and the probability associated with <span class="math inline">\(z\)</span> on a standardized table will be the same as for <span class="math inline">\(y\)</span> on a table for the parameters given in the original question.</p>
+<p>Step 4 is to pick one of the three kinds of tables / apps to input the standardized <span class="math inline">\(z\)</span> score to get a probability as output. In this example, we only have to do this step once because we only want to know the area greater than <span class="math inline">\(y\)</span>. If we wanted to know a range between two <span class="math inline">\(y\)</span> values, we’d need the <span class="math inline">\(z\)</span> scores for each of them so we’d have to do it twice.</p>
+<p>The three kinds of output from tables / apps are as follows.</p>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+<p>The first figure shows how the table works in some books. It provides the value from 0 to <span class="math inline">\(|z|\)</span>. If <span class="math inline">\(z\)</span> is negative, using this table requires you to input <span class="math inline">\(|z|\)</span> instead. In this question, the value you get will be .3944. To get the ultimate answer to this question, Step 5 will be to add this value to .5, giving a final answer of .8944.</p>
+<p>The second figure shows how most tables and apps work. It gives the value from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(z\)</span>. In this question, the value you get will be .1056. To get the ultimate answer to this question, Step 5 will be to subtract this value from 1, giving a final answer of .8944.</p>
+<p>The bottom figure shows how some tables and apps work. It gives the value from z to <span class="math inline">\(+\infty\)</span>. In this question, the value you get will be .8944. To get the ultimate answer to this question, Step 5 will be to simply report this value, giving a final answer of .8944.</p>
+<p>Notice that all three types of tables / apps lead to the same result by different paths. In this case, the right figure is the most convenient but, for other questions, one of the others may be more convenient.</p>
+<p>Step 5, the final step is to use the value you got from a table or app in conjunction with the original picture you drew in Step 1. Since the procedure for step 5 depends on the table / app you use, I gave the procedure for Step 5 above in the paragraphs for top, middle, and bottom figure.</p>
+</section>
+</section>
+<section id="estimate-a-population-parameter" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="estimate-a-population-parameter"><span class="header-section-number">6.9</span> estimate a population parameter</h2>
+<section id="use-a-large-sample-confidence-interval." class="level3" data-number="6.9.1">
+<h3 data-number="6.9.1" class="anchored" data-anchor-id="use-a-large-sample-confidence-interval."><span class="header-section-number">6.9.1</span> Use a large-sample confidence interval.</h3>
+<p>A large-sample <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for a population mean, <span class="math inline">\(\mu\)</span>, is given by</p>
+<p><span class="math display">\[\mu \pm z_{\alpha/2} \sigma_y \approx \overline{y}\pm z_{\alpha/2} \frac{s}{\sqrt{n}}\]</span></p>
+</section>
+</section>
+<section id="elements-of-a-hypothesis-test" class="level2" data-number="6.10">
+<h2 data-number="6.10" class="anchored" data-anchor-id="elements-of-a-hypothesis-test"><span class="header-section-number">6.10</span> elements of a hypothesis test</h2>
+<ul>
+<li>Null hypothesis</li>
+<li>Alternative hypothesis</li>
+<li>Test statistic</li>
+<li>Level of significance</li>
+<li>Rejection region marker</li>
+<li><span class="math inline">\(p\)</span>-value</li>
+<li>Conclusion</li>
+</ul>
+<section id="work-out-a-standard-deviation-example." class="level3" data-number="6.10.1">
+<h3 data-number="6.10.1" class="anchored" data-anchor-id="work-out-a-standard-deviation-example."><span class="header-section-number">6.10.1</span> Work out a standard deviation example.</h3>
+<p>Example exam question: ten samples of gas mileage have been calculated for a new model of car by driving ten examples of the car each for a week. The average of the ten samples is 17. The sum of the squares of the sample is 3281. What is their standard deviation?</p>
+<section id="recognize-appropriate-formulas." class="level4" data-number="6.10.1.1">
+<h4 data-number="6.10.1.1" class="anchored" data-anchor-id="recognize-appropriate-formulas."><span class="header-section-number">6.10.1.1</span> Recognize appropriate formulas.</h4>
+<p>The information in the problem statement hints that you should use <span class="math display">\[s=\sqrt{\frac{\sum_{i=1}^n y_i^2 -
+n(\overline{y})^2}{n-1}}\]</span> so you write <span class="math display">\[s=\sqrt{\frac{3281 - 10(17)^2}{10-1}}=\sqrt{\frac{3281-2890}{9}}=\sqrt{43.4444}=6.5912\]</span></p>
+</section>
+<section id="why-was-the-subtraction-result-positive" class="level4" data-number="6.10.1.2">
+<h4 data-number="6.10.1.2" class="anchored" data-anchor-id="why-was-the-subtraction-result-positive"><span class="header-section-number">6.10.1.2</span> Why was the subtraction result positive?</h4>
+<p>The sample of ten gas mileage estimates is 17, 18, 16, 20, 14, 17, 21, 13, 22, 12, 17. The sum of their squares is inevitably larger than or equal to the mean squared times the number of values. The easiest way to see this is to use a series of identical values. Hence, finding the sum of the squares is the same as calculating the mean squared times the number of values. There is no variance at all in such a sample, so it makes sense to arrive at a standard deviation of zero. Is there any way to alter such a sample so that the sum of the squared values falls below the mean? No.</p>
+</section>
+<section id="what-should-you-do-when-you-dont-understand" class="level4" data-number="6.10.1.3">
+<h4 data-number="6.10.1.3" class="anchored" data-anchor-id="what-should-you-do-when-you-dont-understand"><span class="header-section-number">6.10.1.3</span> What should you do when you don’t understand?</h4>
+<p>The previous example was developed as an answer to the question, <em>what do I do if I need to do a negative square root?</em> You can figure out that you will never need to do so by the preceding process of finding a way to make <span class="math inline">\(\sum y_i^2 = n(\overline{y}^2)\)</span> and then trying to alter the values to decrease the left side or increase the right side.</p>
+</section>
+</section>
+</section>
+<section id="make-an-inference-about-a-population-parameter." class="level2" data-number="6.11">
+<h2 data-number="6.11" class="anchored" data-anchor-id="make-an-inference-about-a-population-parameter."><span class="header-section-number">6.11</span> Make an inference about a population parameter.</h2>
+<p>At the beginning of the course, I said that statistics describes data and makes inferences about data. This course is partly about the latter, making inferences. You can make two kinds of inferences about a population parameter: estimate it or test a hypothesis about it.</p>
+<section id="first-distinguish-between-small-and-large." class="level3" data-number="6.11.1">
+<h3 data-number="6.11.1" class="anchored" data-anchor-id="first-distinguish-between-small-and-large."><span class="header-section-number">6.11.1</span> First distinguish between small and large.</h3>
+<p>You may have a small sample or a large sample. The difference in the textbook is typically given as a cutoff of 30. Less is small, more is large. Other cutoffs are given, but this is the most prevalent.</p>
+<p>Large samples with a normal distribution can be used to estimate a population mean using a <span class="math inline">\(z\)</span>-score. Small samples can be used to estimate a population mean using a <span class="math inline">\(t\)</span>-statistic.</p>
+</section>
+<section id="sampling-leads-to-a-new-statistic." class="level3" data-number="6.11.2">
+<h3 data-number="6.11.2" class="anchored" data-anchor-id="sampling-leads-to-a-new-statistic."><span class="header-section-number">6.11.2</span> Sampling leads to a new statistic.</h3>
+<p>If we take more and more samples from a given population, the variability of the samples will decrease. This relationship gives rise to the standard error of an estimate <span class="math display">\[\sigma_{\overline{y}}=\frac{\sigma}{\sqrt{n}}\]</span></p>
+<p>The standard error of the estimate is not exactly the standard deviation. It is the standard deviation divided by a function of the sample size and it shrinks as the sample size grows.</p>
+</section>
+</section>
+<section id="estimate-a-population-mean" class="level2" data-number="6.12">
+<h2 data-number="6.12" class="anchored" data-anchor-id="estimate-a-population-mean"><span class="header-section-number">6.12</span> estimate a population mean</h2>
+<section id="find-a-confidence-interval." class="level3" data-number="6.12.1">
+<h3 data-number="6.12.1" class="anchored" data-anchor-id="find-a-confidence-interval."><span class="header-section-number">6.12.1</span> Find a confidence interval.</h3>
+<p>If the sample is larger than or equal to 30, use the formula for finding a large-sample confidence interval to estimate the mean.</p>
+<p>A large-sample <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for a population mean, <span class="math inline">\(\mu\)</span>, is given by</p>
+<p><span class="math display">\[\mu \pm z_{\alpha/2} \sigma_{\overline{y}} \approx \overline{y}\pm z_{\alpha/2} \frac{s}{\sqrt{n}}\]</span></p>
+</section>
+<section id="for-a-small-sample-use-t." class="level3" data-number="6.12.2">
+<h3 data-number="6.12.2" class="anchored" data-anchor-id="for-a-small-sample-use-t."><span class="header-section-number">6.12.2</span> For a small sample, use <span class="math inline">\(t\)</span>.</h3>
+<p>If the sample is smaller than 30, calculate a <span class="math inline">\(t\)</span>-statistic and use the formula for finding a small-sample confidence interval to estimate the mean.</p>
+<p>The <span class="math inline">\(t\)</span>-statistic you calculate from the small sample is <span class="math display">\[
+t=\frac{\overline{y}-\mu_0}{s/\sqrt{n}}
+\]</span></p>
+<p>Does your calculated <span class="math inline">\(t\)</span> fit within a <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval? Find out by calculating that interval. A small-sample <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for a population mean, <span class="math inline">\(\mu\)</span>, is given by</p>
+<p><span class="math display">\[\mu \pm t_{\alpha/2} s_{\overline{y}} \approx
+\overline{y}\pm t_{\alpha/2,\nu} \frac{s}{\sqrt{n}}\]</span> Here, you are using a <span class="math inline">\(t\)</span> statistic based on a chosen <span class="math inline">\(\alpha\)</span> to compare to your calculated <span class="math inline">\(t\)</span>-statistic. The Greek letter <span class="math inline">\(\nu\)</span>, pronounced nyoo, represents the number of degrees of freedom.</p>
+</section>
+<section id="find-a-probability-to-estimate-a-mean." class="level3" data-number="6.12.3">
+<h3 data-number="6.12.3" class="anchored" data-anchor-id="find-a-probability-to-estimate-a-mean."><span class="header-section-number">6.12.3</span> Find a probability to estimate a mean.</h3>
+<p>Estimating a mean involves finding a region where the mean is likely to be. The first question to ask is <em>how likely?</em> and to do so, we use a concept called alpha, denoted by the Greek letter <span class="math inline">\(\alpha\)</span>. Traditionally, people have used three values of <span class="math inline">\(\alpha\)</span> for the past century, .10, .05, and .01. These correspond to regions of <span class="math inline">\(1-\alpha\)</span> under the normal distribution curve, so these regions are 90 percent of the area, 95 percent of the area, and 99 percent of the area. What we are saying, for instance, if <span class="math inline">\(\alpha=0.01\)</span> is that we are 99 percent confident that the true population mean lies within the region we’ve calculated, <span class="math inline">\(\overline{y}\pm 2.576\sigma_{\overline{y}}\)</span></p>
+</section>
+<section id="alpha-selection-is-driven-by-criticality." class="level3" data-number="6.12.4">
+<h3 data-number="6.12.4" class="anchored" data-anchor-id="alpha-selection-is-driven-by-criticality."><span class="header-section-number">6.12.4</span> <span class="math inline">\(\alpha\)</span> selection is driven by criticality.</h3>
+<p>Traditionally, <span class="math inline">\(\alpha=0.01\)</span> is used in cases where life could be threatened by failure.</p>
+<p>Traditionally, <span class="math inline">\(\alpha=0.05\)</span> is used in cases where money is riding on the outcome.</p>
+<p>Traditionally, <span class="math inline">\(\alpha=0.10\)</span> is used in cases where the consequences of failing to capture the true mean are not severe.</p>
+<p><img src="fiSignifLevels.jpg" class="img-fluid"></p>
+<p>The above picture shows these three cases. The top version, <em>life-or-death</em>, has the smallest rejection region. Suppose the test is whether a radical cancer treatment gives longer life than a traditional cancer treatment. Let’s say that the traditional treatment gives an average of 15 months longer life. The null hypothesis is that the new treatment also gives 15 months longer life. The alternative hypothesis is that the radical treatment gives 22 months more life on average based on on only five patients who received the new treatment. A patient can only do one treatment or the other. The status quo would be to take the traditional treatment unless there is strong evidence that the radical treatment provides an average longer life. In the following picture, the shaded area is where the test statistic would have to fall for us to say that there is strong evidence that the radical treatment provides longer life. We want to make that shaded region as small as possible so we minimize the chance our test statistic lands in it by mistake.</p>
+<p>We can afford to let that shaded area be bigger (increasing the chance of mistakenly landing in it) if only money, not life, is riding on the outcome. And we can afford to let it be bigger still if the consequences of the mistake are small. To choose an <span class="math inline">\(\alpha\)</span> level, ask yourself how severe are the consequences of a Type I error.</p>
+</section>
+<section id="practice-estimating-a-population-mean" class="level3" data-number="6.12.5">
+<h3 data-number="6.12.5" class="anchored" data-anchor-id="practice-estimating-a-population-mean"><span class="header-section-number">6.12.5</span> practice estimating a population mean</h3>
+<p>Consider an outlet store that purchased used display panels to refurbish and resell. The relevant statistics for failure time of the sample are <span class="math inline">\(n=50, \overline{y}=1.9350, s=0.92865\)</span>.</p>
+<p>But these are the only necessary numbers to solve the problem. The standard error, .1313 can be calculated from <span class="math inline">\(s/\sqrt{n} = 0.92865/\sqrt{50}=.1313.\)</span></p>
+<p>First, find the 95% confidence interval, which can be calculated from the above information. Since the sample is greater than or equal to 30, we use the large sample formula: <span class="math display">\[\begin{align*}
+\overline{y}\pm z_{\alpha/2} \sigma_{\overline{y}} \approx \overline{y}\pm z_{\alpha/2} \frac{s}{\sqrt{n}}
+&amp;= 1.9350 \pm 1.96 (.1313) \\
+&amp;= 1.9350 \pm 0.2573 \\
+&amp;= (1.6777,2.1932)
+\end{align*}\]</span> The correct answer to a question asking for the confidence interval is simply that pair of numbers, 1.6777 and 2.1932.</p>
+<p>Now interpret that. This result says that we are 95% confident that the true average time to failure for these panels is somewhere between 1.6777 years and 2.1932 years. It is tempting to rephrase the result. Be careful that you don’t say something with a different meaning. Suppose the store wants to offer a warranty on these panels. Knowing that we are 95% confident that the true mean is in the given range helps the store evaluate the risk of different warranty lengths. The correct answer is to say that we are 95% confident that the true mean time to failure for these panels is somewhere between 1.6777 years and 2.1932 years.</p>
+<p>The meaning of the 95 percent confidence interval is that, if we repeatedly resample the population, computing a 95% confidence interval for each sample, we expect 95% of the confidence intervals generated to capture the true mean.</p>
+<p>Any statistics software can also offer a graphical interpretation, such as a stem-and-leaf plot or histogram. The stem-and-leaf plot uses the metaphor of a stem bearing some number of leaves. In the following stem-and-leaf plot, the stem represents the first digit of a two-digit number. The top row of the plot has the stem 0 and two leaves, 0 and 2. Each leaf represents a data point as the second digit of a two-digit number. If you count the leaves (the digits to the right of the vertical bar), you will see that there are fifty of them, one for each recorded failure time. You can think of each stem as holding all the leaves in a certain range. The top stem holds all the leaves in the range .00 to .04 and there are two of them. The next stem holds the six leaves in the range .05 to .09. The third stem holds all six leaves in the range .10 to .15. The stem-and-leaf plot resembles a sideways bar chart and helps us see that the distribution of the failure times is somewhat mound-shaped. The main advantages of the stem-and-leaf plot are that it is compact for the amount of information it conveys and that it does not require a graphics program or even a computer to quickly construct it from the raw data. The programming website <a href="http://rosettacode.org">http://rosettacode.org</a> uses the stem-and-leaf plot as a programming task, demonstrating how to create one in 37 different programming languages.</p>
+<pre><code>0 | 02
+0 | 567788
+1 | 122222
+1 | 55666667888999
+2 | 0223344
+2 | 666788
+3 | 00233
+3 | 5555</code></pre>
+<p>Most statistics programs offer many different histogram types. The simplest is equivalent to a barchart as follows.</p>
+<p><img src="fiFailureTime.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="test-a-hypothesis-about-a-population-mean" class="level2" data-number="6.13">
+<h2 data-number="6.13" class="anchored" data-anchor-id="test-a-hypothesis-about-a-population-mean"><span class="header-section-number">6.13</span> test a hypothesis about a population mean</h2>
+<section id="choose-a-null-and-alternative-hypothesis." class="level3" data-number="6.13.1">
+<h3 data-number="6.13.1" class="anchored" data-anchor-id="choose-a-null-and-alternative-hypothesis."><span class="header-section-number">6.13.1</span> Choose a null and alternative hypothesis.</h3>
+<p>Testing a hypothesis must be done modestly. As an example of what I mean by modestly, consider criminal trials in the USA. The suspect on trial is considered innocent until proven guilty. The more modest hypothesis (the null hypothesis) is that the person is innocent. The more immodest hypothesis (the alternative hypothesis) carries the burden of proof.</p>
+</section>
+<section id="type-i-error-is-worse-than-type-ii-error." class="level3" data-number="6.13.2">
+<h3 data-number="6.13.2" class="anchored" data-anchor-id="type-i-error-is-worse-than-type-ii-error."><span class="header-section-number">6.13.2</span> Type I error is worse than Type II error.</h3>
+<p>The traditional view of the legal system in the USA is that if you imprison an innocent person, it constitutes a more serious error than letting a guilty person go free.</p>
+<p>Imprisoning an innocent person is like a Type I error: we rejected the null hypothesis when it was true. Letting a guilty person go free is like a Type II error: we failed to reject the null hypothesis when it was false.</p>
+</section>
+<section id="identify-rejection-region-marker" class="level3" data-number="6.13.3">
+<h3 data-number="6.13.3" class="anchored" data-anchor-id="identify-rejection-region-marker"><span class="header-section-number">6.13.3</span> identify rejection region marker</h3>
+<p>How do you identify rejection region markers? A rejection region marker is the value a test statistic that leads to rejection of the null hypothesis. It marks the edge of a region under the curve corresponding to the level of significance, <span class="math inline">\(\alpha\)</span>. The marker is not a measure of the size of the region. The rejection region marker can vary from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(+\infty\)</span> while the size of the region is somewhere between zero and one.</p>
+<p>The following table shows the relevant values of <span class="math inline">\(\alpha\)</span> and related quantities.</p>
+<table class="table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 12%">
+<col style="width: 15%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(1-\alpha\)</span></th>
+<th><span class="math inline">\(\alpha\)</span></th>
+<th><span class="math inline">\(\alpha/2\)</span></th>
+<th><span class="math inline">\(z_{\alpha/2}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>.90</td>
+<td>.10</td>
+<td>.05</td>
+<td>1.645</td>
+</tr>
+<tr class="even">
+<td>.95</td>
+<td>.05</td>
+<td>.025</td>
+<td>1.96</td>
+</tr>
+<tr class="odd">
+<td>.99</td>
+<td>.01</td>
+<td>.005</td>
+<td>2.576</td>
+</tr>
+</tbody>
+</table>
+<p>The above table refers to two-tailed tests. Only examples (e) and (f) below refer to two-tailed tests. In the other four cases, the <span class="math inline">\(z\)</span>-scores refer to <span class="math inline">\(z_{\alpha}\)</span> rather than <span class="math inline">\(z_{\alpha/2}\)</span>.</p>
+<p>(a) <span class="math inline">\(\alpha=0.025\)</span>, a one-tailed rejection region</p>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>(b) <span class="math inline">\(\alpha=0.05\)</span>, a one-tailed rejection region</p>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>(c) <span class="math inline">\(\alpha=0.005\)</span>, a one-tailed rejection region</p>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>(d) <span class="math inline">\(\alpha=0.0985\)</span>, a one-tailed rejection region</p>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>(e) <span class="math inline">\(\alpha=0.10\)</span>, a two-tailed rejection region</p>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>(f) <span class="math inline">\(\alpha=0.01\)</span>, a two-tailed rejection region</p>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="test-a-hypothesis-about-a-sample-mean" class="level2" data-number="6.14">
+<h2 data-number="6.14" class="anchored" data-anchor-id="test-a-hypothesis-about-a-sample-mean"><span class="header-section-number">6.14</span> test a hypothesis about a sample mean</h2>
+<p>The test statistic is <span class="math inline">\(t_c\)</span>, where the <span class="math inline">\(c\)</span> subscript stands for <em>calculated</em>. Most people just call it <span class="math inline">\(t\)</span>. In my mind, that leads to occasional confusion about whether it is a value calculated from a sample. We’ll compare the test statistic to <span class="math inline">\(t_{\alpha,\nu}\)</span>, the value of the statistic at a given level of significance, identified using a table or calculator.</p>
+<p>The test leads to two situations. The first, pictured below, is the situation where we fail to reject the null hypothesis and conclude that we have not seen evidence in the sample that the point estimate differs from what the modest hypothesis claims it is. Often, this is an estimate of a mean, where the population mean, <span class="math inline">\(\mu_0\)</span>, is being estimated by a sample mean, <span class="math inline">\(\bar{y}\)</span>. The following picture doesn’t show <span class="math inline">\(\bar{y}\)</span>, just the tail. <span class="math inline">\(\bar{y}\)</span> would be at the top of the hump, not shown here.</p>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The above possibility shows the situation where <span class="math inline">\(t_{\alpha,\nu}&gt;t_c\)</span>, which is equivalent to saying that <span class="math inline">\(p&gt;\alpha\)</span>.</p>
+<p>The <span class="math inline">\(x\)</span>-axis scale begins to the left of the fragment shown here, and values of <span class="math inline">\(t\)</span> increase from left to right. At the same time, the shaded regions decrease in size from left to right. Note that the entire shaded region above is <span class="math inline">\(p\)</span>, while only the darker region at the right is <span class="math inline">\(\alpha\)</span>.</p>
+<p>The situation pictured below is the reverse. In this situation, we reject the null hypothesis and conclude instead that the point estimate does not equal the value in the modest hypothesis. In this case <span class="math inline">\(t_{\alpha,\nu}&lt;t_c\)</span>, which is equivalent to saying that <span class="math inline">\(p&lt;\alpha\)</span>.</p>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week06_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Let’s make this more concrete with an example.</p>
+<p>Suppose that a bulk vending machine dispenses bags expected to contain 15 candies on average. The attendant who refills the machine claims it’s out of whack, dispensing more than 15 candies on average, requiring more frequent replenishment and costing the company some extra money. The company representative asks him for a sample from the machine, so he produces five bags containing 25, 23, 21, 21, and 20 candies. Develop a hypothesis test to consider the possibility that the vending machine is defective. Use a level of significance that makes sense given the situation described above.</p>
+<p>There are seven steps to solving this problem, as follows.</p>
+<p>Step 1. Choose a null hypothesis.</p>
+<p>At a high level, we can say that we are trying to choose between two alternatives:</p>
+<ul>
+<li>that the machine is defective, or</li>
+<li>that the machine is operating normally.</li>
+</ul>
+<p>We need to reduce this high level view to numbers. The problem states that the machine <em>is expected to</em> dispense 15 candies per bag, on average. This is equivalent to saying that the true mean is 15 or <span class="math inline">\(\mu=15\)</span>.</p>
+<p>If the machine is defective in the way the attendant claims, then <span class="math inline">\(\mu&gt;15\)</span>. So we could say that one of the hypotheses would be that the sample came from a population with <span class="math inline">\(\mu=15\)</span> and the other hypothesis would be that the sample did not come from a population with <span class="math inline">\(\mu=15\)</span>. Which should be the null hypothesis?</p>
+<p>The null hypothesis represents the status quo, what we would believe if we had no evidence either for or against. Do you believe that the machine is defective if there is no evidence either that it is or isn’t? Let’s put it another way. Suppose you arrested a person for a crime and then realized that you have no evidence that they did commit the crime and no evidence that they did not commit the crime. Would you imprison them or let them go free? If you let them go free, it means that your null hypothesis is that they are innocent unless proven guilty.</p>
+<p>This suggests that if you have no evidence one way or the other, assume the machine is operating normally. We can translate this into the null hypothesis <span class="math inline">\(\mu=15\)</span>. The formal way of writing the null hypothesis is to say <span class="math inline">\(H_0: \mu=\mu_0\)</span>, where <span class="math inline">\(\mu_0=15\)</span>. Later, when refer to this population mean, we call it <span class="math inline">\(\mu_0\)</span> because it is the population mean associated with the hypothesis <span class="math inline">\(H_0\)</span>. So later we will say <span class="math inline">\(\mu_0=15\)</span>.</p>
+<p>At the end of step 1, we have chosen the null hypothesis: <span class="math inline">\(H_0: \mu=\mu_0\)</span> with <span class="math inline">\(\mu_0=15\)</span>.</p>
+<p>Step 2. Choose the alternative hypothesis. The appropriate alternative hypothesis can be selected from among three choices: <span class="math inline">\(\mu&lt;\mu_0\)</span>, <span class="math inline">\(\mu&gt;\mu_0\)</span>, or <span class="math inline">\(\mu \ne \mu_0\)</span>. The appropriate choice here seems obvious: all the sample values are much larger than <span class="math inline">\(\mu_0\)</span>, so if the mean we calculate differs from <span class="math inline">\(\mu_0\)</span> it will have to be larger than <span class="math inline">\(\mu_0\)</span>. If all the values in our sample are larger than <span class="math inline">\(\mu_0\)</span>, there is just no way their average can be smaller than <span class="math inline">\(\mu_0\)</span>.</p>
+<p>At the end of step 2, we have determined the alternative hypothesis to be</p>
+<p><span class="math inline">\(H_a: \mu&gt;\mu_0\)</span> with <span class="math inline">\(\mu_0=15\)</span>.</p>
+<p>Step 3. Choose the test statistic. Previously, we have learned two test statistics, <span class="math inline">\(z\)</span> and <span class="math inline">\(t\)</span>. We have learned that the choice between them is predicated on sample size. If <span class="math inline">\(n\geqslant30\)</span>, use <span class="math inline">\(z\)</span>, otherwise use <span class="math inline">\(t\)</span>. Here <span class="math inline">\(n=5\)</span> so use <span class="math inline">\(t\)</span>. We can calculate the <span class="math inline">\(t\)</span>-statistic, which I called <span class="math inline">\(t_c\)</span> for <em>calculated</em> above, for the sample using the formula <span class="math display">\[
+t=\frac{\overline{y}-\mu_0}{s/\sqrt{n}}
+\]</span></p>
+<p>We can calculate the values to use from the following formulas or by using a machine.</p>
+<p><span class="math display">\[\overline{y}=\sum{y_i}/n=22\]</span></p>
+<p><span class="math display">\[s=\sqrt{\frac{\sum y_i^2 -
+n(\overline{y})^2}{n-1}}=2\]</span></p>
+<p><span class="math inline">\(\mu_0\)</span> was given to us in the problem statement and <span class="math inline">\(\sqrt{n}\)</span> can be determined with the use of a calculator or spreadsheet program. The calculated <span class="math inline">\(t\)</span>-statistic is <span class="math inline">\(t_c=(22-15)/(2/\sqrt{5})=7.8262\)</span>.</p>
+<p>At the end of step 3, you have determined and calculated the test statistic, <span class="math inline">\(t_c=7.8262\)</span>.</p>
+<p>Step 4. Determine the level of significance, <span class="math inline">\(\alpha\)</span>. You choose the appropriate value of <span class="math inline">\(\alpha\)</span> from the circumstances given in the problem statement. Previously in class, I claimed that there are three common levels of significance in use as sumarized in the table on page 35: 0.01, 0.05, and 0.10. I gave rules of thumb for these three as 0.01 <em>life-or-death</em>, 0.05 <em>money is riding on it</em>, and 0.10 <em>casual / low budget</em>. In this case, the consequences seem to be a small amount of money lost by the company if they are basically giving away candies for free. I suggest that this is a case where some <em>money is riding on it</em> so choose <span class="math inline">\(\alpha=0.05\)</span>.</p>
+<p>At the end of step 4, you have determined <span class="math inline">\(\alpha=0.05\)</span>.</p>
+<p>Step 5. Identify the rejection region marker. This is simply a matter of calculating (or reading from a table) an appropriate <span class="math inline">\(t\)</span>-statistic for the <span class="math inline">\(\alpha\)</span> you chose in the previous step. This is <span class="math inline">\(t_{\alpha,\nu}=t_{0.05,4}=2.131847\)</span>. Note that <span class="math inline">\(\nu\)</span> is the symbol the book uses for df, or degrees of freedom. It is a Greek letter pronounced nyoo. For a single sample <span class="math inline">\(t\)</span>-statistic, df<span class="math inline">\(=\nu=n-1\)</span>.</p>
+<p>This can be found using R by saying</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.95</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.131847</code></pre>
+</div>
+</div>
+<p>At the end of step 5, you have calculated the location of the rejection region (but not its size). It is located everywhere between the <span class="math inline">\(t\)</span> curve and the horizontal line to the right of the point <span class="math inline">\(t=2.131847\)</span>.</p>
+<p>Step 6. Calculate the <span class="math inline">\(p\)</span>-value. This is the size of the region whose location was specified in the previous step, written as <span class="math inline">\(p=P(t_{\alpha,\nu}&gt;t_c)\)</span>. It is the probability of observing a <span class="math inline">\(t\)</span>-statistic greater than the calculated <span class="math inline">\(t\)</span>-statistic if the null hypothesis is true. It is found by a calculator or app or software. It can only be calculated by hand if you know quite a bit more math than is required for this course. In this case <span class="math inline">\(p=P(t_{\alpha,\nu}&gt;t_c)=0.0007195\)</span>.</p>
+<p>We can identify both <span class="math inline">\(t_\alpha\)</span> and <span class="math inline">\(t_c\)</span> using R as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. t sub alpha</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.95</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.131847</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. find the alpha region associated with t sub alpha</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pt</span>(<span class="fl">2.131847</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.04999999</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>,<span class="dv">23</span>,<span class="dv">21</span>,<span class="dv">21</span>,<span class="dv">20</span>)</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(x,<span class="at">alternative=</span><span class="st">"greater"</span>,<span class="at">mu=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One Sample t-test
+
+data:  x
+t = 7.8262, df = 4, p-value = 0.0007195
+alternative hypothesis: true mean is greater than 15
+95 percent confidence interval:
+ 20.09322      Inf
+sample estimates:
+mean of x 
+       22 </code></pre>
+</div>
+</div>
+<p>Also note that the <span class="math inline">\(t\)</span> test tells us that the true mean is far from 15. If we tested repeatedly, we would find that it is greater than 20.09322 in 95 percent of the tests.</p>
+<p>At the end of step 6, we have calculated the <span class="math inline">\(p\)</span>-value, <span class="math inline">\(p=P(t_{\alpha,\nu} &gt; t_c)=0.0007195\)</span>.</p>
+<p>Step 7. Form a conclusion from the hypothesis test. We reject the null hypothesis that <span class="math inline">\(\mu=\mu_0\)</span>, or in other words, we reject the hypothesis that these five bags came from a vending machine that dispenses an average of 15 candies per bag. Notice we don’t that the machine is defective. Maybe the data were miscounted. We don’t know. We have to limit our conclusion to what we know about the data presented to us, which is that the data presented to us did not come from a machine that dispense an average of 15 candies per bag.</p>
+<p>To summarize the answer, the seven elements of this statistical test of hypothesis are:</p>
+<ol type="1">
+<li><strong>null hypothesis</strong> <span class="math inline">\(H_0: \mu=15\)</span></li>
+<li><strong>alternative hypothesis</strong> <span class="math inline">\(H_{a}: \mu&gt;15\)</span></li>
+<li><strong>test statistic</strong> <span class="math inline">\(t_c=7.8262\)</span></li>
+<li><strong>level of significance</strong> <span class="math inline">\(\alpha=0.05\)</span></li>
+<li><strong>rejection region marker</strong> <span class="math inline">\(t_{0.05,4} = 2.131847\)</span></li>
+<li><strong><span class="math inline">\(p\)</span>-value</strong> <span class="math inline">\(P(t_{\alpha,\nu}&gt;t_c)=0.0007195\)</span></li>
+<li><strong>conclusion</strong> Reject the null hypothesis that these five bags came from a machine that dispenses an average of 15 candies per bag.</li>
+</ol>
+<p>Let’s return to the two pictures we started with. Notice that <span class="math inline">\(p&lt;\alpha\)</span> in this case, which is equivalent to saying that <span class="math inline">\(t_c&gt;t_{\alpha,\nu}\)</span>, so we are looking at the second of the two pictures.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Mendenhall2012" class="csl-entry" role="listitem">
+Mendenhall, William, and Terry Sincich. 2012. <em>A Second Course in Statistics, Regression Analysis, Seventh Edition</em>. Boston, MA, USA: Prentice Hall.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./week05.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Distributions of random variables</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./week07.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">More inference</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

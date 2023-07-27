@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Study Guide: Statistics for Informatics - 4&nbsp; Probability</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./week05.html" rel="next">
+<link href="./week03.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week04.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Probability</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Study Guide: Statistics for Informatics</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Summaries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">More R and Quarto</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week04.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Probability</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Distributions of random variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ggplot2; Inference</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">More inference</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Inference for numerical data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Linear regression</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">More linear regression; logistic regression</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Coping with time and joins</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Milestone 4; Individual work</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Experiments</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#recap-week-03" id="toc-recap-week-03" class="nav-link active" data-scroll-target="#recap-week-03"><span class="header-section-number">4.1</span> Recap Week 03</a></li>
+  <li><a href="#bayesian-approach" id="toc-bayesian-approach" class="nav-link" data-scroll-target="#bayesian-approach"><span class="header-section-number">4.2</span> Bayesian approach</a></li>
+  <li><a href="#frequentist-approach" id="toc-frequentist-approach" class="nav-link" data-scroll-target="#frequentist-approach"><span class="header-section-number">4.3</span> Frequentist approach</a></li>
+  <li><a href="#the-law-of-large-numbers" id="toc-the-law-of-large-numbers" class="nav-link" data-scroll-target="#the-law-of-large-numbers"><span class="header-section-number">4.4</span> The law of large numbers</a></li>
+  <li><a href="#disjoint-outcomes" id="toc-disjoint-outcomes" class="nav-link" data-scroll-target="#disjoint-outcomes"><span class="header-section-number">4.5</span> Disjoint outcomes</a></li>
+  <li><a href="#probabilities-when-outcomes-are-not-disjoint" id="toc-probabilities-when-outcomes-are-not-disjoint" class="nav-link" data-scroll-target="#probabilities-when-outcomes-are-not-disjoint"><span class="header-section-number">4.6</span> Probabilities when outcomes are not disjoint</a></li>
+  <li><a href="#general-addition-rule" id="toc-general-addition-rule" class="nav-link" data-scroll-target="#general-addition-rule"><span class="header-section-number">4.7</span> General addition rule</a></li>
+  <li><a href="#probability-distributions" id="toc-probability-distributions" class="nav-link" data-scroll-target="#probability-distributions"><span class="header-section-number">4.8</span> Probability distributions</a></li>
+  <li><a href="#probability-distribution-for-two-fair-dice" id="toc-probability-distribution-for-two-fair-dice" class="nav-link" data-scroll-target="#probability-distribution-for-two-fair-dice"><span class="header-section-number">4.9</span> Probability distribution for two fair dice</a></li>
+  <li><a href="#terms-from-set-theory" id="toc-terms-from-set-theory" class="nav-link" data-scroll-target="#terms-from-set-theory"><span class="header-section-number">4.10</span> Terms from set theory</a></li>
+  <li><a href="#independence" id="toc-independence" class="nav-link" data-scroll-target="#independence"><span class="header-section-number">4.11</span> Independence</a></li>
+  <li><a href="#multiplication-rule-for-independent-processes" id="toc-multiplication-rule-for-independent-processes" class="nav-link" data-scroll-target="#multiplication-rule-for-independent-processes"><span class="header-section-number">4.12</span> Multiplication rule for independent processes</a></li>
+  <li><a href="#conditional-probability" id="toc-conditional-probability" class="nav-link" data-scroll-target="#conditional-probability"><span class="header-section-number">4.13</span> Conditional probability</a></li>
+  <li><a href="#general-multiplication-rule" id="toc-general-multiplication-rule" class="nav-link" data-scroll-target="#general-multiplication-rule"><span class="header-section-number">4.14</span> General multiplication rule</a></li>
+  <li><a href="#tree-diagrams-of-probability" id="toc-tree-diagrams-of-probability" class="nav-link" data-scroll-target="#tree-diagrams-of-probability"><span class="header-section-number">4.15</span> Tree diagrams of probability</a></li>
+  <li><a href="#bayes-theorem" id="toc-bayes-theorem" class="nav-link" data-scroll-target="#bayes-theorem"><span class="header-section-number">4.16</span> Bayes’ Theorem</a></li>
+  <li><a href="#sampling-from-a-small-population" id="toc-sampling-from-a-small-population" class="nav-link" data-scroll-target="#sampling-from-a-small-population"><span class="header-section-number">4.17</span> Sampling from a small population</a></li>
+  <li><a href="#random-variables" id="toc-random-variables" class="nav-link" data-scroll-target="#random-variables"><span class="header-section-number">4.18</span> Random variables</a>
+  <ul class="collapse">
+  <li><a href="#variability-in-random-variables" id="toc-variability-in-random-variables" class="nav-link" data-scroll-target="#variability-in-random-variables"><span class="header-section-number">4.18.1</span> Variability in random variables</a></li>
+  <li><a href="#linear-combinations-of-random-variables" id="toc-linear-combinations-of-random-variables" class="nav-link" data-scroll-target="#linear-combinations-of-random-variables"><span class="header-section-number">4.18.2</span> Linear combinations of random variables</a></li>
+  </ul></li>
+  <li><a href="#continuous-distributions" id="toc-continuous-distributions" class="nav-link" data-scroll-target="#continuous-distributions"><span class="header-section-number">4.19</span> Continuous distributions</a></li>
+  <li><a href="#the-f-distribution" id="toc-the-f-distribution" class="nav-link" data-scroll-target="#the-f-distribution"><span class="header-section-number">4.20</span> The F distribution</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Probability</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="recap-week-03" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="recap-week-03"><span class="header-section-number">4.1</span> Recap Week 03</h2>
+<p>We did some exercises, for which there are now solutions in the file <code>week03exercises.qmd</code> and <code>week03exercises.html</code>. You should examine and compare these two files.</p>
+<p>For each student, we calculated the number of exercises successfully completed. Following is a stem and leaf diagram, as well as summary statistics.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">scan</span>(<span class="st">"week03exercisesList.txt"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stem</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  The decimal point is at the |
+
+   0 | 000
+   2 | 0
+   4 | 0000000
+   6 | 00000000
+   8 | 0000000
+  10 | 0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.00    4.50    6.00    5.63    8.00   10.00 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.691127</code></pre>
+</div>
+</div>
+<p>You can make a number of inferences from this information. First, we should generally expect the average student to be able to complete six exercises during class time. If you completed fewer, you may need extra work outside class. If you completed more, you probably need less time outside of class. We can also see that the mean has been dragged downward by the students who didn’t turn anything in, so the median is a better measure of centrality.</p>
+<p>We can compare the stem and leaf plot to the following histogram and see that the stem and leaf plot looks kind of like a histogram turned on its side, and with a bit more information, especially if we alter the scale, so that it’s not compressed to two exercises per row.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week04_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stem</span>(x,<span class="at">scale=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  The decimal point is at the |
+
+   0 | 000
+   1 | 
+   2 | 0
+   3 | 
+   4 | 000
+   5 | 0000
+   6 | 00000
+   7 | 000
+   8 | 000000
+   9 | 0
+  10 | 0</code></pre>
+</div>
+</div>
+<p>We also talked about milestone 1, for which there are some hints in <code>week03.qmd</code>.</p>
+</section>
+<section id="bayesian-approach" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="bayesian-approach"><span class="header-section-number">4.2</span> Bayesian approach</h2>
+<p>There are two competing schools of thought about what probability is. The bayesian approach is that probability is quantified belief or reasonable expectation of the outcomes of events based on a state of knowledge. This approach is recently taught in graduate schools. We will not extensively study this approach, but I want you to know that it exists and is rising in academic popularity.</p>
+</section>
+<section id="frequentist-approach" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="frequentist-approach"><span class="header-section-number">4.3</span> Frequentist approach</h2>
+<p>Our textbook takes a <em>frequentist</em> approach to probability, one of the two main approaches to probability and the one usually taught in undergraduate courses in the USA. This approach models probability of an <em>outcome</em> as the number of times the outcome would occur if we observed the <em>random process</em> that produced it an infinite number of times. For example, if we flip a fair coin an infinite number of times, it comes up heads half the time, so the probability of heads is 0.5.</p>
+</section>
+<section id="the-law-of-large-numbers" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="the-law-of-large-numbers"><span class="header-section-number">4.4</span> The law of large numbers</h2>
+<p>This law claims that, as more outcomes are observed, the proportion of outcomes converges to the probability of the outcome. For example, if we flip a fair coin a hundred times, the probability of heads coming up half the time is greater than if we only flip it ten times.</p>
+<p>The textbook uses the examples of rolling fair dice and flipping fair coins. Gaston Sanchez gives the example of flipping a fair coin modeled in R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. number of flips</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>num_flips <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#. flips simulation</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>coin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'heads'</span>, <span class="st">'tails'</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>flips <span class="ot">&lt;-</span> <span class="fu">sample</span>(coin, <span class="at">size =</span> num_flips, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#. number of heads and tails</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>freqs <span class="ot">&lt;-</span> <span class="fu">table</span>(flips)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>freqs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>flips
+heads tails 
+  535   465 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>heads_freq <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(flips <span class="sc">==</span> <span class="st">'heads'</span>) <span class="sc">/</span> <span class="dv">1</span><span class="sc">:</span>num_flips</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(heads_freq,      <span class="co"># vector</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">'l'</span>,      <span class="co"># line type</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">lwd =</span> <span class="dv">2</span>,         <span class="co"># width of line</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">'tomato'</span>,  <span class="co"># color of line</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">las =</span> <span class="dv">1</span>,         <span class="co"># orientation of tick-mark labels</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),  <span class="co"># range of y-axis</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"number of tosses"</span>,    <span class="co"># x-axis label</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"relative frequency"</span>)  <span class="co"># y-axis label</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fl">0.5</span>, <span class="at">col =</span> <span class="st">'gray50'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week04_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="disjoint-outcomes" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="disjoint-outcomes"><span class="header-section-number">4.5</span> Disjoint outcomes</h2>
+<p>These are outcomes that can not both happen. For example, in the fair coin flipping case, the outcome cannot be both heads and tails. But the sum of all the disjoint probabilities is always 1.</p>
+</section>
+<section id="probabilities-when-outcomes-are-not-disjoint" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="probabilities-when-outcomes-are-not-disjoint"><span class="header-section-number">4.6</span> Probabilities when outcomes are not disjoint</h2>
+<p>The textbook uses playing cards to illustrate concepts like <em>cards that are neither diamonds nor face cards</em>. You have to familiarize yourself with playing cards to understand these examples. The textbook uses the following Venn diagram to illustrate the above example.</p>
+<p><img src="fiVennDiagramFace+Diamonds.png" class="img-fluid"></p>
+</section>
+<section id="general-addition-rule" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="general-addition-rule"><span class="header-section-number">4.7</span> General addition rule</h2>
+<p>The textbook gives a general rule for multiple outcomes, whether they are disjoint or not.</p>
+<p>If <em>A</em> and <em>B</em> are any two events, disjoint or not, then the probability that at least one of them will occur is</p>
+<p><span class="math display">\[
+P (A\text{ or }B) = P (A) + P (B) − P (A\text{ and }B)
+\]</span></p>
+<p>where <span class="math inline">\(P (A\text{ and }B)\)</span> is the probability that both events occur.</p>
+</section>
+<section id="probability-distributions" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="probability-distributions"><span class="header-section-number">4.8</span> Probability distributions</h2>
+<p>A probability distribution is a list of the possible outcomes with corresponding probabilities that satisfies three rules:</p>
+<ol type="1">
+<li>The outcomes listed must be disjoint.</li>
+<li>Each probability must be between 0 and 1.</li>
+<li>The probabilities must total 1.</li>
+</ol>
+</section>
+<section id="probability-distribution-for-two-fair-dice" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="probability-distribution-for-two-fair-dice"><span class="header-section-number">4.9</span> Probability distribution for two fair dice</h2>
+<p>Francis DiTraglia shows the following example of plotting the probability distribution for rolling two fair dice on his <a href="https://ditraglia.com/Econ103Public/Rtutorials/Rtutorial4.html">website</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>two.dice <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  dice <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">sum</span>(dice))</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>sims <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, <span class="fu">two.dice</span>())</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">table</span>(sims), <span class="at">xlab =</span> <span class="st">'Sum'</span>, <span class="at">ylab =</span> <span class="st">'Frequency'</span>, <span class="at">main =</span> <span class="st">'100 Rolls of 2 Fair Dice'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week04_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Why is 7 the most likely outcome?</p>
+</section>
+<section id="terms-from-set-theory" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="terms-from-set-theory"><span class="header-section-number">4.10</span> Terms from set theory</h2>
+<p>Set theory is a mathematical discipline that uses tools like Venn diagrams to describes sets of objects. We can think of outcomes from random processes as objects, too, with the following terms.</p>
+<ul>
+<li>sample space: the set of all possible outcomes</li>
+<li>event: a particular outcome</li>
+<li>complement of an event: outcomes in the sample space outside a given event or events</li>
+</ul>
+<p>The complement of event <span class="math inline">\(A\)</span> is denoted <span class="math inline">\(A^c\)</span>, and <span class="math inline">\(A^c\)</span> represents all outcomes not in <span class="math inline">\(A\)</span>. <span class="math inline">\(A\)</span> and <span class="math inline">\(A^c\)</span> are mathematically related:</p>
+<p><span class="math display">\[
+P (A) + P (A^c) = 1, \text{ i.e. } P (A) = 1 − P (A^c)
+\]</span></p>
+</section>
+<section id="independence" class="level2" data-number="4.11">
+<h2 data-number="4.11" class="anchored" data-anchor-id="independence"><span class="header-section-number">4.11</span> Independence</h2>
+<p>Just as variables and observations can be independent, random processes can be independent, too. Two processes are <em>independent</em> if knowing the outcome of one provides no useful information about the outcome of the other. For instance, flipping a coin and rolling a die are two independent processes—knowing the coin was heads does not help determine the outcome of a die roll. On the other hand, stock prices usually move up or down together, so they are not independent.</p>
+</section>
+<section id="multiplication-rule-for-independent-processes" class="level2" data-number="4.12">
+<h2 data-number="4.12" class="anchored" data-anchor-id="multiplication-rule-for-independent-processes"><span class="header-section-number">4.12</span> Multiplication rule for independent processes</h2>
+<p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> represent events from two different and independent processes, then the probability that both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> occur can be calculated as the product of their separate probabilities:</p>
+<p><span class="math display">\[
+P (A\text{ and }B) = P (A) × P (B)
+\]</span></p>
+<p>Similarly, if there are <span class="math inline">\(k\)</span> events <span class="math inline">\(A_1, \ldots, A_k\)</span> from <span class="math inline">\(k\)</span> independent processes, then the probability they all occur is</p>
+<p><span class="math display">\[
+P (A_1) × P (A_2) × \cdots × P (A_k)
+\]</span></p>
+</section>
+<section id="conditional-probability" class="level2" data-number="4.13">
+<h2 data-number="4.13" class="anchored" data-anchor-id="conditional-probability"><span class="header-section-number">4.13</span> Conditional probability</h2>
+<p>This is where probability gets interesting. Some things depend on other things! The textbook uses a contingency table of the <code>photos_classify</code> data frame, which you can download from OpenIntro Stats, to explore this concept.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"photo_classify.rda"</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(photo_classify)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Classes 'tbl_df', 'tbl' and 'data.frame':   1822 obs. of  2 variables:
+ $ mach_learn: Factor w/ 2 levels "pred_fashion",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ truth     : Factor w/ 2 levels "fashion","not": 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(<span class="fu">table</span>(photo_classify))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              truth
+mach_learn     fashion  not  Sum
+  pred_fashion     197   22  219
+  pred_not         112 1491 1603
+  Sum              309 1513 1822</code></pre>
+</div>
+</div>
+<p>We can use the entries in the contingency table to make statements about probability.</p>
+<ul>
+<li>probability that a fashion photo is correctly classified by ML: 197/309</li>
+<li>probability that a given photo is about fashion when predicted by ML to be not: 112/1603</li>
+</ul>
+<p>Marginal probability is the probability in the margins of table (right column and bottom row), e.g., ML predicts fashion photo at all: 219/1822.</p>
+<p>Joint probability is the probabillity of two (or more) things being true, e.g., ML predicts fashion and truth is fashion: 197/1822. A joint probability would be any of the four interior cells divided by the lower right cell.</p>
+<p>Conditional probability is the probability of some outcome given the condition of another outcome, such as the probability that ML predicts fashion when the photo is truly about fashion: 197/219.</p>
+<p>Conditional probability is very important. It’s useful to know the general formula for conditional probability. The conditional probability of outcome <span class="math inline">\(A\)</span> given condition <span class="math inline">\(B\)</span> is computed as the following:</p>
+<p><span class="math display">\[
+P (A|B) = \frac{P (A\text{ and }B)}{P (B)}
+\]</span></p>
+</section>
+<section id="general-multiplication-rule" class="level2" data-number="4.14">
+<h2 data-number="4.14" class="anchored" data-anchor-id="general-multiplication-rule"><span class="header-section-number">4.14</span> General multiplication rule</h2>
+<p>We already saw a specific multiplication rule for independent events. But there is a more general rule, applicable whether independence is true or not. If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> represent two outcomes or events, then</p>
+<p><span class="math display">\[
+P (A\text{ and }B) = P (A|B) × P (B)
+\]</span></p>
+<p>It is useful to think of <span class="math inline">\(A\)</span> as the outcome of interest and <span class="math inline">\(B\)</span> as the condition.</p>
+</section>
+<section id="tree-diagrams-of-probability" class="level2" data-number="4.15">
+<h2 data-number="4.15" class="anchored" data-anchor-id="tree-diagrams-of-probability"><span class="header-section-number">4.15</span> Tree diagrams of probability</h2>
+<p>The textbook claims that tree diagrams aid our thinking about conditional probabilities. Luckily, law professor Harry Surden provides an example of a tree diagram of probabilities on his website.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#.. R Conditional Probability Tree Diagram</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#.. The Rgraphviz graphing package must be installed to do this</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"BiocManager"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"Rgraphviz"</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">"Rgraphviz"</span>)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co">#.. Change the three variables below to match your actual values</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co">#.. These are the values that you can change for your own probability tree</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co">#.. From these three values, other probabilities (e.g. prob(b)) will be calculated</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co">#.. Probability of a</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>a<span class="ot">&lt;-</span>.<span class="dv">01</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co">#.. Probability (b | a)</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>bGivena<span class="ot">&lt;-</span>.<span class="dv">99</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="co">#. Probability (b | ¬a)</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>bGivenNota<span class="ot">&lt;-</span>.<span class="dv">10</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a><span class="do">###################### Everything below here will be calculated</span></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a><span class="co">#. Calculate the rest of the values based upon the 3 variables above</span></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>notbGivena<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">-</span>bGivena</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>notA<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">-</span>a</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>notbGivenNota<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">-</span>bGivenNota</span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a><span class="co">#. Joint Probabilities of a and B, a and notb, nota and b, nota and notb</span></span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>aANDb<span class="ot">&lt;-</span>a<span class="sc">*</span>bGivena</span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>aANDnotb<span class="ot">&lt;-</span>a<span class="sc">*</span>notbGivena</span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>notaANDb <span class="ot">&lt;-</span> notA<span class="sc">*</span>bGivenNota</span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>notaANDnotb <span class="ot">&lt;-</span> notA<span class="sc">*</span>notbGivenNota</span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a><span class="co">#. Probability of B</span></span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>b<span class="ot">&lt;-</span> aANDb <span class="sc">+</span> notaANDb</span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>notB <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">-</span>b</span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a><span class="co">#. Bayes theorum - probabiliyt of A | B</span></span>
+<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a><span class="co">#. (a | b) = Prob (a AND b) / prob (b)</span></span>
+<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>aGivenb <span class="ot">&lt;-</span> aANDb <span class="sc">/</span> b</span>
+<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a><span class="co">#. These are the labels of the nodes on the graph</span></span>
+<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a><span class="co">#. To signify "Not A" - we use A' or A prime</span></span>
+<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>node1<span class="ot">&lt;-</span><span class="st">"P"</span></span>
+<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a>node2<span class="ot">&lt;-</span><span class="st">"A"</span></span>
+<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>node3<span class="ot">&lt;-</span><span class="st">"A'"</span></span>
+<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a>node4<span class="ot">&lt;-</span><span class="st">"A&amp;B"</span></span>
+<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>node5<span class="ot">&lt;-</span><span class="st">"A&amp;B'"</span></span>
+<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a>node6<span class="ot">&lt;-</span><span class="st">"A'&amp;B"</span></span>
+<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>node7<span class="ot">&lt;-</span><span class="st">"A'&amp;B'"</span></span>
+<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a>nodeNames<span class="ot">&lt;-</span><span class="fu">c</span>(node1,node2,node3,node4, node5,node6, node7)</span>
+<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a>rEG <span class="ot">&lt;-</span> <span class="fu">new</span>(<span class="st">"graphNEL"</span>, <span class="at">nodes=</span>nodeNames, <span class="at">edgemode=</span><span class="st">"directed"</span>)</span>
+<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a><span class="co">#. Draw the "lines" or "branches" of the probability Tree</span></span>
+<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a>rEG <span class="ot">&lt;-</span> <span class="fu">addEdge</span>(nodeNames[<span class="dv">1</span>], nodeNames[<span class="dv">2</span>], rEG, <span class="dv">1</span>)</span>
+<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a>rEG <span class="ot">&lt;-</span> <span class="fu">addEdge</span>(nodeNames[<span class="dv">1</span>], nodeNames[<span class="dv">3</span>], rEG, <span class="dv">1</span>)</span>
+<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a>rEG <span class="ot">&lt;-</span> <span class="fu">addEdge</span>(nodeNames[<span class="dv">2</span>], nodeNames[<span class="dv">4</span>], rEG, <span class="dv">1</span>)</span>
+<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a>rEG <span class="ot">&lt;-</span> <span class="fu">addEdge</span>(nodeNames[<span class="dv">2</span>], nodeNames[<span class="dv">5</span>], rEG, <span class="dv">1</span>)</span>
+<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a>rEG <span class="ot">&lt;-</span> <span class="fu">addEdge</span>(nodeNames[<span class="dv">3</span>], nodeNames[<span class="dv">6</span>], rEG, <span class="dv">1</span>)</span>
+<span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a>rEG <span class="ot">&lt;-</span> <span class="fu">addEdge</span>(nodeNames[<span class="dv">3</span>], nodeNames[<span class="dv">7</span>], rEG, <span class="dv">10</span>)</span>
+<span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-66"><a href="#cb18-66" aria-hidden="true" tabindex="-1"></a>eAttrs <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb18-67"><a href="#cb18-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-68"><a href="#cb18-68" aria-hidden="true" tabindex="-1"></a>q<span class="ot">&lt;-</span><span class="fu">edgeNames</span>(rEG)</span>
+<span id="cb18-69"><a href="#cb18-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-70"><a href="#cb18-70" aria-hidden="true" tabindex="-1"></a><span class="co">#. Add the probability values to the the branch lines</span></span>
+<span id="cb18-71"><a href="#cb18-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-72"><a href="#cb18-72" aria-hidden="true" tabindex="-1"></a>eAttrs<span class="sc">$</span>label <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">toString</span>(a),<span class="fu">toString</span>(notA),</span>
+<span id="cb18-73"><a href="#cb18-73" aria-hidden="true" tabindex="-1"></a> <span class="fu">toString</span>(bGivena), <span class="fu">toString</span>(notbGivena),</span>
+<span id="cb18-74"><a href="#cb18-74" aria-hidden="true" tabindex="-1"></a> <span class="fu">toString</span>(bGivenNota), <span class="fu">toString</span>(notbGivenNota))</span>
+<span id="cb18-75"><a href="#cb18-75" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(eAttrs<span class="sc">$</span>label) <span class="ot">&lt;-</span> <span class="fu">c</span>(q[<span class="dv">1</span>],q[<span class="dv">2</span>], q[<span class="dv">3</span>], q[<span class="dv">4</span>], q[<span class="dv">5</span>], q[<span class="dv">6</span>])</span>
+<span id="cb18-76"><a href="#cb18-76" aria-hidden="true" tabindex="-1"></a>edgeAttrs<span class="ot">&lt;-</span>eAttrs</span>
+<span id="cb18-77"><a href="#cb18-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-78"><a href="#cb18-78" aria-hidden="true" tabindex="-1"></a><span class="co">#. Set the color, etc, of the tree</span></span>
+<span id="cb18-79"><a href="#cb18-79" aria-hidden="true" tabindex="-1"></a>attributes<span class="ot">&lt;-</span><span class="fu">list</span>(<span class="at">node=</span><span class="fu">list</span>(<span class="at">label=</span><span class="st">"foo"</span>, <span class="at">fillcolor=</span><span class="st">"lightgreen"</span>, <span class="at">fontsize=</span><span class="st">"15"</span>),</span>
+<span id="cb18-80"><a href="#cb18-80" aria-hidden="true" tabindex="-1"></a> <span class="at">edge=</span><span class="fu">list</span>(<span class="at">color=</span><span class="st">"red"</span>),<span class="at">graph=</span><span class="fu">list</span>(<span class="at">rankdir=</span><span class="st">"LR"</span>))</span>
+<span id="cb18-81"><a href="#cb18-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-82"><a href="#cb18-82" aria-hidden="true" tabindex="-1"></a><span class="co">#. Plot the probability tree using Rgraphvis</span></span>
+<span id="cb18-83"><a href="#cb18-83" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(rEG, <span class="at">edgeAttrs=</span>eAttrs, <span class="at">attrs=</span>attributes)</span>
+<span id="cb18-84"><a href="#cb18-84" aria-hidden="true" tabindex="-1"></a><span class="fu">nodes</span>(rEG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "P"     "A"     "A'"    "A&amp;B"   "A&amp;B'"  "A'&amp;B"  "A'&amp;B'"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">edges</span>(rEG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$P
+[1] "A"  "A'"
+
+$A
+[1] "A&amp;B"  "A&amp;B'"
+
+$`A'`
+[1] "A'&amp;B"  "A'&amp;B'"
+
+$`A&amp;B`
+character(0)
+
+$`A&amp;B'`
+character(0)
+
+$`A'&amp;B`
+character(0)
+
+$`A'&amp;B'`
+character(0)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. Add the probability values to the leaves of A&amp;B, A&amp;B', A'&amp;B, A'&amp;B'</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">500</span>,<span class="dv">420</span>,aANDb, <span class="at">cex=</span>.<span class="dv">8</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">500</span>,<span class="dv">280</span>,aANDnotb,<span class="at">cex=</span>.<span class="dv">8</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">500</span>,<span class="dv">160</span>,notaANDb,<span class="at">cex=</span>.<span class="dv">8</span>)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">500</span>,<span class="dv">30</span>,notaANDnotb,<span class="at">cex=</span>.<span class="dv">8</span>)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">340</span>,<span class="dv">440</span>,<span class="st">"(B | A)"</span>,<span class="at">cex=</span>.<span class="dv">8</span>)</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">340</span>,<span class="dv">230</span>,<span class="st">"(B | A')"</span>,<span class="at">cex=</span>.<span class="dv">8</span>)</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="co">#. Write a table in the lower left of the probablites of A and B</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">80</span>,<span class="dv">50</span>,<span class="fu">paste</span>(<span class="st">"P(A):"</span>,a),<span class="at">cex=</span>.<span class="dv">9</span>, <span class="at">col=</span><span class="st">"darkgreen"</span>)</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">80</span>,<span class="dv">20</span>,<span class="fu">paste</span>(<span class="st">"P(A'):"</span>,notA),<span class="at">cex=</span>.<span class="dv">9</span>, <span class="at">col=</span><span class="st">"darkgreen"</span>)</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">160</span>,<span class="dv">50</span>,<span class="fu">paste</span>(<span class="st">"P(B):"</span>,<span class="fu">round</span>(b,<span class="at">digits=</span><span class="dv">2</span>)),<span class="at">cex=</span>.<span class="dv">9</span>)</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">160</span>,<span class="dv">20</span>,<span class="fu">paste</span>(<span class="st">"P(B'):"</span>,<span class="fu">round</span>(notB, <span class="dv">2</span>)),<span class="at">cex=</span>.<span class="dv">9</span>)</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">80</span>,<span class="dv">420</span>,<span class="fu">paste</span>(<span class="st">"P(A|B): "</span>,<span class="fu">round</span>(aGivenb,<span class="at">digits=</span><span class="dv">2</span>)),<span class="at">cex=</span>.<span class="dv">9</span>,<span class="at">col=</span><span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week04_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>It’s pretty ugly because it was designed for a different width and height than I have allocated, but it gives the general idea.</p>
+</section>
+<section id="bayes-theorem" class="level2" data-number="4.16">
+<h2 data-number="4.16" class="anchored" data-anchor-id="bayes-theorem"><span class="header-section-number">4.16</span> Bayes’ Theorem</h2>
+<p>It’s the centerpiece of Bayesian statistics so it’s a bit like a fish out of water in a frequentist course. It states, in words, that the posterior probability of an outcome <span class="math inline">\(A\)</span> given an outcome <span class="math inline">\(B\)</span> is the likelihood of the outcome <span class="math inline">\(B\)</span> times the prior probability of the outcome <span class="math inline">\(A\)</span> divided by the evidence of outcome <span class="math inline">\(B\)</span>. More succinctly,</p>
+<p><span class="math display">\[
+P(A|B)=\frac{P(B|A)P(A)}{P(B)}
+\]</span></p>
+<p>The intuition is that we usually know <em>something</em> and shouldn’t go into problem solving with no assumptions. An example of drug user testing given by Wikipedia is shown below graphically, where the test is ninety percent sensitive to a recipient being a drug user. The test is also eighty percent specific, meaning that it can detect that a non-user is a non-user eighty percent of the time.</p>
+<p><img src="fiBayesExample.png" class="img-fluid"></p>
+<p>What does this tell us about drug testing? Even if someone tests positive, the probability that they are a drug user is only 19%! This assumes prior knowledge that five percent of the general population are users of the drug.</p>
+<p>In Bayesian terms:</p>
+<p><span class="math display">\[
+\frac{0.9 \times 0.05}{0.9\times 0.05 + 0.2\times0.95}
+\]</span> By the way, this formulation uses the law of total probability in the denominator, expanding <span class="math inline">\(P(B)\)</span> into</p>
+<p><span class="math display">\[
+P(B|A)P(A)+P(B|\neg A)P(\neg A)
+\]</span></p>
+<p>where <span class="math inline">\(\neg A\)</span> is the complement of <span class="math inline">\(A\)</span>.</p>
+<p>This is very important to know about because, for example, someone might <em>only</em> tell you that a test is ninety percent sensitive and eighty percent specific and leave out the Bayes rule result that says that, given that only five percent of the general population are drug users, there’s a nineteen percent chance that testing positive indicates that you are a drug user. Again, Bayes’ rule is very important when you have some prior knowledge. In this case, the prior knowledge is a study that says that five percent of the general population are users of this drug.</p>
+</section>
+<section id="sampling-from-a-small-population" class="level2" data-number="4.17">
+<h2 data-number="4.17" class="anchored" data-anchor-id="sampling-from-a-small-population"><span class="header-section-number">4.17</span> Sampling from a small population</h2>
+<p>Recall that the population includes every object and is usually not practical to measure. For examples, every fish, every person, every thunderstorm are too many to represent. So we take a sample. A typical rule of thumb is that, if we can sample more than ten percent of the population, we regard it as a small population.</p>
+<p>The textbook gives an example of being called on by the professor. The chance that you are called on in a class of 15 is 1/15. If the professor calls on three different people in succession, the chance that you are called on increases to 1/5:</p>
+<p><span class="math display">\[\begin{align}
+P(\neg\text{3 in a row}) &amp;=\\
+&amp;=P(\text{not picked first, second, third})\\
+&amp;=\frac{14}{15}\times\frac{13}{14}\times\frac{12}{13}\\
+&amp;=\frac{12}{15}\\
+\end{align}\]</span></p>
+<p>and the complement of 12/15 is 1/5.</p>
+</section>
+<section id="random-variables" class="level2" data-number="4.18">
+<h2 data-number="4.18" class="anchored" data-anchor-id="random-variables"><span class="header-section-number">4.18</span> Random variables</h2>
+<p>A process with a random numerical outcome is called a random variable. It’s kind of like a stochastic function in that there is an input (the process) and output (the outcome number).</p>
+<p>A random variable is usually represented as a capital, italicized Latin letter, e.g., <span class="math inline">\(X, Y, Z\)</span>. Specific outcomes are usually represented as a lowercase, italicized Latin letter with a subscript to denote which outcome, such as <span class="math inline">\(x_1, x_2, x_3\)</span>. The probability that a random variable <span class="math inline">\(X\)</span> has a specific outcome <span class="math inline">\(x_1\)</span> is represented as <span class="math inline">\(P(X=x_1)\)</span>.</p>
+<p>The expectation of <span class="math inline">\(X\)</span> is the expected value of <span class="math inline">\(X\)</span>, represented as <span class="math inline">\(E(X)\)</span>. The expected value is typically the average, but not always. If there are <span class="math inline">\(k\)</span> possible outcomes, then</p>
+<p><span class="math display">\[
+E(X)=\sum_{i=1}^kx_iP(X=x_i)
+\]</span></p>
+<p>The Greek letter <span class="math inline">\(\sum\)</span> (Sigma) denotes a sum of a series of numbers, indexed in this case by <span class="math inline">\(i\)</span>. You can read it in English as the sum, going from <span class="math inline">\(1\)</span> to <span class="math inline">\(k\)</span>, of the expressions to the right of the Sigma sign. In other words,</p>
+<p><span class="math display">\[
+x_1P(X=x_1)+x_1P(X=x_1)+\cdots+x_kP(X=x_k)
+\]</span></p>
+<p>It’s the average as we usually understand it if each outcome is equally probable, in which case it’s the sum of the outcomes divided by the number of outcomes.</p>
+<p>Writers often substitute <span class="math inline">\(E(X)=\mu\)</span> which can be confusing because Greek letters are usually used as parameters, while Latin letters are usually used as specific realizations of those parameters.</p>
+<p>The above assumes there are <span class="math inline">\(k\)</span> specific outcomes. We call this case a <em>discrete random variable</em>. It’s also possible to do math with a <em>continuous random variable</em>. In other words, <span class="math inline">\(k=\infty\)</span>. However, that requires calculus so the textbook skips it for now.</p>
+<section id="variability-in-random-variables" class="level3" data-number="4.18.1">
+<h3 data-number="4.18.1" class="anchored" data-anchor-id="variability-in-random-variables"><span class="header-section-number">4.18.1</span> Variability in random variables</h3>
+<p>Recall that random variables are a kind of mapping between a process and specific numerical outcomes. Those specific outcomes differ. For example, the revenue of a store varies day by day, and we can say something about that variability.</p>
+<p>We usually express it by two related concepts: variance (denoted by a lowercase sigma squared or <span class="math inline">\(\sigma^2\)</span>), and its square root, standard deviation (denoted by a lowercase sigma or <span class="math inline">\(\sigma\)</span>). You might wonder why we don’t just choose one of these symbols. Most statisticians just use standard deviation, but to prove that it is an unbiased estimator of variance, we need to square it for mathematical reasons that are beyond the scope of this course.</p>
+<p>Standard deviation is expressed in the same units as the subject under consideration, whereas variance is expressed in squared units. So when I said at the beginning of this file that the standard deviation of your completed exercises was about 2.69, I meant that in terms of number of exercises, meaning that most of you were within 2.69 completed exercises either way of each other. In other words, if you had three or nine completed exercises, you were a kind of outlier.</p>
+</section>
+<section id="linear-combinations-of-random-variables" class="level3" data-number="4.18.2">
+<h3 data-number="4.18.2" class="anchored" data-anchor-id="linear-combinations-of-random-variables"><span class="header-section-number">4.18.2</span> Linear combinations of random variables</h3>
+<p>We can put random variables together. For example, your GPA is calculated from a set of grades that may differ. If you play fantasy sports, your score comes from many different players. A recommender system for music listening may make calculations based on many different songs you listened to.</p>
+<p>A linear combination of two random variables can be expressed as <span class="math inline">\(aX+bY\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are fixed constants, for example, the number of credits applied to each class in your GPA portfolio. If you take four four credit classes, your GPA might be expressed as the linear combination</p>
+<p><span class="math display">\[
+4E(X_1)+4E(X_2)+4E(X_3)+4E(X_4)
+\]</span></p>
+<p>where <span class="math inline">\(E(X_i)\)</span> is a function of your grade, such as your grade mapped to a number and divided by the number of credits you’re taking. (Of course, you are used to thinking of it as the average of the grades since most classes carry the same number of credits and your grades are mapped to numbers. But this formulation holds for all kinds of sets.)</p>
+</section>
+</section>
+<section id="continuous-distributions" class="level2" data-number="4.19">
+<h2 data-number="4.19" class="anchored" data-anchor-id="continuous-distributions"><span class="header-section-number">4.19</span> Continuous distributions</h2>
+<p>So far, we’ve considered discrete distributions, where <span class="math inline">\(k\)</span> takes on one of a finite set of values. What about the continuous case? For example, temperature can theoretically take on an infinite number of values, even though we only have the tools for discrete measurements.</p>
+<p>The most famous continuous distribution is the normal distribution. This picture illustrates the normal distribution. The mound-shaped curve represents the probability density function and the area between the curve and the horizontal line represents the value of the cumulative distribution function.</p>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\definecolor{qopage}{HTML}{0E2A35}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week04_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Consider a normally distributed nationwide test.</p>
+<p>The total shaded area between the curve and the straight horizontal line can be thought of as one hundred percent of that area. In the world of probability, we measure that area as 1. The curve is symmetrical, so measure all the area to the left of the highest point on the curve as 0.5. That is half, or fifty percent, of the total area between the curve and the horizontal line at the bottom. Instead of saying <em>area between the curve and the horizontal line at the bottom</em>, people usually say <em>the area under the curve</em>.</p>
+<p>For any value along the <span class="math inline">\(x\)</span>-axis, the <span class="math inline">\(y\)</span>-value on the curve represents the value of the probability density function.</p>
+<p>The area bounded by the vertical line between the <span class="math inline">\(x\)</span>-axis and the corresponding <span class="math inline">\(y\)</span>-value on the curve, though, is what we are usually interested in because that area represents probability.</p>
+<p>Here is a graph of the <em>size</em> of that area. It’s called the cumulative distribution function (cdf).</p>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\definecolor{qopage}{HTML}{0E2A35}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week04_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The above graph can be read as having an input and output that correspond to the previous graph of the probability density function. As we move from right to left on the <span class="math inline">\(x\)</span>-axis, the area that would be to the left of a given point on the probability density function is the <span class="math inline">\(y\)</span>-value on this graph. For example, if we go half way across the <span class="math inline">\(x\)</span>-axis of the probability density function, the area to its left is one half of the total area, so the <span class="math inline">\(y\)</span>-value on the cumulative distribution function graph is one half.</p>
+<p>The shape of the cumulative distribution function is called a sigmoid curve. You can see how it gets this shape by looking again at the probability density function graph above. As you move from left to right on that graph, the area under the curve increases very slowly, then more rapidly, then slowly again. The places where the area grows more rapidly and then more slowly on the probability density function curve correspond to the s-shaped bends on the cumulative distribution curve.</p>
+<p>At the left side of the cumulative distribution curve, the <span class="math inline">\(y\)</span>-value is zero meaning zero probability. When we reach the right side of the cumulative distribution curve, the <span class="math inline">\(y\)</span>-value is 1 or 100 percent of the probability.</p>
+<p>Let’s get back to the example of a nationwide test. If we say that students nationwide took an test that had a mean score of 75 and that the score was normally distributed, we’re saying that the value on the <span class="math inline">\(x\)</span>-axis in the center of the curve is 75. Moreover, we’re saying that the area to the left of 75 is one half of the total area. We’re saying that the probability of a score less than 75 is 0.5 or fifty percent. We’re saying that half the students got a score below 75 and half got a score above 75.</p>
+<p>That is called the frequentist interpretation of probability. In general, that interpretation says that a probability of 0.5 is properly measured by saying that, if we could repeat the event enough times, we would find the event happening half of those times.</p>
+<p>Furthermore, the frequentist interpretation of the normal distribution is that, if we could collect enough data, such as administering the above test to thousands of students, we would see that the graph of the frequency of their scores would look more and more like the bell curve in the picture, where <span class="math inline">\(x\)</span> is a test score and <span class="math inline">\(y\)</span> is the number of students receiving that score.</p>
+<p>Suppose we have the same test and the same distribution but that the mean score is 60. Then 60 is in the middle and half the students are on each side. That is easy to measure. But what if, in either case, we would like to know the probability associated with scores that are not at that convenient midpoint?</p>
+<p>It’s hard to measure any other area under the normal curve except for <span class="math inline">\(x\)</span>-values in the middle of the curve, corresponding to one half of the area. Why is this?</p>
+<p>To see why it’s hard to measure the area corresponding to any value except the middle value, let’s first consider a different probability distribution, the uniform distribution. Suppose I have a machine that can generate any number between 0 and 1 at random. Further, suppose that any such number is just as likely as any other such number.</p>
+<p>Here’s a graph of the the uniform distribution of numbers generated by the machine. The horizontal line is the probability density function and the shaded area is the cumulative distribution function from 0 to 1/2. In other words, the probability of the machine generating numbers from 0 to 1/2 is 1/2. The probability of generating numbers from 0 to 1 is 1, the area of the entire rectangle.</p>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\definecolor{qopage}{HTML}{0E2A35}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week04_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>It’s very easy to calculate any probability for this distribution, in contrast to the normal distribution. The reason it is easy is that you can just use the formula for the area of a rectangle, where area is base times side. The probability of being in the entire rectangle is <span class="math inline">\(1\times1=1\)</span>, and the probability of being in the part from <span class="math inline">\(x=0\)</span> to <span class="math inline">\(x=1/4\)</span> is just <span class="math inline">\(1\times(1/4)=1/4\)</span>. The cumulative distribution function of the uniform distribution is simpler than that of the normal distribution because area is being added at the same rate as we move from left to right on the above graph. Therefore it is just a straight diagonal line from (0,1) on the left to (1,1) on the right.</p>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\definecolor{qopage}{HTML}{0E2A35}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week04_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Reading it is the same as reading the cumulative distribution function for the normal distribution. For any value on the <span class="math inline">\(x\)</span>-axis, say, 1/2, go up to the diagonal line and over to the value on the <span class="math inline">\(y\)</span>-axis. In this case, that value is 1/2. That is the area under the horizontal line in the probability density function graph from 0 to 1/2 (the shaded area). For a rectangle, calculating area is trivial.</p>
+<p>Calculating the area of a curved region like the normal distribution can be more difficult. If you’ve studied any calculus, you know that there are techniques for calculating the area under a curve. These techniques are called integration techniques. In the case of the normal distribution the formula for the height of the curve at any point on the <span class="math inline">\(x\)</span>-axis is</p>
+<p><span class="math display">\[\begin{equation*}
+\frac{1}{\sigma\sqrt{2\pi}}e^{-(x-\mu)^2/2\sigma^2}
+\end{equation*}\]</span></p>
+<p>and the area is the integral of that quantity from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(x\)</span>, which can be rewritten as</p>
+<p><span class="math display">\[\begin{equation*}
+\frac{1}{\sqrt{2\pi}}\int^x_{-\infty}e^{-t^2/2}dt
+=(1/2)\left(1+\text{erf}\left(\frac{x-\mu}{\sigma\sqrt{2}}\right)\right)
+\end{equation*}\]</span></p>
+<p>The integral on the left is difficult to evaluate so people use numerical approximation techniques to find the expression on the right in the above equation. Those techniques are so time-consuming that, rather than recompute them every time they are needed, a very few people used to write the results into a table and publish it and most people working with probability would just consult the tables. Only in the past few decades have calculators become available that can do the tedious approximations. Hence, most statistics books, written by people who were educated decades ago, still teach you how to use such tables. There is some debate as to whether there is educational value in using the tables vs using calculators or smartphone apps or web-based tables or apps.</p>
+</section>
+<section id="the-f-distribution" class="level2" data-number="4.20">
+<h2 data-number="4.20" class="anchored" data-anchor-id="the-f-distribution"><span class="header-section-number">4.20</span> The F distribution</h2>
+<p>Another distribution that we’ll enounter later is called the F distribution. We’ll calculate an F-statistic when we build linear regression models, but I just want you to know the general shape of it for now. The region marked <span class="math inline">\(\alpha\)</span> corresponds inversely to the magnitude of the F statistic. In other words, a larger F statistic means a smaller <span class="math inline">\(\alpha\)</span>.</p>
+<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\definecolor{qopage}{HTML}{0E2A35}&quot;]}">
+<div class="cell-output-display">
+<p><img src="week04_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./week03.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">More R and Quarto</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./week05.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Distributions of random variables</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
