@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Welcome to the Command Line",
     "section": "",
-    "text": "Preface\nThis is stage one of the Welcome to the command line project. This stage includes three things:\n\nindividual modules of command line interface (cli) instruction\na Quarto wrapper around the modules (this book) for easy navigation\na set of Youtube videos corresponding to the modules\n\nStage two is called conpackverse and involves three things:\n\na GitHub organization called conpackverse to develop this set of modules further\na GitHub repo of the modules, allowing modules to be added or refined\na Python packaging of the modules to allow an instructor to choose only the modules required for a particular course.\n\nThis is a Quarto book. To learn more about Quarto books visit https://quarto.org/docs/books. For now, it’s enough to know that each chapter represents a module, except for the macSetup chapters, which are collections of modules."
+    "text": "Preface\nThis is stage one of the Welcome to the command line project. This stage includes three things:\n\nindividual modules of command line interface (cli) instruction written in vanilla Markdown\na searchable Quarto wrapper around the modules (this book) for easy navigation\na set of Youtube videos corresponding to the modules\n\nStage two is called conpackverse and involves three things:\n\na GitHub organization called conpackverse to develop this set of modules further\na GitHub repo of the modules, allowing modules to be added or refined\na Python packaging of the modules to allow an instructor to choose only the modules required for a particular course.\n\nThis is a Quarto book. To learn more about Quarto books visit https://quarto.org/docs/books. For now, it’s enough to know that each chapter represents a module, except for the macSetup chapters, which are collections of modules."
   },
   {
     "objectID": "macSetupIntelFull.html#check-and-update-apple-id",
@@ -296,7 +296,7 @@
   {
     "objectID": "fileManipulation.html",
     "href": "fileManipulation.html",
-    "title": "15  File Manipulation",
+    "title": "15  File manipulation",
     "section": "",
     "text": "to be added\nrsync -PUpavh here there\ncp -p this that\nmv here there\ntrash unwanted-file\nrm really-unwanted-file\nrm -rf really-unwanted-folder-with-files-in-it\nbat file-to-view # aliased to cat on my mac by saying alias cat=bat in my ~/.bash_profile file\nchmod 700 file-of-cmds-to-execute\ntree folder-to-look-inside\nstat file-to-learn-about"
   },
