@@ -1,0 +1,317 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to the Command Line",
+    "section": "",
+    "text": "Preface\nThis is stage one of the Welcome to the command line project. This stage includes three things:\n\nindividual modules of command line interface (cli) instruction\na Quarto wrapper around the modules (this book) for easy navigation\na set of Youtube videos corresponding to the modules\n\nStage two is called conpackverse and involves three things:\n\na GitHub organization called conpackverse to develop this set of modules further\na GitHub repo of the modules, allowing modules to be added or refined\na Python packaging of the modules to allow an instructor to choose only the modules required for a particular course.\n\nThis is a Quarto book. To learn more about Quarto books visit https://quarto.org/docs/books. For now, it’s enough to know that each chapter represents a module, except for the macSetup chapters, which are collections of modules."
+  },
+  {
+    "objectID": "macSetupIntelFull.html#check-and-update-apple-id",
+    "href": "macSetupIntelFull.html#check-and-update-apple-id",
+    "title": "1  macOS full setup for Intel machines",
+    "section": "1.1 Check and Update Apple ID",
+    "text": "1.1 Check and Update Apple ID\nThis helps with warranty repair and sharing among multiple Apple devices. It should be the first item in the list under  &gt; System Settings…"
+  },
+  {
+    "objectID": "macSetupIntelFull.html#open-finder",
+    "href": "macSetupIntelFull.html#open-finder",
+    "title": "1  macOS full setup for Intel machines",
+    "section": "1.2 Open Finder",
+    "text": "1.2 Open Finder\nGo to Settings &gt; Advanced &gt; Show all file extensions"
+  },
+  {
+    "objectID": "macSetupIntelFull.html#open-system-settings",
+    "href": "macSetupIntelFull.html#open-system-settings",
+    "title": "1  macOS full setup for Intel machines",
+    "section": "1.3 Open System Settings",
+    "text": "1.3 Open System Settings\nThis is the first menu item on the Apple () menu.\n\nkeyboard &gt; keyboard shortcuts &gt; modifier keys &gt; change caps-lock to ctrl\ndesktop and dock &gt; automatically hide and show the dock\ndesktop and dock &gt; automatically hide and show menubar on desktop (if no notch)\ndesktop and dock &gt; change Magnification to Large\ntrackpad &gt; More gestures &gt; Swipe between pages &gt; three fingers"
+  },
+  {
+    "objectID": "macSetupIntelFull.html#install-xcode",
+    "href": "macSetupIntelFull.html#install-xcode",
+    "title": "1  macOS full setup for Intel machines",
+    "section": "1.4 Install XCode",
+    "text": "1.4 Install XCode\nDo this from the macOS app store, which is the third menu item under the Apple () menu.\nInstallation takes a million years! Make sure you have some time or can leave the computer running.\nBe sure to open XCode after install to initialize and possibly to install command line utilities. (It used to make you install command line utilities but I already did that so I can’t tell if the current version is not making me do it because I have it installed or because it’s no longer required.)"
+  },
+  {
+    "objectID": "macSetupIntelFull.html#figure-out-your-processor",
+    "href": "macSetupIntelFull.html#figure-out-your-processor",
+    "title": "1  macOS full setup for Intel machines",
+    "section": "1.5 Figure out your processor",
+    "text": "1.5 Figure out your processor\nOpen  &gt; About this Mac, and look under processor—if it says M1 or M2, you’re in the wrong file! Use the file macSetupM1Full for all the remaining instructions. To use this file, the processor entry should include the word Intel."
+  },
+  {
+    "objectID": "macSetupIntelFull.html#install-homebrew",
+    "href": "macSetupIntelFull.html#install-homebrew",
+    "title": "1  macOS full setup for Intel machines",
+    "section": "1.6 Install Homebrew",
+    "text": "1.6 Install Homebrew\nFor this you will use the terminal. You can find the macOS default terminal by opening the Finder and navigating to /Applications/Utilities. There are many useful programs in that folder, arranged alphabetically. Navigate to Terminal.app and double click it.\nEnter the following commands in the terminal. You should be able to copy and paste them from this list to avoid transcription errors.\nNote that everything from a hashmark (#) to the end of the line is regarded as a comment and is not processed. I just include those comments for your information.\n/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"\neval $(/usr/local/bin/brew shellenv)\nbrew install bash # the shell that will process all your cli commands\nsudo pico /etc/shells # add /usr/local/bin/bash to the list in that file\nchsh -s /usr/local/bin/bash # makes bash the default shell\nbrew install quicksilver # simplifies opening programs\nbrew install iterm2 # terminal replacement; when our setup is complete we will use it instead of terminal\nbrew install hammerspoon # controls window placement on screen"
+  },
+  {
+    "objectID": "macSetupIntelFull.html#transfer-dotfiles",
+    "href": "macSetupIntelFull.html#transfer-dotfiles",
+    "title": "1  macOS full setup for Intel machines",
+    "section": "1.7 Transfer dotfiles",
+    "text": "1.7 Transfer dotfiles\nIf you are switching to a new machine, you may want to keep your old dotfiles, so that you get expected behaviors. If you don’t know what a dotfile is, you can skip this step and later look at the dotfiles module.\n\n1.7.1 step 1 of 2 to transfer dotfiles:\nAttach usb drive to old machine. Note that you must substitute the name of your usb drive below where it says &lt;name of usb drive&gt;. When you attach the usb drive to the machine, the usb drive’s name will appear in Finder under the Locations section.\n/usr/local/bin/rsync -PUpavh ~/.??* /Volumes/&lt;name of usb drive&gt;\n\n\n1.7.2 step 2 of 2 to transfer dotfiles:\nattach usb drive to new machine\ncd /Volumes/&lt;name of usb drive&gt;\n/usr/local/bin/rsync -PUpavh ~/.??* ~/"
+  },
+  {
+    "objectID": "macSetupIntelFull.html#install-firefox",
+    "href": "macSetupIntelFull.html#install-firefox",
+    "title": "1  macOS full setup for Intel machines",
+    "section": "1.8 Install Firefox",
+    "text": "1.8 Install Firefox\nThen add tree style tabs under Tools &gt; Add-ons and Themes."
+  },
+  {
+    "objectID": "macSetupIntelFull.html#configure-firefox",
+    "href": "macSetupIntelFull.html#configure-firefox",
+    "title": "1  macOS full setup for Intel machines",
+    "section": "1.9 Configure Firefox",
+    "text": "1.9 Configure Firefox\nNotice that in the following list of instructions, you have to substitute your current profile where it says &lt;current profile&gt;. This isn’t always easy since Firefox (in my experience) installs two profiles and you have to figure out which is actually yours. In my case, it is the one with the suffix .default-release. It has a vast number of files in it, as opposed to the single file in the other one.\n\nGet userChrome.css from Canvas &gt; Files &gt; misc\nAdd userChrome.css to ~/Library/Application\\ Support/Firefox/Profiles/&lt;current profile&gt;/chrome/\ngo to about:config and toggle the following setting to true: toolkit.legacyUserProfileCustomizations.stylesheets\n\nThe point of all this is to maximize vertical space available in Firefox windows. It puts the tabs into a tree on the left side of the window and takes away a bunch of the stuff at the top of the window."
+  },
+  {
+    "objectID": "macSetupIntelFull.html#configure-hammerspoon",
+    "href": "macSetupIntelFull.html#configure-hammerspoon",
+    "title": "1  macOS full setup for Intel machines",
+    "section": "1.10 Configure hammerspoon",
+    "text": "1.10 Configure hammerspoon\nHammerspoon is a general purpose tool, but I just use it to control window placement. The window positions are as follows.\nI hold down the Option and Command keys with my left thumb and the control key (formerly the caps-lock key) with my left pinky. Then, with my right forefinger, I press any of the following keys to move the current window into the desired position:\n\nj — lower half of the display\nk — upper half of the display\nh — left half of the display\nl — right half of the display\nm — maximize the window\n1 — upper left quadrant\n2 — upper right quadrant\n3 — lower left quadrant\n4 — lower right quadrant\n\nls ~/.hammerspoon\n#. if you get an error message, say:\nmkdir ~/.hammerspoon\n#. get the init.lua file from Canvas &gt; Files &gt; misc\ncp -p init.lua ~/.hammerspoon/"
+  },
+  {
+    "objectID": "macSetupIntelFull.html#open-quicksilver-and-configure",
+    "href": "macSetupIntelFull.html#open-quicksilver-and-configure",
+    "title": "1  macOS full setup for Intel machines",
+    "section": "1.11 Open quicksilver and configure",
+    "text": "1.11 Open quicksilver and configure\nI use Quicksilver to open programs. Note that I never use the Apple Spotlight function, so I steal its key combination for Quicksilver, control-space. You can configure Quicksilver as you go along if it is not making the right suggestions for programs after you type a few characters. (Like Hammerspoon, Quicksilver is a general purpose tool and you can make much more of it than a program manager.)\n\nQuicksilver &gt; settings &gt; Command, change to control-space\nQuicksilver &gt; settings &gt; Appearance &gt; Select interface &gt; Bezel (built-in)\nQuicksilver &gt; settings &gt; Appearance &gt; check the box Superfluous visual effects"
+  },
+  {
+    "objectID": "macSetupIntelFull.html#install-basic-brew-packages",
+    "href": "macSetupIntelFull.html#install-basic-brew-packages",
+    "title": "1  macOS full setup for Intel machines",
+    "section": "1.12 Install basic brew packages",
+    "text": "1.12 Install basic brew packages\nThis installation process is tedious but informative. If you prefer, there is a utility file in Canvas &gt; Files &gt; misc &gt; basicBrewPackages.sh that does all of these at once. Beware, though, that you may miss important messages that way.\nbrew install python # keeps Python more up-to-date than native macOS python\npip3 install powerline-status # gives a better command prompt\nbrew install coreutils # replaces basic cli utilities with enhanced versions\nbrew install findutils # enhancements for the Unix find utility\nbrew install ruby # installs a more recent version of ruby than the native macOS version\ngem install colorls # gives color-coded filenames when invoking ls\ngem install github-pages # utilities for website building\nbrew install tmux # a terminal multiplexer\nbrew install rename # simplifies pattern renaming of files\nbrew install macvim # both gui and cli version of the vim editor\nbrew install pandoc # converts documents between platforms such as qmd, pdf, html, docx, epub, and more\npip3 install pandoc-include # enables including markdown documents in other markdown documents (not for Quarto, just plain markdown)\nbrew install pandoc-include-code # enables including program files in markdown documents (not for Quarto, just plain markdown)\nbrew install quarto # scientific document and presentation system\nbrew install trash # enables a command line trash function\nbrew install clipy # improves clipboard management\nbrew install saulpw/vd/visidata # cli csv file manager\nbrew install gnu-tar # improved archive management\nbrew install grep # improved regular expression search\nbrew install bib-tool # manages bibliography files created with bibtex or biblatex\nbrew install font-tex-gyre-schola # font used by quarto\nbrew install font-tex-gyre-schola-math # font used by quarto\nbrew install font-jetbrains-mono-nerd-font # font used by quarto\nMost of these installations also install a man page or at least a help file. For example, you can say\nman trash\nto get information about the trash utility. The man pages have a specialized, hard-to-grasp format if you’re new to them, so you may want to check out the man module before making extensive use of them.\nFor those programs that have no man page, you can usually say &lt;name of command&gt; --help to get a help page. For instance, you can say\nquarto --help\nto get some brief help for using the cli version of Quarto. Of course, Quarto also has a web page at https://quarto.org/ that gives much more information about it."
+  },
+  {
+    "objectID": "macSetupIntelFull.html#install-optional-brew-packages",
+    "href": "macSetupIntelFull.html#install-optional-brew-packages",
+    "title": "1  macOS full setup for Intel machines",
+    "section": "1.13 Install optional brew packages",
+    "text": "1.13 Install optional brew packages\nbrew install exiftool # manages exif tags in image files\nbrew install cmus # cli music player\nbrew install poppler # required by some pdf tools\nbrew install imagemagick # command line image file management\nbrew install lynx # command line web browser, good at saving text of web pages\nbrew install buku # cli bookmark manager\nbrew install gfortran # required by many numerical manipulation programs\nbrew install libjpeg # required by man image manipulation programs\nbrew install ffmpeg # video file swiss army knife\nbrew install dict # access to online (mostly) English dictionaries\nbrew install bat # improved cli file viewing, aliased to cat in my .bash_profile\nbrew install distribution # provides a command line histogram\nbrew install gcal # a terminal calendar\nbrew install gcalcli # gives access to google calendar utilities from the command line\nbrew install bitwarden # password manager\nbrew install qlmarkdown # for viewing markdown files---must initialize by opening the app installed in /Applications/QLMarkdown.app\nbrew install automake # for configuring software\nbrew install --cask --no-quarantine syntax-highlight\nbrew install yt-dlp # to download youtube videos\nbrew install transmission-cli # to download torrents\nbrew install rar # to uncompress rar archives\nbrew install vldmrkl/formulae/airdrop-cli # to transfer files between apple devices\nbrew install postgresql@14 # database\nbrew install rsync # better file copying\nbrew install ranger # file manager\nbrew install gpg # to manage private / public key pairs\nbrew install xquartz # enables the X window system\nbrew install sc-im # a command-line spreadsheet program that can read excel files\nbrew install fzf # a fuzzy finder"
+  },
+  {
+    "objectID": "macSetupIntelFull.html#install-texlive-takes-hours",
+    "href": "macSetupIntelFull.html#install-texlive-takes-hours",
+    "title": "1  macOS full setup for Intel machines",
+    "section": "1.14 Install texlive (takes hours!)",
+    "text": "1.14 Install texlive (takes hours!)\nUse the instructions at https://tug.org/texlive/acquire-netinstall.html and the file called install-tl-unx.tar.gz.\nThe instructions at the time of this writing include the following. Note that the string 20230723 will differ based on the date of the version you’ve downloaded.\ncd ~/Downloads\ntar xvzf install-tl-unx.tar.gz\ncd install-tl-20230723\n./install-tl\nAfter you are finished (hours later), if you are moving from an old machine that had texlive installed, use rsync to get texmf-local from your old machine to your new machine, e.g., for my machine on a local network, I say:\nrsync -PUpavh /usr/local/texlive/texmf-local/ mcq@technicals-mbp.lan:\"/usr/local/texlive/texmf-local/\""
+  },
+  {
+    "objectID": "macSetupIntelFull.html#fix-ssh-keys",
+    "href": "macSetupIntelFull.html#fix-ssh-keys",
+    "title": "1  macOS full setup for Intel machines",
+    "section": "1.15 Fix ssh keys",
+    "text": "1.15 Fix ssh keys\nThis is basically a reminder for people switching machines. If you don’t have a github or gitlab account or some other account for which you use ssh keys, you can ignore this.\neval $(ssh-agent)\nssh-add"
+  },
+  {
+    "objectID": "macSetupIntelFull.html#install-r-and-rstudio",
+    "href": "macSetupIntelFull.html#install-r-and-rstudio",
+    "title": "1  macOS full setup for Intel machines",
+    "section": "1.16 Install R and RStudio",
+    "text": "1.16 Install R and RStudio\n\nGoogle the letter R. Usually, the first hit is the R project: https://www.r-project.org/\nYou have to choose a mirror to download from. I usually choose USA: National Institute for Computational Sciences, Oak Ridge, TN\nBe sure to choose Intel X86 when given a choice\nYou will download a package installer. Double-click it in Finder and follow the instructions\nGoogle RStudio. Usually, the first hit is Posit’s RStudio download site: https://posit.co/products/open-source/rstudio/\nAfter clicking various links to download RStudio Desktop, you should eventually get to a page with the .dmg file to download. That page is https://posit.co/download/rstudio-desktop/ so you can visit it directly if you prefer. (I don’t know why they make you click through so many pages if you don’t have that URL!)\nDownload the .dmg file.\nDouble-click the .dmg file in the Finder. You should see a window with an Applications folder and the RStudio.app.\nDrag the RStudio.app icon to the Applications folder. This is very important. If you try to open the RStudio.app icon from this window, you will not be able to save your work!\nEject the disk image that will appear in Finder that generates this window after RStudio.app is successfully added to your Applications folder."
+  },
+  {
+    "objectID": "macSetupIntelFull.html#weekly-maintenance",
+    "href": "macSetupIntelFull.html#weekly-maintenance",
+    "title": "1  macOS full setup for Intel machines",
+    "section": "1.17 Weekly maintenance",
+    "text": "1.17 Weekly maintenance\nI usually put the following commands in a file called ~/weeklyMaintenance and sometimes run them as a group if I don’t want to look at the output of each one. More often, I run them individually and examine the output for items of interest, such as error messages or special package instructions.\nbrew update # updates brew's concept of what's available\nbrew upgrade # actually upgrades whatever brew now knows to be available\ntlmgr update --all # updates TeXlive\npip-upgrade # upgrades Python packages\nRscript -e 'update.packages()' # upgrades R packages\nNote that pip-upgrade is actually a shell function. Its definition is in my .bash_profile file, which can be found in Canvas &gt; Files &gt; misc. This command will not work without that definition."
+  },
+  {
+    "objectID": "macSetupIntelMinimal.html#check-and-update-apple-id",
+    "href": "macSetupIntelMinimal.html#check-and-update-apple-id",
+    "title": "2  macOS minimal setup for Intel machines",
+    "section": "2.1 Check and Update Apple ID",
+    "text": "2.1 Check and Update Apple ID\nThis helps with warranty repair and sharing among multiple Apple devices. It should be the first item in the list under  &gt; System Settings…"
+  },
+  {
+    "objectID": "macSetupIntelMinimal.html#open-finder",
+    "href": "macSetupIntelMinimal.html#open-finder",
+    "title": "2  macOS minimal setup for Intel machines",
+    "section": "2.2 Open Finder",
+    "text": "2.2 Open Finder\nGo to Settings &gt; Advanced &gt; Show all file extensions"
+  },
+  {
+    "objectID": "macSetupIntelMinimal.html#open-system-settings",
+    "href": "macSetupIntelMinimal.html#open-system-settings",
+    "title": "2  macOS minimal setup for Intel machines",
+    "section": "2.3 Open System Settings",
+    "text": "2.3 Open System Settings\nThis is the first menu item on the Apple () menu.\n\nkeyboard &gt; keyboard shortcuts &gt; modifier keys &gt; change caps-lock to ctrl\ndesktop and dock &gt; automatically hide and show the dock\ndesktop and dock &gt; automatically hide and show menubar on desktop (if no notch)\ndesktop and dock &gt; change Magnification to Large\ntrackpad &gt; More gestures &gt; Swipe between pages &gt; three fingers"
+  },
+  {
+    "objectID": "macSetupIntelMinimal.html#install-xcode",
+    "href": "macSetupIntelMinimal.html#install-xcode",
+    "title": "2  macOS minimal setup for Intel machines",
+    "section": "2.4 Install XCode",
+    "text": "2.4 Install XCode\nDo this from the macOS app store, which is the third menu item under the Apple () menu.\nInstallation takes a million years! Make sure you have some time or can leave the computer running.\nBe sure to open XCode after install to initialize and possibly to install command line utilities. (It used to make you install command line utilities but I already did that so I can’t tell if the current version is not making me do it because I have it installed or because it’s no longer required.)"
+  },
+  {
+    "objectID": "macSetupIntelMinimal.html#figure-out-your-processor",
+    "href": "macSetupIntelMinimal.html#figure-out-your-processor",
+    "title": "2  macOS minimal setup for Intel machines",
+    "section": "2.5 Figure out your processor",
+    "text": "2.5 Figure out your processor\nOpen  &gt; About this Mac, and look under processor—if it says M1 or M2, you’re in the wrong file! Use the file macSetupM1Full for all the remaining instructions. To use this file, the processor entry should include the word Intel."
+  },
+  {
+    "objectID": "macSetupIntelMinimal.html#install-homebrew",
+    "href": "macSetupIntelMinimal.html#install-homebrew",
+    "title": "2  macOS minimal setup for Intel machines",
+    "section": "2.6 Install Homebrew",
+    "text": "2.6 Install Homebrew\nFor this you will use the terminal. You can find the macOS default terminal by opening the Finder and navigating to /Applications/Utilities. There are many useful programs in that folder, arranged alphabetically. Navigate to Terminal.app and double click it.\nEnter the following commands in the terminal. You should be able to copy and paste them from this list to avoid transcription errors.\nNote that everything from a hashmark (#) to the end of the line is regarded as a comment and is not processed. I just include those comments for your information.\n/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"\neval $(/usr/local/bin/brew shellenv)\nbrew install bash # the shell that will process all your cli commands\nsudo pico /etc/shells # add /usr/local/bin/bash to the list in that file\nchsh -s /usr/local/bin/bash # makes bash the default shell\nbrew install quicksilver # simplifies opening programs\nbrew install iterm2 # terminal replacement; when our setup is complete we will use it instead of terminal\nbrew install hammerspoon # controls window placement on screen"
+  },
+  {
+    "objectID": "macSetupIntelMinimal.html#install-basic-brew-packages",
+    "href": "macSetupIntelMinimal.html#install-basic-brew-packages",
+    "title": "2  macOS minimal setup for Intel machines",
+    "section": "2.7 Install basic brew packages",
+    "text": "2.7 Install basic brew packages\nThis installation process is tedious but informative. If you prefer, there is a utility file in Canvas &gt; Files &gt; misc &gt; basicBrewPackages.sh that does all of these at once. Beware, though, that you may miss important messages that way.\nbrew install python # keeps Python more up-to-date than native macOS python\npip3 install powerline-status # gives a better command prompt\nbrew install coreutils # replaces basic cli utilities with enhanced versions\nbrew install findutils # enhancements for the Unix find utility\nbrew install ruby # installs a more recent version of ruby than the native macOS version\ngem install colorls # gives color-coded filenames when invoking ls\ngem install github-pages # utilities for website building\nbrew install tmux # a terminal multiplexer\nbrew install rename # simplifies pattern renaming of files\nbrew install macvim # both gui and cli version of the vim editor\nbrew install pandoc # converts documents between platforms such as qmd, pdf, html, docx, epub, and more\npip3 install pandoc-include # enables including markdown documents in other markdown documents (not for Quarto, just plain markdown)\nbrew install pandoc-include-code # enables including program files in markdown documents (not for Quarto, just plain markdown)\nbrew install quarto # scientific document and presentation system\nbrew install trash # enables a command line trash function\nbrew install clipy # improves clipboard management\nbrew install saulpw/vd/visidata # cli csv file manager\nbrew install gnu-tar # improved archive management\nbrew install grep # improved regular expression search\nbrew install bib-tool # manages bibliography files created with bibtex or biblatex\nbrew install font-tex-gyre-schola # font used by quarto\nbrew install font-tex-gyre-schola-math # font used by quarto\nbrew install font-jetbrains-mono-nerd-font # font used by quarto\nMost of these installations also install a man page or at least a help file. For example, you can say\nman trash\nto get information about the trash utility. The man pages have a specialized, hard-to-grasp format if you’re new to them, so you may want to check out the man module before making extensive use of them.\nFor those programs that have no man page, you can usually say &lt;name of command&gt; --help to get a help page. For instance, you can say\nquarto --help\nto get some brief help for using the cli version of Quarto. Of course, Quarto also has a web page at https://quarto.org/ that gives much more information about it."
+  },
+  {
+    "objectID": "macSetupIntelMinimal.html#install-r-and-rstudio",
+    "href": "macSetupIntelMinimal.html#install-r-and-rstudio",
+    "title": "2  macOS minimal setup for Intel machines",
+    "section": "2.8 Install R and RStudio",
+    "text": "2.8 Install R and RStudio\n\nGoogle the letter R. Usually, the first hit is the R project: https://www.r-project.org/\nYou have to choose a mirror to download from. I usually choose USA: National Institute for Computational Sciences, Oak Ridge, TN\nBe sure to choose Intel X86 when given a choice\nYou will download a package installer. Double-click it in Finder and follow the instructions\nGoogle RStudio. Usually, the first hit is Posit’s RStudio download site: https://posit.co/products/open-source/rstudio/\nAfter clicking various links to download RStudio Desktop, you should eventually get to a page with the .dmg file to download. That page is https://posit.co/download/rstudio-desktop/ so you can visit it directly if you prefer. (I don’t know why they make you click through so many pages if you don’t have that URL!)\nDownload the .dmg file.\nDouble-click the .dmg file in the Finder. You should see a window with an Applications folder and the RStudio.app.\nDrag the RStudio.app icon to the Applications folder. This is very important. If you try to open the RStudio.app icon from this window, you will not be able to save your work!\nEject the disk image that will appear in Finder that generates this window after RStudio.app is successfully added to your Applications folder."
+  },
+  {
+    "objectID": "macSetupIntelMinimal.html#weekly-maintenance",
+    "href": "macSetupIntelMinimal.html#weekly-maintenance",
+    "title": "2  macOS minimal setup for Intel machines",
+    "section": "2.9 Weekly maintenance",
+    "text": "2.9 Weekly maintenance\nI usually put the following commands in a file called ~/weeklyMaintenance and sometimes run them as a group if I don’t want to look at the output of each one. More often, I run them individually and examine the output for items of interest, such as error messages or special package instructions.\nbrew update # updates brew's concept of what's available\nbrew upgrade # actually upgrades whatever brew now knows to be available\npip-upgrade # upgrades Python packages\nRscript -e 'update.packages()' # upgrades R packages\nNote that pip-upgrade is actually a shell function. Its definition is in my .bash_profile file, which can be found in Canvas &gt; Files &gt; misc. This command will not work without that definition."
+  },
+  {
+    "objectID": "macSetupM1Full.html",
+    "href": "macSetupM1Full.html",
+    "title": "3  macOS full setup for M1/2 machines",
+    "section": "",
+    "text": "to be added"
+  },
+  {
+    "objectID": "macSetupM1Minimal.html",
+    "href": "macSetupM1Minimal.html",
+    "title": "4  macOS minimal setup for M1/2 machines",
+    "section": "",
+    "text": "to be added"
+  },
+  {
+    "objectID": "whyCLI.html",
+    "href": "whyCLI.html",
+    "title": "5  Why CLI (command line interface)?",
+    "section": "",
+    "text": "to be added"
+  },
+  {
+    "objectID": "whyVIM.html",
+    "href": "whyVIM.html",
+    "title": "6  Why VIM (text editor)?",
+    "section": "",
+    "text": "to be added"
+  },
+  {
+    "objectID": "unixNature.html",
+    "href": "unixNature.html",
+    "title": "7  The Unix nature",
+    "section": "",
+    "text": "To get value from the command line, you need to understand the Unix nature. This is a way of thinking about software and its use that permeates the Unix operating system, and the systems, such as macOS and Linux, that derive from it. It is concisely explored in a Wikipedia article at https://en.wikipedia.org/wiki/Unix_philosophy.\nHere are several key points covered in that article.\n\nWrite small programs that each do one thing well\nMake programs interoperate with each other well\nWrite programs to handle text streams\nMake every aspect of a system addressable as if it were a file\nThe global is subordinate to the local\nConfiguration should be done with global, then local files\n\nThe commands that we cover here are generally very small and generally interoperate with each other through Input / Output (IO) redirection. Every device attached to a Unix-alike system has a corresponding file descriptor. Most commands accept text input and produce text output. Tasks can be accomplished by stringing a lot of little commands together.\nAn important consequence of going with the Unix flow is that, when things go wrong, it is likely that you will find the problems not in the commands themselves, but in the way they are strung together. For example, the Unix sort command has been heavily debugged and used by millions of people. There is little point in writing your own sort routine when you can just add the sort utility to your command pipeline. If the sorting doesn’t work as expected, you have a clue about where to look for the problem: in the task infrastructure, not in the sort code (which is publicly available should you wish to inspect it!).\nA typical Unix construct may look like this:\ncmd1 &lt; sourcedata &gt; tmp1\ncmd2 &lt; tmp1  &gt; tmp2\ncmd3 &lt; tmp2  &gt; tmp3\ncmd4 &lt; tmp3  &gt; targetdata\nThis construct employs redirection of input and output, commonly called IO redirection. It allows you to examine the intermediate results of task parts before committing to a task pipeline like the following:\ncmd1 &lt; sourcedata | cmd2 | cmd3 | cmd4 &gt; targetdata\nIn both cases, a series of small programs is used in concert to accomplish a task. The IO redirection operators: &lt;, &gt;, and | are explained in the fileIO module.\nThe configuration of a Unix system includes dotfiles, explained in the dotfiles module. To briefly introduce them, I will say that there are global configuration files that are run whenever a Unix-like system starts up. When an individual logs in, their dotfiles can override all these global configuration files. Further, if an individual develops a project, it can have dotfiles that override the individual’s dotfiles. So, the more local you are to a given task, the more local the configuration can be."
+  },
+  {
+    "objectID": "man.html",
+    "href": "man.html",
+    "title": "8  The Unix manual",
+    "section": "",
+    "text": "The Unix manual is a feature of every Unix-like system. It is organized in nine sections as follows:\n\nGeneral Commands Manual\nSystem Calls Manual\nLibrary Functions Manual\nKernel Interfaces Manual\nFile Formats Manual\nGames Manual\nMiscellaneous Information Manual\nSystem Manager’s Manual\nKernel Developer’s Manual\n\nIt is accessed from the command line by saying\nman &lt;topic&gt;\nFor example, I said man man at a command prompt to get the above information about manual sections.\nThe manual is usually referred to as the man pages. Most people, especially beginners are only concerned with Section 1 of the manual. If you look up a command, the result is generally from Section 1, but you can look up other entries from other sections explicitly. For example, saying man stat returns the man page for the stat command, but saying man 2 stat returns the man page for the stat system call from Section 2 of the manual.\nObtaining a list of all man pages can be quite a pain, as shown in a StackExchange QandA on the subject.\nThe main problem for beginners is that the man pages are written without beginners in mind. They follow a strict structure that is most amenable to very experienced users. Some man pages have an EXAMPLES section, but many of them are quite terse and only provide information of value to an experienced user.\nStackOverflow and StackExchange are better resources for beginners for help with standard commands but Google has recently started to downrank them in favor of popup festivals like GeeksForGeeks. For example, if I google unix mv command, the first hit is a GeekForGeeks page that is difficult to use because of all the popups and animated advertisements. Luckily, the second hit is a Wikipedia article. Wikipedia articles are pretty reliable for command line information. It’s worthwhile to investigate some of the remaining links to get an idea of which sites are reliable.\nContinuing with the mv command, consider the man page for it. The first thing I see is MV(1) which gives me the (capitalized) name of mv and alerts me that I am in Section 1 of the manual, covering general user commands. If I see a number 2–9 in parentheses, I know I am not looking at documentation of a command I can invoke at the command line.\nNext comes the NAME part, giving the name of the command, now in the proper case, and a one line description of it.\nThird is the SYNOPSIS part. This is valuable but hard to understand. In the case of mv, it looks like this:\nSYNOPSIS\n       mv [OPTION]... [-T] SOURCE DEST\n       mv [OPTION]... SOURCE... DIRECTORY\n       mv [OPTION]... -t DIRECTORY SOURCE...\n\nThe fact that there are three lines means that there are three ways to invoke mv. The first allows you to rename a file, optionally moving it to a different directory, while the other two are are specifically ways to move files between directories (or folders).\nEverything in square brackets is optional. So, on the first line, you can see that you must supply at least three things, the name of the command, the name of a source, and the name of a destination. You can also supply OPTION(s) but you don’t have to. To discover valid options, you can look at the next part of the entry, DESCRIPTION. This lists options alphabetically. For example, you can say -i so that mv will not automatically overwrite files without your permission. Many options display both a long and short format. For example, the short option -i has a long synonym called --interactive."
+  },
+  {
+    "objectID": "terminal.html",
+    "href": "terminal.html",
+    "title": "9  Terminal emulators",
+    "section": "",
+    "text": "You interact with the command line through a terminal emulator. At one time, computers were vastly expensive, so many people connected to a single computer. The devices they used to connect were called terminals. These devices usually included a screen and a keyboard and enough intelligence to connect to the main computer, usually called a mainframe or minicomputer. You would type a command into the terminal and it would be sent to the main computer, which would send back a response. (Some terminals were designed so that you could type a lot of commands and send them in a group, but we will not explore these.)\nThere is a whole jungle of programs called terminal emulators that replicate the functionality of a terminal, but reside on the computer itself, since computers are now so cheap. Instead of many people each running a single terminal session remote from the computer, it is now common for one person to have many terminal sessions on the computer. Terminal emulators are still the most common way to access remote computers, so a single person’s many terminal windows may include some connected to the local computer and some connected to remote computers.\nThe terminal emulator provides a window and some communications protocol and usually runs a separate program called a shell that provides the actual infrastructure for a conversation with the computer. Common shells include sh, csh, tcsh, ksh, bash, zsh, and fish. The shells are platform-independent, so the same shell may run on Windows, macOS, or Linux, but terminal emulators are platform-specific. Common terminal emulators include putty and Windows Terminal for Windows, iTerm and terminal for macOS, and GNOME terminal, terminator, alacritty, Konsole and Guake for Linux."
+  },
+  {
+    "objectID": "macGeneral/iTerm.html",
+    "href": "macGeneral/iTerm.html",
+    "title": "10  iTerm (terminal emulator for macOS)",
+    "section": "",
+    "text": "to be added"
+  },
+  {
+    "objectID": "bash.html",
+    "href": "bash.html",
+    "title": "11  bash, a command processor",
+    "section": "",
+    "text": "to be added"
+  },
+  {
+    "objectID": "tmux.html",
+    "href": "tmux.html",
+    "title": "12  tmux, a terminal multiplexer",
+    "section": "",
+    "text": "An example of three tmux panes in one window\n\n\ntmux is a terminal multiplexer. That means it enables the creation and running of multiple terminals in one screen. What you see in the above picture is a highly customized tmux session, running two windows, although only one window is visible—you can tell there is another window lurking in the background by looking at the statusline, a row of words and symbols at the top of the screen.\nThe statusline tells you that the system was started (rebooted) three days, twenty-two hours, and fourteen minutes ago. That part is in white letters on a magenta background. Next is a list of windows. Window 1 is currently focused on a Vim session, while window 2 is currently focused on a bash session. Next is a long blank area, room for a longer list of windows. Then you see an uparrow, signifying that the machine is connected to an external power source. Next is a graphic representation of battery, which is full. Following that is a numerical representation of battery, 100%. Then we see the current time, 21:12, the current date, 30 Jul, the current user, mcq, and the name of the machine, magneto. By default the statusline is at the bottom of the screen and is less colorful, but everything about tmux can be customized.\nThe current window has three panes. You can tell which pane is active by the tiny blue border around it. It’s running a Vim editor session, which is described more fully in the Vim module. You can have as many panes as you want in a window and you can easily rearrange them and zoom in on one of them with keystroke shortcuts. In this case, the wide pane at the bottom contains part of the man page for mv. The small pane in the upper left corner is running a preview process for the book you’re reading. That process monitors my editing and updates the preview whenever I save a file that is part of the book. The display is basically a log of that process.\nBut the most important thing about tmux is not its manipulation of panes and windows. There are many tools for manipulating panes and windows. By far the most important thing about it is that you can have tmux sessions on remote machines and those sessions will persist across sleeps and reboots of the local machine. For example, suppose I start work at home in the morning on my laptop. I use tmux to log into my office machine, do some work, then shut down my laptop. I can then go to work with my laptop, turn it on and reattach to the tmux session on the office machine without losing any of my work. For this reason tmux is frequently used by people like data scientists who have to start long-running neural network jobs on remote machines and check in on those jobs every once in a while.\nBy the way, the screenshot above is of a partially transparent screen. Behind the tmux window, you can see a preview of the fileIO page of this book. The transparency is controlled by the terminal emulator, iTerm, that is running bash, which in turn is running tmux."
+  },
+  {
+    "objectID": "bearings.html",
+    "href": "bearings.html",
+    "title": "13  Getting your bearings",
+    "section": "",
+    "text": "to be added\nwhoami\npwd\ndf\ndu\nps -ef | grep &lt;whatever&gt;\ntop\nhtop # only if you have installed it\nbpytop # only if you have installed it\nuptime"
+  },
+  {
+    "objectID": "fileIO.html#io-redirection-operators",
+    "href": "fileIO.html#io-redirection-operators",
+    "title": "14  Unix File I/O",
+    "section": "14.1 IO redirection operators",
+    "text": "14.1 IO redirection operators\nSymbols you can use in a command include the Input / Output redirection operators.\n| # redirect output of one command to the next command\n&lt; # redirect input from a file\n&gt; # redirect output to a file"
+  },
+  {
+    "objectID": "fileIO.html#the-or-pipe-symbol-redirecting-output-to-another-command",
+    "href": "fileIO.html#the-or-pipe-symbol-redirecting-output-to-another-command",
+    "title": "14  Unix File I/O",
+    "section": "14.2 The | or pipe symbol: redirecting output to another command",
+    "text": "14.2 The | or pipe symbol: redirecting output to another command\nFor example, suppose you have a file called fileA and you would like to transform it into a new file using two commands in succession. You could accomplish this by saying\ncmdA &lt; fileA | cmdB &gt; fileB\nThis pipeline first runs cmdA on fileA, then sends the output to cmdB which operates on that output and sends its output to fileB.\nIt’s common to make sorted lists of objects. In the following pipeline, I identify all the *.tags files in my account. These are files that describe the ebooks and articles I have for reference purposes. There are about 5,000 in all so I can’t remember every one. I want to consult an alphabetized list of ebook names. You can tell by the pipe characters (|) that there are four commands in the following pipeline. The names of the four commands are find, xargs, perl, and sort. They are described below briefly but also have their own modules.\nalias listebooks=\"find ~/ -name \"*.tags\" -print0 | xargs -0 grep ^ebook  | perl -pe 's/^\\/Users.*\\/(\\w[A-Za-z-]+\\d\\d\\d\\d\\w?).tags:ebook / \\$1   /' | sort -k 2\"\nfind finds files or directories. You could use Spotlight but Spotlight uses quite a bit of disk storage for its indexes, whereas find uses none. Therefore I have Spotlight disabled on my machine and I just use find. In this case I have told find to search in my home director and all subdirectories by supplying ~/ as a target. Then I told find that I want to match the name attribute of files in those folders. I can instead ask find to search for files on other attributes than their names, such as modification times. The particular names I’ve chosen to search for are those ending in .tags. The argument at the end of the find command is -print0. This is a special argument designed to deal with files that have spaces in their names. Ordinarily, Unix utilities expect files to have no spaces in their names. This argument deals with that.\nAll the files on my system that end in .tags are files that describe my ebooks and articles. They all obey a specific naming convention and a specific convention for their contents. If they are an ebook, the first line of the corresponding .tags begins with the word ebook followed by a tab followed by the book title. These files are all named by the last name of the author (first author if there is more than one) followed by the four digit year, optionally followed by a lowercase letter if there is more than one publication by the same author in the same year.\nxargs is a really useful command for operating on a group of files. In this case, the files that are piped to the xargs command are .tags files. The -0 is a special argument used to deal with the possibility of spaces in filenames. It works in concert with the -print0 argument to the previous command. What xargs does is to invoke the following command on each of the files sent to it. In this case, that command is grep ^ebook.\ngrep is a command that finds text in files and returns the line containing the text—by default. It can be made to do other things but in this case, I’m just looking for lines that begin with the string ebook followed by a tab character. The ^ symbol is what anchors the search to the beginning of the line. The tab in the above command may not be visible on your monitor. I entered it by typing ctrl-g, followed by typing the tab key. The output of the grep command is just the full path name of the file, followed by a colon, followed by the contents of the matching line of the file. Remember that xargs has caused this command to be run on every tags file, so now I have a list of all book titles. However, the format of it is not too friendly. So it gets piped to another command.\nperl is a programming language that is well-suited to one-line commands. It is one of several similar languages I could have used for the task of reformatting the output. I’ll demonstrate one of the others, awk, later. In this case, there are two arguments to perl, clustered together after a hyphen, -pe. The p tells perl to a while loop around whatever follows and to print the output and e tells perl that what follows is a one-line program. The part enclosed in apostrophes is a one-line program. It says to substitute one pattern with another pattern. It will be easier to understand, if I show you what the input and output patterns look like. An example of the input patterns is\n/Users/mcq/booksPapers/Pirsig1974.tags:ebook    Zen and the art of motorcycle maintenance\nAn example of the output pattern is\nPirsig1974  Zen and the art of motorcycle maintenance\nWhat the perl program is doing is stripping out everything before the tab character except Pirsig1974 and displaying just that, followed by the rest of the line, which is the ebook title. The details of the perl program are explained in the module regularExpressions.\nsort simply sorts its input and produces sorted output. It is one of the most frequently used commands because sorting is so common. By default, it assumes that its input is delimited by whitespace. The definition of whitespace is usually a space, a tab, an invisible character produced by the Enter key, or really any of the Unicode characters listed in the Wikipedia article on whitespace characters: https://en.wikipedia.org/wiki/Whitespace_character. In this case, I wanted to sort by title not by author, so I supplied the positional argument -k 2 which tells sort to sort on the second column."
+  },
+  {
+    "objectID": "fileIO.html#the-or-less-than-symbol-redirecting-input",
+    "href": "fileIO.html#the-or-less-than-symbol-redirecting-input",
+    "title": "14  Unix File I/O",
+    "section": "14.3 The < or less-than symbol: redirecting input",
+    "text": "14.3 The &lt; or less-than symbol: redirecting input\nYou can send the contents of a file to a command with the &lt; or less-than symbol.\nFor example, I used to teach a beginning Java course where the students would turn in programs with wildly differing amounts of indentation and arbitrary numbers of empty lines. So, before looking at the programs, I would run them through the following shell function. This function appears in my ~/.bash_profile file, which is executed whenever I start running bash. It makes the compact function available throughout my bash session.\ncompact () {\n  # e.g.,\n  #   compact StupidJavaProg.java\n  # reformats the program to have 2 space indentation\n  # and java-style braces and runs it through grep to\n  # remove empty newlines\n  astyle -s2 --style=java &lt; $1 | grep -v ^$\n}\nSo, I would just type compact franksProgram.java at the command prompt and the argument franksProgram.java would replace the $ in the shell function.\nastyle is a program that automatically reformats code to be more readable. The argument -s2 means that every time there is an indentation, it should be two spaces. The argument --style=java means to use the standard Java style (which can be modified) and the construct &lt; $1 means to take input from the filename supplied after the word compact on the commandline. Then there is a pipe | character that sends the program to grep.\ngrep finds patterns in files and displays the lines containing those patterns. However, the -v option reverses the ordinary operation of grep so that it displays lines that don’t match the given pattern. In this case, the pattern is ^$. The ^ caret or circumflex character matches the beginning of a line, and the $ dollar character matches the end of the line. Since these come one right after the other, they only match empty lines, lines with nothing between their beginning and end. This gets rid of the"
+  },
+  {
+    "objectID": "fileIO.html#the-or-greater-than-symbol-redirecting-output",
+    "href": "fileIO.html#the-or-greater-than-symbol-redirecting-output",
+    "title": "14  Unix File I/O",
+    "section": "14.4 The > or greater-than symbol: redirecting output",
+    "text": "14.4 The &gt; or greater-than symbol: redirecting output\nSometimes you don’t want the output of a program to just fly by on the screen. You may want to use it for some purpose or examine it. You can put it in a file by saying something like:\ncmd &gt; file\nFor example,\nls /usr/bin/\nproduces way more than a screenful of output. You could instead say:\nls /usr/bin/ &gt;programNames.txt\nand now you have a file of program names that were found in the /usr/bin/ folder.\nThe &gt; symbol is destructive! It will replace any file you have previously created with the contents of the command output. This can be useful in the case of temporary files but problematic if you want to keep the files. So, there’s a special symbol &gt;&gt; that adds to the output file instead of replacing it. I often use this to add to logs that are fed by more than one command. Another related special symbol is 2&gt; which sends only STDERR to a file. I commonly use this in a variant of the following command:\nfind / -name \"somePattern\" 2&gt;/dev/null\nThis runs the find command on my entire hard disk (often called a storage volume). There are many files that would return a “Permission Denied” message, and those messages are automatically sent to STDERR instead of STDOUT. The special file name /dev/null means “nowhere”. So the error messages vanish silently. Note that I only do this when I’m expecting certain error messages that I don’t care about!"
+  },
+  {
+    "objectID": "fileManipulation.html",
+    "href": "fileManipulation.html",
+    "title": "15  File Manipulation",
+    "section": "",
+    "text": "to be added\nrsync -PUpavh here there\ncp -p this that\nmv here there\ntrash unwanted-file\nrm really-unwanted-file\nrm -rf really-unwanted-folder-with-files-in-it\nbat file-to-view # aliased to cat on my mac by saying alias cat=bat in my ~/.bash_profile file\nchmod 700 file-of-cmds-to-execute\ntree folder-to-look-inside\nstat file-to-learn-about"
+  },
+  {
+    "objectID": "macGeneral/macDotFiles.html",
+    "href": "macGeneral/macDotFiles.html",
+    "title": "16  macOS dotfiles",
+    "section": "",
+    "text": "to be added"
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "awesome cli apps"
+  }
+]
