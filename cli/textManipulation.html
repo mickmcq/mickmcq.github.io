@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Welcome to the Command Line - 2&nbsp; macOS minimal setup for Intel machines</title>
+<title>Welcome to the Command Line - 16&nbsp; Text manipulation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,7 +54,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -64,8 +83,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./macSetupM1Full.html" rel="next">
-<link href="./macSetupIntelFull.html" rel="prev">
+<link href="./vim.html" rel="next">
+<link href="./fileManipulation.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -108,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./macSetupIntelMinimal.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">macOS minimal setup for Intel machines</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./textManipulation.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Text manipulation</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -147,7 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./macSetupIntelMinimal.html" class="sidebar-item-text sidebar-link active">
+  <a href="./macSetupIntelMinimal.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">macOS minimal setup for Intel machines</span></span></a>
   </div>
 </li>
@@ -231,7 +250,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./textManipulation.html" class="sidebar-item-text sidebar-link">
+  <a href="./textManipulation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Text manipulation</span></span></a>
   </div>
 </li>
@@ -269,15 +288,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#check-and-update-apple-id" id="toc-check-and-update-apple-id" class="nav-link active" data-scroll-target="#check-and-update-apple-id"><span class="header-section-number">2.1</span> Check and Update Apple ID</a></li>
-  <li><a href="#open-finder" id="toc-open-finder" class="nav-link" data-scroll-target="#open-finder"><span class="header-section-number">2.2</span> Open Finder</a></li>
-  <li><a href="#open-system-settings" id="toc-open-system-settings" class="nav-link" data-scroll-target="#open-system-settings"><span class="header-section-number">2.3</span> Open System Settings</a></li>
-  <li><a href="#install-xcode" id="toc-install-xcode" class="nav-link" data-scroll-target="#install-xcode"><span class="header-section-number">2.4</span> Install XCode</a></li>
-  <li><a href="#figure-out-your-processor" id="toc-figure-out-your-processor" class="nav-link" data-scroll-target="#figure-out-your-processor"><span class="header-section-number">2.5</span> Figure out your processor</a></li>
-  <li><a href="#install-homebrew" id="toc-install-homebrew" class="nav-link" data-scroll-target="#install-homebrew"><span class="header-section-number">2.6</span> Install Homebrew</a></li>
-  <li><a href="#install-basic-brew-packages" id="toc-install-basic-brew-packages" class="nav-link" data-scroll-target="#install-basic-brew-packages"><span class="header-section-number">2.7</span> Install basic brew packages</a></li>
-  <li><a href="#install-r-and-rstudio" id="toc-install-r-and-rstudio" class="nav-link" data-scroll-target="#install-r-and-rstudio"><span class="header-section-number">2.8</span> Install R and RStudio</a></li>
-  <li><a href="#weekly-maintenance" id="toc-weekly-maintenance" class="nav-link" data-scroll-target="#weekly-maintenance"><span class="header-section-number">2.9</span> Weekly maintenance</a></li>
+  <li><a href="#an-advanced-use-of-grep" id="toc-an-advanced-use-of-grep" class="nav-link active" data-scroll-target="#an-advanced-use-of-grep"><span class="header-section-number">16.1</span> An advanced use of <code>grep</code></a></li>
+  <li><a href="#examining-a-complicated-regular-expression" id="toc-examining-a-complicated-regular-expression" class="nav-link" data-scroll-target="#examining-a-complicated-regular-expression"><span class="header-section-number">16.2</span> Examining a complicated regular expression</a></li>
+  <li><a href="#an-example-of-grep-with-a-posix-bracket-expression" id="toc-an-example-of-grep-with-a-posix-bracket-expression" class="nav-link" data-scroll-target="#an-example-of-grep-with-a-posix-bracket-expression"><span class="header-section-number">16.3</span> An example of <code>grep</code> with a POSIX bracket expression</a></li>
+  <li><a href="#find-and-replace" id="toc-find-and-replace" class="nav-link" data-scroll-target="#find-and-replace"><span class="header-section-number">16.4</span> Find and replace</a></li>
+  <li><a href="#pcre" id="toc-pcre" class="nav-link" data-scroll-target="#pcre"><span class="header-section-number">16.5</span> PCRE</a></li>
+  <li><a href="#lazy-and-greedy-regular-expressions" id="toc-lazy-and-greedy-regular-expressions" class="nav-link" data-scroll-target="#lazy-and-greedy-regular-expressions"><span class="header-section-number">16.6</span> Lazy and Greedy Regular Expressions</a></li>
   </ul>
 </nav>
     </div>
@@ -286,7 +302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">macOS minimal setup for Intel machines</span></h1>
+<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Text manipulation</span></h1>
 </div>
 
 
@@ -301,108 +317,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<!-- This file includes a minimal setup for an Intel Mac. This is sufficient for i306 Statistics for Informatics. -->
-<section id="check-and-update-apple-id" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="check-and-update-apple-id"><span class="header-section-number">2.1</span> Check and Update Apple ID</h2>
-<p>This helps with warranty repair and sharing among multiple Apple devices. It should be the first item in the list under  &gt; System Settings…</p>
+<p>The most important kind of text manipulation is the use of <em>regular expressions</em>. These are patterns representing text. The name is usually abbreviated to <em>regex</em>. The first way people learn about regexes is often the Unix utility <code>grep</code>. By default, this utility searches for text matching a regular expression in a file or files and returns the line(s) containing a match.</p>
+<p>The simplest regular expression is literal text. For example, I could search for my name in a file called <code>example.md</code> by saying</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> Mick example.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>and the output would be any lines in <code>example.md</code> containing my name, written to <code>stdout</code>, which by default is the screen. There are many more advanced uses of <code>grep</code>.</p>
+<section id="an-advanced-use-of-grep" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="an-advanced-use-of-grep"><span class="header-section-number">16.1</span> An advanced use of <code>grep</code></h2>
+<p>I needed the email addresses of job candidates in the file <code>candidates.md</code>. Following are a couple of approaches of using grep to find them. Because this use of <code>grep</code> is quite complicated, I’ll spend a few paragraphs dissecting it.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-o</span> <span class="st">' [a-z0-9.]+@[a-z0-9.]+( |$)'</span> candidates.md <span class="kw">|</span> <span class="fu">nl</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-o</span> <span class="st">' [[:graph:]]+@[[:graph:]]+( |$)'</span> candidates.md <span class="kw">|</span> <span class="fu">nl</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-o</span> <span class="st">' [[:graph:]]+@[[:graph:]]+( |$)'</span> candidates.md <span class="op">&gt;</span>emails.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The first command above includes the option <code>-o</code> which means to only return the matching part of the line. This way, I just get the email addresses and nothing else. The regular expression here is enclosed in apostrophes, then comes the name of the file I’m searching in, <code>candidates.md</code>, then a pipe character, <code>|</code>, which pipes the output of the first command to the second command, in this case the <code>nl</code> command, which numbers lines. Since I know that there are 21 lines in the <code>candidates.md</code> file, I expect to get 21 numbered lines in the final output, but I only got twenty. Let’s examine the regular expression to see why this is.</p>
 </section>
-<section id="open-finder" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="open-finder"><span class="header-section-number">2.2</span> Open Finder</h2>
-<p>Go to Settings &gt; Advanced &gt; Show all file extensions</p>
+<section id="examining-a-complicated-regular-expression" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="examining-a-complicated-regular-expression"><span class="header-section-number">16.2</span> Examining a complicated regular expression</h2>
+<p>The first item in the regular expression is a literal space character because I knew that the email addresses all came after a space following the candidates’ names.</p>
+<p>Next is a <em>bracket expression</em>. A bracket expression contains a list of characters in square brackets. It matches any one of these characters. It also allows some special characters as used here. For example, instead of writing out the entire alphabet, it allows <code>a-z</code> to stand for all the lowercase letters. I happened to know that the email addresses in this file had no uppercase characters, or I could have added <code>A-Z</code> to the bracket expression. I also knew that some candidates included numbers in their email addresses, so I also included <code>0-9</code>, which stands for any digit. I also knew that some candidates included a dot in their email addresses, so I also included <code>.</code> in the bracket expression. So far, so good. I’ve matched any single character in an email address.</p>
+<p>Next is a plus sign <code>+</code>. This symbol says to match a series of one or more of the previous element. Since the previous element is a bracket expression, this will match any string of characters containing letters, numbers, or dots in any combination. By itself, it would only stop when it reached a space or control character.</p>
+<p>Next is an at sign <code>@</code>. This occurs in every email address and it is the main way that I distinguish between email addresses and other items in the <code>candidates.md</code> file. Now my regular expression won’t match anything except an email address.</p>
+<p>Next is another bracket expression, just like the one above. It matches the end of the email address, which always contains a dot and some text. Usually, it’s <code>utexas.edu</code> in this file, but not always. I don’t think it contains any digits, but I was too lazy to check.</p>
+<p>Last is a set of parentheses with a special construct inside them. This is a way of letting regular expressions match a choice. The pipe symbol <code>|</code> in this context means <em>or</em>. So this construct matches a space or the end of a line. Wait, what? The end of a line? Yes, the dollar sign <code>$</code> in this context stands for the end of a line. Lines are actually ended by invisible control characters and, if we put one of those in here, it would unintentionally end the regular expression, so we need a shorthand that represents the end of a line. The dollar sign is almost always used for that, although we will later learn another context in which the dollar sign means the end of a file instead of the end of a line. This <em>or</em> construct differs from bracket expressions in an important way. The elements on either side of the <code>|</code> symbol can be of any length. For example, I may be called Mick or Michael in a file, so I may want to search for the regular expression <code>(Mick|Michael)</code> if I’m looking for my name. This differs from a bracket expression because it is searching for a string, not an individual character.</p>
 </section>
-<section id="open-system-settings" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="open-system-settings"><span class="header-section-number">2.3</span> Open System Settings</h2>
-<p>This is the first menu item on the Apple () menu.</p>
-<ul>
-<li>keyboard &gt; keyboard shortcuts &gt; modifier keys &gt; change caps-lock to ctrl</li>
-<li>desktop and dock &gt; automatically hide and show the dock</li>
-<li>desktop and dock &gt; automatically hide and show menubar on desktop (if no notch)</li>
-<li>desktop and dock &gt; change Magnification to Large</li>
-<li>trackpad &gt; More gestures &gt; Swipe between pages &gt; three fingers</li>
-</ul>
+<section id="an-example-of-grep-with-a-posix-bracket-expression" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="an-example-of-grep-with-a-posix-bracket-expression"><span class="header-section-number">16.3</span> An example of <code>grep</code> with a POSIX bracket expression</h2>
+<p>The second command above worked a little better because one candidate had an underscore in their email address. I would have needed to include the underscore explicitly in the first one. I used the <code>nl</code> command to see if all the addresses were being picked up, which is how I noticed the underscore. The construct <code>[:graph:]</code> is called a POSIX bracket expression. You can find a list of them at <a href="https://www.regular-expressions.info/posixbrackets.html">https://www.regular-expressions.info/posixbrackets.html</a>. They need to be enclosed inside another bracket expression, hence the double square brackets. The POSIX bracket expression <code>[:graph:]</code> represents any single visible character. That is, any character except spaces and control characters.</p>
+<p>The second command above has the added advantage that it is easier to read and remember. Don’t try to use it for all email addresses, though, because some legal email addresses are more complicated than this! I only used it because I knew that there were no unusual email addresses in my file and this was borne out by the fact that it returned 21 email addresses from a file 21 lines long.</p>
+<p>The third command above was not strictly necessary. Since I only had 21 email addresses they all fit on the screen and I could have copied and pasted them into the email message I wanted to send to all candidates but instead I decided to put them all in a file and paste that file into the email. Not all email programs will allow that, though. Anyway, the third command sends its output to the file <code>emails.md</code> by using the <code>&gt;</code> redirection operator that redirects <code>stdout</code> away from the screen and into a file. On traditional Unix systems you could also use the <code>&gt;</code> redirection operator to redirect <code>stdout</code> to a printer attached to the computer. Since most printers today are wireless, that’s not practical, but it illustrates how nearly everything in Unix can be addressed as if it were a file.</p>
 </section>
-<section id="install-xcode" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="install-xcode"><span class="header-section-number">2.4</span> Install XCode</h2>
-<p>Do this from the macOS app store, which is the third menu item under the Apple () menu.</p>
-<p>Installation takes a million years! Make sure you have some time or can leave the computer running.</p>
-<p>Be sure to open XCode after install to initialize and possibly to install command line utilities. (It used to make you install command line utilities but I already did that so I can’t tell if the current version is not making me do it because I have it installed or because it’s no longer required.)</p>
+<section id="find-and-replace" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="find-and-replace"><span class="header-section-number">16.4</span> Find and replace</h2>
+<p>There are vastly many ways to find and replace text in files, some using a combination of <code>grep</code> and <code>sed</code>, others using a combination of <code>find</code> and <code>sed</code>, still others using <code>awk</code>. Personally, I use <code>perl</code> in one of two ways.</p>
+<p>Replace old with new in .txt files:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">perl</span> <span class="at">-ipe</span> <span class="st">'s/old/new/g;'</span> <span class="pp">*</span>.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>destructive, though so you have to either do it right the first time or say</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">perl</span> <span class="at">-i.bk</span> <span class="at">-pe</span> <span class="st">'s/old/new/g;'</span> <span class="pp">*</span>.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>to get backup files for each altered .txt file. Then check the new files and, if they’re good, say <code>trash *.bk</code>.</p>
+<p>Consider the options to this command, <code>i</code>, <code>p</code>, and <code>e</code>. To find out more about them, you might say <code>man perl</code> but you would find that it introduces you to the <code>perldoc</code> system instead of explaining them. You would actually say <code>perldoc perlrun</code> to find out their meanings.</p>
+<p>The <code>i</code> option says to edit files in place. It renames the input file if you include some characters after the <code>i</code>. In this case, I’ve said <code>i.bk</code> so it adds <code>.bk</code> to the filename. Then it opens the original contents of that file and does whatever you tell it to do under the original name.</p>
+<p>The <code>p</code> option causes <code>perl</code> to assume the following loop around your program:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode perl code-with-copy"><code class="sourceCode perl"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">while</span> (&lt;&gt;) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  ... <span class="co"># your program will go here</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>} <span class="kw">continue</span> {</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span> <span class="ot">or</span> <span class="fu">die</span> <span class="ot">"</span><span class="st">-p destination: </span><span class="wa">$!</span><span class="ch">\n</span><span class="ot">"</span>;</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This loop means that your program (see below) will try to run on every line of input as long as there is input and unless the output encounters a write error, in which case it will abort.</p>
+<p>The <code>e</code> option says that what comes next is a one line program.</p>
+<p>The one line program in this case is <code>s/old/new/g;</code>. Since it is enclosed in a while loop (see above) it runs on every line of input unless it encounters an error, in which case it will abort. <code>s</code> stands for substitute and you could actually write out the word substitute if it helps you remember. Next is a separator character, in the usual case it is <code>/</code> but you could substitute another character if there is a <code>/</code> in the text you want to match. For instance, I usually use <code>:</code> if there is a <code>/</code> in the input. If there is both a colon and a slash, e.g., in a URL, I usually use a <code>!</code>. Anyway, this separator character separates what I want to match (old) with what I want to replace it with (new). After the second separator, I can give options, in this case <code>g</code> for global. It is an annoying feature of the <code>s</code> command that it only replaces the first instance of <code>old</code> with <code>new</code> on each line. If <code>old</code> may occur two or more times on each line, you must use the <code>g</code> option.</p>
+<p>The last item in the program is a semicolon <code>;</code>. This is an example of what many people hate about <code>perl</code>. It is always correct to include a semicolon at the end of a statement, but <code>perl</code> will often let you get away with omitting it. This is one of those cases, so you don’t really need a semicolon here but you would if you wanted to include two <code>perl</code> statements in your program fragment. The reason people hate this is because it is hard to remember the rules allowing you to omit the semicolon. <code>perl</code> was really intended to be used every day. Back in the years when I did use <code>perl</code> every day, I found it easy to remember all the idiosyncracies like that. Nowadays, not so much.</p>
+<p>After the program comes the files I want to operate on, all files ending in <code>.txt</code> by using the wildcard character <code>*</code> that matches anything in a filename. Unfortunately, there are two contexts for using <code>*</code>. In a filename on the command line it stands for <em>anything</em> but in a regular expression it stands for <em>zero or more occurrences of the element that preceded it</em>. This causes a lot of confusion for users of regular expressions!</p>
 </section>
-<section id="figure-out-your-processor" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="figure-out-your-processor"><span class="header-section-number">2.5</span> Figure out your processor</h2>
-<p>Open  &gt; About this Mac, and look under processor—if it says M1 or M2, you’re in the wrong file! Use the file macSetupM1Full for all the remaining instructions. To use this file, the processor entry should include the word <em>Intel</em>.</p>
+<section id="pcre" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="pcre"><span class="header-section-number">16.5</span> PCRE</h2>
+<p>The most common kind of regular expression is called the PCRE, which stands for <em>Perl Compatible Regular Expression</em>. Although <code>perl</code> has fallen in popularity, its regular expressions have not and most text-handling utilities (but not all!) follow the regular expression syntax used in <code>perl</code>. I learned regular expressions from a book, <span class="citation" data-cites="Friedl2006">Friedl (<a href="references.html#ref-Friedl2006" role="doc-biblioref">2006</a>)</span>, in its most recent edition. This covers PCRE plus all the variants and was available free online the last time I looked. I can’t emphasize enough that, before the first edition of this book in 1997, there was no comprehensive reference to regular expressions. Hence, most older software developers have read it. Now, many other resources are available, such as <a href="https://www.regular-expressions.info/tutorial.html">https://www.regular-expressions.info/tutorial.html</a>.</p>
 </section>
-<section id="install-homebrew" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="install-homebrew"><span class="header-section-number">2.6</span> Install Homebrew</h2>
-<p>For this you will use the terminal. You can find the macOS default terminal by opening the Finder and navigating to <code>/Applications/Utilities</code>. There are many useful programs in that folder, arranged alphabetically. Navigate to Terminal.app and double click it.</p>
-<p>Enter the following commands in the terminal. You should be able to copy and paste them from this list to avoid transcription errors.</p>
-<p>Note that everything from a hashmark (#) to the end of the line is regarded as a comment and is not processed. I just include those comments for your information.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/bin/bash</span> <span class="at">-c</span> <span class="st">"</span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="va">)</span><span class="st">"</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span> <span class="va">$(</span><span class="ex">/usr/local/bin/brew</span> shellenv<span class="va">)</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install bash <span class="co"># the shell that will process all your cli commands</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> pico /etc/shells <span class="co"># add /usr/local/bin/bash to the list in that file</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">chsh</span> <span class="at">-s</span> /usr/local/bin/bash <span class="co"># makes bash the default shell</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install quicksilver <span class="co"># simplifies opening programs</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install iterm2 <span class="co"># terminal replacement; when our setup is complete we will use it instead of terminal</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install hammerspoon <span class="co"># controls window placement on screen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="install-basic-brew-packages" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="install-basic-brew-packages"><span class="header-section-number">2.7</span> Install basic brew packages</h2>
-<p>This installation process is tedious but informative. If you prefer, there is a utility file in Canvas &gt; Files &gt; misc &gt; basicBrewPackages.sh that does all of these at once. Beware, though, that you may miss important messages that way.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install python <span class="co"># keeps Python more up-to-date than native macOS python</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip3</span> install powerline-status <span class="co"># gives a better command prompt</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install coreutils <span class="co"># replaces basic cli utilities with enhanced versions</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install findutils <span class="co"># enhancements for the Unix find utility</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install ruby <span class="co"># installs a more recent version of ruby than the native macOS version</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">gem</span> install colorls <span class="co"># gives color-coded filenames when invoking ls</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">gem</span> install github-pages <span class="co"># utilities for website building</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install tmux <span class="co"># a terminal multiplexer</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install rename <span class="co"># simplifies pattern renaming of files</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install macvim <span class="co"># both gui and cli version of the vim editor</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install pandoc <span class="co"># converts documents between platforms such as qmd, pdf, html, docx, epub, and more</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ex">pip3</span> install pandoc-include <span class="co"># enables including markdown documents in other markdown documents (not for Quarto, just plain markdown)</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install pandoc-include-code <span class="co"># enables including program files in markdown documents (not for Quarto, just plain markdown)</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install quarto <span class="co"># scientific document and presentation system</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install trash <span class="co"># enables a command line trash function</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install clipy <span class="co"># improves clipboard management</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install saulpw/vd/visidata <span class="co"># cli csv file manager</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install gnu-tar <span class="co"># improved archive management</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install grep <span class="co"># improved regular expression search</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install bib-tool <span class="co"># manages bibliography files created with bibtex or biblatex</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install font-tex-gyre-schola <span class="co"># font used by quarto</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install font-tex-gyre-schola-math <span class="co"># font used by quarto</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install font-jetbrains-mono-nerd-font <span class="co"># font used by quarto</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Most of these installations also install a <code>man</code> page or at least a help file. For example, you can say</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> trash</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>to get information about the <code>trash</code> utility. The <code>man</code> pages have a specialized, hard-to-grasp format if you’re new to them, so you may want to check out the <code>man</code> module before making extensive use of them.</p>
-<p>For those programs that have no <code>man</code> page, you can usually say <code>&lt;name of command&gt; --help</code> to get a help page. For instance, you can say</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> <span class="at">--help</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>to get some brief help for using the cli version of Quarto. Of course, Quarto also has a web page at <a href="https://quarto.org/">https://quarto.org/</a> that gives <em>much</em> more information about it.</p>
-</section>
-<section id="install-r-and-rstudio" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="install-r-and-rstudio"><span class="header-section-number">2.8</span> Install R and RStudio</h2>
-<ul>
-<li><p>Google the letter R. Usually, the first hit is the R project: <a href="https://www.r-project.org/">https://www.r-project.org/</a></p></li>
-<li><p>You have to choose a mirror to download from. I usually choose USA: National Institute for Computational Sciences, Oak Ridge, TN</p></li>
-<li><p>Be sure to choose Intel X86 when given a choice</p></li>
-<li><p>You will download a package installer. Double-click it in Finder and follow the instructions</p></li>
-<li><p>Google RStudio. Usually, the first hit is Posit’s RStudio download site: <a href="https://posit.co/products/open-source/rstudio/">https://posit.co/products/open-source/rstudio/</a></p></li>
-<li><p>After clicking various links to download RStudio Desktop, you should eventually get to a page with the .dmg file to download. That page is <a href="https://posit.co/download/rstudio-desktop/">https://posit.co/download/rstudio-desktop/</a> so you can visit it directly if you prefer. (I don’t know why they make you click through so many pages if you don’t have that URL!)</p></li>
-<li><p>Download the .dmg file.</p></li>
-<li><p>Double-click the .dmg file in the Finder. You should see a window with an Applications folder and the RStudio.app.</p></li>
-<li><p>Drag the RStudio.app icon to the Applications folder. This is very important. If you try to open the RStudio.app icon from this window, you will not be able to save your work!</p></li>
-<li><p>Eject the disk image that will appear in Finder that generates this window after RStudio.app is successfully added to your Applications folder.</p></li>
-</ul>
-</section>
-<section id="weekly-maintenance" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="weekly-maintenance"><span class="header-section-number">2.9</span> Weekly maintenance</h2>
-<p>I usually put the following commands in a file called <code>~/weeklyMaintenance</code> and sometimes run them as a group if I don’t want to look at the output of each one. More often, I run them individually and examine the output for items of interest, such as error messages or special package instructions.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> update <span class="co"># updates brew's concept of what's available</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> upgrade <span class="co"># actually upgrades whatever brew now knows to be available</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip-upgrade</span> <span class="co"># upgrades Python packages</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">'update.packages()'</span> <span class="co"># upgrades R packages</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Note that <code>pip-upgrade</code> is actually a shell function. Its definition is in my <code>.bash_profile</code> file, which can be found in Canvas &gt; Files &gt; misc. This command will not work without that definition.</p>
+<section id="lazy-and-greedy-regular-expressions" class="level2" data-number="16.6">
+<h2 data-number="16.6" class="anchored" data-anchor-id="lazy-and-greedy-regular-expressions"><span class="header-section-number">16.6</span> Lazy and Greedy Regular Expressions</h2>
+<p>One concept in regular expressions revolves around the question of whether a given symbol is <em>greedy</em> or <em>lazy</em>. A greedy quantifier looks as far ahead in the text as it can for a match. A lazy quantifier stops looking as soon as it finds a valid match. This is important when a pattern occurs more than once on a given line. Take the expression <code>.*</code> which matches any character at all, represented by dot <code>.</code>, and then zero or more occurrences of any character, represented by <code>*</code>. This is greedy. It will, by itself, match a whole line of text. Greedy quantifiers include <code>*</code>, <code>+</code>, <code>?</code>, and <code>{</code><em>num,num</em><code>}</code>. Lazy quantifiers are less common and not all tools support them. These quantifiers include <code>??</code>, <code>*?</code>, <code>+?</code>, and <code>{</code><em>num,num</em><code>}?</code>, according to <span class="citation" data-cites="Friedl2006">Friedl (<a href="references.html#ref-Friedl2006" role="doc-biblioref">2006</a>)</span>, p 141.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Friedl2006" class="csl-entry" role="listitem">
+Friedl, Jeffrey E. F. 2006. <em>Mastering Regular Expressions, 3rd Edition</em>. Sebastopol, CA: O’Reilly Media.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -641,13 +618,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./macSetupIntelFull.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">macOS full setup for Intel machines</span></span>
+      <a href="./fileManipulation.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">File manipulation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./macSetupM1Full.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">macOS full setup for M1/2 machines</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./vim.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Vim, a text editor</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
