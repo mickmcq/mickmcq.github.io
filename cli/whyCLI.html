@@ -67,9 +67,8 @@ ul.task-list li input[type="checkbox"] {
 }
 #quarto-sidebar .chapter-number {
   display: block;
-  width: 2rem;
+  width: 1.5rem;
   text-align: right;
-  padding-right: 2px;
 }
 #quarto-sidebar .chapter-title {
   display: block;
@@ -203,7 +202,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./fileIO.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Unix File I/O</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Unix File Input / Output</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -248,7 +247,16 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#richness-of-options" id="toc-richness-of-options" class="nav-link active" data-scroll-target="#richness-of-options"><span class="header-section-number">5.1</span> Richness of options</a></li>
+  <li><a href="#audit-trail" id="toc-audit-trail" class="nav-link" data-scroll-target="#audit-trail"><span class="header-section-number">5.2</span> Audit trail</a></li>
+  <li><a href="#stability" id="toc-stability" class="nav-link" data-scroll-target="#stability"><span class="header-section-number">5.3</span> Stability</a></li>
+  <li><a href="#how-to-get-comfortable" id="toc-how-to-get-comfortable" class="nav-link" data-scroll-target="#how-to-get-comfortable"><span class="header-section-number">5.4</span> How to get comfortable</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -270,9 +278,46 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>to be added</p>
+<p>under construction</p>
+<section id="richness-of-options" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="richness-of-options"><span class="header-section-number">5.1</span> Richness of options</h2>
+<p>GUIs typically offer a subset of features of the cli version of a tool.</p>
+</section>
+<section id="audit-trail" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="audit-trail"><span class="header-section-number">5.2</span> Audit trail</h2>
+<p>You know or can find out what you did, both for debugging and automation / reproducibility.</p>
+</section>
+<section id="stability" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="stability"><span class="header-section-number">5.3</span> Stability</h2>
+<p>CLI tools have great backward compatibility. There is no graphical user interface to change with fashions, so the tool works the same way year in and year out. I’ve used some Unix cli tools with unchanged options since the 1980s!</p>
+</section>
+<section id="how-to-get-comfortable" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="how-to-get-comfortable"><span class="header-section-number">5.4</span> How to get comfortable</h2>
+<p>An obvious corollary to the question of <em>Why?</em> is how you get comfortable with the command line. <a href="https://jvns.ca/blog/2023/08/08/what-helps-people-get-comfortable-on-the-command-line-/">A recent article</a> that was <a href="https://news.ycombinator.com/item?id=37048397">discussed on Hacker News</a> sheds some light and can be crudely summarized by the following list:</p>
+<ul>
+<li>killer apps, such as <code>jq</code>, <code>ripgrep</code>, <code>wget</code>, <code>curl</code>, <code>git</code>, <code>ffmpeg</code>, and more</li>
+<li>inspiring wizardry, such as seen at <a href="https://adamdrake.com/command-line-tools-can-be-235x-faster-than-your-hadoop-cluster.html">https://adamdrake.com/command-line-tools-can-be-235x-faster-than-your-hadoop-cluster.html</a> or <a href="https://www.youtube.com/watch?v=ZQnyApKysg4&amp;feature=youtu.be">https://www.youtube.com/watch?v=ZQnyApKysg4&amp;feature=youtu.be</a></li>
+<li>the use of <a href="https://explainshell.com/">explainshell</a></li>
+<li>the discovery of history and tab completion</li>
+<li>the use of <code>fzf</code> the fuzzy finder</li>
+<li>playing with a Raspberry Pi, where you can just erase the SD card and start over if you screw things up</li>
+<li>a fancy shell setup</li>
+<li>a fancy file namager, such as <code>ranger</code> or <code>nnn</code></li>
+<li>a helpful friend or coworker</li>
+<li>aliases that save time and overcome the need for a lot of memorization</li>
+<li>cheat sheets, such as <a href="https://tldr.sh/">https://tldr.sh/</a>, <a href="https://github.com/cheat/cheat">https://github.com/cheat/cheat</a>, or <a href="http://ratfactor.com/cards/um">http://ratfactor.com/cards/um</a></li>
+<li>not trying to memorize, just looking up commands as needed</li>
+<li>using Vim</li>
+<li>using Linux</li>
+<li>being forced for a while</li>
+<li>workshops, such as those at <a href="https://software-carpentry.org/">software carpentry</a></li>
+<li>articles, like <a href="https://furbo.org/2014/09/03/the-terminal/">The Terminal</a> or <a href="http://blog.commandlinekungfu.com/">Command Line Kung Fu</a></li>
+<li>books, like <a href="https://www.oreilly.com/library/view/efficient-linux-at/9781098113391/">effective linux at the command line</a></li>
+<li>videos, like <a href="https://www.destroyallsoftware.com/screencasts">destroy all software</a>, <a href="https://www.youtube.com/@DistroTube">DistroTube</a></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
