@@ -1,8 +1,0 @@
-
-## Open quicksilver and configure
-I use Quicksilver to open programs. Note that I never use the Apple Spotlight function, so I steal its key combination for Quicksilver, control-space. You can configure Quicksilver as you go along if it is not making the right suggestions for programs after you type a few characters. (Like Hammerspoon, Quicksilver is a general purpose tool and you can make much more of it than a program manager.)
-
-- Quicksilver > settings > Command, change to control-space
-- Quicksilver > settings > Appearance > Select interface > Bezel (built-in)
-- Quicksilver > settings > Appearance > check the box Superfluous visual effects
-
