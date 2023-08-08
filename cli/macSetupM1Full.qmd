@@ -1,5 +1,0 @@
----
-title: "macOS full setup for M1/2 machines"
----
-
-to be added
