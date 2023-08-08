@@ -203,11 +203,32 @@
     "text": "to be added"
   },
   {
-    "objectID": "whyCLI.html",
-    "href": "whyCLI.html",
+    "objectID": "whyCLI.html#richness-of-options",
+    "href": "whyCLI.html#richness-of-options",
     "title": "5  Why CLI (command line interface)?",
-    "section": "",
-    "text": "to be added"
+    "section": "5.1 Richness of options",
+    "text": "5.1 Richness of options\nGUIs typically offer a subset of features of the cli version of a tool."
+  },
+  {
+    "objectID": "whyCLI.html#audit-trail",
+    "href": "whyCLI.html#audit-trail",
+    "title": "5  Why CLI (command line interface)?",
+    "section": "5.2 Audit trail",
+    "text": "5.2 Audit trail\nYou know or can find out what you did, both for debugging and automation / reproducibility."
+  },
+  {
+    "objectID": "whyCLI.html#stability",
+    "href": "whyCLI.html#stability",
+    "title": "5  Why CLI (command line interface)?",
+    "section": "5.3 Stability",
+    "text": "5.3 Stability\nCLI tools have great backward compatibility. There is no graphical user interface to change with fashions, so the tool works the same way year in and year out. I’ve used some Unix cli tools with unchanged options since the 1980s!"
+  },
+  {
+    "objectID": "whyCLI.html#how-to-get-comfortable",
+    "href": "whyCLI.html#how-to-get-comfortable",
+    "title": "5  Why CLI (command line interface)?",
+    "section": "5.4 How to get comfortable",
+    "text": "5.4 How to get comfortable\nAn obvious corollary to the question of Why? is how you get comfortable with the command line. A recent article that was discussed on Hacker News sheds some light and can be crudely summarized by the following list:\n\nkiller apps, such as jq, ripgrep, wget, curl, git, ffmpeg, and more\ninspiring wizardry, such as seen at https://adamdrake.com/command-line-tools-can-be-235x-faster-than-your-hadoop-cluster.html or https://www.youtube.com/watch?v=ZQnyApKysg4&feature=youtu.be\nthe use of explainshell\nthe discovery of history and tab completion\nthe use of fzf the fuzzy finder\nplaying with a Raspberry Pi, where you can just erase the SD card and start over if you screw things up\na fancy shell setup\na fancy file namager, such as ranger or nnn\na helpful friend or coworker\naliases that save time and overcome the need for a lot of memorization\ncheat sheets, such as https://tldr.sh/, https://github.com/cheat/cheat, or http://ratfactor.com/cards/um\nnot trying to memorize, just looking up commands as needed\nusing Vim\nusing Linux\nbeing forced for a while\nworkshops, such as those at software carpentry\narticles, like The Terminal or Command Line Kung Fu\nbooks, like effective linux at the command line\nvideos, like destroy all software, DistroTube"
   },
   {
     "objectID": "whyVIM.html",
@@ -268,28 +289,28 @@
   {
     "objectID": "fileIO.html#io-redirection-operators",
     "href": "fileIO.html#io-redirection-operators",
-    "title": "14  Unix File I/O",
+    "title": "14  Unix File Input / Output",
     "section": "14.1 IO redirection operators",
     "text": "14.1 IO redirection operators\nSymbols you can use in a command include the Input / Output redirection operators.\n| # redirect output of one command to the next command\n&lt; # redirect input from a file\n&gt; # redirect output to a file"
   },
   {
     "objectID": "fileIO.html#the-or-pipe-symbol-redirecting-output-to-another-command",
     "href": "fileIO.html#the-or-pipe-symbol-redirecting-output-to-another-command",
-    "title": "14  Unix File I/O",
+    "title": "14  Unix File Input / Output",
     "section": "14.2 The | or pipe symbol: redirecting output to another command",
     "text": "14.2 The | or pipe symbol: redirecting output to another command\nFor example, suppose you have a file called fileA and you would like to transform it into a new file using two commands in succession. You could accomplish this by saying\ncmdA &lt; fileA | cmdB &gt; fileB\nThis pipeline first runs cmdA on fileA, then sends the output to cmdB which operates on that output and sends its output to fileB.\nIt’s common to make sorted lists of objects. In the following pipeline, I identify all the *.tags files in my account. These are files that describe the ebooks and articles I have for reference purposes. There are about 5,000 in all so I can’t remember every one. I want to consult an alphabetized list of ebook names. You can tell by the pipe characters (|) that there are four commands in the following pipeline. The names of the four commands are find, xargs, perl, and sort. They are described below briefly but also have their own modules.\nalias listebooks=\"find ~/ -name \"*.tags\" -print0 | xargs -0 grep ^ebook  | perl -pe 's/^\\/Users.*\\/(\\w[A-Za-z-]+\\d\\d\\d\\d\\w?).tags:ebook / \\$1   /' | sort -k 2\"\nfind finds files or directories. You could use Spotlight but Spotlight uses quite a bit of disk storage for its indexes, whereas find uses none. Therefore I have Spotlight disabled on my machine and I just use find. In this case I have told find to search in my home director and all subdirectories by supplying ~/ as a target. Then I told find that I want to match the name attribute of files in those folders. I can instead ask find to search for files on other attributes than their names, such as modification times. The particular names I’ve chosen to search for are those ending in .tags. The argument at the end of the find command is -print0. This is a special argument designed to deal with files that have spaces in their names. Ordinarily, Unix utilities expect files to have no spaces in their names. This argument deals with that.\nAll the files on my system that end in .tags are files that describe my ebooks and articles. They all obey a specific naming convention and a specific convention for their contents. If they are an ebook, the first line of the corresponding .tags begins with the word ebook followed by a tab followed by the book title. These files are all named by the last name of the author (first author if there is more than one) followed by the four digit year, optionally followed by a lowercase letter if there is more than one publication by the same author in the same year.\nxargs is a really useful command for operating on a group of files. In this case, the files that are piped to the xargs command are .tags files. The -0 is a special argument used to deal with the possibility of spaces in filenames. It works in concert with the -print0 argument to the previous command. What xargs does is to invoke the following command on each of the files sent to it. In this case, that command is grep ^ebook.\ngrep is a command that finds text in files and returns the line containing the text—by default. It can be made to do other things but in this case, I’m just looking for lines that begin with the string ebook followed by a tab character. The ^ symbol is what anchors the search to the beginning of the line. The tab in the above command may not be visible on your monitor. I entered it by typing ctrl-g, followed by typing the tab key. The output of the grep command is just the full path name of the file, followed by a colon, followed by the contents of the matching line of the file. Remember that xargs has caused this command to be run on every tags file, so now I have a list of all book titles. However, the format of it is not too friendly. So it gets piped to another command.\nperl is a programming language that is well-suited to one-line commands. It is one of several similar languages I could have used for the task of reformatting the output. I’ll demonstrate one of the others, awk, later. In this case, there are two arguments to perl, clustered together after a hyphen, -pe. The p tells perl to a while loop around whatever follows and to print the output and e tells perl that what follows is a one-line program. The part enclosed in apostrophes is a one-line program. It says to substitute one pattern with another pattern. It will be easier to understand, if I show you what the input and output patterns look like. An example of the input patterns is\n/Users/mcq/booksPapers/Pirsig1974.tags:ebook    Zen and the art of motorcycle maintenance\nAn example of the output pattern is\nPirsig1974  Zen and the art of motorcycle maintenance\nWhat the perl program is doing is stripping out everything before the tab character except Pirsig1974 and displaying just that, followed by the rest of the line, which is the ebook title. The details of the perl program are explained in the module regularExpressions.\nsort simply sorts its input and produces sorted output. It is one of the most frequently used commands because sorting is so common. By default, it assumes that its input is delimited by whitespace. The definition of whitespace is usually a space, a tab, an invisible character produced by the Enter key, or really any of the Unicode characters listed in the Wikipedia article on whitespace characters: https://en.wikipedia.org/wiki/Whitespace_character. In this case, I wanted to sort by title not by author, so I supplied the positional argument -k 2 which tells sort to sort on the second column."
   },
   {
     "objectID": "fileIO.html#the-or-less-than-symbol-redirecting-input",
     "href": "fileIO.html#the-or-less-than-symbol-redirecting-input",
-    "title": "14  Unix File I/O",
+    "title": "14  Unix File Input / Output",
     "section": "14.3 The < or less-than symbol: redirecting input",
     "text": "14.3 The &lt; or less-than symbol: redirecting input\nYou can send the contents of a file to a command with the &lt; or less-than symbol.\nFor example, I used to teach a beginning Java course where the students would turn in programs with wildly differing amounts of indentation and arbitrary numbers of empty lines. So, before looking at the programs, I would run them through the following shell function. This function appears in my ~/.bash_profile file, which is executed whenever I start running bash. It makes the compact function available throughout my bash session.\ncompact () {\n  # e.g.,\n  #   compact StupidJavaProg.java\n  # reformats the program to have 2 space indentation\n  # and java-style braces and runs it through grep to\n  # remove empty newlines\n  astyle -s2 --style=java &lt; $1 | grep -v ^$\n}\nSo, I would just type compact franksProgram.java at the command prompt and the argument franksProgram.java would replace the $ in the shell function.\nastyle is a program that automatically reformats code to be more readable. The argument -s2 means that every time there is an indentation, it should be two spaces. The argument --style=java means to use the standard Java style (which can be modified) and the construct &lt; $1 means to take input from the filename supplied after the word compact on the commandline. Then there is a pipe | character that sends the program to grep.\ngrep finds patterns in files and displays the lines containing those patterns. However, the -v option reverses the ordinary operation of grep so that it displays lines that don’t match the given pattern. In this case, the pattern is ^$. The ^ caret or circumflex character matches the beginning of a line, and the $ dollar character matches the end of the line. Since these come one right after the other, they only match empty lines, lines with nothing between their beginning and end. This gets rid of the"
   },
   {
     "objectID": "fileIO.html#the-or-greater-than-symbol-redirecting-output",
     "href": "fileIO.html#the-or-greater-than-symbol-redirecting-output",
-    "title": "14  Unix File I/O",
+    "title": "14  Unix File Input / Output",
     "section": "14.4 The > or greater-than symbol: redirecting output",
     "text": "14.4 The &gt; or greater-than symbol: redirecting output\nSometimes you don’t want the output of a program to just fly by on the screen. You may want to use it for some purpose or examine it. You can put it in a file by saying something like:\ncmd &gt; file\nFor example,\nls /usr/bin/\nproduces way more than a screenful of output. You could instead say:\nls /usr/bin/ &gt;programNames.txt\nand now you have a file of program names that were found in the /usr/bin/ folder.\nThe &gt; symbol is destructive! It will replace any file you have previously created with the contents of the command output. This can be useful in the case of temporary files but problematic if you want to keep the files. So, there’s a special symbol &gt;&gt; that adds to the output file instead of replacing it. I often use this to add to logs that are fed by more than one command. Another related special symbol is 2&gt; which sends only STDERR to a file. I commonly use this in a variant of the following command:\nfind / -name \"somePattern\" 2&gt;/dev/null\nThis runs the find command on my entire hard disk (often called a storage volume). There are many files that would return a “Permission Denied” message, and those messages are automatically sent to STDERR instead of STDOUT. The special file name /dev/null means “nowhere”. So the error messages vanish silently. Note that I only do this when I’m expecting certain error messages that I don’t care about!"
   },
