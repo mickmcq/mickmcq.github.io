@@ -1,0 +1,20 @@
+
+## Install Homebrew
+
+For this you will use the terminal. You can find the macOS default terminal by opening the Finder and navigating to `/Applications/Utilities`. There are many useful programs in that folder, arranged alphabetically. Navigate to Terminal.app and double click it.
+
+Enter the following commands in the terminal. You should be able to copy and paste them from this list to avoid transcription errors.
+
+Note that everything from a hashmark (#) to the end of the line is regarded as a comment and is not processed. I just include those comments for your information.
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval $(/usr/local/bin/brew shellenv)
+brew install bash # the shell that will process all your cli commands
+sudo pico /etc/shells # add /usr/local/bin/bash to the list in that file
+chsh -s /usr/local/bin/bash # makes bash the default shell
+brew install quicksilver # simplifies opening programs
+brew install iterm2 # terminal replacement; when our setup is complete we will use it instead of terminal
+brew install hammerspoon # controls window placement on screen
+```
+

@@ -1,0 +1,32 @@
+---
+title: "macOS full setup for Intel machines"
+---
+
+<!-- This file includes the full setup I (Mick) use on my Intel Mac. I display the main screen of this machine in class. -->
+
+{{< include macGeneral/macInit.qmd >}}
+
+{{< include macIntel/figureOutIntelM1.qmd >}}
+
+{{< include macIntel/installHomebrew.qmd >}}
+
+{{< include macGeneral/transferDotFiles.qmd >}}
+
+{{< include macGeneral/configFirefox.qmd >}}
+
+{{< include macGeneral/configHammerspoon.qmd >}}
+
+{{< include macGeneral/configQuicksilver.qmd >}}
+
+{{< include macGeneral/installBasicBrewPackages.qmd >}}
+
+{{< include macGeneral/installOptionalBrewPackages.qmd >}}
+
+{{< include macGeneral/installTeXLive.qmd >}}
+
+{{< include macGeneral/fixSSHkeys.qmd >}}
+
+{{< include macGeneral/installR+RStudio.qmd >}}
+
+{{< include macGeneral/weeklyMaintenanceFull.qmd >}}
+

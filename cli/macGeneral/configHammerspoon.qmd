@@ -1,0 +1,24 @@
+
+## Configure hammerspoon
+Hammerspoon is a general purpose tool, but I just use it to control window placement. The window positions are as follows.
+
+I hold down the Option and Command keys with my left thumb and the control key (formerly the caps-lock key) with my left pinky. Then, with my right forefinger, I press any of the following keys to move the current window into the desired position:
+
+- j --- lower half of the display
+- k --- upper half of the display
+- h --- left half of the display
+- l --- right half of the display
+- m --- maximize the window
+- 1 --- upper left quadrant
+- 2 --- upper right quadrant
+- 3 --- lower left quadrant
+- 4 --- lower right quadrant
+
+```bash
+ls ~/.hammerspoon
+#. if you get an error message, say:
+mkdir ~/.hammerspoon
+#. get the init.lua file from Canvas > Files > misc
+cp -p init.lua ~/.hammerspoon/
+```
+

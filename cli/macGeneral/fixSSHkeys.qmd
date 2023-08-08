@@ -1,0 +1,9 @@
+
+## Fix ssh keys
+This is basically a reminder for people switching machines. If you don't have a github or gitlab account or some other account for which you use ssh keys, you can ignore this.
+
+```bash
+eval $(ssh-agent)
+ssh-add
+```
+

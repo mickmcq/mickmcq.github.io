@@ -1,0 +1,9 @@
+---
+title: "Terminal emulators"
+---
+
+You interact with the command line through a *terminal emulator*. At one time, computers were vastly expensive, so many people connected to a single computer. The devices they used to connect were called terminals. These devices usually included a screen and a keyboard and enough intelligence to connect to the main computer, usually called a *mainframe* or *minicomputer*. You would type a command into the terminal and it would be sent to the main computer, which would send back a response. (Some terminals were designed so that you could type a lot of commands and send them in a group, but we will not explore these.)
+
+There is a whole jungle of programs called *terminal emulators* that replicate the functionality of a terminal, but reside on the computer itself, since computers are now so cheap. Instead of many people each running a single terminal session remote from the computer, it is now common for one person to have many terminal sessions on the computer. Terminal emulators are still the most common way to access remote computers, so a single person's many terminal windows may include some connected to the local computer and some connected to remote computers.
+
+The terminal emulator provides a window and some communications protocol and usually runs a separate program called a shell that provides the actual infrastructure  for a conversation with the computer. Common shells include `sh`, `csh`, `tcsh`, `ksh`, `bash`, `zsh`, and `fish`. The shells are platform-independent, so the same shell may run on Windows, macOS, or Linux, but terminal emulators are platform-specific. Common terminal emulators include `putty` and `Windows Terminal` for Windows, `iTerm` and `terminal` for macOS, and `GNOME terminal`, `terminator`, `alacritty`, `Konsole` and `Guake` for Linux.

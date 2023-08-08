@@ -1,0 +1,5 @@
+---
+title: "macOS minimal setup for M1/2 machines"
+---
+
+to be added

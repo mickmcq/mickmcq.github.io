@@ -1,0 +1,35 @@
+
+## Install optional brew packages
+
+```bash
+brew install exiftool # manages exif tags in image files
+brew install cmus # cli music player
+brew install poppler # required by some pdf tools
+brew install imagemagick # command line image file management
+brew install lynx # command line web browser, good at saving text of web pages
+brew install buku # cli bookmark manager
+brew install gfortran # required by many numerical manipulation programs
+brew install libjpeg # required by man image manipulation programs
+brew install ffmpeg # video file swiss army knife
+brew install dict # access to online (mostly) English dictionaries
+brew install bat # improved cli file viewing, aliased to cat in my .bash_profile
+brew install distribution # provides a command line histogram
+brew install gcal # a terminal calendar
+brew install gcalcli # gives access to google calendar utilities from the command line
+brew install bitwarden # password manager
+brew install qlmarkdown # for viewing markdown files---must initialize by opening the app installed in /Applications/QLMarkdown.app
+brew install automake # for configuring software
+brew install --cask --no-quarantine syntax-highlight
+brew install yt-dlp # to download youtube videos
+brew install transmission-cli # to download torrents
+brew install rar # to uncompress rar archives
+brew install vldmrkl/formulae/airdrop-cli # to transfer files between apple devices
+brew install postgresql@14 # database
+brew install rsync # better file copying
+brew install ranger # file manager
+brew install gpg # to manage private / public key pairs
+brew install xquartz # enables the X window system
+brew install sc-im # a command-line spreadsheet program that can read excel files
+brew install fzf # a fuzzy finder
+```
+

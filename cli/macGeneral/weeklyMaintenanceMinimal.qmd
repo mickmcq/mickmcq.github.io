@@ -1,0 +1,13 @@
+
+## Weekly maintenance
+I usually put the following commands in a file called `~/weeklyMaintenance` and sometimes run them as a group if I don't want to look at the output of each one. More often, I run them individually and examine the output for items of interest, such as error messages or special package instructions.
+
+```bash
+brew update # updates brew's concept of what's available
+brew upgrade # actually upgrades whatever brew now knows to be available
+pip-upgrade # upgrades Python packages
+Rscript -e 'update.packages()' # upgrades R packages
+```
+
+Note that `pip-upgrade` is actually a shell function. Its definition is in my `.bash_profile` file, which can be found in Canvas > Files > misc. This command will not work without that definition.
+

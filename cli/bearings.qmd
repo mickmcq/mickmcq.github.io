@@ -1,0 +1,17 @@
+---
+title: "Getting your bearings"
+---
+
+to be added
+
+```bash
+whoami
+pwd
+df
+du
+ps -ef | grep <whatever>
+top
+htop # only if you have installed it
+bpytop # only if you have installed it
+uptime
+```
