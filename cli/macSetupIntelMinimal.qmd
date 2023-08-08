@@ -1,0 +1,18 @@
+---
+title: "macOS minimal setup for Intel machines"
+---
+
+<!-- This file includes a minimal setup for an Intel Mac. This is sufficient for i306 Statistics for Informatics. -->
+
+{{< include macGeneral/macInit.qmd >}}
+
+{{< include macIntel/figureOutIntelM1.qmd >}}
+
+{{< include macIntel/installHomebrew.qmd >}}
+
+{{< include macGeneral/installBasicBrewPackages.qmd >}}
+
+{{< include macGeneral/installR+RStudio.qmd >}}
+
+{{< include macGeneral/weeklyMaintenanceMinimal.qmd >}}
+

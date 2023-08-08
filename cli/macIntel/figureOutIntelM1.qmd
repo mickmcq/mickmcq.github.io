@@ -1,0 +1,4 @@
+
+## Figure out your processor
+  Open  > About this Mac, and look under processor---if it says M1 or M2, you're in the wrong file! Use the file macSetupM1Full for all the remaining instructions. To use this file, the processor entry should include the word *Intel*.
+

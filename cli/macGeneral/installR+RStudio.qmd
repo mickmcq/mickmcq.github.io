@@ -1,0 +1,15 @@
+
+## Install R and RStudio
+
+- Google the letter R. Usually, the first hit is the R project: [https://www.r-project.org/](https://www.r-project.org/)
+- You have to choose a mirror to download from. I usually choose USA: National Institute for Computational Sciences, Oak Ridge, TN
+- Be sure to choose Intel X86 when given a choice
+- You will download a package installer. Double-click it in Finder and follow the instructions
+
+- Google RStudio. Usually, the first hit is Posit's RStudio download site: [https://posit.co/products/open-source/rstudio/](https://posit.co/products/open-source/rstudio/)
+- After clicking various links to download RStudio Desktop, you should eventually get to a page with the .dmg file to download. That page is [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/) so you can visit it directly if you prefer. (I don't know why they make you click through so many pages if you don't have that URL!)
+- Download the .dmg file.
+- Double-click the .dmg file in the Finder. You should see a window with an Applications folder and the RStudio.app.
+- Drag the RStudio.app icon to the Applications folder. This is very important. If you try to open the RStudio.app icon from this window, you will not be able to save your work!
+- Eject the disk image that will appear in Finder that generates this window after RStudio.app is successfully added to your Applications folder.
+

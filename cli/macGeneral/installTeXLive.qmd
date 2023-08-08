@@ -1,0 +1,19 @@
+
+## Install texlive (takes hours!)
+Use the instructions at [https://tug.org/texlive/acquire-netinstall.html](https://tug.org/texlive/acquire-netinstall.html) and the file called `install-tl-unx.tar.gz`.
+
+The instructions at the time of this writing include the following. Note that the string `20230723` will differ based on the date of the version you've downloaded.
+
+```bash
+cd ~/Downloads
+tar xvzf install-tl-unx.tar.gz
+cd install-tl-20230723
+./install-tl
+```
+
+After you are finished (hours later), if you are moving from an old machine that had texlive installed, use rsync to get texmf-local from your old machine to your new machine, e.g., for my machine on a local network, I say:
+
+```bash
+rsync -PUpavh /usr/local/texlive/texmf-local/ mcq@technicals-mbp.lan:"/usr/local/texlive/texmf-local/"
+```
+

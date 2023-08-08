@@ -1,0 +1,49 @@
+---
+title: "The Unix manual"
+---
+
+The Unix manual is a feature of every Unix-like system. It is organized in nine sections as follows:
+
+1.   General Commands Manual
+2.   System Calls Manual
+3.   Library Functions Manual
+4.   Kernel Interfaces Manual
+5.   File Formats Manual
+6.   Games Manual
+7.   Miscellaneous Information Manual
+8.   System Manager's Manual
+9.   Kernel Developer's Manual
+
+It is accessed from the command line by saying
+
+```bash
+man <topic>
+```
+
+For example, I said `man man` at a command prompt to get the above information about manual sections.
+
+The manual is usually referred to as the *man pages*. Most people, especially beginners are only concerned with Section 1 of the manual. If you look up a command, the result is generally from Section 1, but you can look up other entries from other sections explicitly. For example, saying `man stat` returns the man page for the `stat` command, but saying `man 2 stat` returns the man page for the `stat` system call from Section 2 of the manual.
+
+Obtaining a list of all man pages can be quite a pain, as shown in a [StackExchange QandA](https://unix.stackexchange.com/questions/44329/how-do-you-output-a-list-of-all-man-pages-in-a-particular-section) on the subject.
+
+The main problem for beginners is that the man pages are written without beginners in mind. They follow a strict structure that is most amenable to very experienced users. Some man pages have an EXAMPLES section, but many of them are quite terse and only provide information of value to an experienced user.
+
+StackOverflow and StackExchange are better resources for beginners for help with standard commands but Google has recently started to downrank them in favor of popup festivals like GeeksForGeeks. For example, if I google *unix mv command*, the first hit is a GeekForGeeks page that is difficult to use because of all the popups and animated advertisements. Luckily, the second hit is a Wikipedia article. Wikipedia articles are pretty reliable for command line information. It's worthwhile to investigate some of the remaining links to get an idea of which sites are reliable.
+
+Continuing with the `mv` command, consider the man page for it. The first thing I see is `MV(1)` which gives me the (capitalized) name of `mv` and alerts me that I am in Section 1 of the manual, covering general user commands. If I see a number 2--9 in parentheses, I know I am not looking at documentation of a command I can invoke at the command line.
+
+Next comes the NAME part, giving the name of the command, now in the proper case, and a one line description of it.
+
+Third is the SYNOPSIS part. This is valuable but hard to understand. In the case of `mv`, it looks like this:
+
+```
+SYNOPSIS
+       mv [OPTION]... [-T] SOURCE DEST
+       mv [OPTION]... SOURCE... DIRECTORY
+       mv [OPTION]... -t DIRECTORY SOURCE...
+
+```
+
+The fact that there are three lines means that there are three ways to invoke `mv`. The first allows you to rename a file, optionally moving it to a different directory, while the other two are are specifically ways to move files between directories (or folders).
+
+Everything in square brackets is optional. So, on the first line, you can see that you must supply at least three things, the name of the command, the name of a source, and the name of a destination. You can also supply OPTION(s) but you don't have to. To discover valid options, you can look at the next part of the entry, DESCRIPTION. This lists options alphabetically. For example, you can say `-i` so that `mv` will not automatically overwrite files without your permission. Many options display both a long and short format. For example, the short option `-i` has a long synonym called `--interactive`.
