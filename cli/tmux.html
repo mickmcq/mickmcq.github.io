@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -279,7 +313,27 @@ ul.task-list li input[type="checkbox"] {
 <p>The statusline tells you that the system was started (rebooted) three days, twenty-two hours, and fourteen minutes ago. That part is in white letters on a magenta background. Next is a list of windows. Window 1 is currently focused on a Vim session, while window 2 is currently focused on a <code>bash</code> session. Next is a long blank area, room for a longer list of windows. Then you see an uparrow, signifying that the machine is connected to an external power source. Next is a graphic representation of battery, which is full. Following that is a numerical representation of battery, 100%. Then we see the current time, 21:12, the current date, 30 Jul, the current user, mcq, and the name of the machine, magneto. By default the statusline is at the bottom of the screen and is less colorful, but everything about <code>tmux</code> can be customized.</p>
 <p>The current window has three <em>panes</em>. You can tell which pane is active by the tiny blue border around it. It’s running a Vim editor session, which is described more fully in the Vim module. You can have as many panes as you want in a window and you can easily rearrange them and zoom in on one of them with keystroke shortcuts. In this case, the wide pane at the bottom contains part of the man page for <code>mv</code>. The small pane in the upper left corner is running a preview process for the book you’re reading. That process monitors my editing and updates the preview whenever I save a file that is part of the book. The display is basically a log of that process.</p>
 <p>But the most important thing about <code>tmux</code> is not its manipulation of panes and windows. There are many tools for manipulating panes and windows. By far the most important thing about it is that you can have <code>tmux</code> sessions on remote machines and those sessions will persist across sleeps and reboots of the local machine. For example, suppose I start work at home in the morning on my laptop. I use <code>tmux</code> to log into my office machine, do some work, then shut down my laptop. I can then go to work with my laptop, turn it on and reattach to the <code>tmux</code> session on the office machine without losing any of my work. For this reason <code>tmux</code> is frequently used by people like data scientists who have to start long-running neural network jobs on remote machines and check in on those jobs every once in a while.</p>
-<p>By the way, the screenshot above is of a partially transparent screen. Behind the <code>tmux</code> window, you can see a preview of the fileIO page of this book. The transparency is controlled by the terminal emulator, iTerm, that is running <code>bash</code>, which in turn is running <code>tmux</code>.</p>
+<p>By the way, the screenshot above is of a partially transparent screen. Behind the <code>tmux</code> window, you can see a preview of the fileIO page of this book. The transparency is controlled by the terminal emulator, iTerm, that is running <code>bash</code>, which in turn is running <code>tmux</code>. When you want to change settings, you need to know which of several running programs is controlling those settings. Think of <code>tmux</code> as having settings that control window layout and its own statusline.</p>
+<p>There are vastly many ways that people configure <code>tmux</code> sessions, as illustrated by <a href="https://stackoverflow.com/questions/5609192/how-do-i-set-tmux-to-open-specified-windows-at-startup">this Stackoverflow question</a></p>
+<p>As another example of a <code>tmux</code> configuration, I have three courses and two projects, so I open <code>tmux</code> with five split windows, using a shell script containing the following:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> new-session <span class="at">-n</span> i306 <span class="at">-c</span> ~/courses/stats <span class="dt">\;</span> <span class="dt">\</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  split-window <span class="at">-v</span> <span class="at">-c</span> ~/courses/stats <span class="dt">\;</span> <span class="dt">\</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  new-window <span class="at">-n</span> i320u <span class="at">-c</span> ~/courses/infointeractdsgn/ <span class="dt">\;</span> <span class="dt">\</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  split-window <span class="at">-v</span> <span class="at">-c</span> ~/courses/infointeractdsgn/ <span class="dt">\;</span> <span class="dt">\</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  new-window <span class="at">-n</span> inf385t <span class="at">-c</span> ~/courses/uxproto/ <span class="dt">\;</span> <span class="dt">\</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  split-window <span class="at">-v</span> <span class="at">-c</span> ~/courses/uxproto/ <span class="dt">\;</span> <span class="dt">\</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  new-window <span class="at">-n</span> cli <span class="at">-c</span> ~/courses/cli <span class="dt">\;</span> <span class="dt">\</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  split-window <span class="at">-v</span> <span class="at">-c</span> ~/courses/cli <span class="dt">\;</span> <span class="dt">\</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  new-window <span class="at">-n</span> dgs <span class="at">-c</span> ~/research/disabledgrads/facultyStudy/ <span class="dt">\;</span> <span class="dt">\</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  split-window <span class="at">-v</span> <span class="at">-c</span> ~/research/disabledgrads/facultyStudy/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>All the above script does is to name five windows and change to the appropriate directory for each window. The following screenshot shows the result after running this script. The current window tab has a blue background. The others are underlined because some activity has happened in them since the last time they were in the foreground.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fitmuxFiveWindows.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">An example of five <code>tmux</code> windows in one session</figcaption>
+</figure>
+</div>
 
 
 
