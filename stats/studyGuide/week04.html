@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -363,7 +363,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>flips
 heads tails 
-  535   465 </code></pre>
+  497   503 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>heads_freq <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(flips <span class="sc">==</span> <span class="st">'heads'</span>) <span class="sc">/</span> <span class="dv">1</span><span class="sc">:</span>num_flips</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(heads_freq,      <span class="co"># vector</span></span>
@@ -455,7 +455,7 @@ P (A_1) × P (A_2) × \cdots × P (A_k)
 <h2 data-number="4.13" class="anchored" data-anchor-id="conditional-probability"><span class="header-section-number">4.13</span> Conditional probability</h2>
 <p>This is where probability gets interesting. Some things depend on other things! The textbook uses a contingency table of the <code>photos_classify</code> data frame, which you can download from OpenIntro Stats, to explore this concept.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"photo_classify.rda"</span>)</span>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"/home/mm223266/data/photo_classify.rda"</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(photo_classify)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Classes 'tbl_df', 'tbl' and 'data.frame':   1822 obs. of  2 variables:
@@ -499,87 +499,83 @@ P (A\text{ and }B) = P (A|B) × P (B)
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#.. R Conditional Probability Tree Diagram</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#.. The Rgraphviz graphing package must be installed to do this</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"BiocManager"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"Rgraphviz"</span>)</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">"Rgraphviz"</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Rgraphviz)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">#.. Change the three variables below to match your actual values</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">#.. These are the values that you can change for your own probability tree</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">#.. From these three values, other probabilities (e.g. prob(b)) will be calculated</span></span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co">#.. Change the three variables below to match your actual values</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co">#.. These are the values that you can change for your own probability tree</span></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co">#.. From these three values, other probabilities (e.g. prob(b)) will be calculated</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co">#.. Probability of a</span></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>a<span class="ot">&lt;-</span>.<span class="dv">01</span></span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co">#.. Probability (b | a)</span></span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>bGivena<span class="ot">&lt;-</span>.<span class="dv">99</span></span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="co">#. Probability (b | ¬a)</span></span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>bGivenNota<span class="ot">&lt;-</span>.<span class="dv">10</span></span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a><span class="do">###################### Everything below here will be calculated</span></span>
-<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a><span class="co">#. Calculate the rest of the values based upon the 3 variables above</span></span>
-<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>notbGivena<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">-</span>bGivena</span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>notA<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">-</span>a</span>
-<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>notbGivenNota<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">-</span>bGivenNota</span>
-<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a><span class="co">#. Joint Probabilities of a and B, a and notb, nota and b, nota and notb</span></span>
-<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>aANDb<span class="ot">&lt;-</span>a<span class="sc">*</span>bGivena</span>
-<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>aANDnotb<span class="ot">&lt;-</span>a<span class="sc">*</span>notbGivena</span>
-<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>notaANDb <span class="ot">&lt;-</span> notA<span class="sc">*</span>bGivenNota</span>
-<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>notaANDnotb <span class="ot">&lt;-</span> notA<span class="sc">*</span>notbGivenNota</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co">#.. Probability of a</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>a<span class="ot">&lt;-</span>.<span class="dv">01</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co">#.. Probability (b | a)</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>bGivena<span class="ot">&lt;-</span>.<span class="dv">99</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="co">#. Probability (b | ¬a)</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>bGivenNota<span class="ot">&lt;-</span>.<span class="dv">10</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="do">###################### Everything below here will be calculated</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="co">#. Calculate the rest of the values based upon the 3 variables above</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>notbGivena<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">-</span>bGivena</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>notA<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">-</span>a</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>notbGivenNota<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">-</span>bGivenNota</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a><span class="co">#. Joint Probabilities of a and B, a and notb, nota and b, nota and notb</span></span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>aANDb<span class="ot">&lt;-</span>a<span class="sc">*</span>bGivena</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>aANDnotb<span class="ot">&lt;-</span>a<span class="sc">*</span>notbGivena</span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>notaANDb <span class="ot">&lt;-</span> notA<span class="sc">*</span>bGivenNota</span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>notaANDnotb <span class="ot">&lt;-</span> notA<span class="sc">*</span>notbGivenNota</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a><span class="co">#. Probability of B</span></span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>b<span class="ot">&lt;-</span> aANDb <span class="sc">+</span> notaANDb</span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>notB <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">-</span>b</span>
 <span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a><span class="co">#. Probability of B</span></span>
-<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>b<span class="ot">&lt;-</span> aANDb <span class="sc">+</span> notaANDb</span>
-<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>notB <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">-</span>b</span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a><span class="co">#. Bayes theorum - probabiliyt of A | B</span></span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a><span class="co">#. (a | b) = Prob (a AND b) / prob (b)</span></span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>aGivenb <span class="ot">&lt;-</span> aANDb <span class="sc">/</span> b</span>
 <span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a><span class="co">#. Bayes theorum - probabiliyt of A | B</span></span>
-<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a><span class="co">#. (a | b) = Prob (a AND b) / prob (b)</span></span>
-<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>aGivenb <span class="ot">&lt;-</span> aANDb <span class="sc">/</span> b</span>
-<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a><span class="co">#. These are the labels of the nodes on the graph</span></span>
-<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a><span class="co">#. To signify "Not A" - we use A' or A prime</span></span>
-<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>node1<span class="ot">&lt;-</span><span class="st">"P"</span></span>
-<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a>node2<span class="ot">&lt;-</span><span class="st">"A"</span></span>
-<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>node3<span class="ot">&lt;-</span><span class="st">"A'"</span></span>
-<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a>node4<span class="ot">&lt;-</span><span class="st">"A&amp;B"</span></span>
-<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>node5<span class="ot">&lt;-</span><span class="st">"A&amp;B'"</span></span>
-<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a>node6<span class="ot">&lt;-</span><span class="st">"A'&amp;B"</span></span>
-<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>node7<span class="ot">&lt;-</span><span class="st">"A'&amp;B'"</span></span>
-<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a>nodeNames<span class="ot">&lt;-</span><span class="fu">c</span>(node1,node2,node3,node4, node5,node6, node7)</span>
-<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a>rEG <span class="ot">&lt;-</span> <span class="fu">new</span>(<span class="st">"graphNEL"</span>, <span class="at">nodes=</span>nodeNames, <span class="at">edgemode=</span><span class="st">"directed"</span>)</span>
-<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a><span class="co">#. Draw the "lines" or "branches" of the probability Tree</span></span>
-<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a>rEG <span class="ot">&lt;-</span> <span class="fu">addEdge</span>(nodeNames[<span class="dv">1</span>], nodeNames[<span class="dv">2</span>], rEG, <span class="dv">1</span>)</span>
-<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a>rEG <span class="ot">&lt;-</span> <span class="fu">addEdge</span>(nodeNames[<span class="dv">1</span>], nodeNames[<span class="dv">3</span>], rEG, <span class="dv">1</span>)</span>
-<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a>rEG <span class="ot">&lt;-</span> <span class="fu">addEdge</span>(nodeNames[<span class="dv">2</span>], nodeNames[<span class="dv">4</span>], rEG, <span class="dv">1</span>)</span>
-<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a>rEG <span class="ot">&lt;-</span> <span class="fu">addEdge</span>(nodeNames[<span class="dv">2</span>], nodeNames[<span class="dv">5</span>], rEG, <span class="dv">1</span>)</span>
-<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a>rEG <span class="ot">&lt;-</span> <span class="fu">addEdge</span>(nodeNames[<span class="dv">3</span>], nodeNames[<span class="dv">6</span>], rEG, <span class="dv">1</span>)</span>
-<span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a>rEG <span class="ot">&lt;-</span> <span class="fu">addEdge</span>(nodeNames[<span class="dv">3</span>], nodeNames[<span class="dv">7</span>], rEG, <span class="dv">10</span>)</span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a><span class="co">#. These are the labels of the nodes on the graph</span></span>
+<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a><span class="co">#. To signify "Not A" - we use A' or A prime</span></span>
+<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a>node1<span class="ot">&lt;-</span><span class="st">"P"</span></span>
+<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a>node2<span class="ot">&lt;-</span><span class="st">"A"</span></span>
+<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>node3<span class="ot">&lt;-</span><span class="st">"A'"</span></span>
+<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a>node4<span class="ot">&lt;-</span><span class="st">"A&amp;B"</span></span>
+<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>node5<span class="ot">&lt;-</span><span class="st">"A&amp;B'"</span></span>
+<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a>node6<span class="ot">&lt;-</span><span class="st">"A'&amp;B"</span></span>
+<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>node7<span class="ot">&lt;-</span><span class="st">"A'&amp;B'"</span></span>
+<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a>nodeNames<span class="ot">&lt;-</span><span class="fu">c</span>(node1,node2,node3,node4, node5,node6, node7)</span>
+<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a>rEG <span class="ot">&lt;-</span> <span class="fu">new</span>(<span class="st">"graphNEL"</span>, <span class="at">nodes=</span>nodeNames, <span class="at">edgemode=</span><span class="st">"directed"</span>)</span>
+<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a><span class="co">#. Draw the "lines" or "branches" of the probability Tree</span></span>
+<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a>rEG <span class="ot">&lt;-</span> <span class="fu">addEdge</span>(nodeNames[<span class="dv">1</span>], nodeNames[<span class="dv">2</span>], rEG, <span class="dv">1</span>)</span>
+<span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a>rEG <span class="ot">&lt;-</span> <span class="fu">addEdge</span>(nodeNames[<span class="dv">1</span>], nodeNames[<span class="dv">3</span>], rEG, <span class="dv">1</span>)</span>
+<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a>rEG <span class="ot">&lt;-</span> <span class="fu">addEdge</span>(nodeNames[<span class="dv">2</span>], nodeNames[<span class="dv">4</span>], rEG, <span class="dv">1</span>)</span>
+<span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a>rEG <span class="ot">&lt;-</span> <span class="fu">addEdge</span>(nodeNames[<span class="dv">2</span>], nodeNames[<span class="dv">5</span>], rEG, <span class="dv">1</span>)</span>
+<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a>rEG <span class="ot">&lt;-</span> <span class="fu">addEdge</span>(nodeNames[<span class="dv">3</span>], nodeNames[<span class="dv">6</span>], rEG, <span class="dv">1</span>)</span>
+<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a>rEG <span class="ot">&lt;-</span> <span class="fu">addEdge</span>(nodeNames[<span class="dv">3</span>], nodeNames[<span class="dv">7</span>], rEG, <span class="dv">10</span>)</span>
+<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a>eAttrs <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a>q<span class="ot">&lt;-</span><span class="fu">edgeNames</span>(rEG)</span>
 <span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-66"><a href="#cb18-66" aria-hidden="true" tabindex="-1"></a>eAttrs <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb18-66"><a href="#cb18-66" aria-hidden="true" tabindex="-1"></a><span class="co">#. Add the probability values to the the branch lines</span></span>
 <span id="cb18-67"><a href="#cb18-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-68"><a href="#cb18-68" aria-hidden="true" tabindex="-1"></a>q<span class="ot">&lt;-</span><span class="fu">edgeNames</span>(rEG)</span>
-<span id="cb18-69"><a href="#cb18-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-70"><a href="#cb18-70" aria-hidden="true" tabindex="-1"></a><span class="co">#. Add the probability values to the the branch lines</span></span>
-<span id="cb18-71"><a href="#cb18-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-72"><a href="#cb18-72" aria-hidden="true" tabindex="-1"></a>eAttrs<span class="sc">$</span>label <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">toString</span>(a),<span class="fu">toString</span>(notA),</span>
-<span id="cb18-73"><a href="#cb18-73" aria-hidden="true" tabindex="-1"></a> <span class="fu">toString</span>(bGivena), <span class="fu">toString</span>(notbGivena),</span>
-<span id="cb18-74"><a href="#cb18-74" aria-hidden="true" tabindex="-1"></a> <span class="fu">toString</span>(bGivenNota), <span class="fu">toString</span>(notbGivenNota))</span>
-<span id="cb18-75"><a href="#cb18-75" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(eAttrs<span class="sc">$</span>label) <span class="ot">&lt;-</span> <span class="fu">c</span>(q[<span class="dv">1</span>],q[<span class="dv">2</span>], q[<span class="dv">3</span>], q[<span class="dv">4</span>], q[<span class="dv">5</span>], q[<span class="dv">6</span>])</span>
-<span id="cb18-76"><a href="#cb18-76" aria-hidden="true" tabindex="-1"></a>edgeAttrs<span class="ot">&lt;-</span>eAttrs</span>
+<span id="cb18-68"><a href="#cb18-68" aria-hidden="true" tabindex="-1"></a>eAttrs<span class="sc">$</span>label <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">toString</span>(a),<span class="fu">toString</span>(notA),</span>
+<span id="cb18-69"><a href="#cb18-69" aria-hidden="true" tabindex="-1"></a> <span class="fu">toString</span>(bGivena), <span class="fu">toString</span>(notbGivena),</span>
+<span id="cb18-70"><a href="#cb18-70" aria-hidden="true" tabindex="-1"></a> <span class="fu">toString</span>(bGivenNota), <span class="fu">toString</span>(notbGivenNota))</span>
+<span id="cb18-71"><a href="#cb18-71" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(eAttrs<span class="sc">$</span>label) <span class="ot">&lt;-</span> <span class="fu">c</span>(q[<span class="dv">1</span>],q[<span class="dv">2</span>], q[<span class="dv">3</span>], q[<span class="dv">4</span>], q[<span class="dv">5</span>], q[<span class="dv">6</span>])</span>
+<span id="cb18-72"><a href="#cb18-72" aria-hidden="true" tabindex="-1"></a>edgeAttrs<span class="ot">&lt;-</span>eAttrs</span>
+<span id="cb18-73"><a href="#cb18-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-74"><a href="#cb18-74" aria-hidden="true" tabindex="-1"></a><span class="co">#. Set the color, etc, of the tree</span></span>
+<span id="cb18-75"><a href="#cb18-75" aria-hidden="true" tabindex="-1"></a>attributes<span class="ot">&lt;-</span><span class="fu">list</span>(<span class="at">node=</span><span class="fu">list</span>(<span class="at">label=</span><span class="st">"foo"</span>, <span class="at">fillcolor=</span><span class="st">"lightgreen"</span>, <span class="at">fontsize=</span><span class="st">"15"</span>),</span>
+<span id="cb18-76"><a href="#cb18-76" aria-hidden="true" tabindex="-1"></a> <span class="at">edge=</span><span class="fu">list</span>(<span class="at">color=</span><span class="st">"red"</span>),<span class="at">graph=</span><span class="fu">list</span>(<span class="at">rankdir=</span><span class="st">"LR"</span>))</span>
 <span id="cb18-77"><a href="#cb18-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-78"><a href="#cb18-78" aria-hidden="true" tabindex="-1"></a><span class="co">#. Set the color, etc, of the tree</span></span>
-<span id="cb18-79"><a href="#cb18-79" aria-hidden="true" tabindex="-1"></a>attributes<span class="ot">&lt;-</span><span class="fu">list</span>(<span class="at">node=</span><span class="fu">list</span>(<span class="at">label=</span><span class="st">"foo"</span>, <span class="at">fillcolor=</span><span class="st">"lightgreen"</span>, <span class="at">fontsize=</span><span class="st">"15"</span>),</span>
-<span id="cb18-80"><a href="#cb18-80" aria-hidden="true" tabindex="-1"></a> <span class="at">edge=</span><span class="fu">list</span>(<span class="at">color=</span><span class="st">"red"</span>),<span class="at">graph=</span><span class="fu">list</span>(<span class="at">rankdir=</span><span class="st">"LR"</span>))</span>
-<span id="cb18-81"><a href="#cb18-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-82"><a href="#cb18-82" aria-hidden="true" tabindex="-1"></a><span class="co">#. Plot the probability tree using Rgraphvis</span></span>
-<span id="cb18-83"><a href="#cb18-83" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(rEG, <span class="at">edgeAttrs=</span>eAttrs, <span class="at">attrs=</span>attributes)</span>
-<span id="cb18-84"><a href="#cb18-84" aria-hidden="true" tabindex="-1"></a><span class="fu">nodes</span>(rEG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-78"><a href="#cb18-78" aria-hidden="true" tabindex="-1"></a><span class="co">#. Plot the probability tree using Rgraphvis</span></span>
+<span id="cb18-79"><a href="#cb18-79" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(rEG, <span class="at">edgeAttrs=</span>eAttrs, <span class="at">attrs=</span>attributes)</span>
+<span id="cb18-80"><a href="#cb18-80" aria-hidden="true" tabindex="-1"></a><span class="fu">nodes</span>(rEG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "P"     "A"     "A'"    "A&amp;B"   "A&amp;B'"  "A'&amp;B"  "A'&amp;B'"</code></pre>
 </div>
