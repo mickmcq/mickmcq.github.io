@@ -1,7 +1,7 @@
 ---
 title: "UX Prototyping:<br>Intro"
 author: Mick McQuaid
-date: 2023-01-11
+date: today
 bibliography: master.bib
 format:
   revealjs:
@@ -101,7 +101,7 @@ Materials
 :::
 
 - three pages
-- some index cards (about 4)
+- some index cards (about 6)
 - some colored sharpies (at least 2)
 - a pen or pencil
 
@@ -204,12 +204,6 @@ I casually mention on this slide that you should write something in your sketchb
 ---
 
 ::: {.r-fit-text}
-‹academic assistant›
-:::
-
----
-
-::: {.r-fit-text}
 ‹intros›
 :::
 
@@ -244,39 +238,17 @@ I should add that the librarian told me that I'm only allowed to put three chapt
 A few of the books are the topics of lectures, namely @Patton2014a, @Greever2020, @Buxton2007, @Becker2020, and @Stackowiak2020. You may want to prioritize these in your reading.
 :::
 
----
+# Accessibility
 
-::: {.r-fit-text}
-design principles
-:::
+[https://mickmcquaid.com/accessibilitySlides/01understanding](https://mickmcquaid.com/accessibilitySlides/01understanding)
 
----
+[https://mickmcquaid.com/accessibilitySlides/02context](https://mickmcquaid.com/accessibilitySlides/02context)
 
-I want you to familiarize yourselves with four sets of
-design principles to keep in mind during the milestones.
+[https://mickmcquaid.com/accessibilitySlides/03uiFacilitatorsBarriers](https://mickmcquaid.com/accessibilitySlides/03uiFacilitatorsBarriers)
 
-1. Apple's Human Interface Guidelines for iOS, macOS, and watchOS
-2. Material Design from Google
-3. Fluent Design from Microsoft
-4. Inclusive Design from Microsoft
+[https://mickmcquaid.com/accessibilitySlides/04assistiveTech](https://mickmcquaid.com/accessibilitySlides/04assistiveTech)
 
-Use any one or any combination of these guidelines in developing your prototypes. Let's look at their websites, which are always changing so I don't want to make slides out of them. Instead, google the above names.
-
----
-
-::: {.r-fit-text}
-‹pause to view design principles›
-:::
-
----
-
-::: {.r-fit-text}
-‹skipping Framer for now›
-:::
-
-::: {.notes}
-I'm high on Framer because of its excellent JavaScript output, which cuts down on cycle time. You will often hear me say that cutting down cycle time is a high priority in rapid prototyping. Framer easily beats Figma in this regard, but Framer only recently acquired a free tier, so Figma has captured most of the mindshare. I want to expose you to Framer as well, but the Framer tutorial we will follow isn't ready yet.
-:::
+[https://mickmcquaid.com/accessibilitySlides/05bestPractices](https://mickmcquaid.com/accessibilitySlides/05bestPractices)
 
 ## File submission
 - Create a website that will be used for the entire

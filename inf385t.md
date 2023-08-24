@@ -13,9 +13,9 @@ icon: fa-edit
 
 ## Lectures
 
-[01designThinking](/uxproto/01designThinking/index.html) covers an exercise in design thinking and provides placeholders for a few introductory items
+[01designThinking](/uxproto/01designThinking/index.html) covers an exercise in design thinking and an intro to accessibility.
 
-[02accessibility](/uxproto/02accessibility/index.html) offers five other slideshows as an introduction to accessibility.
+[02accessibility](/uxproto/02designPrinciples/index.html) introduces several sets of industrial design principles.
 
 [03sketching](/uxproto/03sketching/index.html) recaps the previous week and introduces mood boards, sketching, and crazy eights.
 
