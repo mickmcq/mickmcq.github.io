@@ -1,0 +1,77 @@
+---
+title: "UX Prototyping<br>design principles"
+author: Mick McQuaid
+date: today
+bibliography: master.bib
+format:
+  revealjs:
+    logo: iSchoolLogo.png
+    theme: moon
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+::: {.r-fit-text}
+Week TWO
+:::
+
+---
+
+::: {.r-fit-text}
+design principles
+:::
+
+---
+
+I want you to familiarize yourselves with four sets of
+design principles to keep in mind during the milestones.
+
+1. Apple's Human Interface Guidelines for iOS, macOS, and watchOS
+2. Material Design from Google
+3. Fluent Design from Microsoft
+4. Inclusive Design from Microsoft
+
+Use any one or any combination of these guidelines in developing your prototypes. Let's look at their websites, which are always changing so I don't want to make slides out of them. Instead, google the above names.
+
+---
+
+::: {.r-fit-text}
+‹pause to view design principles›
+:::
+
+---
+
+::: {.r-fit-text}
+‹Framer tutorial›
+:::
+
+::: {.notes}
+I'm high on Framer because of its excellent JavaScript output, which cuts down on cycle time. You will often hear me say that cutting down cycle time is a high priority in rapid prototyping. Framer easily beats Figma in this regard, but Framer only recently acquired a free tier, so Figma has captured most of the mindshare. I want to expose you to Framer as well.
+:::
+
+<!--
+
+# References
+
+::: {#refs}
+:::
+
+-->
+
+---
+
+::: {.r-fit-text}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *League Gothic* and *Lato*
+
