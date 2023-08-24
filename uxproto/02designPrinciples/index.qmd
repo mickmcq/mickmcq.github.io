@@ -44,7 +44,18 @@ Use any one or any combination of these guidelines in developing your prototypes
 ‹pause to view design principles›
 :::
 
----
+## File submission
+- Create a website that will be used for the entire
+  semester. You can use Framer to do so, or Github
+  pages, or any other system
+- Add seven pages to the website, one for each milestone
+  (just the first one is needed now)
+- The page for milestone 1 should contain your
+  report or a link to it
+
+# Form groups
+
+‹Let's look at the figjam file›
 
 ::: {.r-fit-text}
 ‹Framer tutorial›

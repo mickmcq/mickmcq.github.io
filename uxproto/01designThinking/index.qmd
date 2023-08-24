@@ -250,19 +250,6 @@ A few of the books are the topics of lectures, namely @Patton2014a, @Greever2020
 
 [https://mickmcquaid.com/accessibilitySlides/05bestPractices](https://mickmcquaid.com/accessibilitySlides/05bestPractices)
 
-## File submission
-- Create a website that will be used for the entire
-  semester. You can use Framer to do so, or Github
-  pages, or any other system
-- Add seven pages to the website, one for each milestone
-  (just the first one is needed now)
-- The page for milestone 1 should contain a link to your
-  prototype and an explanation of how it is accessible
-
-# Form groups
-
-‹Let's look at the figjam file›
-
 # References
 
 ::: {#refs}
