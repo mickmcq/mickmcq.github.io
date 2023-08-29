@@ -31,7 +31,7 @@ design principles
 I want you to familiarize yourselves with four sets of
 design principles to keep in mind during the milestones.
 
-1. Apple's Human Interface Guidelines for iOS, macOS, and watchOS
+1. Apple's Human Interface Guidelines
 2. Material Design from Google
 3. Fluent Design from Microsoft
 4. Inclusive Design from Microsoft
@@ -53,16 +53,24 @@ Use any one or any combination of these guidelines in developing your prototypes
 - The page for milestone 1 should contain your
   report or a link to it
 
-# Form groups
-
-‹Let's look at the figjam file›
+---
 
 ::: {.r-fit-text}
 ‹Framer tutorial›
 :::
 
 ::: {.notes}
-I'm high on Framer because of its excellent JavaScript output, which cuts down on cycle time. You will often hear me say that cutting down cycle time is a high priority in rapid prototyping. Framer easily beats Figma in this regard, but Framer only recently acquired a free tier, so Figma has captured most of the mindshare. I want to expose you to Framer as well.
+I'm high on Framer because of its excellent JavaScript output, which cuts down on cycle time. You will often hear me say that cutting down cycle time is a high priority in rapid prototyping. Framer easily beats Figma in this regard, but Framer only recently acquired a free tier, so Figma has captured most of the mindshare. I want to expose you to Framer as well. The goal of this tutorial is to create a Framer website.
+:::
+
+---
+
+::: {.r-fit-text}
+‹Figma tutorial›
+:::
+
+::: {.notes}
+The goal of this tutorial is to create a simple prototype to put into the Framer website.
 :::
 
 <!--
