@@ -303,12 +303,11 @@ div.csl-indent {
 
 <section id="recap-week-02" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="recap-week-02"><span class="header-section-number">3.1</span> Recap Week 02</h2>
-<p>We did some exercises, for which there are now solutions in the file <code>week02.qmd</code> and <code>week02.html</code>. You should examine and compare these two files, especially the exercise parts.</p>
-<p>I deleted the <code>week02a.qmd</code> and <code>week02a.html</code> files and you should too. The <code>week02.qmd</code> file and the <code>week02.html</code> file contain both corrections and additions, so only refer to those.</p>
+<p>We did some exercises, for which there are now solutions in the file <code>week02exercises-soln.qmd</code> and <code>week02exercises-soln.html</code>. You should examine and compare these two files, especially the exercise parts.</p>
 </section>
 <section id="week-03-more-on-r-and-quarto" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="week-03-more-on-r-and-quarto"><span class="header-section-number">3.2</span> Week 03: More on R and Quarto</h2>
-<p>I’ve established groups for the milestones. I’m open to moving you around if needed, subject to the constraint that we have no more than five members in a group. Currently we have six groups of five so, if you want to switch groups, you need to find someone in the other group who wants to switch to your group.</p>
+<p>We will establish groups for the milestones. I’m open to moving you around if needed, subject to the constraint that we have no more than five members in a group. I expect to have four groups of four and two groups of five.</p>
 <p>I’ve added a bunch of files to the Files section on Canvas, pertaining to Milestone 1. You need to download these files. One of them (<code>vehicles.csv</code>) is quite large and time-consuming to download, so don’t wait.</p>
 <section id="the-template-files" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="the-template-files"><span class="header-section-number">3.2.1</span> The template files</h3>
@@ -747,7 +746,7 @@ div.csl-indent {
 404 west virginia (old)            8</code></pre>
 </div>
 </div>
-<p>The number 404 is because there are 404 elements in the list.</p>
+<p>The number 404 is because there are 404 elements in the list, which you can find out with the <code>dim()</code> function, where dim stands for dimensions.</p>
 <p>Another solution (more cumbersome) follows.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
@@ -837,12 +836,17 @@ div.csl-indent {
 <pre><code>Warning: NAs introduced by coercion to integer range</code></pre>
 </div>
 </div>
-<p>You’ll notice that one of the prices is 3.7 billion dollars for a Toyota truck! This is obviously a misprint! You should probably remove this row from the data frame and save the data frame without it. A more sophisticated alternative would be to impute a value for this truck. There are many advanced statistical ways to do this, but they are beyond the scope of this course. <span class="citation" data-cites="vanBuuren2018">van Buuren (<a href="references.html#ref-vanBuuren2018" role="doc-biblioref">2018</a>)</span> describes several excellent ways to do so, particularly in that book’s Section 5.1.1, Recommended Workflows. It is usually a mistake to use an average for missing (NA) values because to do so compresses the variance unnaturally. You may remove that particular row by saying <code>df &lt;- df[-(which.max(df$price)),]</code>. Unfortunately, you will find that not to be very useful because there are several prices of over a billion dollars for generic cars! In fact, there are several with prices listed as <code>1234567890</code> and some listed at <code>987654321</code>. Many other ridiculous patterns can be found for price. So what can you do? Personally, I would add the following line right after reading in the file:</p>
+<p>You’ll notice that one of the prices is 3.7 billion dollars for a Toyota truck! This is obviously a misprint! You should probably remove this row from the data frame and save the data frame without it. A more sophisticated alternative would be to impute a value for this truck. There are many advanced statistical ways to do this, but they are beyond the scope of this course. <span class="citation" data-cites="vanBuuren2018">van Buuren (<a href="references.html#ref-vanBuuren2018" role="doc-biblioref">2018</a>)</span> describes several excellent ways to do so, particularly in that book’s Section 5.1.1, Recommended Workflows. It is usually a mistake to use an average for missing (NA) values because to do so compresses the variance unnaturally. You may remove that particular row by saying <code>df &lt;- df[-(which.max(df$price)),]</code>. Unfortunately, you will find that not to be very useful because there are several prices of over a billion dollars for generic cars! In fact, there are several with prices listed as <code>1234567890</code> and some listed at <code>987654321</code>. Many other ridiculous patterns can be found for price. So what can you do? Personally, I might add the following line right after reading in the file:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[df<span class="sc">$</span>price<span class="sc">&lt;</span><span class="dv">100000</span><span class="sc">&amp;</span>df<span class="sc">$</span>price<span class="sc">&gt;</span><span class="dv">0</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This will rid the data frame of cars priced at greater than 100,000 dollars and still leave you with over 300,000 automobiles to analyze. Of course, there are will still be spurious entries, but at least it’s a start. The above code will also get rid of cars priced at exactly zero dollars. Examination of the data frame will show that many of the zero dollar entries are just ads for used car dealers. The expression <code>price&lt;100000&amp;price&gt;0</code> is called a compound Boolean expression. It is compound because of the ampersand, which stands for the word <em>and</em>. It means that the row has to contain a price less than 100,000 AND it also has to be a price greater than zero.</p>
-<p>By the way, this is a good reminder that a data frame has a row and a column index. You can refer to rows by saying <code>df[</code><em>expression</em><code>,]</code> and to columns by saying <code>df[,</code><em>expression</em><code>]</code>. The <em>expression</em> can be any mathematical expression that resolves to TRUE or FALSE. The above expression resolves to TRUE for cars priced at greater than zero but less than 100,000 dollars, and FALSE for cars priced at any integer greater than or equal to 100,000. You can tell that <code>price</code> is a 64 bit integer by saying <code>str(df)</code> which will tell the structure of the <code>df</code> data frame. You should be able to see that most of the columns are classified as <code>chr</code> or character. This is not desirable. Most of the columns clasified as <code>chr</code> should more properly be classified as factors. Factors take up less space on your computer, are faster to process, and allow more types of processing than <code>chr</code>. Unfortunately, if you store your intermediate work as a <code>.csv</code> file, you will lose the factor designation. Therefore, I recommend that you do the following.</p>
+<p>or, better yet,</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[df<span class="sc">$</span>price <span class="sc">&lt;</span> <span class="fu">quantile</span>(df<span class="sc">$</span>price,.<span class="dv">9</span>,<span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="sc">&amp;</span> df<span class="sc">$</span>price <span class="sc">&gt;</span> <span class="fu">quantile</span>(df<span class="sc">$</span>price,.<span class="dv">1</span>,<span class="at">na.rm=</span><span class="cn">TRUE</span>),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The first one will rid the data frame of cars priced at greater than 100,000 dollars and still leave you with over 300,000 automobiles to analyze. Of course, there are will still be spurious entries, but at least it’s a start. The first code will also get rid of cars priced at exactly zero dollars. Examination of the data frame will show that many of the zero dollar entries are just ads for used car dealers. The expression <code>price&lt;100000&amp;price&gt;0</code> is called a compound Boolean expression. It is compound because of the ampersand, which stands for the word <em>and</em>. It means that the row has to contain a price less than 100,000 AND it also has to be a price greater than zero.</p>
+<p>The second code gets rid of the 90th percentile and above and the 10th percentile and below, which will still leave plenty.</p>
+<p>By the way, this is a good reminder that a data frame has a row and a column index. You can refer to rows by saying <code>df[</code><em>expression</em><code>,]</code> and to columns by saying <code>df[,</code><em>expression</em><code>]</code>. The <em>expression</em> can be any mathematical expression that resolves to TRUE or FALSE. The first above expression resolves to TRUE for cars priced at greater than zero but less than 100,000 dollars, and FALSE for cars priced at any integer greater than or equal to 100,000. You can tell that <code>price</code> is a 64 bit integer by saying <code>str(df)</code> which will tell the structure of the <code>df</code> data frame. You should be able to see that most of the columns are classified as <code>chr</code> or character. This is not desirable. Most of the columns clasified as <code>chr</code> should more properly be classified as factors. Factors take up less space on your computer, are faster to process, and allow more types of processing than <code>chr</code>. Unfortunately, if you store your intermediate work as a <code>.csv</code> file, you will lose the factor designation. Therefore, I recommend that you do the following.</p>
 <p>Step 1. Get rid of rows you don’t want, such as those with prices over or under some threshold value you choose.</p>
 <p>Step 2. Get rid of columns you don’t want to analyze, such as url or VIN.</p>
 <p>Step 3. Convert some of the <code>chr</code> columns to factor. For instance, you can say <code>df$state &lt;- as.factor(df$state)</code>.</p>
@@ -855,15 +859,15 @@ div.csl-indent {
 <section id="combining-numerical-and-categorical-selection" class="level3" data-number="3.2.4">
 <h3 data-number="3.2.4" class="anchored" data-anchor-id="combining-numerical-and-categorical-selection"><span class="header-section-number">3.2.4</span> Combining numerical and categorical selection</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>dfX <span class="ot">&lt;-</span> <span class="fu">subset</span>(df,state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ca"</span>,<span class="st">"ny"</span>) <span class="sc">&amp;</span> type <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"sedan"</span>,<span class="st">"SUV"</span>) <span class="sc">&amp;</span> price<span class="sc">&lt;</span><span class="dv">99999</span> <span class="sc">&amp;</span> price<span class="sc">&gt;</span><span class="dv">0</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">table</span>(dfX<span class="sc">$</span>state,dfX<span class="sc">$</span>type)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>dfX <span class="ot">&lt;-</span> <span class="fu">subset</span>(df,state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ca"</span>,<span class="st">"ny"</span>) <span class="sc">&amp;</span> type <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"sedan"</span>,<span class="st">"SUV"</span>) <span class="sc">&amp;</span> price<span class="sc">&lt;</span><span class="dv">99999</span> <span class="sc">&amp;</span> price<span class="sc">&gt;</span><span class="dv">0</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">table</span>(dfX<span class="sc">$</span>state,dfX<span class="sc">$</span>type)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     
       sedan   SUV   Sum
-  ca  11086  7429 18515
-  ny   3747  3224  6971
-  Sum 14833 10653 25486</code></pre>
+  ca  10313  6537 16850
+  ny   3487  2953  6440
+  Sum 13800  9490 23290</code></pre>
 </div>
 </div>
 <p>Above is an example of getting a small contingency table with only the data you want. The first line selects only cars offered in ca or ny, only sedans or SUVs, and only with prices below 99,999 dollars and more than zero dollars. Then we can make a compact contingency table of that new data frame and add the margins to it.</p>
@@ -872,57 +876,57 @@ div.csl-indent {
 <h3 data-number="3.2.5" class="anchored" data-anchor-id="getting-the-data-displayed-as-you-wish"><span class="header-section-number">3.2.5</span> Getting the data displayed as you wish</h3>
 <p>Someone asked me how to display price ranges by manufacturer. Here’s one way to do that:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(manufacturer) <span class="sc">|&gt;</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">reframe</span>(<span class="at">min =</span> <span class="fu">min</span>(price),<span class="at">max=</span><span class="fu">max</span>(price)) <span class="sc">|&gt;</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n=</span><span class="dv">43</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(manufacturer) <span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">reframe</span>(<span class="at">min =</span> <span class="fu">min</span>(price),<span class="at">max=</span><span class="fu">max</span>(price)) <span class="sc">|&gt;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n=</span><span class="dv">43</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 43 × 3
-   manufacturer      min        max
-   &lt;chr&gt;           &lt;int&gt;      &lt;int&gt;
- 1 acura               0     139999
- 2 alfa-romeo          0      62950
- 3 aston-martin        0     179888
- 4 audi                0     160000
- 5 bmw                 0  113456789
- 6 buick               0  123456789
- 7 cadillac            0     195000
- 8 chevrolet          NA         NA
- 9 chrysler            0     655000
-10 datsun              1      30000
-11 dodge               0    6995495
-12 ferrari             0     449500
-13 fiat                0      32500
-14 ford                0 1111111111
-15 gmc                 0  123456789
-16 harley-davidson     0      39900
-17 honda               0     123456
-18 hyundai             0      50000
-19 infiniti            0      69995
-20 jaguar              0     150000
-21 jeep                0 1410065407
-22 kia                 0      55325
-23 land rover          0      55000
-24 lexus               0     114950
-25 lincoln             0    1234567
-26 mazda               0      45000
-27 mercedes-benz      NA         NA
-28 mercury             0      95000
-29 mini                0      42500
-30 mitsubishi          0      40000
-31 morgan           1000      36500
-32 nissan              0  135008900
-33 pontiac             0     105000
-34 porsche             0     304995
-35 ram                 0   17000000
-36 rover               0     129888
-37 saturn              0    2000000
-38 subaru              0     195000
-39 tesla               0     104990
-40 toyota             NA         NA
-41 volkswagen          0     149000
-42 volvo               0 1234567890
-43 &lt;NA&gt;                0  123456789</code></pre>
+   manufacturer      min   max
+   &lt;chr&gt;           &lt;int&gt; &lt;int&gt;
+ 1 acura             574 37500
+ 2 alfa-romeo       1000 37500
+ 3 aston-martin     1947 37000
+ 4 audi              504 37509
+ 5 bmw               501 37500
+ 6 buick             521 37500
+ 7 cadillac          507 37500
+ 8 chevrolet         502 37587
+ 9 chrysler          539 37500
+10 datsun           2200 30000
+11 dodge             513 37500
+12 ferrari          2034 35000
+13 fiat              800 32500
+14 ford              502 37513
+15 gmc               501 37550
+16 harley-davidson  2500 27995
+17 honda             502 37500
+18 hyundai           543 36900
+19 infiniti          517 37500
+20 jaguar            514 37388
+21 jeep              501 37587
+22 kia               529 37500
+23 land rover       3199 10999
+24 lexus             521 37500
+25 lincoln           541 37495
+26 mazda             515 36995
+27 mercedes-benz     502 37509
+28 mercury           600 37495
+29 mini              600 35990
+30 mitsubishi        538 37500
+31 morgan           1000 36500
+32 nissan            522 37575
+33 pontiac           600 37500
+34 porsche           560 37500
+35 ram               502 37556
+36 rover             507 37500
+37 saturn            600 22000
+38 subaru            501 37200
+39 tesla             563 36999
+40 toyota            505 37583
+41 volkswagen        507 37000
+42 volvo             502 37000
+43 &lt;NA&gt;               NA    NA</code></pre>
 </div>
 </div>
 <p>The number 43 is because there are 43 manufacturers in the data frame. Note that, using the <code>reframe()</code> function, I could add a few more comma-separated statistics to the output.</p>
@@ -931,22 +935,22 @@ div.csl-indent {
 <h3 data-number="3.2.6" class="anchored" data-anchor-id="a-function-between-numeric-and-visual"><span class="header-section-number">3.2.6</span> A function between numeric and visual</h3>
 <p>Milestone 1 is supposed to be entirely about numeric descriptions of the data, not visual descriptions, which will be covered in Milestone 2. Yet there is one function that exists in a gray area between numeric and graphical. That is the stem and leaf plot. Consider the following output.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stem</span>(df<span class="sc">$</span>odometer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stem</span>(df<span class="sc">$</span>odometer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
   The decimal point is 6 digit(s) to the right of the |
 
-  0 | 00000000000000000000000000000000000000000000000000000000000000000000+421502
-  1 | 00000000000000000000000000000000000000000000000000000000000000000000+562
-  2 | 000000000000000000111122223333333335555566666677789
-  3 | 02333357
+  0 | 00000000000000000000000000000000000000000000000000000000000000000000+338310
+  1 | 00000000000000000000000000000000000000000000000000000000000000000000+407
+  2 | 00000000000000000011112223333333335555566666677789
+  3 | 0333357
   4 | 0577777777
-  5 | 005556666666669
-  6 | 15
-  7 | 555678888888888888
-  8 | 04789999
+  5 | 006669
+  6 | 5
+  7 | 55678888888888888
+  8 | 0489
   9 | 000189
-  10 | 00000000000000000000000000000000000000000000000000000000000000000000+58</code></pre>
+  10 | 00000000000000000000000000000000000000000000000000000000000000000000+9</code></pre>
 </div>
 </div>
 <p>The output does not need any graphical processor. It is only characters that can be included in text. Yet it is a kind of graphic because you can see, for instance, that of the cars have either very little mileage on the odometer or very much. Read it like this:</p>
@@ -957,16 +961,16 @@ div.csl-indent {
 <li>It is probably easier to read a stem and leaf plot for a smaller data frame, in the following case for the first 100 cars in the above data frame.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stem</span>(df<span class="sc">$</span>odometer[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stem</span>(df<span class="sc">$</span>odometer[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
   The decimal point is 4 digit(s) to the right of the |
 
-   0 | 0222788900012223447789999
-   2 | 11267799000004555678
+   0 | 022278800122344477788999
+   2 | 111267779900000014555566788
    4 | 01123335568
-   6 | 39117
-   8 | 0804567
+   6 | 139117
+   8 | 080567
   10 | 0
   12 | 8
   14 | 5
@@ -976,16 +980,16 @@ div.csl-indent {
 </div>
 <p>These entries come from a reduced data frame where I first ran the above code, getting rid of the high-priced and free cars. It may make it easier to understand to look at the entries themselves.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df<span class="sc">$</span>odometer,<span class="at">n=</span>100L) <span class="sc">|&gt;</span> <span class="fu">sort</span>(<span class="at">decreasing=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df<span class="sc">$</span>odometer,<span class="at">n=</span>100L) <span class="sc">|&gt;</span> <span class="fu">sort</span>(<span class="at">decreasing=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 192000 176144 144700 128000  99615  97000  96003  95000  94020  90000
-[11]  88000  80318  77087  71229  70760  68696  63129  57923  55783  55251
-[21]  55068  43182  43000  42755  41568  41124  40784  39508  37725  37332
-[31]  35835  35320  35290  34940  34152  30237  30176  30047  30041  29652
-[41]  29499  28942  26978  26685  26129  22120  20856  20581  19179  19160
-[51]  18650  18531  17805  17302  16594  14230  14169  13035  12302  12231
-[61]  12102  10688   9954   9859   9704   8663   8141   7885   6897   2195
-[71]   1834   1722     21</code></pre>
+<pre><code> [1] 192000 176144 144700 128000  99999  97000  96003  95000  90000  88000
+[11]  80318  77087  71229  70760  68696  63129  61087  57923  55783  55251
+[21]  55068  43182  43000  42755  41568  41124  40784  39508  37888  37725
+[31]  37332  36436  35835  35320  35290  34940  34636  34152  31363  30376
+[41]  30176  30047  30041  29738  29652  29499  28942  26978  26685  26655
+[51]  26129  22120  20856  20736  20581  19179  18650  18531  18041  17805
+[61]  17302  17033  16594  14230  14222  14169  13035  12302  12102  10688
+[71]   9954   9859   8141   7885   6897   2195   1834   1722     21</code></pre>
 </div>
 </div>
 <p>The very first row in the stem and leaf plot above counts cars priced at less than 20,000 dollars. There are 28 of them. They all have 0 or 1 in the fifth position to the left of the decimal. Only one of those, which is offered at 21 dollars, has zeros in both of the first two positions. It is the very first entry after the stem, represented as a zero. The next three entries are the cars that sell for the next lowest prices, between zero and 2 in the next decimal position. They are represented as 2s. You can see at a glance that, in this group of 100 cars, the lower odometer readings predominate. By the way, the <code>stem()</code> function discards <code>NA</code> values before processing the remainder. So there are only a total of 78 characters to the right of the stem on all the rows put together.</p>
