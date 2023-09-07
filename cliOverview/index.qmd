@@ -1,0 +1,111 @@
+---
+title: "Welcome to the Command Line:<br>Overview"
+author: Mick McQuaid
+date: today
+bibliography: master.bib
+format:
+  revealjs:
+    logo: texasLogoLight.png
+    theme: solarized
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+::: {.r-fit-text}
+CLI
+:::
+
+# Genesis
+
+:::: {.incremental}
+- started as a hallway convo with James, Elliott, and Abhijit
+- we all need to teach some *[commandlinefu]{.emph}*
+- we reinvent each other's lectures too often
+- why not develop a set of reusable modules?
+- why not apply for a teaching innovation grant (tig)?
+::::
+
+::: {.notes}
+There is great value in hallway conversations!
+:::
+
+# Why CLI?
+:::: {.incremental}
+- GUIs limit your options
+- GUIs don't leave an audit trail
+- GUIs are often inaccessible
+::::
+
+## {background-video="idiocracyTriage.m4v"}
+
+# What's wrong with CLI?
+:::: {.incremental}
+- relies on memory
+- relies on correct spelling
+- may rely on arcane installation processes
+::::
+
+# tig
+:::: {.incremental}
+- provides some summer support
+- this year, 10/50 projects funded at 3,000USD
+- this project funded as *Welcome to the Command Line! Inclusive technical open educational resources*
+- what does *inclusive* mean? What does *open educational* mean?
+::::
+
+# inclusive
+:::: {.incremental}
+- user testing on underrepresented groups
+- using html and markdown so blind students have a fighting chance of accessing it
+- applying Universal Design for Learning (UDL) to development, e.g., @Fovet2021, @Gargiulo2022, @Jung2023
+::::
+
+# open educational resources
+:::: {.incremental}
+- varying definitions of it, e.g., @Wiley2014
+- license (most popular is MIT)
+- availability (as a github repo)
+- flexibility (to use what you want)
+::::
+
+# Design for social acceptance
+
+![DevAsLife Video on Youtube](fiDevAsLifeExample.png)
+
+# Resources
+- [https://mickmcquaid.com/cli](https://mickmcquaid.com/cli)
+- [https://mickmcquaid.com/cli.html](https://mickmcquaid.com/cli.html)
+- github organization conpackverse
+- github repo conpackverse/cli
+
+# Summary
+
+:::: {.incremental}
+- ongoing: add more modules
+- next: add packaging
+- soon: test on Statistics for Informatics students
+- later: make videos
+::::
+
+# References
+
+::: {#refs}
+:::
+
+---
+
+::: {.r-fit-text}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *League Gothic* and *Lato*
+
