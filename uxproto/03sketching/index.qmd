@@ -1,7 +1,7 @@
 ---
 title: "UX Prototyping:<br>Sketching"
 author: Mick McQuaid
-date: 2023-01-25
+date: today
 bibliography: master.bib
 format:
   revealjs:
@@ -339,38 +339,6 @@ For example
 ::: {.r-fit-text}
 milestone 2
 :::
-
-## Njideka Akunyili Crosby
-
-![](fiNjidekaAkunyiliCrosby.png){width=70% fig-alt="photo of the artist seated"}
-
-::: {.notes}
-This is a photo of an artist named Njideka Akunyili Crosby. Her first name is evidently pronounced nnn-jee-deh-car even though there is no R in it! The photo was given to me on a piece of paper by a curator at a museum, with no attribution on the page. It simply says that she is from Enugu, Nigeria, which is a large city of 722,000 in southeastern Nigeria. She was born in 1983 and currently works in Los Angeles, CA.
-:::
-
-## Protocol
-
-1. Stare at a photograph of the painting *Still You Bloom in this Land of No Gardens* in the room for at least ten minutes
-2. Create an accessible prototype of a digital artifact to satisfy some need of one of the two people in the painting
-3. Submit the prototype by a week from Monday evening at 9PM
-
-## The exhibit at Blanton (closed in December)
-
-![](fiCrosbyExhibit.jpg){fig-alt="Photo of Blanton museum room with Crosby exhibit"}
-
-## The painting itself
-
-![](fiMotherChild.jpg){fig-alt="Photo of painting by Crosby, depicting a seated woman with a small child on her lap"}
-
-## A better (?) photo of the painting
-
-![](fiStillYouBloom.png){fig-alt="Better photo of previous painting"}
-
-## How can you approach this task?
-1. First just look at the painting for ten minutes without learning anything about it.
-2. Optionally learn about the painting and its background, using the plaque beside it and web or curatorial resources
-3. Think about the environment of these two people, their needs, and values
-4. Design an accessible prototype that reflects what you know about them
 
 # References
 
