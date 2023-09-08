@@ -20,6 +20,10 @@ format:
 CLI
 :::
 
+# Seen on campus last week
+
+![Death by Powerpoint t-shirt](fiDeathByPpt.png)
+
 # Genesis
 
 :::: {.incremental}
@@ -78,8 +82,9 @@ There is great value in hallway conversations!
 ![DevAsLife Video on Youtube](fiDevAsLifeExample.png)
 
 # Resources
-- [https://mickmcquaid.com/cli](https://mickmcquaid.com/cli)
-- [https://mickmcquaid.com/cli.html](https://mickmcquaid.com/cli.html)
+- [https://mickmcquaid.com/cli](https://mickmcquaid.com/cli) modules
+- [https://mickmcquaid.com/cli.html](https://mickmcquaid.com/cli.html) list of resources
+- [https://mickmcquaid.com/cliOverview](https://mickmcquaid.com/cliOverview) this slideshow
 - github organization conpackverse
 - github repo conpackverse/cli
 
