@@ -1,7 +1,7 @@
 ---
-title: Info & Interaction Design, Personas
+title: Info & Interaction Design<br>Personas
 author: Mick McQuaid
-date: 2022-09-21
+date: today
 bibliography: master.bib
 format:
   revealjs:
@@ -20,7 +20,7 @@ format:
 Week FIVE
 :::
 
-# But first ... The Elephant in the Room
+# But first ... A year ago last week ...
 
 ## Figma acquisition by Adobe
 - Should we keep using Figma?
@@ -45,8 +45,8 @@ Week FIVE
 
 ## Questions
 - Everybody hates Adobe. Why? (Subscriptions?)
-- Isn't it possible that this acquisition will fail? (Yes)
-- Might the FTC block the deal? (Unlikely)
+- Isn't it possible that this acquisition will fail? (Yes) [(No)]{.emph}
+- Might the FTC block the deal? (Unlikely) [(they didn't)]{.emph}
 - The co-inventor of Figma has already moved on. Why? [https://madebyevan.com/](https://madebyevan.com/) (That's what they do)
 - What will Adobe do? (retire XD? retire Figma? ruin both?)
 
@@ -65,8 +65,14 @@ Plus, Adobe doesn't need the team. If they get patents to Figma's technology, th
 
 - Contextual Inquiry
 - Mood boards
-- Triangles
+- Triangles (oops! let's do them now)
 - Picking up a key
+
+# Your version of the triangle
+![](fiTriangle.png)
+
+Place yourself and your preferred job title in the triangle, wherever you belong, and include the vertices.
+Submit a photo of it to Canvas.
 
 # Protocol and verbal analysis
 
@@ -218,7 +224,7 @@ The PDCA cycle can be traversed over and over, indefinitely. There are four main
 
 Also see @Pruitt2003.
 
-# Up next, Framer and (maybe) Penpot tutorials
+# Up next, small group contextual inquiry
 
 # References
 
