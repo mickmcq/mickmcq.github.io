@@ -54,7 +54,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -261,23 +280,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#disjoint-outcomes" id="toc-disjoint-outcomes" class="nav-link" data-scroll-target="#disjoint-outcomes"><span class="header-section-number">4.5</span> Disjoint outcomes</a></li>
   <li><a href="#probabilities-when-outcomes-are-not-disjoint" id="toc-probabilities-when-outcomes-are-not-disjoint" class="nav-link" data-scroll-target="#probabilities-when-outcomes-are-not-disjoint"><span class="header-section-number">4.6</span> Probabilities when outcomes are not disjoint</a></li>
   <li><a href="#general-addition-rule" id="toc-general-addition-rule" class="nav-link" data-scroll-target="#general-addition-rule"><span class="header-section-number">4.7</span> General addition rule</a></li>
-  <li><a href="#probability-distributions" id="toc-probability-distributions" class="nav-link" data-scroll-target="#probability-distributions"><span class="header-section-number">4.8</span> Probability distributions</a></li>
-  <li><a href="#probability-distribution-for-two-fair-dice" id="toc-probability-distribution-for-two-fair-dice" class="nav-link" data-scroll-target="#probability-distribution-for-two-fair-dice"><span class="header-section-number">4.9</span> Probability distribution for two fair dice</a></li>
-  <li><a href="#terms-from-set-theory" id="toc-terms-from-set-theory" class="nav-link" data-scroll-target="#terms-from-set-theory"><span class="header-section-number">4.10</span> Terms from set theory</a></li>
-  <li><a href="#independence" id="toc-independence" class="nav-link" data-scroll-target="#independence"><span class="header-section-number">4.11</span> Independence</a></li>
-  <li><a href="#multiplication-rule-for-independent-processes" id="toc-multiplication-rule-for-independent-processes" class="nav-link" data-scroll-target="#multiplication-rule-for-independent-processes"><span class="header-section-number">4.12</span> Multiplication rule for independent processes</a></li>
-  <li><a href="#conditional-probability" id="toc-conditional-probability" class="nav-link" data-scroll-target="#conditional-probability"><span class="header-section-number">4.13</span> Conditional probability</a></li>
-  <li><a href="#general-multiplication-rule" id="toc-general-multiplication-rule" class="nav-link" data-scroll-target="#general-multiplication-rule"><span class="header-section-number">4.14</span> General multiplication rule</a></li>
-  <li><a href="#tree-diagrams-of-probability" id="toc-tree-diagrams-of-probability" class="nav-link" data-scroll-target="#tree-diagrams-of-probability"><span class="header-section-number">4.15</span> Tree diagrams of probability</a></li>
-  <li><a href="#bayes-theorem" id="toc-bayes-theorem" class="nav-link" data-scroll-target="#bayes-theorem"><span class="header-section-number">4.16</span> Bayes’ Theorem</a></li>
-  <li><a href="#sampling-from-a-small-population" id="toc-sampling-from-a-small-population" class="nav-link" data-scroll-target="#sampling-from-a-small-population"><span class="header-section-number">4.17</span> Sampling from a small population</a></li>
-  <li><a href="#random-variables" id="toc-random-variables" class="nav-link" data-scroll-target="#random-variables"><span class="header-section-number">4.18</span> Random variables</a>
+  <li><a href="#counting-permutations-and-combinations" id="toc-counting-permutations-and-combinations" class="nav-link" data-scroll-target="#counting-permutations-and-combinations"><span class="header-section-number">4.8</span> Counting Permutations and Combinations</a></li>
+  <li><a href="#probability-distributions" id="toc-probability-distributions" class="nav-link" data-scroll-target="#probability-distributions"><span class="header-section-number">4.9</span> Probability distributions</a></li>
+  <li><a href="#probability-distribution-for-two-fair-dice" id="toc-probability-distribution-for-two-fair-dice" class="nav-link" data-scroll-target="#probability-distribution-for-two-fair-dice"><span class="header-section-number">4.10</span> Probability distribution for two fair dice</a></li>
+  <li><a href="#terms-from-set-theory" id="toc-terms-from-set-theory" class="nav-link" data-scroll-target="#terms-from-set-theory"><span class="header-section-number">4.11</span> Terms from set theory</a></li>
+  <li><a href="#independence" id="toc-independence" class="nav-link" data-scroll-target="#independence"><span class="header-section-number">4.12</span> Independence</a></li>
+  <li><a href="#multiplication-rule-for-independent-processes" id="toc-multiplication-rule-for-independent-processes" class="nav-link" data-scroll-target="#multiplication-rule-for-independent-processes"><span class="header-section-number">4.13</span> Multiplication rule for independent processes</a></li>
+  <li><a href="#conditional-probability" id="toc-conditional-probability" class="nav-link" data-scroll-target="#conditional-probability"><span class="header-section-number">4.14</span> Conditional probability</a></li>
+  <li><a href="#general-multiplication-rule" id="toc-general-multiplication-rule" class="nav-link" data-scroll-target="#general-multiplication-rule"><span class="header-section-number">4.15</span> General multiplication rule</a></li>
+  <li><a href="#tree-diagrams-of-probability" id="toc-tree-diagrams-of-probability" class="nav-link" data-scroll-target="#tree-diagrams-of-probability"><span class="header-section-number">4.16</span> Tree diagrams of probability</a></li>
+  <li><a href="#bayes-theorem" id="toc-bayes-theorem" class="nav-link" data-scroll-target="#bayes-theorem"><span class="header-section-number">4.17</span> Bayes’ Theorem</a></li>
+  <li><a href="#sampling-from-a-small-population" id="toc-sampling-from-a-small-population" class="nav-link" data-scroll-target="#sampling-from-a-small-population"><span class="header-section-number">4.18</span> Sampling from a small population</a></li>
+  <li><a href="#random-variables" id="toc-random-variables" class="nav-link" data-scroll-target="#random-variables"><span class="header-section-number">4.19</span> Random variables</a>
   <ul class="collapse">
-  <li><a href="#variability-in-random-variables" id="toc-variability-in-random-variables" class="nav-link" data-scroll-target="#variability-in-random-variables"><span class="header-section-number">4.18.1</span> Variability in random variables</a></li>
-  <li><a href="#linear-combinations-of-random-variables" id="toc-linear-combinations-of-random-variables" class="nav-link" data-scroll-target="#linear-combinations-of-random-variables"><span class="header-section-number">4.18.2</span> Linear combinations of random variables</a></li>
+  <li><a href="#variability-in-random-variables" id="toc-variability-in-random-variables" class="nav-link" data-scroll-target="#variability-in-random-variables"><span class="header-section-number">4.19.1</span> Variability in random variables</a></li>
+  <li><a href="#linear-combinations-of-random-variables" id="toc-linear-combinations-of-random-variables" class="nav-link" data-scroll-target="#linear-combinations-of-random-variables"><span class="header-section-number">4.19.2</span> Linear combinations of random variables</a></li>
   </ul></li>
-  <li><a href="#continuous-distributions" id="toc-continuous-distributions" class="nav-link" data-scroll-target="#continuous-distributions"><span class="header-section-number">4.19</span> Continuous distributions</a></li>
-  <li><a href="#the-f-distribution" id="toc-the-f-distribution" class="nav-link" data-scroll-target="#the-f-distribution"><span class="header-section-number">4.20</span> The F distribution</a></li>
+  <li><a href="#continuous-distributions" id="toc-continuous-distributions" class="nav-link" data-scroll-target="#continuous-distributions"><span class="header-section-number">4.20</span> Continuous distributions</a></li>
+  <li><a href="#the-f-distribution" id="toc-the-f-distribution" class="nav-link" data-scroll-target="#the-f-distribution"><span class="header-section-number">4.21</span> The F distribution</a></li>
   </ul>
 </nav>
     </div>
@@ -387,7 +407,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>flips
 heads tails 
-  471   529 </code></pre>
+  508   492 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>heads_freq <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(flips <span class="sc">==</span> <span class="st">'heads'</span>) <span class="sc">/</span> <span class="dv">1</span><span class="sc">:</span>num_flips</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(heads_freq,      <span class="co"># vector</span></span>
@@ -422,8 +442,38 @@ P (A\text{ or }B) = P (A) + P (B) − P (A\text{ and }B)
 \]</span></p>
 <p>where <span class="math inline">\(P (A\text{ and }B)\)</span> is the probability that both events occur.</p>
 </section>
-<section id="probability-distributions" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="probability-distributions"><span class="header-section-number">4.8</span> Probability distributions</h2>
+<section id="counting-permutations-and-combinations" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="counting-permutations-and-combinations"><span class="header-section-number">4.8</span> Counting Permutations and Combinations</h2>
+<p>Permutations can be thought of as lineups. For instance, suppose you have five people to put in a line. There are five people to choose from to be first in line, then four people remain to be second in line, and so on. You can count this up as <span class="math inline">\(5 \times 4 \times 3 \times 2 \times 1 = 5!\)</span> or five factorial. This holds true for as many objects as you wish to line up.</p>
+<p>Combinations can be thought of as committees. There is no order as in a lineup. You’re either a member or you’re not. Suppose you want to form a committee of five people from among twenty people. It doesn’t matter what order they come in so you can’t use the factorial method to count them. There is another method, which you can find described in detail in <span class="citation" data-cites="Ash1993">Ash (<a href="references.html#ref-Ash1993" role="doc-biblioref">1993</a>)</span>. The main result is that, to choose a committee of 5 from among 20 people, use</p>
+<p><span class="math display">\[
+\binom{20}{5} = \frac{20!}{5!(20-5)!}
+\]</span></p>
+<p>This is read as <em>twenty choose 5</em>.</p>
+<p>Keep in mind that</p>
+<p><span class="math display">\[
+\binom{n}{r}=\binom{n}{n-r}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\binom{n}{1}=n
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\binom{n}{n}={n}{0}=1
+\]</span></p>
+<p>This last result is because <span class="math inline">\(0!=1\)</span> by definition.</p>
+<p><span class="citation" data-cites="Ash1993">Ash (<a href="references.html#ref-Ash1993" role="doc-biblioref">1993</a>)</span> gives the examples of finding and not finding the Queen of Spades (<span class="math inline">\(Q_s\)</span>) in a poker hand. You can think of a poker hand as a committee of 5 cards drawn from 52, so the total number of poker hands is given by <span class="math inline">\(\binom{52}{5}\)</span>. Finding hands containing the <span class="math inline">\(Q_s\)</span> amounts to choosing a committee of size four (the remainder of the hand, from among 51 cards (the remainder of the deck. So there are <span class="math inline">\(\binom{51}{4}\)</span> such hands.</p>
+<p><span class="math display">\[
+P(Q_s)=\dfrac{\binom{51}{4}}{\binom{52}{5}}=\frac{5}{52}
+\]</span></p>
+<p>Keep in mind when canceling in stacked fractions that</p>
+<p><span class="math display">\[
+\dfrac{\frac{a}{b}}{\frac{c}{d}}=\dfrac{a \cdot d}{b \cdot c}
+\]</span></p>
+</section>
+<section id="probability-distributions" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="probability-distributions"><span class="header-section-number">4.9</span> Probability distributions</h2>
 <p>A probability distribution is a list of the possible outcomes with corresponding probabilities that satisfies three rules:</p>
 <ol type="1">
 <li>The outcomes listed must be disjoint.</li>
@@ -431,8 +481,8 @@ P (A\text{ or }B) = P (A) + P (B) − P (A\text{ and }B)
 <li>The probabilities must total 1.</li>
 </ol>
 </section>
-<section id="probability-distribution-for-two-fair-dice" class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="probability-distribution-for-two-fair-dice"><span class="header-section-number">4.9</span> Probability distribution for two fair dice</h2>
+<section id="probability-distribution-for-two-fair-dice" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="probability-distribution-for-two-fair-dice"><span class="header-section-number">4.10</span> Probability distribution for two fair dice</h2>
 <p>Francis DiTraglia shows the following example of plotting the probability distribution for rolling two fair dice on his <a href="https://ditraglia.com/Econ103Public/Rtutorials/Rtutorial4.html">website</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>two.dice <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
@@ -447,8 +497,8 @@ P (A\text{ or }B) = P (A) + P (B) − P (A\text{ and }B)
 </div>
 <p>Why is 7 the most likely outcome?</p>
 </section>
-<section id="terms-from-set-theory" class="level2" data-number="4.10">
-<h2 data-number="4.10" class="anchored" data-anchor-id="terms-from-set-theory"><span class="header-section-number">4.10</span> Terms from set theory</h2>
+<section id="terms-from-set-theory" class="level2" data-number="4.11">
+<h2 data-number="4.11" class="anchored" data-anchor-id="terms-from-set-theory"><span class="header-section-number">4.11</span> Terms from set theory</h2>
 <p>Set theory is a mathematical discipline that uses tools like Venn diagrams to describes sets of objects. We can think of outcomes from random processes as objects, too, with the following terms.</p>
 <ul>
 <li>sample space: the set of all possible outcomes</li>
@@ -460,12 +510,12 @@ P (A\text{ or }B) = P (A) + P (B) − P (A\text{ and }B)
 P (A) + P (A^c) = 1, \text{ i.e. } P (A) = 1 − P (A^c)
 \]</span></p>
 </section>
-<section id="independence" class="level2" data-number="4.11">
-<h2 data-number="4.11" class="anchored" data-anchor-id="independence"><span class="header-section-number">4.11</span> Independence</h2>
+<section id="independence" class="level2" data-number="4.12">
+<h2 data-number="4.12" class="anchored" data-anchor-id="independence"><span class="header-section-number">4.12</span> Independence</h2>
 <p>Just as variables and observations can be independent, random processes can be independent, too. Two processes are <em>independent</em> if knowing the outcome of one provides no useful information about the outcome of the other. For instance, flipping a coin and rolling a die are two independent processes—knowing the coin was heads does not help determine the outcome of a die roll. On the other hand, stock prices usually move up or down together, so they are not independent.</p>
 </section>
-<section id="multiplication-rule-for-independent-processes" class="level2" data-number="4.12">
-<h2 data-number="4.12" class="anchored" data-anchor-id="multiplication-rule-for-independent-processes"><span class="header-section-number">4.12</span> Multiplication rule for independent processes</h2>
+<section id="multiplication-rule-for-independent-processes" class="level2" data-number="4.13">
+<h2 data-number="4.13" class="anchored" data-anchor-id="multiplication-rule-for-independent-processes"><span class="header-section-number">4.13</span> Multiplication rule for independent processes</h2>
 <p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> represent events from two different and independent processes, then the probability that both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> occur can be calculated as the product of their separate probabilities:</p>
 <p><span class="math display">\[
 P (A\text{ and }B) = P (A) × P (B)
@@ -475,8 +525,8 @@ P (A\text{ and }B) = P (A) × P (B)
 P (A_1) × P (A_2) × \cdots × P (A_k)
 \]</span></p>
 </section>
-<section id="conditional-probability" class="level2" data-number="4.13">
-<h2 data-number="4.13" class="anchored" data-anchor-id="conditional-probability"><span class="header-section-number">4.13</span> Conditional probability</h2>
+<section id="conditional-probability" class="level2" data-number="4.14">
+<h2 data-number="4.14" class="anchored" data-anchor-id="conditional-probability"><span class="header-section-number">4.14</span> Conditional probability</h2>
 <p>This is where probability gets interesting. Some things depend on other things! The textbook uses a contingency table of the <code>photos_classify</code> data frame, which you can download from OpenIntro Stats, to explore this concept.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/photo_classify.rda"</span>))</span>
@@ -508,16 +558,16 @@ mach_learn     fashion  not  Sum
 P (A|B) = \frac{P (A\text{ and }B)}{P (B)}
 \]</span></p>
 </section>
-<section id="general-multiplication-rule" class="level2" data-number="4.14">
-<h2 data-number="4.14" class="anchored" data-anchor-id="general-multiplication-rule"><span class="header-section-number">4.14</span> General multiplication rule</h2>
+<section id="general-multiplication-rule" class="level2" data-number="4.15">
+<h2 data-number="4.15" class="anchored" data-anchor-id="general-multiplication-rule"><span class="header-section-number">4.15</span> General multiplication rule</h2>
 <p>We already saw a specific multiplication rule for independent events. But there is a more general rule, applicable whether independence is true or not. If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> represent two outcomes or events, then</p>
 <p><span class="math display">\[
 P (A\text{ and }B) = P (A|B) × P (B)
 \]</span></p>
 <p>It is useful to think of <span class="math inline">\(A\)</span> as the outcome of interest and <span class="math inline">\(B\)</span> as the condition.</p>
 </section>
-<section id="tree-diagrams-of-probability" class="level2" data-number="4.15">
-<h2 data-number="4.15" class="anchored" data-anchor-id="tree-diagrams-of-probability"><span class="header-section-number">4.15</span> Tree diagrams of probability</h2>
+<section id="tree-diagrams-of-probability" class="level2" data-number="4.16">
+<h2 data-number="4.16" class="anchored" data-anchor-id="tree-diagrams-of-probability"><span class="header-section-number">4.16</span> Tree diagrams of probability</h2>
 <p>The textbook claims that tree diagrams aid our thinking about conditional probabilities. Luckily, law professor Harry Surden provides an example of a tree diagram of probabilities on his website.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#.. R Conditional Probability Tree Diagram</span></span>
@@ -653,8 +703,8 @@ character(0)</code></pre>
 </div>
 <p>It’s pretty ugly because it was designed for a different width and height than I have allocated, but it gives the general idea.</p>
 </section>
-<section id="bayes-theorem" class="level2" data-number="4.16">
-<h2 data-number="4.16" class="anchored" data-anchor-id="bayes-theorem"><span class="header-section-number">4.16</span> Bayes’ Theorem</h2>
+<section id="bayes-theorem" class="level2" data-number="4.17">
+<h2 data-number="4.17" class="anchored" data-anchor-id="bayes-theorem"><span class="header-section-number">4.17</span> Bayes’ Theorem</h2>
 <p>It’s the centerpiece of Bayesian statistics so it’s a bit like a fish out of water in a frequentist course. It states, in words, that the posterior probability of an outcome <span class="math inline">\(A\)</span> given an outcome <span class="math inline">\(B\)</span> is the likelihood of the outcome <span class="math inline">\(B\)</span> times the prior probability of the outcome <span class="math inline">\(A\)</span> divided by the evidence of outcome <span class="math inline">\(B\)</span>. More succinctly,</p>
 <p><span class="math display">\[
 P(A|B)=\frac{P(B|A)P(A)}{P(B)}
@@ -672,8 +722,8 @@ P(B|A)P(A)+P(B|\neg A)P(\neg A)
 <p>where <span class="math inline">\(\neg A\)</span> is the complement of <span class="math inline">\(A\)</span>.</p>
 <p>This is very important to know about because, for example, someone might <em>only</em> tell you that a test is ninety percent sensitive and eighty percent specific and leave out the Bayes rule result that says that, given that only five percent of the general population are drug users, there’s a nineteen percent chance that testing positive indicates that you are a drug user. Again, Bayes’ rule is very important when you have some prior knowledge. In this case, the prior knowledge is a study that says that five percent of the general population are users of this drug.</p>
 </section>
-<section id="sampling-from-a-small-population" class="level2" data-number="4.17">
-<h2 data-number="4.17" class="anchored" data-anchor-id="sampling-from-a-small-population"><span class="header-section-number">4.17</span> Sampling from a small population</h2>
+<section id="sampling-from-a-small-population" class="level2" data-number="4.18">
+<h2 data-number="4.18" class="anchored" data-anchor-id="sampling-from-a-small-population"><span class="header-section-number">4.18</span> Sampling from a small population</h2>
 <p>Recall that the population includes every object and is usually not practical to measure. For examples, every fish, every person, every thunderstorm are too many to represent. So we take a sample. A typical rule of thumb is that, if we can sample more than ten percent of the population, we regard it as a small population.</p>
 <p>The textbook gives an example of being called on by the professor. The chance that you are called on in a class of 15 is 1/15. If the professor calls on three different people in succession, the chance that you are called on increases to 1/5:</p>
 <p><span class="math display">\[\begin{align}
@@ -684,8 +734,8 @@ P(\neg\text{3 in a row}) &amp;=\\
 \end{align}\]</span></p>
 <p>and the complement of 12/15 is 1/5.</p>
 </section>
-<section id="random-variables" class="level2" data-number="4.18">
-<h2 data-number="4.18" class="anchored" data-anchor-id="random-variables"><span class="header-section-number">4.18</span> Random variables</h2>
+<section id="random-variables" class="level2" data-number="4.19">
+<h2 data-number="4.19" class="anchored" data-anchor-id="random-variables"><span class="header-section-number">4.19</span> Random variables</h2>
 <p>A process with a random numerical outcome is called a random variable. It’s kind of like a stochastic function in that there is an input (the process) and output (the outcome number).</p>
 <p>A random variable is usually represented as a capital, italicized Latin letter, e.g., <span class="math inline">\(X, Y, Z\)</span>. Specific outcomes are usually represented as a lowercase, italicized Latin letter with a subscript to denote which outcome, such as <span class="math inline">\(x_1, x_2, x_3\)</span>. The probability that a random variable <span class="math inline">\(X\)</span> has a specific outcome <span class="math inline">\(x_1\)</span> is represented as <span class="math inline">\(P(X=x_1)\)</span>.</p>
 <p>The expectation of <span class="math inline">\(X\)</span> is the expected value of <span class="math inline">\(X\)</span>, represented as <span class="math inline">\(E(X)\)</span>. The expected value is typically the average, but not always. If there are <span class="math inline">\(k\)</span> possible outcomes, then</p>
@@ -694,19 +744,19 @@ E(X)=\sum_{i=1}^kx_iP(X=x_i)
 \]</span></p>
 <p>The Greek letter <span class="math inline">\(\sum\)</span> (Sigma) denotes a sum of a series of numbers, indexed in this case by <span class="math inline">\(i\)</span>. You can read it in English as the sum, going from <span class="math inline">\(1\)</span> to <span class="math inline">\(k\)</span>, of the expressions to the right of the Sigma sign. In other words,</p>
 <p><span class="math display">\[
-x_1P(X=x_1)+x_1P(X=x_1)+\cdots+x_kP(X=x_k)
+x_1P(X=x_1)+x_2P(X=x_2)+\cdots+x_kP(X=x_k)
 \]</span></p>
 <p>It’s the average as we usually understand it if each outcome is equally probable, in which case it’s the sum of the outcomes divided by the number of outcomes.</p>
 <p>Writers often substitute <span class="math inline">\(E(X)=\mu\)</span> which can be confusing because Greek letters are usually used as parameters, while Latin letters are usually used as specific realizations of those parameters.</p>
 <p>The above assumes there are <span class="math inline">\(k\)</span> specific outcomes. We call this case a <em>discrete random variable</em>. It’s also possible to do math with a <em>continuous random variable</em>. In other words, <span class="math inline">\(k=\infty\)</span>. However, that requires calculus so the textbook skips it for now.</p>
-<section id="variability-in-random-variables" class="level3" data-number="4.18.1">
-<h3 data-number="4.18.1" class="anchored" data-anchor-id="variability-in-random-variables"><span class="header-section-number">4.18.1</span> Variability in random variables</h3>
+<section id="variability-in-random-variables" class="level3" data-number="4.19.1">
+<h3 data-number="4.19.1" class="anchored" data-anchor-id="variability-in-random-variables"><span class="header-section-number">4.19.1</span> Variability in random variables</h3>
 <p>Recall that random variables are a kind of mapping between a process and specific numerical outcomes. Those specific outcomes differ. For example, the revenue of a store varies day by day, and we can say something about that variability.</p>
 <p>We usually express it by two related concepts: variance (denoted by a lowercase sigma squared or <span class="math inline">\(\sigma^2\)</span>), and its square root, standard deviation (denoted by a lowercase sigma or <span class="math inline">\(\sigma\)</span>). You might wonder why we don’t just choose one of these symbols. Most statisticians just use standard deviation, but to prove that it is an unbiased estimator of variance, we need to square it for mathematical reasons that are beyond the scope of this course.</p>
 <p>Standard deviation is expressed in the same units as the subject under consideration, whereas variance is expressed in squared units. So when I said at the beginning of this file that the standard deviation of your completed exercises was about 2.69, I meant that in terms of number of exercises, meaning that most of you were within 2.69 completed exercises either way of each other. In other words, if you had three or nine completed exercises, you were a kind of outlier.</p>
 </section>
-<section id="linear-combinations-of-random-variables" class="level3" data-number="4.18.2">
-<h3 data-number="4.18.2" class="anchored" data-anchor-id="linear-combinations-of-random-variables"><span class="header-section-number">4.18.2</span> Linear combinations of random variables</h3>
+<section id="linear-combinations-of-random-variables" class="level3" data-number="4.19.2">
+<h3 data-number="4.19.2" class="anchored" data-anchor-id="linear-combinations-of-random-variables"><span class="header-section-number">4.19.2</span> Linear combinations of random variables</h3>
 <p>We can put random variables together. For example, your GPA is calculated from a set of grades that may differ. If you play fantasy sports, your score comes from many different players. A recommender system for music listening may make calculations based on many different songs you listened to.</p>
 <p>A linear combination of two random variables can be expressed as <span class="math inline">\(aX+bY\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are fixed constants, for example, the number of credits applied to each class in your GPA portfolio. If you take four four credit classes, your GPA might be expressed as the linear combination</p>
 <p><span class="math display">\[
@@ -715,8 +765,8 @@ x_1P(X=x_1)+x_1P(X=x_1)+\cdots+x_kP(X=x_k)
 <p>where <span class="math inline">\(E(X_i)\)</span> is a function of your grade, such as your grade mapped to a number and divided by the number of credits you’re taking. (Of course, you are used to thinking of it as the average of the grades since most classes carry the same number of credits and your grades are mapped to numbers. But this formulation holds for all kinds of sets.)</p>
 </section>
 </section>
-<section id="continuous-distributions" class="level2" data-number="4.19">
-<h2 data-number="4.19" class="anchored" data-anchor-id="continuous-distributions"><span class="header-section-number">4.19</span> Continuous distributions</h2>
+<section id="continuous-distributions" class="level2" data-number="4.20">
+<h2 data-number="4.20" class="anchored" data-anchor-id="continuous-distributions"><span class="header-section-number">4.20</span> Continuous distributions</h2>
 <p>So far, we’ve considered discrete distributions, where <span class="math inline">\(k\)</span> takes on one of a finite set of values. What about the continuous case? For example, temperature can theoretically take on an infinite number of values, even though we only have the tools for discrete measurements.</p>
 <p>The most famous continuous distribution is the normal distribution. This picture illustrates the normal distribution. The mound-shaped curve represents the probability density function and the area between the curve and the horizontal line represents the value of the cumulative distribution function.</p>
 <div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\definecolor{qopage}{HTML}{0E2A35}&quot;]}">
@@ -767,8 +817,8 @@ x_1P(X=x_1)+x_1P(X=x_1)+\cdots+x_kP(X=x_k)
 \end{equation*}\]</span></p>
 <p>The integral on the left is difficult to evaluate so people use numerical approximation techniques to find the expression on the right in the above equation. Those techniques are so time-consuming that, rather than recompute them every time they are needed, a very few people used to write the results into a table and publish it and most people working with probability would just consult the tables. Only in the past few decades have calculators become available that can do the tedious approximations. Hence, most statistics books, written by people who were educated decades ago, still teach you how to use such tables. There is some debate as to whether there is educational value in using the tables vs using calculators or smartphone apps or web-based tables or apps.</p>
 </section>
-<section id="the-f-distribution" class="level2" data-number="4.20">
-<h2 data-number="4.20" class="anchored" data-anchor-id="the-f-distribution"><span class="header-section-number">4.20</span> The F distribution</h2>
+<section id="the-f-distribution" class="level2" data-number="4.21">
+<h2 data-number="4.21" class="anchored" data-anchor-id="the-f-distribution"><span class="header-section-number">4.21</span> The F distribution</h2>
 <p>Another distribution that we’ll enounter later is called the F distribution. We’ll calculate an F-statistic when we build linear regression models, but I just want you to know the general shape of it for now. The region marked <span class="math inline">\(\alpha\)</span> corresponds inversely to the magnitude of the F statistic. In other words, a larger F statistic means a smaller <span class="math inline">\(\alpha\)</span>.</p>
 <div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\definecolor{qopage}{HTML}{0E2A35}&quot;]}">
 <div class="cell-output-display">
@@ -777,6 +827,11 @@ x_1P(X=x_1)+x_1P(X=x_1)+\cdots+x_kP(X=x_k)
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Ash1993" class="csl-entry" role="listitem">
+Ash, Carol. 1993. <em>The Probability Tutoring Book</em>. New York, NY: <span>IEEE</span> Press.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
