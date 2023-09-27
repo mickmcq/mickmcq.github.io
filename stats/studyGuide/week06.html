@@ -298,7 +298,8 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#heres-the-definition-of-the-central-limit-theorem." id="toc-heres-the-definition-of-the-central-limit-theorem." class="nav-link" data-scroll-target="#heres-the-definition-of-the-central-limit-theorem."><span class="header-section-number">6.8.1</span> Here’s the definition of the central limit theorem.</a></li>
   <li><a href="#why-care-about-the-central-limit-theorem" id="toc-why-care-about-the-central-limit-theorem" class="nav-link" data-scroll-target="#why-care-about-the-central-limit-theorem"><span class="header-section-number">6.8.2</span> Why care about the central limit theorem?</a></li>
-  <li><a href="#normal-distribution-example-problem" id="toc-normal-distribution-example-problem" class="nav-link" data-scroll-target="#normal-distribution-example-problem"><span class="header-section-number">6.8.3</span> normal distribution example problem</a></li>
+  <li><a href="#conditions-for-the-central-limit-to-hold" id="toc-conditions-for-the-central-limit-to-hold" class="nav-link" data-scroll-target="#conditions-for-the-central-limit-to-hold"><span class="header-section-number">6.8.3</span> conditions for the central limit to hold</a></li>
+  <li><a href="#normal-distribution-example-problem" id="toc-normal-distribution-example-problem" class="nav-link" data-scroll-target="#normal-distribution-example-problem"><span class="header-section-number">6.8.4</span> normal distribution example problem</a></li>
   </ul></li>
   <li><a href="#apply-the-z-score-to-the-table." id="toc-apply-the-z-score-to-the-table." class="nav-link" data-scroll-target="#apply-the-z-score-to-the-table."><span class="header-section-number">6.9</span> Apply the <span class="math inline">\(z\)</span>-score to the table.</a>
   <ul class="collapse">
@@ -314,26 +315,27 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#work-out-a-standard-deviation-example." id="toc-work-out-a-standard-deviation-example." class="nav-link" data-scroll-target="#work-out-a-standard-deviation-example."><span class="header-section-number">6.11.1</span> Work out a standard deviation example.</a></li>
   </ul></li>
-  <li><a href="#make-an-inference-about-a-population-parameter." id="toc-make-an-inference-about-a-population-parameter." class="nav-link" data-scroll-target="#make-an-inference-about-a-population-parameter."><span class="header-section-number">6.12</span> Make an inference about a population parameter.</a>
+  <li><a href="#type-i-and-type-ii-error" id="toc-type-i-and-type-ii-error" class="nav-link" data-scroll-target="#type-i-and-type-ii-error"><span class="header-section-number">6.12</span> Type I and Type II error</a></li>
+  <li><a href="#make-an-inference-about-a-population-parameter." id="toc-make-an-inference-about-a-population-parameter." class="nav-link" data-scroll-target="#make-an-inference-about-a-population-parameter."><span class="header-section-number">6.13</span> Make an inference about a population parameter.</a>
   <ul class="collapse">
-  <li><a href="#first-distinguish-between-small-and-large." id="toc-first-distinguish-between-small-and-large." class="nav-link" data-scroll-target="#first-distinguish-between-small-and-large."><span class="header-section-number">6.12.1</span> First distinguish between small and large.</a></li>
-  <li><a href="#sampling-leads-to-a-new-statistic." id="toc-sampling-leads-to-a-new-statistic." class="nav-link" data-scroll-target="#sampling-leads-to-a-new-statistic."><span class="header-section-number">6.12.2</span> Sampling leads to a new statistic.</a></li>
+  <li><a href="#first-distinguish-between-small-and-large." id="toc-first-distinguish-between-small-and-large." class="nav-link" data-scroll-target="#first-distinguish-between-small-and-large."><span class="header-section-number">6.13.1</span> First distinguish between small and large.</a></li>
+  <li><a href="#sampling-leads-to-a-new-statistic." id="toc-sampling-leads-to-a-new-statistic." class="nav-link" data-scroll-target="#sampling-leads-to-a-new-statistic."><span class="header-section-number">6.13.2</span> Sampling leads to a new statistic.</a></li>
   </ul></li>
-  <li><a href="#estimate-a-population-mean" id="toc-estimate-a-population-mean" class="nav-link" data-scroll-target="#estimate-a-population-mean"><span class="header-section-number">6.13</span> estimate a population mean</a>
+  <li><a href="#estimate-a-population-mean" id="toc-estimate-a-population-mean" class="nav-link" data-scroll-target="#estimate-a-population-mean"><span class="header-section-number">6.14</span> estimate a population mean</a>
   <ul class="collapse">
-  <li><a href="#find-a-confidence-interval." id="toc-find-a-confidence-interval." class="nav-link" data-scroll-target="#find-a-confidence-interval."><span class="header-section-number">6.13.1</span> Find a confidence interval.</a></li>
-  <li><a href="#for-a-small-sample-use-t." id="toc-for-a-small-sample-use-t." class="nav-link" data-scroll-target="#for-a-small-sample-use-t."><span class="header-section-number">6.13.2</span> For a small sample, use <span class="math inline">\(t\)</span>.</a></li>
-  <li><a href="#find-a-probability-to-estimate-a-mean." id="toc-find-a-probability-to-estimate-a-mean." class="nav-link" data-scroll-target="#find-a-probability-to-estimate-a-mean."><span class="header-section-number">6.13.3</span> Find a probability to estimate a mean.</a></li>
-  <li><a href="#alpha-selection-is-driven-by-criticality." id="toc-alpha-selection-is-driven-by-criticality." class="nav-link" data-scroll-target="#alpha-selection-is-driven-by-criticality."><span class="header-section-number">6.13.4</span> <span class="math inline">\(\alpha\)</span> selection is driven by criticality.</a></li>
-  <li><a href="#practice-estimating-a-population-mean" id="toc-practice-estimating-a-population-mean" class="nav-link" data-scroll-target="#practice-estimating-a-population-mean"><span class="header-section-number">6.13.5</span> practice estimating a population mean</a></li>
+  <li><a href="#find-a-confidence-interval." id="toc-find-a-confidence-interval." class="nav-link" data-scroll-target="#find-a-confidence-interval."><span class="header-section-number">6.14.1</span> Find a confidence interval.</a></li>
+  <li><a href="#for-a-small-sample-use-t." id="toc-for-a-small-sample-use-t." class="nav-link" data-scroll-target="#for-a-small-sample-use-t."><span class="header-section-number">6.14.2</span> For a small sample, use <span class="math inline">\(t\)</span>.</a></li>
+  <li><a href="#find-a-probability-to-estimate-a-mean." id="toc-find-a-probability-to-estimate-a-mean." class="nav-link" data-scroll-target="#find-a-probability-to-estimate-a-mean."><span class="header-section-number">6.14.3</span> Find a probability to estimate a mean.</a></li>
+  <li><a href="#alpha-selection-is-driven-by-criticality." id="toc-alpha-selection-is-driven-by-criticality." class="nav-link" data-scroll-target="#alpha-selection-is-driven-by-criticality."><span class="header-section-number">6.14.4</span> <span class="math inline">\(\alpha\)</span> selection is driven by criticality.</a></li>
+  <li><a href="#practice-estimating-a-population-mean" id="toc-practice-estimating-a-population-mean" class="nav-link" data-scroll-target="#practice-estimating-a-population-mean"><span class="header-section-number">6.14.5</span> practice estimating a population mean</a></li>
   </ul></li>
-  <li><a href="#test-a-hypothesis-about-a-population-mean" id="toc-test-a-hypothesis-about-a-population-mean" class="nav-link" data-scroll-target="#test-a-hypothesis-about-a-population-mean"><span class="header-section-number">6.14</span> test a hypothesis about a population mean</a>
+  <li><a href="#test-a-hypothesis-about-a-population-mean" id="toc-test-a-hypothesis-about-a-population-mean" class="nav-link" data-scroll-target="#test-a-hypothesis-about-a-population-mean"><span class="header-section-number">6.15</span> test a hypothesis about a population mean</a>
   <ul class="collapse">
-  <li><a href="#choose-a-null-and-alternative-hypothesis." id="toc-choose-a-null-and-alternative-hypothesis." class="nav-link" data-scroll-target="#choose-a-null-and-alternative-hypothesis."><span class="header-section-number">6.14.1</span> Choose a null and alternative hypothesis.</a></li>
-  <li><a href="#type-i-error-is-worse-than-type-ii-error." id="toc-type-i-error-is-worse-than-type-ii-error." class="nav-link" data-scroll-target="#type-i-error-is-worse-than-type-ii-error."><span class="header-section-number">6.14.2</span> Type I error is worse than Type II error.</a></li>
-  <li><a href="#identify-rejection-region-marker" id="toc-identify-rejection-region-marker" class="nav-link" data-scroll-target="#identify-rejection-region-marker"><span class="header-section-number">6.14.3</span> identify rejection region marker</a></li>
+  <li><a href="#choose-a-null-and-alternative-hypothesis." id="toc-choose-a-null-and-alternative-hypothesis." class="nav-link" data-scroll-target="#choose-a-null-and-alternative-hypothesis."><span class="header-section-number">6.15.1</span> Choose a null and alternative hypothesis.</a></li>
+  <li><a href="#type-i-error-is-worse-than-type-ii-error." id="toc-type-i-error-is-worse-than-type-ii-error." class="nav-link" data-scroll-target="#type-i-error-is-worse-than-type-ii-error."><span class="header-section-number">6.15.2</span> Type I error is worse than Type II error.</a></li>
+  <li><a href="#identify-rejection-region-marker" id="toc-identify-rejection-region-marker" class="nav-link" data-scroll-target="#identify-rejection-region-marker"><span class="header-section-number">6.15.3</span> identify rejection region marker</a></li>
   </ul></li>
-  <li><a href="#test-a-hypothesis-about-a-sample-mean" id="toc-test-a-hypothesis-about-a-sample-mean" class="nav-link" data-scroll-target="#test-a-hypothesis-about-a-sample-mean"><span class="header-section-number">6.15</span> test a hypothesis about a sample mean</a></li>
+  <li><a href="#test-a-hypothesis-about-a-sample-mean" id="toc-test-a-hypothesis-about-a-sample-mean" class="nav-link" data-scroll-target="#test-a-hypothesis-about-a-sample-mean"><span class="header-section-number">6.16</span> test a hypothesis about a sample mean</a></li>
   </ul>
 </nav>
     </div>
@@ -847,35 +849,50 @@ Caused by error in `compute_group()`:
 %
 --->
 </section>
-<section id="normal-distribution-example-problem" class="level3" data-number="6.8.3">
-<h3 data-number="6.8.3" class="anchored" data-anchor-id="normal-distribution-example-problem"><span class="header-section-number">6.8.3</span> normal distribution example problem</h3>
+<section id="conditions-for-the-central-limit-to-hold" class="level3" data-number="6.8.3">
+<h3 data-number="6.8.3" class="anchored" data-anchor-id="conditions-for-the-central-limit-to-hold"><span class="header-section-number">6.8.3</span> conditions for the central limit to hold</h3>
+<p>Let <span class="math inline">\(p\)</span> be the parameter of interest, in this case a proportion. (This not the same thing as a <span class="math inline">\(p\)</span>-value, which we will explore later.) We don’t know <span class="math inline">\(p\)</span> unless we examine every object in the population, which is usually impossible. For example, there are regulations in the USA requiring cardboard boxes used in interstate commerce to have a certain strength, which is measured by crushing the box. It would be economically unsound to crush all the boxes, so we crush a sample and obtain an estimate <span class="math inline">\(^{p}\)</span> of <span class="math inline">\(p\)</span>. The estimate is pronounced p-hat.</p>
+<p>The central limit theorem can be framed in terms of its mean and standard error:</p>
+<p><span class="math display">\[
+\mu_{^{p}}=p \qquad \text{SE}_{^{p}} = \sqrt{frac{P(1-p)}{n}
+\]</span></p>
+<p>The conditions under which this holds true are</p>
+<ol type="1">
+<li>The sample observations are independent of each other</li>
+<li>The sample is sufficiently large that the success-failure condition holds, namely <span class="math inline">\(np\geqslant10\)</span> and <span class="math inline">\(n(1-p)\geqslant10\)</span>.</li>
+</ol>
+<p>The sample observations are independent if they are drawn from a random sample. Sometimes you have to use your best judgment to determine whether the sample is truly random. For example, friends are known to influence each other’s opinions about pop music, so a sample of their opinions of a given pop star may not be random. On the other hand, their opinions of a previously unheard song from a previously unheard artist may have a better chance of being random.</p>
+<p>These conditions matter when conducting activities like constructing a confidence interval or modeling a point estimate.</p>
+</section>
+<section id="normal-distribution-example-problem" class="level3" data-number="6.8.4">
+<h3 data-number="6.8.4" class="anchored" data-anchor-id="normal-distribution-example-problem"><span class="header-section-number">6.8.4</span> normal distribution example problem</h3>
 <p>Consider an example for calculating a <span class="math inline">\(z\)</span>-score where <span class="math inline">\(x\sim N(50,15)\)</span>, which is a statistical notation for saying <span class="math inline">\(x\)</span> is a random normal variable with mean 50 and standard deviation 15. It is also read as if you said that <span class="math inline">\(x\)</span> has the normal distribution with mean 50 and standard deviation 15.</p>
-<section id="picture-the-example." class="level4" data-number="6.8.3.1">
-<h4 data-number="6.8.3.1" class="anchored" data-anchor-id="picture-the-example."><span class="header-section-number">6.8.3.1</span> Picture the example.</h4>
+<section id="picture-the-example." class="level4" data-number="6.8.4.1">
+<h4 data-number="6.8.4.1" class="anchored" data-anchor-id="picture-the-example."><span class="header-section-number">6.8.4.1</span> Picture the example.</h4>
 <div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
 <div class="cell-output-display">
 <p><img src="week06_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" style="width:50.0%"></p>
 </div>
 </div>
 </section>
-<section id="heres-what-we-input-into-the-z-calculation." class="level4" data-number="6.8.3.2">
-<h4 data-number="6.8.3.2" class="anchored" data-anchor-id="heres-what-we-input-into-the-z-calculation."><span class="header-section-number">6.8.3.2</span> Here’s what we input into the <span class="math inline">\(z\)</span> calculation.</h4>
+<section id="heres-what-we-input-into-the-z-calculation." class="level4" data-number="6.8.4.2">
+<h4 data-number="6.8.4.2" class="anchored" data-anchor-id="heres-what-we-input-into-the-z-calculation."><span class="header-section-number">6.8.4.2</span> Here’s what we input into the <span class="math inline">\(z\)</span> calculation.</h4>
 <p>In order to identify the size of the shaded area, we can use the table of <span class="math inline">\(z\)</span>-scores by standardizing the parameters we believe to apply, as if they were the population parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>. We only do this if we have such a large sample that we have reason to believe that the sample values approach the population parameters. For the much, much more typical case where we have a limited amount of data, we’ll learn a more advanced technique that you will use much more frequently in practice.</p>
 </section>
-<section id="we-input-a-z-to-get-an-output-probability." class="level4" data-number="6.8.3.3">
-<h4 data-number="6.8.3.3" class="anchored" data-anchor-id="we-input-a-z-to-get-an-output-probability."><span class="header-section-number">6.8.3.3</span> We input a <span class="math inline">\(z\)</span> to get an output probability.</h4>
+<section id="we-input-a-z-to-get-an-output-probability." class="level4" data-number="6.8.4.3">
+<h4 data-number="6.8.4.3" class="anchored" data-anchor-id="we-input-a-z-to-get-an-output-probability."><span class="header-section-number">6.8.4.3</span> We input a <span class="math inline">\(z\)</span> to get an output probability.</h4>
 <p>The table in our textbook contains an input in the left and top margins and an output in the body. The input is a <span class="math inline">\(z\)</span>-score, the result of the calculation <span class="math display">\[z=\frac{y-\mu}{\sigma}\]</span> where <span class="math inline">\(z\geq 0\)</span>. The output is a number in the body of the table, expressing the probability for the area between the normal curve and the axis, from the mean (0) to <span class="math inline">\(z\)</span>. Note that the values of <span class="math inline">\(z\)</span> start at the mean and grow toward the right end of the graph. If <span class="math inline">\(z\)</span> were <span class="math inline">\(\infty\)</span>, the shaded area would be 0.5, also known as 50 percent.</p>
 </section>
-<section id="this-is-the-z-score-table-concept." class="level4" data-number="6.8.3.4">
-<h4 data-number="6.8.3.4" class="anchored" data-anchor-id="this-is-the-z-score-table-concept."><span class="header-section-number">6.8.3.4</span> This is the <span class="math inline">\(z\)</span>-score table concept.</h4>
+<section id="this-is-the-z-score-table-concept." class="level4" data-number="6.8.4.4">
+<h4 data-number="6.8.4.4" class="anchored" data-anchor-id="this-is-the-z-score-table-concept."><span class="header-section-number">6.8.4.4</span> This is the <span class="math inline">\(z\)</span>-score table concept.</h4>
 <div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
 <div class="cell-output-display">
 <p><img src="week06_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" style="width:50.0%"></p>
 </div>
 </div>
 </section>
-<section id="calculate-the-z-score-to-input." class="level4" data-number="6.8.3.5">
-<h4 data-number="6.8.3.5" class="anchored" data-anchor-id="calculate-the-z-score-to-input."><span class="header-section-number">6.8.3.5</span> Calculate the <span class="math inline">\(z\)</span>-score to input.</h4>
+<section id="calculate-the-z-score-to-input." class="level4" data-number="6.8.4.5">
+<h4 data-number="6.8.4.5" class="anchored" data-anchor-id="calculate-the-z-score-to-input."><span class="header-section-number">6.8.4.5</span> Calculate the <span class="math inline">\(z\)</span>-score to input.</h4>
 <p>For now, let’s calculate the <span class="math inline">\(z\)</span>-score as <span class="math display">\[z=\frac{y-\mu}{\sigma}=\frac{70-50}{15}=1.33\]</span> giving half of the answer we’re seeking:</p>
 </section>
 </section>
@@ -1006,30 +1023,107 @@ n(\overline{y})^2}{n-1}}\]</span> so you write <span class="math display">\[s=\s
 </section>
 </section>
 </section>
-<section id="make-an-inference-about-a-population-parameter." class="level2" data-number="6.12">
-<h2 data-number="6.12" class="anchored" data-anchor-id="make-an-inference-about-a-population-parameter."><span class="header-section-number">6.12</span> Make an inference about a population parameter.</h2>
+<section id="type-i-and-type-ii-error" class="level2" data-number="6.12">
+<h2 data-number="6.12" class="anchored" data-anchor-id="type-i-and-type-ii-error"><span class="header-section-number">6.12</span> Type I and Type II error</h2>
+<p>Table 4.6 from <span class="citation" data-cites="James2021">James et al. (<a href="references.html#ref-James2021" role="doc-biblioref">2021</a>)</span> shows the possible results of classification.</p>
+<table class="table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 20%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th colspan="2" rowspan="2"></th>
+<th colspan="3"><em>True class</em></th>
+</tr>
+<tr class="odd">
+<th><span class="math inline">\(-\)</span> or Null</th>
+<th><span class="math inline">\(+\)</span> or Non-null</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td rowspan="3"><em>Predicted</em> <em>class</em></td>
+<td><span class="math inline">\(-\)</span> or Null</td>
+<td>True Negative (TN)</td>
+<td>False Negative (FN)</td>
+<td>N<span class="math inline">\(*\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(+\)</span> or Non-null</td>
+<td>False Positive (FP)</td>
+<td>True Positive (TP)</td>
+<td>P<span class="math inline">\(*\)</span></td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>N</td>
+<td>P</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Table 4.7 from <span class="citation" data-cites="James2021">James et al. (<a href="references.html#ref-James2021" role="doc-biblioref">2021</a>)</span> gives some synonyms for important measures of correctness and error in various disciplines.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">name</th>
+<th>definition</th>
+<th style="text-align: left;">synonyms</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">False Positive rate</td>
+<td>FP/N</td>
+<td style="text-align: left;">Type I error, 1 <span class="math inline">\(-\)</span> Specificity</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">True Positive rate</td>
+<td>TP/P</td>
+<td style="text-align: left;">1 <span class="math inline">\(-\)</span> Type II error, power, sensitivity, recall</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Positive Predictive value</td>
+<td>TP/P<span class="math inline">\(*\)</span></td>
+<td style="text-align: left;">Precision, 1 <span class="math inline">\(-\)</span> false discovery proportion</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Negative Predictive value</td>
+<td>TN/N<span class="math inline">\(*\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="make-an-inference-about-a-population-parameter." class="level2" data-number="6.13">
+<h2 data-number="6.13" class="anchored" data-anchor-id="make-an-inference-about-a-population-parameter."><span class="header-section-number">6.13</span> Make an inference about a population parameter.</h2>
 <p>At the beginning of the course, I said that statistics describes data and makes inferences about data. This course is partly about the latter, making inferences. You can make two kinds of inferences about a population parameter: estimate it or test a hypothesis about it.</p>
-<section id="first-distinguish-between-small-and-large." class="level3" data-number="6.12.1">
-<h3 data-number="6.12.1" class="anchored" data-anchor-id="first-distinguish-between-small-and-large."><span class="header-section-number">6.12.1</span> First distinguish between small and large.</h3>
+<section id="first-distinguish-between-small-and-large." class="level3" data-number="6.13.1">
+<h3 data-number="6.13.1" class="anchored" data-anchor-id="first-distinguish-between-small-and-large."><span class="header-section-number">6.13.1</span> First distinguish between small and large.</h3>
 <p>You may have a small sample or a large sample. The difference in the textbook is typically given as a cutoff of 30. Less is small, more is large. Other cutoffs are given, but this is the most prevalent.</p>
 <p>Large samples with a normal distribution can be used to estimate a population mean using a <span class="math inline">\(z\)</span>-score. Small samples can be used to estimate a population mean using a <span class="math inline">\(t\)</span>-statistic.</p>
 </section>
-<section id="sampling-leads-to-a-new-statistic." class="level3" data-number="6.12.2">
-<h3 data-number="6.12.2" class="anchored" data-anchor-id="sampling-leads-to-a-new-statistic."><span class="header-section-number">6.12.2</span> Sampling leads to a new statistic.</h3>
+<section id="sampling-leads-to-a-new-statistic." class="level3" data-number="6.13.2">
+<h3 data-number="6.13.2" class="anchored" data-anchor-id="sampling-leads-to-a-new-statistic."><span class="header-section-number">6.13.2</span> Sampling leads to a new statistic.</h3>
 <p>If we take more and more samples from a given population, the variability of the samples will decrease. This relationship gives rise to the standard error of an estimate <span class="math display">\[\sigma_{\overline{y}}=\frac{\sigma}{\sqrt{n}}\]</span></p>
 <p>The standard error of the estimate is not exactly the standard deviation. It is the standard deviation divided by a function of the sample size and it shrinks as the sample size grows.</p>
 </section>
 </section>
-<section id="estimate-a-population-mean" class="level2" data-number="6.13">
-<h2 data-number="6.13" class="anchored" data-anchor-id="estimate-a-population-mean"><span class="header-section-number">6.13</span> estimate a population mean</h2>
-<section id="find-a-confidence-interval." class="level3" data-number="6.13.1">
-<h3 data-number="6.13.1" class="anchored" data-anchor-id="find-a-confidence-interval."><span class="header-section-number">6.13.1</span> Find a confidence interval.</h3>
+<section id="estimate-a-population-mean" class="level2" data-number="6.14">
+<h2 data-number="6.14" class="anchored" data-anchor-id="estimate-a-population-mean"><span class="header-section-number">6.14</span> estimate a population mean</h2>
+<section id="find-a-confidence-interval." class="level3" data-number="6.14.1">
+<h3 data-number="6.14.1" class="anchored" data-anchor-id="find-a-confidence-interval."><span class="header-section-number">6.14.1</span> Find a confidence interval.</h3>
 <p>If the sample is larger than or equal to 30, use the formula for finding a large-sample confidence interval to estimate the mean.</p>
 <p>A large-sample <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for a population mean, <span class="math inline">\(\mu\)</span>, is given by</p>
 <p><span class="math display">\[\mu \pm z_{\alpha/2} \sigma_{\overline{y}} \approx \overline{y}\pm z_{\alpha/2} \frac{s}{\sqrt{n}}\]</span></p>
 </section>
-<section id="for-a-small-sample-use-t." class="level3" data-number="6.13.2">
-<h3 data-number="6.13.2" class="anchored" data-anchor-id="for-a-small-sample-use-t."><span class="header-section-number">6.13.2</span> For a small sample, use <span class="math inline">\(t\)</span>.</h3>
+<section id="for-a-small-sample-use-t." class="level3" data-number="6.14.2">
+<h3 data-number="6.14.2" class="anchored" data-anchor-id="for-a-small-sample-use-t."><span class="header-section-number">6.14.2</span> For a small sample, use <span class="math inline">\(t\)</span>.</h3>
 <p>If the sample is smaller than 30, calculate a <span class="math inline">\(t\)</span>-statistic and use the formula for finding a small-sample confidence interval to estimate the mean.</p>
 <p>The <span class="math inline">\(t\)</span>-statistic you calculate from the small sample is <span class="math display">\[
 t=\frac{\overline{y}-\mu_0}{s/\sqrt{n}}
@@ -1038,12 +1132,12 @@ t=\frac{\overline{y}-\mu_0}{s/\sqrt{n}}
 <p><span class="math display">\[\mu \pm t_{\alpha/2} s_{\overline{y}} \approx
 \overline{y}\pm t_{\alpha/2,\nu} \frac{s}{\sqrt{n}}\]</span> Here, you are using a <span class="math inline">\(t\)</span> statistic based on a chosen <span class="math inline">\(\alpha\)</span> to compare to your calculated <span class="math inline">\(t\)</span>-statistic. The Greek letter <span class="math inline">\(\nu\)</span>, pronounced nyoo, represents the number of degrees of freedom.</p>
 </section>
-<section id="find-a-probability-to-estimate-a-mean." class="level3" data-number="6.13.3">
-<h3 data-number="6.13.3" class="anchored" data-anchor-id="find-a-probability-to-estimate-a-mean."><span class="header-section-number">6.13.3</span> Find a probability to estimate a mean.</h3>
+<section id="find-a-probability-to-estimate-a-mean." class="level3" data-number="6.14.3">
+<h3 data-number="6.14.3" class="anchored" data-anchor-id="find-a-probability-to-estimate-a-mean."><span class="header-section-number">6.14.3</span> Find a probability to estimate a mean.</h3>
 <p>Estimating a mean involves finding a region where the mean is likely to be. The first question to ask is <em>how likely?</em> and to do so, we use a concept called alpha, denoted by the Greek letter <span class="math inline">\(\alpha\)</span>. Traditionally, people have used three values of <span class="math inline">\(\alpha\)</span> for the past century, .10, .05, and .01. These correspond to regions of <span class="math inline">\(1-\alpha\)</span> under the normal distribution curve, so these regions are 90 percent of the area, 95 percent of the area, and 99 percent of the area. What we are saying, for instance, if <span class="math inline">\(\alpha=0.01\)</span> is that we are 99 percent confident that the true population mean lies within the region we’ve calculated, <span class="math inline">\(\overline{y}\pm 2.576\sigma_{\overline{y}}\)</span></p>
 </section>
-<section id="alpha-selection-is-driven-by-criticality." class="level3" data-number="6.13.4">
-<h3 data-number="6.13.4" class="anchored" data-anchor-id="alpha-selection-is-driven-by-criticality."><span class="header-section-number">6.13.4</span> <span class="math inline">\(\alpha\)</span> selection is driven by criticality.</h3>
+<section id="alpha-selection-is-driven-by-criticality." class="level3" data-number="6.14.4">
+<h3 data-number="6.14.4" class="anchored" data-anchor-id="alpha-selection-is-driven-by-criticality."><span class="header-section-number">6.14.4</span> <span class="math inline">\(\alpha\)</span> selection is driven by criticality.</h3>
 <p>Traditionally, <span class="math inline">\(\alpha=0.01\)</span> is used in cases where life could be threatened by failure.</p>
 <p>Traditionally, <span class="math inline">\(\alpha=0.05\)</span> is used in cases where money is riding on the outcome.</p>
 <p>Traditionally, <span class="math inline">\(\alpha=0.10\)</span> is used in cases where the consequences of failing to capture the true mean are not severe.</p>
@@ -1051,8 +1145,8 @@ t=\frac{\overline{y}-\mu_0}{s/\sqrt{n}}
 <p>The above picture shows these three cases. The top version, <em>life-or-death</em>, has the smallest rejection region. Suppose the test is whether a radical cancer treatment gives longer life than a traditional cancer treatment. Let’s say that the traditional treatment gives an average of 15 months longer life. The null hypothesis is that the new treatment also gives 15 months longer life. The alternative hypothesis is that the radical treatment gives 22 months more life on average based on on only five patients who received the new treatment. A patient can only do one treatment or the other. The status quo would be to take the traditional treatment unless there is strong evidence that the radical treatment provides an average longer life. In the following picture, the shaded area is where the test statistic would have to fall for us to say that there is strong evidence that the radical treatment provides longer life. We want to make that shaded region as small as possible so we minimize the chance our test statistic lands in it by mistake.</p>
 <p>We can afford to let that shaded area be bigger (increasing the chance of mistakenly landing in it) if only money, not life, is riding on the outcome. And we can afford to let it be bigger still if the consequences of the mistake are small. To choose an <span class="math inline">\(\alpha\)</span> level, ask yourself how severe are the consequences of a Type I error.</p>
 </section>
-<section id="practice-estimating-a-population-mean" class="level3" data-number="6.13.5">
-<h3 data-number="6.13.5" class="anchored" data-anchor-id="practice-estimating-a-population-mean"><span class="header-section-number">6.13.5</span> practice estimating a population mean</h3>
+<section id="practice-estimating-a-population-mean" class="level3" data-number="6.14.5">
+<h3 data-number="6.14.5" class="anchored" data-anchor-id="practice-estimating-a-population-mean"><span class="header-section-number">6.14.5</span> practice estimating a population mean</h3>
 <p>Consider an outlet store that purchased used display panels to refurbish and resell. The relevant statistics for failure time of the sample are <span class="math inline">\(n=50, \overline{y}=1.9350, s=0.92865\)</span>.</p>
 <p>But these are the only necessary numbers to solve the problem. The standard error, .1313 can be calculated from <span class="math inline">\(s/\sqrt{n} = 0.92865/\sqrt{50}=.1313.\)</span></p>
 <p>First, find the 95% confidence interval, which can be calculated from the above information. Since the sample is greater than or equal to 30, we use the large sample formula: <span class="math display">\[\begin{align*}
@@ -1076,19 +1170,19 @@ t=\frac{\overline{y}-\mu_0}{s/\sqrt{n}}
 <p><img src="fiFailureTime.png" class="img-fluid"></p>
 </section>
 </section>
-<section id="test-a-hypothesis-about-a-population-mean" class="level2" data-number="6.14">
-<h2 data-number="6.14" class="anchored" data-anchor-id="test-a-hypothesis-about-a-population-mean"><span class="header-section-number">6.14</span> test a hypothesis about a population mean</h2>
-<section id="choose-a-null-and-alternative-hypothesis." class="level3" data-number="6.14.1">
-<h3 data-number="6.14.1" class="anchored" data-anchor-id="choose-a-null-and-alternative-hypothesis."><span class="header-section-number">6.14.1</span> Choose a null and alternative hypothesis.</h3>
+<section id="test-a-hypothesis-about-a-population-mean" class="level2" data-number="6.15">
+<h2 data-number="6.15" class="anchored" data-anchor-id="test-a-hypothesis-about-a-population-mean"><span class="header-section-number">6.15</span> test a hypothesis about a population mean</h2>
+<section id="choose-a-null-and-alternative-hypothesis." class="level3" data-number="6.15.1">
+<h3 data-number="6.15.1" class="anchored" data-anchor-id="choose-a-null-and-alternative-hypothesis."><span class="header-section-number">6.15.1</span> Choose a null and alternative hypothesis.</h3>
 <p>Testing a hypothesis must be done modestly. As an example of what I mean by modestly, consider criminal trials in the USA. The suspect on trial is considered innocent until proven guilty. The more modest hypothesis (the null hypothesis) is that the person is innocent. The more immodest hypothesis (the alternative hypothesis) carries the burden of proof.</p>
 </section>
-<section id="type-i-error-is-worse-than-type-ii-error." class="level3" data-number="6.14.2">
-<h3 data-number="6.14.2" class="anchored" data-anchor-id="type-i-error-is-worse-than-type-ii-error."><span class="header-section-number">6.14.2</span> Type I error is worse than Type II error.</h3>
+<section id="type-i-error-is-worse-than-type-ii-error." class="level3" data-number="6.15.2">
+<h3 data-number="6.15.2" class="anchored" data-anchor-id="type-i-error-is-worse-than-type-ii-error."><span class="header-section-number">6.15.2</span> Type I error is worse than Type II error.</h3>
 <p>The traditional view of the legal system in the USA is that if you imprison an innocent person, it constitutes a more serious error than letting a guilty person go free.</p>
 <p>Imprisoning an innocent person is like a Type I error: we rejected the null hypothesis when it was true. Letting a guilty person go free is like a Type II error: we failed to reject the null hypothesis when it was false.</p>
 </section>
-<section id="identify-rejection-region-marker" class="level3" data-number="6.14.3">
-<h3 data-number="6.14.3" class="anchored" data-anchor-id="identify-rejection-region-marker"><span class="header-section-number">6.14.3</span> identify rejection region marker</h3>
+<section id="identify-rejection-region-marker" class="level3" data-number="6.15.3">
+<h3 data-number="6.15.3" class="anchored" data-anchor-id="identify-rejection-region-marker"><span class="header-section-number">6.15.3</span> identify rejection region marker</h3>
 <p>How do you identify rejection region markers? A rejection region marker is the value a test statistic that leads to rejection of the null hypothesis. It marks the edge of a region under the curve corresponding to the level of significance, <span class="math inline">\(\alpha\)</span>. The marker is not a measure of the size of the region. The rejection region marker can vary from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(+\infty\)</span> while the size of the region is somewhere between zero and one.</p>
 <p>The following table shows the relevant values of <span class="math inline">\(\alpha\)</span> and related quantities.</p>
 <table class="table">
@@ -1166,8 +1260,8 @@ t=\frac{\overline{y}-\mu_0}{s/\sqrt{n}}
 </div>
 </section>
 </section>
-<section id="test-a-hypothesis-about-a-sample-mean" class="level2" data-number="6.15">
-<h2 data-number="6.15" class="anchored" data-anchor-id="test-a-hypothesis-about-a-sample-mean"><span class="header-section-number">6.15</span> test a hypothesis about a sample mean</h2>
+<section id="test-a-hypothesis-about-a-sample-mean" class="level2" data-number="6.16">
+<h2 data-number="6.16" class="anchored" data-anchor-id="test-a-hypothesis-about-a-sample-mean"><span class="header-section-number">6.16</span> test a hypothesis about a sample mean</h2>
 <p>The test statistic is <span class="math inline">\(t_c\)</span>, where the <span class="math inline">\(c\)</span> subscript stands for <em>calculated</em>. Most people just call it <span class="math inline">\(t\)</span>. In my mind, that leads to occasional confusion about whether it is a value calculated from a sample. We’ll compare the test statistic to <span class="math inline">\(t_{\alpha,\nu}\)</span>, the value of the statistic at a given level of significance, identified using a table or calculator.</p>
 <p>The test leads to two situations. The first, pictured below, is the situation where we fail to reject the null hypothesis and conclude that we have not seen evidence in the sample that the point estimate differs from what the modest hypothesis claims it is. Often, this is an estimate of a mean, where the population mean, <span class="math inline">\(\mu_0\)</span>, is being estimated by a sample mean, <span class="math inline">\(\bar{y}\)</span>. The following picture doesn’t show <span class="math inline">\(\bar{y}\)</span>, just the tail. <span class="math inline">\(\bar{y}\)</span> would be at the top of the hump, not shown here.</p>
 <div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
@@ -1266,6 +1360,9 @@ mean of x
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-James2021" class="csl-entry" role="listitem">
+James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. <em>An Introduction to Statistical Learning, 2nd Edition</em>. Springer New York.
+</div>
 <div id="ref-Mendenhall2012" class="csl-entry" role="listitem">
 Mendenhall, William, and Terry Sincich. 2012. <em>A Second Course in Statistics, Regression Analysis, Seventh Edition</em>. Boston, MA, USA: Prentice Hall.
 </div>
