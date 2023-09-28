@@ -1,7 +1,7 @@
 ---
 title: "UX Prototyping<br>hifi"
 author: Mick McQuaid
-date: 2023-02-15
+date: today
 bibliography: master.bib
 format:
   revealjs:
@@ -51,7 +51,7 @@ People sometimes don't see what's right in front of them
 I have a skeptical student
 
 ::: {.notes}
-One student in this class came to me and said that I am giving inadequate feedback. "Tell us how to improve!" he said. But I insisted I am telling you everything. He responded that telling you to correct misspellings is trivial. I thought to myself that misspellings are a sign of sloppiness, a sign of being too much in a hurry. Misspellings are, of course, the bane of old people. Is that because we're crusty? I don't think so. I think that spelling Candace four different ways tells me you don't like to proofread your work. The fact that you don't like to proofread your work tells me you don't have a good workflow. The fact that you don't have a good workflow tells me that you need to be told basic steps, including minor details like misspellings. And now we're back at the beginning.
+One student in this class in a previous semester came to me and said that I am giving inadequate feedback. "Tell us how to improve!" he said. But I insisted I am telling you everything. He responded that telling you to correct misspellings is trivial. I thought to myself that misspellings are a sign of sloppiness, a sign of being too much in a hurry. Misspellings are, of course, the bane of old people. Is that because we're crusty? I don't think so. I think that spelling Candace four different ways tells me you don't like to proofread your work. The fact that you don't like to proofread your work tells me you don't have a good workflow. The fact that you don't have a good workflow tells me that you need to be told basic steps, including minor details like misspellings. And now we're back at the beginning.
 :::
 
 ## One of my favorite sayings:
@@ -99,6 +99,10 @@ Two people look and one sees
 〈pause for color video〉
 :::
 
+::: {.notes}
+video is `~/other/jobHunting/utaustin/mcquaid-michael-16color.mp4`
+:::
+
 ## Problem: App in video ceased to exist!
 - Taken off App store
 - Replaced with a paid website
@@ -121,7 +125,9 @@ I had read a popular paperback edition of the book years before I ever saw the a
 Albers conceived of education about color as putting different color cards together in different configurations and examining the effects of these configurations on the student's perceptions of color. This kind of education can not be conveyed in a book alone. It is difficult not only to rearrange the colors but also to control the actual printed colors. Believe it or not, it is quite expensive to reproduce intended colors with any kind of precision in a mass printing. No wonder William Blake preferred to produce his books by hand! (Okay, he had other reasons, including the desire to master all the related arts and the desire to ensure that the final product would have a luminous quality achievable only with the use of watercolor.)
 
 There is now at least one version and perhaps more versions of *Interaction of Color* available electronically.
-For years it was a daunting task because only the most expensive monitors could reproduce colors well. Now it seems that at least someone believes in the color fidelity of the iPad enough to release the rights to produce a version in that medium.
+For years it was a daunting task because only the most expensive monitors could reproduce colors well. Eventually someone believed in the color fidelity of the iPad enough to release the rights to produce a version in that medium. Now, with the right computer, anyone can view it electronically.
+
+I went through a color phase on my website, which now has just a simple Jekyll theme. During that period, I visited a campus where all the computers were cheap Dells with very basic monitors. My colorful website was unreadable on those monitors! I learned that a simple information container like my website was not the place to test color perception.
 :::
 
 ## Color word research
@@ -151,7 +157,7 @@ governed by their own language.
 
 Colour vocabulary is a possible example of this.
 
-According to accepted doctrine, basic colour words are not
+According to previously accepted doctrine, basic colour words are not
 translatable across languages.
 
 Analysing ninety-eight languages Berlin and Kay (1969) found
@@ -368,6 +374,16 @@ Because of the early liturgical emphasis of typography, there are vastly many va
 :::
 
 ##
+
+::: {.r-fit-text}
+〈pause for *extreme emphasis* exercise〉
+:::
+
+::: {.notes}
+For this exercise, I'll play a video, `~/Movies/ux/extremeEmphasis.mov`, which is a monologue by Robin Wiliams. Your task is to sketch some of the things he says in appropriate letters in your sketchbook. While the video plays, don't try to actually do the lettering. Instead, make notes of which lines you would like to letter, then, after the video, go back and try some fancy lettering of those lines.
+:::
+
+##
 ![](fiDieNeueTypographie.jpg)
 
 ::: {.notes}
@@ -420,6 +436,14 @@ modest in his conclusions.
 
 ##
 ![](fiRandN.png)
+
+::: {.r-fit-text}
+〈pause for kerning exercise at [https://type.method.ac](https://type.method.ac)〉
+:::
+
+::: {.notes}
+Readability and legibility are two concepts in contention when it comes to deciding how close one letterform should be to another. Too close and they're not legible---too far and they're not readable.
+:::
 
 ##
 ![](fiXHeight.jpg)
@@ -871,6 +895,10 @@ Appeal
 
 ::: {.r-fit-text}
 〈pause for illusion of life video〉
+:::
+
+::: {.notes}
+video in `~/Movies/ux/illusionOfLife.mp4`
 :::
 
 ## Things you can animate
