@@ -427,7 +427,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <section id="confidence-intervals-for-p_1-p_2" class="level3" data-number="7.3.1">
 <h3 data-number="7.3.1" class="anchored" data-anchor-id="confidence-intervals-for-p_1-p_2"><span class="header-section-number">7.3.1</span> Confidence intervals for <span class="math inline">\(p_1-p_2\)</span></h3>
-<p><span class="math display">\[ \text{point estimate } \pm z^* \times \text{SE} \rightarrow \hat{p}_1 - \hat{p}_2 \times \sqrt{\frac{p_1(1-p_1)}{n_1}+\frac{p_2(1-p_2)}{n_2}} \]</span></p>
+<p><span class="math display">\[ \text{point estimate } \pm z^* \times \text{SE} \rightarrow (\hat{p}_1 - \hat{p}_2) \pm z^* \times \sqrt{\frac{p_1(1-p_1)}{n_1}+\frac{p_2(1-p_2)}{n_2}} \]</span></p>
 </section>
 <section id="hypothesis-testing-for-p_1-p_2" class="level3" data-number="7.3.2">
 <h3 data-number="7.3.2" class="anchored" data-anchor-id="hypothesis-testing-for-p_1-p_2"><span class="header-section-number">7.3.2</span> Hypothesis testing for <span class="math inline">\(p_1-p_2\)</span></h3>
@@ -451,12 +451,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>where the expression <em>null count</em> refers to the expected number of objects in the group. You have to be careful about how you determine the null count. For instance, the textbook gives an example of races of jurors. In such a case, the null counts should come from the population who can be selected as jurors. This might be a matter of some dispute since jurors are usually recruited through voting records and these records may not reflect the correct proportions. Statisticians tend to like things they can count, and some people are harder (more expensive) to count than others, particularly people in marginalized populations.</p>
 <section id="the-chi2-distribution" class="level3" data-number="7.4.1">
 <h3 data-number="7.4.1" class="anchored" data-anchor-id="the-chi2-distribution"><span class="header-section-number">7.4.1</span> The <span class="math inline">\(\chi^2\)</span> distribution</h3>
-<p>The <span class="math inline">\(\chi^2\)</span> distribution is sometimes used to characterize data sets and statistics that are always positive and typically right skewed. Recall a normal distribution had two parameters – mean and standard deviation – that could be used to describe its exact characteristics. The <span class="math inline">\(\chi^2\)</span> distribution has just one parameter called degrees of freedom (df), which influences the shape, center, and spread of the distribution. Here is a picture of the <span class="math inline">\(\chi^2\)</span> distribution for several values of df.</p>
+<p>The <span class="math inline">\(\chi^2\)</span> distribution is sometimes used to characterize data sets and statistics that are always positive and typically right skewed. Recall a normal distribution had two parameters – mean and standard deviation – that could be used to describe its exact characteristics. The <span class="math inline">\(\chi^2\)</span> distribution has just one parameter called degrees of freedom (df), which influences the shape, center, and spread of the distribution. Here is a picture of the <span class="math inline">\(\chi^2\)</span> distribution for several values of df (1–8).</p>
 <div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
 <div class="cell-output-display">
 <p><img src="week07_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<!-- note that \g are values of the gamma function for df=1:8 -->
 <p>In the jurors example, we can calculate the appropriate <span class="math inline">\(p\)</span>-value in R by using the <span class="math inline">\(\chi^2\)</span> statistic calculated from the sample, 5.89, and the parameter <span class="math inline">\(k-1\)</span> which is the number of groups minus one, using R:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pchisq</span>(<span class="fl">5.89</span>,<span class="dv">3</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
