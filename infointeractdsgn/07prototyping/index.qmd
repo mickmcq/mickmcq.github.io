@@ -279,7 +279,7 @@ the language, but make each letter look more like the other.
 ![](fiRandN.png)
 
 ::: {.r-fit-text}
-〈pause for *extreme emphasis* exercise〉
+〈pause for *kern type* exercise at [https://type.method.ac](https://type.method.ac)〉
 :::
 
 ::: {.notes}
