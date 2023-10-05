@@ -1,7 +1,7 @@
 ---
 title: "UX Prototyping<br>UCD and Agile"
 author: Mick McQuaid
-date: 2023-02-22
+date: today
 bibliography: master.bib
 format:
   revealjs:
@@ -17,7 +17,7 @@ format:
 ---
 
 # But first ... Figma
-Last semester, Figma was devoured by Adobe and we discussed it in class ...
+Last year, Figma was devoured by Adobe and we discussed it in class ...
 Here's some of what was said ...
 
 ## Figma acquisition by Adobe
@@ -43,10 +43,10 @@ Here's some of what was said ...
 
 ## Questions
 - Everybody hates Adobe. Why? (Subscriptions?)
-- Isn't it possible that this acquisition will fail? (Yes)
-- Might the FTC block the deal? (Unlikely)
+- Isn't it possible that this acquisition will fail? (Yes) ([Nope!]{.emph})
+- Might the FTC block the deal? (Unlikely) ([It didn't]{.emph})
 - The co-inventor of Figma has already moved on. Why? [https://madebyevan.com/](https://madebyevan.com/) (That's what they do)
-- What will Adobe do? (retire XD? retire Figma? ruin both?)
+- What will Adobe do? (retire XD? retire Figma? ruin both?) ([using Figma technology on Creative Cloud?]{.emph})
 
 ::: {.notes}
 Will Adobe get the Figma team? No. Evan Wallace has already moved on. Dylan Field has just been given a billion dollars and asked to choose between sitting in a lot of meetings with empty suits explaining to him why they won't change their business to suit him OR go pursue his passions. Which would you choose?
@@ -57,6 +57,10 @@ Plus, Adobe doesn't need the team. If they get patents to Figma's technology, th
 ## Speaking of Adobe stock
 
 ![](fiAdobeStock.png)
+
+## Speaking of Adobe stock
+
+![](fiAdobeStockRedux.png)
 
 ## Why do we care?
 - Reliance on Figma
