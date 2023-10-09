@@ -54,7 +54,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -95,9 +114,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <style>
 #quarto-sidebar .menu-text {
   display: flex;
@@ -254,20 +270,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#milestone-2-review" id="toc-milestone-2-review" class="nav-link active" data-scroll-target="#milestone-2-review"><span class="header-section-number">8.1</span> Milestone 2 review</a></li>
-  <li><a href="#individual-work-1-review" id="toc-individual-work-1-review" class="nav-link" data-scroll-target="#individual-work-1-review"><span class="header-section-number">8.2</span> Individual Work 1 Review</a>
+  <li><a href="#recap-week-07" id="toc-recap-week-07" class="nav-link active" data-scroll-target="#recap-week-07"><span class="header-section-number">8.1</span> Recap Week 07</a></li>
+  <li><a href="#inference-for-numerical-data" id="toc-inference-for-numerical-data" class="nav-link" data-scroll-target="#inference-for-numerical-data"><span class="header-section-number">8.2</span> Inference for numerical data</a>
   <ul class="collapse">
-  <li><a href="#product-and-process" id="toc-product-and-process" class="nav-link" data-scroll-target="#product-and-process"><span class="header-section-number">8.2.1</span> Product and Process</a></li>
-  <li><a href="#common-mistakes" id="toc-common-mistakes" class="nav-link" data-scroll-target="#common-mistakes"><span class="header-section-number">8.2.2</span> Common Mistakes</a></li>
-  </ul></li>
-  <li><a href="#recap-week-07" id="toc-recap-week-07" class="nav-link" data-scroll-target="#recap-week-07"><span class="header-section-number">8.3</span> Recap Week 07</a></li>
-  <li><a href="#inference-for-numerical-data" id="toc-inference-for-numerical-data" class="nav-link" data-scroll-target="#inference-for-numerical-data"><span class="header-section-number">8.4</span> Inference for numerical data</a>
-  <ul class="collapse">
-  <li><a href="#textbook-section-7.1-one-sample-means-with-the-t-distribution" id="toc-textbook-section-7.1-one-sample-means-with-the-t-distribution" class="nav-link" data-scroll-target="#textbook-section-7.1-one-sample-means-with-the-t-distribution"><span class="header-section-number">8.4.1</span> Textbook Section 7.1 One-sample means with the <span class="math inline">\(t\)</span>-distribution</a></li>
-  <li><a href="#textbook-section-7.2-paired-data" id="toc-textbook-section-7.2-paired-data" class="nav-link" data-scroll-target="#textbook-section-7.2-paired-data"><span class="header-section-number">8.4.2</span> Textbook Section 7.2 Paired data</a></li>
-  <li><a href="#textbook-section-7.3-difference-of-two-means" id="toc-textbook-section-7.3-difference-of-two-means" class="nav-link" data-scroll-target="#textbook-section-7.3-difference-of-two-means"><span class="header-section-number">8.4.3</span> Textbook Section 7.3 Difference of two means</a></li>
-  <li><a href="#textbook-section-7.4-power-calculations-for-a-difference-of-means" id="toc-textbook-section-7.4-power-calculations-for-a-difference-of-means" class="nav-link" data-scroll-target="#textbook-section-7.4-power-calculations-for-a-difference-of-means"><span class="header-section-number">8.4.4</span> Textbook Section 7.4 Power calculations for a difference of means</a></li>
-  <li><a href="#textbook-section-7.5-comparing-many-means-with-anova" id="toc-textbook-section-7.5-comparing-many-means-with-anova" class="nav-link" data-scroll-target="#textbook-section-7.5-comparing-many-means-with-anova"><span class="header-section-number">8.4.5</span> Textbook Section 7.5 Comparing many means with ANOVA</a></li>
+  <li><a href="#textbook-section-7.1-one-sample-means-with-the-t-distribution" id="toc-textbook-section-7.1-one-sample-means-with-the-t-distribution" class="nav-link" data-scroll-target="#textbook-section-7.1-one-sample-means-with-the-t-distribution"><span class="header-section-number">8.2.1</span> Textbook Section 7.1 One-sample means with the <span class="math inline">\(t\)</span>-distribution</a></li>
+  <li><a href="#textbook-section-7.2-paired-data" id="toc-textbook-section-7.2-paired-data" class="nav-link" data-scroll-target="#textbook-section-7.2-paired-data"><span class="header-section-number">8.2.2</span> Textbook Section 7.2 Paired data</a></li>
+  <li><a href="#textbook-section-7.3-difference-of-two-means" id="toc-textbook-section-7.3-difference-of-two-means" class="nav-link" data-scroll-target="#textbook-section-7.3-difference-of-two-means"><span class="header-section-number">8.2.3</span> Textbook Section 7.3 Difference of two means</a></li>
+  <li><a href="#textbook-section-7.4-power-calculations-for-a-difference-of-means" id="toc-textbook-section-7.4-power-calculations-for-a-difference-of-means" class="nav-link" data-scroll-target="#textbook-section-7.4-power-calculations-for-a-difference-of-means"><span class="header-section-number">8.2.4</span> Textbook Section 7.4 Power calculations for a difference of means</a></li>
+  <li><a href="#textbook-section-7.5-comparing-many-means-with-anova" id="toc-textbook-section-7.5-comparing-many-means-with-anova" class="nav-link" data-scroll-target="#textbook-section-7.5-comparing-many-means-with-anova"><span class="header-section-number">8.2.5</span> Textbook Section 7.5 Comparing many means with ANOVA</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -292,930 +302,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="milestone-2-review" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="milestone-2-review"><span class="header-section-number">8.1</span> Milestone 2 review</h2>
-<ul>
-<li>There should be an overall summary at the end of the visual description section, rather than a separate overall summary from each group member (!?)</li>
-<li>Please make the .qmd file more readable by doing a few things like leaving a blank line before each header and leaving a blank line before and after each chunk.</li>
-<li>There should be no bar charts with two or three bars!</li>
-<li>There should be no pie charts with fewer than three slices nor more than seven slices.</li>
-<li>Please use headings (hashtags for levels 1, 2, and 3, for instance) rather than bold face text to mark sections. That way, I can view the structure of your document. Note that there are already level 1 and level 2 headings built in. You can add more.</li>
-<li>The visual description section should not have long lists of numbers but rather graphics.</li>
-<li>Any list of numbers more than two screensful is unreadable by a manager anyway.</li>
-<li>Group members need to spend more time and effort coordinating with each other.</li>
-<li>Explanations of your graphics help me believe that you understand what you are doing.</li>
-<li>The numerical description is supposed to be left in and improved where possible. You are trying to build the components of a single coherent report, being added to with each milestone.</li>
-<li>It is unwise to sign your individual names to the individual sections. This is supposed to be a group effort. You should be helping each other and reviewing the total package when it’s assembled.</li>
-<li>There are techniques you can use to stay out of each other’s way. For example, how could you avoid giving two data frames the same name? (Hint: include your initials in the names of data frames you generate.)</li>
-<li>The first two milestones are about description. It is not always reliable to make inferences from the descriptions. The second two milestones are about inferences. For example, it makes no sense to say that paint colors are evenly distributed among warm and cold states without doing a hypothesis test. A simple bar chart can provide a hint as to which hypothesis test you can run, but can’t substitute for a hypothesis test.</li>
-<li>It is well known that it is hard to spot the differences between two versions of a file. That is why there is a whole industry of <em>diff</em> programs to highlight differences between files. You should each obtain and use some sort of <em>diff</em> program. For example, I use <code>vimdiff</code> because I use the Vim text editor. For relatively sophisticated text editors, there is likely to be a matching diff program or module. When you send me a file and I make changes to it, you should compare it to your original file using some version of diff. All information professionals should know about diff. For example, it is at the root of github, a website used by many information professionals.</li>
-<li>If you only do what you’re explicitly told to do, you can and will be replaced by a bot. You have to be adventurous to be a valuable information professional.</li>
-</ul>
-</section>
-<section id="individual-work-1-review" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="individual-work-1-review"><span class="header-section-number">8.2</span> Individual Work 1 Review</h2>
-<section id="product-and-process" class="level3" data-number="8.2.1">
-<h3 data-number="8.2.1" class="anchored" data-anchor-id="product-and-process"><span class="header-section-number">8.2.1</span> Product and Process</h3>
-<p>There’s a difference between the product you produce and the process you go through to get there. Sometimes you need to include aspects of the process and sometimes you don’t.</p>
-<p>As an example of both, I investigated the bikes data. Through googling, I discovered that it actually came from Washington, DC. Since it began on January 1, 2011 and the day of the week was listed as 6, I opened a terminal on my Mac and said <code>cal jan 2011</code>, returning a calendar showing that January 1st was a Saturday. That way, I knew how to encode the days of the week as shown below, with Sunday as zero.</p>
-<p>Next, I noticed that January 1st had a 1 in the <code>holiday</code> column, so I inferred that 1 means yes and 0 means no. So I coded the labels that way. The same was true of <code>workingday</code>.</p>
-<p>The column <code>weathersit</code> was an interesting problem. Examining the lengthy description of that column, I decided to code it as an ordered factor, with one being the best weather and 4 being the worst.</p>
-<p>Finally, I noticed that <code>temp</code> was coded in a way that made it hard for a Fahrenheit user like me to relate to. So I followed the formula in the description to convert the temperature to Fahrenheit. I did that in several lines so I could check my work and I left it in the code, so I could come back to it easily if I later discovered a problem with it.</p>
-<p>Following is my creation of the types. Notice that I also saved a copy of the typed data in <code>bikes.RData</code> so I could quit R and quickly restart in case things got messed up.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/bikes.csv"</span>))</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>instant <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(df<span class="sc">$</span>instant)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>season <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>season,<span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"winter"</span>,<span class="st">"spring"</span>,<span class="st">"summer"</span>,<span class="st">"fall"</span>))</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>yr <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>yr,<span class="at">levels=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>,<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"first"</span>,<span class="st">"second"</span>),<span class="at">ordered=</span><span class="cn">TRUE</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>mnth <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>mnth,<span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>,<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Jan"</span>,<span class="st">"Feb"</span>,<span class="st">"Mar"</span>,<span class="st">"Apr"</span>,<span class="st">"May"</span>,<span class="st">"Jun"</span>,<span class="st">"Jul"</span>,<span class="st">"Aug"</span>,<span class="st">"Sep"</span>,<span class="st">"Oct"</span>,<span class="st">"Nov"</span>,<span class="st">"Dec"</span>),<span class="at">ordered=</span><span class="cn">TRUE</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>hr <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>hr,<span class="at">levels=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">23</span>,<span class="at">ordered=</span><span class="cn">TRUE</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>holiday <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>holiday,<span class="at">levels=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>,<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"no"</span>,<span class="st">"yes"</span>))</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>weekday <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>weekday,<span class="at">levels=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">6</span>,<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Sunday"</span>,<span class="st">"Monday"</span>,<span class="st">"Tuesday"</span>,<span class="st">"Wednesday"</span>,<span class="st">"Thursday"</span>,<span class="st">"Friday"</span>,<span class="st">"Saturday"</span>),<span class="at">ordered=</span><span class="cn">TRUE</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>workingday <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>workingday,<span class="at">levels=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>,<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"no"</span>,<span class="st">"yes"</span>))</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>weathersit <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>weathersit,<span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"best"</span>,<span class="st">"good"</span>,<span class="st">"poor"</span>,<span class="st">"worst"</span>))</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>casual <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(df<span class="sc">$</span>casual)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>registered <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(df<span class="sc">$</span>registered)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>cnt <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(df<span class="sc">$</span>cnt)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>t_min <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">8</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>t_max <span class="ot">&lt;-</span> <span class="dv">39</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">#. df$temp == (t-t_min)/(t_max-t_min)</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#. (t_max-t_min)*df$temp == t-t_min</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>celsius <span class="ot">&lt;-</span> ((t_max<span class="sc">-</span>t_min)<span class="sc">*</span>df<span class="sc">$</span>temp)<span class="sc">+</span>t_min</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>fahr <span class="ot">&lt;-</span> df<span class="sc">$</span>celsius<span class="sc">*</span><span class="dv">9</span><span class="sc">/</span><span class="dv">5</span><span class="sc">+</span><span class="dv">32</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">#. save(df,file="bikes.Rdata")</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">#. load(df,file="bikes.Rdata")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>After setting up the types, I wanted to obtain a numerical summary of all the data. I started by saying things like <code>summary(df$temp)</code> but I noticed that it was pretty hard to read for a manager and the assignment spec calls for a report you can give to a manager. (Later, you’ll learn how to make the reports even more manager-friendly.)</p>
-<p>So I googled an expression like <em>r summary statistics for all columns</em> and immediately came across <code>vtable</code>, a package to do just that. So I read its documentation, which mentioned that there are many similar packages. Instead of searching for those packages and comparing them, I just tried the <code>st()</code> function in <code>vtable</code>, with the following result.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vtable)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">st</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="table table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary Statistics</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Std. Dev.</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Min</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 25</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 75</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">instant</td>
-<td style="text-align: left;">17379</td>
-<td style="text-align: left;">8690</td>
-<td style="text-align: left;">5017</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">4346</td>
-<td style="text-align: left;">13034</td>
-<td style="text-align: left;">17379</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">season</td>
-<td style="text-align: left;">17379</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... winter</td>
-<td style="text-align: left;">4242</td>
-<td style="text-align: left;">24%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... spring</td>
-<td style="text-align: left;">4409</td>
-<td style="text-align: left;">25%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... summer</td>
-<td style="text-align: left;">4496</td>
-<td style="text-align: left;">26%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... fall</td>
-<td style="text-align: left;">4232</td>
-<td style="text-align: left;">24%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">yr</td>
-<td style="text-align: left;">17379</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... first</td>
-<td style="text-align: left;">8645</td>
-<td style="text-align: left;">50%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... second</td>
-<td style="text-align: left;">8734</td>
-<td style="text-align: left;">50%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">mnth</td>
-<td style="text-align: left;">17379</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... Jan</td>
-<td style="text-align: left;">1429</td>
-<td style="text-align: left;">8%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... Feb</td>
-<td style="text-align: left;">1341</td>
-<td style="text-align: left;">8%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... Mar</td>
-<td style="text-align: left;">1473</td>
-<td style="text-align: left;">8%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... Apr</td>
-<td style="text-align: left;">1437</td>
-<td style="text-align: left;">8%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... May</td>
-<td style="text-align: left;">1488</td>
-<td style="text-align: left;">9%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... Jun</td>
-<td style="text-align: left;">1440</td>
-<td style="text-align: left;">8%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... Jul</td>
-<td style="text-align: left;">1488</td>
-<td style="text-align: left;">9%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... Aug</td>
-<td style="text-align: left;">1475</td>
-<td style="text-align: left;">8%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... Sep</td>
-<td style="text-align: left;">1437</td>
-<td style="text-align: left;">8%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... Oct</td>
-<td style="text-align: left;">1451</td>
-<td style="text-align: left;">8%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... Nov</td>
-<td style="text-align: left;">1437</td>
-<td style="text-align: left;">8%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... Dec</td>
-<td style="text-align: left;">1483</td>
-<td style="text-align: left;">9%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">hr</td>
-<td style="text-align: left;">17379</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... 0</td>
-<td style="text-align: left;">726</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... 1</td>
-<td style="text-align: left;">724</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... 2</td>
-<td style="text-align: left;">715</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... 3</td>
-<td style="text-align: left;">697</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... 4</td>
-<td style="text-align: left;">697</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... 5</td>
-<td style="text-align: left;">717</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... 6</td>
-<td style="text-align: left;">725</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... 7</td>
-<td style="text-align: left;">727</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... 8</td>
-<td style="text-align: left;">727</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... 9</td>
-<td style="text-align: left;">727</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... 10</td>
-<td style="text-align: left;">727</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... 11</td>
-<td style="text-align: left;">727</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... 12</td>
-<td style="text-align: left;">728</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... 13</td>
-<td style="text-align: left;">729</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... 14</td>
-<td style="text-align: left;">729</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... 15</td>
-<td style="text-align: left;">729</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... 16</td>
-<td style="text-align: left;">730</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... 17</td>
-<td style="text-align: left;">730</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... 18</td>
-<td style="text-align: left;">728</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... 19</td>
-<td style="text-align: left;">728</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... 20</td>
-<td style="text-align: left;">728</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... 21</td>
-<td style="text-align: left;">728</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... 22</td>
-<td style="text-align: left;">728</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... 23</td>
-<td style="text-align: left;">728</td>
-<td style="text-align: left;">4%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">holiday</td>
-<td style="text-align: left;">17379</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... no</td>
-<td style="text-align: left;">16879</td>
-<td style="text-align: left;">97%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... yes</td>
-<td style="text-align: left;">500</td>
-<td style="text-align: left;">3%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">weekday</td>
-<td style="text-align: left;">17379</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... Sunday</td>
-<td style="text-align: left;">2502</td>
-<td style="text-align: left;">14%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... Monday</td>
-<td style="text-align: left;">2479</td>
-<td style="text-align: left;">14%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... Tuesday</td>
-<td style="text-align: left;">2453</td>
-<td style="text-align: left;">14%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... Wednesday</td>
-<td style="text-align: left;">2475</td>
-<td style="text-align: left;">14%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... Thursday</td>
-<td style="text-align: left;">2471</td>
-<td style="text-align: left;">14%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... Friday</td>
-<td style="text-align: left;">2487</td>
-<td style="text-align: left;">14%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... Saturday</td>
-<td style="text-align: left;">2512</td>
-<td style="text-align: left;">14%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">workingday</td>
-<td style="text-align: left;">17379</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... no</td>
-<td style="text-align: left;">5514</td>
-<td style="text-align: left;">32%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... yes</td>
-<td style="text-align: left;">11865</td>
-<td style="text-align: left;">68%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">weathersit</td>
-<td style="text-align: left;">17379</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... best</td>
-<td style="text-align: left;">11413</td>
-<td style="text-align: left;">66%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... good</td>
-<td style="text-align: left;">4544</td>
-<td style="text-align: left;">26%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... poor</td>
-<td style="text-align: left;">1419</td>
-<td style="text-align: left;">8%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... worst</td>
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">0%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">temp</td>
-<td style="text-align: left;">17379</td>
-<td style="text-align: left;">0.5</td>
-<td style="text-align: left;">0.19</td>
-<td style="text-align: left;">0.02</td>
-<td style="text-align: left;">0.34</td>
-<td style="text-align: left;">0.66</td>
-<td style="text-align: left;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">atemp</td>
-<td style="text-align: left;">17379</td>
-<td style="text-align: left;">0.48</td>
-<td style="text-align: left;">0.17</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">0.33</td>
-<td style="text-align: left;">0.62</td>
-<td style="text-align: left;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">hum</td>
-<td style="text-align: left;">17379</td>
-<td style="text-align: left;">0.63</td>
-<td style="text-align: left;">0.19</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">0.48</td>
-<td style="text-align: left;">0.78</td>
-<td style="text-align: left;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">windspeed</td>
-<td style="text-align: left;">17379</td>
-<td style="text-align: left;">0.19</td>
-<td style="text-align: left;">0.12</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">0.1</td>
-<td style="text-align: left;">0.25</td>
-<td style="text-align: left;">0.85</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">casual</td>
-<td style="text-align: left;">17379</td>
-<td style="text-align: left;">36</td>
-<td style="text-align: left;">49</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">48</td>
-<td style="text-align: left;">367</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">registered</td>
-<td style="text-align: left;">17379</td>
-<td style="text-align: left;">154</td>
-<td style="text-align: left;">151</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">34</td>
-<td style="text-align: left;">220</td>
-<td style="text-align: left;">886</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">cnt</td>
-<td style="text-align: left;">17379</td>
-<td style="text-align: left;">189</td>
-<td style="text-align: left;">181</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">40</td>
-<td style="text-align: left;">281</td>
-<td style="text-align: left;">977</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">celsius</td>
-<td style="text-align: left;">17379</td>
-<td style="text-align: left;">15</td>
-<td style="text-align: left;">9.1</td>
-<td style="text-align: left;">-7.1</td>
-<td style="text-align: left;">8</td>
-<td style="text-align: left;">23</td>
-<td style="text-align: left;">39</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">fahr</td>
-<td style="text-align: left;">17379</td>
-<td style="text-align: left;">60</td>
-<td style="text-align: left;">16</td>
-<td style="text-align: left;">19</td>
-<td style="text-align: left;">46</td>
-<td style="text-align: left;">73</td>
-<td style="text-align: left;">102</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
-<p>I was fairly satisfied with that result, but it uncovered some errors in my data typing, so I went back and redid the previous step. Then I tried the <code>st()</code> function again, found more errors, and so on until I was completely satisfied that I had fixed everything.</p>
-<p>Next, I made a couple of contingency tables. These made me think about the meaning of the rows in the data and the fact that not all hours are covered. I went back to the output of <code>st()</code> above and learned more before I made the following description for the contingency tables.</p>
-<p><em>The next two tables show the numbers of hours when riders experienced each weather condition, first during each season, then on each weekday.</em></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(<span class="fu">table</span>(df<span class="sc">$</span>season,df<span class="sc">$</span>weathersit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>        
-          best  good  poor worst   Sum
-  winter  2665  1205   369     3  4242
-  spring  2859  1144   406     0  4409
-  summer  3280   947   269     0  4496
-  fall    2609  1248   375     0  4232
-  Sum    11413  4544  1419     3 17379</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(<span class="fu">table</span>(df<span class="sc">$</span>weekday,df<span class="sc">$</span>weathersit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>           
-             best  good  poor worst   Sum
-  Sunday     1765   568   169     0  2502
-  Monday     1582   726   170     1  2479
-  Tuesday    1522   694   237     0  2453
-  Wednesday  1568   613   293     1  2475
-  Thursday   1656   636   179     0  2471
-  Friday     1645   659   183     0  2487
-  Saturday   1675   648   188     1  2512
-  Sum       11413  4544  1419     3 17379</code></pre>
-</div>
-</div>
-<p>After a few more boring contingency tables, I switched to visualizations. First, I just started aimlessly dong visualizations and looking at them. Let me emphasize that I wouldn’t necessarily include these in my final report. They are just exploratory at this point to see if I find something interesting.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(mnth,fahr)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="week08_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
-</div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(mnth,cnt)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="week08_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid" width="672"></p>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(weathersit,cnt)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="week08_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid" width="672"></p>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(season,cnt)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="week08_files/figure-html/unnamed-chunk-5-4.png" class="img-fluid" width="672"></p>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(weekday,cnt)) <span class="sc">+</span> <span class="fu">geom_violin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="week08_files/figure-html/unnamed-chunk-5-5.png" class="img-fluid" width="672"></p>
-</div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(hr,cnt)) <span class="sc">+</span> <span class="fu">geom_violin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="week08_files/figure-html/unnamed-chunk-5-6.png" class="img-fluid" width="672"></p>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(casual)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="week08_files/figure-html/unnamed-chunk-5-7.png" class="img-fluid" width="672"></p>
-</div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(registered)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="week08_files/figure-html/unnamed-chunk-5-8.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Bingo! I have found something interesting in the last two plots above. But the way they’re done doesn’t reveal enough. When drawing histograms of the casual riders and the registered riders, it really stands out that there’s a hump in the registered riders, while there’s exponential decay in the casual riders. You can illustrate this by combining the two, casual and registered, into a single density plot as follows.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>cas <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">vol=</span>df<span class="sc">$</span>casual)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">vol=</span>df<span class="sc">$</span>registered)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>cas<span class="sc">$</span>type <span class="ot">&lt;-</span> <span class="st">"casual"</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>reg<span class="sc">$</span>type <span class="ot">&lt;-</span> <span class="st">"registered"</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>combined <span class="ot">&lt;-</span> <span class="fu">rbind</span>(cas,reg)</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(combined,<span class="fu">aes</span>(vol,<span class="at">fill=</span>type)) <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="week08_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>How did I come up with this? The main thing was a process of exploring the data through visualizing, making a discovery, then communicating that discovery. I would remove the two histograms (and most of the plots above them, too) and instead substitute the density plot in a report, never really showing the manager the process I went through.</p>
-<p>Incidentally, I simple googled <em>tidyverse difference between two histograms</em> to come up with the code for the density plot, which I adapted from one of many good answers on <a href="https://stackoverflow.com/questions/3541713/how-to-plot-two-histograms-together-in-r">stackoverflow</a>.</p>
-</section>
-<section id="common-mistakes" class="level3" data-number="8.2.2">
-<h3 data-number="8.2.2" class="anchored" data-anchor-id="common-mistakes"><span class="header-section-number">8.2.2</span> Common Mistakes</h3>
-<p>It’s tough to grade this exercise because there’s a tension between two factors. First is the amount of work you put in, which, in most cases, was a lot. I want to reward you for that.</p>
-<p>Second is that you made a lot of common sense mistakes. There’s a big difference between making mistakes in coding, which is only natural in a new language, and making mistakes that a manager unfamiliar with code will notice.</p>
-<p>Let me list a few such mistakes here.</p>
-<ul>
-<li>Incredibly long contingency tables: Think about what a manager can possibly learn from the artifacts you produce—if a table goes on for many screensful of output, it doesn’t do any more than presenting the raw data</li>
-<li>Graphics that are hard to read and look almost identical to each other: Think about what a manager can infer from a bunch of nearly identical graphics</li>
-<li>Explanations that don’t make any sense considering the data, such as assuming that the left side of a graphic that doesn’t include time refers to <em>early</em> data</li>
-<li>Explanations that are overly obvious, such as the fact that the data begins in winter and continues into summer</li>
-</ul>
-</section>
-</section>
-<section id="recap-week-07" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="recap-week-07"><span class="header-section-number">8.3</span> Recap Week 07</h2>
+<section id="recap-week-07" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="recap-week-07"><span class="header-section-number">8.1</span> Recap Week 07</h2>
 <ul>
 <li>Inference for Categorical Data
 <ul>
@@ -1226,8 +314,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 </section>
-<section id="inference-for-numerical-data" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="inference-for-numerical-data"><span class="header-section-number">8.4</span> Inference for numerical data</h2>
+<section id="inference-for-numerical-data" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="inference-for-numerical-data"><span class="header-section-number">8.2</span> Inference for numerical data</h2>
 <ul>
 <li>Textbook section 7.1 One-sample means with the t-distribution</li>
 <li>Textbook section 7.2 Paired data</li>
@@ -1235,28 +323,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Textbook section 7.4 Power calculations for a difference of means</li>
 <li>Textbook section 7.5 Comparing many means with ANOVA</li>
 </ul>
-<section id="textbook-section-7.1-one-sample-means-with-the-t-distribution" class="level3" data-number="8.4.1">
-<h3 data-number="8.4.1" class="anchored" data-anchor-id="textbook-section-7.1-one-sample-means-with-the-t-distribution"><span class="header-section-number">8.4.1</span> Textbook Section 7.1 One-sample means with the <span class="math inline">\(t\)</span>-distribution</h3>
+<section id="textbook-section-7.1-one-sample-means-with-the-t-distribution" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="textbook-section-7.1-one-sample-means-with-the-t-distribution"><span class="header-section-number">8.2.1</span> Textbook Section 7.1 One-sample means with the <span class="math inline">\(t\)</span>-distribution</h3>
 <p>Modeling <span class="math inline">\(\bar{x}\)</span>, the mean of a random sample from a normally distributed population, requires that the sample elements are</p>
 <ul>
 <li>independent—a random sample or a sample from a random process</li>
 <li>normally distributed—sample drawn from a normally distributed population</li>
 </ul>
-<section id="rule-of-thumb-for-normality" class="level4" data-number="8.4.1.1">
-<h4 data-number="8.4.1.1" class="anchored" data-anchor-id="rule-of-thumb-for-normality"><span class="header-section-number">8.4.1.1</span> Rule of thumb for normality</h4>
+<section id="rule-of-thumb-for-normality" class="level4" data-number="8.2.1.1">
+<h4 data-number="8.2.1.1" class="anchored" data-anchor-id="rule-of-thumb-for-normality"><span class="header-section-number">8.2.1.1</span> Rule of thumb for normality</h4>
 <ul>
 <li><span class="math inline">\(n &lt; 30\)</span> and no outliers, assume data come from a normally distributed population</li>
 <li><span class="math inline">\(n \geqslant 30\)</span> and no extreme outliers, assume <span class="math inline">\(\bar{x}\sim N(\mu,\sigma)\)</span> even if data come from a not normally distributed population</li>
 </ul>
 </section>
-<section id="t-distribution" class="level4" data-number="8.4.1.2">
-<h4 data-number="8.4.1.2" class="anchored" data-anchor-id="t-distribution"><span class="header-section-number">8.4.1.2</span> <span class="math inline">\(t\)</span>-distribution</h4>
+<section id="t-distribution" class="level4" data-number="8.2.1.2">
+<h4 data-number="8.2.1.2" class="anchored" data-anchor-id="t-distribution"><span class="header-section-number">8.2.1.2</span> <span class="math inline">\(t\)</span>-distribution</h4>
 <p>The <span class="math inline">\(t\)</span>-distribution is useful for small samples (<span class="math inline">\(n&lt;30\)</span>). It was discovered when a man named Gossett was trying to figure out how few samples of beer he could get away with in tests for the Guinness brewery about 120 years ago. He preferred to remain anonymous at the time because he didn’t want his employers to question his <em>outside</em> activities, otherwise this would probably be called the Gossett’s <span class="math inline">\(t\)</span>-distribution. Instead, he referred to himself as “A Student” so it came to be known as the Student’s <span class="math inline">\(t\)</span>-distribution.</p>
 <p>For sample sizes over thirty, it converges to looking like the normal distribution, but for smaller samples, it gets more and more peaked and the tails get thicker and thicker. For example, here is the density function for a sample size of 4.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="cf">function</span>(x) <span class="fu">dt</span>(x, <span class="at">df =</span> <span class="dv">3</span>), <span class="sc">-</span><span class="dv">11</span>, <span class="dv">11</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.50</span>), <span class="at">main =</span> <span class="st">"t density function"</span>, <span class="at">yaxs =</span> <span class="st">"i"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="cf">function</span>(x) <span class="fu">dt</span>(x, <span class="at">df =</span> <span class="dv">3</span>), <span class="sc">-</span><span class="dv">11</span>, <span class="dv">11</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.50</span>), <span class="at">main =</span> <span class="st">"t density function"</span>, <span class="at">yaxs =</span> <span class="st">"i"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week08_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<p><img src="week08_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Bear in mind that the <code>t()</code> function in R has nothing to do with the <span class="math inline">\(t\)</span>-distribution (it’s for transposing matrices and data frames). Instead, the functions for handling the <span class="math inline">\(t\)</span>-distribution are the letter t prefaced by d, q, p, or r. You may have noticed that we saw functions like <code>pnorm()</code> and <code>dnorm()</code> when working with the normal distribution. These functions are analogous.</p>
@@ -1264,32 +352,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Also keep in mind that the mean is always zero for the <span class="math inline">\(t\)</span>-distribution, so it just has one parameter, df. So in the above example, you could say <span class="math inline">\(\bar{x}\sim t(3)\)</span>.</p>
 <p>Analogous to the <code>pnorm()</code> function, you can calculate regions of the <span class="math inline">\(t\)</span>-distribution using the <code>pt()</code> function. For example, if you conduct a test that returns a <span class="math inline">\(t\)</span>-statistic of <span class="math inline">\(-2.10\)</span> and <span class="math inline">\(n=19\)</span>, you can use the following to find out that the area to the left of the statistic is 0.025. (This example and the two following are illustrated in textbook Figure 7.4.)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(<span class="sc">-</span><span class="fl">2.1</span>,<span class="dv">18</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(<span class="sc">-</span><span class="fl">2.1</span>,<span class="dv">18</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.0250452</code></pre>
 </div>
 </div>
 <p>Suppose you obtain a <span class="math inline">\(t\)</span>-statistic of 1.65 on 20 degrees of freedom. How much of the probability is in the upper tail? There are two obvious ways to do this.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(<span class="fl">1.65</span>,<span class="dv">20</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(<span class="fl">1.65</span>,<span class="dv">20</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.05728041</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pt</span>(<span class="fl">1.65</span>,<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pt</span>(<span class="fl">1.65</span>,<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.05728041</code></pre>
 </div>
 </div>
 <p>Find the probability in both tails for a <span class="math inline">\(t\)</span>-statistic of <span class="math inline">\(\pm 3\)</span> and two degrees of freedom.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(<span class="sc">-</span><span class="dv">3</span>,<span class="dv">2</span>)<span class="sc">+</span><span class="fu">pt</span>(<span class="dv">3</span>,<span class="dv">2</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(<span class="sc">-</span><span class="dv">3</span>,<span class="dv">2</span>)<span class="sc">+</span><span class="fu">pt</span>(<span class="dv">3</span>,<span class="dv">2</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.09546597</code></pre>
 </div>
 </div>
 <p>Textbook example 7.8 asks you to calculate the <span class="math inline">\(t\)</span>-statistic when you know the proportion. In this case, <span class="math inline">\(df=18\)</span> and you want to know the <span class="math inline">\(t\)</span>-statistic corresponding to 0.025 in the upper tail. You can use the <code>qt()</code> function where q stands for quantile. The region 0.025 in the upper tail corresponds to a 95 percent confidence interval because there will be 0.025 in each of the two tails for a total of five percent. The <span class="math inline">\(t\)</span>-statistic for the lower tail would simply be the negative of the <span class="math inline">\(t\)</span>-statistic for the upper tail.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.025</span>,<span class="dv">18</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.025</span>,<span class="dv">18</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.100922</code></pre>
 </div>
@@ -1300,13 +388,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 \]</span></p>
 <p>This assumes you have already checked the normality and independence constraints.</p>
 </section>
-<section id="calculating-a-confidence-interval" class="level4" data-number="8.4.1.3">
-<h4 data-number="8.4.1.3" class="anchored" data-anchor-id="calculating-a-confidence-interval"><span class="header-section-number">8.4.1.3</span> Calculating a confidence interval</h4>
+<section id="calculating-a-confidence-interval" class="level4" data-number="8.2.1.3">
+<h4 data-number="8.2.1.3" class="anchored" data-anchor-id="calculating-a-confidence-interval"><span class="header-section-number">8.2.1.3</span> Calculating a confidence interval</h4>
 <p>For the textbook examples, you are given components of the formula. It is quite a bit simpler if you are given the raw data. For example, calculate a 95 percent confidence interval for the body mass in grams of the penguins in the Palmer penguins data frame.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> <span class="dv">1</span>,penguins)</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(model,<span class="at">level=</span><span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> <span class="dv">1</span>,penguins)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(model,<span class="at">level=</span><span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>               2.5 %  97.5 %
 (Intercept) 4116.458 4287.05</code></pre>
@@ -1314,13 +402,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The above incantation may seem a little mysterious but you’ll explore it in excruciating detail when you learn linear regression.</p>
 </section>
-<section id="one-sample-t-tests" class="level4" data-number="8.4.1.4">
-<h4 data-number="8.4.1.4" class="anchored" data-anchor-id="one-sample-t-tests"><span class="header-section-number">8.4.1.4</span> One sample <span class="math inline">\(t\)</span>-tests</h4>
+<section id="one-sample-t-tests" class="level4" data-number="8.2.1.4">
+<h4 data-number="8.2.1.4" class="anchored" data-anchor-id="one-sample-t-tests"><span class="header-section-number">8.2.1.4</span> One sample <span class="math inline">\(t\)</span>-tests</h4>
 <p>The textbook gives a lengthy example of the runner times of the Cherry Blossom race. I assume that the data are the <code>run10samp</code> and <code>run17samp</code> data frames from the textbook website, so I downloaded the RData versions of them and loaded them as follows.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/run10samp.rda"</span>))</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/run17samp.rda"</span>))</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(run17samp<span class="sc">$</span>clock_sec<span class="sc">/</span><span class="dv">60</span>,<span class="at">mu=</span><span class="fl">93.29</span>,<span class="at">alternative=</span><span class="st">"t"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/run10samp.rda"</span>))</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/run17samp.rda"</span>))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(run17samp<span class="sc">$</span>clock_sec<span class="sc">/</span><span class="dv">60</span>,<span class="at">mu=</span><span class="fl">93.29</span>,<span class="at">alternative=</span><span class="st">"t"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
@@ -1338,13 +426,13 @@ mean of x
 <p>Note that neither time measure, <code>clock_sec</code> nor <code>net_sec</code> correspond to the mean in the textbook. The <span class="math inline">\(t\)</span>-statistic is smaller and the <span class="math inline">\(p\)</span>-value is larger than that given in the textbook. With a <span class="math inline">\(p\)</span>-value of 0.05075 it is unclear whether you would reject the null hypothesis. Certainly the old mean is within, though at the edge, of the confidence interval. Personally, I would fail to reject in this case.</p>
 </section>
 </section>
-<section id="textbook-section-7.2-paired-data" class="level3" data-number="8.4.2">
-<h3 data-number="8.4.2" class="anchored" data-anchor-id="textbook-section-7.2-paired-data"><span class="header-section-number">8.4.2</span> Textbook Section 7.2 Paired data</h3>
+<section id="textbook-section-7.2-paired-data" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="textbook-section-7.2-paired-data"><span class="header-section-number">8.2.2</span> Textbook Section 7.2 Paired data</h3>
 <p>Suppose you want to know if two data frames were drawn from the same distribution or if they differ.</p>
 <p>The textbook example is of the mean prices of textbooks on Amazon and in the UCLA campus bookstore. The data appear to be the textbooks data frame on the textbook website, although the statistics are different and the textbook says that there were two such samples (only one is on the website that I could find). Because they have precomputed the difference as the <code>diff</code> column, you can do this the same way as for a one sample test.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/textbooks.rda"</span>))</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(textbooks,<span class="fu">t.test</span>(diff))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/textbooks.rda"</span>))</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(textbooks,<span class="fu">t.test</span>(diff))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
@@ -1362,7 +450,7 @@ mean of x
 <p>Note that the default is that the difference is 0 and the 95 percent confidence interval is quite far from including 0. Also, the <span class="math inline">\(p\)</span>-value is infinitesimal. We definitely reject the null hypothesis that the stores have similar prices.</p>
 <p>If you didn’t have the <code>diff</code> column, you could get the same result by saying the following.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(textbooks,<span class="fu">t.test</span>(ucla_new,amaz_new,<span class="at">paired=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(textbooks,<span class="fu">t.test</span>(ucla_new,amaz_new,<span class="at">paired=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Paired t-test
@@ -1378,16 +466,16 @@ mean difference
 </div>
 </div>
 </section>
-<section id="textbook-section-7.3-difference-of-two-means" class="level3" data-number="8.4.3">
-<h3 data-number="8.4.3" class="anchored" data-anchor-id="textbook-section-7.3-difference-of-two-means"><span class="header-section-number">8.4.3</span> Textbook Section 7.3 Difference of two means</h3>
+<section id="textbook-section-7.3-difference-of-two-means" class="level3" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="textbook-section-7.3-difference-of-two-means"><span class="header-section-number">8.2.3</span> Textbook Section 7.3 Difference of two means</h3>
 <p>In the previous section, you considered the means of the differences but in this section you consider the differences of the means. In the Amazon and UCLA example, the items were paired and we subtracted the price of a particular title sold by one seller from the price of the <em>same</em> title sold by the other seller. But what if we have data that is not paired like this? The textbook gives an example of a radical stem cell treatment given to sheep. One of two treatments is given to each sheep, but there is no correspondence between individual pairs of sheep.</p>
 <p>In this case, there may be different variance between the two groups, as well as different means. So the standard error is calculated as</p>
 <p><span class="math display">\[\text{SE}=\sqrt{\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2}}\]</span></p>
 <p>Notice that this formula implies that the samples could differ in size as well as variance.</p>
 <p>For the sheep example, heart pumping capacity was measured, where more is better. The <code>stem_cell</code> data frame on the textbook website seems to be the appropriate data frame here. Conducting the test in R follows.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/stem_cell.rda"</span>))</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(stem_cell,<span class="fu">t.test</span>(after<span class="sc">-</span>before<span class="sc">~</span>trmt,<span class="at">var.equal=</span><span class="cn">FALSE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/stem_cell.rda"</span>))</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(stem_cell,<span class="fu">t.test</span>(after<span class="sc">-</span>before<span class="sc">~</span>trmt,<span class="at">var.equal=</span><span class="cn">FALSE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
@@ -1404,16 +492,23 @@ mean in group ctrl  mean in group esc
 </div>
 <p>The result is a statistically significant difference between the sheep in the control group and the sheep treated with stem cells. The sheep in the stem cell group enjoyed a 3.5 unit increase in heart pumping capacity, while the poor sheep in the control group lost four and a third units. Of course, the practical question you have to ask yourself is whether these numbers have a practical significance. You would need domain knowledge to tell whether 3.5 units is a lot of heart pumping capacity!</p>
 </section>
-<section id="textbook-section-7.4-power-calculations-for-a-difference-of-means" class="level3" data-number="8.4.4">
-<h3 data-number="8.4.4" class="anchored" data-anchor-id="textbook-section-7.4-power-calculations-for-a-difference-of-means"><span class="header-section-number">8.4.4</span> Textbook Section 7.4 Power calculations for a difference of means</h3>
-<p>The pictures in section 7.4, particularly the two on page 280 of the textbook, are essential for understanding power calculation, so let’s use the textbook exclusively for this section. To do the calculations in R, you can use the <code>pwr</code> package.</p>
+<section id="textbook-section-7.4-power-calculations-for-a-difference-of-means" class="level3" data-number="8.2.4">
+<h3 data-number="8.2.4" class="anchored" data-anchor-id="textbook-section-7.4-power-calculations-for-a-difference-of-means"><span class="header-section-number">8.2.4</span> Textbook Section 7.4 Power calculations for a difference of means</h3>
+<p>The pictures in section 7.4, particularly the two on page 280 of the textbook, are essential for understanding power calculation, so let’s use the textbook exclusively for this section. To do the calculations in R, you can use the <code>pwr</code> package. However, for the weekly exercises, please use the method described in the <span class="citation" data-cites="Diez2019">Diez, Çetinkaya-Rundel, and Barr (<a href="references.html#ref-Diez2019" role="doc-biblioref">2019</a>)</span> book instead of using the <code>pwr</code> package. This is simply so you understand the meaning of the calculations. After you’ve done it once, I’ll describe the <code>pwr</code> approach.</p>
+<p>All I want to say to preface our look at the textbook is to define the terms <em>power</em> and <span class="math inline">\(\alpha\)</span>. The statistical term <em>power</em> refers to the probability of rejecting the null hypothesis when it is false. The greek letter <span class="math inline">\(\alpha\)</span>, pronounced alpha, refers to the probability of rejecting the null hypothesis when it is true. It is typical in practice to use <span class="math inline">\(\alpha = 0.05\)</span> except in life or death cases (where it is set to 0.01) and to use <em>power</em><span class="math inline">\(=0.8\)</span>.</p>
 </section>
-<section id="textbook-section-7.5-comparing-many-means-with-anova" class="level3" data-number="8.4.5">
-<h3 data-number="8.4.5" class="anchored" data-anchor-id="textbook-section-7.5-comparing-many-means-with-anova"><span class="header-section-number">8.4.5</span> Textbook Section 7.5 Comparing many means with ANOVA</h3>
+<section id="textbook-section-7.5-comparing-many-means-with-anova" class="level3" data-number="8.2.5">
+<h3 data-number="8.2.5" class="anchored" data-anchor-id="textbook-section-7.5-comparing-many-means-with-anova"><span class="header-section-number">8.2.5</span> Textbook Section 7.5 Comparing many means with ANOVA</h3>
+<p>The textbook makes three important observations about the diagnostics for ANOVA:</p>
+<ul>
+<li>Independence is always important</li>
+<li>The normality condition is especially important in the face of small sample sizes</li>
+<li>The constant variance assumption is especially important in the face sample sizes differing between groups</li>
+</ul>
 <p>Textbook exercise 7.54 compares eight methods for loosening rusty bolts. Four samples were collected for each method and the results are in the <code>penetrating_oil</code> data frame on the textbook website. You can conduct an ANOVA test on the results using R as follows.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/penetrating_oil.rda"</span>))</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(penetrating_oil,<span class="fu">anova</span>(<span class="fu">lm</span>(torque<span class="sc">~</span>treatment)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/penetrating_oil.rda"</span>))</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(penetrating_oil,<span class="fu">anova</span>(<span class="fu">lm</span>(torque<span class="sc">~</span>treatment)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Variance Table
 
@@ -1425,19 +520,25 @@ Residuals 22 2812.8  127.85
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
+<p>The table shows that the numerator degrees of freedom are <span class="math inline">\(k-1=7\)</span>. Keep in mind that <span class="math inline">\(k\)</span> is the number of groups, which must therefore be eight. The denominator degrees of freedom are <span class="math inline">\(n-k=22\)</span>, so there must be a total of 30 samples. Yet there are eight groups, suggesting four samples per group. Examining the data closely, you will find that there are only two samples for <code>heat</code> and four for each of the others.</p>
 <p>Here you are comparing whether any of the eight means of torque differ. They certainly seem to, with a large <span class="math inline">\(F\)</span>-statistic and a small <span class="math inline">\(p\)</span>-value. It might be helpful to visualize the differences with a combination violin plot and boxplot. There are really too few samples for each treatment.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>penetrating_oil <span class="sc">|&gt;</span></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(torque,treatment)) <span class="sc">+</span></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width=</span><span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>penetrating_oil <span class="sc">|&gt;</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(torque,treatment)) <span class="sc">+</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width=</span><span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week08_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+<p><img src="week08_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Diez2019" class="csl-entry" role="listitem">
+Diez, David, Mine Çetinkaya-Rundel, and Cristopher D Barr. 2019. <em>OpenIntro Statistics, Fourth Edition</em>. self-published. <a href="https://openintro.org/os">https://openintro.org/os</a>.
+</div>
+</div>
 </section>
 </section>
 

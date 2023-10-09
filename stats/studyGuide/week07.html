@@ -409,52 +409,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   (94999.05,99999]      37    19    10    14</code></pre>
 </div>
 </div>
-<p>In a boxplot, Ford and Chevy look the same, but a violin plot reveals a bulge in Chevy that is not matched by Ford.</p>
+<p>Can we cut year into intervals? Yes, we can do year, odometer, or price because they are continuous.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df[df<span class="sc">$</span>price<span class="sc">&lt;</span><span class="dv">100000</span> <span class="sc">&amp;</span> df<span class="sc">$</span>manufacturer <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ford"</span>,<span class="st">"chevrolet"</span>),],<span class="fu">aes</span>(price,manufacturer))<span class="sc">+</span><span class="fu">geom_violin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="week07_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/vehiclesSmall.Rdata"</span>))</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">cut_interval</span>(dfSmall<span class="sc">$</span>year[dfSmall<span class="sc">$</span>year<span class="sc">&gt;</span><span class="dv">1999</span>],<span class="dv">22</span>,<span class="at">dig.lab=</span><span class="dv">6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+[2000,2001] (2001,2002] (2002,2003] (2003,2004] (2004,2005] (2005,2006] 
+       1919        1348        1720        2037        2527        2987 
+(2006,2007] (2007,2008] (2008,2009] (2009,2010] (2010,2011] (2011,2012] 
+       3510        3998        2796        3763        4710        5686 
+(2012,2013] (2013,2014] (2014,2015] (2015,2016] (2016,2017] (2017,2018] 
+       7123        6950        7436        7156        8595        8452 
+(2018,2019] (2019,2020] (2020,2021] (2021,2022] 
+       5981        4606         537          27 </code></pre>
 </div>
 </div>
-<p>The only obvious numeric variables are price, odometer, and year. Look at how bunched up the odometer values are in the first plot. You can transform them by taking the <code>log()</code> function on them so that the lower values take up more space. By the way, there are only two thirds as many chevys as fords in the Tiny data.</p>
+<p>Getting commas in long numbers:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df[df<span class="sc">$</span>price<span class="sc">&lt;</span><span class="dv">100000</span> <span class="sc">&amp;</span> df<span class="sc">$</span>manufacturer <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ford"</span>,<span class="st">"chevrolet"</span>),],<span class="fu">aes</span>(price,odometer,<span class="at">color=</span>manufacturer))<span class="sc">+</span><span class="fu">geom_jitter</span>() <span class="sc">+</span> <span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">'#999999'</span>,<span class="st">'#E69F00'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 1322 rows containing missing values (`geom_point()`).</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>dfReduced <span class="ot">&lt;-</span> dfSmall[dfSmall<span class="sc">$</span>price<span class="sc">&lt;</span><span class="dv">100000</span>,]</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>dfReduced<span class="sc">$</span>priceRanges <span class="ot">&lt;-</span> <span class="fu">cut_interval</span>(dfReduced<span class="sc">$</span>price,<span class="dv">20</span>,<span class="at">dig.lab=</span><span class="dv">8</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dfReduced,<span class="fu">aes</span>(priceRanges)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">fill=</span><span class="st">"lightblue"</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">45</span>,<span class="at">vjust=</span><span class="dv">1</span>,<span class="at">hjust=</span><span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels=</span>comma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="week07_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df[df<span class="sc">$</span>price<span class="sc">&lt;</span><span class="dv">100000</span> <span class="sc">&amp;</span> df<span class="sc">$</span>manufacturer <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ford"</span>,<span class="st">"chevrolet"</span>),],<span class="fu">aes</span>(price,<span class="fu">log</span>(odometer),<span class="at">color=</span>manufacturer))<span class="sc">+</span><span class="fu">geom_jitter</span>() <span class="sc">+</span> <span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">'#999999'</span>,<span class="st">'#E69F00'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 1322 rows containing missing values (`geom_point()`).</code></pre>
 </div>
-<div class="cell-output-display">
-<p><img src="week07_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Notice that you can choose any hex value for colors manually. You can check the hex value for any color you can name with google or by sites like <a href="https://www.colorhexa.com/">https://www.colorhexa.com/</a>.</p>
+<p>In a boxplot, Ford and Chevy look the same, but a violin plot reveals a bulge in Chevy that is not matched by Ford.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df[df<span class="sc">$</span>price<span class="sc">&lt;</span><span class="dv">100000</span> <span class="sc">&amp;</span> df<span class="sc">$</span>manufacturer <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ford"</span>,<span class="st">"chevrolet"</span>),],<span class="fu">aes</span>(price,year,<span class="at">color=</span>manufacturer))<span class="sc">+</span><span class="fu">geom_jitter</span>() <span class="sc">+</span> <span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">'#999999'</span>,<span class="st">'#E69F00'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df[df<span class="sc">$</span>price<span class="sc">&lt;</span><span class="dv">100000</span> <span class="sc">&amp;</span> df<span class="sc">$</span>manufacturer <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ford"</span>,<span class="st">"chevrolet"</span>),],<span class="fu">aes</span>(price,manufacturer))<span class="sc">+</span><span class="fu">geom_violin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="week07_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>You can see if the three numeric variables are correlated wtih a heatmap.</p>
+<p>The only obvious numeric variables are price, odometer, and year. Look at how bunched up the odometer values are in the first plot. You can transform them by taking the <code>log()</code> function on them so that the lower values take up more space. By the way, there are only two thirds as many chevys as fords in the Tiny data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>col<span class="ot">&lt;-</span><span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"white"</span>,<span class="st">"blue"</span>))(<span class="dv">20</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>dfReduced <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">drop_na</span>(year,odometer,price)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap</span>(<span class="fu">cor</span>(dfReduced[,<span class="fu">c</span>(<span class="st">"year"</span>,<span class="st">"odometer"</span>,<span class="st">"price"</span>)]),<span class="at">symm=</span><span class="cn">TRUE</span>,<span class="at">col=</span>col)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df[df<span class="sc">$</span>price<span class="sc">&lt;</span><span class="dv">100000</span> <span class="sc">&amp;</span> df<span class="sc">$</span>manufacturer <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ford"</span>,<span class="st">"chevrolet"</span>),],<span class="fu">aes</span>(price,odometer,<span class="at">color=</span>manufacturer))<span class="sc">+</span><span class="fu">geom_jitter</span>() <span class="sc">+</span> <span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">'#999999'</span>,<span class="st">'#E69F00'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1322 rows containing missing values (`geom_point()`).</code></pre>
+</div>
 <div class="cell-output-display">
 <p><img src="week07_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df[df<span class="sc">$</span>price<span class="sc">&lt;</span><span class="dv">100000</span> <span class="sc">&amp;</span> df<span class="sc">$</span>manufacturer <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ford"</span>,<span class="st">"chevrolet"</span>),],<span class="fu">aes</span>(price,<span class="fu">log</span>(odometer),<span class="at">color=</span>manufacturer))<span class="sc">+</span><span class="fu">geom_jitter</span>() <span class="sc">+</span> <span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">'#999999'</span>,<span class="st">'#E69F00'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1322 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="week07_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Notice that you can choose any hex value for colors manually. You can check the hex value for any color you can name with google or by sites like <a href="https://www.colorhexa.com/">https://www.colorhexa.com/</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df[df<span class="sc">$</span>price<span class="sc">&lt;</span><span class="dv">100000</span> <span class="sc">&amp;</span> df<span class="sc">$</span>manufacturer <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ford"</span>,<span class="st">"chevrolet"</span>),],<span class="fu">aes</span>(price,year,<span class="at">color=</span>manufacturer))<span class="sc">+</span><span class="fu">geom_jitter</span>() <span class="sc">+</span> <span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">'#999999'</span>,<span class="st">'#E69F00'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week07_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>You can see if the three numeric variables are correlated wtih a heatmap.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>col<span class="ot">&lt;-</span><span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"white"</span>,<span class="st">"blue"</span>))(<span class="dv">20</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>dfReduced <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">drop_na</span>(year,odometer,price)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap</span>(<span class="fu">cor</span>(dfReduced[,<span class="fu">c</span>(<span class="st">"year"</span>,<span class="st">"odometer"</span>,<span class="st">"price"</span>)]),<span class="at">symm=</span><span class="cn">TRUE</span>,<span class="at">col=</span>col)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week07_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>The year and odometer columns are very inversely correlated. Both year and odometer are somewhat inversely correlated with price.</p>
 <p>You can make a kind of heatmap with the <code>ztable</code> package.</p>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ztable)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>mycolor<span class="ot">=</span><span class="fu">gradientColor</span>(<span class="at">low=</span><span class="st">"yellow"</span>,<span class="at">mid=</span><span class="st">"orange"</span>,<span class="at">high=</span><span class="st">"red"</span>,<span class="at">n=</span><span class="dv">20</span>,<span class="at">plot=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><img src="week07_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ztable</span>(<span class="fu">table</span>(dfReduced<span class="sc">$</span>paint_color,dfReduced<span class="sc">$</span>manufacturer)) <span class="sc">|&gt;</span> <span class="fu">makeHeatmap</span>(<span class="at">mycolor=</span>mycolor) <span class="sc">|&gt;</span> <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ztable)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>mycolor<span class="ot">=</span><span class="fu">gradientColor</span>(<span class="at">low=</span><span class="st">"yellow"</span>,<span class="at">mid=</span><span class="st">"orange"</span>,<span class="at">high=</span><span class="st">"red"</span>,<span class="at">n=</span><span class="dv">20</span>,<span class="at">plot=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="week07_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ztable</span>(<span class="fu">table</span>(dfReduced<span class="sc">$</span>paint_color,dfReduced<span class="sc">$</span>manufacturer)) <span class="sc">|&gt;</span> <span class="fu">makeHeatmap</span>(<span class="at">mycolor=</span>mycolor) <span class="sc">|&gt;</span> <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 <style>
@@ -2098,9 +2126,9 @@ yellow
 </tr>
 
 </tbody></table>
-<p>The above table is obviously too wide for a report. I suggest you make something like it while you’re working, then use it to figure out which columns to include, then do something like the following.</p>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>dfFurtherReduced <span class="ot">&lt;-</span> dfReduced[dfReduced<span class="sc">$</span>manufacturer <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"bmw"</span>,<span class="st">"chevrolet"</span>,<span class="st">"ford"</span>,<span class="st">"honda"</span>,<span class="st">"nissan"</span>,<span class="st">"ram"</span>,<span class="st">"toyota"</span>),]</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ztable</span>(<span class="fu">table</span>(dfFurtherReduced<span class="sc">$</span>paint_color,dfFurtherReduced<span class="sc">$</span>manufacturer)) <span class="sc">|&gt;</span> <span class="fu">makeHeatmap</span>(<span class="at">mycolor=</span>mycolor) <span class="sc">|&gt;</span> <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The above table is obviously too wide for a report. I suggest you make something like it while you’re working, then use it to figure out which columns to include, then do something like the following. Note that the expression <code>#| output: asis</code> must be the first line of the following chunk and it is not displayed in the html file. You must look at the qmd file to see it.</p>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>dfFurtherReduced <span class="ot">&lt;-</span> dfReduced[dfReduced<span class="sc">$</span>manufacturer <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"bmw"</span>,<span class="st">"chevrolet"</span>,<span class="st">"ford"</span>,<span class="st">"honda"</span>,<span class="st">"nissan"</span>,<span class="st">"ram"</span>,<span class="st">"toyota"</span>),]</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ztable</span>(<span class="fu">table</span>(dfFurtherReduced<span class="sc">$</span>paint_color,dfFurtherReduced<span class="sc">$</span>manufacturer)) <span class="sc">|&gt;</span> <span class="fu">makeHeatmap</span>(<span class="at">mycolor=</span>mycolor) <span class="sc">|&gt;</span> <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 <style>
@@ -2496,7 +2524,7 @@ yellow
 <p><span class="math display">\[ z^{*}\sqrt{\frac{p(1-p)}{n}} &lt; 0.04 \]</span></p>
 <p>The problem is that you don’t know <span class="math inline">\(p\)</span>. Since the worst-case scenario is <span class="math inline">\(p=0.5\)</span>, you have to use that unless you have some information about <span class="math inline">\(p\)</span>. Recall that <span class="math inline">\(z^{*}\)</span> represents the <span class="math inline">\(z\)</span>-score for the desired confidence level, so you have to choose that. The book gives an example where you want a 95 percent confidence level, so you choose 1.96. You could find this out in R by saying</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.025</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.025</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.959964</code></pre>
 </div>
@@ -2542,13 +2570,13 @@ yellow
 <p>The <span class="math inline">\(\chi^2\)</span> distribution is sometimes used to characterize data sets and statistics that are always positive and typically right skewed. Recall a normal distribution had two parameters – mean and standard deviation – that could be used to describe its exact characteristics. The <span class="math inline">\(\chi^2\)</span> distribution has just one parameter called degrees of freedom (df), which influences the shape, center, and spread of the distribution. Here is a picture of the <span class="math inline">\(\chi^2\)</span> distribution for several values of df (1–8).</p>
 <div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
 <div class="cell-output-display">
-<p><img src="week07_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+<p><img src="week07_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <!-- note that \g are values of the gamma function for df=1:8 -->
 <p>In the jurors example, we can calculate the appropriate <span class="math inline">\(p\)</span>-value in R by using the <span class="math inline">\(\chi^2\)</span> statistic calculated from the sample, 5.89, and the parameter <span class="math inline">\(k-1\)</span> which is the number of groups minus one, using R:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pchisq</span>(<span class="fl">5.89</span>,<span class="dv">3</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pchisq</span>(<span class="fl">5.89</span>,<span class="dv">3</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.1170863</code></pre>
 </div>
@@ -2559,9 +2587,9 @@ yellow
 <h3 data-number="7.4.2" class="anchored" data-anchor-id="chi2-test"><span class="header-section-number">7.4.2</span> <span class="math inline">\(\chi^2\)</span> test</h3>
 <p>The <span class="math inline">\(\chi^2\)</span> test can be conducted in R for the juror example given in the book as follows.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>o <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">205</span>,<span class="dv">26</span>,<span class="dv">25</span>,<span class="dv">19</span>)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>e <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">198</span>,<span class="fl">19.25</span>,<span class="dv">33</span>,<span class="fl">24.75</span>)<span class="sc">/</span><span class="fu">sum</span>(o)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(o,<span class="at">p=</span>e)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>o <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">205</span>,<span class="dv">26</span>,<span class="dv">25</span>,<span class="dv">19</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>e <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">198</span>,<span class="fl">19.25</span>,<span class="dv">33</span>,<span class="fl">24.75</span>)<span class="sc">/</span><span class="fu">sum</span>(o)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(o,<span class="at">p=</span>e)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Chi-squared test for given probabilities
@@ -2577,18 +2605,18 @@ X-squared = 5.8896, df = 3, p-value = 0.1171</code></pre>
 <h2 data-number="7.5" class="anchored" data-anchor-id="textbook-section-6.4-testing-independence-in-2-way-tables"><span class="header-section-number">7.5</span> Textbook section 6.4 Testing independence in 2-way tables</h2>
 <p>Suppose you have a two way table. Datacamp gives an example of gender and sport as the two ways. The following data frame lists the number of males and females who like the following three sports: archery, boxing, and cycling. The <span class="math inline">\(\chi^2\)</span> tests suggests that the genders are not independent for the three sports, meaning that the preferences may differ by gender.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>female <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">35</span>,<span class="dv">15</span>,<span class="dv">50</span>)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>male <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">60</span>)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">cbind</span>(male,female)</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"archery"</span>,<span class="st">"boxing"</span>,<span class="st">"cycling"</span>)</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>female <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">35</span>,<span class="dv">15</span>,<span class="dv">50</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>male <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">60</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">cbind</span>(male,female)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"archery"</span>,<span class="st">"boxing"</span>,<span class="st">"cycling"</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        male female
 archery   10     35
 boxing    30     15
 cycling   60     50</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's Chi-squared test
