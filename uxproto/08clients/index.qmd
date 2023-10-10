@@ -1,7 +1,7 @@
 ---
 title: "UX Prototyping<br>Clients"
 author: Mick McQuaid
-date: 2023-03-01
+date: today
 bibliography: master.bib
 format:
   revealjs:
@@ -19,8 +19,6 @@ format:
 ::: {.r-fit-text}
 Week EIGHT
 :::
-
-# Guest Speaker: Ron Vutpakdi of ExxonMobil
 
 # Clients
 
@@ -164,7 +162,7 @@ Research can be analytics or usability study. Remember analytics only tells us w
 ![](fiAlternativeWireframes.png)
 
 ::: {.notes}
-Here are some examples of wireframed alternatives. Do any stand out to you?
+Here are some examples of wireframed alternatives. Do any stand out to you? Certainly C is what the big etailers go for.
 :::
 
 ## Answer these questions
