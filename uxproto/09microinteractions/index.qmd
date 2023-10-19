@@ -1,7 +1,7 @@
 ---
 title: "UX Prototyping:<br>Microinteractions,<br>Pair designing"
 author: Mick McQuaid
-date: 2023-03-08
+date: today
 bibliography: master.bib
 format:
   revealjs:
@@ -20,10 +20,15 @@ format:
 Week NINE
 :::
 
-# Report out from last week's exercise
-- What did you do?
-- What were the outcomes?
-- What best practices can you report?
+# Report from the 75th Anniversary Celebration
+::: {.incremental}
+- AI Everything
+- Business science?!
+- History - we were once in the Tower!
+- Informal conversations were best as usual
+- Heavy emphasis on library aspect of history
+- Planning to stabilize at 800 students in "new" building (GSB)
+:::
 
 # Microinteractions
 Definition from NNgroup: Microinteractions are trigger-feedback pairs in which (1) the trigger can be a user action or an alteration in the system's state; (2) the feedback is a narrowly targeted response to the trigger and is communicated through small, highly contextual (usually visual) changes in the user interface.
