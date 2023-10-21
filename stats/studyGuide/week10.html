@@ -279,11 +279,12 @@ div.csl-indent {
   <li><a href="#residuals-vs-leverage" id="toc-residuals-vs-leverage" class="nav-link" data-scroll-target="#residuals-vs-leverage"><span class="header-section-number">10.2.4</span> Residuals vs Leverage</a></li>
   <li><a href="#removing-offending-observations" id="toc-removing-offending-observations" class="nav-link" data-scroll-target="#removing-offending-observations"><span class="header-section-number">10.2.5</span> Removing offending observations</a></li>
   </ul></li>
-  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression"><span class="header-section-number">10.3</span> Logistic Regression</a>
+  <li><a href="#regression-gone-wrong" id="toc-regression-gone-wrong" class="nav-link" data-scroll-target="#regression-gone-wrong"><span class="header-section-number">10.3</span> Regression gone wrong</a></li>
+  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression"><span class="header-section-number">10.4</span> Logistic Regression</a>
   <ul class="collapse">
-  <li><a href="#tidymodels-approach" id="toc-tidymodels-approach" class="nav-link" data-scroll-target="#tidymodels-approach"><span class="header-section-number">10.3.1</span> <code>tidymodels</code> approach</a></li>
-  <li><a href="#hyperparameter-tuning" id="toc-hyperparameter-tuning" class="nav-link" data-scroll-target="#hyperparameter-tuning"><span class="header-section-number">10.3.2</span> Hyperparameter tuning</a></li>
-  <li><a href="#evaluation-metrics" id="toc-evaluation-metrics" class="nav-link" data-scroll-target="#evaluation-metrics"><span class="header-section-number">10.3.3</span> Evaluation metrics</a></li>
+  <li><a href="#tidymodels-approach" id="toc-tidymodels-approach" class="nav-link" data-scroll-target="#tidymodels-approach"><span class="header-section-number">10.4.1</span> <code>tidymodels</code> approach</a></li>
+  <li><a href="#hyperparameter-tuning" id="toc-hyperparameter-tuning" class="nav-link" data-scroll-target="#hyperparameter-tuning"><span class="header-section-number">10.4.2</span> Hyperparameter tuning</a></li>
+  <li><a href="#evaluation-metrics" id="toc-evaluation-metrics" class="nav-link" data-scroll-target="#evaluation-metrics"><span class="header-section-number">10.4.3</span> Evaluation metrics</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -429,18 +430,40 @@ F-statistic: 87.01 on 4 and 136 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>What a difference this makes in the output and the statistics and plots about the output! Keep in mind, though, that I just did this as an example. Points 20 and 65 may be totally legitimate in this case. Also, note that you could use plain R without the tidyverse to eliminate those rows by saying something like <code>df &lt;- mariokart[-c(20,65),]</code>. The bracket notation assumes anything before the comma refers to a row and anything after a comma refers to a column. In this case, I didn’t say anything about the columns, so the square brackets just have a dangling comma in them. The important point is that one method or another may seem more natural to you. For most students, the tidyverse approach is probably more natural, so I highlight that.</p>
 </section>
 </section>
-<section id="logistic-regression" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="logistic-regression"><span class="header-section-number">10.3</span> Logistic Regression</h2>
-<p>Logistic regression is a kind classification rather than regression. The book doesn’t make this point, but most textbooks do. You can divide machine learning problems into problems of regression and problems of classification. In regression, the <span class="math inline">\(y\)</span> variable is more or less continuous, whereas in the classification problem, <span class="math inline">\(y\)</span> is a set of categories, ordered or not. The word logistic comes from the logistic function, which is illustrated below. This interesting function takes an input from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(+\infty\)</span> and gives an output between zero and one. It can be used to reduce wildly varying inputs into a yes / no decision. It is also known as the sigmoid function.</p>
+<section id="regression-gone-wrong" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="regression-gone-wrong"><span class="header-section-number">10.3</span> Regression gone wrong</h2>
+<p>There is a dataframe in both the <code>MASS</code> and <code>ISLR2</code> called <code>Boston</code>. It illustrates the problem of systemic racism and how that can affect statistical models such as we are generating in logistic regression. It is instructive to look at this dataframe rather than ignore it so we can learn how such things happen and, perhaps, how to guard against them.</p>
+<p>The <code>Boston</code> dataframe is popular in textbooks and statistics classes. I’ve used it myself without thinking too much about it. It has a column called <code>black</code> which I naively assumed could be used to illustrate racism in Boston, a city notorious for segregation of the black population into a ghetto.</p>
+<p>I was about to use it in this class when a student asked if the <code>black</code> column was removed in the <code>ISLR2</code> package because of racism. I didn’t know. I looked at both copies, the one in <code>MASS</code> and the one in <code>ISLR2</code> (a more recent package) and discovered that, indeed, the <code>black</code> column had been removed in the more recent package. Why? I searched for articles about the <code>Boston</code> dataframe and found two alarming articles analyzing it, one of which pointed out that some prominent statisticians had deleted it from their Python package after learning of the problem.</p>
+<p>Far from being used to illustrate racism, this dataframe may have actually been perpetuating racist activity. The original purpose of the dataframe is innocuous. It is meant to illustrate the relationship of air pollution to housing prices, which seems like a laudable goal. There is evidence, though, that in assembling the dataframe, the creators made some racist assumptions that have had a lasting negative effect. What we know about assembling the dataframe is incomplete, based on incomplete documentation and attempted reconstruction by <a href="https://medium.com/@docintangible/racist-data-destruction-113e3eff54a8">M. Carlisle</a>, a self-described Mathematics PhD posting on Medium. The following information comes from Carlisle’s post, although I am responsible for any errors of interpretation.</p>
+<p>It appears that the creators of the dataframe committed an error you can easily avoid, thanks in part to contemporary tools that were not available in 1975. They took some data from the US Census, but did not record it directly. Instead, they subjected it to a non-invertible transformation and recorded the result. That means that we can’t be sure of the original data and we are stuck, in a sense, with their interpretation of that data. Critically, that interpretation encoded two racist assumptions that should have been testable to root out racism rather than encoded to perpetuate it. The transformation is <span class="math inline">\(v=1000(B-0.63)^2\)</span>, where <span class="math inline">\(B\)</span> is the proportion of the Black population by town. By non-invertible it is meant that <span class="math inline">\(v\)</span> can’t be derived from <span class="math inline">\(B\)</span> except in some cases because squaring makes the number positive regardless of whether <span class="math inline">\(B-0.63\)</span> is positive or negative. This is a very basic error you should not emulate. Luckily, tools like Quarto make it possible to document all your transformations so you can use the raw data and someone else can substitute a different transformation. This is a key point to remember.</p>
+<p>What about the equation itself? What social value is it encoding? Keep in mind that <span class="math inline">\(v\)</span> is the contribution of “Blackness” to the median value of homes in a town. The shape of the function is a parabola as follows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="dv">1000</span><span class="sc">*</span>(x<span class="fl">-0.63</span>)<span class="sc">^</span><span class="dv">2</span>,<span class="at">from=</span><span class="dv">0</span>,<span class="at">to=</span><span class="dv">1</span>,<span class="at">xlab=</span><span class="st">"blackness"</span>,<span class="at">y=</span><span class="st">"value"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="week10_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>It appears that the value is in squared dollars, meaning that the median value of a totally segregated white neighborhood is about 19.9223493 USD higher than that of a neighborhood with 63 percent black population (where the parabola bottoms out). In a completely black neighborhood, the median value of a home is about 11.7004273 USD more than in the neighborhood with 63 percent black population. In other words, the equation is telling current homeowners that the value of their home will be decreased by integration and that they are financially better off under segregation.</p>
+<p>What if this dataframe is used for inferring the appropriate sale price of new homes? This is really pernicious. It helps to perpetuate segregation by reinforcing the parabola. The fact that that this has become a textbook dataframe practically ensures that someone will use it to set prices or to make offers.</p>
+<p>When M. Carlisle set out to find out the original Census numbers used, it turned out to be impossible, presumably because of sloppiness in the original data collection. As you may guess, there are only two possibilities for <span class="math inline">\(v\)</span> for every instance of <span class="math inline">\(B\)</span>, so some matching should be possible. But it wasn’t possible for every town! The numbers from the analysis didn’t match any numbers from the 1970 census in several cases.</p>
+<p>There is another glaring problem with this dataframe, mentioned in the other article I found, at <a href="https://fairlearn.org/main/user_guide/datasets/boston_housing_data.html">FairLearn</a>. That article includes the following paragraph:</p>
+<p><em>The definition of the LSTAT variable is also suspect. Harrison and Rubenfield define lower status as a function of the proportion of adults without some high school education and the proportion of male workers classified as laborers. They apply a logarithmic transformation to the variable with the assumption that resulting variable distribution reflects their understanding of socioeconomic distinctions. However, the categorization of a certain level of education and job category as indicative of “lower status” is reflective of social constructs of class and not objective fact. Again, the authors provide no evidence of a proposed relationship between LSTAT and MEDV and do not sufficiently justify its inclusion in the hedonic pricing model.</em></p>
+<p>The <code>lstat</code> column is problematic for at least three reasons: (1) it represents a hypothesis with no empirical support, (2) it exhibits intersectionality with the <code>black</code> column because of the prevalance of black males in both categories, and (3) it is a jumble of three things (education, job classification, and logarithmic transformation) meant to reinforce a social conception of “class”. Contemporary toolkits like Quarto can partially ameliorate problems like (3) by keeping an audit trail from raw data through model building. But (1) requires you to drop stereotypes rather than turn them into unsupported hypotheses and (2) challenges you to more deeply understand data to spot potential for malfeasance.</p>
+<p>What about other ethical problems with this dataframe? The FairLearn article goes into more depth than I have here and unpacks the problems into different named constructs with precise definitions. It is well worth reading. It also references the discussion over what to do with this dataframe on <a href="https://github.com/scikit-learn/scikit-learn/issues/16155">GitHub</a>. You can see evidence of what some people chose to do by comparing the <code>MASS</code> and <code>ISLR2</code> versions, both of which are mistaken in their disposition in my opinion. Ultimately, the FairLearn article recommends abandoning this dataframe for predictive analysis exercises, so I have done that in our weekly exercises. Special thanks are owed to the student who got me searching for the above information!</p>
+</section>
+<section id="logistic-regression" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="logistic-regression"><span class="header-section-number">10.4</span> Logistic Regression</h2>
+<p>Logistic regression is a kind of classification rather than regression. The book doesn’t make this point, but most textbooks do. You can divide machine learning problems into problems of regression and problems of classification. In regression, the <span class="math inline">\(y\)</span> variable is more or less continuous, whereas in the classification problem, <span class="math inline">\(y\)</span> is a set of categories, ordered or not. The word logistic comes from the logistic function, which is illustrated below. This interesting function takes an input from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(+\infty\)</span> and gives an output between zero and one. It can be used to reduce wildly varying inputs into a yes / no decision. It is also known as the sigmoid function.</p>
 <div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
 <div class="cell-output-display">
-<p><img src="week10_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" style="width:50.0%"></p>
+<p><img src="week10_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" style="width:50.0%"></p>
 </div>
 </div>
 <p>Note that zero and one happen to be the boundaries of a probability measure. Hence, you can use the logistic function to reduce arbitrary numbers to a probability.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/resume.rda"</span>))</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(resume)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/resume.rda"</span>))</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(resume)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "job_ad_id"              "job_city"               "job_industry"          
  [4] "job_type"               "job_fed_contractor"     "job_equal_opp_employer"
@@ -453,28 +476,28 @@ F-statistic: 87.01 on 4 and 136 DF,  p-value: &lt; 2.2e-16</code></pre>
 [25] "special_skills"         "volunteer"              "military"              
 [28] "employment_holes"       "has_email_address"      "resume_quality"        </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(resume,<span class="fu">table</span>(race,received_callback))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(resume,<span class="fu">table</span>(race,received_callback))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       received_callback
 race       0    1
   black 2278  157
   white 2200  235</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(resume,<span class="fu">table</span>(gender,received_callback))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(resume,<span class="fu">table</span>(gender,received_callback))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      received_callback
 gender    0    1
      f 3437  309
      m 1041   83</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(resume,<span class="fu">table</span>(honors,received_callback))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(resume,<span class="fu">table</span>(honors,received_callback))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      received_callback
 honors    0    1
      0 4263  350
      1  215   42</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">glm</span>(received_callback <span class="sc">~</span> honors,<span class="at">data=</span>resume,<span class="at">family=</span><span class="st">"binomial"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">glm</span>(received_callback <span class="sc">~</span> honors,<span class="at">data=</span>resume,<span class="at">family=</span><span class="st">"binomial"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -496,7 +519,7 @@ AIC: 2710.7
 
 Number of Fisher Scoring iterations: 5</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">glm</span>(received_callback <span class="sc">~</span> race,<span class="at">data=</span>resume,<span class="at">family=</span><span class="st">"binomial"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">glm</span>(received_callback <span class="sc">~</span> race,<span class="at">data=</span>resume,<span class="at">family=</span><span class="st">"binomial"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -518,7 +541,7 @@ AIC: 2713.9
 
 Number of Fisher Scoring iterations: 5</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">glm</span>(received_callback <span class="sc">~</span> gender,<span class="at">data=</span>resume,<span class="at">family=</span><span class="st">"binomial"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">glm</span>(received_callback <span class="sc">~</span> gender,<span class="at">data=</span>resume,<span class="at">family=</span><span class="st">"binomial"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -541,41 +564,41 @@ AIC: 2730
 Number of Fisher Scoring iterations: 5</code></pre>
 </div>
 </div>
-<section id="tidymodels-approach" class="level3" data-number="10.3.1">
-<h3 data-number="10.3.1" class="anchored" data-anchor-id="tidymodels-approach"><span class="header-section-number">10.3.1</span> <code>tidymodels</code> approach</h3>
+<section id="tidymodels-approach" class="level3" data-number="10.4.1">
+<h3 data-number="10.4.1" class="anchored" data-anchor-id="tidymodels-approach"><span class="header-section-number">10.4.1</span> <code>tidymodels</code> approach</h3>
 <p>Datacamp shows a different way, using <code>tidymodels</code> in one of their <a href="https://www.datacamp.com/tutorial/logistic-regression-R">tutorials</a>. In this example, the bank wants to divide customers into those likely to buy and those unlikely to buy some banking product. They would like to divide the customers into these two groups using logistic regression, with a cutoff point of fifty-fifty. If there’s better than a fifty-fifty chance, they will send a salesperson but if there’s less than a fifty-fifty chance, they won’t send a salesperson.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">#. Read the dataset and convert the target variable to a factor</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>bank_df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/bank-full.csv"</span>))</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>bank_df<span class="sc">$</span>y <span class="ot">=</span> <span class="fu">as.factor</span>(bank_df<span class="sc">$</span>y)</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co">#. Plot job occupation against the target variable</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bank_df, <span class="fu">aes</span>(job, <span class="at">fill =</span> y)) <span class="sc">+</span></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#. Read the dataset and convert the target variable to a factor</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>bank_df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/bank-full.csv"</span>))</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>bank_df<span class="sc">$</span>y <span class="ot">=</span> <span class="fu">as.factor</span>(bank_df<span class="sc">$</span>y)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">#. Plot job occupation against the target variable</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bank_df, <span class="fu">aes</span>(job, <span class="at">fill =</span> y)) <span class="sc">+</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week10_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<p><img src="week10_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>A crucial concept you’ll learn if you take a more advanced class, say 310D, is the notion of dividing data into two data frames, a training frame and a test frame. This is the conventional way to test machine learning models, of which logistic regression is one. You train the model on one set of data, then test it on another, previously unseen set. That’s the next thing done in this example.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. Split data into train and test</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">421</span>)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(bank_df, <span class="at">prop =</span> <span class="fl">0.8</span>, <span class="at">strata =</span> y)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> split <span class="sc">|&gt;</span> </span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>         <span class="fu">training</span>()</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> split <span class="sc">|&gt;</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">testing</span>()</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co">#. Train a logistic regression model</span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>(<span class="at">mixture =</span> <span class="fu">double</span>(<span class="dv">1</span>), <span class="at">penalty =</span> <span class="fu">double</span>(<span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"glmnet"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(y <span class="sc">~</span> ., <span class="at">data =</span> train)</span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="co">#. Model summary</span></span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. Split data into train and test</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">421</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(bank_df, <span class="at">prop =</span> <span class="fl">0.8</span>, <span class="at">strata =</span> y)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> split <span class="sc">|&gt;</span> </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>         <span class="fu">training</span>()</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> split <span class="sc">|&gt;</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">testing</span>()</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co">#. Train a logistic regression model</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>(<span class="at">mixture =</span> <span class="fu">double</span>(<span class="dv">1</span>), <span class="at">penalty =</span> <span class="fu">double</span>(<span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"glmnet"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(y <span class="sc">~</span> ., <span class="at">data =</span> train)</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="co">#. Model summary</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 43 × 3
    term              estimate penalty
@@ -592,20 +615,20 @@ Number of Fisher Scoring iterations: 5</code></pre>
 10 jobstudent        0.415          0
 # ℹ 33 more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. Class Predictions</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>pred_class <span class="ot">&lt;-</span> <span class="fu">predict</span>(m,</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">new_data =</span> test,</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">type =</span> <span class="st">"class"</span>)</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">#. Class Probabilities</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>pred_proba <span class="ot">&lt;-</span> <span class="fu">predict</span>(m,</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">new_data =</span> test,</span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">type =</span> <span class="st">"prob"</span>)</span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> test <span class="sc">|&gt;</span></span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>           <span class="fu">select</span>(y) <span class="sc">|&gt;</span></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>           <span class="fu">bind_cols</span>(pred_class, pred_proba)</span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="fu">accuracy</span>(results, <span class="at">truth =</span> y, <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. Class Predictions</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>pred_class <span class="ot">&lt;-</span> <span class="fu">predict</span>(m,</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">new_data =</span> test,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">type =</span> <span class="st">"class"</span>)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">#. Class Probabilities</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>pred_proba <span class="ot">&lt;-</span> <span class="fu">predict</span>(m,</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">new_data =</span> test,</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">type =</span> <span class="st">"prob"</span>)</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> test <span class="sc">|&gt;</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>           <span class="fu">select</span>(y) <span class="sc">|&gt;</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>           <span class="fu">bind_cols</span>(pred_class, pred_proba)</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="fu">accuracy</span>(results, <span class="at">truth =</span> y, <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
   .metric  .estimator .estimate
@@ -614,33 +637,33 @@ Number of Fisher Scoring iterations: 5</code></pre>
 </div>
 </div>
 </section>
-<section id="hyperparameter-tuning" class="level3" data-number="10.3.2">
-<h3 data-number="10.3.2" class="anchored" data-anchor-id="hyperparameter-tuning"><span class="header-section-number">10.3.2</span> Hyperparameter tuning</h3>
+<section id="hyperparameter-tuning" class="level3" data-number="10.4.2">
+<h3 data-number="10.4.2" class="anchored" data-anchor-id="hyperparameter-tuning"><span class="header-section-number">10.4.2</span> Hyperparameter tuning</h3>
 <p>There are aspects of this approach, called hyperparameters, that influence the quality of the model. It can be tedious to adjust these aspects, called penalty and mixture, so here’s a technique for doing it automatically. You’ll learn about this and similar techniques if you take a more advanced course like 310D, Intro to Data Science.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. Define the logistic regression model with penalty and mixture hyperparameters</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>log_reg <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>(<span class="at">mixture =</span> <span class="fu">tune</span>(), <span class="at">penalty =</span> <span class="fu">tune</span>(), <span class="at">engine =</span> <span class="st">"glmnet"</span>)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">#. Define the grid search for the hyperparameters</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="fu">grid_regular</span>(<span class="fu">mixture</span>(), <span class="fu">penalty</span>(), <span class="at">levels =</span> <span class="fu">c</span>(<span class="at">mixture =</span> <span class="dv">4</span>, <span class="at">penalty =</span> <span class="dv">3</span>))</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co">#. Define the workflow for the model</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>log_reg_wf <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">|&gt;</span></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(log_reg) <span class="sc">|&gt;</span></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_formula</span>(y <span class="sc">~</span> .)</span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="co">#. Define the resampling method for the grid search</span></span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(train, <span class="at">v =</span> <span class="dv">5</span>)</span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="co">#. Tune the hyperparameters using the grid search</span></span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>log_reg_tuned <span class="ot">&lt;-</span> <span class="fu">tune_grid</span>(</span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>  log_reg_wf,</span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">resamples =</span> folds,</span>
-<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">grid =</span> grid,</span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">control_grid</span>(<span class="at">save_pred =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a><span class="fu">select_best</span>(log_reg_tuned, <span class="at">metric =</span> <span class="st">"roc_auc"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. Define the logistic regression model with penalty and mixture hyperparameters</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>log_reg <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>(<span class="at">mixture =</span> <span class="fu">tune</span>(), <span class="at">penalty =</span> <span class="fu">tune</span>(), <span class="at">engine =</span> <span class="st">"glmnet"</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co">#. Define the grid search for the hyperparameters</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="fu">grid_regular</span>(<span class="fu">mixture</span>(), <span class="fu">penalty</span>(), <span class="at">levels =</span> <span class="fu">c</span>(<span class="at">mixture =</span> <span class="dv">4</span>, <span class="at">penalty =</span> <span class="dv">3</span>))</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co">#. Define the workflow for the model</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>log_reg_wf <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">|&gt;</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(log_reg) <span class="sc">|&gt;</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_formula</span>(y <span class="sc">~</span> .)</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="co">#. Define the resampling method for the grid search</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(train, <span class="at">v =</span> <span class="dv">5</span>)</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="co">#. Tune the hyperparameters using the grid search</span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>log_reg_tuned <span class="ot">&lt;-</span> <span class="fu">tune_grid</span>(</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>  log_reg_wf,</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">resamples =</span> folds,</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">grid =</span> grid,</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">control_grid</span>(<span class="at">save_pred =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a><span class="fu">select_best</span>(log_reg_tuned, <span class="at">metric =</span> <span class="st">"roc_auc"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
        penalty mixture .config              
@@ -649,39 +672,39 @@ Number of Fisher Scoring iterations: 5</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. Fit the model using the optimal hyperparameters</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>log_reg_final <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>(<span class="at">penalty =</span> <span class="fl">0.0000000001</span>, <span class="at">mixture =</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">set_engine</span>(<span class="st">"glmnet"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">fit</span>(y<span class="sc">~</span>., <span class="at">data =</span> train)</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co">#. Evaluate the model performance on the testing set</span></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>pred_class <span class="ot">&lt;-</span> <span class="fu">predict</span>(log_reg_final,</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">new_data =</span> test,</span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>                      <span class="at">type =</span> <span class="st">"class"</span>)</span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> test <span class="sc">|&gt;</span></span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(y) <span class="sc">|&gt;</span></span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(pred_class, pred_proba)</span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a><span class="co">#. Create confusion matrix</span></span>
-<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a><span class="fu">conf_mat</span>(results, <span class="at">truth =</span> y,</span>
-<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. Fit the model using the optimal hyperparameters</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>log_reg_final <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>(<span class="at">penalty =</span> <span class="fl">0.0000000001</span>, <span class="at">mixture =</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">set_engine</span>(<span class="st">"glmnet"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">fit</span>(y<span class="sc">~</span>., <span class="at">data =</span> train)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co">#. Evaluate the model performance on the testing set</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>pred_class <span class="ot">&lt;-</span> <span class="fu">predict</span>(log_reg_final,</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">new_data =</span> test,</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>                      <span class="at">type =</span> <span class="st">"class"</span>)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> test <span class="sc">|&gt;</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(y) <span class="sc">|&gt;</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(pred_class, pred_proba)</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="co">#. Create confusion matrix</span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="fu">conf_mat</span>(results, <span class="at">truth =</span> y,</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          Truth
 Prediction   no  yes
        no  7838  738
        yes  147  320</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">precision</span>(results, <span class="at">truth =</span> y,</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">precision</span>(results, <span class="at">truth =</span> y,</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
   .metric   .estimator .estimate
   &lt;chr&gt;     &lt;chr&gt;          &lt;dbl&gt;
 1 precision binary         0.914</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">recall</span>(results, <span class="at">truth =</span> y,</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">recall</span>(results, <span class="at">truth =</span> y,</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
   .metric .estimator .estimate
@@ -690,8 +713,8 @@ Prediction   no  yes
 </div>
 </div>
 </section>
-<section id="evaluation-metrics" class="level3" data-number="10.3.3">
-<h3 data-number="10.3.3" class="anchored" data-anchor-id="evaluation-metrics"><span class="header-section-number">10.3.3</span> Evaluation metrics</h3>
+<section id="evaluation-metrics" class="level3" data-number="10.4.3">
+<h3 data-number="10.4.3" class="anchored" data-anchor-id="evaluation-metrics"><span class="header-section-number">10.4.3</span> Evaluation metrics</h3>
 <p>Following are two tables from <span class="citation" data-cites="James2021">James et al. (<a href="references.html#ref-James2021" role="doc-biblioref">2021</a>)</span> that you can use to evaluate a classification model.</p>
 <p><img src="fiConfMatr.png" class="img-fluid"></p>
 <p><img src="fiPrecisionRecall.png" class="img-fluid"></p>
@@ -702,10 +725,10 @@ Prediction   no  yes
 </figure>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>coeff <span class="ot">&lt;-</span> <span class="fu">tidy</span>(log_reg_final) <span class="sc">|&gt;</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="fu">abs</span>(estimate))) <span class="sc">|&gt;</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">abs</span>(estimate) <span class="sc">&gt;</span> <span class="fl">0.5</span>)</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>coeff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>coeff <span class="ot">&lt;-</span> <span class="fu">tidy</span>(log_reg_final) <span class="sc">|&gt;</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="fu">abs</span>(estimate))) <span class="sc">|&gt;</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">abs</span>(estimate) <span class="sc">&gt;</span> <span class="fl">0.5</span>)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>coeff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 3
    term            estimate      penalty
@@ -721,11 +744,11 @@ Prediction   no  yes
  9 housingyes        -0.550 0.0000000001
 10 monthnov          -0.517 0.0000000001</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(coeff, <span class="fu">aes</span>(<span class="at">x =</span> term, <span class="at">y =</span> estimate, <span class="at">fill =</span> term)) <span class="sc">+</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(coeff, <span class="fu">aes</span>(<span class="at">x =</span> term, <span class="at">y =</span> estimate, <span class="at">fill =</span> term)) <span class="sc">+</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week10_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<p><img src="week10_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
