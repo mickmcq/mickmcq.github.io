@@ -104,11 +104,21 @@ This pattern corresponds to three of the @Nielsen1994 guidelines:
 
 ## Your part
 - Make a few Google Slide slides as a group, including a title with your names
-- Give us a feel of your category of patterns
-- Give us a few examples
+- Give us a feel of your category of patterns, along with a few examples
 - Merge what you've done into the class slideshow at [https://docs.google.com/presentation/d/17Rij8-Nackl9Xf1P08OC6by-8qipuk22YJWvdYqmWgs/edit?usp=sharing](https://docs.google.com/presentation/d/17Rij8-Nackl9Xf1P08OC6by-8qipuk22YJWvdYqmWgs/edit?usp=sharing)
 - One person from each group asks me for edit access and pastes in the group's slides
 - You present them on Wednesday
+
+## Why present?
+According to Edgar Dale, you remember:
+
+- 10% of what you read
+- 20% of what you hear
+- 30% of what you see
+- 50% of what you see and hear
+- 70% of what you discuss
+- 80% of what you experience
+- 95% of what you teach
 
 # References
 
