@@ -1,7 +1,7 @@
 ---
 title: "UX Prototyping:<br>More on Testing"
 author: Mick McQuaid
-date: 2023-03-29
+date: today
 bibliography: master.bib
 format:
   revealjs:
@@ -121,10 +121,6 @@ This comes from the following URL
 
 - Analyze the research outcomes and findings
 - Use the analysis to fill in the knowledge gaps, prove or disprove our hypotheses, and recommend opportunities for UX design efforts.
-
-#
-
-![](fiPartyTimeExcellent.jpg)
 
 ---
 

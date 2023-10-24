@@ -1,7 +1,7 @@
 ---
 title: "UX Prototyping: Testing"
 author: Mick McQuaid
-date: 2023-03-22
+date: today
 bibliography: master.bib
 format:
   revealjs:
@@ -17,10 +17,8 @@ format:
 ---
 
 ::: {.r-fit-text}
-Week ELEVEN
+Week TEN
 :::
-
-(ten if you don't count spring break)
 
 # Definition of usability testing
 
@@ -448,6 +446,9 @@ Here are two views of the testing process
 
 ## no, twelve
 (Caine, 2016)
+
+## three
+(Krug, no date)
 
 ## all numbers are correct
 (Lewis, 2006)

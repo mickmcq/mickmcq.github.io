@@ -31,8 +31,6 @@ icon: fa-edit
 
 [09microinteractions](/uxproto/09microinteractions/index.html) recaps the previous week and discusses microinteractions and pair designing.
 
-Spring Break follows.
-
 [10testing](/uxproto/10testing/index.html) explains user testing and its aftermath.
 
 [11moreTesting](/uxproto/11moreTesting/index.html) further talks about testing.
