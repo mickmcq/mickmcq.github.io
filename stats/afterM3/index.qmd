@@ -1,0 +1,63 @@
+---
+title: "After Milestone 3"
+author: Mick McQuaid
+date: today
+bibliography: master.bib
+format:
+  revealjs:
+    logo: texasLogoLight.png
+    theme: solarized
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+# Milestone 3 aftermath
+
+::: {.incremental}
+- Milestone 3 didn't go exactly as I had hoped
+- I expected the four models to gradually get better
+- Step 4 was supposed to introduce the model you will use for Milestone 4
+- Instead, some groups did the machine learning step twice and ended up without a final good model
+- Those groups now have no model to use for diagnostics in Milestone 4
+:::
+
+# Milestone 3 Redo
+
+::: {.incremental}
+- I accept some responsibility, even though I thought the instructions were clear
+- The fact of multiple groups misreading them is counter evidence
+- Therefore, in this one and only one case, I'm going to allow a redo for those groups getting below a 10
+:::
+
+# Terms of Redo (1 of 2)
+::: {.incremental}
+- Due this Friday at 11:59PM
+- Improve your trial and error models to $R^2\sim0.4$ so that I believe you've done trial and error and are not just using the first model to pop into your head
+- Refer to the visualizations in Milestone 2 to justify your trial and error models
+:::
+
+# Terms of Redo (2 of 2)
+::: {.incremental}
+- Use `olsrr` instead of `leaps` on step 3 (nobody used just quantitative models)
+- For step 4 create a final model [manually]{.emph} based on what you learned from the subsets
+- Comment on your final model
+- Omit diagnostic plots (they are for m4)
+:::
+
+---
+
+::: {.r-fit-text}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *League Gothic* and *Lato*
+
