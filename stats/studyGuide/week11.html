@@ -403,11 +403,11 @@ div.csl-indent {
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">today</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-10-22"</code></pre>
+<pre><code>[1] "2023-11-01"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-10-22 08:01:58 CDT"</code></pre>
+<pre><code>[1] "2023-11-01 15:12:10 CDT"</code></pre>
 </div>
 </div>
 <p>Suppose you have a comma-separated-values (csv) file containing ISO-formatted dates or date-times. It’s automatically recognized.</p>
@@ -584,14 +584,14 @@ div.csl-indent {
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>h_age <span class="ot">&lt;-</span> <span class="fu">today</span>() <span class="sc">-</span> <span class="fu">ymd</span>(<span class="st">"1979-10-14"</span>)</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>h_age</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 16079 days</code></pre>
+<pre><code>Time difference of 16089 days</code></pre>
 </div>
 </div>
 <p>The <code>lubridate</code> package provides a construct called <em>duration</em>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.duration</span>(h_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "1389225600s (~44.02 years)"</code></pre>
+<pre><code>[1] "1390089600s (~44.05 years)"</code></pre>
 </div>
 </div>
 <p>There are numerous duration constructors.</p>
@@ -874,7 +874,582 @@ AirTran Airways Corporation        Alaska Airlines Inc.
 </div>
 </div>
 <p>The only difference between the output of these two approaches is that the native R plus tidyverse version uses more horizontal space in the output because of its use of a variable that records how wide your display is. The SQL version is piped (by default) to SQLite3, which doesn’t know the width of your display and which returns a single column response. You can substitute other database engines for SQLite3, such as PostgreSQL and MySQL. SQLite3 is an extremely fast, tiny database engine which is useful for single-user applications. For example, most smartphone applications (including all Android and iOS) use SQLite3 to store information, making SQLite3 the world’s most popular database (by some measures). SQLite3 is also used by most web browsers to store information.</p>
-<p>Recently (like within the last month) it was brought to the attention of the faculty that students want to learn more SQL. That’s the reason I’ve added this mention of <code>sqldf</code>. In a later iteration of the course, I will require some use of SQL but I learned of the need for this too late to incorporate it this semester. So your study of <code>sqldf</code> this semester will be optional.</p>
+<p>As another example, here is a join between two tables that have synonymous columns with different names. The <code>flights</code> table includes two columns with FAA airport codes: <code>origin</code> and <code>dest</code>, while the <code>airports</code> table contains a single column with FAA airport codes: <code>faa</code>. To join them, we have to tell R the join key. That’s shown below, along with an <code>sqldf</code> version of the same thing.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span></span>
+<span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(airports, <span class="fu">join_by</span>(dest <span class="sc">==</span> faa)) <span class="sc">|&gt;</span></span>
+<span id="cb94-5"><a href="#cb94-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year,month,day,dep_time,name) <span class="sc">|&gt;</span></span>
+<span id="cb94-6"><a href="#cb94-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+   year month   day dep_time name                           
+  &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt; &lt;chr&gt;                          
+1  2013     1     1      517 George Bush Intercontinental   
+2  2013     1     1      533 George Bush Intercontinental   
+3  2013     1     1      542 Miami Intl                     
+4  2013     1     1      544 &lt;NA&gt;                           
+5  2013     1     1      554 Hartsfield Jackson Atlanta Intl
+6  2013     1     1      554 Chicago Ohare Intl             </code></pre>
+</div>
+</div>
+<p>Now the (slightly different) <code>sqldf</code> version.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sqldf)</span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT f.year, f.month, f.day, f.dep_time, a.name</span></span>
+<span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM flights f</span></span>
+<span id="cb96-6"><a href="#cb96-6" aria-hidden="true" tabindex="-1"></a><span class="st">  LEFT JOIN airports a ON f.dest = a.faa</span></span>
+<span id="cb96-7"><a href="#cb96-7" aria-hidden="true" tabindex="-1"></a><span class="st">  LIMIT 5</span></span>
+<span id="cb96-8"><a href="#cb96-8" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span>
+<span id="cb96-9"><a href="#cb96-9" aria-hidden="true" tabindex="-1"></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  year month day dep_time                            name
+1 2013     1   1      517    George Bush Intercontinental
+2 2013     1   1      533    George Bush Intercontinental
+3 2013     1   1      542                      Miami Intl
+4 2013     1   1      544                            &lt;NA&gt;
+5 2013     1   1      554 Hartsfield Jackson Atlanta Intl</code></pre>
+</div>
+</div>
+<p>According to a post from <a href="https://rpubs.com/jah9kqn/sqldf_review">R-Pubs</a> on <code>sqldf</code>, the following SQL keywords are available. Note that these may only be used in the context of a SELECT statement.</p>
+<ul>
+<li>SELECT: the primary function sqldf refers to. Specifies the columns in the database that the user wants to query</li>
+<li>FROM: specifies which table to select or delete data from</li>
+<li>WHERE: filters results to include only records that satisfy the given condition</li>
+<li>DELETE: deletes rows from a table</li>
+<li>DROP: deletes a column, constraint, database, index, table, or view</li>
+<li>GROUP BY: groups rows that have the same values into summary rows, frequently used with aggregate functions, such as COUNT(), MAX(), MIN(), SUM(), and AVG().</li>
+<li>ORDER BY: used to sort the result-set in ascending or descending order, ascending is default so use the DESC keyword to sort in descending order</li>
+<li>CASE: similar to a series of if, else if, and else statements in R. Case statements go through a set of conditions and execute the relevant code once a condition is met.
+<ul>
+<li>WHEN: part of a CASE statement, the explicit condition to be met</li>
+<li>THEN: follows a WHEN statement, the code to execute if the condition is met</li>
+<li>ELSE: what to do if no condition is met, if there is no ELSE statement and no condition is met, the series will return NULL</li>
+<li>END: signifies the end of a CASE statement</li>
+</ul></li>
+<li>JOIN: there are many different methods to join SQL tables together, here are two common examples (note: sqldf does not support right join, the equivalent is to swap the table order and use LEFT JOIN)
+<ul>
+<li>INNER JOIN: selects records that have matches in both tables and merges specified together, must specify which column to merge on in each table</li>
+<li>LEFT JOIN: The result of LEFT JOIN shall be the same as the result of INNER JOIN + we’ll have rows, from the “left” table, without a pair in the “right” table</li>
+</ul></li>
+</ul>
+<p>A person named <a href="http://users.dimi.uniud.it/~massimo.franceschet/ns/plugandplay/challenges/transformBaseR/transformBaseR.html">Massimo Franceschet</a> did an interesting exercise in using <code>sqldf</code> vs base R and I have slightly adapted it below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sqldf)</span>
+<span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-5"><a href="#cb98-5" aria-hidden="true" tabindex="-1"></a><span class="co">#. add id to flights</span></span>
+<span id="cb98-6"><a href="#cb98-6" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> <span class="fu">mutate</span>(flights, <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(flights)) <span class="sc">|&gt;</span></span>
+<span id="cb98-7"><a href="#cb98-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, <span class="fu">everything</span>())</span>
+<span id="cb98-8"><a href="#cb98-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-9"><a href="#cb98-9" aria-hidden="true" tabindex="-1"></a><span class="co">#.    flights on Christmas</span></span>
+<span id="cb98-10"><a href="#cb98-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-11"><a href="#cb98-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb98-12"><a href="#cb98-12" aria-hidden="true" tabindex="-1"></a><span class="st">  select *</span></span>
+<span id="cb98-13"><a href="#cb98-13" aria-hidden="true" tabindex="-1"></a><span class="st">  from flights </span></span>
+<span id="cb98-14"><a href="#cb98-14" aria-hidden="true" tabindex="-1"></a><span class="st">  where month = 12 and day = 25</span></span>
+<span id="cb98-15"><a href="#cb98-15" aria-hidden="true" tabindex="-1"></a><span class="st">  limit 5;</span></span>
+<span id="cb98-16"><a href="#cb98-16" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      id year month day dep_time sched_dep_time dep_delay arr_time
+1 105233 2013    12  25      456            500        -4      649
+2 105234 2013    12  25      524            515         9      805
+3 105235 2013    12  25      542            540         2      832
+4 105236 2013    12  25      546            550        -4     1022
+5 105237 2013    12  25      556            600        -4      730
+  sched_arr_time arr_delay carrier flight tailnum origin dest air_time distance
+1            651        -2      US   1895  N156UW    EWR  CLT       98      529
+2            814        -9      UA   1016  N32404    EWR  IAH      203     1400
+3            850       -18      AA   2243  N5EBAA    JFK  MIA      146     1089
+4           1027        -5      B6    939  N665JB    JFK  BQN      191     1576
+5            745       -15      AA    301  N3JLAA    LGA  ORD      123      733
+  hour minute           time_hour
+1    5      0 2013-12-25 04:00:00
+2    5     15 2013-12-25 04:00:00
+3    5     40 2013-12-25 04:00:00
+4    5     50 2013-12-25 04:00:00
+5    6      0 2013-12-25 05:00:00</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. R</span></span>
+<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span></span>
+<span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(month <span class="sc">==</span> <span class="dv">12</span> <span class="sc">&amp;</span> day <span class="sc">==</span> <span class="dv">25</span> ) <span class="sc">|&gt;</span></span>
+<span id="cb100-4"><a href="#cb100-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 20
+      id  year month   day dep_time sched_dep_time dep_delay arr_time
+   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+1 105233  2013    12    25      456            500        -4      649
+2 105234  2013    12    25      524            515         9      805
+3 105235  2013    12    25      542            540         2      832
+4 105236  2013    12    25      546            550        -4     1022
+5 105237  2013    12    25      556            600        -4      730
+# ℹ 12 more variables: sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,
+#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;,
+#   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co">#.    flights that have a delay (either on departure or on arrival)</span></span>
+<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb102-4"><a href="#cb102-4" aria-hidden="true" tabindex="-1"></a><span class="st">  select *</span></span>
+<span id="cb102-5"><a href="#cb102-5" aria-hidden="true" tabindex="-1"></a><span class="st">  from flights </span></span>
+<span id="cb102-6"><a href="#cb102-6" aria-hidden="true" tabindex="-1"></a><span class="st">  where dep_delay is not null or arr_delay is not null</span></span>
+<span id="cb102-7"><a href="#cb102-7" aria-hidden="true" tabindex="-1"></a><span class="st">  limit 5;</span></span>
+<span id="cb102-8"><a href="#cb102-8" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  id year month day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+1  1 2013     1   1      517            515         2      830            819
+2  2 2013     1   1      533            529         4      850            830
+3  3 2013     1   1      542            540         2      923            850
+4  4 2013     1   1      544            545        -1     1004           1022
+5  5 2013     1   1      554            600        -6      812            837
+  arr_delay carrier flight tailnum origin dest air_time distance hour minute
+1        11      UA   1545  N14228    EWR  IAH      227     1400    5     15
+2        20      UA   1714  N24211    LGA  IAH      227     1416    5     29
+3        33      AA   1141  N619AA    JFK  MIA      160     1089    5     40
+4       -18      B6    725  N804JB    JFK  BQN      183     1576    5     45
+5       -25      DL    461  N668DN    LGA  ATL      116      762    6      0
+            time_hour
+1 2013-01-01 04:00:00
+2 2013-01-01 04:00:00
+3 2013-01-01 04:00:00
+4 2013-01-01 04:00:00
+5 2013-01-01 05:00:00</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. R</span></span>
+<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span></span>
+<span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="sc">!</span><span class="fu">is.na</span>(dep_delay) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.na</span>(arr_delay)) <span class="sc">|&gt;</span></span>
+<span id="cb104-4"><a href="#cb104-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 20
+     id  year month   day dep_time sched_dep_time dep_delay arr_time
+  &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+1     1  2013     1     1      517            515         2      830
+2     2  2013     1     1      533            529         4      850
+3     3  2013     1     1      542            540         2      923
+4     4  2013     1     1      544            545        -1     1004
+5     5  2013     1     1      554            600        -6      812
+# ℹ 12 more variables: sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,
+#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;,
+#   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co">#.    flights that were not cancelled (that is, those with valid departure and arrival times)</span></span>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-3"><a href="#cb106-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb106-4"><a href="#cb106-4" aria-hidden="true" tabindex="-1"></a><span class="st">  select *</span></span>
+<span id="cb106-5"><a href="#cb106-5" aria-hidden="true" tabindex="-1"></a><span class="st">  from flights </span></span>
+<span id="cb106-6"><a href="#cb106-6" aria-hidden="true" tabindex="-1"></a><span class="st">  where dep_time is not null and arr_time is not null</span></span>
+<span id="cb106-7"><a href="#cb106-7" aria-hidden="true" tabindex="-1"></a><span class="st">  limit 5;</span></span>
+<span id="cb106-8"><a href="#cb106-8" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  id year month day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+1  1 2013     1   1      517            515         2      830            819
+2  2 2013     1   1      533            529         4      850            830
+3  3 2013     1   1      542            540         2      923            850
+4  4 2013     1   1      544            545        -1     1004           1022
+5  5 2013     1   1      554            600        -6      812            837
+  arr_delay carrier flight tailnum origin dest air_time distance hour minute
+1        11      UA   1545  N14228    EWR  IAH      227     1400    5     15
+2        20      UA   1714  N24211    LGA  IAH      227     1416    5     29
+3        33      AA   1141  N619AA    JFK  MIA      160     1089    5     40
+4       -18      B6    725  N804JB    JFK  BQN      183     1576    5     45
+5       -25      DL    461  N668DN    LGA  ATL      116      762    6      0
+            time_hour
+1 2013-01-01 04:00:00
+2 2013-01-01 04:00:00
+3 2013-01-01 04:00:00
+4 2013-01-01 04:00:00
+5 2013-01-01 05:00:00</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. R</span></span>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span></span>
+<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="sc">!</span><span class="fu">is.na</span>(dep_time) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(arr_time)) <span class="sc">|&gt;</span></span>
+<span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 20
+     id  year month   day dep_time sched_dep_time dep_delay arr_time
+  &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+1     1  2013     1     1      517            515         2      830
+2     2  2013     1     1      533            529         4      850
+3     3  2013     1     1      542            540         2      923
+4     4  2013     1     1      544            545        -1     1004
+5     5  2013     1     1      554            600        -6      812
+# ℹ 12 more variables: sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,
+#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;,
+#   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="co">#.    flights that have a departure delay sorted by delay</span></span>
+<span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-3"><a href="#cb110-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb110-4"><a href="#cb110-4" aria-hidden="true" tabindex="-1"></a><span class="st">  select *</span></span>
+<span id="cb110-5"><a href="#cb110-5" aria-hidden="true" tabindex="-1"></a><span class="st">  from flights </span></span>
+<span id="cb110-6"><a href="#cb110-6" aria-hidden="true" tabindex="-1"></a><span class="st">  where dep_delay &gt; 0</span></span>
+<span id="cb110-7"><a href="#cb110-7" aria-hidden="true" tabindex="-1"></a><span class="st">  order by dep_delay desc</span></span>
+<span id="cb110-8"><a href="#cb110-8" aria-hidden="true" tabindex="-1"></a><span class="st">  limit 5;</span></span>
+<span id="cb110-9"><a href="#cb110-9" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      id year month day dep_time sched_dep_time dep_delay arr_time
+1   7073 2013     1   9      641            900      1301     1242
+2 235779 2013     6  15     1432           1935      1137     1607
+3   8240 2013     1  10     1121           1635      1126     1239
+4 327044 2013     9  20     1139           1845      1014     1457
+5 270377 2013     7  22      845           1600      1005     1044
+  sched_arr_time arr_delay carrier flight tailnum origin dest air_time distance
+1           1530      1272      HA     51  N384HA    JFK  HNL      640     4983
+2           2120      1127      MQ   3535  N504MQ    JFK  CMH       74      483
+3           1810      1109      MQ   3695  N517MQ    EWR  ORD      111      719
+4           2210      1007      AA    177  N338AA    JFK  SFO      354     2586
+5           1815       989      MQ   3075  N665MQ    JFK  CVG       96      589
+  hour minute           time_hour
+1    9      0 2013-01-09 08:00:00
+2   19     35 2013-06-15 18:00:00
+3   16     35 2013-01-10 15:00:00
+4   18     45 2013-09-20 17:00:00
+5   16      0 2013-07-22 15:00:00</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. R</span></span>
+<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> flights <span class="sc">|&gt;</span></span>
+<span id="cb112-3"><a href="#cb112-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(dep_delay <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb112-4"><a href="#cb112-4" aria-hidden="true" tabindex="-1"></a>df[<span class="fu">order</span>(<span class="fu">desc</span>(df<span class="sc">$</span>dep_delay)), ] <span class="sc">|&gt;</span></span>
+<span id="cb112-5"><a href="#cb112-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 20
+      id  year month   day dep_time sched_dep_time dep_delay arr_time
+   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+1   7073  2013     1     9      641            900      1301     1242
+2 235779  2013     6    15     1432           1935      1137     1607
+3   8240  2013     1    10     1121           1635      1126     1239
+4 327044  2013     9    20     1139           1845      1014     1457
+5 270377  2013     7    22      845           1600      1005     1044
+# ℹ 12 more variables: sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,
+#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;,
+#   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="co">#.    flights that managed to catch up during the flight sorted by catch up time</span></span>
+<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb114-4"><a href="#cb114-4" aria-hidden="true" tabindex="-1"></a><span class="st">  select id, dep_delay, arr_delay, (dep_delay - arr_delay) as catchup</span></span>
+<span id="cb114-5"><a href="#cb114-5" aria-hidden="true" tabindex="-1"></a><span class="st">  from flights</span></span>
+<span id="cb114-6"><a href="#cb114-6" aria-hidden="true" tabindex="-1"></a><span class="st">  where catchup &gt; 0</span></span>
+<span id="cb114-7"><a href="#cb114-7" aria-hidden="true" tabindex="-1"></a><span class="st">  order by catchup desc</span></span>
+<span id="cb114-8"><a href="#cb114-8" aria-hidden="true" tabindex="-1"></a><span class="st">  limit 5;</span></span>
+<span id="cb114-9"><a href="#cb114-9" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      id dep_delay arr_delay catchup
+1 234103       235       126     109
+2 133682        60       -27      87
+3 131144       206       126      80
+4 205313        17       -62      79
+5 134563        24       -52      76</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. R</span></span>
+<span id="cb116-2"><a href="#cb116-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> flights <span class="sc">|&gt;</span></span>
+<span id="cb116-3"><a href="#cb116-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transform</span>(<span class="at">catchup =</span> dep_delay <span class="sc">-</span> arr_delay) <span class="sc">|&gt;</span></span>
+<span id="cb116-4"><a href="#cb116-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="at">subset =</span> (catchup <span class="sc">&gt;</span> <span class="dv">0</span>), <span class="at">select =</span> <span class="fu">c</span>(id, dep_delay, arr_delay, catchup))</span>
+<span id="cb116-5"><a href="#cb116-5" aria-hidden="true" tabindex="-1"></a>df[<span class="fu">order</span>(<span class="fu">desc</span>(df<span class="sc">$</span>catchup)), ] <span class="sc">|&gt;</span></span>
+<span id="cb116-6"><a href="#cb116-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           id dep_delay arr_delay catchup
+234103 234103       235       126     109
+133682 133682        60       -27      87
+131144 131144       206       126      80
+205313 205313        17       -62      79
+134563 134563        24       -52      76</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="co">#.    The number of flights per day</span></span>
+<span id="cb118-2"><a href="#cb118-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-3"><a href="#cb118-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb118-4"><a href="#cb118-4" aria-hidden="true" tabindex="-1"></a><span class="st">  select month, day, count(*) as count</span></span>
+<span id="cb118-5"><a href="#cb118-5" aria-hidden="true" tabindex="-1"></a><span class="st">  from flights</span></span>
+<span id="cb118-6"><a href="#cb118-6" aria-hidden="true" tabindex="-1"></a><span class="st">  group by month, day</span></span>
+<span id="cb118-7"><a href="#cb118-7" aria-hidden="true" tabindex="-1"></a><span class="st">  limit 5</span></span>
+<span id="cb118-8"><a href="#cb118-8" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  month day count
+1     1   1   842
+2     1   2   943
+3     1   3   914
+4     1   4   915
+5     1   5   720</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. R</span></span>
+<span id="cb120-2"><a href="#cb120-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(id <span class="sc">~</span> day <span class="sc">+</span> month, flights, <span class="at">FUN =</span> length)</span>
+<span id="cb120-3"><a href="#cb120-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df)[<span class="dv">3</span>] <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"count"</span>)</span>
+<span id="cb120-4"><a href="#cb120-4" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  day month count
+1   1     1   842
+2   2     1   943
+3   3     1   914
+4   4     1   915
+5   5     1   720</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="co">#.    The busy days (with more than 1000 flights)</span></span>
+<span id="cb122-2"><a href="#cb122-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb122-3"><a href="#cb122-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb122-4"><a href="#cb122-4" aria-hidden="true" tabindex="-1"></a><span class="st">  select month, day, count(*) as count</span></span>
+<span id="cb122-5"><a href="#cb122-5" aria-hidden="true" tabindex="-1"></a><span class="st">  from flights</span></span>
+<span id="cb122-6"><a href="#cb122-6" aria-hidden="true" tabindex="-1"></a><span class="st">  group by month, day</span></span>
+<span id="cb122-7"><a href="#cb122-7" aria-hidden="true" tabindex="-1"></a><span class="st">  having count &gt; 1000</span></span>
+<span id="cb122-8"><a href="#cb122-8" aria-hidden="true" tabindex="-1"></a><span class="st">  limit 5;</span></span>
+<span id="cb122-9"><a href="#cb122-9" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  month day count
+1     7   8  1004
+2     7   9  1001
+3     7  10  1004
+4     7  11  1006
+5     7  12  1002</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. R</span></span>
+<span id="cb124-2"><a href="#cb124-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(id <span class="sc">~</span> day <span class="sc">+</span> month, flights, <span class="at">FUN =</span> length)</span>
+<span id="cb124-3"><a href="#cb124-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df)[<span class="dv">3</span>] <span class="ot">=</span> <span class="st">"count"</span></span>
+<span id="cb124-4"><a href="#cb124-4" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb124-5"><a href="#cb124-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(count <span class="sc">&gt;</span> <span class="dv">1000</span>) <span class="sc">|&gt;</span></span>
+<span id="cb124-6"><a href="#cb124-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    day month count
+189   8     7  1004
+190   9     7  1001
+191  10     7  1004
+192  11     7  1006
+193  12     7  1002</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co">#.    The number of flights per destination</span></span>
+<span id="cb126-2"><a href="#cb126-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb126-3"><a href="#cb126-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb126-4"><a href="#cb126-4" aria-hidden="true" tabindex="-1"></a><span class="st">  select dest, count(*) as count</span></span>
+<span id="cb126-5"><a href="#cb126-5" aria-hidden="true" tabindex="-1"></a><span class="st">  from flights</span></span>
+<span id="cb126-6"><a href="#cb126-6" aria-hidden="true" tabindex="-1"></a><span class="st">  group by dest</span></span>
+<span id="cb126-7"><a href="#cb126-7" aria-hidden="true" tabindex="-1"></a><span class="st">  limit 5;</span></span>
+<span id="cb126-8"><a href="#cb126-8" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  dest count
+1  ABQ   254
+2  ACK   265
+3  ALB   439
+4  ANC     8
+5  ATL 17215</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. R</span></span>
+<span id="cb128-2"><a href="#cb128-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(id <span class="sc">~</span> dest, flights, <span class="at">FUN =</span> length)</span>
+<span id="cb128-3"><a href="#cb128-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df)[<span class="dv">2</span>] <span class="ot">=</span> <span class="st">"count"</span></span>
+<span id="cb128-4"><a href="#cb128-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df,<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  dest count
+1  ABQ   254
+2  ACK   265
+3  ALB   439
+4  ANC     8
+5  ATL 17215</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="co">#.    The popular destinations (with more than 365 flights) sorted by number of flights in descending order</span></span>
+<span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb130-3"><a href="#cb130-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb130-4"><a href="#cb130-4" aria-hidden="true" tabindex="-1"></a><span class="st">  select dest, count(*) as count</span></span>
+<span id="cb130-5"><a href="#cb130-5" aria-hidden="true" tabindex="-1"></a><span class="st">  from flights</span></span>
+<span id="cb130-6"><a href="#cb130-6" aria-hidden="true" tabindex="-1"></a><span class="st">  group by dest</span></span>
+<span id="cb130-7"><a href="#cb130-7" aria-hidden="true" tabindex="-1"></a><span class="st">  having count &gt; 365</span></span>
+<span id="cb130-8"><a href="#cb130-8" aria-hidden="true" tabindex="-1"></a><span class="st">  order by count desc</span></span>
+<span id="cb130-9"><a href="#cb130-9" aria-hidden="true" tabindex="-1"></a><span class="st">  limit 5;</span></span>
+<span id="cb130-10"><a href="#cb130-10" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  dest count
+1  ORD 17283
+2  ATL 17215
+3  LAX 16174
+4  BOS 15508
+5  MCO 14082</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. R</span></span>
+<span id="cb132-2"><a href="#cb132-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(id <span class="sc">~</span> dest, flights, <span class="at">FUN =</span> length)</span>
+<span id="cb132-3"><a href="#cb132-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df)[<span class="dv">2</span>] <span class="ot">=</span> <span class="st">"count"</span></span>
+<span id="cb132-4"><a href="#cb132-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">subset</span>(count <span class="sc">&gt;</span> <span class="dv">365</span>)</span>
+<span id="cb132-5"><a href="#cb132-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df[<span class="fu">order</span>(<span class="fu">desc</span>(df<span class="sc">$</span>count)), ],<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   dest count
+70  ORD 17283
+5   ATL 17215
+50  LAX 16174
+12  BOS 15508
+55  MCO 14082</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="co">#.    the mean departure delay per day sorted in decreasing order of all flights on busy days of summer</span></span>
+<span id="cb134-2"><a href="#cb134-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb134-3"><a href="#cb134-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb134-4"><a href="#cb134-4" aria-hidden="true" tabindex="-1"></a><span class="st">  select month, day, count(*) as count, avg(dep_delay) as avg_delay</span></span>
+<span id="cb134-5"><a href="#cb134-5" aria-hidden="true" tabindex="-1"></a><span class="st">  from flights</span></span>
+<span id="cb134-6"><a href="#cb134-6" aria-hidden="true" tabindex="-1"></a><span class="st">  where month = 6 or month = 7 or month = 8</span></span>
+<span id="cb134-7"><a href="#cb134-7" aria-hidden="true" tabindex="-1"></a><span class="st">  group by month, day</span></span>
+<span id="cb134-8"><a href="#cb134-8" aria-hidden="true" tabindex="-1"></a><span class="st">  having count &gt; 1000</span></span>
+<span id="cb134-9"><a href="#cb134-9" aria-hidden="true" tabindex="-1"></a><span class="st">  order by avg_delay desc</span></span>
+<span id="cb134-10"><a href="#cb134-10" aria-hidden="true" tabindex="-1"></a><span class="st">  limit 5;</span></span>
+<span id="cb134-11"><a href="#cb134-11" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  month day count avg_delay
+1     7  10  1004  52.86070
+2     8   8  1001  43.34995
+3     7   8  1004  37.29665
+4     7   9  1001  30.71150
+5     7  12  1002  25.09615</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. R (stack overflow)</span></span>
+<span id="cb136-2"><a href="#cb136-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(dep_delay <span class="sc">~</span> day <span class="sc">+</span> month, flights, </span>
+<span id="cb136-3"><a href="#cb136-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">FUN =</span> <span class="cf">function</span>(x) <span class="fu">cbind</span>(<span class="at">count =</span> <span class="fu">length</span>(x), <span class="at">avg_delay =</span> <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)), </span>
+<span id="cb136-4"><a href="#cb136-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">na.action =</span> <span class="cn">NULL</span>)</span>
+<span id="cb136-5"><a href="#cb136-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-6"><a href="#cb136-6" aria-hidden="true" tabindex="-1"></a><span class="co"># df$dep_delay is a matrix</span></span>
+<span id="cb136-7"><a href="#cb136-7" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   365 obs. of  3 variables:
+ $ day      : int  1 2 3 4 5 6 7 8 9 10 ...
+ $ month    : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ dep_delay: num [1:365, 1:2] 842 943 914 915 720 832 933 899 902 932 ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="co"># unnest</span></span>
+<span id="cb138-2"><a href="#cb138-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">cbind</span>(df[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], df[,<span class="dv">3</span>])</span>
+<span id="cb138-3"><a href="#cb138-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df)[<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>] <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"count"</span>, <span class="st">"avg_delay"</span>)</span>
+<span id="cb138-4"><a href="#cb138-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-5"><a href="#cb138-5" aria-hidden="true" tabindex="-1"></a><span class="co"># filter</span></span>
+<span id="cb138-6"><a href="#cb138-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">subset</span>(df, count <span class="sc">&gt;</span> <span class="dv">1000</span>)</span>
+<span id="cb138-7"><a href="#cb138-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-8"><a href="#cb138-8" aria-hidden="true" tabindex="-1"></a><span class="co"># order</span></span>
+<span id="cb138-9"><a href="#cb138-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df[<span class="fu">order</span>(<span class="fu">desc</span>(df<span class="sc">$</span>avg_delay)), ],<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    day month count avg_delay
+191  10     7  1004  52.86070
+220   8     8  1001  43.34995
+189   8     7  1004  37.29665
+190   9     7  1001  30.71150
+193  12     7  1002  25.09615</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="co">#.    Flights that flew with a plane manufactured by BOEING</span></span>
+<span id="cb140-2"><a href="#cb140-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb140-3"><a href="#cb140-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb140-4"><a href="#cb140-4" aria-hidden="true" tabindex="-1"></a><span class="st">select flights.id, flights.tailnum, planes.manufacturer</span></span>
+<span id="cb140-5"><a href="#cb140-5" aria-hidden="true" tabindex="-1"></a><span class="st">from flights, planes</span></span>
+<span id="cb140-6"><a href="#cb140-6" aria-hidden="true" tabindex="-1"></a><span class="st">where flights.tailnum = planes.tailnum and planes.manufacturer = 'BOEING'</span></span>
+<span id="cb140-7"><a href="#cb140-7" aria-hidden="true" tabindex="-1"></a><span class="st">limit 5;</span></span>
+<span id="cb140-8"><a href="#cb140-8" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    id tailnum manufacturer
+1  746  N11206       BOEING
+2 1162  N11206       BOEING
+3 2105  N11206       BOEING
+4 5499  N11206       BOEING
+5 6769  N11206       BOEING</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. R</span></span>
+<span id="cb142-2"><a href="#cb142-2" aria-hidden="true" tabindex="-1"></a><span class="co"># all.x = TRUE --&gt; left join</span></span>
+<span id="cb142-3"><a href="#cb142-3" aria-hidden="true" tabindex="-1"></a><span class="co"># all.y = TRUE --&gt; right join</span></span>
+<span id="cb142-4"><a href="#cb142-4" aria-hidden="true" tabindex="-1"></a><span class="co"># all = TRUE   --&gt; full join</span></span>
+<span id="cb142-5"><a href="#cb142-5" aria-hidden="true" tabindex="-1"></a><span class="co"># all = FALSE  --&gt; inner join</span></span>
+<span id="cb142-6"><a href="#cb142-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> flights <span class="sc">|&gt;</span></span>
+<span id="cb142-7"><a href="#cb142-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">merge</span>(planes, <span class="at">by=</span><span class="st">"tailnum"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb142-8"><a href="#cb142-8" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(df, <span class="at">subset =</span> (manufacturer <span class="sc">==</span> <span class="st">"BOEING"</span>), <span class="at">select =</span> <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"tailnum"</span>, <span class="st">"manufacturer"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb142-9"><a href="#cb142-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         id tailnum manufacturer
+4426 220945  N11206       BOEING
+4427 252368  N11206       BOEING
+4428  12885  N11206       BOEING
+4429 132376  N11206       BOEING
+4430 302467  N11206       BOEING</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="co">#.    Flights that flew to a destination with an altitude greater than 6000 feet sorted by altitude</span></span>
+<span id="cb144-2"><a href="#cb144-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-3"><a href="#cb144-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb144-4"><a href="#cb144-4" aria-hidden="true" tabindex="-1"></a><span class="st">  select flights.id, flights.dest, airports.name, airports.alt</span></span>
+<span id="cb144-5"><a href="#cb144-5" aria-hidden="true" tabindex="-1"></a><span class="st">  from flights, airports</span></span>
+<span id="cb144-6"><a href="#cb144-6" aria-hidden="true" tabindex="-1"></a><span class="st">  where flights.dest = airports.faa and airports.alt &gt; 6000</span></span>
+<span id="cb144-7"><a href="#cb144-7" aria-hidden="true" tabindex="-1"></a><span class="st">  order by airports.alt</span></span>
+<span id="cb144-8"><a href="#cb144-8" aria-hidden="true" tabindex="-1"></a><span class="st">  limit 5;</span></span>
+<span id="cb144-9"><a href="#cb144-9" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      id dest                 name  alt
+1    153  JAC Jackson Hole Airport 6451
+2   1068  JAC Jackson Hole Airport 6451
+3 100067  JAC Jackson Hole Airport 6451
+4 101062  JAC Jackson Hole Airport 6451
+5 101913  JAC Jackson Hole Airport 6451</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. R</span></span>
+<span id="cb146-2"><a href="#cb146-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">merge</span>(flights, airports, <span class="at">by.x =</span> <span class="st">"dest"</span>, <span class="at">by.y =</span> <span class="st">"faa"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb146-3"><a href="#cb146-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">subset</span>(df, <span class="at">subset =</span> (alt <span class="sc">&gt;</span> <span class="dv">6000</span>), <span class="at">select =</span> <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"dest"</span>, <span class="st">"name"</span>, <span class="st">"alt"</span>))</span>
+<span id="cb146-4"><a href="#cb146-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df[<span class="fu">order</span>(df<span class="sc">$</span>alt), ],<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           id dest                 name  alt
+154976    153  JAC Jackson Hole Airport 6451
+154977 157037  JAC Jackson Hole Airport 6451
+154978 102007  JAC Jackson Hole Airport 6451
+154979 131009  JAC Jackson Hole Airport 6451
+154980 104658  JAC Jackson Hole Airport 6451</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb148"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb148-1"><a href="#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="co">#.    Flights that took off with a plane with 4 engines and a visibility lower than 3 miles</span></span>
+<span id="cb148-2"><a href="#cb148-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-3"><a href="#cb148-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb148-4"><a href="#cb148-4" aria-hidden="true" tabindex="-1"></a><span class="st">  select flights.id, planes.engines, weather.visib</span></span>
+<span id="cb148-5"><a href="#cb148-5" aria-hidden="true" tabindex="-1"></a><span class="st">  from flights, weather, planes</span></span>
+<span id="cb148-6"><a href="#cb148-6" aria-hidden="true" tabindex="-1"></a><span class="st">  where flights.month = weather.month and flights.day = weather.day and flights.hour = weather.hour and </span></span>
+<span id="cb148-7"><a href="#cb148-7" aria-hidden="true" tabindex="-1"></a><span class="st">      flights.origin = weather.origin and weather.visib &lt; 3 and flights.tailnum = planes.tailnum and planes.engines = 4</span></span>
+<span id="cb148-8"><a href="#cb148-8" aria-hidden="true" tabindex="-1"></a><span class="st">  limit 5;</span></span>
+<span id="cb148-9"><a href="#cb148-9" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      id engines visib
+1  25295       4  0.00
+2 182566       4  0.12
+3  10066       4  2.50
+4  11278       4  0.25
+5 120234       4  0.06</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb150"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. R</span></span>
+<span id="cb150-2"><a href="#cb150-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">merge</span>(flights, weather, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb150-3"><a href="#cb150-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">merge</span>(df, planes, <span class="at">by =</span> <span class="st">"tailnum"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb150-4"><a href="#cb150-4" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(df, <span class="at">subset =</span> (visib <span class="sc">&lt;</span> <span class="dv">3</span> <span class="sc">&amp;</span> engines <span class="sc">==</span> <span class="dv">4</span>), <span class="at">select =</span> <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"engines"</span>, <span class="st">"visib"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb150-5"><a href="#cb150-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           id engines visib
+120872  25295       4  0.00
+235911 182566       4  0.12
+292212 120734       4  0.06
+292225  10066       4  2.50
+292232  11278       4  0.25</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb152"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb152-1"><a href="#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="co">#.    Flights with destination and origin airports with an altitude difference of more than 6000 feet</span></span>
+<span id="cb152-2"><a href="#cb152-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-3"><a href="#cb152-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb152-4"><a href="#cb152-4" aria-hidden="true" tabindex="-1"></a><span class="st">  select flights.id, airports2.alt, airports1.alt, (airports2.alt - airports1.alt) as altdelta</span></span>
+<span id="cb152-5"><a href="#cb152-5" aria-hidden="true" tabindex="-1"></a><span class="st">  from flights, airports as airports1, airports as airports2</span></span>
+<span id="cb152-6"><a href="#cb152-6" aria-hidden="true" tabindex="-1"></a><span class="st">  where flights.origin = airports1.faa and flights.dest = airports2.faa and altdelta &gt; 6000</span></span>
+<span id="cb152-7"><a href="#cb152-7" aria-hidden="true" tabindex="-1"></a><span class="st">  limit 5;</span></span>
+<span id="cb152-8"><a href="#cb152-8" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    id  alt alt altdelta
+1  153 6451  18     6433
+2  194 6540  18     6522
+3  571 6540  13     6527
+4 1068 6451  18     6433
+5 1095 6540  18     6522</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb154"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. R</span></span>
+<span id="cb154-2"><a href="#cb154-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">merge</span>(flights, airports, <span class="at">by.x =</span> <span class="st">"origin"</span>, <span class="at">by.y =</span> <span class="st">"faa"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb154-3"><a href="#cb154-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">merge</span>(df, airports, <span class="at">by.x =</span> <span class="st">"dest"</span>, <span class="at">by.y =</span> <span class="st">"faa"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb154-4"><a href="#cb154-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">subset</span>(df, <span class="at">select =</span> <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"alt.x"</span>, <span class="st">"alt.y"</span>))</span>
+<span id="cb154-5"><a href="#cb154-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">transform</span>(df, <span class="at">altdelta =</span> alt.y <span class="sc">-</span> alt.x)</span>
+<span id="cb154-6"><a href="#cb154-6" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(df, altdelta <span class="sc">&gt;</span> <span class="dv">6000</span>) <span class="sc">|&gt;</span></span>
+<span id="cb154-7"><a href="#cb154-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           id alt.x alt.y altdelta
+121549 155570    13  6540     6527
+121550 149990    13  6540     6527
+121551 125764    13  6540     6527
+121552 149018    13  6540     6527
+121553 165081    18  6540     6522</code></pre>
+</div>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
