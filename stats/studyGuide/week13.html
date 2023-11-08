@@ -892,6 +892,9 @@ mean in group Eclipse mean in group VStudio
 </section>
 <section id="testing-anova-assumptions" class="level3" data-number="13.3.2">
 <h3 data-number="13.3.2" class="anchored" data-anchor-id="testing-anova-assumptions"><span class="header-section-number">13.3.2</span> Testing ANOVA assumptions</h3>
+<p>The null hypothesis of the Shapiro-Wilk test is that the data are drawn from a normal distribution. A small <span class="math inline">\(p\)</span>-value indicates that they are not.</p>
+<p>The null hypothesis of the Levene test (using means) and of the Brown-Forsythe test (using medians) is that the variances of the groups are the same. A small <span class="math inline">\(p\)</span>-value indicates that the variances are not the same.</p>
+<p>In all the above cases, a logarithmic transformation may solve the problem (both non-normality and unequal variances).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. Shapiro-Wilk normality test on response</span></span>
 <span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(ide2[ide2<span class="sc">$</span>IDE <span class="sc">==</span> <span class="st">"VStudio"</span>,]<span class="sc">$</span>Time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -929,7 +932,8 @@ W = 0.894, p-value = 0.001285</code></pre>
 </section>
 <section id="kolmogorov-smirnov-test-for-log-normality" class="level3" data-number="13.3.3">
 <h3 data-number="13.3.3" class="anchored" data-anchor-id="kolmogorov-smirnov-test-for-log-normality"><span class="header-section-number">13.3.3</span> Kolmogorov-Smirnov test for log-normality</h3>
-<p>Fit the distribution to a lognormal to estimate fit parameters then supply those to a K-S test with the lognormal distribution fn (see ?plnorm). See ?distributions for many other named probability distributions.</p>
+<p>Fit the distribution to a log-normal to estimate fit parameters then supply those to a K-S test with the log-normal distribution fn (see ?plnorm). See ?distributions for many other named probability distributions.</p>
+<p>The Kolmogorov-Smirnov test can be used with any continuous distribution function. Here, the specification of log-normal is given by the string with the name of the cumulative distribution function of the log-normal, specifically <code>plnorm</code>. (The Kolmogorov-Smirnov test is so frequently used with <code>pnorm</code>, the cumulative distribution function of the normal distribution, that it is often called the Kolmogorov-Smirnov normality test). The remainder of the function call gives the parameters of the log-normal distribution function, mean and standard deviation. The null hypothesis in this case is that the data are drawn from a log-normal distribution. A small <span class="math inline">\(p\)</span>-value indicates that they are not.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1116,6 +1120,7 @@ mean in group Eclipse mean in group VStudio
 </section>
 <section id="mann-whitney-u-test" class="level3" data-number="13.3.6">
 <h3 data-number="13.3.6" class="anchored" data-anchor-id="mann-whitney-u-test"><span class="header-section-number">13.3.6</span> Mann-Whitney U test</h3>
+<p>This is a nonparametric test of the null hypothesis that, for randomly selected values from two populations, the probability of the first being greater than the second is equal to the probability of the second being greater than the first. A small <span class="math inline">\(p\)</span>-value indicates that it is not. (The test is also called the Wilcoxon-Mann-Whitney test, hence the function name given below.)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(coin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
