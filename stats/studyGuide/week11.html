@@ -444,7 +444,7 @@ div.csl-indent {
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-11-13 14:31:07 CST"</code></pre>
+<pre><code>[1] "2023-11-13 14:48:12 CST"</code></pre>
 </div>
 </div>
 <p>Suppose you have a comma-separated-values (csv) file containing ISO-formatted dates or date-times. It’s automatically recognized.</p>
@@ -1588,12 +1588,12 @@ AirTran Airways Corporation        Alaska Airlines Inc.
 <span id="cb160-3"><a href="#cb160-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from majors"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             major  Dept Faculty
-1             math     A      28
-2          biology     B      18
-3      engineering     C      16
-4 computer science     D      24
+1             math     A      25
+2          biology     B      29
+3      engineering     C      14
+4 computer science     D      10
 5          history     E      28
-6     architecture Other      13</code></pre>
+6     architecture Other      28</code></pre>
 </div>
 </div>
 </section>
@@ -1851,8 +1851,7 @@ AirTran Airways Corporation        Alaska Airlines Inc.
 <span id="cb202-2"><a href="#cb202-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select Dept from majors where Faculty = (select max(Faculty) from majors)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Dept
-1    A
-2    E</code></pre>
+1    B</code></pre>
 </div>
 </div>
 </section>
@@ -1864,22 +1863,22 @@ AirTran Airways Corporation        Alaska Airlines Inc.
 <span id="cb204-3"><a href="#cb204-3" aria-hidden="true" tabindex="-1"></a><span class="st">      inner join majors on ucb.Dept = majors.Dept"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Admit Gender Dept Freq            major Dept Faculty
-1  Admitted   Male    A  512             math    A      28
-2  Rejected   Male    A  313             math    A      28
-3  Admitted Female    A   89             math    A      28
-4  Rejected Female    A   19             math    A      28
-5  Admitted   Male    B  353          biology    B      18
-6  Rejected   Male    B  207          biology    B      18
-7  Admitted Female    B   17          biology    B      18
-8  Rejected Female    B    8          biology    B      18
-9  Admitted   Male    C  120      engineering    C      16
-10 Rejected   Male    C  205      engineering    C      16
-11 Admitted Female    C  202      engineering    C      16
-12 Rejected Female    C  391      engineering    C      16
-13 Admitted   Male    D  138 computer science    D      24
-14 Rejected   Male    D  279 computer science    D      24
-15 Admitted Female    D  131 computer science    D      24
-16 Rejected Female    D  244 computer science    D      24
+1  Admitted   Male    A  512             math    A      25
+2  Rejected   Male    A  313             math    A      25
+3  Admitted Female    A   89             math    A      25
+4  Rejected Female    A   19             math    A      25
+5  Admitted   Male    B  353          biology    B      29
+6  Rejected   Male    B  207          biology    B      29
+7  Admitted Female    B   17          biology    B      29
+8  Rejected Female    B    8          biology    B      29
+9  Admitted   Male    C  120      engineering    C      14
+10 Rejected   Male    C  205      engineering    C      14
+11 Admitted Female    C  202      engineering    C      14
+12 Rejected Female    C  391      engineering    C      14
+13 Admitted   Male    D  138 computer science    D      10
+14 Rejected   Male    D  279 computer science    D      10
+15 Admitted Female    D  131 computer science    D      10
+16 Rejected Female    D  244 computer science    D      10
 17 Admitted   Male    E   53          history    E      28
 18 Rejected   Male    E  138          history    E      28
 19 Admitted Female    E   94          history    E      28
@@ -1889,22 +1888,22 @@ AirTran Airways Corporation        Alaska Airlines Inc.
 <span id="cb206-2"><a href="#cb206-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from ucb left join majors on ucb.Dept = majors.Dept"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Admit Gender Dept Freq            major Dept Faculty
-1  Admitted   Male    A  512             math    A      28
-2  Rejected   Male    A  313             math    A      28
-3  Admitted Female    A   89             math    A      28
-4  Rejected Female    A   19             math    A      28
-5  Admitted   Male    B  353          biology    B      18
-6  Rejected   Male    B  207          biology    B      18
-7  Admitted Female    B   17          biology    B      18
-8  Rejected Female    B    8          biology    B      18
-9  Admitted   Male    C  120      engineering    C      16
-10 Rejected   Male    C  205      engineering    C      16
-11 Admitted Female    C  202      engineering    C      16
-12 Rejected Female    C  391      engineering    C      16
-13 Admitted   Male    D  138 computer science    D      24
-14 Rejected   Male    D  279 computer science    D      24
-15 Admitted Female    D  131 computer science    D      24
-16 Rejected Female    D  244 computer science    D      24
+1  Admitted   Male    A  512             math    A      25
+2  Rejected   Male    A  313             math    A      25
+3  Admitted Female    A   89             math    A      25
+4  Rejected Female    A   19             math    A      25
+5  Admitted   Male    B  353          biology    B      29
+6  Rejected   Male    B  207          biology    B      29
+7  Admitted Female    B   17          biology    B      29
+8  Rejected Female    B    8          biology    B      29
+9  Admitted   Male    C  120      engineering    C      14
+10 Rejected   Male    C  205      engineering    C      14
+11 Admitted Female    C  202      engineering    C      14
+12 Rejected Female    C  391      engineering    C      14
+13 Admitted   Male    D  138 computer science    D      10
+14 Rejected   Male    D  279 computer science    D      10
+15 Admitted Female    D  131 computer science    D      10
+16 Rejected Female    D  244 computer science    D      10
 17 Admitted   Male    E   53          history    E      28
 18 Rejected   Male    E  138          history    E      28
 19 Admitted Female    E   94          history    E      28
@@ -1918,27 +1917,27 @@ AirTran Airways Corporation        Alaska Airlines Inc.
 <span id="cb208-2"><a href="#cb208-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from ucb right join majors on ucb.Dept = majors.Dept"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Admit Gender Dept Freq            major  Dept Faculty
-1  Admitted   Male    A  512             math     A      28
-2  Rejected   Male    A  313             math     A      28
-3  Admitted Female    A   89             math     A      28
-4  Rejected Female    A   19             math     A      28
-5  Admitted   Male    B  353          biology     B      18
-6  Rejected   Male    B  207          biology     B      18
-7  Admitted Female    B   17          biology     B      18
-8  Rejected Female    B    8          biology     B      18
-9  Admitted   Male    C  120      engineering     C      16
-10 Rejected   Male    C  205      engineering     C      16
-11 Admitted Female    C  202      engineering     C      16
-12 Rejected Female    C  391      engineering     C      16
-13 Admitted   Male    D  138 computer science     D      24
-14 Rejected   Male    D  279 computer science     D      24
-15 Admitted Female    D  131 computer science     D      24
-16 Rejected Female    D  244 computer science     D      24
+1  Admitted   Male    A  512             math     A      25
+2  Rejected   Male    A  313             math     A      25
+3  Admitted Female    A   89             math     A      25
+4  Rejected Female    A   19             math     A      25
+5  Admitted   Male    B  353          biology     B      29
+6  Rejected   Male    B  207          biology     B      29
+7  Admitted Female    B   17          biology     B      29
+8  Rejected Female    B    8          biology     B      29
+9  Admitted   Male    C  120      engineering     C      14
+10 Rejected   Male    C  205      engineering     C      14
+11 Admitted Female    C  202      engineering     C      14
+12 Rejected Female    C  391      engineering     C      14
+13 Admitted   Male    D  138 computer science     D      10
+14 Rejected   Male    D  279 computer science     D      10
+15 Admitted Female    D  131 computer science     D      10
+16 Rejected Female    D  244 computer science     D      10
 17 Admitted   Male    E   53          history     E      28
 18 Rejected   Male    E  138          history     E      28
 19 Admitted Female    E   94          history     E      28
 20 Rejected Female    E  299          history     E      28
-21     &lt;NA&gt;   &lt;NA&gt; &lt;NA&gt;   NA     architecture Other      13</code></pre>
+21     &lt;NA&gt;   &lt;NA&gt; &lt;NA&gt;   NA     architecture Other      28</code></pre>
 </div>
 </div>
 </section>
