@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Welcome to the Command Line - 16&nbsp; Text manipulation</title>
+<title>Welcome to the Command Line - 18&nbsp; Text manipulation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,7 +83,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./vim.html" rel="next">
+<link href="./printf.html" rel="next">
 <link href="./fileManipulation.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -143,7 +143,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./textManipulation.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Text manipulation</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./textManipulation.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Text manipulation</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -200,92 +200,110 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./windowsSetup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Windows Setup for WSL2</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rOnWSL.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R, RStudio and VSCode on WSL</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./whyCLI.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Why CLI (command line interface)?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Why CLI (command line interface)?</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./whyVIM.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Why VIM (text editor)?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Why VIM (text editor)?</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./unixNature.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">The Unix nature</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The Unix nature</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./man.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The Unix manual</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The Unix manual</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./terminal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Terminal emulators</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Terminal emulators</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./macGeneral/iTerm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">iTerm (terminal emulator for macOS)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">iTerm (terminal emulator for macOS)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./bash.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title"><code>bash</code>, a command processor</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><code>bash</code>, a command processor</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tmux.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><code>tmux</code>, a terminal multiplexer</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><code>tmux</code>, a terminal multiplexer</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./bearings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Getting your bearings</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Getting your bearings</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./fileIO.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Unix File Input / Output</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Unix File Input / Output</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./fileManipulation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">File manipulation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">File manipulation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./textManipulation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Text manipulation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Text manipulation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./printf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">The ubiquitous <code>printf()</code> function</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./vim.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Vim, a text editor</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Vim, a text editor</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./macGeneral/macDotFiles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">macOS dotfiles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">macOS dotfiles</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./macGeneral/macVim.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">MacVim, a text editor</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">MacVim, a text editor</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -304,13 +322,13 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#an-advanced-use-of-grep" id="toc-an-advanced-use-of-grep" class="nav-link active" data-scroll-target="#an-advanced-use-of-grep"><span class="header-section-number">16.1</span> An advanced use of <code>grep</code></a></li>
-  <li><a href="#examining-a-complicated-regular-expression" id="toc-examining-a-complicated-regular-expression" class="nav-link" data-scroll-target="#examining-a-complicated-regular-expression"><span class="header-section-number">16.2</span> Examining a complicated regular expression</a></li>
-  <li><a href="#an-example-of-grep-with-a-posix-bracket-expression" id="toc-an-example-of-grep-with-a-posix-bracket-expression" class="nav-link" data-scroll-target="#an-example-of-grep-with-a-posix-bracket-expression"><span class="header-section-number">16.3</span> An example of <code>grep</code> with a POSIX bracket expression</a></li>
-  <li><a href="#the-problem-of-email-addresses" id="toc-the-problem-of-email-addresses" class="nav-link" data-scroll-target="#the-problem-of-email-addresses"><span class="header-section-number">16.4</span> The problem of email addresses</a></li>
-  <li><a href="#find-and-replace" id="toc-find-and-replace" class="nav-link" data-scroll-target="#find-and-replace"><span class="header-section-number">16.5</span> Find and replace</a></li>
-  <li><a href="#pcre" id="toc-pcre" class="nav-link" data-scroll-target="#pcre"><span class="header-section-number">16.6</span> PCRE</a></li>
-  <li><a href="#lazy-and-greedy-regular-expressions" id="toc-lazy-and-greedy-regular-expressions" class="nav-link" data-scroll-target="#lazy-and-greedy-regular-expressions"><span class="header-section-number">16.7</span> Lazy and Greedy Regular Expressions</a></li>
+  <li><a href="#an-advanced-use-of-grep" id="toc-an-advanced-use-of-grep" class="nav-link active" data-scroll-target="#an-advanced-use-of-grep"><span class="header-section-number">18.1</span> An advanced use of <code>grep</code></a></li>
+  <li><a href="#examining-a-complicated-regular-expression" id="toc-examining-a-complicated-regular-expression" class="nav-link" data-scroll-target="#examining-a-complicated-regular-expression"><span class="header-section-number">18.2</span> Examining a complicated regular expression</a></li>
+  <li><a href="#an-example-of-grep-with-a-posix-bracket-expression" id="toc-an-example-of-grep-with-a-posix-bracket-expression" class="nav-link" data-scroll-target="#an-example-of-grep-with-a-posix-bracket-expression"><span class="header-section-number">18.3</span> An example of <code>grep</code> with a POSIX bracket expression</a></li>
+  <li><a href="#the-problem-of-email-addresses" id="toc-the-problem-of-email-addresses" class="nav-link" data-scroll-target="#the-problem-of-email-addresses"><span class="header-section-number">18.4</span> The problem of email addresses</a></li>
+  <li><a href="#find-and-replace" id="toc-find-and-replace" class="nav-link" data-scroll-target="#find-and-replace"><span class="header-section-number">18.5</span> Find and replace</a></li>
+  <li><a href="#pcre" id="toc-pcre" class="nav-link" data-scroll-target="#pcre"><span class="header-section-number">18.6</span> PCRE</a></li>
+  <li><a href="#lazy-and-greedy-regular-expressions" id="toc-lazy-and-greedy-regular-expressions" class="nav-link" data-scroll-target="#lazy-and-greedy-regular-expressions"><span class="header-section-number">18.7</span> Lazy and Greedy Regular Expressions</a></li>
   </ul>
 </nav>
     </div>
@@ -319,7 +337,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Text manipulation</span></h1>
+<h1 class="title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Text manipulation</span></h1>
 </div>
 
 
@@ -338,16 +356,16 @@ div.csl-indent {
 <p>The simplest regular expression is literal text. For example, I could search for my name in a file called <code>example.md</code> by saying</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> Mick example.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>and the output would be any lines in <code>example.md</code> containing my name, written to <code>stdout</code>, which by default is the screen. There are many more advanced uses of <code>grep</code>.</p>
-<section id="an-advanced-use-of-grep" class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="an-advanced-use-of-grep"><span class="header-section-number">16.1</span> An advanced use of <code>grep</code></h2>
+<section id="an-advanced-use-of-grep" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="an-advanced-use-of-grep"><span class="header-section-number">18.1</span> An advanced use of <code>grep</code></h2>
 <p>I needed the email addresses of job candidates in the file <code>candidates.md</code>. Following are a couple of approaches of using grep to find them. Because this use of <code>grep</code> is quite complicated, I’ll spend a few paragraphs dissecting it.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-o</span> <span class="st">' [a-z0-9.]+@[a-z0-9.]+( |$)'</span> candidates.md <span class="kw">|</span> <span class="fu">nl</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-o</span> <span class="st">' [[:graph:]]+@[[:graph:]]+( |$)'</span> candidates.md <span class="kw">|</span> <span class="fu">nl</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-o</span> <span class="st">' [[:graph:]]+@[[:graph:]]+( |$)'</span> candidates.md <span class="op">&gt;</span>emails.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The first command above includes the option <code>-o</code> which means to only return the matching part of the line. This way, I just get the email addresses and nothing else. The regular expression here is enclosed in apostrophes, then comes the name of the file I’m searching in, <code>candidates.md</code>, then a pipe character, <code>|</code>, which pipes the output of the first command to the second command, in this case the <code>nl</code> command, which numbers lines. Since I know that there are 21 lines in the <code>candidates.md</code> file, I expect to get 21 numbered lines in the final output, but I only got twenty. Let’s examine the regular expression to see why this is.</p>
 </section>
-<section id="examining-a-complicated-regular-expression" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="examining-a-complicated-regular-expression"><span class="header-section-number">16.2</span> Examining a complicated regular expression</h2>
+<section id="examining-a-complicated-regular-expression" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="examining-a-complicated-regular-expression"><span class="header-section-number">18.2</span> Examining a complicated regular expression</h2>
 <p>The first item in the regular expression is a literal space character because I knew that the email addresses all came after a space following the candidates’ names.</p>
 <p>Next is a <em>bracket expression</em>. A bracket expression contains a list of characters in square brackets. It matches any one of these characters. It also allows some special characters as used here. For example, instead of writing out the entire alphabet, it allows <code>a-z</code> to stand for all the lowercase letters. I happened to know that the email addresses in this file had no uppercase characters, or I could have added <code>A-Z</code> to the bracket expression. I also knew that some candidates included numbers in their email addresses, so I also included <code>0-9</code>, which stands for any digit. I also knew that some candidates included a dot in their email addresses, so I also included <code>.</code> in the bracket expression. So far, so good. I’ve matched any single character in an email address.</p>
 <p>Next is a plus sign <code>+</code>. This symbol says to match a series of one or more of the previous element. Since the previous element is a bracket expression, this will match any string of characters containing letters, numbers, or dots in any combination. By itself, it would only stop when it reached a space or control character.</p>
@@ -355,18 +373,18 @@ div.csl-indent {
 <p>Next is another bracket expression, just like the one above. It matches the end of the email address, which always contains a dot and some text. Usually, it’s <code>utexas.edu</code> in this file, but not always. I don’t think it contains any digits, but I was too lazy to check.</p>
 <p>Last is a set of parentheses with a special construct inside them. This is a way of letting regular expressions match a choice. The pipe symbol <code>|</code> in this context means <em>or</em>. So this construct matches a space or the end of a line. Wait, what? The end of a line? Yes, the dollar sign <code>$</code> in this context stands for the end of a line. Lines are actually ended by invisible control characters and, if we put one of those in here, it would unintentionally end the regular expression, so we need a shorthand that represents the end of a line. The dollar sign is almost always used for that, although we will later learn another context in which the dollar sign means the end of a file instead of the end of a line. This <em>or</em> construct differs from bracket expressions in an important way. The elements on either side of the <code>|</code> symbol can be of any length. For example, I may be called Mick or Michael in a file, so I may want to search for the regular expression <code>(Mick|Michael)</code> if I’m looking for my name. This differs from a bracket expression because it is searching for a string, not an individual character.</p>
 </section>
-<section id="an-example-of-grep-with-a-posix-bracket-expression" class="level2" data-number="16.3">
-<h2 data-number="16.3" class="anchored" data-anchor-id="an-example-of-grep-with-a-posix-bracket-expression"><span class="header-section-number">16.3</span> An example of <code>grep</code> with a POSIX bracket expression</h2>
+<section id="an-example-of-grep-with-a-posix-bracket-expression" class="level2" data-number="18.3">
+<h2 data-number="18.3" class="anchored" data-anchor-id="an-example-of-grep-with-a-posix-bracket-expression"><span class="header-section-number">18.3</span> An example of <code>grep</code> with a POSIX bracket expression</h2>
 <p>The second command above worked a little better because one candidate had an underscore in their email address. I would have needed to include the underscore explicitly in the first one. I used the <code>nl</code> command to see if all the addresses were being picked up, which is how I noticed the underscore. The construct <code>[:graph:]</code> is called a POSIX bracket expression. You can find a list of them at <a href="https://www.regular-expressions.info/posixbrackets.html">https://www.regular-expressions.info/posixbrackets.html</a>. They need to be enclosed inside another bracket expression, hence the double square brackets. The POSIX bracket expression <code>[:graph:]</code> represents any single visible character. That is, any character except spaces and control characters.</p>
 <p>The second command above has the added advantage that it is easier to read and remember. Don’t try to use it for all email addresses, though, because some legal email addresses are more complicated than this! I only used it because I knew that there were no unusual email addresses in my file and this was borne out by the fact that it returned 21 email addresses from a file 21 lines long.</p>
 <p>The third command above was not strictly necessary. Since I only had 21 email addresses they all fit on the screen and I could have copied and pasted them into the email message I wanted to send to all candidates but instead I decided to put them all in a file and paste that file into the email. Not all email programs will allow that, though. Anyway, the third command sends its output to the file <code>emails.md</code> by using the <code>&gt;</code> redirection operator that redirects <code>stdout</code> away from the screen and into a file. On traditional Unix systems you could also use the <code>&gt;</code> redirection operator to redirect <code>stdout</code> to a printer attached to the computer. Since most printers today are wireless, that’s not practical, but it illustrates how nearly everything in Unix can be addressed as if it were a file.</p>
 </section>
-<section id="the-problem-of-email-addresses" class="level2" data-number="16.4">
-<h2 data-number="16.4" class="anchored" data-anchor-id="the-problem-of-email-addresses"><span class="header-section-number">16.4</span> The problem of email addresses</h2>
+<section id="the-problem-of-email-addresses" class="level2" data-number="18.4">
+<h2 data-number="18.4" class="anchored" data-anchor-id="the-problem-of-email-addresses"><span class="header-section-number">18.4</span> The problem of email addresses</h2>
 <p>The question and answers at <a href="https://stackoverflow.com/questions/2898463/using-grep-to-find-all-emails">https://stackoverflow.com/questions/2898463/using-grep-to-find-all-emails</a> give some idea of how difficult it would be to match <em>any</em> valid email address. In the above example, I knew that there was exactly one column of email addresses in a file arranged as a table. There were few enough email addresses that I could fit them on one screen and visually inspect them for oddities. Even so, I did not notice the underscore in one address until it was passed over by the first attempt to extract it. In school you will mostly see easy, well-formed files, but in the working world you may be surprised by all the eccentricities you will experience when trying to use externally sourced files.</p>
 </section>
-<section id="find-and-replace" class="level2" data-number="16.5">
-<h2 data-number="16.5" class="anchored" data-anchor-id="find-and-replace"><span class="header-section-number">16.5</span> Find and replace</h2>
+<section id="find-and-replace" class="level2" data-number="18.5">
+<h2 data-number="18.5" class="anchored" data-anchor-id="find-and-replace"><span class="header-section-number">18.5</span> Find and replace</h2>
 <p>There are vastly many ways to find and replace text in files, some using a combination of <code>grep</code> and <code>sed</code>, others using a combination of <code>find</code> and <code>sed</code>, still others using <code>awk</code>. Personally, I use <code>perl</code> in one of two ways.</p>
 <p>To replace old with new in .txt files, say</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">perl</span> <span class="at">-ipe</span> <span class="st">'s/old/new/g;'</span> <span class="pp">*</span>.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -387,12 +405,12 @@ div.csl-indent {
 <p>The last item in the program is a semicolon <code>;</code>. This is an example of what many people hate about <code>perl</code>. It is always correct to include a semicolon at the end of a statement, but <code>perl</code> will often let you get away with omitting it. This is one of those cases, so you don’t really need a semicolon here but you would if you wanted to include two <code>perl</code> statements in your program fragment. The reason people hate this is because it is hard to remember the rules allowing you to omit the semicolon. <code>perl</code> was really intended to be used every day. Back in the years when I did use <code>perl</code> every day, I found it easy to remember all the idiosyncracies like that. Nowadays, not so much.</p>
 <p>After the program comes the files I want to operate on, all files ending in <code>.txt</code> by using the wildcard character <code>*</code> that matches anything in a filename. Unfortunately, there are two major contexts for using <code>*</code>. One is its use in the <code>bash</code> shell, which is how it’s used here. You must be able to distinguish between the <code>bash</code> shell and the utilities it invokes. In the <code>bash</code> shell, <code>*</code> is a wildcard character, which replaces any series of legal pathname or filename characters. The other major context is in utilities like <code>sed</code>, <code>awk</code>, <code>perl</code>, and <code>vim</code>, where it is used as a quantifier in regular expressions. <code>bash</code> itself has no concept of regular expressions. In a regular expression, the <code>*</code> stands for <em>zero or more occurrences of the element that preceded it</em>. This causes a lot of confusion for users of regular expressions and users of <code>bash</code>!</p>
 </section>
-<section id="pcre" class="level2" data-number="16.6">
-<h2 data-number="16.6" class="anchored" data-anchor-id="pcre"><span class="header-section-number">16.6</span> PCRE</h2>
+<section id="pcre" class="level2" data-number="18.6">
+<h2 data-number="18.6" class="anchored" data-anchor-id="pcre"><span class="header-section-number">18.6</span> PCRE</h2>
 <p>The most common kind of regular expression is called the PCRE, which stands for <em>Perl Compatible Regular Expression</em>. Although <code>perl</code> has fallen in popularity, its regular expressions have not and most text-handling utilities (but not all!) follow the regular expression syntax used in <code>perl</code>. I learned regular expressions from a book, <span class="citation" data-cites="Friedl2006">Friedl (<a href="references.html#ref-Friedl2006" role="doc-biblioref">2006</a>)</span>, in its most recent edition. This covers PCRE plus all the variants and was available free online the last time I looked. I can’t emphasize enough that, before the first edition of this book in 1997, there was no comprehensive reference to regular expressions. Hence, most older software developers have read it. Now, many other resources are available, such as <a href="https://www.regular-expressions.info/tutorial.html">https://www.regular-expressions.info/tutorial.html</a>.</p>
 </section>
-<section id="lazy-and-greedy-regular-expressions" class="level2" data-number="16.7">
-<h2 data-number="16.7" class="anchored" data-anchor-id="lazy-and-greedy-regular-expressions"><span class="header-section-number">16.7</span> Lazy and Greedy Regular Expressions</h2>
+<section id="lazy-and-greedy-regular-expressions" class="level2" data-number="18.7">
+<h2 data-number="18.7" class="anchored" data-anchor-id="lazy-and-greedy-regular-expressions"><span class="header-section-number">18.7</span> Lazy and Greedy Regular Expressions</h2>
 <p>One concept in regular expressions revolves around the question of whether a given symbol is <em>greedy</em> or <em>lazy</em>. A greedy quantifier looks as far ahead in the text as it can for a match. A lazy quantifier stops looking as soon as it finds a valid match. This is important when a pattern occurs more than once on a given line. Take the expression <code>.*</code> which matches any character at all, represented by dot <code>.</code>, and then zero or more occurrences of any character, represented by <code>*</code>. This is greedy. It will, by itself, match a whole line of text. Greedy quantifiers include <code>*</code>, <code>+</code>, <code>?</code>, and <code>{</code><em>num,num</em><code>}</code>. Lazy quantifiers are less common and not all tools support them. These quantifiers include <code>??</code>, <code>*?</code>, <code>+?</code>, and <code>{</code><em>num,num</em><code>}?</code>, according to <span class="citation" data-cites="Friedl2006">Friedl (<a href="references.html#ref-Friedl2006" role="doc-biblioref">2006</a>)</span>, p 141.</p>
 
 
@@ -640,12 +658,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./fileManipulation.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">File manipulation</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">File manipulation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./vim.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Vim, a text editor</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./printf.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">The ubiquitous <code>printf()</code> function</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

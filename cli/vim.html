@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Welcome to the Command Line - 17&nbsp; Vim, a text editor</title>
+<title>Welcome to the Command Line - 20&nbsp; Vim, a text editor</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./macGeneral/macDotFiles.html" rel="next">
-<link href="./textManipulation.html" rel="prev">
+<link href="./printf.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -90,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./vim.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Vim, a text editor</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./vim.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Vim, a text editor</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -147,92 +147,110 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./windowsSetup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Windows Setup for WSL2</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rOnWSL.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R, RStudio and VSCode on WSL</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./whyCLI.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Why CLI (command line interface)?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Why CLI (command line interface)?</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./whyVIM.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Why VIM (text editor)?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Why VIM (text editor)?</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./unixNature.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">The Unix nature</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The Unix nature</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./man.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The Unix manual</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The Unix manual</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./terminal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Terminal emulators</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Terminal emulators</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./macGeneral/iTerm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">iTerm (terminal emulator for macOS)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">iTerm (terminal emulator for macOS)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./bash.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title"><code>bash</code>, a command processor</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><code>bash</code>, a command processor</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tmux.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><code>tmux</code>, a terminal multiplexer</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><code>tmux</code>, a terminal multiplexer</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./bearings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Getting your bearings</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Getting your bearings</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./fileIO.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Unix File Input / Output</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Unix File Input / Output</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./fileManipulation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">File manipulation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">File manipulation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./textManipulation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Text manipulation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Text manipulation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./printf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">The ubiquitous <code>printf()</code> function</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./vim.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Vim, a text editor</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Vim, a text editor</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./macGeneral/macDotFiles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">macOS dotfiles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">macOS dotfiles</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./macGeneral/macVim.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">MacVim, a text editor</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">MacVim, a text editor</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -251,17 +269,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#basic-vim-ideas" id="toc-basic-vim-ideas" class="nav-link active" data-scroll-target="#basic-vim-ideas"><span class="header-section-number">17.1</span> Basic Vim ideas</a></li>
-  <li><a href="#command-mode" id="toc-command-mode" class="nav-link" data-scroll-target="#command-mode"><span class="header-section-number">17.2</span> Command mode</a></li>
-  <li><a href="#insert-mode" id="toc-insert-mode" class="nav-link" data-scroll-target="#insert-mode"><span class="header-section-number">17.3</span> Insert mode</a></li>
-  <li><a href="#ex-mode" id="toc-ex-mode" class="nav-link" data-scroll-target="#ex-mode"><span class="header-section-number">17.4</span> Ex mode</a></li>
-  <li><a href="#vim-concepts" id="toc-vim-concepts" class="nav-link" data-scroll-target="#vim-concepts"><span class="header-section-number">17.5</span> Vim concepts</a>
+  <li><a href="#basic-vim-ideas" id="toc-basic-vim-ideas" class="nav-link active" data-scroll-target="#basic-vim-ideas"><span class="header-section-number">20.1</span> Basic Vim ideas</a></li>
+  <li><a href="#command-mode" id="toc-command-mode" class="nav-link" data-scroll-target="#command-mode"><span class="header-section-number">20.2</span> Command mode</a></li>
+  <li><a href="#insert-mode" id="toc-insert-mode" class="nav-link" data-scroll-target="#insert-mode"><span class="header-section-number">20.3</span> Insert mode</a></li>
+  <li><a href="#ex-mode" id="toc-ex-mode" class="nav-link" data-scroll-target="#ex-mode"><span class="header-section-number">20.4</span> Ex mode</a></li>
+  <li><a href="#vim-concepts" id="toc-vim-concepts" class="nav-link" data-scroll-target="#vim-concepts"><span class="header-section-number">20.5</span> Vim concepts</a>
   <ul class="collapse">
-  <li><a href="#motion" id="toc-motion" class="nav-link" data-scroll-target="#motion"><span class="header-section-number">17.5.1</span> Motion</a></li>
-  <li><a href="#get-into-insert-mode-but-first-delete-something" id="toc-get-into-insert-mode-but-first-delete-something" class="nav-link" data-scroll-target="#get-into-insert-mode-but-first-delete-something"><span class="header-section-number">17.5.2</span> Get into insert mode but first delete something</a></li>
-  <li><a href="#just-delete-without-changing-mode" id="toc-just-delete-without-changing-mode" class="nav-link" data-scroll-target="#just-delete-without-changing-mode"><span class="header-section-number">17.5.3</span> Just delete without changing mode</a></li>
-  <li><a href="#various" id="toc-various" class="nav-link" data-scroll-target="#various"><span class="header-section-number">17.5.4</span> Various</a></li>
+  <li><a href="#motion" id="toc-motion" class="nav-link" data-scroll-target="#motion"><span class="header-section-number">20.5.1</span> Motion</a></li>
+  <li><a href="#get-into-insert-mode-but-first-delete-something" id="toc-get-into-insert-mode-but-first-delete-something" class="nav-link" data-scroll-target="#get-into-insert-mode-but-first-delete-something"><span class="header-section-number">20.5.2</span> Get into insert mode but first delete something</a></li>
+  <li><a href="#just-delete-without-changing-mode" id="toc-just-delete-without-changing-mode" class="nav-link" data-scroll-target="#just-delete-without-changing-mode"><span class="header-section-number">20.5.3</span> Just delete without changing mode</a></li>
+  <li><a href="#various" id="toc-various" class="nav-link" data-scroll-target="#various"><span class="header-section-number">20.5.4</span> Various</a></li>
   </ul></li>
+  <li><a href="#years-of-vim" id="toc-years-of-vim" class="nav-link" data-scroll-target="#years-of-vim"><span class="header-section-number">20.6</span> 20 years of Vim</a></li>
   </ul>
 </nav>
     </div>
@@ -270,7 +289,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Vim, a text editor</span></h1>
+<h1 class="title"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Vim, a text editor</span></h1>
 </div>
 
 
@@ -288,8 +307,8 @@ ul.task-list li input[type="checkbox"] {
 <p>under construction</p>
 <p>The best starting point for vim is the <code>vimtutor</code>, which is automatically installed when you install any version of vim. Simply say <code>vimtutor</code> at the <code>bash</code> prompt and you will automatically enter a disposable copy of the vimtutor. You can edit the file you’re in without disturbing the original vimtutor. So, if you have problems, you can always exit the vimtutor, for example by saying <code>:q!</code> without damaging the original file, then open it again by saying <code>vimtutor</code> again at the <code>bash</code> prompt.</p>
 <p>Another common starting point for vim is the maze game <a href="https://vim-adventures.com/">vim adventures</a>. Be aware, though, that if you have Tridactyl loaded in your browser, you must temporarily disable it by, for instance, saying <kbd>shift</kbd>+<kbd>esc</kbd>.</p>
-<section id="basic-vim-ideas" class="level2" data-number="17.1">
-<h2 data-number="17.1" class="anchored" data-anchor-id="basic-vim-ideas"><span class="header-section-number">17.1</span> Basic Vim ideas</h2>
+<section id="basic-vim-ideas" class="level2" data-number="20.1">
+<h2 data-number="20.1" class="anchored" data-anchor-id="basic-vim-ideas"><span class="header-section-number">20.1</span> Basic Vim ideas</h2>
 <p>First, consider that when this editor was developed, computers were slow and displays had just entered common use. Most of the editing tools that existed already were editors such as <code>ed</code>, the editor, and <code>ex</code>, the extended editor, that were designed to help programmers work at what were called <em>hard copy terminals</em>. These were essentially printers connected to keyboards. The programmer had to have a very clear mental picture of what was going on because there were almost no visual aids. Imagine typing your program into a computer where you have no display at all. It should sound like a painful activity requiring a lot of concentration and the construction and maintenance of a clear mental picture.</p>
 <p>It may seem counterintuitive to use tools designed for such a primitive environment. The purpose is, in part, to encourage you to form a mental picture but there is more to it than that. We’ll discuss some of these issues later but for now, you should understand the concept of the editor functioning in a highly constrained environment where the programmer’s mind is supplying quite a bit of what would today be supplied by graphical supports.</p>
 <div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usetikzlibrary{backgrounds,shapes.geometric}&quot;,&quot;\definecolor{cmdcolor}{rgb}{0.0,0.90,0.05}&quot;,&quot;\definecolor{insertcolor}{rgb}{1.0,0.7,0.1}&quot;,&quot;\definecolor{excolor}{rgb}{0.3,0.4,0.5}&quot;,&quot;\definecolor{arrowcolor}{rgb}{0.7,0.8,0.9}&quot;]}">
@@ -299,12 +318,12 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>The above figure shows the three basic Vim modes. Several programming editors have the concept of modes, so that each key can perform multiple functions depending on which mode is currently active.</p>
 </section>
-<section id="command-mode" class="level2" data-number="17.2">
-<h2 data-number="17.2" class="anchored" data-anchor-id="command-mode"><span class="header-section-number">17.2</span> Command mode</h2>
+<section id="command-mode" class="level2" data-number="20.2">
+<h2 data-number="20.2" class="anchored" data-anchor-id="command-mode"><span class="header-section-number">20.2</span> Command mode</h2>
 <p>This is the mode you should usually use to navigate program files. You should only emerge from this mode to type text or enter an ex command. In this mode Vim resembles a control panel, with each key executing a command. You can always reach command mode by pressing escape if you are in one of the other modes.</p>
 </section>
-<section id="insert-mode" class="level2" data-number="17.3">
-<h2 data-number="17.3" class="anchored" data-anchor-id="insert-mode"><span class="header-section-number">17.3</span> Insert mode</h2>
+<section id="insert-mode" class="level2" data-number="20.3">
+<h2 data-number="20.3" class="anchored" data-anchor-id="insert-mode"><span class="header-section-number">20.3</span> Insert mode</h2>
 <p>When you want to type some code into a file, switch to insert mode. The command you use to do so depends on where your cursor is relative to where you want to enter text. The most common commands to enter insert mode are</p>
 <ul>
 <li>i, insert before the cursor position</li>
@@ -316,12 +335,12 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>While you are in insert mode, Vim behaves somewhat like a typewriter. Pretty much every character you type is written to the file. There are a few shortcut keys but you are expected mostly to switch back to command mode to navigate or perform other activities.</p>
 </section>
-<section id="ex-mode" class="level2" data-number="17.4">
-<h2 data-number="17.4" class="anchored" data-anchor-id="ex-mode"><span class="header-section-number">17.4</span> Ex mode</h2>
+<section id="ex-mode" class="level2" data-number="20.4">
+<h2 data-number="20.4" class="anchored" data-anchor-id="ex-mode"><span class="header-section-number">20.4</span> Ex mode</h2>
 <p>You enter ex mode by typing a colon (:). That causes the colon to appear in the lower left corner of the window, where you can enter an ex command. These ex commands are mostly line-oriented commands. That means that they act on entire lines of text. For example, the <code>global</code> command, usually abbreviated as <code>g</code>, performs a specified action on every line matching a given pattern.</p>
 </section>
-<section id="vim-concepts" class="level2" data-number="17.5">
-<h2 data-number="17.5" class="anchored" data-anchor-id="vim-concepts"><span class="header-section-number">17.5</span> Vim concepts</h2>
+<section id="vim-concepts" class="level2" data-number="20.5">
+<h2 data-number="20.5" class="anchored" data-anchor-id="vim-concepts"><span class="header-section-number">20.5</span> Vim concepts</h2>
 <p>Some of the concepts for this editor that apply to all programmer’s editors are as follows. Where the concept is preceded by a colon, it is also an ex command.</p>
 <ul>
 <li><code>:split</code> A programmer’s text editor must have many ways to split windows so that you can view another file or another part of the same file while editing. There’s a basic <code>split</code> command in Vim and many parameters it can be given and many ways to bind it to shortcut keys to fit your habits.</li>
@@ -335,8 +354,8 @@ ul.task-list li input[type="checkbox"] {
 <li><code>:vimdiff</code> The most basic utility for identifying differences between files, as well as for automating the patching of program files, is the utility <code>diff</code>. A text editor should have the functionality of <code>diff</code> built in, preferably in a way that is easy to learn and use, most often through compatibility with <code>diff</code>.</li>
 </ul>
 <p>Some specific examples of commands for this editor follow.</p>
-<section id="motion" class="level3" data-number="17.5.1">
-<h3 data-number="17.5.1" class="anchored" data-anchor-id="motion"><span class="header-section-number">17.5.1</span> Motion</h3>
+<section id="motion" class="level3" data-number="20.5.1">
+<h3 data-number="20.5.1" class="anchored" data-anchor-id="motion"><span class="header-section-number">20.5.1</span> Motion</h3>
 <p>Most of the motion commands are only useful if you do them often enough that they become automatic. If you have to think of them, you may as well reach for a mouse.</p>
 <p><code>0</code> Go to the beginning of the cursor’s line.</p>
 <p><code>$</code> Go to the end of the cursor’s line.</p>
@@ -344,8 +363,8 @@ ul.task-list li input[type="checkbox"] {
 <p><code>ctrl-f</code> Forward a screenful.</p>
 <p><code>ctrl-b</code> Backward a screenful.</p>
 </section>
-<section id="get-into-insert-mode-but-first-delete-something" class="level3" data-number="17.5.2">
-<h3 data-number="17.5.2" class="anchored" data-anchor-id="get-into-insert-mode-but-first-delete-something"><span class="header-section-number">17.5.2</span> Get into insert mode but first delete something</h3>
+<section id="get-into-insert-mode-but-first-delete-something" class="level3" data-number="20.5.2">
+<h3 data-number="20.5.2" class="anchored" data-anchor-id="get-into-insert-mode-but-first-delete-something"><span class="header-section-number">20.5.2</span> Get into insert mode but first delete something</h3>
 <p>Often you need to replace something with something of a different length. You don’t want to have to think about the length of the new thing, just identify the thing being replaced and start typing the new thing.</p>
 <p><code>c</code> change <em>motion</em> characters, where <em>motion</em> is a motion command. For instance <code>cl</code> deletes one character to the right, whereas <code>ch</code> deletes one character to the left.</p>
 <p><code>cc</code> change current line—delete the current line before entering insert mode.</p>
@@ -353,16 +372,16 @@ ul.task-list li input[type="checkbox"] {
 <p><code>s</code> substitute character or count characters if you give count first; for instance, 1s is the same as s and 2s deletes two chars before entering insert mode</p>
 <p><code>S</code> substitute current line</p>
 </section>
-<section id="just-delete-without-changing-mode" class="level3" data-number="17.5.3">
-<h3 data-number="17.5.3" class="anchored" data-anchor-id="just-delete-without-changing-mode"><span class="header-section-number">17.5.3</span> Just delete without changing mode</h3>
+<section id="just-delete-without-changing-mode" class="level3" data-number="20.5.3">
+<h3 data-number="20.5.3" class="anchored" data-anchor-id="just-delete-without-changing-mode"><span class="header-section-number">20.5.3</span> Just delete without changing mode</h3>
 <p><code>x</code> delete the character under the cursor</p>
 <p><code>X</code> delete the character to the left of the cursor</p>
 <p><code>d</code> delete motion characters</p>
 <p><code>dd</code> delete current line</p>
 <p><code>D</code> delete current line</p>
 </section>
-<section id="various" class="level3" data-number="17.5.4">
-<h3 data-number="17.5.4" class="anchored" data-anchor-id="various"><span class="header-section-number">17.5.4</span> Various</h3>
+<section id="various" class="level3" data-number="20.5.4">
+<h3 data-number="20.5.4" class="anchored" data-anchor-id="various"><span class="header-section-number">20.5.4</span> Various</h3>
 <p>Here are various commands without a unifying category.</p>
 <p><code>u</code> undo</p>
 <p><code>ctrl-r</code> redo</p>
@@ -379,9 +398,15 @@ ul.task-list li input[type="checkbox"] {
 <p><code>n</code> find next occurrence of <code>pattern</code> after saying <code>/pattern</code></p>
 <p><code>fx</code> find char <code>x</code> on current line</p>
 <p><code>;</code> find next <code>x</code> after f<code>x</code></p>
-
-
 </section>
+</section>
+<section id="years-of-vim" class="level2" data-number="20.6">
+<h2 data-number="20.6" class="anchored" data-anchor-id="years-of-vim"><span class="header-section-number">20.6</span> 20 years of Vim</h2>
+<p><a href="https://www.contextualize.ai/mpereira/20-years-of-vim-ef9acae9">20 years of Vim</a></p>
+<p>has an interactive version of this line graph.</p>
+<p><img src="fi20yrsOfVim.png" class="img-fluid"></p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -620,13 +645,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./textManipulation.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Text manipulation</span></span>
+      <a href="./printf.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">The ubiquitous <code>printf()</code> function</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./macGeneral/macDotFiles.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">macOS dotfiles</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">macOS dotfiles</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Welcome to the Command Line - 4&nbsp; macOS minimal setup for M1/2 machines</title>
+<title>Welcome to the Command Line - 6&nbsp; R, RStudio and VSCode on WSL</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./windowsSetup.html" rel="next">
-<link href="./macSetupM1Full.html" rel="prev">
+<link href="./whyCLI.html" rel="next">
+<link href="./windowsSetup.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -90,7 +124,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./macSetupM1Minimal.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">macOS minimal setup for M1/2 machines</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./rOnWSL.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R, RStudio and VSCode on WSL</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -141,7 +175,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./macSetupM1Minimal.html" class="sidebar-item-text sidebar-link active">
+  <a href="./macSetupM1Minimal.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">macOS minimal setup for M1/2 machines</span></span></a>
   </div>
 </li>
@@ -153,7 +187,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rOnWSL.html" class="sidebar-item-text sidebar-link">
+  <a href="./rOnWSL.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R, RStudio and VSCode on WSL</span></span></a>
   </div>
 </li>
@@ -265,14 +299,31 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#setting-up-r-on-wsl" id="toc-setting-up-r-on-wsl" class="nav-link active" data-scroll-target="#setting-up-r-on-wsl"><span class="header-section-number">6.1</span> Setting up R on WSL</a>
+  <ul class="collapse">
+  <li><a href="#install-packages-in-r" id="toc-install-packages-in-r" class="nav-link" data-scroll-target="#install-packages-in-r"><span class="header-section-number">6.1.1</span> Install Packages in R</a></li>
+  </ul></li>
+  <li><a href="#setting-up-rstudio-on-wsl" id="toc-setting-up-rstudio-on-wsl" class="nav-link" data-scroll-target="#setting-up-rstudio-on-wsl"><span class="header-section-number">6.2</span> Setting up RStudio on WSL</a></li>
+  <li><a href="#using-vscode-r-and-wsl" id="toc-using-vscode-r-and-wsl" class="nav-link" data-scroll-target="#using-vscode-r-and-wsl"><span class="header-section-number">6.3</span> Using VSCode, R and WSL:</a>
+  <ul class="collapse">
+  <li><a href="#install-vscode" id="toc-install-vscode" class="nav-link" data-scroll-target="#install-vscode"><span class="header-section-number">6.3.1</span> Install VSCode</a></li>
+  <li><a href="#install-the-remote---wsl-extension" id="toc-install-the-remote---wsl-extension" class="nav-link" data-scroll-target="#install-the-remote---wsl-extension"><span class="header-section-number">6.3.2</span> Install the Remote - WSL Extension</a></li>
+  <li><a href="#connect-to-wsl-and-install-the-r-extension" id="toc-connect-to-wsl-and-install-the-r-extension" class="nav-link" data-scroll-target="#connect-to-wsl-and-install-the-r-extension"><span class="header-section-number">6.3.3</span> Connect to WSL and Install the R Extension</a></li>
+  <li><a href="#start-using-r-in-vscode" id="toc-start-using-r-in-vscode" class="nav-link" data-scroll-target="#start-using-r-in-vscode"><span class="header-section-number">6.3.4</span> Start Using R in VSCode</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">macOS minimal setup for M1/2 machines</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R, RStudio and VSCode on WSL</span></h1>
 </div>
 
 
@@ -287,9 +338,98 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>to be added</p>
+<section id="setting-up-r-on-wsl" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="setting-up-r-on-wsl"><span class="header-section-number">6.1</span> Setting up R on WSL</h2>
+<p>Now that your system is up-to-date, you can proceed with installing R. To do this, run the following commands in WSL:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install r-base</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>r-base package</code> is a basic R package that will install R onto your system. The installation may take a few minutes to complete.</p>
+<p>After installation, you can verify that R was successfully installed by checking the version. Enter R by just typing <code>R</code> and then <code>version</code>.</p>
+<p>If the installation is successful, it should return information about the R version installed on your machine.</p>
+<section id="install-packages-in-r" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="install-packages-in-r"><span class="header-section-number">6.1.1</span> Install Packages in R</h3>
+<p>R’s functionality can be extended with packages. They are collections of R functions, data, and compiled code that can be used to perform specific tasks.</p>
+<p>To install R packages, follow the steps below:</p>
+<ul>
+<li>Open R in the WSL terminal by typing <code>R</code>.</li>
+<li>Once you’re in R, you can install a package using the <code>install.packages</code> function.</li>
+</ul>
+<p>For example, if you want to install the <code>tidyverse</code> collection of packages:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">install.packages</span><span class="er">(</span><span class="st">'tidyverse'</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>After the installation process is complete, you can load the <code>tidyverse</code> packages using the <code>library</code> function:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">library</span><span class="er">(</span><span class="ex">dplyr</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="setting-up-rstudio-on-wsl" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="setting-up-rstudio-on-wsl"><span class="header-section-number">6.2</span> Setting up RStudio on WSL</h2>
+<p>While the terminal provides all the functionality needed to run and manage R scripts, many users prefer a more visual interface. This is where RStudio comes into play. However, WSL doesn’t support GUI applications, so we’ll have to install RStudio Server, which allows us to access RStudio via a web browser.</p>
+<ul>
+<li>First, download the RStudio Server package using the WSL Terminal:</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://download2.rstudio.org/server/bionic/amd64/rstudio-server-1.4.1106-amd64.deb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here, we are using the <code>wget</code> command to download the <code>.deb</code> package for RStudio Server. Replace the URL with the most recent version available on the RStudio download page.</p>
+<ul>
+<li>Next, install it using <code>dpkg</code>:</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dpkg <span class="at">-i</span> rstudio-server-1.4.1106-amd64.deb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If the <code>dpkg</code> command fails due to missing dependencies, you can install them with:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install <span class="at">-f</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Start RStudio Server by running:</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> rstudio-server start</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Finally, access RStudio Server by opening a web browser and going to <code>localhost:8787</code>. You can log in using your WSL username and password that you set up earlier.</p>
+</section>
+<section id="using-vscode-r-and-wsl" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="using-vscode-r-and-wsl"><span class="header-section-number">6.3</span> Using VSCode, R and WSL:</h2>
+<p>You can leverage the power of Microsoft’s Visual Studio Code (VSCode) as your integrated development environment (IDE). Please note that this guide assumes that you have already installed WSL, Ubuntu on WSL, and R within WSL, as discussed in the previous steps.</p>
+<section id="install-vscode" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="install-vscode"><span class="header-section-number">6.3.1</span> Install VSCode</h3>
+<p>Install VSCode on the Windows side (not in WSL) here: <a href="https://code.visualstudio.com">https://code.visualstudio.com</a></p>
+<blockquote class="blockquote">
+<p>Note: When prompted to Select Additional Tasks during installation, be sure to check the <code>Add to PATH</code> option so you can easily open a folder in WSL using the code command.</p>
+</blockquote>
+</section>
+<section id="install-the-remote---wsl-extension" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="install-the-remote---wsl-extension"><span class="header-section-number">6.3.2</span> Install the Remote - WSL Extension</h3>
+<p>Once you have VSCode installed, you will need to install the Remote - WSL extension. This extension allows VSCode to interface directly with WSL, allowing you to write, run, and debug code stored within your WSL environment.</p>
+<p>To install the Remote - WSL extension:</p>
+<ul>
+<li>Open VSCode.</li>
+<li>Click on the Extensions view icon on the Sidebar (or use the shortcut <code>Ctrl+Shift+X</code>).</li>
+<li>Search for <code>Remote - WSL</code> or <code>WSL</code>.</li>
+<li>Click on the Install button.</li>
+</ul>
+<p>After installation, you’ll see a green button on the bottom left corner indicating that the Remote - WSL extension is installed and active.</p>
+</section>
+<section id="connect-to-wsl-and-install-the-r-extension" class="level3" data-number="6.3.3">
+<h3 data-number="6.3.3" class="anchored" data-anchor-id="connect-to-wsl-and-install-the-r-extension"><span class="header-section-number">6.3.3</span> Connect to WSL and Install the R Extension</h3>
+<p>Now that you have the Remote - WSL extension installed, you can connect VSCode to your WSL environment:</p>
+<ul>
+<li>Open the Command Palette using the shortcut <code>Ctrl+Shift+P</code>.</li>
+<li>Type <code>WSL</code> and select <code>Remote-WSL: New Window</code>.</li>
+<li>This will open a new VSCode window connected to your WSL environment.</li>
+</ul>
+<p>Once you’re connected to WSL, you should install the R extension in this VSCode window. This extension provides support for the R language, including features like syntax highlighting, code navigation, and even debugging.</p>
+<p>To install the R extension:</p>
+<ul>
+<li>Click on the Extensions view icon on the Sidebar (or use the shortcut <code>Ctrl+Shift+X</code>).</li>
+<li>Search for <code>R</code>.</li>
+<li>Click on the Install button.</li>
+</ul>
+<p>Remember, you must install the R extension while you are connected to your WSL environment, not on your local Windows VSCode.</p>
+</section>
+<section id="start-using-r-in-vscode" class="level3" data-number="6.3.4">
+<h3 data-number="6.3.4" class="anchored" data-anchor-id="start-using-r-in-vscode"><span class="header-section-number">6.3.4</span> Start Using R in VSCode</h3>
+<p>You can now write and run R code using VSCode in your WSL environment. You can create a new R script by creating a new file with the <code>.R</code> extension.</p>
+<p>To run the code, you can use the <code>Ctrl+Enter</code> shortcut to run the current line or selected lines in the R terminal.</p>
+<p>Remember, since this setup is running within WSL, it can interact with any other software or files that are also within your WSL environment. This means you can easily incorporate other Linux-based tools into your R projects.</p>
+<blockquote class="blockquote">
+<p>For more shortcuts and information, visit: <a href="https://code.visualstudio.com/docs/remote/wsl">https://code.visualstudio.com/docs/remote/wsl</a></p>
+</blockquote>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -527,13 +667,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./macSetupM1Full.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">macOS full setup for M1/2 machines</span></span>
+      <a href="./windowsSetup.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Windows Setup for WSL2</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./windowsSetup.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Windows Setup for WSL2</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./whyCLI.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Why CLI (command line interface)?</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
