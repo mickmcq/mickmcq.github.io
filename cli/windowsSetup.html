@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Welcome to the Command Line - 4&nbsp; macOS minimal setup for M1/2 machines</title>
+<title>Welcome to the Command Line - 5&nbsp; Windows Setup for WSL2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./windowsSetup.html" rel="next">
-<link href="./macSetupM1Full.html" rel="prev">
+<link href="./rOnWSL.html" rel="next">
+<link href="./macSetupM1Minimal.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -90,7 +124,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./macSetupM1Minimal.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">macOS minimal setup for M1/2 machines</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./windowsSetup.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Windows Setup for WSL2</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -141,13 +175,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./macSetupM1Minimal.html" class="sidebar-item-text sidebar-link active">
+  <a href="./macSetupM1Minimal.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">macOS minimal setup for M1/2 machines</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./windowsSetup.html" class="sidebar-item-text sidebar-link">
+  <a href="./windowsSetup.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Windows Setup for WSL2</span></span></a>
   </div>
 </li>
@@ -265,14 +299,36 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#check-and-update-microsoft-account" id="toc-check-and-update-microsoft-account" class="nav-link active" data-scroll-target="#check-and-update-microsoft-account"><span class="header-section-number">5.1</span> Check and Update Microsoft Account:</a></li>
+  <li><a href="#open-file-explorer-and-make-file-extensions-visible" id="toc-open-file-explorer-and-make-file-extensions-visible" class="nav-link" data-scroll-target="#open-file-explorer-and-make-file-extensions-visible"><span class="header-section-number">5.2</span> Open File Explorer and make File extensions visible:</a></li>
+  <li><a href="#install-windows-subsystem-for-linux-wsl-2" id="toc-install-windows-subsystem-for-linux-wsl-2" class="nav-link" data-scroll-target="#install-windows-subsystem-for-linux-wsl-2"><span class="header-section-number">5.3</span> Install Windows Subsystem for Linux (WSL) 2:</a></li>
+  <li><a href="#install-the-ubuntu-linux-distribution" id="toc-install-the-ubuntu-linux-distribution" class="nav-link" data-scroll-target="#install-the-ubuntu-linux-distribution"><span class="header-section-number">5.4</span> Install the Ubuntu Linux Distribution:</a></li>
+  <li><a href="#set-up-your-linux-distribution" id="toc-set-up-your-linux-distribution" class="nav-link" data-scroll-target="#set-up-your-linux-distribution"><span class="header-section-number">5.5</span> Set Up Your Linux Distribution:</a>
+  <ul class="collapse">
+  <li><a href="#update-and-upgrade" id="toc-update-and-upgrade" class="nav-link" data-scroll-target="#update-and-upgrade"><span class="header-section-number">5.5.1</span> Update and Upgrade:</a></li>
+  <li><a href="#install-git" id="toc-install-git" class="nav-link" data-scroll-target="#install-git"><span class="header-section-number">5.5.2</span> Install Git:</a></li>
+  </ul></li>
+  <li><a href="#install-visual-studio-code-vs-code" id="toc-install-visual-studio-code-vs-code" class="nav-link" data-scroll-target="#install-visual-studio-code-vs-code"><span class="header-section-number">5.6</span> Install Visual Studio Code (VS Code):</a></li>
+  <li><a href="#optional-steps" id="toc-optional-steps" class="nav-link" data-scroll-target="#optional-steps"><span class="header-section-number">5.7</span> Optional Steps</a>
+  <ul class="collapse">
+  <li><a href="#configure-windows-terminal-profiles" id="toc-configure-windows-terminal-profiles" class="nav-link" data-scroll-target="#configure-windows-terminal-profiles"><span class="header-section-number">5.7.1</span> Configure Windows Terminal Profiles:</a></li>
+  <li><a href="#using-bash-on-windows-terminal" id="toc-using-bash-on-windows-terminal" class="nav-link" data-scroll-target="#using-bash-on-windows-terminal"><span class="header-section-number">5.7.2</span> Using bash on Windows Terminal</a></li>
+  <li><a href="#set-up-an-ssh-key-through-wsl-terminal-if-needed" id="toc-set-up-an-ssh-key-through-wsl-terminal-if-needed" class="nav-link" data-scroll-target="#set-up-an-ssh-key-through-wsl-terminal-if-needed"><span class="header-section-number">5.7.3</span> Set Up an SSH Key through WSL terminal (if needed):</a></li>
+  <li><a href="#verify-your-setup" id="toc-verify-your-setup" class="nav-link" data-scroll-target="#verify-your-setup"><span class="header-section-number">5.7.4</span> Verify Your Setup:</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">macOS minimal setup for M1/2 machines</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Windows Setup for WSL2</span></h1>
 </div>
 
 
@@ -287,9 +343,118 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>to be added</p>
+<section id="check-and-update-microsoft-account" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="check-and-update-microsoft-account"><span class="header-section-number">5.1</span> Check and Update Microsoft Account:</h2>
+<p>Ensure you have a Microsoft Account for better synchronization and access to various Microsoft services. If you don’t have one, you can create it at <a href="https://account.microsoft.com/">https://account.microsoft.com/</a>.</p>
+</section>
+<section id="open-file-explorer-and-make-file-extensions-visible" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="open-file-explorer-and-make-file-extensions-visible"><span class="header-section-number">5.2</span> Open File Explorer and make File extensions visible:</h2>
+<p>Open File Explorer. To see file extensions in File Explorer, follow these steps:</p>
+<ul>
+<li>Go to the “View” tab in the File Explorer menu.</li>
+<li>Check the “File name extensions” box to display file extensions.</li>
+</ul>
+</section>
+<section id="install-windows-subsystem-for-linux-wsl-2" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="install-windows-subsystem-for-linux-wsl-2"><span class="header-section-number">5.3</span> Install Windows Subsystem for Linux (WSL) 2:</h2>
+<p>It is recommended to use the enhanced WSL (version 2) for setting up RStudio (local/server) on Windows 10 or higher. You can check your Windows version by pressing the <strong>Windows logo key + R</strong>, typing <code>winver</code>, and hitting <strong>Enter</strong>.</p>
+<p>To enable the use of Linux command-line tools on Windows, you can install WSL2. Here’s how:</p>
+<ul>
+<li>Open PowerShell as an administrator (search for “PowerShell” in the Start menu, right-click, and select “Run as administrator”).</li>
+<li>Run the following command to enable WSL:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">dism.exe</span> /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Enable the “Virtual Machine Platform” feature by running the following command in the PowerShell:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">dism.exe</span> /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Restart your computer when prompted.</li>
+<li>Open “Windows PowerShell” with admin privileges again.</li>
+<li>Set WSL 2 as your default version using the following command in the PowerShell:</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--set-default-version</span> 2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Download and install the latest WSL2 Linux kernel if you see the following message:</li>
+</ul>
+<blockquote class="blockquote">
+<p>WSL2 requires an update to its kernel component. For information please visit <a href="https://aka.ms/wsl2kernel">https://aka.ms/wsl2kernel</a>.</p>
+</blockquote>
+</section>
+<section id="install-the-ubuntu-linux-distribution" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="install-the-ubuntu-linux-distribution"><span class="header-section-number">5.4</span> Install the Ubuntu Linux Distribution:</h2>
+<p>WSL2 allows you to run various Linux distributions. To install Ubuntu, run the following command in Windows PowerShell:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--install</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We recommend using Ubuntu 20.04 which is compatible with the RStudio Server which can be found here: <a href="https://aka.ms/wslubuntu2004">https://aka.ms/wslubuntu2004</a></p>
+</section>
+<section id="set-up-your-linux-distribution" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="set-up-your-linux-distribution"><span class="header-section-number">5.5</span> Set Up Your Linux Distribution:</h2>
+<p>Once the WSL instance prompts for a username, provide a username followed by password that will be used for both your WSL distribution and RStudio Server authentication later. You can now close the WSL instance by typing the following command:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">exit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="update-and-upgrade" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="update-and-upgrade"><span class="header-section-number">5.5.1</span> Update and Upgrade:</h3>
+<p>In your WSL terminal, update and upgrade the installed packages using the following commands:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt upgrade</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>apt update</code> command updates the list of available packages and their versions, but it does not install or upgrade any packages. The <code>apt upgrade</code> command installs newer versions of the packages you have.</p>
+</section>
+<section id="install-git" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="install-git"><span class="header-section-number">5.5.2</span> Install Git:</h3>
+<p>To install Git, use the package manager of your Linux distribution. For example, with Ubuntu, run:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="install-visual-studio-code-vs-code" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="install-visual-studio-code-vs-code"><span class="header-section-number">5.6</span> Install Visual Studio Code (VS Code):</h2>
+<p>You can download and install VS Code from the official website at <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a>.</p>
+</section>
+<section id="optional-steps" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="optional-steps"><span class="header-section-number">5.7</span> Optional Steps</h2>
+<section id="configure-windows-terminal-profiles" class="level3" data-number="5.7.1">
+<h3 data-number="5.7.1" class="anchored" data-anchor-id="configure-windows-terminal-profiles"><span class="header-section-number">5.7.1</span> Configure Windows Terminal Profiles:</h3>
+<p>Customize your Windows Terminal profiles to include WSL distributions for a better command-line experience.</p>
+</section>
+<section id="using-bash-on-windows-terminal" class="level3" data-number="5.7.2">
+<h3 data-number="5.7.2" class="anchored" data-anchor-id="using-bash-on-windows-terminal"><span class="header-section-number">5.7.2</span> Using bash on Windows Terminal</h3>
+<p>Windows Terminal supports <strong>bash</strong> as a default shell. To set up bash as the default shell in Windows Terminal, you need to create a new profile or modify an existing one. Here are the steps:</p>
+<ul>
+<li>Open Windows Terminal by searching for it in the Start menu.</li>
+<li>Click on the drop down menu icon in the title bar of the Windows Terminal and select “Settings”. Alternatively, you can press <code>Ctrl +</code>, to open the settings.</li>
+<li>In the Settings, find the “Profiles” section on the left sidebar. Here, you’ll see a list of profiles for different shells.</li>
+<li>Scroll down to the “list” section under “profiles” and add a new profile for bash. Here is an example profile configuration for bash:</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"guid"</span><span class="ex">:</span> <span class="st">"{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}"</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"hidden"</span><span class="ex">:</span> false,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span><span class="ex">:</span> <span class="st">"Ubuntu"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"source"</span><span class="ex">:</span> <span class="st">"Windows.Terminal.Wsl"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"startingDirectory"</span><span class="ex">:</span> <span class="st">"//wsl$/Ubuntu-20.04/home/yourusername"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"icon"</span><span class="ex">:</span> <span class="st">"C:</span><span class="dt">\\</span><span class="st">Path</span><span class="dt">\\</span><span class="st">To</span><span class="dt">\\</span><span class="st">Your</span><span class="dt">\\</span><span class="st">Icon</span><span class="dt">\\</span><span class="st">ubuntu.png"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"colorScheme"</span><span class="ex">:</span> <span class="st">"One Half Dark"</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"fontFace"</span><span class="ex">:</span> <span class="st">"Consolas"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"fontSize"</span><span class="ex">:</span> 12</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Replace <code>yourusername</code> with your actual WSL username.</p>
+<p>You can change other settings like the icon, color scheme, font face, and size according to your preferences.</p>
+<ul>
+<li>Save the changes to the settings file.</li>
+<li>Close and reopen Windows Terminal for the changes to take effect.</li>
+</ul>
+<blockquote class="blockquote">
+<p>Note: The actual GUID, startingDirectory, and other settings may vary based on your specific WSL distribution and preferences. Adjust them accordingly.</p>
+</blockquote>
+</section>
+<section id="set-up-an-ssh-key-through-wsl-terminal-if-needed" class="level3" data-number="5.7.3">
+<h3 data-number="5.7.3" class="anchored" data-anchor-id="set-up-an-ssh-key-through-wsl-terminal-if-needed"><span class="header-section-number">5.7.3</span> Set Up an SSH Key through WSL terminal (if needed):</h3>
+<p>If you use Git or need to connect to remote servers securely, set up an SSH key using the <code>ssh-keygen</code> command within WSL.</p>
+</section>
+<section id="verify-your-setup" class="level3" data-number="5.7.4">
+<h3 data-number="5.7.4" class="anchored" data-anchor-id="verify-your-setup"><span class="header-section-number">5.7.4</span> Verify Your Setup:</h3>
+<p>Make sure everything is working as expected by testing your CLI commands, Git, and any other tools you’ve installed.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -527,13 +692,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./macSetupM1Full.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">macOS full setup for M1/2 machines</span></span>
+      <a href="./macSetupM1Minimal.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">macOS minimal setup for M1/2 machines</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./windowsSetup.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Windows Setup for WSL2</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./rOnWSL.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R, RStudio and VSCode on WSL</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
