@@ -420,7 +420,7 @@ F-statistic: 9.722 on 1 and 3 DF,  p-value: 0.05256</code></pre>
 <p>The third value output by <code>summary()</code> is the <em>coefficients</em> table. The <span class="math inline">\(b\)</span> values are listed in the <code>Estimate</code> column. Instead of being named <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> they are called (Intercept) and x. The remainder of this table consists of statistics about them. The second column is standard error, the third column is the <span class="math inline">\(t\)</span>-statistic, which is the ratio of the estimate to its standard error. The third column is the <span class="math inline">\(p\)</span>-value, which is the probability of seeing the preceding <span class="math inline">\(t\)</span>-statistic or a larger one if the null hypothesis is true. The null hypothesis here is that <span class="math inline">\(x\)</span> does not predict <span class="math inline">\(y\)</span>.</p>
 <p>By the way, the <span class="math inline">\(b\)</span> values are typically called betas, after the Greek letter <span class="math inline">\(\beta\)</span>. There can be dozen or hundreds of beta values or betas, depending on the field. For example, in commercial websites there are often hundreds of variables collected about each shopper. There is a subdiscipline of statistics and data science that studies the situation where the number of betas approaches the number of observations. (If the number of betas equals the number of observations, a perfect albeit useless prediction results. It’s perfect because one beta is assigned to each observation—explaining it perfectly—and useless because it won’t apply to any future set of observations.)</p>
 <p>The last column in the coefficents table contains the significance codes. In this case, <span class="math inline">\(x\)</span> gets a significance code of dot (.). Below the coefficients table is a legend for the significance codes. That tells us that dot means that the <span class="math inline">\(p\)</span>-value for <span class="math inline">\(x\)</span> is below 0.1. The blank in the other row tells us that the significance code for the intercept is less than 1, which it must be because probabilities can be no larger than 1.</p>
-<p>Below the coefficients table we see four important values expressed - Multiple R-squared, which is identical to <span class="math inline">\(r^2\)</span> above (but only identical if there is just one explanatory variable—it becomes more interesting later when we have multiple explanatory variables), - Adjusted R-squared, which we will discuss when we discuss multiple linear regression, - the <span class="math inline">\(F\)</span>-statistic, which we will also discuss under multiple linear regression, and - the <span class="math inline">\(p\)</span>-value of the <span class="math inline">\(F\)</span>-statistic.</p>
+<p>Below the coefficients table we see five important values expressed - Residual standard error, which is the square root of the expression RSS/df, where RSS is the residual sum of squares and df is the degrees of freedom, - Multiple R-squared, which is identical to <span class="math inline">\(r^2\)</span> above (but only identical if there is just one explanatory variable—it becomes more interesting later when we have multiple explanatory variables), - Adjusted R-squared, which we will discuss when we discuss multiple linear regression, - the <span class="math inline">\(F\)</span>-statistic, which we will also discuss under multiple linear regression, and - the <span class="math inline">\(p\)</span>-value of the <span class="math inline">\(F\)</span>-statistic.</p>
 <p>These latter values are all more interesting in the case of multiple linear regression. For simple linear regression we have enough information in the body of the coefficients table to make a judgment about whether the linear model <span class="math inline">\(y\sim x\)</span> is sufficient to explain a team’s wins. That judgment depends on whether we are being casual, in which case the model is sufficient, or whether we have money riding on it, in which case the model is just barely insufficient.</p>
 </section>
 <section id="assumptions" class="level3" data-number="9.2.4">
@@ -596,7 +596,8 @@ x           -0.01324184  1.293242</code></pre>
 <p><span class="math display">\[\hat{y}=b_0+b_1x_1+b_2x_2+\cdots+b_nx_n\]</span></p>
 <p>In R, we simply add the column names. For example, consider the built-in data frame <code>mtcars</code> where the outcome variable is <code>mpg</code>. We can construct a model of the relationship between <code>mpg</code> and two input variables we suspect of influencing <code>mpg</code> as follows.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(mtcars,<span class="fu">summary</span>(<span class="fu">lm</span>(mpg <span class="sc">~</span> hp<span class="sc">+</span>wt)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">with</span>(mtcars,<span class="fu">lm</span>(mpg <span class="sc">~</span> hp<span class="sc">+</span>wt))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -620,12 +621,51 @@ F-statistic: 69.21 on 2 and 29 DF,  p-value: 9.109e-12</code></pre>
 </div>
 </div>
 <p>The output looks a bit different now. First, there are 32 residuals, so the individual residuals are not listed. Instead, you see summary statistics for the residuals.</p>
-<p>Next, look at the coefficients table. There are three rows now, for the intercept, for hp, and for wt. Notice that all three have significance codes at the end of the row. Normally, you shouldn’t be concerned about the significance code for the intercept, but the other two are interesting. The code for hp is two stars, meaning that it is less than 0.01, while the code for wt is 1.12e-06, which is abbreviated scientific notation, meaning to take 1.12 and shift the decimal point six places to the left, giving 0.00000112 as the decimal equivalent.</p>
+<p>Next, look at the coefficients table. There are three rows now, for the intercept, for hp, and for wt. Notice that all three have significance codes at the end of the row. Normally, you shouldn’t be concerned about the significance code for the intercept, but the other two are interesting. The code for <code>hp</code> is two stars, meaning that it is less than 0.01, while the code for <code>wt</code> is three stars, meaning that it is less than 0.001. The <span class="math inline">\(p\)</span>-value of 1.12e-06, which is abbreviated scientific notation, means to take 1.12 and shift the decimal point six places to the left, giving 0.00000112 as the decimal equivalent.</p>
+<p>The residual standard error is 2.593 on 29 degrees of freedom. As mentioned before, the residual standard error (often abbreviated <span class="math inline">\(R\!S\!E\)</span>) is the square root of the expression formed by the ratio of the residual sum of squares (often abbreviated <span class="math inline">\(R\!S\!S\)</span>) divided by the degrees of freedom. Expressing this as a formula is as follows.</p>
+<p><span class="math display">\[R\!S\!E=\sqrt{\frac{R\!S\!S}{\text{df}}}\]</span></p>
+<p><span class="math inline">\(R\!S\!S\)</span> can be found in R for the above model as follows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>(rss <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">residuals</span>(m)<span class="sc">^</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 195.0478</code></pre>
+</div>
+</div>
+<p>Similarly, <span class="math inline">\(R\!S\!E\)</span> can be found in R for the above model as follows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>(rse <span class="ot">&lt;-</span> <span class="fu">sqrt</span>( <span class="fu">sum</span>(<span class="fu">residuals</span>(m)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> m<span class="sc">$</span>df.residual ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.593412</code></pre>
+</div>
+</div>
+<p>The mathematical formulas for these values are as follows.</p>
+<p><span class="math display">\[\begin{align*}
+R\!S\!S&amp;=\sum_{i=1}^{n}(y_i-\hat{y}_{i})^2 \\
+     &amp;=S\!S_{yy}-\hat{\beta}_1S\!S_{xy}
+\end{align*}\]</span></p>
+<p>The term <span class="math inline">\(S\!S_{xy}\)</span> in the above formula is only relevant for simple linear regression with one predictor, where <span class="math inline">\(S\!S_{xy}= \sum(x_i-\overline{x})(y_i-\overline{y})\)</span>. A formula for <span class="math inline">\(\hat{\beta}_1\)</span> in that case would be the following.</p>
+<p><span class="math display">\[\hat{\beta}_1=\frac{S\!S_{xy}}{S\!S_{xx}}\]</span></p>
+<p><span class="math inline">\(S\!S_{xx}\)</span> in that case would be the sum of squares of deviations of the predictors from their mean: <span class="math inline">\(\sum(x_i-\overline{x})^2\)</span>.</p>
+<p><span class="math display">\[R\!S\!E=\sqrt{\frac{\sum_{i=1}^{n}(y_i-\hat{y}_{i})^2}{n-(k+1)}} \]</span></p>
+<p>where <span class="math inline">\(k\)</span> is the number of parameters being estimated. For example, in the above model <code>wt</code> and <code>hp</code> are the two parameters being estimated.</p>
 <p>The Multiple R-squared is 82 percent and the Adjusted R-squared is 81 percent. This is a good sign because the Adjusted R-squared is adjusted for the case where you have included too many variables on the right hand side of the linear model formula. If it’s similar to Multiple R-squared, that means you probably have not included too many variables.</p>
+<p><span class="math display">\[ R^2=\frac{S\!S_{yy}-R\!S\!S}{S\!S_{yy}}
+   =1-\frac{R\!S\!S}{S\!S_{yy}} \]</span></p>
+<p><span class="math display">\[ R^2_a=1-\left(\frac{n-1}{n-(k+1)}\right)(1-R^2) \]</span></p>
 <p>The <span class="math inline">\(F\)</span>-statistic is important now, because of its interpretation. The <span class="math inline">\(F\)</span>-statistic tells you that at least one of the variables is significant, taken in combination with the others. The <span class="math inline">\(t\)</span>-statistics only give the individual contribution of the variables, so it’s possible to have a significant <span class="math inline">\(t\)</span>-statistic without a significant <span class="math inline">\(F\)</span>-statistic. The first thing to check in regression output is the <span class="math inline">\(F\)</span>-statistic. If it’s too small, i.e., has a large <span class="math inline">\(p\)</span>-value, try a different model.</p>
+<p><span class="math display">\[F_c=\frac{(S\!S_{yy}-R\!S\!S)/k}{R\!S\!S/[n-(k+1)]}
+=\frac{R^2/k}{(1-R^2)/[n-(k+1)]}\]</span></p>
+<p>The <span class="math inline">\(c\)</span> subscript after <span class="math inline">\(F\)</span> simply signifies that it is the computed value of <span class="math inline">\(F\)</span>, the one you see in the regression table. This is to contrast it with <span class="math inline">\(F_\alpha\)</span>, the value to which you compare it in making the hypothesis that one or more variables in the model are significant. You don’t need to compute <span class="math inline">\(F_\alpha\)</span> since the <span class="math inline">\(p\)</span>-value associated with <span class="math inline">\(F_c\)</span> gives you enough information to reject or fail to reject the null hypothesis that none of the variables in the model are significant. If you want to calculate it anyway, you can say the following in R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qf</span>(<span class="fl">0.05</span>,<span class="dv">2</span>,<span class="dv">29</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.327654</code></pre>
+</div>
+</div>
+<p>The above calculation assumes you choose 0.05 as the alpha level and that there are <span class="math inline">\(k=2\)</span> parameters estimated in the model and that <span class="math inline">\(n-(k+1)=29\)</span>. These are the numerator and denominator degrees of freedom.</p>
 <p>You might think that including more variables results in a strictly better model. This is not true for reasons to be explored later. For now, try including all the variables in the data frame by the shorthand of a dot on the right hand side of the formula.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(mpg <span class="sc">~</span> ., <span class="at">data=</span>mtcars))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(mpg <span class="sc">~</span> ., <span class="at">data=</span>mtcars))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -659,16 +699,16 @@ F-statistic: 13.93 on 10 and 21 DF,  p-value: 3.793e-07</code></pre>
 <p>You might find this output a bit surprising. You know from the <span class="math inline">\(F\)</span>-statistic that at least one of the variables is contributing significantly to the model but individually, the contributions seem minimal based on the small <span class="math inline">\(t\)</span>-statistics. The model is only a bit better, explaining 86 percent of the variability in the data, and the adjusted <span class="math inline">\(R^2\)</span> value hasn’t improved at all, suggesting that you may have too many variables.</p>
 <p>At this stage, you would probably remove some variables, perhaps by trial and error. How would you do this? You could start by running linear models over and over again. For example, you could construct one linear model for each variable and see which one has the largest contribution. Then you could try adding a second variable from among the remaining variables, and do that with each remaining variable, until you find one that adds the Largest contribution. You could continue in this way until you’ve accounted for all the variables, but would take forever to do. Luckily, R has functions to assist with this process and run regressions for you over and over again. I’m going to demonstrate one of them now for which we have to add the leaps package. I should point out that this involves doing some machine learning which is not strictly in the scope of this class, but will save you a lot of time.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaps)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>train.control <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">"cv"</span>, <span class="at">number =</span> <span class="dv">10</span>)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">train</span>(mpg <span class="sc">~</span> ., <span class="at">data =</span> mtcars,</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">method =</span> <span class="st">"leapBackward"</span>,</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">tuneGrid =</span> <span class="fu">data.frame</span>(<span class="at">nvmax =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>),</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">trControl =</span> train.control</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaps)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>train.control <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">"cv"</span>, <span class="at">number =</span> <span class="dv">10</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">train</span>(mpg <span class="sc">~</span> ., <span class="at">data =</span> mtcars,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">method =</span> <span class="st">"leapBackward"</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">tuneGrid =</span> <span class="fu">data.frame</span>(<span class="at">nvmax =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>),</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">trControl =</span> train.control</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>                    )</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   nvmax     RMSE  Rsquared      MAE   RMSESD RsquaredSD    MAESD
 1      1 3.528852 0.8077208 3.015705 1.765926  0.2320177 1.529370
@@ -682,11 +722,11 @@ F-statistic: 13.93 on 10 and 21 DF,  p-value: 3.793e-07</code></pre>
 9      9 3.330123 0.8632282 2.751539 1.385199  0.1600841 1.111120
 10    10 3.286242 0.8588116 2.715828 1.362054  0.1739366 1.120088</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>bestTune[,<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>bestTune[,<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m<span class="sc">$</span>finalModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m<span class="sc">$</span>finalModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Subset selection object
 10 Variables  (and intercept)
@@ -707,12 +747,12 @@ Selection Algorithm: backward
 1  ( 1 ) " " " "  " " " "  "*" " "  " " " " " "  " " 
 2  ( 1 ) " " " "  " " " "  "*" "*"  " " " " " "  " " </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m<span class="sc">$</span>finalModel,m<span class="sc">$</span>bestTune[,<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m<span class="sc">$</span>finalModel,m<span class="sc">$</span>bestTune[,<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)          wt        qsec 
   19.746223   -5.047982    0.929198 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(mpg<span class="sc">~</span>wt<span class="sc">+</span>qsec,<span class="at">data=</span>mtcars))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(mpg<span class="sc">~</span>wt<span class="sc">+</span>qsec,<span class="at">data=</span>mtcars))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -738,12 +778,12 @@ F-statistic: 69.03 on 2 and 29 DF,  p-value: 9.395e-12</code></pre>
 <p>The preceding code uses a process of backward selection of models and arrives at a best model with two variables. Backward selection starts with all the variables and gradually removes the worst one at each iteration.</p>
 <p>The following code uses a process of sequential selection, which combines both forward and backward. It takes longer to run, but can result in a better model. In this case, it chooses four variables.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">train</span>(mpg <span class="sc">~</span> ., <span class="at">data =</span> mtcars,</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">method =</span> <span class="st">"leapSeq"</span>,</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">tuneGrid =</span> <span class="fu">data.frame</span>(<span class="at">nvmax =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>),</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">trControl =</span> train.control</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">train</span>(mpg <span class="sc">~</span> ., <span class="at">data =</span> mtcars,</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">method =</span> <span class="st">"leapSeq"</span>,</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">tuneGrid =</span> <span class="fu">data.frame</span>(<span class="at">nvmax =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>),</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">trControl =</span> train.control</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>                    )</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   nvmax     RMSE  Rsquared      MAE    RMSESD RsquaredSD     MAESD
 1      1 3.338459 0.9001241 2.890096 1.0951033  0.1013687 0.9516300
@@ -757,11 +797,11 @@ F-statistic: 69.03 on 2 and 29 DF,  p-value: 9.395e-12</code></pre>
 9      9 3.022897 0.9194308 2.609043 1.1395931  0.1111588 1.0913428
 10    10 3.257194 0.8988626 2.811998 1.3089386  0.1423077 1.2115681</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>bestTune[,<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>bestTune[,<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m<span class="sc">$</span>finalModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m<span class="sc">$</span>finalModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Subset selection object
 10 Variables  (and intercept)
@@ -784,12 +824,12 @@ Selection Algorithm: 'sequential replacement'
 3  ( 1 ) "*" " "  "*" " "  "*" " "  " " " " " "  " " 
 4  ( 1 ) " " " "  "*" " "  "*" "*"  " " "*" " "  " " </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m<span class="sc">$</span>finalModel,m<span class="sc">$</span>bestTune[,<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(m<span class="sc">$</span>finalModel,m<span class="sc">$</span>bestTune[,<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)          hp          wt        qsec          am 
 17.44019110 -0.01764654 -3.23809682  0.81060254  2.92550394 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(mpg<span class="sc">~</span>hp<span class="sc">+</span>wt<span class="sc">+</span>qsec<span class="sc">+</span>am,<span class="at">data=</span>mtcars))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(mpg<span class="sc">~</span>hp<span class="sc">+</span>wt<span class="sc">+</span>qsec<span class="sc">+</span>am,<span class="at">data=</span>mtcars))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -821,10 +861,10 @@ F-statistic: 40.74 on 4 and 27 DF,  p-value: 4.589e-11</code></pre>
 <h2 data-number="9.5" class="anchored" data-anchor-id="feature-selection-with-qualitative-variables"><span class="header-section-number">9.5</span> Feature selection with qualitative variables</h2>
 <p>Unfortunately, the <code>leaps</code> package is not much help with qualitative variables. Another approach is to use the <code>olsrr</code> package as follows.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(olsrr)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> carat <span class="sc">+</span> cut <span class="sc">+</span> color <span class="sc">+</span> clarity, <span class="at">data =</span> diamonds)</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="fu">ols_step_best_subset</span>(m)</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>k</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(olsrr)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> carat <span class="sc">+</span> cut <span class="sc">+</span> color <span class="sc">+</span> clarity, <span class="at">data =</span> diamonds)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="fu">ols_step_best_subset</span>(m)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>k</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       Best Subsets Regression        
 --------------------------------------
@@ -854,12 +894,12 @@ AIC: Akaike Information Criteria
  HSP: Hocking's Sp 
  APC: Amemiya Prediction Criteria </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(k)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(k)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week09_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+<p><img src="week09_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="cell-output-display">
-<p><img src="week09_files/figure-html/unnamed-chunk-15-2.png" class="img-fluid" width="672"></p>
+<p><img src="week09_files/figure-html/unnamed-chunk-18-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -867,7 +907,7 @@ AIC: Akaike Information Criteria
 <h2 data-number="9.6" class="anchored" data-anchor-id="note-on-ordered-factors"><span class="header-section-number">9.6</span> Note on ordered factors</h2>
 <p>When you conduct a linear regression, you are generally looking for the linear effects of input variables on output variables. For example, consider the <code>diamonds</code> data frame that is automatically installed with <code>ggplot</code>. The <code>price</code> output variable may be influenced by a number of input variables, such as <code>cut</code>, <code>carat</code>, and <code>color</code>. It happens that R interprets two of these as ordered factors and does something interesting with them. Let’s conduct a regression of <code>price</code> on <code>cut</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(price<span class="sc">~</span>cut,<span class="at">data=</span>diamonds))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(price<span class="sc">~</span>cut,<span class="at">data=</span>diamonds))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -894,7 +934,7 @@ F-statistic: 175.7 on 4 and 53935 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>Note that the output includes four independent variables instead of just <code>cut</code>. The first one, <code>cut.L</code>, represents <code>cut</code>. The <code>L</code> stands for <em>linear</em> and estimates the linear effect of <code>cut</code> on <code>price</code>. The other three are completely independent of the linear effect of <code>cut</code> on <code>price</code>. The next, <code>cut.Q</code>, estimates the quadratic effect of <code>cut</code> on <code>price</code>. The third, <code>cut.C</code>, estimates the cubic effect of <code>cut</code> on <code>price</code>. The fourth, <code>cut^4</code> estimates the effect of a fourth degree polynomial contrast of <code>cut</code> on <code>price</code>. Together, all four of these terms are orthogonal polynomial contrasts. They are chosen by R to be independent of each other since a mixture could reveal spurious effects. Why did R stop at four such contrasts? Let’s examine <code>cut</code> further.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(diamonds<span class="sc">$</span>cut)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(diamonds<span class="sc">$</span>cut)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
      Fair      Good Very Good   Premium     Ideal 
@@ -903,8 +943,8 @@ F-statistic: 175.7 on 4 and 53935 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>You can see that <code>cut</code> has five levels. R automatically chooses <span class="math inline">\(\text{level}-1\)</span> polynomial contrasts when presented with an ordered factor. How can you make R stop doing this if you don’t care about the nonlinear effects? You can present the factor as unordered without altering the factor as it is stored. Then your regression output will list one term for each level of the factor, estimating the effect of that level on the output variable.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>diamonds<span class="sc">$</span>cut <span class="ot">&lt;-</span> <span class="fu">factor</span>(diamonds<span class="sc">$</span>cut,<span class="at">ordered=</span><span class="cn">FALSE</span>)</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(price<span class="sc">~</span>cut,<span class="at">data=</span>diamonds))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>diamonds<span class="sc">$</span>cut <span class="ot">&lt;-</span> <span class="fu">factor</span>(diamonds<span class="sc">$</span>cut,<span class="at">ordered=</span><span class="cn">FALSE</span>)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(price<span class="sc">~</span>cut,<span class="at">data=</span>diamonds))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -931,7 +971,7 @@ F-statistic: 175.7 on 4 and 53935 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>By the way, you can also say it in one line as:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(price<span class="sc">~</span><span class="fu">factor</span>(cut,<span class="at">ordered=</span>F),<span class="at">data=</span>diamonds))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(price<span class="sc">~</span><span class="fu">factor</span>(cut,<span class="at">ordered=</span>F),<span class="at">data=</span>diamonds))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
