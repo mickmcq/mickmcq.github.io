@@ -2559,10 +2559,10 @@ P value adjustment: tukey method for comparing a family of 3 estimates </code></
 <div class="cell-output cell-output-stdout">
 <pre><code>Chisq Test: 
 P-value adjustment method: holm
-                             Value Df    Chisq Pr(&gt;Chisq)    
-Galaxy-iPhone :  Sit-Stand  -5.083  1   0.5584     0.4549    
-Galaxy-iPhone :   Sit-Walk -76.250  1 125.6340     &lt;2e-16 ***
-Galaxy-iPhone : Stand-Walk -71.167  1 109.4412     &lt;2e-16 ***
+                             Value     SE Df    Chisq Pr(&gt;Chisq)    
+Galaxy-iPhone :  Sit-Stand  -5.083 6.8028  1   0.5584     0.4549    
+Galaxy-iPhone :   Sit-Walk -76.250 6.8028  1 125.6340     &lt;2e-16 ***
+Galaxy-iPhone : Stand-Walk -71.167 6.8028  1 109.4412     &lt;2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -2967,8 +2967,8 @@ Signif. codes:   0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 </code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Chisq Test: 
 P-value adjustment method: holm
-                                      Value Df  Chisq Pr(&gt;Chisq)    
-negative-positive : Facebook-Twitter -29.25  1 11.318  0.0007678 ***
+                                      Value     SE Df  Chisq Pr(&gt;Chisq)    
+negative-positive : Facebook-Twitter -29.25 8.6946  1 11.318  0.0007678 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -3876,7 +3876,7 @@ alternative hypothesis: true mu is not equal to 0</code></pre>
 <p>Yahoo required 172.40 searches on average.</p>
 <p>Find Mauchly’s <span class="math inline">\(W\)</span> criterion (four digits) as a value of violation of sphericity.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb504"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb504-1"><a href="#cb504-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. library(ez)</span></span>
+<div class="sourceCode cell-code" id="cb504"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb504-1"><a href="#cb504-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ez)</span>
 <span id="cb504-2"><a href="#cb504-2" aria-hidden="true" tabindex="-1"></a>m <span class="ot">=</span> <span class="fu">ezANOVA</span>(<span class="at">dv=</span>Searches, <span class="at">within=</span>Order, <span class="at">wid=</span>Subject, <span class="at">data=</span>ws3)</span>
 <span id="cb504-3"><a href="#cb504-3" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>Mauchly</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
