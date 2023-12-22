@@ -446,11 +446,11 @@ div.csl-indent {
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">today</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-12-20"</code></pre>
+<pre><code>[1] "2023-12-22"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-12-20 11:07:21 CST"</code></pre>
+<pre><code>[1] "2023-12-22 16:49:58 CST"</code></pre>
 </div>
 </div>
 <p>Suppose you have a comma-separated-values (csv) file containing ISO-formatted dates or date-times. It’s automatically recognized.</p>
@@ -627,14 +627,14 @@ div.csl-indent {
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>h_age <span class="ot">&lt;-</span> <span class="fu">today</span>() <span class="sc">-</span> <span class="fu">ymd</span>(<span class="st">"1979-10-14"</span>)</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>h_age</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 16138 days</code></pre>
+<pre><code>Time difference of 16140 days</code></pre>
 </div>
 </div>
 <p>The <code>lubridate</code> package provides a construct called <em>duration</em>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.duration</span>(h_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "1394323200s (~44.18 years)"</code></pre>
+<pre><code>[1] "1394496000s (~44.19 years)"</code></pre>
 </div>
 </div>
 <p>There are numerous duration constructors.</p>
@@ -1594,12 +1594,12 @@ AirTran Airways Corporation        Alaska Airlines Inc.
 <span id="cb160-3"><a href="#cb160-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from majors"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             major  Dept Faculty
-1             math     A      15
-2          biology     B      28
-3      engineering     C      19
-4 computer science     D      12
-5          history     E      11
-6     architecture Other      14</code></pre>
+1             math     A      13
+2          biology     B      16
+3      engineering     C      27
+4 computer science     D      16
+5          history     E      19
+6     architecture Other      11</code></pre>
 </div>
 </div>
 </section>
@@ -1857,7 +1857,7 @@ AirTran Airways Corporation        Alaska Airlines Inc.
 <span id="cb202-2"><a href="#cb202-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select Dept from majors where Faculty = (select max(Faculty) from majors)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Dept
-1    B</code></pre>
+1    C</code></pre>
 </div>
 </div>
 </section>
@@ -1869,51 +1869,51 @@ AirTran Airways Corporation        Alaska Airlines Inc.
 <span id="cb204-3"><a href="#cb204-3" aria-hidden="true" tabindex="-1"></a><span class="st">      inner join majors on ucb.Dept = majors.Dept"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Admit Gender Dept Freq            major Dept Faculty
-1  Admitted   Male    A  512             math    A      15
-2  Rejected   Male    A  313             math    A      15
-3  Admitted Female    A   89             math    A      15
-4  Rejected Female    A   19             math    A      15
-5  Admitted   Male    B  353          biology    B      28
-6  Rejected   Male    B  207          biology    B      28
-7  Admitted Female    B   17          biology    B      28
-8  Rejected Female    B    8          biology    B      28
-9  Admitted   Male    C  120      engineering    C      19
-10 Rejected   Male    C  205      engineering    C      19
-11 Admitted Female    C  202      engineering    C      19
-12 Rejected Female    C  391      engineering    C      19
-13 Admitted   Male    D  138 computer science    D      12
-14 Rejected   Male    D  279 computer science    D      12
-15 Admitted Female    D  131 computer science    D      12
-16 Rejected Female    D  244 computer science    D      12
-17 Admitted   Male    E   53          history    E      11
-18 Rejected   Male    E  138          history    E      11
-19 Admitted Female    E   94          history    E      11
-20 Rejected Female    E  299          history    E      11</code></pre>
+1  Admitted   Male    A  512             math    A      13
+2  Rejected   Male    A  313             math    A      13
+3  Admitted Female    A   89             math    A      13
+4  Rejected Female    A   19             math    A      13
+5  Admitted   Male    B  353          biology    B      16
+6  Rejected   Male    B  207          biology    B      16
+7  Admitted Female    B   17          biology    B      16
+8  Rejected Female    B    8          biology    B      16
+9  Admitted   Male    C  120      engineering    C      27
+10 Rejected   Male    C  205      engineering    C      27
+11 Admitted Female    C  202      engineering    C      27
+12 Rejected Female    C  391      engineering    C      27
+13 Admitted   Male    D  138 computer science    D      16
+14 Rejected   Male    D  279 computer science    D      16
+15 Admitted Female    D  131 computer science    D      16
+16 Rejected Female    D  244 computer science    D      16
+17 Admitted   Male    E   53          history    E      19
+18 Rejected   Male    E  138          history    E      19
+19 Admitted Female    E   94          history    E      19
+20 Rejected Female    E  299          history    E      19</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb206"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb206-1"><a href="#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. join the table on the left with resultant nulls's on the right table</span></span>
 <span id="cb206-2"><a href="#cb206-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from ucb left join majors on ucb.Dept = majors.Dept"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Admit Gender Dept Freq            major Dept Faculty
-1  Admitted   Male    A  512             math    A      15
-2  Rejected   Male    A  313             math    A      15
-3  Admitted Female    A   89             math    A      15
-4  Rejected Female    A   19             math    A      15
-5  Admitted   Male    B  353          biology    B      28
-6  Rejected   Male    B  207          biology    B      28
-7  Admitted Female    B   17          biology    B      28
-8  Rejected Female    B    8          biology    B      28
-9  Admitted   Male    C  120      engineering    C      19
-10 Rejected   Male    C  205      engineering    C      19
-11 Admitted Female    C  202      engineering    C      19
-12 Rejected Female    C  391      engineering    C      19
-13 Admitted   Male    D  138 computer science    D      12
-14 Rejected   Male    D  279 computer science    D      12
-15 Admitted Female    D  131 computer science    D      12
-16 Rejected Female    D  244 computer science    D      12
-17 Admitted   Male    E   53          history    E      11
-18 Rejected   Male    E  138          history    E      11
-19 Admitted Female    E   94          history    E      11
-20 Rejected Female    E  299          history    E      11
+1  Admitted   Male    A  512             math    A      13
+2  Rejected   Male    A  313             math    A      13
+3  Admitted Female    A   89             math    A      13
+4  Rejected Female    A   19             math    A      13
+5  Admitted   Male    B  353          biology    B      16
+6  Rejected   Male    B  207          biology    B      16
+7  Admitted Female    B   17          biology    B      16
+8  Rejected Female    B    8          biology    B      16
+9  Admitted   Male    C  120      engineering    C      27
+10 Rejected   Male    C  205      engineering    C      27
+11 Admitted Female    C  202      engineering    C      27
+12 Rejected Female    C  391      engineering    C      27
+13 Admitted   Male    D  138 computer science    D      16
+14 Rejected   Male    D  279 computer science    D      16
+15 Admitted Female    D  131 computer science    D      16
+16 Rejected Female    D  244 computer science    D      16
+17 Admitted   Male    E   53          history    E      19
+18 Rejected   Male    E  138          history    E      19
+19 Admitted Female    E   94          history    E      19
+20 Rejected Female    E  299          history    E      19
 21 Admitted   Male    F   22             &lt;NA&gt; &lt;NA&gt;      NA
 22 Rejected   Male    F  351             &lt;NA&gt; &lt;NA&gt;      NA
 23 Admitted Female    F   24             &lt;NA&gt; &lt;NA&gt;      NA
@@ -1923,27 +1923,27 @@ AirTran Airways Corporation        Alaska Airlines Inc.
 <span id="cb208-2"><a href="#cb208-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from ucb right join majors on ucb.Dept = majors.Dept"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Admit Gender Dept Freq            major  Dept Faculty
-1  Admitted   Male    A  512             math     A      15
-2  Rejected   Male    A  313             math     A      15
-3  Admitted Female    A   89             math     A      15
-4  Rejected Female    A   19             math     A      15
-5  Admitted   Male    B  353          biology     B      28
-6  Rejected   Male    B  207          biology     B      28
-7  Admitted Female    B   17          biology     B      28
-8  Rejected Female    B    8          biology     B      28
-9  Admitted   Male    C  120      engineering     C      19
-10 Rejected   Male    C  205      engineering     C      19
-11 Admitted Female    C  202      engineering     C      19
-12 Rejected Female    C  391      engineering     C      19
-13 Admitted   Male    D  138 computer science     D      12
-14 Rejected   Male    D  279 computer science     D      12
-15 Admitted Female    D  131 computer science     D      12
-16 Rejected Female    D  244 computer science     D      12
-17 Admitted   Male    E   53          history     E      11
-18 Rejected   Male    E  138          history     E      11
-19 Admitted Female    E   94          history     E      11
-20 Rejected Female    E  299          history     E      11
-21     &lt;NA&gt;   &lt;NA&gt; &lt;NA&gt;   NA     architecture Other      14</code></pre>
+1  Admitted   Male    A  512             math     A      13
+2  Rejected   Male    A  313             math     A      13
+3  Admitted Female    A   89             math     A      13
+4  Rejected Female    A   19             math     A      13
+5  Admitted   Male    B  353          biology     B      16
+6  Rejected   Male    B  207          biology     B      16
+7  Admitted Female    B   17          biology     B      16
+8  Rejected Female    B    8          biology     B      16
+9  Admitted   Male    C  120      engineering     C      27
+10 Rejected   Male    C  205      engineering     C      27
+11 Admitted Female    C  202      engineering     C      27
+12 Rejected Female    C  391      engineering     C      27
+13 Admitted   Male    D  138 computer science     D      16
+14 Rejected   Male    D  279 computer science     D      16
+15 Admitted Female    D  131 computer science     D      16
+16 Rejected Female    D  244 computer science     D      16
+17 Admitted   Male    E   53          history     E      19
+18 Rejected   Male    E  138          history     E      19
+19 Admitted Female    E   94          history     E      19
+20 Rejected Female    E  299          history     E      19
+21     &lt;NA&gt;   &lt;NA&gt; &lt;NA&gt;   NA     architecture Other      11</code></pre>
 </div>
 </div>
 </section>

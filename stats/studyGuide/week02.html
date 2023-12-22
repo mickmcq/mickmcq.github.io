@@ -294,9 +294,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#thursdays-class" id="toc-thursdays-class" class="nav-link" data-scroll-target="#thursdays-class"><span class="header-section-number">2.9</span> Thursday’s class</a>
   <ul class="collapse">
   <li><a href="#statistical-summary-tools" id="toc-statistical-summary-tools" class="nav-link" data-scroll-target="#statistical-summary-tools"><span class="header-section-number">2.9.1</span> Statistical summary tools</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">2.9.2</span> Exercises</a></li>
-  <li><a href="#solutions-to-exercises" id="toc-solutions-to-exercises" class="nav-link" data-scroll-target="#solutions-to-exercises"><span class="header-section-number">2.9.3</span> Solutions to exercises</a></li>
-  <li><a href="#exercise-notes" id="toc-exercise-notes" class="nav-link" data-scroll-target="#exercise-notes"><span class="header-section-number">2.9.4</span> Exercise Notes</a></li>
+  <li><a href="#numerical-summary-shortcuts" id="toc-numerical-summary-shortcuts" class="nav-link" data-scroll-target="#numerical-summary-shortcuts"><span class="header-section-number">2.9.2</span> Numerical summary shortcuts</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">2.9.3</span> Exercises</a></li>
+  <li><a href="#solutions-to-exercises" id="toc-solutions-to-exercises" class="nav-link" data-scroll-target="#solutions-to-exercises"><span class="header-section-number">2.9.4</span> Solutions to exercises</a></li>
+  <li><a href="#exercise-notes" id="toc-exercise-notes" class="nav-link" data-scroll-target="#exercise-notes"><span class="header-section-number">2.9.5</span> Exercise Notes</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -685,11 +686,11 @@ num_cc_carrying_balance             loan_amount           interest_rate
 <p>Notice that the confidence interval is narrower at the center than at the extremes. Why? It’s because we’re using more data to estimate at the center and have less uncertainty at the center than at the ends, where the data is truncated.</p>
 <p>Suppose we’re doing something even more sophisticated, such as comparing groups of continuous <span class="math inline">\(y\)</span> variables. A ridgeline plot is a popular solution to show variability, which is often similar to uncertainty, as shown in this example from the R Graph Gallery.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># packages</span></span>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. packages</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co">#. Plot</span></span>
 <span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lincoln_weather, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Mean Temperature [F]</span><span class="st">`</span>, <span class="at">y =</span> <span class="st">`</span><span class="at">Month</span><span class="st">`</span>, <span class="at">fill =</span> ..x..)) <span class="sc">+</span></span>
 <span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density_ridges_gradient</span>(<span class="at">scale =</span> <span class="dv">3</span>, <span class="at">rel_min_height =</span> <span class="fl">0.01</span>) <span class="sc">+</span></span>
 <span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">name =</span> <span class="st">"Temp. [F]"</span>, <span class="at">option =</span> <span class="st">"C"</span>) <span class="sc">+</span></span>
@@ -874,8 +875,1486 @@ year            77   3     70, 82</code></pre>
 </div>
 </div>
 </section>
-<section id="exercises" class="level3" data-number="2.9.2">
-<h3 data-number="2.9.2" class="anchored" data-anchor-id="exercises"><span class="header-section-number">2.9.2</span> Exercises</h3>
+<section id="numerical-summary-shortcuts" class="level3" data-number="2.9.2">
+<h3 data-number="2.9.2" class="anchored" data-anchor-id="numerical-summary-shortcuts"><span class="header-section-number">2.9.2</span> Numerical summary shortcuts</h3>
+<p>Several functions allow you to check up on many columns at once. This is especially helpful in examining dataframes with large numbers of columns, such as <code>amesHousing2011.csv</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/amesHousing2011.csv"</span>))</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>spc_tbl_ [2,925 × 82] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ Order        : num [1:2925] 1498 2738 2446 2667 2451 ...
+ $ PID          : chr [1:2925] "0908154080" "0905427030" "0528320060" "0902400110" ...
+ $ MSSubClass   : chr [1:2925] "020" "075" "060" "075" ...
+ $ MSZoning     : chr [1:2925] "RL" "RL" "RL" "RM" ...
+ $ LotFrontage  : num [1:2925] 123 60 118 90 114 87 NA 60 60 47 ...
+ $ LotArea      : num [1:2925] 47007 19800 35760 22950 17242 ...
+ $ Street       : chr [1:2925] "Pave" "Pave" "Pave" "Pave" ...
+ $ Alley        : chr [1:2925] NA NA NA NA ...
+ $ LotShape     : chr [1:2925] "IR1" "Reg" "IR1" "IR2" ...
+ $ LandContour  : chr [1:2925] "Lvl" "Lvl" "Lvl" "Lvl" ...
+ $ Utilities    : chr [1:2925] "AllPub" "AllPub" "AllPub" "AllPub" ...
+ $ LotConfig    : chr [1:2925] "Inside" "Inside" "CulDSac" "Inside" ...
+ $ LandSlope    : chr [1:2925] "Gtl" "Gtl" "Gtl" "Gtl" ...
+ $ Neighborhood : chr [1:2925] "Edwards" "Edwards" "NoRidge" "OldTown" ...
+ $ Condition1   : chr [1:2925] "Norm" "Norm" "Norm" "Artery" ...
+ $ Condition2   : chr [1:2925] "Norm" "Norm" "Norm" "Norm" ...
+ $ BldgType     : chr [1:2925] "1Fam" "1Fam" "1Fam" "1Fam" ...
+ $ HouseStyle   : chr [1:2925] "1Story" "2.5Unf" "2Story" "2.5Fin" ...
+ $ OverallQual  : num [1:2925] 5 6 10 10 9 7 8 6 10 8 ...
+ $ OverallCond  : num [1:2925] 7 8 5 9 5 9 9 7 5 5 ...
+ $ YearBuilt    : num [1:2925] 1959 1935 1995 1892 1993 ...
+ $ YearRemod/Add: num [1:2925] 1996 1990 1996 1993 1994 ...
+ $ RoofStyle    : chr [1:2925] "Gable" "Gable" "Hip" "Gable" ...
+ $ RoofMatl     : chr [1:2925] "CompShg" "CompShg" "CompShg" "WdShngl" ...
+ $ Exterior1st  : chr [1:2925] "Plywood" "BrkFace" "HdBoard" "Wd Sdng" ...
+ $ Exterior2nd  : chr [1:2925] "Plywood" "Wd Sdng" "HdBoard" "Wd Sdng" ...
+ $ MasVnrType   : chr [1:2925] "None" "None" "BrkFace" "None" ...
+ $ MasVnrArea   : num [1:2925] 0 0 1378 0 738 ...
+ $ ExterQual    : chr [1:2925] "TA" "TA" "Gd" "Gd" ...
+ $ ExterCond    : chr [1:2925] "TA" "TA" "Gd" "Gd" ...
+ $ Foundation   : chr [1:2925] "Slab" "BrkTil" "PConc" "BrkTil" ...
+ $ BsmtQual     : chr [1:2925] NA "TA" "Ex" "TA" ...
+ $ BsmtCond     : chr [1:2925] NA "TA" "TA" "TA" ...
+ $ BsmtExposure : chr [1:2925] NA "No" "Gd" "Mn" ...
+ $ BsmtFinType1 : chr [1:2925] NA "Rec" "GLQ" "Unf" ...
+ $ BsmtFinSF1   : num [1:2925] 0 425 1387 0 292 ...
+ $ BsmtFinType2 : chr [1:2925] NA "Unf" "Unf" "Unf" ...
+ $ BsmtFinSF2   : num [1:2925] 0 0 0 0 1393 ...
+ $ BsmtUnfSF    : num [1:2925] 0 1411 543 1107 48 ...
+ $ TotalBsmtSF  : num [1:2925] 0 1836 1930 1107 1733 ...
+ $ Heating      : chr [1:2925] "GasA" "GasA" "GasA" "GasA" ...
+ $ HeatingQC    : chr [1:2925] "TA" "Gd" "Ex" "Ex" ...
+ $ CentralAir   : chr [1:2925] "Y" "Y" "Y" "Y" ...
+ $ Electrical   : chr [1:2925] "SBrkr" "SBrkr" "SBrkr" "SBrkr" ...
+ $ 1stFlrSF     : num [1:2925] 3820 1836 1831 1518 1933 ...
+ $ 2ndFlrSF     : num [1:2925] 0 1836 1796 1518 1567 ...
+ $ LowQualFinSF : num [1:2925] 0 0 0 572 0 0 0 515 0 0 ...
+ $ GrLivArea    : num [1:2925] 3820 3672 3627 3608 3500 ...
+ $ BsmtFullBath : num [1:2925] NA 0 1 0 1 0 0 0 0 1 ...
+ $ BsmtHalfBath : num [1:2925] NA 0 0 0 0 0 0 0 0 0 ...
+ $ FullBath     : num [1:2925] 3 3 3 2 3 3 3 2 3 3 ...
+ $ HalfBath     : num [1:2925] 1 1 1 1 1 0 1 0 1 1 ...
+ $ BedroomAbvGr : num [1:2925] 5 5 4 4 4 3 4 8 5 4 ...
+ $ KitchenAbvGr : num [1:2925] 1 1 1 1 1 1 1 2 1 1 ...
+ $ KitchenQual  : chr [1:2925] "Ex" "Gd" "Gd" "Ex" ...
+ $ TotRmsAbvGrd : num [1:2925] 11 7 10 12 11 10 11 14 10 12 ...
+ $ Functional   : chr [1:2925] "Typ" "Typ" "Typ" "Typ" ...
+ $ Fireplaces   : num [1:2925] 2 2 1 2 1 1 2 0 1 1 ...
+ $ FireplaceQu  : chr [1:2925] "Gd" "Gd" "TA" "TA" ...
+ $ GarageType   : chr [1:2925] "Attchd" "Detchd" "Attchd" "Detchd" ...
+ $ GarageYrBlt  : num [1:2925] 1959 1993 1995 1993 1993 ...
+ $ GarageFinish : chr [1:2925] "Unf" "Unf" "Fin" "Unf" ...
+ $ GarageCars   : num [1:2925] 2 2 3 3 3 3 3 0 3 3 ...
+ $ GarageArea   : num [1:2925] 624 836 807 840 959 ...
+ $ GarageQual   : chr [1:2925] "TA" "TA" "TA" "Ex" ...
+ $ GarageCond   : chr [1:2925] "TA" "TA" "TA" "TA" ...
+ $ PavedDrive   : chr [1:2925] "Y" "Y" "Y" "Y" ...
+ $ WoodDeckSF   : num [1:2925] 0 684 361 0 870 302 314 0 204 503 ...
+ $ OpenPorchSF  : num [1:2925] 372 80 76 260 86 0 12 110 34 36 ...
+ $ EnclosedPorch: num [1:2925] 0 32 0 0 0 0 0 0 0 0 ...
+ $ 3SsnPorch    : num [1:2925] 0 0 0 0 0 0 0 0 0 0 ...
+ $ ScreenPorch  : num [1:2925] 0 0 0 410 210 0 0 0 0 210 ...
+ $ PoolArea     : num [1:2925] 0 0 0 0 0 0 0 0 0 0 ...
+ $ PoolQC       : chr [1:2925] NA NA NA NA ...
+ $ Fence        : chr [1:2925] NA NA NA "GdPrv" ...
+ $ MiscFeature  : chr [1:2925] NA NA NA NA ...
+ $ MiscVal      : num [1:2925] 0 0 0 0 0 0 0 0 0 0 ...
+ $ MoSold       : num [1:2925] 7 12 7 6 5 5 5 3 9 6 ...
+ $ YrSold       : num [1:2925] 2008 2006 2006 2006 2006 ...
+ $ SaleType     : chr [1:2925] "WD" "WD" "WD" "WD" ...
+ $ SaleCondition: chr [1:2925] "Normal" "Normal" "Normal" "Normal" ...
+ $ SalePrice    : num [1:2925] 284700 415000 625000 475000 584500 ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   Order = col_double(),
+  ..   PID = col_character(),
+  ..   MSSubClass = col_character(),
+  ..   MSZoning = col_character(),
+  ..   LotFrontage = col_double(),
+  ..   LotArea = col_double(),
+  ..   Street = col_character(),
+  ..   Alley = col_character(),
+  ..   LotShape = col_character(),
+  ..   LandContour = col_character(),
+  ..   Utilities = col_character(),
+  ..   LotConfig = col_character(),
+  ..   LandSlope = col_character(),
+  ..   Neighborhood = col_character(),
+  ..   Condition1 = col_character(),
+  ..   Condition2 = col_character(),
+  ..   BldgType = col_character(),
+  ..   HouseStyle = col_character(),
+  ..   OverallQual = col_double(),
+  ..   OverallCond = col_double(),
+  ..   YearBuilt = col_double(),
+  ..   `YearRemod/Add` = col_double(),
+  ..   RoofStyle = col_character(),
+  ..   RoofMatl = col_character(),
+  ..   Exterior1st = col_character(),
+  ..   Exterior2nd = col_character(),
+  ..   MasVnrType = col_character(),
+  ..   MasVnrArea = col_double(),
+  ..   ExterQual = col_character(),
+  ..   ExterCond = col_character(),
+  ..   Foundation = col_character(),
+  ..   BsmtQual = col_character(),
+  ..   BsmtCond = col_character(),
+  ..   BsmtExposure = col_character(),
+  ..   BsmtFinType1 = col_character(),
+  ..   BsmtFinSF1 = col_double(),
+  ..   BsmtFinType2 = col_character(),
+  ..   BsmtFinSF2 = col_double(),
+  ..   BsmtUnfSF = col_double(),
+  ..   TotalBsmtSF = col_double(),
+  ..   Heating = col_character(),
+  ..   HeatingQC = col_character(),
+  ..   CentralAir = col_character(),
+  ..   Electrical = col_character(),
+  ..   `1stFlrSF` = col_double(),
+  ..   `2ndFlrSF` = col_double(),
+  ..   LowQualFinSF = col_double(),
+  ..   GrLivArea = col_double(),
+  ..   BsmtFullBath = col_double(),
+  ..   BsmtHalfBath = col_double(),
+  ..   FullBath = col_double(),
+  ..   HalfBath = col_double(),
+  ..   BedroomAbvGr = col_double(),
+  ..   KitchenAbvGr = col_double(),
+  ..   KitchenQual = col_character(),
+  ..   TotRmsAbvGrd = col_double(),
+  ..   Functional = col_character(),
+  ..   Fireplaces = col_double(),
+  ..   FireplaceQu = col_character(),
+  ..   GarageType = col_character(),
+  ..   GarageYrBlt = col_double(),
+  ..   GarageFinish = col_character(),
+  ..   GarageCars = col_double(),
+  ..   GarageArea = col_double(),
+  ..   GarageQual = col_character(),
+  ..   GarageCond = col_character(),
+  ..   PavedDrive = col_character(),
+  ..   WoodDeckSF = col_double(),
+  ..   OpenPorchSF = col_double(),
+  ..   EnclosedPorch = col_double(),
+  ..   `3SsnPorch` = col_double(),
+  ..   ScreenPorch = col_double(),
+  ..   PoolArea = col_double(),
+  ..   PoolQC = col_character(),
+  ..   Fence = col_character(),
+  ..   MiscFeature = col_character(),
+  ..   MiscVal = col_double(),
+  ..   MoSold = col_double(),
+  ..   YrSold = col_double(),
+  ..   SaleType = col_character(),
+  ..   SaleCondition = col_character(),
+  ..   SalePrice = col_double()
+  .. )
+ - attr(*, "problems")=&lt;externalptr&gt; </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="fu">where</span>(is.character)) <span class="sc">|&gt;</span> <span class="fu">map</span> ( table )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$PID
+
+0526301100 0526302030 0526302040 0526302110 0526302120 0526303060 0526350040 
+         1          1          1          1          1          1          1 
+0526351010 0526351030 0526351100 0526352080 0526352090 0526353030 0526353050 
+         1          1          1          1          1          1          1 
+0526354020 0526354070 0526355080 0526355170 0526355190 0527105010 0527105030 
+         1          1          1          1          1          1          1 
+0527105050 0527105060 0527105070 0527105130 0527105140 0527106010 0527106050 
+         1          1          1          1          1          1          1 
+0527106140 0527106150 0527107010 0527107020 0527107030 0527107040 0527107090 
+         1          1          1          1          1          1          1 
+0527107120 0527107130 0527107210 0527107240 0527108010 0527108020 0527108030 
+         1          1          1          1          1          1          1 
+0527108040 0527108060 0527108070 0527108090 0527110020 0527110080 0527110120 
+         1          1          1          1          1          1          1 
+0527110130 0527126030 0527127100 0527127140 0527127150 0527131030 0527131110 
+         1          1          1          1          1          1          1 
+0527132090 0527140090 0527145080 0527145090 0527146010 0527146030 0527146135 
+         1          1          1          1          1          1          1 
+0527158020 0527158090 0527161010 0527161040 0527161090 0527162080 0527162090 
+         1          1          1          1          1          1          1 
+0527162110 0527162120 0527162130 0527162140 0527162180 0527163010 0527163020 
+         1          1          1          1          1          1          1 
+0527163040 0527163070 0527163080 0527163100 0527163130 0527164020 0527164060 
+         1          1          1          1          1          1          1 
+0527164090 0527164120 0527165010 0527165020 0527165100 0527165130 0527165170 
+         1          1          1          1          1          1          1 
+0527165230 0527166010 0527166030 0527166040 0527175130 0527180040 0527180100 
+         1          1          1          1          1          1          1 
+0527182020 0527182040 0527182110 0527182170 0527182190 0527183030 0527183060 
+         1          1          1          1          1          1          1 
+0527184020 0527184110 0527190050 0527190220 0527208010 0527210030 0527210040 
+         1          1          1          1          1          1          1 
+0527210050 0527210060 0527212030 0527212040 0527212050 0527212060 0527214030 
+         1          1          1          1          1          1          1 
+0527214050 0527214060 0527216010 0527216050 0527216070 0527216080 0527225035 
+         1          1          1          1          1          1          1 
+0527226010 0527226020 0527226040 0527250040 0527252050 0527252070 0527252080 
+         1          1          1          1          1          1          1 
+0527252090 0527254020 0527254070 0527256030 0527256040 0527256120 0527258010 
+         1          1          1          1          1          1          1 
+0527258020 0527276040 0527276150 0527276160 0527301010 0527301080 0527301170 
+         1          1          1          1          1          1          1 
+0527301245 0527301280 0527301320 0527302020 0527302050 0527302060 0527302070 
+         1          1          1          1          1          1          1 
+0527302080 0527302090 0527302110 0527302175 0527302185 0527302210 0527325070 
+         1          1          1          1          1          1          1 
+0527325090 0527325110 0527325160 0527325240 0527326040 0527326130 0527326150 
+         1          1          1          1          1          1          1 
+0527327050 0527327080 0527328010 0527328020 0527328050 0527352150 0527353020 
+         1          1          1          1          1          1          1 
+0527353060 0527353080 0527354040 0527354050 0527354100 0527354160 0527354200 
+         1          1          1          1          1          1          1 
+0527355060 0527355150 0527355280 0527356020 0527356040 0527356050 0527356060 
+         1          1          1          1          1          1          1 
+0527357020 0527357110 0527357180 0527358060 0527358090 0527358120 0527358140 
+         1          1          1          1          1          1          1 
+0527358200 0527359010 0527359030 0527359050 0527359070 0527359080 0527359160 
+         1          1          1          1          1          1          1 
+0527359180 0527364030 0527365010 0527365030 0527366030 0527368010 0527368020 
+         1          1          1          1          1          1          1 
+0527375100 0527375160 0527375180 0527375210 0527376090 0527376100 0527376110 
+         1          1          1          1          1          1          1 
+0527377030 0527377110 0527378010 0527378020 0527378140 0527380240 0527401130 
+         1          1          1          1          1          1          1 
+0527401160 0527402060 0527402090 0527402130 0527402150 0527402200 0527402210 
+         1          1          1          1          1          1          1 
+0527402220 0527402240 0527402250 0527402380 0527403020 0527403040 0527403120 
+         1          1          1          1          1          1          1 
+0527403310 0527403360 0527404020 0527404030 0527404050 0527404100 0527404120 
+         1          1          1          1          1          1          1 
+0527404140 0527404150 0527404180 0527405130 0527405160 0527405180 0527425025 
+         1          1          1          1          1          1          1 
+0527425035 0527425060 0527425090 0527425110 0527425140 0527427090 0527427110 
+         1          1          1          1          1          1          1 
+0527427160 0527427200 0527427210 0527427230 0527450010 0527450030 0527450080 
+         1          1          1          1          1          1          1 
+0527450110 0527450150 0527450210 0527450220 0527450250 0527450280 0527450460 
+         1          1          1          1          1          1          1 
+0527450520 0527451020 0527451060 0527451110 0527451170 0527451180 0527451200 
+         1          1          1          1          1          1          1 
+0527451290 0527451320 0527451330 0527451380 0527451400 0527451410 0527451450 
+         1          1          1          1          1          1          1 
+0527451460 0527451520 0527451540 0527451550 0527451640 0527451650 0527452060 
+         1          1          1          1          1          1          1 
+0527452070 0527452100 0527452150 0527452190 0527452290 0527452310 0527453010 
+         1          1          1          1          1          1          1 
+0527453050 0527453060 0527453070 0527453130 0527453140 0527453150 0527453160 
+         1          1          1          1          1          1          1 
+0527454050 0527454120 0527454130 0527454200 0527455030 0527455050 0527455060 
+         1          1          1          1          1          1          1 
+0527455080 0527455090 0527455100 0527455240 0527455250 0527455270 0527455280 
+         1          1          1          1          1          1          1 
+0528102010 0528102030 0528102040 0528102050 0528102080 0528102090 0528102100 
+         1          1          1          1          1          1          1 
+0528102110 0528102120 0528102130 0528102140 0528104010 0528104050 0528104070 
+         1          1          1          1          1          1          1 
+0528104080 0528106010 0528106020 0528106040 0528106050 0528106060 0528106070 
+         1          1          1          1          1          1          1 
+0528106110 0528106120 0528108010 0528108020 0528108040 0528108070 0528108120 
+         1          1          1          1          1          1          1 
+0528108130 0528108140 0528108150 0528108160 0528110010 0528110020 0528110040 
+         1          1          1          1          1          1          1 
+0528110050 0528110070 0528110080 0528110090 0528110100 0528110110 0528112010 
+         1          1          1          1          1          1          1 
+0528112020 0528112040 0528112150 0528114010 0528114040 0528114050 0528116010 
+         1          1          1          1          1          1          1 
+0528116030 0528118010 0528118020 0528118030 0528118040 0528118050 0528118060 
+         1          1          1          1          1          1          1 
+0528118090 0528118110 0528120010 0528120020 0528120030 0528120060 0528120090 
+         1          1          1          1          1          1          1 
+0528120100 0528120110 0528120120 0528120130 0528120140 0528120150 0528120160 
+         1          1          1          1          1          1          1 
+0528120170 0528138010 0528138020 0528138030 0528138060 0528142010 0528142020 
+         1          1          1          1          1          1          1 
+0528142040 0528142050 0528142060 0528142070 0528142090 0528142110 0528142130 
+         1          1          1          1          1          1          1 
+0528142140 0528142150 0528144020 0528144030 0528144050 0528150040 0528150070 
+         1          1          1          1          1          1          1 
+0528150080 0528150090 0528150110 0528150120 0528164040 0528164060 0528166060 
+         1          1          1          1          1          1          1 
+0528166090 0528166120 0528166150 0528168030 0528168040 0528170040 0528170070 
+         1          1          1          1          1          1          1 
+0528172020 0528172030 0528172050 0528172060 0528172070 0528172075 0528172080 
+         1          1          1          1          1          1          1 
+0528172150 0528174010 0528174020 0528174030 0528174040 0528174050 0528174060 
+         1          1          1          1          1          1          1 
+0528174070 0528174080 0528175010 0528175050 0528175060 0528176010 0528176030 
+         1          1          1          1          1          1          1 
+0528176070 0528178010 0528178070 0528178090 0528180070 0528180080 0528180110 
+         1          1          1          1          1          1          1 
+0528180120 0528180130 0528180140 0528181010 0528181030 0528181040 0528181050 
+         1          1          1          1          1          1          1 
+0528181060 0528181070 0528181080 0528186010 0528186030 0528186050 0528186080 
+         1          1          1          1          1          1          1 
+0528186090 0528186100 0528186110 0528186120 0528186130 0528186160 0528186170 
+         1          1          1          1          1          1          1 
+0528186180 0528186190 0528188020 0528188040 0528188060 0528188090 0528188120 
+         1          1          1          1          1          1          1 
+0528188150 0528188160 0528190010 0528218010 0528218020 0528218030 0528218050 
+         1          1          1          1          1          1          1 
+0528218060 0528218080 0528218090 0528218100 0528218130 0528218140 0528218150 
+         1          1          1          1          1          1          1 
+0528220040 0528221010 0528221030 0528221040 0528221050 0528221060 0528221070 
+         1          1          1          1          1          1          1 
+0528221090 0528221100 0528222010 0528222020 0528222030 0528222040 0528222050 
+         1          1          1          1          1          1          1 
+0528222060 0528222080 0528222090 0528228270 0528228275 0528228280 0528228285 
+         1          1          1          1          1          1          1 
+0528228290 0528228295 0528228325 0528228340 0528228345 0528228360 0528228375 
+         1          1          1          1          1          1          1 
+0528228405 0528228415 0528228430 0528228435 0528228440 0528228445 0528228450 
+         1          1          1          1          1          1          1 
+0528228455 0528228460 0528228465 0528228540 0528228545 0528228550 0528228555 
+         1          1          1          1          1          1          1 
+0528228565 0528228575 0528228580 0528231010 0528231020 0528231030 0528231050 
+         1          1          1          1          1          1          1 
+0528235000 0528235010 0528235020 0528235050 0528235090 0528235120 0528235130 
+         1          1          1          1          1          1          1 
+0528235160 0528235170 0528235180 0528235190 0528235200 0528240020 0528240030 
+         1          1          1          1          1          1          1 
+0528240040 0528240050 0528240060 0528240070 0528240080 0528240130 0528240150 
+         1          1          1          1          1          1          1 
+0528250010 0528250020 0528250030 0528250040 0528250060 0528250070 0528250100 
+         1          1          1          1          1          1          1 
+0528253010 0528253020 0528275035 0528275060 0528275070 0528275080 0528275110 
+         1          1          1          1          1          1          1 
+0528275160 0528280100 0528280110 0528280130 0528280150 0528280180 0528280230 
+         1          1          1          1          1          1          1 
+0528290010 0528290030 0528290060 0528290090 0528290120 0528290140 0528290170 
+         1          1          1          1          1          1          1 
+0528290180 0528290190 0528292020 0528292030 0528292040 0528292060 0528292070 
+         1          1          1          1          1          1          1 
+0528292080 0528294010 0528294050 0528294060 0528294070 0528315030 0528315060 
+         1          1          1          1          1          1          1 
+0528315070 0528315080 0528315090 0528315110 0528320060 0528321010 0528322020 
+         1          1          1          1          1          1          1 
+0528326030 0528326060 0528326110 0528327010 0528327060 0528327070 0528328100 
+         1          1          1          1          1          1          1 
+0528340030 0528344020 0528344040 0528344060 0528344070 0528344100 0528346050 
+         1          1          1          1          1          1          1 
+0528348010 0528348030 0528354050 0528354060 0528354100 0528354110 0528358010 
+         1          1          1          1          1          1          1 
+0528358030 0528358040 0528360050 0528363020 0528363050 0528363070 0528363110 
+         1          1          1          1          1          1          1 
+0528363130 0528364110 0528365060 0528365070 0528365080 0528365090 0528366040 
+         1          1          1          1          1          1          1 
+0528366050 0528366070 0528376010 0528382020 0528382030 0528385050 0528386040 
+         1          1          1          1          1          1          1 
+0528387030 0528387050 0528390020 0528390100 0528390210 0528427010 0528427020 
+         1          1          1          1          1          1          1 
+0528427040 0528427070 0528427100 0528429050 0528429060 0528429070 0528429080 
+         1          1          1          1          1          1          1 
+0528429090 0528429100 0528429110 0528429120 0528429130 0528431020 0528431030 
+         1          1          1          1          1          1          1 
+0528431040 0528431050 0528431060 0528431070 0528431080 0528431110 0528431120 
+         1          1          1          1          1          1          1 
+0528435010 0528435020 0528435030 0528435040 0528435050 0528435060 0528435070 
+         1          1          1          1          1          1          1 
+0528439010 0528439030 0528439040 0528439050 0528439060 0528439080 0528441020 
+         1          1          1          1          1          1          1 
+0528441080 0528441090 0528445010 0528445020 0528445060 0528445070 0528456160 
+         1          1          1          1          1          1          1 
+0528456180 0528456190 0528456200 0528456220 0528456230 0528456240 0528458020 
+         1          1          1          1          1          1          1 
+0528458030 0528458040 0528458050 0528458060 0528458070 0528458080 0528458090 
+         1          1          1          1          1          1          1 
+0528458110 0528458120 0528458130 0528458140 0528458150 0528458160 0528458180 
+         1          1          1          1          1          1          1 
+0528462040 0528477010 0528477020 0528477030 0528477040 0528477050 0528477070 
+         1          1          1          1          1          1          1 
+0528477080 0528478030 0528478040 0528480020 0528480040 0528480060 0528480070 
+         1          1          1          1          1          1          1 
+0528480090 0528480100 0528480110 0528480130 0528480150 0528480160 0528480170 
+         1          1          1          1          1          1          1 
+0528480180 0528482010 0528482020 0528482030 0528482040 0528482090 0528482130 
+         1          1          1          1          1          1          1 
+0528488100 0528488110 0528488120 0528488130 0528488140 0528490040 0528490070 
+         1          1          1          1          1          1          1 
+0528490080 0531363010 0531363020 0531363030 0531363040 0531363050 0531363060 
+         1          1          1          1          1          1          1 
+0531363080 0531367010 0531367050 0531369010 0531369020 0531369060 0531371050 
+         1          1          1          1          1          1          1 
+0531371070 0531373060 0531375040 0531375050 0531375060 0531375070 0531375090 
+         1          1          1          1          1          1          1 
+0531375100 0531375110 0531375120 0531375130 0531375140 0531376010 0531376030 
+         1          1          1          1          1          1          1 
+0531376050 0531376060 0531376070 0531376090 0531379030 0531379050 0531380080 
+         1          1          1          1          1          1          1 
+0531380110 0531382070 0531382090 0531382110 0531382120 0531384030 0531384070 
+         1          1          1          1          1          1          1 
+0531385020 0531385060 0531385070 0531385130 0531450030 0531450040 0531450090 
+         1          1          1          1          1          1          1 
+0531450120 0531450170 0531451020 0531451030 0531451110 0531451150 0531451280 
+         1          1          1          1          1          1          1 
+0531451290 0531452010 0531452020 0531452050 0531452070 0531452080 0531452100 
+         1          1          1          1          1          1          1 
+0531452140 0531452180 0531452210 0531452260 0531453010 0531453040 0531453100 
+         1          1          1          1          1          1          1 
+0531453140 0531475220 0531477020 0531477040 0531477050 0531478010 0531479020 
+         1          1          1          1          1          1          1 
+0531479030 0532351050 0532351060 0532351090 0532351140 0532351150 0532353020 
+         1          1          1          1          1          1          1 
+0532353030 0532353050 0532353120 0532353130 0532353180 0532354010 0532354060 
+         1          1          1          1          1          1          1 
+0532354070 0532354090 0532354150 0532354160 0532354230 0532376040 0532376070 
+         1          1          1          1          1          1          1 
+0532376080 0532376090 0532376110 0532376160 0532376170 0532376180 0532376250 
+         1          1          1          1          1          1          1 
+0532377020 0532377050 0532377060 0532377100 0532377130 0532377140 0532378050 
+         1          1          1          1          1          1          1 
+0532378070 0532378110 0532378120 0532378130 0532378160 0532378180 0532378200 
+         1          1          1          1          1          1          1 
+0532378220 0532378240 0532476050 0532476080 0532477030 0532477040 0532478020 
+         1          1          1          1          1          1          1 
+0532479020 0532479050 0532479070 0532479120 0532479140 0533110130 0533120030 
+         1          1          1          1          1          1          1 
+0533125080 0533125120 0533125140 0533127080 0533128030 0533128090 0533130020 
+         1          1          1          1          1          1          1 
+0533130130 0533130160 0533130170 0533135020 0533205060 0533205110 0533206020 
+         1          1          1          1          1          1          1 
+0533206040 0533206050 0533206060 0533206070 0533208010 0533208020 0533208030 
+         1          1          1          1          1          1          1 
+0533208040 0533208050 0533208070 0533208080 0533208090 0533208140 0533210010 
+         1          1          1          1          1          1          1 
+0533210020 0533210060 0533212010 0533212020 0533212050 0533212060 0533212100 
+         1          1          1          1          1          1          1 
+0533212110 0533212120 0533212130 0533212140 0533212150 0533213010 0533213020 
+         1          1          1          1          1          1          1 
+0533213030 0533213040 0533213070 0533213120 0533213130 0533213140 0533215020 
+         1          1          1          1          1          1          1 
+0533215030 0533215040 0533215070 0533215080 0533217050 0533217060 0533221030 
+         1          1          1          1          1          1          1 
+0533221040 0533221060 0533221080 0533221090 0533221100 0533221110 0533223010 
+         1          1          1          1          1          1          1 
+0533223020 0533223030 0533223050 0533223080 0533223100 0533223110 0533234020 
+         1          1          1          1          1          1          1 
+0533236040 0533236050 0533236060 0533236070 0533236090 0533238045 0533241010 
+         1          1          1          1          1          1          1 
+0533241030 0533242030 0533242080 0533242090 0533244030 0533244040 0533250050 
+         1          1          1          1          1          1          1 
+0533250110 0533250130 0533250160 0533250190 0533251110 0533251120 0533251130 
+         1          1          1          1          1          1          1 
+0533252020 0533252040 0533252130 0533253030 0533253050 0533253060 0533253070 
+         1          1          1          1          1          1          1 
+0533253090 0533253160 0533253180 0533253210 0533254050 0533254100 0533254110 
+         1          1          1          1          1          1          1 
+0533254130 0533350020 0533350050 0533350090 0533350120 0533352075 0533352150 
+         1          1          1          1          1          1          1 
+0533352170 0534102025 0534104090 0534104100 0534125080 0534125120 0534125210 
+         1          1          1          1          1          1          1 
+0534126060 0534126090 0534127080 0534127130 0534127140 0534127170 0534127190 
+         1          1          1          1          1          1          1 
+0534127210 0534127230 0534127260 0534127270 0534128010 0534128020 0534128050 
+         1          1          1          1          1          1          1 
+0534128090 0534128100 0534128190 0534128210 0534129040 0534129060 0534129080 
+         1          1          1          1          1          1          1 
+0534129230 0534129370 0534129380 0534151090 0534151120 0534151175 0534151180 
+         1          1          1          1          1          1          1 
+0534152050 0534152070 0534152100 0534152120 0534175010 0534175080 0534175100 
+         1          1          1          1          1          1          1 
+0534175140 0534176060 0534176140 0534176230 0534176250 0534177180 0534177210 
+         1          1          1          1          1          1          1 
+0534177230 0534178010 0534200030 0534201040 0534201130 0534201230 0534201240 
+         1          1          1          1          1          1          1 
+0534201250 0534201260 0534201280 0534201300 0534202020 0534202030 0534202130 
+         1          1          1          1          1          1          1 
+0534202160 0534202170 0534202180 0534204030 0534204120 0534225110 0534225120 
+         1          1          1          1          1          1          1 
+0534226060 0534226120 0534250010 0534250300 0534250335 0534250370 0534250400 
+         1          1          1          1          1          1          1 
+0534250410 0534251030 0534251280 0534251320 0534252040 0534252060 0534252070 
+         1          1          1          1          1          1          1 
+0534252090 0534252110 0534252240 0534252270 0534275010 0534275060 0534275100 
+         1          1          1          1          1          1          1 
+0534275170 0534275220 0534276010 0534276040 0534276070 0534276160 0534276180 
+         1          1          1          1          1          1          1 
+0534276190 0534276230 0534276290 0534276360 0534277060 0534277070 0534277090 
+         1          1          1          1          1          1          1 
+0534278070 0534278150 0534278170 0534278190 0534278230 0534400030 0534400050 
+         1          1          1          1          1          1          1 
+0534400060 0534400120 0534400290 0534401110 0534401120 0534401130 0534401140 
+         1          1          1          1          1          1          1 
+0534401190 0534401200 0534402060 0534402140 0534402170 0534403040 0534403050 
+         1          1          1          1          1          1          1 
+0534403080 0534403100 0534403260 0534403280 0534403290 0534403360 0534403370 
+         1          1          1          1          1          1          1 
+0534403400 0534403410 0534403420 0534403440 0534425015 0534425080 0534425310 
+         1          1          1          1          1          1          1 
+0534426040 0534426110 0534427010 0534427040 0534427090 0534427140 0534428020 
+         1          1          1          1          1          1          1 
+0534428060 0534428100 0534429030 0534429130 0534429150 0534430050 0534430080 
+         1          1          1          1          1          1          1 
+0534430090 0534430110 0534431020 0534431030 0534431050 0534431070 0534431130 
+         1          1          1          1          1          1          1 
+0534450090 0534450110 0534450150 0534450180 0534451020 0534451050 0534451080 
+         1          1          1          1          1          1          1 
+0534451110 0534451120 0534451130 0534451150 0534451170 0534452060 0534453080 
+         1          1          1          1          1          1          1 
+0534453140 0534453150 0534455030 0534455080 0534475100 0534475160 0534475170 
+         1          1          1          1          1          1          1 
+0534475185 0534475250 0534476080 0534476100 0534476150 0534476260 0534476320 
+         1          1          1          1          1          1          1 
+0534477030 0534477080 0534477090 0534477110 0534477270 0534478140 0534478230 
+         1          1          1          1          1          1          1 
+0534479120 0534479130 0534479140 0534479150 0534479240 0534479300 0534479320 
+         1          1          1          1          1          1          1 
+0535101020 0535101110 0535101120 0535101150 0535102010 0535103050 0535103070 
+         1          1          1          1          1          1          1 
+0535104020 0535104120 0535105030 0535105060 0535105090 0535105100 0535105110 
+         1          1          1          1          1          1          1 
+0535105160 0535106140 0535106180 0535106190 0535125010 0535125060 0535125070 
+         1          1          1          1          1          1          1 
+0535125090 0535126010 0535126040 0535126100 0535126140 0535126180 0535150070 
+         1          1          1          1          1          1          1 
+0535150210 0535150240 0535150280 0535150300 0535151020 0535151040 0535151080 
+         1          1          1          1          1          1          1 
+0535151100 0535151110 0535151130 0535151160 0535152010 0535152050 0535152060 
+         1          1          1          1          1          1          1 
+0535152070 0535152130 0535152150 0535152200 0535152230 0535152250 0535152280 
+         1          1          1          1          1          1          1 
+0535153070 0535153140 0535153150 0535154050 0535154060 0535154080 0535154130 
+         1          1          1          1          1          1          1 
+0535155110 0535175030 0535175050 0535175070 0535175180 0535176050 0535176070 
+         1          1          1          1          1          1          1 
+0535176100 0535177020 0535177100 0535177110 0535178040 0535178060 0535178100 
+         1          1          1          1          1          1          1 
+0535178120 0535179020 0535179050 0535179060 0535179120 0535179160 0535180020 
+         1          1          1          1          1          1          1 
+0535180030 0535180070 0535180100 0535180120 0535180130 0535181030 0535181140 
+         1          1          1          1          1          1          1 
+0535300040 0535300120 0535301010 0535301060 0535301080 0535301150 0535301160 
+         1          1          1          1          1          1          1 
+0535301170 0535302070 0535302080 0535302120 0535302130 0535302140 0535302200 
+         1          1          1          1          1          1          1 
+0535303030 0535303050 0535303110 0535303150 0535304020 0535304060 0535304100 
+         1          1          1          1          1          1          1 
+0535304170 0535304180 0535305030 0535305120 0535305160 0535305180 0535325090 
+         1          1          1          1          1          1          1 
+0535325130 0535325280 0535325290 0535325320 0535325340 0535325350 0535325400 
+         1          1          1          1          1          1          1 
+0535325450 0535325460 0535327140 0535327160 0535327200 0535327210 0535327230 
+         1          1          1          1          1          1          1 
+0535350030 0535350040 0535351050 0535352080 0535352090 0535353040 0535353050 
+         1          1          1          1          1          1          1 
+0535353060 0535353130 0535353140 0535353160 0535353180 0535353190 0535353240 
+         1          1          1          1          1          1          1 
+0535354050 0535354070 0535354100 0535354130 0535354200 0535354260 0535355020 
+         1          1          1          1          1          1          1 
+0535355100 0535375010 0535375040 0535375050 0535375130 0535375140 0535375160 
+         1          1          1          1          1          1          1 
+0535376010 0535376060 0535376090 0535376100 0535377070 0535377090 0535377100 
+         1          1          1          1          1          1          1 
+0535377150 0535378020 0535378080 0535378120 0535379060 0535379100 0535379110 
+         1          1          1          1          1          1          1 
+0535380010 0535380050 0535380110 0535380130 0535380140 0535381040 0535381060 
+         1          1          1          1          1          1          1 
+0535382020 0535382100 0535382130 0535382150 0535383060 0535383070 0535383100 
+         1          1          1          1          1          1          1 
+0535383110 0535383120 0535401080 0535401140 0535402010 0535402070 0535402090 
+         1          1          1          1          1          1          1 
+0535402100 0535402120 0535402140 0535402180 0535402220 0535402230 0535402270 
+         1          1          1          1          1          1          1 
+0535402330 0535403010 0535403030 0535403040 0535403150 0535403190 0535403200 
+         1          1          1          1          1          1          1 
+0535403210 0535403280 0535404080 0535425010 0535425040 0535425050 0535425060 
+         1          1          1          1          1          1          1 
+0535425070 0535425080 0535426130 0535426150 0535426195 0535426260 0535426350 
+         1          1          1          1          1          1          1 
+0535427070 0535450070 0535450100 0535450160 0535450180 0535450190 0535450200 
+         1          1          1          1          1          1          1 
+0535450210 0535450220 0535450310 0535451010 0535451040 0535451050 0535451100 
+         1          1          1          1          1          1          1 
+0535451110 0535451170 0535451190 0535451210 0535451230 0535451250 0535452060 
+         1          1          1          1          1          1          1 
+0535452090 0535452100 0535452120 0535452140 0535453020 0535453040 0535453070 
+         1          1          1          1          1          1          1 
+0535453080 0535453100 0535453150 0535453160 0535453180 0535453200 0535453210 
+         1          1          1          1          1          1          1 
+0535454030 0535454050 0535454060 0535454070 0535454100 0535454150 0535454160 
+         1          1          1          1          1          1          1 
+0535455060 0535455080 0535455090 0535456010 0535456020 0535456050 0535456070 
+         1          1          1          1          1          1          1 
+0535456100 0535456110 0535457010 0535457020 0535457040 0535457050 0535457070 
+         1          1          1          1          1          1          1 
+0535457090 0535475010 0535475020 0535476110 0535476240 0535476350 0535476360 
+         1          1          1          1          1          1          1 
+0535476370 0535477020 0535477060 0535477090 0535477130 0535477150 0535477180 
+         1          1          1          1          1          1          1 
+0535478010 0535478040 0535478070 0535478090 0535478110 0902100010 0902100020 
+         1          1          1          1          1          1          1 
+0902100030 0902100110 0902100130 0902101010 0902101050 0902102060 0902102080 
+         1          1          1          1          1          1          1 
+0902102100 0902103090 0902103100 0902103120 0902103150 0902103170 0902104020 
+         1          1          1          1          1          1          1 
+0902104060 0902105010 0902105020 0902105050 0902105060 0902105110 0902105130 
+         1          1          1          1          1          1          1 
+0902106010 0902106040 0902106060 0902106070 0902106090 0902106120 0902106130 
+         1          1          1          1          1          1          1 
+0902106140 0902107030 0902107050 0902108060 0902109010 0902109080 0902109110 
+         1          1          1          1          1          1          1 
+0902109120 0902109130 0902109140 0902109160 0902110010 0902110080 0902110090 
+         1          1          1          1          1          1          1 
+0902110120 0902110130 0902111010 0902125020 0902125080 0902125120 0902125160 
+         1          1          1          1          1          1          1 
+0902128020 0902128075 0902128100 0902128150 0902128160 0902128170 0902134060 
+         1          1          1          1          1          1          1 
+0902134100 0902134120 0902135020 0902136110 0902201090 0902201110 0902201120 
+         1          1          1          1          1          1          1 
+0902201130 0902201140 0902202070 0902202090 0902202150 0902204060 0902204080 
+         1          1          1          1          1          1          1 
+0902204120 0902205010 0902205020 0902205030 0902205070 0902205090 0902205130 
+         1          1          1          1          1          1          1 
+0902205140 0902206020 0902206040 0902206090 0902206130 0902206220 0902206240 
+         1          1          1          1          1          1          1 
+0902206260 0902206270 0902207010 0902207080 0902207110 0902207120 0902207130 
+         1          1          1          1          1          1          1 
+0902207140 0902207150 0902207170 0902207220 0902300020 0902300040 0902300090 
+         1          1          1          1          1          1          1 
+0902300110 0902300215 0902300260 0902301030 0902301060 0902301080 0902301120 
+         1          1          1          1          1          1          1 
+0902301130 0902301140 0902301150 0902302150 0902303100 0902304040 0902304060 
+         1          1          1          1          1          1          1 
+0902305010 0902305080 0902305090 0902305110 0902306120 0902306130 0902325050 
+         1          1          1          1          1          1          1 
+0902325070 0902325100 0902325160 0902326030 0902326060 0902327040 0902327070 
+         1          1          1          1          1          1          1 
+0902328040 0902328100 0902329030 0902329070 0902329080 0902329090 0902330010 
+         1          1          1          1          1          1          1 
+0902330040 0902330090 0902331010 0902332030 0902400090 0902400110 0902401010 
+         1          1          1          1          1          1          1 
+0902401030 0902401060 0902401090 0902401120 0902401130 0902402010 0902402130 
+         1          1          1          1          1          1          1 
+0902402150 0902402250 0902402260 0902403070 0902404010 0902405070 0902405100 
+         1          1          1          1          1          1          1 
+0902405120 0902406020 0902406030 0902406070 0902406090 0902408080 0902427040 
+         1          1          1          1          1          1          1 
+0902427045 0902427140 0902427150 0902427180 0902456015 0902477120 0902477130 
+         1          1          1          1          1          1          1 
+0903200050 0903200080 0903201020 0903201030 0903201080 0903201090 0903202120 
+         1          1          1          1          1          1          1 
+0903202170 0903204010 0903204030 0903204040 0903204095 0903205040 0903205085 
+         1          1          1          1          1          1          1 
+0903206070 0903206120 0903206160 0903206170 0903225040 0903225050 0903225090 
+         1          1          1          1          1          1          1 
+0903225140 0903225150 0903225160 0903226060 0903226130 0903226150 0903226160 
+         1          1          1          1          1          1          1 
+0903226170 0903227020 0903227070 0903227080 0903227090 0903227140 0903227150 
+         1          1          1          1          1          1          1 
+0903228040 0903228060 0903228070 0903228080 0903228090 0903228120 0903228150 
+         1          1          1          1          1          1          1 
+0903229040 0903230100 0903230110 0903230120 0903231010 0903231030 0903231050 
+         1          1          1          1          1          1          1 
+0903231060 0903231070 0903231080 0903231090 0903231130 0903231180 0903231190 
+         1          1          1          1          1          1          1 
+0903231220 0903231240 0903232030 0903232060 0903232090 0903232100 0903232170 
+         1          1          1          1          1          1          1 
+0903232190 0903233030 0903233050 0903233080 0903233100 0903233120 0903233140 
+         1          1          1          1          1          1          1 
+0903233180 0903233220 0903234030 0903234050 0903234090 0903234100 0903234160 
+         1          1          1          1          1          1          1 
+0903234220 0903235010 0903235020 0903235100 0903236010 0903236040 0903236130 
+         1          1          1          1          1          1          1 
+0903236200 0903400030 0903400040 0903400180 0903400220 0903401020 0903401030 
+         1          1          1          1          1          1          1 
+0903401050 0903401070 0903425110 0903425190 0903425245 0903425270 0903425280 
+         1          1          1          1          1          1          1 
+0903425340 0903425420 0903426010 0903426160 0903426180 0903426200 0903427040 
+         1          1          1          1          1          1          1 
+0903427090 0903427120 0903429010 0903429080 0903429110 0903430040 0903430050 
+         1          1          1          1          1          1          1 
+0903430060 0903430070 0903430080 0903430090 0903430130 0903450060 0903450110 
+         1          1          1          1          1          1          1 
+0903451050 0903451090 0903451110 0903452025 0903452090 0903453050 0903453080 
+         1          1          1          1          1          1          1 
+0903454010 0903454020 0903454060 0903454080 0903454090 0903454100 0903455030 
+         1          1          1          1          1          1          1 
+0903455090 0903455140 0903456060 0903456090 0903456110 0903456130 0903457040 
+         1          1          1          1          1          1          1 
+0903457130 0903458010 0903458020 0903458060 0903458110 0903458170 0903475020 
+         1          1          1          1          1          1          1 
+0903475040 0903475060 0903475100 0903476030 0903476090 0903476100 0903476110 
+         1          1          1          1          1          1          1 
+0903481010 0903481100 0903481120 0903481130 0903484020 0903484080 0903484110 
+         1          1          1          1          1          1          1 
+0904100020 0904100030 0904100040 0904100090 0904100100 0904100140 0904100160 
+         1          1          1          1          1          1          1 
+0904100170 0904100190 0904101040 0904101070 0904101110 0904101170 0904300150 
+         1          1          1          1          1          1          1 
+0904301060 0904301070 0904301100 0904301110 0904301375 0904301410 0904302010 
+         1          1          1          1          1          1          1 
+0904302020 0904302030 0904302260 0904350045 0904351040 0904351200 0904351240 
+         1          1          1          1          1          1          1 
+0904351280 0904352190 0905100020 0905100030 0905100060 0905100080 0905101070 
+         1          1          1          1          1          1          1 
+0905101100 0905101200 0905101260 0905101300 0905101310 0905101330 0905101450 
+         1          1          1          1          1          1          1 
+0905101490 0905102010 0905102060 0905102170 0905103030 0905103040 0905103060 
+         1          1          1          1          1          1          1 
+0905103070 0905103110 0905103130 0905103140 0905103180 0905104030 0905104080 
+         1          1          1          1          1          1          1 
+0905104090 0905104110 0905104170 0905104180 0905104210 0905104240 0905105010 
+         1          1          1          1          1          1          1 
+0905105040 0905105070 0905105170 0905105190 0905105200 0905105260 0905106140 
+         1          1          1          1          1          1          1 
+0905106150 0905106170 0905106210 0905107070 0905107110 0905107140 0905107220 
+         1          1          1          1          1          1          1 
+0905107240 0905107250 0905107280 0905107300 0905107310 0905107320 0905107380 
+         1          1          1          1          1          1          1 
+0905108090 0905108120 0905108170 0905108190 0905108220 0905109130 0905109170 
+         1          1          1          1          1          1          1 
+0905200010 0905200090 0905200100 0905200160 0905200220 0905200260 0905200280 
+         1          1          1          1          1          1          1 
+0905200290 0905200340 0905200350 0905200380 0905200490 0905200510 0905201020 
+         1          1          1          1          1          1          1 
+0905201030 0905201080 0905201090 0905201110 0905201120 0905202090 0905202190 
+         1          1          1          1          1          1          1 
+0905202210 0905202230 0905225020 0905225040 0905225080 0905225090 0905226030 
+         1          1          1          1          1          1          1 
+0905226050 0905226080 0905226110 0905226130 0905226170 0905227050 0905228020 
+         1          1          1          1          1          1          1 
+0905228050 0905229040 0905300010 0905300020 0905300080 0905301050 0905325020 
+         1          1          1          1          1          1          1 
+0905325030 0905351045 0905351089 0905351150 0905352010 0905352030 0905352070 
+         1          1          1          1          1          1          1 
+0905352140 0905352180 0905376090 0905377010 0905377020 0905377050 0905377130 
+         1          1          1          1          1          1          1 
+0905378040 0905401020 0905401045 0905401060 0905401100 0905402060 0905402070 
+         1          1          1          1          1          1          1 
+0905402090 0905402110 0905403050 0905403060 0905403150 0905425125 0905426010 
+         1          1          1          1          1          1          1 
+0905426030 0905426060 0905426100 0905426150 0905426200 0905427010 0905427030 
+         1          1          1          1          1          1          1 
+0905427050 0905427070 0905427140 0905450020 0905451050 0905451300 0905451320 
+         1          1          1          1          1          1          1 
+0905451330 0905451340 0905451390 0905451410 0905452040 0905452050 0905452070 
+         1          1          1          1          1          1          1 
+0905452110 0905452120 0905452140 0905452150 0905452160 0905453040 0905453080 
+         1          1          1          1          1          1          1 
+0905475150 0905475160 0905475270 0905475500 0905475510 0905475520 0905476120 
+         1          1          1          1          1          1          1 
+0905476160 0905476170 0905476225 0905476230 0905477010 0905477050 0905478030 
+         1          1          1          1          1          1          1 
+0905478140 0905478190 0905478220 0905479110 0905480030 0905480090 0905480150 
+         1          1          1          1          1          1          1 
+0905480160 0905480180 0905480210 0905480240 0906200230 0906201021 0906201022 
+         1          1          1          1          1          1          1 
+0906201023 0906201030 0906201050 0906201120 0906201130 0906201200 0906202040 
+         1          1          1          1          1          1          1 
+0906203120 0906203140 0906204140 0906204150 0906204180 0906204230 0906204280 
+         1          1          1          1          1          1          1 
+0906223040 0906223060 0906223080 0906223090 0906223110 0906223140 0906223180 
+         1          1          1          1          1          1          1 
+0906223210 0906223220 0906225180 0906225210 0906226060 0906226070 0906226080 
+         1          1          1          1          1          1          1 
+0906226090 0906226100 0906226110 0906226120 0906226130 0906226140 0906230010 
+         1          1          1          1          1          1          1 
+0906230020 0906230030 0906340080 0906340090 0906340100 0906340110 0906340120 
+         1          1          1          1          1          1          1 
+0906340130 0906378100 0906378110 0906378120 0906378150 0906378170 0906378190 
+         1          1          1          1          1          1          1 
+0906380010 0906380030 0906380040 0906380050 0906380060 0906380070 0906380100 
+         1          1          1          1          1          1          1 
+0906380110 0906380120 0906380130 0906380140 0906380150 0906380160 0906380170 
+         1          1          1          1          1          1          1 
+0906380180 0906380190 0906380200 0906380210 0906380220 0906382020 0906382030 
+         1          1          1          1          1          1          1 
+0906382040 0906382050 0906382060 0906385010 0906385020 0906392070 0906392080 
+         1          1          1          1          1          1          1 
+0906392090 0906392100 0906392110 0906392120 0906392130 0906394010 0906394020 
+         1          1          1          1          1          1          1 
+0906394040 0906394050 0906394060 0906402060 0906402070 0906402200 0906403060 
+         1          1          1          1          1          1          1 
+0906412010 0906412050 0906420020 0906420130 0906424010 0906425045 0906426060 
+         1          1          1          1          1          1          1 
+0906426090 0906426195 0906426210 0906475050 0906475070 0906475100 0906475110 
+         1          1          1          1          1          1          1 
+0906475170 0906475200 0906476030 0906476140 0906477110 0907125020 0907125040 
+         1          1          1          1          1          1          1 
+0907125080 0907125090 0907125120 0907126010 0907126030 0907126050 0907130060 
+         1          1          1          1          1          1          1 
+0907130100 0907130110 0907131060 0907131070 0907131090 0907131120 0907131190 
+         1          1          1          1          1          1          1 
+0907135020 0907135040 0907135050 0907135080 0907135170 0907135180 0907135230 
+         1          1          1          1          1          1          1 
+0907135260 0907175030 0907175060 0907175080 0907175100 0907176010 0907180040 
+         1          1          1          1          1          1          1 
+0907180050 0907180120 0907180130 0907181090 0907181100 0907181120 0907181140 
+         1          1          1          1          1          1          1 
+0907185050 0907185060 0907187010 0907187030 0907187040 0907187060 0907187080 
+         1          1          1          1          1          1          1 
+0907192010 0907192020 0907192030 0907192040 0907192090 0907192120 0907192130 
+         1          1          1          1          1          1          1 
+0907192150 0907194010 0907194020 0907194110 0907194130 0907194160 0907196020 
+         1          1          1          1          1          1          1 
+0907196040 0907196050 0907196060 0907200110 0907200130 0907200170 0907200190 
+         1          1          1          1          1          1          1 
+0907200230 0907200250 0907200270 0907200280 0907200290 0907200340 0907201060 
+         1          1          1          1          1          1          1 
+0907201160 0907201220 0907201230 0907201280 0907202010 0907202050 0907202080 
+         1          1          1          1          1          1          1 
+0907202100 0907202130 0907202140 0907202160 0907202190 0907202220 0907202240 
+         1          1          1          1          1          1          1 
+0907203010 0907203040 0907203060 0907203070 0907203090 0907203110 0907227030 
+         1          1          1          1          1          1          1 
+0907227050 0907227060 0907227080 0907227090 0907227100 0907227110 0907227290 
+         1          1          1          1          1          1          1 
+0907227300 0907230240 0907250020 0907250030 0907250050 0907250070 0907251090 
+         1          1          1          1          1          1          1 
+0907251100 0907252020 0907252050 0907252060 0907252120 0907252190 0907252210 
+         1          1          1          1          1          1          1 
+0907252220 0907253060 0907253110 0907253130 0907254020 0907254050 0907254090 
+         1          1          1          1          1          1          1 
+0907255010 0907255020 0907255030 0907255050 0907255060 0907260010 0907260030 
+         1          1          1          1          1          1          1 
+0907260040 0907260050 0907262020 0907262030 0907262050 0907262060 0907262070 
+         1          1          1          1          1          1          1 
+0907262080 0907265010 0907265030 0907265100 0907270040 0907270050 0907275010 
+         1          1          1          1          1          1          1 
+0907275030 0907275080 0907275090 0907275140 0907275150 0907280040 0907280090 
+         1          1          1          1          1          1          1 
+0907280100 0907280170 0907285010 0907285020 0907285040 0907285050 0907285080 
+         1          1          1          1          1          1          1 
+0907285100 0907290020 0907290040 0907290070 0907290080 0907290090 0907290140 
+         1          1          1          1          1          1          1 
+0907290150 0907290160 0907290170 0907290180 0907290210 0907290230 0907290240 
+         1          1          1          1          1          1          1 
+0907290250 0907290260 0907295020 0907295040 0907295100 0907401050 0907401060 
+         1          1          1          1          1          1          1 
+0907401080 0907401090 0907405020 0907405030 0907405130 0907405140 0907410020 
+         1          1          1          1          1          1          1 
+0907410040 0907410050 0907410080 0907410100 0907410110 0907410130 0907412010 
+         1          1          1          1          1          1          1 
+0907412020 0907412040 0907412070 0907412080 0907412090 0907414020 0907414030 
+         1          1          1          1          1          1          1 
+0907414040 0907414060 0907414070 0907414080 0907418010 0907418020 0907418040 
+         1          1          1          1          1          1          1 
+0907420040 0907420050 0907420060 0907420070 0907420080 0907420090 0907420110 
+         1          1          1          1          1          1          1 
+0907425010 0907425015 0907425030 0907425035 0908102020 0908102030 0908102040 
+         1          1          1          1          1          1          1 
+0908102050 0908102060 0908102100 0908102110 0908102130 0908102140 0908102160 
+         1          1          1          1          1          1          1 
+0908102170 0908102260 0908102270 0908102290 0908102300 0908102320 0908102330 
+         1          1          1          1          1          1          1 
+0908103090 0908103260 0908103280 0908103310 0908103320 0908103350 0908127040 
+         1          1          1          1          1          1          1 
+0908127050 0908127060 0908127070 0908127100 0908127120 0908128050 0908128060 
+         1          1          1          1          1          1          1 
+0908128100 0908128110 0908130020 0908151040 0908151050 0908152035 0908152060 
+         1          1          1          1          1          1          1 
+0908152070 0908152080 0908152100 0908152110 0908152180 0908152260 0908152270 
+         1          1          1          1          1          1          1 
+0908152280 0908152290 0908154040 0908154080 0908178050 0908186040 0908186050 
+         1          1          1          1          1          1          1 
+0908186060 0908186070 0908186080 0908186090 0908188110 0908188120 0908188130 
+         1          1          1          1          1          1          1 
+0908188140 0908188150 0908201040 0908201100 0908201110 0908201120 0908203090 
+         1          1          1          1          1          1          1 
+0908203100 0908204090 0908204160 0908204180 0908208020 0908225170 0908225180 
+         1          1          1          1          1          1          1 
+0908225240 0908225290 0908225310 0908225320 0908225370 0908226120 0908226130 
+         1          1          1          1          1          1          1 
+0908226180 0908227010 0908227030 0908227040 0908228010 0908228040 0908229020 
+         1          1          1          1          1          1          1 
+0908250030 0908250040 0908250090 0908250100 0908275040 0908275090 0908275110 
+         1          1          1          1          1          1          1 
+0908275130 0908275180 0908275200 0908275220 0908275240 0908275280 0908275290 
+         1          1          1          1          1          1          1 
+0908275300 0908276140 0908276150 0908276230 0909100080 0909100110 0909100150 
+         1          1          1          1          1          1          1 
+0909100170 0909101010 0909101050 0909101060 0909101070 0909101080 0909101100 
+         1          1          1          1          1          1          1 
+0909101140 0909101180 0909101190 0909101330 0909103020 0909129090 0909129100 
+         1          1          1          1          1          1          1 
+0909131125 0909131170 0909175030 0909175050 0909175080 0909175100 0909176080 
+         1          1          1          1          1          1          1 
+0909176140 0909176150 0909176170 0909176180 0909177100 0909177120 0909178160 
+         1          1          1          1          1          1          1 
+0909179020 0909201110 0909201180 0909250030 0909250040 0909250060 0909250070 
+         1          1          1          1          1          1          1 
+0909250080 0909250120 0909250150 0909250160 0909250200 0909250210 0909250220 
+         1          1          1          1          1          1          1 
+0909250230 0909251030 0909251040 0909251050 0909251080 0909251090 0909251170 
+         1          1          1          1          1          1          1 
+0909252010 0909252020 0909252110 0909252150 0909252170 0909252220 0909253010 
+         1          1          1          1          1          1          1 
+0909253080 0909253180 0909253190 0909254010 0909254050 0909254070 0909254090 
+         1          1          1          1          1          1          1 
+0909254100 0909254130 0909254140 0909254150 0909256010 0909256020 0909256060 
+         1          1          1          1          1          1          1 
+0909256120 0909257050 0909275020 0909275030 0909275040 0909275050 0909275080 
+         1          1          1          1          1          1          1 
+0909275110 0909275160 0909275230 0909275250 0909275310 0909276010 0909276070 
+         1          1          1          1          1          1          1 
+0909276110 0909276160 0909276170 0909276200 0909276210 0909277040 0909277070 
+         1          1          1          1          1          1          1 
+0909277090 0909277100 0909278020 0909279010 0909279040 0909279080 0909280030 
+         1          1          1          1          1          1          1 
+0909280070 0909281010 0909281020 0909281030 0909281080 0909281110 0909281130 
+         1          1          1          1          1          1          1 
+0909282020 0909282030 0909282060 0909282110 0909282130 0909425010 0909425060 
+         1          1          1          1          1          1          1 
+0909425085 0909425120 0909425130 0909425140 0909425180 0909425270 0909426060 
+         1          1          1          1          1          1          1 
+0909426080 0909426090 0909427200 0909427230 0909428110 0909428120 0909428170 
+         1          1          1          1          1          1          1 
+0909428180 0909428190 0909428240 0909428280 0909428340 0909451020 0909451040 
+         1          1          1          1          1          1          1 
+0909451100 0909451130 0909451140 0909451150 0909451180 0909452050 0909452102 
+         1          1          1          1          1          1          1 
+0909452114 0909455030 0909455040 0909455060 0909475020 0909475040 0909475050 
+         1          1          1          1          1          1          1 
+0909475070 0909475140 0909475230 0909475300 0910200020 0910200040 0910200060 
+         1          1          1          1          1          1          1 
+0910200080 0910200110 0910201020 0910201050 0910201110 0910201130 0910201180 
+         1          1          1          1          1          1          1 
+0910202030 0910202050 0910202060 0910202070 0910202100 0910203020 0910203090 
+         1          1          1          1          1          1          1 
+0910203100 0910203230 0910203250 0910203290 0910204050 0910204090 0910205010 
+         1          1          1          1          1          1          1 
+0910205020 0910205120 0910205130 0910206010 0910206110 0910207110 0910226040 
+         1          1          1          1          1          1          1 
+0910226060 0910251050 0911102090 0911102170 0911102180 0911103050 0911103060 
+         1          1          1          1          1          1          1 
+0911104060 0911128010 0911128020 0911128180 0911175360 0911175410 0911175430 
+         1          1          1          1          1          1          1 
+0911175440 0911202100 0911204090 0911204100 0911225110 0911226010 0911226030 
+         1          1          1          1          1          1          1 
+0911370410 0911370430 0911370450 0911370460 0911370490 0911370500 0911370510 
+         1          1          1          1          1          1          1 
+0911370520 0911370530 0911370540 0912251110 0913350030 0914452060 0914452090 
+         1          1          1          1          1          1          1 
+0914452120 0914452190 0914453045 0914460020 0914460110 0914465020 0914465040 
+         1          1          1          1          1          1          1 
+0914465055 0914465060 0914467040 0914467050 0914474020 0914474070 0914475010 
+         1          1          1          1          1          1          1 
+0914475020 0914475030 0914475090 0914476010 0914476020 0914476050 0914476080 
+         1          1          1          1          1          1          1 
+0914476130 0914476330 0914476380 0914476430 0914476450 0914476500 0914476520 
+         1          1          1          1          1          1          1 
+0914478020 0914478045 0914478100 0914478110 0916125360 0916125425 0916176030 
+         1          1          1          1          1          1          1 
+0916176125 0916225130 0916226030 0916226090 0916252170 0916253320 0916325040 
+         1          1          1          1          1          1          1 
+0916325080 0916326010 0916326040 0916326090 0916380060 0916380070 0916382010 
+         1          1          1          1          1          1          1 
+0916382100 0916382110 0916382120 0916384050 0916384070 0916384080 0916384100 
+         1          1          1          1          1          1          1 
+0916384150 0916386010 0916386020 0916386040 0916386060 0916386080 0916386090 
+         1          1          1          1          1          1          1 
+0916386140 0916386170 0916386180 0916402015 0916402115 0916402125 0916402215 
+         1          1          1          1          1          1          1 
+0916403010 0916403020 0916403040 0916403130 0916403200 0916403230 0916403250 
+         1          1          1          1          1          1          1 
+0916403290 0916455010 0916455050 0916455070 0916455110 0916455120 0916455150 
+         1          1          1          1          1          1          1 
+0916455170 0916460020 0916460060 0916460070 0916460110 0916475020 0916475040 
+         1          1          1          1          1          1          1 
+0916475100 0916475110 0916477010 0916477020 0916477060 0917425190 0921126010 
+         1          1          1          1          1          1          1 
+0921126030 0921128020 0921128030 0921128050 0921201060 0921205030 0921205050 
+         1          1          1          1          1          1          1 
+0921205070 0923125030 0923201020 0923201100 0923202005 0923202015 0923202025 
+         1          1          1          1          1          1          1 
+0923202060 0923202105 0923202134 0923202137 0923202220 0923203010 0923203090 
+         1          1          1          1          1          1          1 
+0923203100 0923203110 0923203140 0923203190 0923204040 0923204050 0923204140 
+         1          1          1          1          1          1          1 
+0923204150 0923205015 0923205025 0923205120 0923225040 0923225050 0923225080 
+         1          1          1          1          1          1          1 
+0923225150 0923225190 0923225200 0923225240 0923225260 0923225300 0923225310 
+         1          1          1          1          1          1          1 
+0923225360 0923225370 0923225390 0923225440 0923225490 0923225510 0923226150 
+         1          1          1          1          1          1          1 
+0923226180 0923226250 0923226270 0923226290 0923226300 0923226320 0923227030 
+         1          1          1          1          1          1          1 
+0923227080 0923227100 0923228080 0923228110 0923228130 0923228150 0923228180 
+         1          1          1          1          1          1          1 
+0923228200 0923228210 0923228220 0923228230 0923228250 0923228260 0923228270 
+         1          1          1          1          1          1          1 
+0923228290 0923228310 0923228370 0923228390 0923228420 0923229010 0923229040 
+         1          1          1          1          1          1          1 
+0923229100 0923229110 0923229140 0923230010 0923230040 0923230120 0923230180 
+         1          1          1          1          1          1          1 
+0923230190 0923230200 0923250060 0923250210 0923251080 0923251160 0923251180 
+         1          1          1          1          1          1          1 
+0923252075 0923252080 0923252100 0923275010 0923275040 0923275080 0923275090 
+         1          1          1          1          1          1          1 
+0923275140 0923275200 0923276030 0923276100 0923276180 0923276250 0923276260 
+         1          1          1          1          1          1          1 
+0923277030 0923277040 0923277080 0923400025 0923400040 0923400110 0923400125 
+         1          1          1          1          1          1          1 
+0923400150 0923425030 0923426010 0923426070 0924100020 0924100040 0924100050 
+         1          1          1          1          1          1          1 
+0924100060 0924100070 0924151040 0924151050 0924152030 1007100110 
+         1          1          1          1          1          1 
+
+$MSSubClass
+
+ 020  030  040  045  050  060  070  075  080  085  090  120  150  160  180  190 
+1078  139    6   18  287  571  128   23  118   48  109  192    1  129   17   61 
+
+$MSZoning
+
+A (agr) C (all)      FV I (all)      RH      RL      RM 
+      2      25     139       2      27    2268     462 
+
+$Street
+
+Grvl Pave 
+  12 2913 
+
+$Alley
+
+Grvl Pave 
+ 120   78 
+
+$LotShape
+
+ IR1  IR2  IR3  Reg 
+ 975   76   15 1859 
+
+$LandContour
+
+ Bnk  HLS  Low  Lvl 
+ 114  120   60 2631 
+
+$Utilities
+
+AllPub NoSeWa NoSewr 
+  2922      1      2 
+
+$LotConfig
+
+ Corner CulDSac     FR2     FR3  Inside 
+    508     180      85      14    2138 
+
+$LandSlope
+
+ Gtl  Mod  Sev 
+2784  125   16 
+
+$Neighborhood
+
+Blmngtn Blueste  BrDale BrkSide ClearCr CollgCr Crawfor Edwards Gilbert  Greens 
+     28      10      30     108      44     267     103     191     165       8 
+GrnHill  IDOTRR Landmrk MeadowV Mitchel   NAmes NoRidge NPkVill NridgHt  NWAmes 
+      2      93       1      37     114     443      69      23     166     131 
+OldTown  Sawyer SawyerW Somerst StoneBr   SWISU  Timber Veenker 
+    239     151     125     182      51      48      72      24 
+
+$Condition1
+
+Artery  Feedr   Norm   PosA   PosN   RRAe   RRAn   RRNe   RRNn 
+    92    163   2519     20     38     28     50      6      9 
+
+$Condition2
+
+Artery  Feedr   Norm   PosA   PosN   RRAe   RRAn   RRNn 
+     5     13   2896      4      3      1      1      2 
+
+$BldgType
+
+  1Fam 2fmCon Duplex  Twnhs TwnhsE 
+  2420     62    109    101    233 
+
+$HouseStyle
+
+1.5Fin 1.5Unf 1Story 2.5Fin 2.5Unf 2Story SFoyer   SLvl 
+   314     19   1480      8     24    869     83    128 
+
+$RoofStyle
+
+   Flat   Gable Gambrel     Hip Mansard    Shed 
+     20    2320      22     547      11       5 
+
+$RoofMatl
+
+CompShg Membran   Metal    Roll Tar&amp;Grv WdShake WdShngl 
+   2884       1       1       1      23       9       6 
+
+$Exterior1st
+
+AsbShng AsphShn BrkComm BrkFace  CBlock CemntBd HdBoard ImStucc MetalSd Plywood 
+     44       2       6      88       2     124     441       1     450     221 
+PreCast   Stone  Stucco VinylSd Wd Sdng WdShing 
+      1       2      42    1026     419      56 
+
+$Exterior2nd
+
+AsbShng AsphShn Brk Cmn BrkFace  CBlock CmentBd HdBoard ImStucc MetalSd   Other 
+     38       4      22      47       3     124     405      14     447       1 
+Plywood PreCast   Stone  Stucco VinylSd Wd Sdng Wd Shng 
+    274       1       6      46    1015     397      81 
+
+$MasVnrType
+
+ BrkCmn BrkFace  CBlock    None   Stone 
+     25     879       1    1751     246 
+
+$ExterQual
+
+  Ex   Fa   Gd   TA 
+ 103   35  988 1799 
+
+$ExterCond
+
+  Ex   Fa   Gd   Po   TA 
+  12   67  299    3 2544 
+
+$Foundation
+
+BrkTil CBlock  PConc   Slab  Stone   Wood 
+   311   1244   1305     49     11      5 
+
+$BsmtQual
+
+  Ex   Fa   Gd   Po   TA 
+ 253   88 1219    2 1283 
+
+$BsmtCond
+
+  Ex   Fa   Gd   Po   TA 
+   3  104  122    5 2611 
+
+$BsmtExposure
+
+  Av   Gd   Mn   No 
+ 417  280  239 1906 
+
+$BsmtFinType1
+
+ALQ BLQ GLQ LwQ Rec Unf 
+429 269 854 154 288 851 
+
+$BsmtFinType2
+
+ ALQ  BLQ  GLQ  LwQ  Rec  Unf 
+  53   68   34   89  106 2494 
+
+$Heating
+
+Floor  GasA  GasW  Grav  OthW  Wall 
+    1  2880    27     9     2     6 
+
+$HeatingQC
+
+  Ex   Fa   Gd   Po   TA 
+1490   92  476    3  864 
+
+$CentralAir
+
+   N    Y 
+ 196 2729 
+
+$Electrical
+
+FuseA FuseF FuseP   Mix SBrkr 
+  188    50     8     1  2677 
+
+$KitchenQual
+
+  Ex   Fa   Gd   Po   TA 
+ 200   70 1160    1 1494 
+
+$Functional
+
+Maj1 Maj2 Min1 Min2  Mod  Sal  Sev  Typ 
+  19    9   65   70   35    2    2 2723 
+
+$FireplaceQu
+
+ Ex  Fa  Gd  Po  TA 
+ 42  75 741  46 599 
+
+$GarageType
+
+ 2Types  Attchd Basment BuiltIn CarPort  Detchd 
+     23    1727      36     185      15     782 
+
+$GarageFinish
+
+ Fin  RFn  Unf 
+ 723  812 1231 
+
+$GarageQual
+
+  Ex   Fa   Gd   Po   TA 
+   3  124   24    5 2610 
+
+$GarageCond
+
+  Ex   Fa   Gd   Po   TA 
+   3   74   15   14 2660 
+
+$PavedDrive
+
+   N    P    Y 
+ 216   62 2647 
+
+$PoolQC
+
+Ex Fa Gd TA 
+ 3  2  3  3 
+
+$Fence
+
+GdPrv  GdWo MnPrv  MnWw 
+  118   112   329    12 
+
+$MiscFeature
+
+Gar2 Othr Shed TenC 
+   5    4   95    1 
+
+$SaleType
+
+  COD   Con ConLD ConLI ConLw   CWD   New   Oth   VWD    WD 
+   87     5    26     9     8    12   236     7     1  2534 
+
+$SaleCondition
+
+Abnorml AdjLand  Alloca  Family  Normal Partial 
+    189      12      24      46    2412     242 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">|&gt;</span> <span class="fu">map</span> ( summary )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$Order
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      1     732    1463    1465    2199    2930 
+
+$LotFrontage
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+     21      58      68      69      80     313     490 
+
+$LotArea
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1300    7438    9428   10104   11515  215245 
+
+$OverallQual
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      1       5       6       6       7      10 
+
+$OverallCond
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      1       5       5       6       6       9 
+
+$YearBuilt
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1872    1954    1973    1971    2001    2010 
+
+$`YearRemod/Add`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1950    1965    1993    1984    2004    2010 
+
+$MasVnrArea
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+      0       0       0     101     164    1600      23 
+
+$BsmtFinSF1
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+      0       0     370     438     733    2288       1 
+
+$BsmtFinSF2
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+      0       0       0      50       0    1526       1 
+
+$BsmtUnfSF
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+      0     219     464     559     801    2336       1 
+
+$TotalBsmtSF
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+      0     793     990    1047    1299    3206       1 
+
+$`1stFlrSF`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    334     876    1082    1155    1383    3820 
+
+$`2ndFlrSF`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0       0       0     334     702    1862 
+
+$LowQualFinSF
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0       0       0       5       0    1064 
+
+$GrLivArea
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    334    1126    1441    1494    1740    3820 
+
+$BsmtFullBath
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+    0.0     0.0     0.0     0.4     1.0     3.0       2 
+
+$BsmtHalfBath
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+    0.0     0.0     0.0     0.1     0.0     2.0       2 
+
+$FullBath
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0       1       2       2       2       4 
+
+$HalfBath
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    0.0     0.0     0.0     0.4     1.0     2.0 
+
+$BedroomAbvGr
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0       2       3       3       3       8 
+
+$KitchenAbvGr
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0       1       1       1       1       3 
+
+$TotRmsAbvGrd
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      2       5       6       6       7      14 
+
+$Fireplaces
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0       0       1       1       1       4 
+
+$GarageYrBlt
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   1895    1960    1979    1978    2002    2207     159 
+
+$GarageCars
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+      0       1       2       2       2       5       1 
+
+$GarageArea
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+      0     320     480     472     576    1488       1 
+
+$WoodDeckSF
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0       0       0      93     168    1424 
+
+$OpenPorchSF
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0       0      27      47      70     742 
+
+$EnclosedPorch
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0       0       0      23       0    1012 
+
+$`3SsnPorch`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0       0       0       3       0     508 
+
+$ScreenPorch
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0       0       0      16       0     576 
+
+$PoolArea
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0       0       0       2       0     800 
+
+$MiscVal
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0       0       0      45       0   15500 
+
+$MoSold
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      1       4       6       6       8      12 
+
+$YrSold
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   2006    2007    2008    2008    2009    2010 
+
+$SalePrice
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  12789  129500  160000  180412  213500  625000 </code></pre>
+</div>
+</div>
+<p>Using the above functions would let you quickly and easily to determine that you should delete some columns and convert others to factor or integer. You can delete columns by saying, for instance,</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">"Order"</span>,<span class="st">"PID"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You may add as many names to the list in the <code>-c()</code> vector as desired.</p>
+<p>You may wish to delete columns with a lot of NAs rather than deleting rows with lots of NAs. (Why is this?)</p>
+<p>This is easy to discover in the case of numerical columns. For instance, <code>LotFrontage</code> has 490 NAs. You can quickly see that in the output of the above <code>summary</code>. But it doesn’t work for character data. One quick way to see the number of NAs in all columns is to say</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(df)) <span class="sc">|&gt;</span> <span class="fu">sort</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   MSSubClass      MSZoning       LotArea        Street      LotShape 
+            0             0             0             0             0 
+  LandContour     Utilities     LotConfig     LandSlope  Neighborhood 
+            0             0             0             0             0 
+   Condition1    Condition2      BldgType    HouseStyle   OverallQual 
+            0             0             0             0             0 
+  OverallCond     YearBuilt YearRemod/Add     RoofStyle      RoofMatl 
+            0             0             0             0             0 
+  Exterior1st   Exterior2nd     ExterQual     ExterCond    Foundation 
+            0             0             0             0             0 
+      Heating     HeatingQC    CentralAir      1stFlrSF      2ndFlrSF 
+            0             0             0             0             0 
+ LowQualFinSF     GrLivArea      FullBath      HalfBath  BedroomAbvGr 
+            0             0             0             0             0 
+ KitchenAbvGr   KitchenQual  TotRmsAbvGrd    Functional    Fireplaces 
+            0             0             0             0             0 
+   PavedDrive    WoodDeckSF   OpenPorchSF EnclosedPorch     3SsnPorch 
+            0             0             0             0             0 
+  ScreenPorch      PoolArea       MiscVal        MoSold        YrSold 
+            0             0             0             0             0 
+     SaleType SaleCondition     SalePrice    BsmtFinSF1    BsmtFinSF2 
+            0             0             0             1             1 
+    BsmtUnfSF   TotalBsmtSF    Electrical    GarageCars    GarageArea 
+            1             1             1             1             1 
+ BsmtFullBath  BsmtHalfBath    MasVnrType    MasVnrArea      BsmtQual 
+            2             2            23            23            80 
+     BsmtCond  BsmtFinType1  BsmtFinType2  BsmtExposure    GarageType 
+           80            80            81            83           157 
+  GarageYrBlt  GarageFinish    GarageQual    GarageCond   LotFrontage 
+          159           159           159           159           490 
+  FireplaceQu         Fence         Alley   MiscFeature        PoolQC 
+         1422          2354          2727          2820          2914 </code></pre>
+</div>
+</div>
+<p>This makes it clear that you should not use <code>FireplaceQu</code>, <code>Fence</code>, <code>Alley</code>, or <code>MiscFeature</code> in addition to <code>LotFrontage</code>.</p>
+<p>A better-looking display may be obtained by saying</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">colSums</span>(<span class="fu">is.na</span>(df))</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>v[v<span class="sc">&gt;</span><span class="dv">0</span>] <span class="sc">|&gt;</span> <span class="fu">sort</span>(<span class="at">decreasing=</span><span class="cn">TRUE</span>) <span class="sc">|&gt;</span> <span class="fu">as.data.frame</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             sort(v[v &gt; 0], decreasing = TRUE)
+PoolQC                                    2914
+MiscFeature                               2820
+Alley                                     2727
+Fence                                     2354
+FireplaceQu                               1422
+LotFrontage                                490
+GarageYrBlt                                159
+GarageFinish                               159
+GarageQual                                 159
+GarageCond                                 159
+GarageType                                 157
+BsmtExposure                                83
+BsmtFinType2                                81
+BsmtQual                                    80
+BsmtCond                                    80
+BsmtFinType1                                80
+MasVnrType                                  23
+MasVnrArea                                  23
+BsmtFullBath                                 2
+BsmtHalfBath                                 2
+BsmtFinSF1                                   1
+BsmtFinSF2                                   1
+BsmtUnfSF                                    1
+TotalBsmtSF                                  1
+Electrical                                   1
+GarageCars                                   1
+GarageArea                                   1</code></pre>
+</div>
+</div>
+</section>
+<section id="exercises" class="level3" data-number="2.9.3">
+<h3 data-number="2.9.3" class="anchored" data-anchor-id="exercises"><span class="header-section-number">2.9.3</span> Exercises</h3>
 <p>Create a Quarto document called <code>week02exercises.qmd</code>. Use your name as the author name and the date as the current date. Make the title within the document “Week 2 Exercises”.</p>
 <p>Answer the following questions in the document, using a combination of narration and R chunks.</p>
 <ol type="1">
@@ -887,19 +2366,18 @@ year            77   3     70, 82</code></pre>
 </ol>
 <p>Now render the document and submit both the <code>.qmd</code> file and the <code>.html</code> file to Canvas under “week02exercises”.</p>
 </section>
-<section id="solutions-to-exercises" class="level3" data-number="2.9.3">
-<h3 data-number="2.9.3" class="anchored" data-anchor-id="solutions-to-exercises"><span class="header-section-number">2.9.3</span> Solutions to exercises</h3>
-<!-- -->
+<section id="solutions-to-exercises" class="level3" data-number="2.9.4">
+<h3 data-number="2.9.4" class="anchored" data-anchor-id="solutions-to-exercises"><span class="header-section-number">2.9.4</span> Solutions to exercises</h3>
 <ol type="1">
 <li>Use the <code>loan50</code> data set. Find the mean and median of <code>annual_income</code> using R. Tell why they differ in words.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/loan50.rda"</span>))</span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan50,<span class="fu">mean</span>(annual_income))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/loan50.rda"</span>))</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan50,<span class="fu">mean</span>(annual_income))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 86170</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan50,<span class="fu">median</span>(annual_income))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan50,<span class="fu">median</span>(annual_income))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 74000</code></pre>
 </div>
@@ -909,7 +2387,7 @@ year            77   3     70, 82</code></pre>
 <li>Use the <code>loan50</code> data set. Make a contingency table of <code>loan_purpose</code> and <code>grade</code>. Tell the most frequently occurring grade and most frequently occurring loan purpose in words.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan50,<span class="fu">addmargins</span>(<span class="fu">table</span>(loan_purpose,grade)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan50,<span class="fu">addmargins</span>(<span class="fu">table</span>(loan_purpose,grade)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                    grade
 loan_purpose             A  B  C  D  E  F  G Sum
@@ -935,12 +2413,12 @@ loan_purpose             A  B  C  D  E  F  G Sum
 <li>Use the <code>loan50</code> data set. Provide a statistical summary of <code>total_credit_limit</code>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan50,<span class="fu">summary</span>(total_credit_limit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan50,<span class="fu">summary</span>(total_credit_limit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   15980   70526  147364  208547  299766  793009 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan50,scales<span class="sc">::</span><span class="fu">comma_format</span>(<span class="fu">summary</span>(total_credit_limit)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan50,scales<span class="sc">::</span><span class="fu">comma_format</span>(<span class="fu">summary</span>(total_credit_limit)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>function (x) 
 {
@@ -949,17 +2427,17 @@ loan_purpose             A  B  C  D  E  F  G Sum
         style_positive = style_positive, style_negative = style_negative, 
         scale_cut = scale_cut, trim = trim, ...)
 }
-&lt;bytecode: 0x7fc8d12a0270&gt;
-&lt;environment: 0x7fc8d1de2680&gt;</code></pre>
+&lt;bytecode: 0x7fd3573b8680&gt;
+&lt;environment: 0x7fd35b0940e0&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. same info with commas in numbers</span></span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>loan50 <span class="sc">|&gt;</span></span>
-<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">Min=</span><span class="fu">comma</span>(<span class="fu">min</span>(total_credit_limit)),</span>
-<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">firstq=</span><span class="fu">comma</span>(<span class="fu">quantile</span>(total_credit_limit,<span class="fl">0.25</span>)),</span>
-<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">Median=</span><span class="fu">comma</span>(<span class="fu">median</span>(total_credit_limit)),</span>
-<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">Mean=</span><span class="fu">comma</span>(<span class="fu">mean</span>(total_credit_limit)),</span>
-<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">thirdq=</span><span class="fu">comma</span>(<span class="fu">quantile</span>(total_credit_limit,<span class="fl">0.75</span>)),</span>
-<span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">Max=</span><span class="fu">comma</span>(<span class="fu">max</span>(total_credit_limit)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. same info with commas in numbers</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>loan50 <span class="sc">|&gt;</span></span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">Min=</span><span class="fu">comma</span>(<span class="fu">min</span>(total_credit_limit)),</span>
+<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">firstq=</span><span class="fu">comma</span>(<span class="fu">quantile</span>(total_credit_limit,<span class="fl">0.25</span>)),</span>
+<span id="cb80-5"><a href="#cb80-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">Median=</span><span class="fu">comma</span>(<span class="fu">median</span>(total_credit_limit)),</span>
+<span id="cb80-6"><a href="#cb80-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">Mean=</span><span class="fu">comma</span>(<span class="fu">mean</span>(total_credit_limit)),</span>
+<span id="cb80-7"><a href="#cb80-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">thirdq=</span><span class="fu">comma</span>(<span class="fu">quantile</span>(total_credit_limit,<span class="fl">0.75</span>)),</span>
+<span id="cb80-8"><a href="#cb80-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">Max=</span><span class="fu">comma</span>(<span class="fu">max</span>(total_credit_limit)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     Min firstq  Median    Mean  thirdq     Max
 1 15,980 70,526 147,364 208,547 299,766 793,009</code></pre>
@@ -969,8 +2447,8 @@ loan_purpose             A  B  C  D  E  F  G Sum
 <li>Use the <code>loan50</code> data set. Show the column means for all numeric columns.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">digits=</span><span class="dv">1</span>)</span>
-<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span>(<span class="fu">colMeans</span>(loan50[<span class="fu">sapply</span>(loan50, is.numeric)]),<span class="at">scientific=</span><span class="cn">FALSE</span>,<span class="at">big.mark=</span><span class="st">","</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">digits=</span><span class="dv">1</span>)</span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span>(<span class="fu">colMeans</span>(loan50[<span class="fu">sapply</span>(loan50, is.numeric)]),<span class="at">scientific=</span><span class="cn">FALSE</span>,<span class="at">big.mark=</span><span class="st">","</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             emp_length                    term           annual_income 
            "        NA"            "     42.72"            " 86,170.00" 
@@ -986,7 +2464,7 @@ num_cc_carrying_balance             loan_amount           interest_rate
 <li>Use the <code>loan50</code> data set. Make a contingency table of <code>state</code> and <code>homeownership</code>. Tell which state has the most mortgages in words.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan50,<span class="fu">table</span>(state,homeownership))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(loan50,<span class="fu">table</span>(state,homeownership))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     homeownership
 state rent mortgage own
@@ -1045,8 +2523,8 @@ state rent mortgage own
 </div>
 <p>Texas has five mortgages, more than any other state.</p>
 </section>
-<section id="exercise-notes" class="level3" data-number="2.9.4">
-<h3 data-number="2.9.4" class="anchored" data-anchor-id="exercise-notes"><span class="header-section-number">2.9.4</span> Exercise Notes</h3>
+<section id="exercise-notes" class="level3" data-number="2.9.5">
+<h3 data-number="2.9.5" class="anchored" data-anchor-id="exercise-notes"><span class="header-section-number">2.9.5</span> Exercise Notes</h3>
 <ol type="1">
 <li>Many students did not follow instructions on file naming. I will take off a lot of points if this happens when you turn in a graded assignment. I expect all files to be uniformly named.</li>
 <li>Several students left the boilerplate verbiage in their <code>.qmd</code> file. I will take off a lot of points if this happens when you turn in a graded assignment.</li>
@@ -1054,9 +2532,9 @@ state rent mortgage own
 <li>Some students didn’t try to answer the second part of question 1. One way to understand this is to draw a boxplot of the data, showing that there are four outliers at the top end, dragging the mean upward but leaving the median pretty much alone.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>loan50 <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(annual_income)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>loan50 <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(annual_income)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week02_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" width="672"></p>
+<p><img src="week02_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <ol start="5" type="1">
@@ -1070,15 +2548,15 @@ state rent mortgage own
 <li>Some students highlighted relevant rows and columns as shown below. This was a really great addition.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">with</span>(loan50,<span class="fu">table</span>(loan_purpose,grade))</span>
-<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">addmargins</span>(tbl)</span>
-<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a>tbl <span class="sc">|&gt;</span></span>
-<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">|&gt;</span></span>
-<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width=</span>F) <span class="sc">|&gt;</span></span>
-<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">4</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">background =</span> <span class="st">"#AAAAAA"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb77-8"><a href="#cb77-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">4</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">background =</span> <span class="st">"#AAAAAA"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb77-9"><a href="#cb77-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">background =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">with</span>(loan50,<span class="fu">table</span>(loan_purpose,grade))</span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">addmargins</span>(tbl)</span>
+<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a>tbl <span class="sc">|&gt;</span></span>
+<span id="cb88-5"><a href="#cb88-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">|&gt;</span></span>
+<span id="cb88-6"><a href="#cb88-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width=</span>F) <span class="sc">|&gt;</span></span>
+<span id="cb88-7"><a href="#cb88-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">4</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">background =</span> <span class="st">"#AAAAAA"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb88-8"><a href="#cb88-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">4</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">background =</span> <span class="st">"#AAAAAA"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb88-9"><a href="#cb88-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">background =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="lightable-classic table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
@@ -1284,22 +2762,22 @@ state rent mortgage own
 </div>
 <p>Another way to do this is to say</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>maxrow<span class="ot">&lt;-</span><span class="fu">max</span>(tbl[<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">levels</span>(loan50<span class="sc">$</span>loan_purpose))<span class="sc">-</span><span class="dv">1</span>,<span class="st">"Sum"</span>])</span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>maxcol<span class="ot">&lt;-</span><span class="fu">max</span>(tbl[<span class="st">"Sum"</span>,<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">levels</span>(loan50<span class="sc">$</span>grade))<span class="sc">-</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>maxrow<span class="ot">&lt;-</span><span class="fu">max</span>(tbl[<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">levels</span>(loan50<span class="sc">$</span>loan_purpose))<span class="sc">-</span><span class="dv">1</span>,<span class="st">"Sum"</span>])</span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>maxcol<span class="ot">&lt;-</span><span class="fu">max</span>(tbl[<span class="st">"Sum"</span>,<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">levels</span>(loan50<span class="sc">$</span>grade))<span class="sc">-</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>and</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>maxrownum <span class="ot">&lt;-</span> <span class="fu">which.max</span>(tbl[<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">levels</span>(loan50<span class="sc">$</span>loan_purpose))<span class="sc">-</span><span class="dv">1</span>,<span class="st">"Sum"</span>])</span>
-<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>maxcolnum <span class="ot">&lt;-</span> <span class="fu">which.max</span>(tbl[<span class="st">"Sum"</span>,<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">levels</span>(loan50<span class="sc">$</span>grade))<span class="sc">-</span><span class="dv">1</span>])<span class="sc">+</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>maxrownum <span class="ot">&lt;-</span> <span class="fu">which.max</span>(tbl[<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">levels</span>(loan50<span class="sc">$</span>loan_purpose))<span class="sc">-</span><span class="dv">1</span>,<span class="st">"Sum"</span>])</span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>maxcolnum <span class="ot">&lt;-</span> <span class="fu">which.max</span>(tbl[<span class="st">"Sum"</span>,<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">levels</span>(loan50<span class="sc">$</span>grade))<span class="sc">-</span><span class="dv">1</span>])<span class="sc">+</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now you can plug <code>maxrownum</code> and <code>maxcolnum</code> into the formula without having to know which row and column you’re talking about.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>tbl <span class="sc">|&gt;</span></span>
-<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">|&gt;</span></span>
-<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width=</span>F) <span class="sc">|&gt;</span></span>
-<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(maxrownum, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">background =</span> <span class="st">"#AAAAAA"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb80-5"><a href="#cb80-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(maxcolnum, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">background =</span> <span class="st">"#AAAAAA"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb80-6"><a href="#cb80-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">background =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>tbl <span class="sc">|&gt;</span></span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">|&gt;</span></span>
+<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>(<span class="at">full_width=</span>F) <span class="sc">|&gt;</span></span>
+<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(maxrownum, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">background =</span> <span class="st">"#AAAAAA"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb91-5"><a href="#cb91-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(maxcolnum, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">background =</span> <span class="st">"#AAAAAA"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb91-6"><a href="#cb91-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">background =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="lightable-classic table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
@@ -1508,12 +2986,12 @@ state rent mortgage own
 <li>One student stipulated that the mean and median could not ever be the same except in two unusual circumstances. Actually it is quite easy for the mean to equal the mean as you can see from this simple example.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>)</span>
-<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>)</span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>

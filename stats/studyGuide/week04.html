@@ -419,7 +419,7 @@ div.csl-indent {
 <div class="cell-output cell-output-stdout">
 <pre><code>flips
 heads tails 
-  480   520 </code></pre>
+  481   519 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>heads_freq <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(flips <span class="sc">==</span> <span class="st">'heads'</span>) <span class="sc">/</span> <span class="dv">1</span><span class="sc">:</span>num_flips</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(heads_freq,      <span class="co"># vector</span></span>
@@ -472,7 +472,7 @@ P (A\text{ or }B) = P (A) + P (B) − P (A\text{ and }B)
 \]</span></p>
 <p>and</p>
 <p><span class="math display">\[
-\binom{n}{n}={n}{0}=1
+\binom{n}{n}=\binom{n}{0}=1
 \]</span></p>
 <p>This last result is because <span class="math inline">\(0!=1\)</span> by definition.</p>
 <p><span class="citation" data-cites="Ash1993">Ash (<a href="references.html#ref-Ash1993" role="doc-biblioref">1993</a>)</span> gives the examples of finding and not finding the Queen of Spades (<span class="math inline">\(Q_s\)</span>) in a poker hand. You can think of a poker hand as a committee of 5 cards drawn from 52, so the total number of poker hands is given by <span class="math inline">\(\binom{52}{5}\)</span>. Finding hands containing the <span class="math inline">\(Q_s\)</span> amounts to choosing a committee of size four (the remainder of the hand, from among 51 cards (the remainder of the deck. So there are <span class="math inline">\(\binom{51}{4}\)</span> such hands.</p>
