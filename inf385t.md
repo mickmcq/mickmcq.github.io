@@ -15,7 +15,7 @@ icon: fa-edit
 
 [01designThinking](/uxproto/01designThinking/index.html) covers an exercise in design thinking and an intro to accessibility.
 
-[02accessibility](/uxproto/02designPrinciples/index.html) introduces several sets of industrial design principles.
+[02designPrinciples](/uxproto/02designPrinciples/index.html) introduces several sets of industrial design principles.
 
 [03sketching](/uxproto/03sketching/index.html) recaps the previous week and introduces mood boards, sketching, and crazy eights.
 
