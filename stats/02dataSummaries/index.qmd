@@ -1,0 +1,254 @@
+---
+title: "Stats: Data Summaries"
+author: Mick McQuaid
+date: today
+bibliography: master.bib
+monofont: JetBrainsMono Nerd Font
+format:
+  revealjs:
+    logo: iSchoolLogo.png
+    theme: statstheme.scss
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+::: {.r-fit-text}
+Week TWO
+:::
+
+# Review
+
+## Rownames and column names
+Note that R allows you to assign names to rows of a dataframe just as you can assign names to columns of a dataframe. We saw an example of that with the mtcars data, which appeared to have an extra column because the car makes and models were assigned as rownames.
+
+## Mean
+::: {.incremental}
+- arithmetic mean is the most popular measure of centrality
+- can be dragged away from the center by outliers
+- can be found by `mean(vectorname)` in R if vector is numeric
+- can find all means in dataframe with `colMeans(df)` or `sapply(df,mean)`
+- subsetting just the first, second, and fourth column `colMeans(mtcars[,c(1,2:4)])`
+:::
+
+## Median
+::: {.incremental}
+- the middle value of a sorted vector if there are an odd number of elements in the vector
+- the arithmetic mean of the two middle values of a sorted vector if there are an even number of elements
+- can be found by `median(vectorname)` in R if vector is numeric
+:::
+
+## Standard Deviation
+::: {.incremental}
+- a measure of how spread out a vector is around its mean if vector is numeric
+- can be found in R by `sd(vectorname)`
+- is the square root of the variance
+- used in place of variance because it's in the same units as the variable rather than squared units
+:::
+
+# More Numerical Summaries
+
+## Structure of a dataframe
+::: {.incremental}
+- say `str(df)` in R to get the following
+  - number of rows
+  - number of columns
+  - names of columns
+  - types of columns
+  - examples of entries in each column
+:::
+
+## Summary of a dataframe
+::: {.incremental}
+- say `summary(df)` in R to get an entry for each column, containing
+  - minimum, first quartile, median, mean, third quartile, maximum
+- above is for numeric columns
+- counts and level names for factors
+:::
+
+::: {.notes}
+The quartiles each represent a quarter of the data. In other words, there is a quarter of the data between the minimum and the first quartile, between the first quartile and the median, between the median and the third quartile, and between the third quartile and the maximum.
+
+For factors you get a list of level labels (if you've provided level labels as we did last week for the mtcars dataframe), and a count of the items corresponding to each label.
+:::
+
+## Better summaries
+
+```{r,echo=TRUE}
+pacman::p_load(vtable)
+df <- mtcars
+df[,c(1,3:7)] |> sumtable(summ=c('min(x)','median(x)','mean(x)','sd(x)','max(x)'),out='return')
+```
+
+::: {.notes}
+The vtable package contains the `sumtable()` function, which can be abbreviated as `st()`, plus one or two other functions. Once you load the package you can get help on `sumtable()` by saying `?sumtable`. It has an enormous number of options.
+
+I usually use the abbreviation `df` to refer to the main dataframe I'm working with, so I've copied mtcars to df here.
+
+Saying `df[row specification,column specification]` is one way to limit the rows and columns being used. The comma is required so R knows when you're talking about rows and when you're talking about columns. A really simple column specification is used here: `c(1,3:7)`, which just says to consider only columns 1, 3, 4, 5, 6, and 7. Much more elaborate specifications are possible. For example, I could add the specification to only consider rows where horsepower is greater than 100: `df[df$hp>100,c(1,3:7)]`. For the mtcars example, that would reduce the number of rows considered from 32 to 23.
+:::
+
+## Summarizing non-numeric data
+
+First, get some categorical data ...
+
+```{r,echo=TRUE}
+options(digits=1)
+load(paste0(Sys.getenv("STATS_DATA_DIR"),"/migraine.rda"))
+str(migraine)
+```
+
+::: {.notes}
+`.rda` files are binary files that offer two advantages over `.csv` files. They are (1) faster to load, and (2) preserve data type information. They are loaded differently from `.csv` files in that you don't assign them to a variable name. You just say `load(...)` and they have a variable name automatically assigned. You can find out that variable name by saying `ls()`. In the above `load()` function, I've used an *environment variable* locate the file. If the file were in the current directory (which you can identify by saying `getwd()`), you could just say `load(migraine.rda)`. Instead, I've put all my data files in one directory and given it the name `STATS_DATA_DIR`. The `paste0` function pastes the path represented by `STATS_DATA_DIR` to the filename. By contrast, if this were a `.csv` file, I would say something like `df <- read_csv("migraine.csv")` after loading the tidyverse.
+:::
+
+## A contingency table
+
+```{r,echo=TRUE}
+(tbl <- with(migraine,table(pain_free,group)))
+```
+
+::: {.notes}
+I prefer the `with()` syntax above, but you could instead say `table(migraine$pain_free,migraine$group)`. The parentheses around the outside of the entire thing are so that the result will be printed to the screen at the same time it's saved to a variable.
+:::
+
+## A bigger contingency table
+
+```{r,echo=TRUE}
+load(paste0(Sys.getenv("STATS_DATA_DIR"),"/loan50.rda"))
+with(loan50,addmargins(table(loan_purpose,grade)))
+```
+
+::: {.notes}
+The `addmargins()` function expands the table to include row and column sums.
+:::
+
+# Visual summaries
+
+## A picture of `mtcars`
+
+```{r,echo=TRUE}
+#. install.packages("pacman")
+pacman::p_load(tidyverse)
+ggplot(mtcars, aes(x = hp, y = mpg, size = cyl, color = factor(cyl))) +
+  geom_point(alpha = 0.7) +
+  scale_size_continuous(range = c(2, 10)) +
+  scale_color_manual(values = c("#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf")) +
+  labs(x = "Horsepower", y = "MPG", size = "Number of Cylinders", color = "Number of Cylinders", title = "MPG vs. Horsepower (Bubble Size: Number of Cylinders)") +
+  theme_minimal()
+```
+
+## Preceding example
+::: {.incremental}
+- uses the tidyverse, a coherent set of packages
+- uses `ggplot`, the main function in that set of packages
+- uses *the layered grammar of graphics*, a philosophy of data visualization
+- graphics in this philosophy are built from reusable components
+:::
+
+## Visual summary of a vector
+
+```{r,echo=TRUE}
+pacman::p_load(scales)
+loan50 |>
+  ggplot(aes(annual_income)) +
+  geom_boxplot() +
+  scale_x_continuous(labels = comma_format())
+```
+
+::: {.notes}
+`aes` stands for *aesthetics*, which are the things you can see. By default, the first two aesthetics are $x$ and $y$ coordinates, so you can say `x=annual_income` but you don't have to. You can just say `annual_income` and it will be understood as the $x$ coordinate. For any other aesthetics, such as shape and label, you have to spell them out. Others have to be specified outside the `aes()` function. For example, I could make the box plot blue in the above code by saying `ggplot(aes(annual_income),color="blue")`. Also note that the specifier `color` only does lines. For the body of an object to be colored you would need to say `fill`, for instance `fill="blue"`.
+
+In the above code, the $x$-axis will be shown in scientific notation unless you include the `comma_format()` function from the scales package.
+:::
+
+## Visual summary of several vectors
+
+```{r,echo=TRUE}
+loan50 |>
+  ggplot(aes(annual_income,homeownership)) +
+  geom_boxplot() +
+  scale_x_continuous(labels = comma_format())
+```
+
+::: {.notes}
+The above code shows a boxplot matrix, which can be useful for comparing the levels of a categorical variable to the continuous values of another variable. The ggplot2 cheatsheet shows a lot of examples like this. Just google *ggplot2 cheatsheet* and follow the github link to get the html or pdf (preferred) version.
+:::
+
+## A similar visual summary
+
+```{r,echo=TRUE}
+loan50 |>
+  ggplot(aes(annual_income,homeownership)) +
+  geom_violin() +
+  scale_x_continuous(labels = comma_format())
+```
+
+::: {.notes}
+The violin plot gives slightly more information about the contours of data than does the box plot alone. But the next plot can be more informative than either, depending on the data.
+:::
+
+## Uncertainty in visual summaries
+
+```{r,echo=TRUE}
+loan50 |>
+  ggplot(aes(annual_income,homeownership)) +
+  geom_boxplot() +
+  geom_jitter( size=0.9, color="orange", width=0.1) +
+  scale_x_continuous(labels = comma_format())
+```
+
+::: {.notes}
+The function `geom_jitter()` is similar to `geom_point()` except that it moves each point slightly by a random amount to reduce overplotting.
+:::
+
+## Uncertainty in a linear model
+
+```{r, echo=TRUE}
+pacman::p_load(hrbrthemes)
+df <- data.frame(
+  x = 1:100 + rnorm(100,sd=9),
+  y = 1:100 + rnorm(100,sd=16)
+)
+ggplot(df, aes(x=x, y=y)) +
+  geom_point() +
+  geom_smooth(method=lm , color="red", fill="#69b3a2", se=TRUE) +
+  theme_ipsum()
+```
+
+::: {.notes}
+The appearance of ggplot() output can be controlled by themes, of which there are vastly many. `theme_ipsum()` from the hrbrthemes package, is one of the simplest and most bare.
+
+This example generates random numbers to make the scatterplot and linear model. The `rnorm()` function generates random numbers from a normal distribution (bell-shaped). In this case, we've specified numbers from 1 to 100 with some randomly distributed noise. The noise has a mean of 0 by default and, since we have specified a mean, the default is used. We have specified the standard deviation of the noise, 9 for $x$ and 16 for $y$, and the number of instances of noise, 100 in each case.
+
+`geom_point()` renders a scatterplot of the points, each with an $x$ and $y$ value. `geom_smooth()` can render lines of different types. In this case, `method=lm` means that a least squares linear model of the data is used. The annotation `se=TRUE` means that standard error intervals are shown. The standard error intervals are the translucent green-blue stripes around the red line. The standard error intervals represent our uncertainty about the line. They are wider at the ends because we have less data there and are more uncertain as a result.
+:::
+
+##
+*In these parts, a man's life may depend on a mere scrap of information.*
+
+::: {style="text-align: right"}
+--- Clint Eastwood, in *A Fistful of Dollars* (1964)
+:::
+
+::: {.notes}
+Finding the right information to solve a problem may be more than half the battle.
+:::
+
+---
+
+::: {.r-fit-text}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *Roboto Condensed Bold*, *JetBrains Mono Nerd Font*, and *STIX2*
+
+
