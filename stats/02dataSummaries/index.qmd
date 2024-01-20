@@ -33,6 +33,7 @@ Note that R allows you to assign names to rows of a dataframe just as you can as
 - can be found by `mean(vectorname)` in R if vector is numeric
 - can find all means in dataframe with `colMeans(df)` or `sapply(df,mean)`
 - subsetting just the first, second, and fourth column `colMeans(mtcars[,c(1,2:4)])`
+- subsetting numeric columns `colMeans(df[,which(sapply(df,is.numeric))])`
 :::
 
 ## Median
