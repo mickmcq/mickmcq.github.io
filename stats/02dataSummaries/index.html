@@ -427,10 +427,31 @@ Mick McQuaid
 <li class="fragment">can be dragged away from the center by outliers</li>
 <li class="fragment">can be found by <code>mean(vectorname)</code> in R if vector is numeric</li>
 <li class="fragment">can find all means in dataframe with <code>colMeans(df)</code> or <code>sapply(df,mean)</code></li>
-<li class="fragment">subsetting just the first, second, and fourth column <code>colMeans(mtcars[,c(1,2:4)])</code></li>
-<li class="fragment">subsetting numeric columns <code>colMeans(df[,which(sapply(df,is.numeric))])</code></li>
 </ul>
 </div>
+</section>
+<section id="means-of-some-but-not-all-columns" class="slide level2 center">
+<h2>Means of some, but not all, columns</h2>
+<div>
+<ul>
+<li class="fragment">subsetting just the first, second, and fourth column <code>colMeans(mtcars[,c(1,2:4)])</code></li>
+<li class="fragment">subsetting numeric columns <code>colMeans(df[,which(sapply(df,is.numeric))])</code></li>
+<li class="fragment">subsetting numeric columns &amp; rows where hp &gt; 100: <small> <code>df&lt;-mtcars     colMeans(df[which(df$hp&gt;100),which(sapply(df,is.numeric))])</code> </small></li>
+</ul>
+</div>
+<aside class="notes">
+<p>The <code>which()</code> function returns elements of a vector or dataframe, in this case columns of a dataframe and rows of a dataframe. The rows are all those of cars with horsepower more than a hundred. The columns are those defined as numeric, which is a subset if some columns have been defined as factors as we did last week. The function <code>sapply(object,function)</code> applies a function to an object, in this case the columns of a dataframe.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="median" class="slide level2 center">
 <h2>Median</h2>
@@ -730,7 +751,7 @@ loan_purpose             A  B  C  D  E  F  G Sum
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>loan50 <span class="sc">|&gt;</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(annual_income,homeownership)) <span class="sc">+</span></span>
 <span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a>  <span class="fu">geom_jitter</span>( <span class="at">size=</span><span class="fl">0.9</span>, <span class="at">color=</span><span class="st">"orange"</span>, <span class="at">width=</span><span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a>  <span class="fu">geom_jitter</span>( <span class="at">size=</span><span class="fl">1.4</span>, <span class="at">color=</span><span class="st">"orange"</span>, <span class="at">width=</span><span class="fl">0.1</span>) <span class="sc">+</span></span>
 <span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">comma_format</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>

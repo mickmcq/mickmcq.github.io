@@ -32,8 +32,21 @@ Note that R allows you to assign names to rows of a dataframe just as you can as
 - can be dragged away from the center by outliers
 - can be found by `mean(vectorname)` in R if vector is numeric
 - can find all means in dataframe with `colMeans(df)` or `sapply(df,mean)`
+:::
+
+## Means of some, but not all, columns
+::: {.incremental}
 - subsetting just the first, second, and fourth column `colMeans(mtcars[,c(1,2:4)])`
 - subsetting numeric columns `colMeans(df[,which(sapply(df,is.numeric))])`
+- subsetting numeric columns & rows where hp > 100:
+<small>
+  `  df<-mtcars
+    colMeans(df[which(df$hp>100),which(sapply(df,is.numeric))])`
+</small>
+:::
+
+::: {.notes}
+The `which()` function returns elements of a vector or dataframe, in this case columns of a dataframe and rows of a dataframe. The rows are all those of cars with horsepower more than a hundred. The columns are those defined as numeric, which is a subset if some columns have been defined as factors as we did last week. The function `sapply(object,function)` applies a function to an object, in this case the columns of a dataframe.
 :::
 
 ## Median
@@ -199,7 +212,7 @@ The violin plot gives slightly more information about the contours of data than 
 loan50 |>
   ggplot(aes(annual_income,homeownership)) +
   geom_boxplot() +
-  geom_jitter( size=0.9, color="orange", width=0.1) +
+  geom_jitter( size=1.4, color="orange", width=0.1) +
   scale_x_continuous(labels = comma_format())
 ```
 
