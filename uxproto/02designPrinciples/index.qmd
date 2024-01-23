@@ -20,6 +20,17 @@ format:
 Week TWO
 :::
 
+## Agenda
+1. attendance
+2. decide what to do with design thinking artifacts (put on canvas or figjam)
+3. discuss the questions from the 1/16 class
+4. establish groups
+5. framer tutorial
+6. figjam tutorial
+7. accessibility
+8. design principles
+9. write the answers to questions from the 1/22 class
+
 ---
 
 ::: {.r-fit-text}
@@ -31,18 +42,19 @@ design principles
 I want you to familiarize yourselves with four sets of
 design principles to keep in mind during the milestones.
 
-1. Apple's Human Interface Guidelines
-2. Material Design from Google
-3. Fluent Design from Microsoft
+1. Apple's Human Interface Guidelines (HIG)
+2. Material Design from Google (currently Material 3)
+3. Fluent Design from Microsoft (currently Fluent 2)
 4. Inclusive Design from Microsoft
 
 Use any one or any combination of these guidelines in developing your prototypes. Let's look at their websites, which are always changing so I don't want to make slides out of them. Instead, google the above names.
 
----
+## While examining the sites
 
-::: {.r-fit-text}
-‹pause to view design principles›
-:::
+1. Look for things like *Foundations*, *Principles*, and *Getting Started* on the first three sites (the inclusive design site is organized differently)
+2. Look for differences in emphasis and word choice between the three companies (Apple, Google, and Microsoft)
+3. Reflect on why they may differ
+4. Pick two things, such as accessbility and typography, that are represented on every site and see how their presentations differ
 
 ## File submission
 - Create a website that will be used for the entire
@@ -66,11 +78,11 @@ I'm high on Framer because of its excellent JavaScript output, which cuts down o
 ---
 
 ::: {.r-fit-text}
-‹Figma tutorial›
+‹Figjam tutorial›
 :::
 
 ::: {.notes}
-The goal of this tutorial is to create a simple prototype to put into the Framer website.
+The goal of this tutorial is to learn (1) to collaborate with your team and (2) to share artifacts.
 :::
 
 <!--
