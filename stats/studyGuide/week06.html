@@ -640,9 +640,9 @@ Caused by error in `compute_group()`:
 <h3 data-number="6.3.10" class="anchored" data-anchor-id="maps"><span class="header-section-number">6.3.10</span> Maps</h3>
 <p>Previously, I showed how to use the <code>map_data()</code> function to make maps. But I found out that, according to Chapter 6 of the third edition of the <code>ggplot2</code> book (available free at <a href="https://ggplot2-book.org/">https://ggplot2-book.org/</a>), the <code>map_data()</code> function isn’t currently maintained. That chapter recommends the use of a method of saving geographic data called <em>simple features</em> and packaged as the <code>sf</code> package. Here is a map made using that package and the <code>USAboundaries</code> package, which contains a wealth of geographic information about the USA.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(USAboundaries)</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(USAboundaries)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(sf)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse)</span>
 <span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/vehiclesTiny.Rdata"</span>))</span>
 <span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>dfMeanPrice <span class="ot">&lt;-</span> dfTiny <span class="sc">|&gt;</span> <span class="fu">group_by</span>(state) <span class="sc">|&gt;</span></span>
 <span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarize</span>(<span class="at">meanprice=</span><span class="fu">mean</span>(price,<span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
@@ -664,7 +664,7 @@ give correct results for longitude/latitude data</code></pre>
 <section id="additional-plots" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="additional-plots"><span class="header-section-number">6.4</span> Additional plots</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse)</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/vehicles.csv"</span>))</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>cylinders <span class="ot">&lt;-</span> <span class="fu">as_factor</span>(df<span class="sc">$</span>cylinders)</span>
 <span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[df<span class="sc">$</span>price<span class="sc">&lt;</span><span class="dv">500000</span><span class="sc">&amp;</span>df<span class="sc">$</span>price<span class="sc">&gt;</span><span class="dv">500</span>,]</span>
@@ -681,7 +681,7 @@ give correct results for longitude/latitude data</code></pre>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>dfa <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">count</span>(condition,cylinders)</span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(treemap)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(treemap)</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>palette.HCL.options <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">hue_start=</span><span class="dv">270</span>, <span class="at">hue_end=</span><span class="dv">360</span><span class="sc">+</span><span class="dv">150</span>)</span>
 <span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="fu">treemap</span>(dfa,</span>
 <span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">index=</span><span class="fu">c</span>(<span class="st">"condition"</span>,<span class="st">"cylinders"</span>),</span>
@@ -699,8 +699,8 @@ give correct results for longitude/latitude data</code></pre>
 <h2 data-number="6.5" class="anchored" data-anchor-id="a-complete-scatterplot"><span class="header-section-number">6.5</span> A complete scatterplot</h2>
 <p>The following scatterplot is completed in stages in section 2.2 of R4DS, which is available on Canvas as Wickham2023.pdf or online by googling <em>r4ds 2e</em>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(palmerpenguins)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(ggthemes)</span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> penguins,</span>
 <span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g)</span>

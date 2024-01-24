@@ -419,7 +419,7 @@ div.csl-indent {
 <div class="cell-output cell-output-stdout">
 <pre><code>flips
 heads tails 
-  481   519 </code></pre>
+  498   502 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>heads_freq <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(flips <span class="sc">==</span> <span class="st">'heads'</span>) <span class="sc">/</span> <span class="dv">1</span><span class="sc">:</span>num_flips</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(heads_freq,      <span class="co"># vector</span></span>
@@ -585,7 +585,7 @@ P (A\text{ and }B) = P (A|B) × P (B)
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#.. R Conditional Probability Tree Diagram</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#.. The Rgraphviz graphing package must be installed to do this</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Rgraphviz)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(Rgraphviz)</span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">#.. Change the three variables below to match your actual values</span></span>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">#.. These are the values that you can change for your own probability tree</span></span>
