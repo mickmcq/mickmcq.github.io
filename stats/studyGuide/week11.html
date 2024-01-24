@@ -442,15 +442,15 @@ div.csl-indent {
 <h2 data-number="11.3" class="anchored" data-anchor-id="dates-and-times"><span class="header-section-number">11.3</span> Dates and times</h2>
 <p>For the final exam, you will have to create the <span class="math inline">\(y\)</span> variable as a time span. Chapter 18 of <span class="citation" data-cites="Wickham2023">Wickham, Çetinkaya-Rundel, and Grolemund (<a href="references.html#ref-Wickham2023" role="doc-biblioref">2023</a>)</span> tells you how to do this. Let’s review that chapter.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(nycflights13)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">today</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-12-22"</code></pre>
+<pre><code>[1] "2024-01-24"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-12-22 16:49:58 CST"</code></pre>
+<pre><code>[1] "2024-01-24 13:58:03 CST"</code></pre>
 </div>
 </div>
 <p>Suppose you have a comma-separated-values (csv) file containing ISO-formatted dates or date-times. It’s automatically recognized.</p>
@@ -627,14 +627,14 @@ div.csl-indent {
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>h_age <span class="ot">&lt;-</span> <span class="fu">today</span>() <span class="sc">-</span> <span class="fu">ymd</span>(<span class="st">"1979-10-14"</span>)</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>h_age</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 16140 days</code></pre>
+<pre><code>Time difference of 16173 days</code></pre>
 </div>
 </div>
 <p>The <code>lubridate</code> package provides a construct called <em>duration</em>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.duration</span>(h_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "1394496000s (~44.19 years)"</code></pre>
+<pre><code>[1] "1397347200s (~44.28 years)"</code></pre>
 </div>
 </div>
 <p>There are numerous duration constructors.</p>
@@ -835,7 +835,7 @@ div.csl-indent {
 <p>There are several different join functions described in <span class="citation" data-cites="Wickham2023">Wickham, Çetinkaya-Rundel, and Grolemund (<a href="references.html#ref-Wickham2023" role="doc-biblioref">2023</a>)</span> in Chapter 20. You’ll only need the left join for this week’s exercises, but reading Chapter 20 is still a very good idea.</p>
 <p>You should also read about <a href="https://www.rdocumentation.org/packages/sqldf/versions/0.4-11">sqldf</a>, a package for running SQL statements on R data frames. Following is an example of its use.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sqldf)</span>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(sqldf)</span>
 <span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT carrier, COUNT(*)</span></span>
 <span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="st">         FROM flights</span></span>
 <span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a><span class="st">         GROUP BY carrier</span></span>
@@ -919,8 +919,8 @@ AirTran Airways Corporation        Alaska Airlines Inc.
 <p>The only difference between the output of these two approaches is that the native R plus tidyverse version uses more horizontal space in the output because of its use of a variable that records how wide your display is. The SQL version is piped (by default) to SQLite3, which doesn’t know the width of your display and which returns a single column response. You can substitute other database engines for SQLite3, such as PostgreSQL and MySQL. SQLite3 is an extremely fast, tiny database engine which is useful for single-user applications. For example, most smartphone applications (including all Android and iOS) use SQLite3 to store information, making SQLite3 the world’s most popular database (by some measures). SQLite3 is also used by most web browsers to store information.</p>
 <p>As another example, here is a join between two tables that have synonymous columns with different names. The <code>flights</code> table includes two columns with FAA airport codes: <code>origin</code> and <code>dest</code>, while the <code>airports</code> table contains a single column with FAA airport codes: <code>faa</code>. To join them, we have to tell R the join key. That’s shown below, along with an <code>sqldf</code> version of the same thing.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse)</span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(nycflights13)</span>
 <span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span></span>
 <span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(airports, <span class="fu">join_by</span>(dest <span class="sc">==</span> faa)) <span class="sc">|&gt;</span></span>
 <span id="cb94-5"><a href="#cb94-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year,month,day,dep_time,name) <span class="sc">|&gt;</span></span>
@@ -939,8 +939,8 @@ AirTran Airways Corporation        Alaska Airlines Inc.
 </div>
 <p>Now the (slightly different) <code>sqldf</code> version.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sqldf)</span>
-<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(sqldf)</span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(nycflights13)</span>
 <span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">sqldf</span>(<span class="st">"</span></span>
 <span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT f.year, f.month, f.day, f.dep_time, a.name</span></span>
 <span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM flights f</span></span>
@@ -987,9 +987,9 @@ AirTran Airways Corporation        Alaska Airlines Inc.
 <h2 data-number="11.7" class="anchored" data-anchor-id="sqldf-vs-base-r"><span class="header-section-number">11.7</span> <code>sqldf</code> vs base R</h2>
 <p>A person named <a href="http://users.dimi.uniud.it/~massimo.franceschet/ns/plugandplay/challenges/transformBaseR/transformBaseR.html">Massimo Franceschet</a> did an interesting exercise in using <code>sqldf</code> vs base R and I have slightly adapted it below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
-<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sqldf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse)</span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(nycflights13)</span>
+<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(sqldf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="add-id-to-flights" class="level3" data-number="11.7.1">
 <h3 data-number="11.7.1" class="anchored" data-anchor-id="add-id-to-flights"><span class="header-section-number">11.7.1</span> add id to flights</h3>
@@ -1554,7 +1554,7 @@ AirTran Airways Corporation        Alaska Airlines Inc.
 <h3 data-number="11.8.1" class="anchored" data-anchor-id="example-data"><span class="header-section-number">11.8.1</span> Example Data</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb158"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. packages</span></span>
-<span id="cb158-2"><a href="#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sqldf)</span>
+<span id="cb158-2"><a href="#cb158-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(sqldf)</span>
 <span id="cb158-3"><a href="#cb158-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb158-4"><a href="#cb158-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"UCBAdmissions"</span>)</span>
 <span id="cb158-5"><a href="#cb158-5" aria-hidden="true" tabindex="-1"></a></span>
@@ -1594,12 +1594,12 @@ AirTran Airways Corporation        Alaska Airlines Inc.
 <span id="cb160-3"><a href="#cb160-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from majors"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             major  Dept Faculty
-1             math     A      13
-2          biology     B      16
-3      engineering     C      27
-4 computer science     D      16
+1             math     A      25
+2          biology     B      25
+3      engineering     C      16
+4 computer science     D      21
 5          history     E      19
-6     architecture Other      11</code></pre>
+6     architecture Other      17</code></pre>
 </div>
 </div>
 </section>
@@ -1857,7 +1857,8 @@ AirTran Airways Corporation        Alaska Airlines Inc.
 <span id="cb202-2"><a href="#cb202-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select Dept from majors where Faculty = (select max(Faculty) from majors)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Dept
-1    C</code></pre>
+1    A
+2    B</code></pre>
 </div>
 </div>
 </section>
@@ -1869,22 +1870,22 @@ AirTran Airways Corporation        Alaska Airlines Inc.
 <span id="cb204-3"><a href="#cb204-3" aria-hidden="true" tabindex="-1"></a><span class="st">      inner join majors on ucb.Dept = majors.Dept"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Admit Gender Dept Freq            major Dept Faculty
-1  Admitted   Male    A  512             math    A      13
-2  Rejected   Male    A  313             math    A      13
-3  Admitted Female    A   89             math    A      13
-4  Rejected Female    A   19             math    A      13
-5  Admitted   Male    B  353          biology    B      16
-6  Rejected   Male    B  207          biology    B      16
-7  Admitted Female    B   17          biology    B      16
-8  Rejected Female    B    8          biology    B      16
-9  Admitted   Male    C  120      engineering    C      27
-10 Rejected   Male    C  205      engineering    C      27
-11 Admitted Female    C  202      engineering    C      27
-12 Rejected Female    C  391      engineering    C      27
-13 Admitted   Male    D  138 computer science    D      16
-14 Rejected   Male    D  279 computer science    D      16
-15 Admitted Female    D  131 computer science    D      16
-16 Rejected Female    D  244 computer science    D      16
+1  Admitted   Male    A  512             math    A      25
+2  Rejected   Male    A  313             math    A      25
+3  Admitted Female    A   89             math    A      25
+4  Rejected Female    A   19             math    A      25
+5  Admitted   Male    B  353          biology    B      25
+6  Rejected   Male    B  207          biology    B      25
+7  Admitted Female    B   17          biology    B      25
+8  Rejected Female    B    8          biology    B      25
+9  Admitted   Male    C  120      engineering    C      16
+10 Rejected   Male    C  205      engineering    C      16
+11 Admitted Female    C  202      engineering    C      16
+12 Rejected Female    C  391      engineering    C      16
+13 Admitted   Male    D  138 computer science    D      21
+14 Rejected   Male    D  279 computer science    D      21
+15 Admitted Female    D  131 computer science    D      21
+16 Rejected Female    D  244 computer science    D      21
 17 Admitted   Male    E   53          history    E      19
 18 Rejected   Male    E  138          history    E      19
 19 Admitted Female    E   94          history    E      19
@@ -1894,22 +1895,22 @@ AirTran Airways Corporation        Alaska Airlines Inc.
 <span id="cb206-2"><a href="#cb206-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from ucb left join majors on ucb.Dept = majors.Dept"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Admit Gender Dept Freq            major Dept Faculty
-1  Admitted   Male    A  512             math    A      13
-2  Rejected   Male    A  313             math    A      13
-3  Admitted Female    A   89             math    A      13
-4  Rejected Female    A   19             math    A      13
-5  Admitted   Male    B  353          biology    B      16
-6  Rejected   Male    B  207          biology    B      16
-7  Admitted Female    B   17          biology    B      16
-8  Rejected Female    B    8          biology    B      16
-9  Admitted   Male    C  120      engineering    C      27
-10 Rejected   Male    C  205      engineering    C      27
-11 Admitted Female    C  202      engineering    C      27
-12 Rejected Female    C  391      engineering    C      27
-13 Admitted   Male    D  138 computer science    D      16
-14 Rejected   Male    D  279 computer science    D      16
-15 Admitted Female    D  131 computer science    D      16
-16 Rejected Female    D  244 computer science    D      16
+1  Admitted   Male    A  512             math    A      25
+2  Rejected   Male    A  313             math    A      25
+3  Admitted Female    A   89             math    A      25
+4  Rejected Female    A   19             math    A      25
+5  Admitted   Male    B  353          biology    B      25
+6  Rejected   Male    B  207          biology    B      25
+7  Admitted Female    B   17          biology    B      25
+8  Rejected Female    B    8          biology    B      25
+9  Admitted   Male    C  120      engineering    C      16
+10 Rejected   Male    C  205      engineering    C      16
+11 Admitted Female    C  202      engineering    C      16
+12 Rejected Female    C  391      engineering    C      16
+13 Admitted   Male    D  138 computer science    D      21
+14 Rejected   Male    D  279 computer science    D      21
+15 Admitted Female    D  131 computer science    D      21
+16 Rejected Female    D  244 computer science    D      21
 17 Admitted   Male    E   53          history    E      19
 18 Rejected   Male    E  138          history    E      19
 19 Admitted Female    E   94          history    E      19
@@ -1923,27 +1924,27 @@ AirTran Airways Corporation        Alaska Airlines Inc.
 <span id="cb208-2"><a href="#cb208-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from ucb right join majors on ucb.Dept = majors.Dept"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Admit Gender Dept Freq            major  Dept Faculty
-1  Admitted   Male    A  512             math     A      13
-2  Rejected   Male    A  313             math     A      13
-3  Admitted Female    A   89             math     A      13
-4  Rejected Female    A   19             math     A      13
-5  Admitted   Male    B  353          biology     B      16
-6  Rejected   Male    B  207          biology     B      16
-7  Admitted Female    B   17          biology     B      16
-8  Rejected Female    B    8          biology     B      16
-9  Admitted   Male    C  120      engineering     C      27
-10 Rejected   Male    C  205      engineering     C      27
-11 Admitted Female    C  202      engineering     C      27
-12 Rejected Female    C  391      engineering     C      27
-13 Admitted   Male    D  138 computer science     D      16
-14 Rejected   Male    D  279 computer science     D      16
-15 Admitted Female    D  131 computer science     D      16
-16 Rejected Female    D  244 computer science     D      16
+1  Admitted   Male    A  512             math     A      25
+2  Rejected   Male    A  313             math     A      25
+3  Admitted Female    A   89             math     A      25
+4  Rejected Female    A   19             math     A      25
+5  Admitted   Male    B  353          biology     B      25
+6  Rejected   Male    B  207          biology     B      25
+7  Admitted Female    B   17          biology     B      25
+8  Rejected Female    B    8          biology     B      25
+9  Admitted   Male    C  120      engineering     C      16
+10 Rejected   Male    C  205      engineering     C      16
+11 Admitted Female    C  202      engineering     C      16
+12 Rejected Female    C  391      engineering     C      16
+13 Admitted   Male    D  138 computer science     D      21
+14 Rejected   Male    D  279 computer science     D      21
+15 Admitted Female    D  131 computer science     D      21
+16 Rejected Female    D  244 computer science     D      21
 17 Admitted   Male    E   53          history     E      19
 18 Rejected   Male    E  138          history     E      19
 19 Admitted Female    E   94          history     E      19
 20 Rejected Female    E  299          history     E      19
-21     &lt;NA&gt;   &lt;NA&gt; &lt;NA&gt;   NA     architecture Other      11</code></pre>
+21     &lt;NA&gt;   &lt;NA&gt; &lt;NA&gt;   NA     architecture Other      17</code></pre>
 </div>
 </div>
 </section>
