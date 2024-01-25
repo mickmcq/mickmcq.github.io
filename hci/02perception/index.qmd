@@ -1,7 +1,7 @@
 ---
 title: "Human Computer Interaction:<br>Perception"
 author: Mick McQuaid
-date: 2023-01-19
+date: today
 bibliography: master.bib
 format:
   revealjs:
@@ -23,81 +23,84 @@ Week TWO
 # Today
 
 - Q and A from last time
-- Feedback from TA
-- In class presentations
+- Signups for Article Presentation, Design Critique, Discussion Leading
 - Groups
 - Perception
-- Readings
+- @Norman2023
 - Framer tutorial
+- Figma tutorial
 
 # Q and A from last time
 
-## Other methods
-Q: I'm curious to see if we'll learn about methods (not waterfall and agile) that are more effective for designers.
+## Bringing it together
+How does this material tie holistically into HCI and Design (Thinking)
 
-A: My view is that the iterative model (design, prototype, evaluate) is the most effective for designers. That's the main method I like to teach because of its effectiveness. I also like to teach contextual design, which is (again in my opinion) the most effective toolset for designers.
+## Natural vs Artificial; Old vs New
+This leads me to ask? Is the question of natural vs artificial in the same category as the prompt - "Is old
+considered inferior?" A lot of times people attribute natural to being superior and artificial to inferior. Although one
+can argue that 'old is superior' in some situations but for some reason and maybe psychologically, we tend to
+resist new technology and designs. We always lean towards the old way of doing things.
 
-## Mental models
-Q: "I have questions about mental models. Are they created naturally or do we create them with how we design technology? I know we will be going over psychology next, which may answer my question. 
+::: {.notes}
+- resistance to change
+- superiority of natural
+- labeling things as natural
+:::
 
-A: There are several definitions of the term *mental model*. The most prevalent definition holds that they are created naturally but can be influenced. A related term, *conceptual model* is used by Don Norman to illustrate how we can influence them in a positive way.
+## Reading!
+Looking forward to reading Norman's new book, Design for a Better World.
 
-## Accessibility and Ethnography
-Q: I would like to know more about accessibility guidelines and ethnographic research in the context of user research and design.
+## Materialism
+Is it possible to survive in today's world without contributing to materialism in ANY way?
 
-A: I have a series of accessibility slides on my website at
+::: {.notes}
+How do you define materialism? Is it growth and planned obsolescence? Is it lack of spiritualism? Is it emphasis on products?
 
-[https://mickmcquaid.com/accessibilitySlides.html](https://mickmcquaid.com/accessibilitySlides.html)
+Can't have a career if you're too far outside the mainstream. In my high school, exactly one student had parents who forbade all television (similar to banning social media today but much more rare). She dressed strangely and somehow looked different, and at our twenty year reunion she had no career or even job.
+:::
 
-You can look at those for an intro. If you look at the syllabus, you'll see we don't explicitly address accessibility or ethnographic research! I consider those important areas and will lobby Jacek to make them standard in a future semester.
+## Combating society's ills
+What can we do in society to combat the issues brought up today?
+In order to fix America, we need change. However, any change that is suggested is labeled as socialism.
+Examples include improving education, improving healthcare, more regulation to ensure a cleaner environment.
+How much does societal and cultural perspectives shape our understanding of what is considered "modern"?
 
-## More on ethnography
-Ethnographic research is not used a lot in user research except in exotic fields like software intended to be used by physicians. For another class, I have some Youtube videos on ethnographic research because it is important in academic research on users (as opposed to industrial research). Those videos are at
+::: {.notes}
+"What can designers do?" is the question Norman will try to answer in later chapters.
+:::
 
-- [Content Analysis](https://youtu.be/vntuKCTqRZg)
-- [Grounded Theory](https://youtu.be/D1BYdOKf_GA)
-- [Thick Description](https://youtu.be/Owuwc1pCMNM)
+## Questions lead to design?
+I am wondering where some of the questions lead to (eg. artificial vs natural), and how they are gonna effect
+design.
 
-They are not up to date with my thinking because I made them three years ago, but they will get you started.
+::: {.notes}
+Is this practical or will it just be food for thought? Norman will try, in ensuing chapters, to make it practical for designers but, to set the stage, he believes he has to show that design is a bigger picture idea than what the average designer may think.
+:::
 
-## Waterfall problem
-Q: Even when there are valid proofs out there where the waterfall model is not an effective model, why are companies even today which are considered giants still follow the same model? 
+## Regulatory environment
+If we start focusing on Humanity Center Design, does this mean we need to start building out regulations that are
+ethical for design? How do you know what is ethically correct, when there are 8+ different ethical standards out
+there?
 
-A: Money! Accountants rule many companies!
+::: {.notes}
+Norman has long championed the idea that designers need to be more like engineers, with standards that qualify them. There are increasing numbers of certifications for designers, but Norman thinks we could go further.
 
-## AI
-Q: How is HCI affected by AI? 
+Certainly, the notion of ethics is controversial and people may try to manipulate ethical standards for their own gain. For example, major corporations resist ethics regulations and often spend more money on publicity campaigns to promote an ethical image than on the actual struggle to maintain ethical standards. This is because, in the USA today, profit trumps all other considerations. Can anything stand in the way of profit as our main consideration in life?
+:::
 
-A: Big question! It's being affected in very many ways. I can hardly go to a talk on HCI without hearing ChatGPT being mentioned, for instance. I urge you to follow Hacker News discussions on AI, particularly large language models and image recognition, to begin to appreciate what's going on right now that affects HCI. It really deserves its own course.
+## Difference between humanity and human
+I am curious how humanity-centered design differs from human-centered design. I expect I will learn more reading
+Norman, 2023.
 
-## Future trends
-Q: We discussed in class today that a lot of companies in the industry today follow set rules/ guidelines when it comes to information architecture design and user interface design. My question is how can we, as HCI masters students push this envelope forward and innovate on these fronts? Or will the future of these areas of HCI continue to follow set industry trends?
-
-A: You are the future! You will make the industry trends! You may not realize it yet, but recruiters and people hiring you for the first time are looking to you for the latest trends and freshest ideas. I can't emphasize enough the importance of new blood to industry.
-
-## Unclear question
-Q: How being a new to this HCI can I cope up with the preset and foundation clear in UX?
-
-A: I don't understand this question. Can you rephrase it at the end of today's class (or even during class)?
-
-## Best practices
-Q: What are the best practices for student of HCI other than readings?
-
-A: My personal opinion is that *passion projects* are the most important things that HCI students do. These are UX projects where you notice a gap or problem that interests you and design a solution. You describe it on your portfolio site and you tell friends and recruiters about it to get feedback and refine it.
-
-# Feedback from TA
-I've received some excellent feedback from the TA, both things that you've said and things that previous HCI students have said
-
-- You don't want me to use the other instructor's slides
-- The other instructor didn't dwell too much on slides in previous course iterations
-- Previous students didn't have time to do all the readings (there are strategies for this)
-- You're hoping for more hands-on work and less lecture
+::: {.notes}
+How is the collective different from the individual? Many billionaires are buying up properties that will soon be physically under water due to climate change. They see these things as disposable luxuries and seem to believe they can buy their way out of climate change. Can they?
+:::
 
 # In class presentations
-Few people signed up for in class presentations and those who did signed up for more than one. Let's straighten this out right now.
+Four people signed up for in class presentations and none for today. Let's sign up the rest now.
 
 # Groups
-Are you all in groups now? Are you satisfied with your groups? Let's make sure you're on track right now. (Vaishnavi will ask you to sit with your groups in the second part of the class.)
+Are you all in groups now? Are you satisfied with your groups? Let's make sure you're on track right now.
 
 # Perception
 
@@ -172,7 +175,7 @@ This frame gives names for the principles and you may notice that some of these 
 ::: {.notes}
 Colorbrewer is an idea and an application and a website and the basis for several tools, conceived by geography professor Cynthia Brewer. The main idea is that people have an easier time interpreting information represented by some colors than by others.
 
-Brewer and her students have conducted countless experiments with colored maps, asking participants quantitative questions about information depicted by the maps. They've kept a carefu record of how well participants answered questions using different color schemes, and developed a set of color palettes representing the most successful combinations.
+Brewer and her students have conducted countless experiments with colored maps, asking participants quantitative questions about information depicted by the maps. They've kept a careful record of how well participants answered questions using different color schemes, and developed a set of color palettes representing the most successful combinations.
 
 The [colorbrewer](http://colorbrewer2.org) website, shown in this frame, shows the control panel on the left and the result on the right. The user is asked to tell the number of data classes to be represented on the map. Then the user has to decide whether their data is sequential, diverging, or qualitative. Next, on the basis of these choices, a set of color schemes is presented to choose from. Further choices offered include whether the color scheme should be colorblind safe, print friendly, or photocopy safe. You get a depiction of the color scheme in the map on the right hand side, and a list of the colors in either hexadecimal, RGB, or CMYK format.
 :::
@@ -224,9 +227,6 @@ The common critique of Kahneman is that the experiments can't be replicated, in 
 Cognitive illusions and biases are everywhere. @Pohl2004 reports on a whole catalog of them. Wikipedia devotes an article to a list of cognitive biases at [cognitive biases](https://en.wikipedia.org/wiki/List_of_cognitive_biases). This frame shows an example of an optical illusion where, if you stare at it intently, you are likely to see it move although it is a static picture.
 :::
 
-## Jacek's perception slides
-〈pause for Jacek's slides〉
-
 # Readings
 Readings last week included  @Hartson2019: Ch 1, 2, 4 and
 @Norman2013: Ch 1. These are pretty serious readings and you need to carve out time to devote to them. In addition, the readings in future weeks have to be done before class, not after. We're only saving these readings for after class because it's the first week.
@@ -238,7 +238,150 @@ I once worked with a group of junior Naval officers who were required by their c
 :::
 
 # Assignment
-none due this week (but you could get a head start!)
+Milestone 0
+
+# @Norman2023, II: Meaningful
+
+## Meaning is elusive
+- Specialized terminology is legalistic, technical, governmental.
+- Unintentional lack of clarity (experts addressing public)
+- Intentional (software licenses, web-based accounts)
+- Methods: tiny windows, use of all uppercase text
+
+## Scientists explaining climate change
+- Scientists dwell on facts that don't grab attention
+- Others make dramatic demonstrations, e.g., Manhattan's painted boundary
+- Norman advocates simplifying language to explain complexity
+- Designers should use rough sketches before making detailed designs
+
+## Measurement
+- In physical science, measurement is an essential first step
+- People try to measure productivity because it's easy to measure
+- Productivity measures don't include quality
+- *Not everything that can be counted counts, and not everything that counts can be counted*
+- Difficulty, expense prohibit many measurements
+- We measure what's easy and cheap to measure and what matters to the ruling class
+
+## Measuring what matters to people
+- Hard to do in a lab if including context
+- Hard to replicate if context is included
+- Scientists often measure young (WEIRD) university students
+- Economists use wrong underlying assumptions, e.g., rational behavior
+- Economic measures often ignore disease, natural disasters, wars, and trade barriers
+
+## Economic measures
+- GDP hides progress in health, education, and happiness indices
+- Assumption: people maximize utility! Do you believe that?
+- Satisficing (Nobel prize winning concept) violates utility maximization
+- Manipulation is everywhere, e.g., three item choices
+- Marketing is manipulation
+
+## Cost-benefit analysis and risk management
+- Use money as standard for comparison
+- Yet one cost is loss of human life
+- Hard to evaluate as money, yet people do in effect
+- Norman says to stop using money as the standard
+
+## Values of Humanity vs Artificial Measures
+- Cost Benefit Analysis and Risk Management tend to favor more expensive buildings, businesses, and homes
+- Wealthy always win cost benefit analyses and risk mgt analyses
+- If low-income people lose their homes, they may lose their jobs as a result
+- Are people equal in the eyes of cost benefit / risk mgt? No, says Norman
+
+## GDP
+- Alternatives require subjective measures
+- Objective is "better" than subjective even though the things you most care about in the world are probably measured subjectively
+- One article said GDP was up, another said people were down ... Why the discrepancy?
+- Norman says it's because GDP has nothing to do with our lives
+
+## Criticisms of GDP (top three)
+- Emphasizes material output without considering overall well-being
+- Counts cost and waste as economic benefits
+- Summarizes economic status of a nation as a single number, hiding complexity: opaque, invisible, mysterious, secretive, confusing
+- Spending measured by GDP includes causing pollution and cleaning up pollution, as well as large police forces and repairing broken windows
+
+## Replacing GDP
+World Economic forum offers five measures
+
+- Good jobs
+- Well-being
+- Environment (including sustainability)
+- Fairness (and equity)
+- Health
+
+## Norman's list
+- Inclusiveness
+- Resilience
+- Education
+- Societal values
+- Quality of governance
+- Happiness
+- Freedom from hunger
+
+## Other measures
+- Gini Index
+- GPI (Genuine Progress Indicator)
+- HDI (Human Development Index)
+- Unfortunately, all use money as the basis
+
+---
+
+![](fiSeventeenGoals.png)
+
+::: {.notes}
+The UN has a website devoted to these seventeen goals and goes into much detail about how to measure them.
+:::
+
+## Measurement scales
+- Ratio (e.g., height, weight, Kelvin temperature)
+- Interval (e.g., Celsius temperature, Fahrenheit temperature)
+- Ordinal (e.g., apples ordered by redness, Mohs hardness scale)
+
+## OECD measure of a better life
+- Organization for Economic Cooperation and Development
+- Eleven categories of items
+- Website lets you manipulate importance of each category
+
+## Information Dashboards
+- Often work well at a glance
+- Automobile dashboards have changed over time
+- Helpful when you need to measure numerous items at the same time
+
+---
+
+![](fiAircraftCockpit.jpg)
+
+---
+
+![](fiEcologyThreats.png)
+
+---
+
+![](fiSocialThreats.png)
+
+---
+
+![](fiDoughnutModel.png)
+
+## Behavioral Economics
+- Formerly disavowed by *utility theory* economists
+- Proponents won Nobel Prizes: Herbert Simon, Daniel Kahneman, Richard Thaler
+- Now more mainstream
+
+# Stories are better than numbers
+- Measurements give facts
+- Stories provide meaning
+- Meaningful stories are easy to remember
+
+---
+
+“It doesn't matter how complex something is. If people find it meaningful and understandable, they will judge it to be “simple.” “Complexity is a fact of the world, whereas simplicity is in the mind.”
+
+Excerpt From
+*Design for a Better World*
+Don Norman
+
+# Tutorials
 
 # References
 
