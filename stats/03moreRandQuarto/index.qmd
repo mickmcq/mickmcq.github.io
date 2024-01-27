@@ -1,0 +1,189 @@
+---
+title: "Stats: More R & Quarto"
+author: Mick McQuaid
+date: today
+bibliography: master.bib
+monofont: JetBrainsMono Nerd Font
+format:
+  revealjs:
+    logo: iSchoolLogo.png
+    theme: statstheme.scss
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+::: {.r-fit-text}
+Week THREE
+:::
+
+# Week 2 Exercises
+
+## No pre-grading
+You shouldn't ask me to look over your homework and make sure that everything is okay. That is because it amounts to pre-grading. If I say it looks okay and then you turn it in and then I take points off for something I didn't previously notice, you will object, saying "But you said it was okay." Therefore I don't want to get into this kind of situation.
+
+On the other hand, it's okay to come to me with vague questions, like "I don't get question two." That opens up the possibility of explaining it better.
+
+## Removing instructions
+You should remove the instructions from the file you turn in. That means remove the first two paragraphs and the last sentence. Leave the questions in and interleave the questions with your answers.
+
+## Texas has the most mortgages
+Several people said that California did, even though California only leads in rentals.
+
+## Leave a blank line before headings
+One person formatted the document incorrectly, leading to a heading not appearing as a heading. You should always review the work before you turn it in.
+
+## Name the files as I ask
+I will take off points in future for files not correctly named.
+
+## Turn in the assignment on time!
+I will go over the homework on the Monday after it's due, so I can't accept late submissions after that. If I accept something between Friday and Monday, it will be with a substantial penalty.
+
+## Scores
+
+```{r}
+score <- c(2, 1.9, 1.9, 2, 1.9, 1.9, 2, 2, 1.9, 1.9, 1.9)
+stem(score)
+```
+
+## More on scores
+- I went easy on you if you turned something in
+- Lesson: always turn something in
+- It will be harsher in future, though, as I expect more and more of you
+
+## Solutions
+Look at the solution file! There are a lot of tips there!
+
+# More on R
+
+Loading the project data:
+
+```{r}
+pacman::p_load(tidyverse)
+df <- read_csv(paste0(Sys.getenv("STATS_DATA_DIR"),"/amesHousing2011.csv"))
+# df <- read_csv("amesHousing2011.csv")
+str(df)
+```
+
+## Note on loading data
+- Two main ways, depending on input file
+- The `load()` function *creates* a data frame
+- The `read_csv()` function *returns* a data frame
+- To create a data frame with `read_csv`, you must read it into a variable, e.g., `df<-read_csv("filename")`! If you just say `read_csv("filename")`, it will display the data frame, but not save it
+- It is a [mistake]{.emph}  to say `df <- load("filename")` or to say `read_csv("filename")`
+
+## Convert many columns to factors
+Some columns should simply be removed, such as Order and PID. Others are useful as factors. How to tell?
+
+<small>
+```{r, echo=TRUE}
+with(df,table(MSSubClass))
+```
+</small>
+
+Use it in conjunction with `amesHousing2011doc.txt`.
+
+## Another way, using Tidyverse
+
+```{r, echo=TRUE}
+df|>count(MSSubClass,sort=TRUE)
+```
+
+## R is changing and the Tidyverse is changing
+::: {.incremental}
+- But they are changing at different rates
+- Tidyverse is changing faster than base R
+- Implies that many StackOverflow answers for Tidyverse are outdated
+- You must learn to read cryptic error messages about deprecation
+:::
+
+## Tidyverse has an updated website
+[https://www.tidyverse.org](https://www.tidyverse.org)
+
+Tidyverse consists of packages, listed at
+[https://www.tidyverse.org/packages/](https://www.tidyverse.org/packages/)
+
+Tidyverse package website lists several sections for learning: Installation and use, Core tidyverse, Import, Wrangle, and others.
+
+## Visit dplyr
+The dplr package includes the following functions for data manipulation
+
+- `mutate()` adds new columns that are functions of existing columns
+- `select()` picks columns based on their names.
+- `filter()` picks rows based on their values.
+- `summarise()` reduces multiple values down to a single summary.
+- `arrange()` changes the ordering of the rows.
+
+## Example of selecting all but a few columns
+
+```{r, echo=TRUE}
+df |> select(!c(PID,Order))
+```
+
+## Example of several dplyr functions
+
+```{r, echo=TRUE}
+dfClasses <- read_tsv("classes.tsv")
+df |>
+  select(c(MSSubClass,SalePrice)) |>
+  group_by(MSSubClass) |>
+  summarize(avPriceByClass = mean(SalePrice),n=n()) |>
+  arrange(desc(avPriceByClass)) |>
+  inner_join(dfClasses)
+```
+
+# More on Quarto
+
+## What is Quarto?
+- A document production system
+- A way to conduct *reproducible research*
+- A way to practice *literate programming*
+
+## Naming convention for Quarto files
+By default, Quarto files end in `.qmd`, although other extensions will work. When you feed a `.qmd` file to RStudio, it assumes that it's a Quarto file and opens it accordingly.
+
+## Contents of a Quarto file
+A quarto file just contains plain text, no binary information. It can be read by any text editor, although what they do with it depends on how Quarto-aware the editor is.
+
+For example, an R chunk (prefaced by a blank line followed by three backticks and `r` in curly braces) is assumed to be R code. It is syntax-highlighted as R and, in some editors such as RStudio, can be independently executed. In RStudio this is done by clicking a green triangle to the right of the chunk.
+
+Everything not in a code chunk is assumed to be Pandoc-flavored Markdown.
+
+## Pandoc-flavored Markdown
+Since Markdown was invented around 2004, many flavors of it have developed. The one we're using is the one interpreted by the program `pandoc`, documented at [https://pandoc.org/](https://pandoc.org/).
+
+## Why so many flavors?
+Markdown was originally devised as a shorthand for HTML by a person (Jon Gruber) was tired of having to write out lengthy HTML constructs for his blog. He wanted something simpler but also readable on its own. By the way, the original Markdown description is still on the web after all these years at [https://daringfireball.net/projects/markdown/](https://daringfireball.net/projects/markdown/), although there are many more descriptive sites. What happened in the years since was that (A) people wanted their own shorthand sets, and (B) it turned out to be really easy to write a converter from Markdown to HTML.
+
+## Some of Markdown's features
+You have experienced some of Markdown's features, such as [a blank line followed by two hashtags followed by a space]{.emph} for a level two heading. You might have surrounded a word by asterisks to italicize it, or double asterisks to bold-face it. You might have used straight quotation marks and found them converted to typographical quotation marks (a different opening and closing mark).
+
+## An important extension: inline code
+You can write inline code in Markdown chunks! Use a single backtick, followed by an `r` in curly braces, then the code, then a single backtick. Hence, you can let the data speak instead of laboriously running the file and extracting results from R chunks and manually inserting them into a Markdown chunk.
+
+## Other extensions
+URLs can be included in Markdown chunks by saying `[displayname](actualURL)`. I usually make the `displayname` be the actual URL, but you can put anything you want in the `displayname` brackets.
+
+Pictures can be included by saying
+
+`![caption](filename)`
+
+on a line by itself.
+
+---
+
+::: {.r-fit-text}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *Roboto Condensed Bold*, *JetBrains Mono Nerd Font*, and *STIX2*
+
+
