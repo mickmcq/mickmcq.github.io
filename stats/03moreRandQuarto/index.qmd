@@ -45,7 +45,7 @@ I will go over the homework on the Monday after it's due, so I can't accept late
 
 ## Scores
 
-```{r}
+```{r,echo=TRUE}
 score <- c(2, 1.9, 1.9, 2, 1.9, 1.9, 2, 2, 1.9, 1.9, 1.9)
 stem(score)
 ```
@@ -62,7 +62,7 @@ Look at the solution file! There are a lot of tips there!
 
 Loading the project data:
 
-```{r}
+```{r,echo=TRUE}
 pacman::p_load(tidyverse)
 df <- read_csv(paste0(Sys.getenv("STATS_DATA_DIR"),"/amesHousing2011.csv"))
 # df <- read_csv("amesHousing2011.csv")

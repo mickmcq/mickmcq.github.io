@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.4.549">
 
   <meta name="author" content="Mick McQuaid">
-  <meta name="dcterms.date" content="2024-01-27">
+  <meta name="dcterms.date" content="2024-01-29">
   <title>Stats: More R &amp; Quarto</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -403,7 +403,7 @@ Mick McQuaid
 </div>
 </div>
 
-  <p class="date">2024-01-27</p>
+  <p class="date">2024-01-29</p>
 </section>
 <section class="slide level2 center">
 
@@ -444,6 +444,8 @@ Mick McQuaid
 <section id="scores" class="slide level2 center">
 <h2>Scores</h2>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>score <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="fl">1.9</span>, <span class="fl">1.9</span>, <span class="dv">2</span>, <span class="fl">1.9</span>, <span class="fl">1.9</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="fl">1.9</span>, <span class="fl">1.9</span>, <span class="fl">1.9</span>)</span>
+<span id="cb1-2"><a href=""></a><span class="fu">stem</span>(score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
   The decimal point is 1 digit(s) to the left of the |
@@ -471,6 +473,10 @@ Mick McQuaid
 <h1>More on R</h1>
 <p>Loading the project data:</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse)</span>
+<span id="cb3-2"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/amesHousing2011.csv"</span>))</span>
+<span id="cb3-3"><a href=""></a><span class="co"># df &lt;- read_csv("amesHousing2011.csv")</span></span>
+<span id="cb3-4"><a href=""></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>spc_tbl_ [2,925 × 82] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  $ Order        : num [1:2925] 1498 2738 2446 2667 2451 ...
@@ -659,7 +665,7 @@ Mick McQuaid
 <p>Some columns should simply be removed, such as Order and PID. Others are useful as factors. How to tell?</p>
 <p><small></small></p><small>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">with</span>(df,<span class="fu">table</span>(MSSubClass))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">with</span>(df,<span class="fu">table</span>(MSSubClass))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>MSSubClass
  020  030  040  045  050  060  070  075  080  085  090  120  150  160  180  190 
@@ -672,7 +678,7 @@ Mick McQuaid
 <section id="another-way-using-tidyverse" class="slide level2 center">
 <h2>Another way, using Tidyverse</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>df<span class="sc">|&gt;</span><span class="fu">count</span>(MSSubClass,<span class="at">sort=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>df<span class="sc">|&gt;</span><span class="fu">count</span>(MSSubClass,<span class="at">sort=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 16 × 2
    MSSubClass     n
@@ -727,7 +733,7 @@ Mick McQuaid
 <section id="example-of-selecting-all-but-a-few-columns" class="slide level2 center">
 <h2>Example of selecting all but a few columns</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>df <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">!</span><span class="fu">c</span>(PID,Order))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>df <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">!</span><span class="fu">c</span>(PID,Order))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2,925 × 80
    MSSubClass MSZoning LotFrontage LotArea Street Alley LotShape LandContour
@@ -755,13 +761,13 @@ Mick McQuaid
 <section id="example-of-several-dplyr-functions" class="slide level2 center">
 <h2>Example of several dplyr functions</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>dfClasses <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"classes.tsv"</span>)</span>
-<span id="cb9-2"><a href=""></a>df <span class="sc">|&gt;</span></span>
-<span id="cb9-3"><a href=""></a>  <span class="fu">select</span>(<span class="fu">c</span>(MSSubClass,SalePrice)) <span class="sc">|&gt;</span></span>
-<span id="cb9-4"><a href=""></a>  <span class="fu">group_by</span>(MSSubClass) <span class="sc">|&gt;</span></span>
-<span id="cb9-5"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">avPriceByClass =</span> <span class="fu">mean</span>(SalePrice),<span class="at">n=</span><span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
-<span id="cb9-6"><a href=""></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(avPriceByClass)) <span class="sc">|&gt;</span></span>
-<span id="cb9-7"><a href=""></a>  <span class="fu">inner_join</span>(dfClasses)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>dfClasses <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"classes.tsv"</span>)</span>
+<span id="cb11-2"><a href=""></a>df <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href=""></a>  <span class="fu">select</span>(<span class="fu">c</span>(MSSubClass,SalePrice)) <span class="sc">|&gt;</span></span>
+<span id="cb11-4"><a href=""></a>  <span class="fu">group_by</span>(MSSubClass) <span class="sc">|&gt;</span></span>
+<span id="cb11-5"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">avPriceByClass =</span> <span class="fu">mean</span>(SalePrice),<span class="at">n=</span><span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb11-6"><a href=""></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(avPriceByClass)) <span class="sc">|&gt;</span></span>
+<span id="cb11-7"><a href=""></a>  <span class="fu">inner_join</span>(dfClasses)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 16 × 4
    MSSubClass avPriceByClass     n subClassDescr                                
