@@ -121,19 +121,19 @@ The dplr package includes the following functions for data manipulation
 ## Example of selecting all but a few columns
 
 ```{r, echo=TRUE}
-df |> select(!c(PID,Order))
+(dfReduced <- df |> select(!c(PID,Order)))
 ```
 
 ## Example of several dplyr functions
 
 ```{r, echo=TRUE}
 dfClasses <- read_tsv("classes.tsv")
-df |>
+(dfPriceByClass <- df |>
   select(c(MSSubClass,SalePrice)) |>
   group_by(MSSubClass) |>
   summarize(avPriceByClass = mean(SalePrice),n=n()) |>
   arrange(desc(avPriceByClass)) |>
-  inner_join(dfClasses)
+  inner_join(dfClasses))
 ```
 
 # More on Quarto

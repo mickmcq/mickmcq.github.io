@@ -733,7 +733,7 @@ Mick McQuaid
 <section id="example-of-selecting-all-but-a-few-columns" class="slide level2 center">
 <h2>Example of selecting all but a few columns</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>df <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">!</span><span class="fu">c</span>(PID,Order))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>(dfReduced <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">!</span><span class="fu">c</span>(PID,Order)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2,925 × 80
    MSSubClass MSZoning LotFrontage LotArea Street Alley LotShape LandContour
@@ -762,12 +762,12 @@ Mick McQuaid
 <h2>Example of several dplyr functions</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>dfClasses <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"classes.tsv"</span>)</span>
-<span id="cb11-2"><a href=""></a>df <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href=""></a>(dfPriceByClass <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
 <span id="cb11-3"><a href=""></a>  <span class="fu">select</span>(<span class="fu">c</span>(MSSubClass,SalePrice)) <span class="sc">|&gt;</span></span>
 <span id="cb11-4"><a href=""></a>  <span class="fu">group_by</span>(MSSubClass) <span class="sc">|&gt;</span></span>
 <span id="cb11-5"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">avPriceByClass =</span> <span class="fu">mean</span>(SalePrice),<span class="at">n=</span><span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
 <span id="cb11-6"><a href=""></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(avPriceByClass)) <span class="sc">|&gt;</span></span>
-<span id="cb11-7"><a href=""></a>  <span class="fu">inner_join</span>(dfClasses)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-7"><a href=""></a>  <span class="fu">inner_join</span>(dfClasses))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 16 × 4
    MSSubClass avPriceByClass     n subClassDescr                                
