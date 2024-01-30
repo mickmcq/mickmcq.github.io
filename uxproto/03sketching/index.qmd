@@ -29,7 +29,8 @@ Recap
 ::: {.notes}
 - sketches: mostly terrific, raises issue of how to sharpen your skills
 - sketches: some appeared to use iPad---is that the best approach?
-- milestones: need you to follow instructions, will clarify
+- sketches: different styles for graphical self-intro vs good design
+- accessibility reports: well done (only one so far), used a lot of good techniques to convey information
 - three things: act fast, think slow, energize yourself
 :::
 
@@ -43,6 +44,18 @@ Recap
 - e.g., websites to help undocumented migrants assume literacy and often English literacy
 - two synergistic groups: drivers and patients
 :::
+
+# project inspiration
+
+
+## orange sky
+![](fiOrangeSky.png)
+
+## sugar shack
+![](fiSugarShack.jpg)
+
+## unbreakable
+![](fiUnbreakable.jpg)
 
 ## pause for project ideas
 
@@ -314,9 +327,8 @@ This is a view of Kidzania, a working city for children with branches in Mexico 
 - Choose a site or app to work on
 - Make a list of screens needed
 - Fold a large sheet into 8 squares
-- Quickly draw a screen on each square
-- Use a sharpie or blunt pencil
-- No nuances!
+- Quickly draw a screen on each square (one minute per screen)
+- Can be one screen eight times or eight diff screens or a combo
 
 ## Develop your own shorthand
 For example
@@ -332,6 +344,16 @@ For example
 
 ::: {.r-fit-text}
 〈do your own crazy eights〉
+:::
+
+::: {.notes}
+
+Use this bash code to give one minute to each panel; change 60 to 120 to give two minutes per panel
+
+```
+for i in $(seq 0 8); do printf "\a\n$i"; sleep 60; done
+```
+
 :::
 
 ---
