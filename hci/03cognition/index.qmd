@@ -24,10 +24,9 @@ Week THREE
 
 - Q and A from last time
 - Cognition
-- Readings
 - Discussion leading (Ellis Brown)
 - Design Critique (Brie Warren)
-- Article Presentation (Mick McQuaid on @Norman2023, Section II)
+- Article Presentation (Mick McQuaid on @Norman2023, Part II, *Meaningful*)
 - Figma tutorial (Rachel Sung)
 
 # Q and A from last time
@@ -339,5 +338,5 @@ END
 
 This slideshow was produced using `quarto`
 
-Fonts are *League Gothic* and *Lato*
+Fonts are *League Gothic*, *Lato*, and STIX2
 
