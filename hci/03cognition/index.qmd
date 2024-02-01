@@ -1,7 +1,7 @@
 ---
 title: "Human Computer Interaction:<br>Cognition"
 author: Mick McQuaid
-date: 2023-01-26
+date: today
 bibliography: master.bib
 format:
   revealjs:
@@ -25,52 +25,38 @@ Week THREE
 - Q and A from last time
 - Cognition
 - Readings
-- Break (may happen later depending on time)
-- Discussion leading (Asma Sifaoul)
-- Design Critique (Christina Jia)
-- Article Presentation (Sree Teja Kalakota)
-- Figma tutorial (Vaishnavi Dwivedi)
+- Discussion leading (Ellis Brown)
+- Design Critique (Brie Warren)
+- Article Presentation (Mick McQuaid)
+- Figma tutorial (Rachel Sung)
 
 # Q and A from last time
 
-## Learning
-- gestalt principles and human perception
-- model human processor
-- gestalt principles
-- human visual system
-- Gestalt principles, how vulnerable and unreliable the human mind can be but also how it predicts details based on unconscious instincts and habits
-- I think Model Human Processor (MHP) is the most important point I learned today. We could use that many time on our career.
+## AI and portfolio websites
+- implications?
+- useful?
+- unethical?
+- equitable?
 
-## More on Learning
-- I think the most interesting, but not shocking, item of information was that Ronald Reagan cut funding for research in human factors. I wonder what research is still happening in the military.
-- I found the relation between human cognition and visual perception to be very interesting. Especially the example of the human eyes looking at the person putting money in the jar. I think its important to study these things and how they relate to digital product design.
-- Visual perception is a major factor that affects the usability and understanding of a design. Use it as a tool.
+## Kahneman
+Why can't his experiments be replicated? Falsifying data? Unique sample? Changes in society, e.g., social media, computer, technology, cultural change?
 
-## Still more on learning
-- Design is not something that can be straightforward applied/taught. It’s helpful to know psychological principles but a lot of standards are up to fashion/taste/stakeholders
-- Learning about the Gestalt principles. I enjoyed the examples presented.
-- Using Framer!
-- I found the 'Big Brother' Eyes experiment fascinating, and wonder in the role it can play to promote honesty-based systems.
+## Optical illusion
+What is the meaning of the red Ys in the optical illusion image?
 
-## Even more on learning
-- Human capabilities and perception are complex variables HCI professionals must consider in designing products/services
+## Limitations of humans
+In the context of the limitations of humans, how to address any cultural and religious beliefs that have shaped individuals' ethical frameworks?
 
-## Group impacts
-How do font sizes, colors and contrast impact people from different groups?
+## Boundary between AI and Human Designers
+UX designers work as a bridge of aesthetics, usability, and usefulness between software engineers and users, and set the whole design concept (UX Book). I'm getting more concerned on the boundary between human designers and AI.
 
-*This is an open question and depends on fads, fashions, how you define groups, and more.*
+## Opinion on Attitudes
+"I think people's attitudes are beginning to move towards two extremes, with some people increasingly seeking inner peace and spiritual abundance, but the other group becoming more utilitarian."
 
-## Color theory
-Before color accurate displays were invented, how was color theory and perception of digital interfaces studied? Or is this a relatively new area of HCI research which came to the surface even more so after significant advances in display technologies
+*Reminds me of a NY Times article from this past weekend on intrinsic vs extrinsic values as explaining the Trump phenomenon. Intrinsincally motivated people are immune to Trump, but extrinsically motivated people value eveything about Trump, according to the article.*
 
-*Color theory is pretty old and exists as a science separate from HCI. There have been two different approaches to color theory in the present century, a psychological approach and a physiological approach. As for its age, I know that Newton explored it over 300 years ago.*
-
-## Framer; Guest speakers
-How do we plan to use framer in class? I’d be curious to hear other perspectives, will we have guest speakers?
-
-*Framer can be used in two ways in this course: to make a website and to make prototypes.*
-
-*I don't plan on any guest speakers but will entertain suggestions.*
+## Opinion on Cognitive Ease
+"I'm not sure I agree that the model of cognitive ease applies only to legacy applications. They apply to today's social media apps as they still require a clear display in terms of design and familiarity, ease of use (for good mood), and in terms of experience. In my opinion, we are still designing with the same input and output feedback in mind."
 
 # Cognition
 We talked a bit about cognitive psychology last week, particularly about Tversky and Kahneman's work. This week we continue with some historical information.
