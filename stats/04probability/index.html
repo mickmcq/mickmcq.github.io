@@ -416,7 +416,7 @@ Mick McQuaid
 <div class="cell-output cell-output-stdout">
 <pre><code>flips
 heads tails 
- 5044  4956 </code></pre>
+ 4899  5101 </code></pre>
 </div>
 
 </div>
@@ -453,7 +453,7 @@ P (A\text{ or }B) = P (A) + P (B) − P (A\text{ and }B)
 </section>
 <section id="counting-combinations" class="slide level2 center">
 <h2>Counting Combinations</h2>
-<p>Combinations can be thought of as committees. There is no order as in a lineup. You’re either a member or you’re not. Suppose you want to form a committee of five people from among twenty people. It doesn’t matter what order they come in so you can’t use the factorial method to count them. Another method is shown in <span class="citation" data-cites="Ash1993">Ash (<a href="#/the-cumulative-distribution-function-cdf" role="doc-biblioref" onclick="">1993</a>)</span>. The main result is that, to choose a committee of 5 from among 20 people, use</p>
+<p>Combinations can be thought of as committees. There is no order as in a lineup. You’re either a member or you’re not. Suppose you want to form a committee of five people from among twenty people. It doesn’t matter what order they come in so you can’t use the factorial method to count them. Another method is shown in <span class="citation" data-cites="Ash1993">Ash (<a href="#/graphing-the-uniform-distribution" role="doc-biblioref" onclick="">1993</a>)</span>. The main result is that, to choose a committee of 5 from among 20 people, use</p>
 <p><span class="math display">\[
 \binom{20}{5} = \frac{20!}{5!(20-5)!}
 \]</span></p>
@@ -481,7 +481,7 @@ P (A\text{ or }B) = P (A) + P (B) − P (A\text{ and }B)
 </section>
 <section id="example-of-a-combination" class="slide level2 center">
 <h2>Example of a combination</h2>
-<p><span class="citation" data-cites="Ash1993">Ash (<a href="#/the-cumulative-distribution-function-cdf" role="doc-biblioref" onclick="">1993</a>)</span> gives the examples of finding and not finding the Queen of Spades (<span class="math inline">\(Q_s\)</span>) in a poker hand. You can think of a poker hand as a committee of 5 cards drawn from 52, so the total number of poker hands is given by <span class="math inline">\(\binom{52}{5}\)</span>. Finding hands containing the <span class="math inline">\(Q_s\)</span> amounts to choosing a committee of size four (the remainder of the hand, from among 51 cards (the remainder of the deck. So there are <span class="math inline">\(\binom{51}{4}\)</span> such hands.</p>
+<p><span class="citation" data-cites="Ash1993">Ash (<a href="#/graphing-the-uniform-distribution" role="doc-biblioref" onclick="">1993</a>)</span> gives the examples of finding and not finding the Queen of Spades (<span class="math inline">\(Q_s\)</span>) in a poker hand. You can think of a poker hand as a committee of 5 cards drawn from 52, so the total number of poker hands is given by <span class="math inline">\(\binom{52}{5}\)</span>. Finding hands containing the <span class="math inline">\(Q_s\)</span> amounts to choosing a committee of size four (the remainder of the hand, from among 51 cards (the remainder of the deck. So there are <span class="math inline">\(\binom{51}{4}\)</span> such hands.</p>
 <p><span class="math display">\[
 P(Q_s)=\dfrac{\binom{51}{4}}{\binom{52}{5}}=\frac{5}{52}
 \]</span></p>
@@ -749,14 +749,49 @@ x_1P(X=x_1)+x_2P(X=x_2)+\cdots+x_kP(X=x_k)
 <p>For any value along the <span class="math inline">\(x\)</span>-axis, the <span class="math inline">\(y\)</span>-value on the curve represents the value of the probability density function.</p>
 <p>The area bounded by the vertical line between the <span class="math inline">\(x\)</span>-axis and the corresponding <span class="math inline">\(y\)</span>-value on the curve, though, is what we are usually interested in because that area represents probability.</p>
 </section>
-<section id="the-cumulative-distribution-function-cdf" class="slide level2 smaller scrollable">
+<section id="the-cumulative-distribution-function-cdf" class="slide level2 center">
 <h2>The Cumulative Distribution Function (CDF)</h2>
 <p>Here is a graph of the <em>size</em> of that area. It’s called the cumulative distribution function (cdf).</p>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" width="576"></section>
+<section id="explanation-of-the-cdf-graph" class="slide level2 center">
+<h2>Explanation of the CDF graph</h2>
+<p>The above graph can be read as having an input and output that correspond to the previous graph of the probability density function. As we move from right to left on the <span class="math inline">\(x\)</span>-axis, the area that would be to the left of a given point on the probability density function is the <span class="math inline">\(y\)</span>-value on this graph. For example, if we go half way across the <span class="math inline">\(x\)</span>-axis of the probability density function, the area to its left is one half of the total area, so the <span class="math inline">\(y\)</span>-value on the cumulative distribution function graph is one half.</p>
+</section>
+<section id="logistic-or-sigmoid-curves" class="slide level2 center">
+<h2>Logistic or Sigmoid curves</h2>
+<p>The shape of the cumulative distribution function is called a sigmoid curve (also sometimes called a logistic curve). You can see how it gets the s shape by looking again at the probability density function graph above. As you move from left to right on that graph, the area under the curve increases very slowly, then more rapidly, then slowly again. The places where the area grows more rapidly and then more slowly on the probability density function curve correspond to the s-shaped bends on the cumulative distribution curve.</p>
+</section>
+<section id="reading-the-sigmoid-curve-left-to-right" class="slide level2 center">
+<h2>Reading the sigmoid curve left to right</h2>
+<p>At the left side of the cumulative distribution curve, the <span class="math inline">\(y\)</span>-value is zero meaning zero probability. When we reach the right side of the cumulative distribution curve, the <span class="math inline">\(y\)</span>-value is 1 or 100 percent of the probability.</p>
+</section>
+<section id="the-nationwide-test-again" class="slide level2 center">
+<h2>The nationwide test again</h2>
+<p>Let’s get back to the example of a nationwide test. If we say that students nationwide took an test that had a mean score of 75 and that the score was normally distributed, we’re saying that the value on the <span class="math inline">\(x\)</span>-axis in the center of the curve is 75. Moreover, we’re saying that the area to the left of 75 is one half of the total area. We’re saying that the probability of a score less than 75 is 0.5 or fifty percent. We’re saying that half the students got a score below 75 and half got a score above 75.</p>
+</section>
+<section id="frequentism" class="slide level2 center">
+<h2>Frequentism</h2>
+<p>That is called the frequentist interpretation of probability. In general, that interpretation says that a probability of 0.5 is properly measured by saying that, if we could repeat the event enough times, we would find the event happening half of those times.</p>
+<p>Furthermore, the frequentist interpretation of the normal distribution is that, if we could collect enough data, such as administering the above test to thousands of students, we would see that the graph of the frequency of their scores would look more and more like the bell curve in the picture, where <span class="math inline">\(x\)</span> is a test score and <span class="math inline">\(y\)</span> is the number of students receiving that score.</p>
+</section>
+<section id="measuring-areas-under-the-bell-curve" class="slide level2 center">
+<h2>Measuring areas under the bell curve</h2>
+<p>Suppose we have the same test and the same distribution but that the mean score is 60. Then 60 is in the middle and half the students are on each side. That is easy to measure. But what if, in either case, we would like to know the probability associated with scores that are not at that convenient midpoint?</p>
+<p>It’s hard to measure any other area under the normal curve except for <span class="math inline">\(x\)</span>-values in the middle of the curve, corresponding to one half of the area. Why is this?</p>
+</section>
+<section id="the-uniform-distribution" class="slide level2 center">
+<h2>The uniform distribution</h2>
+<p>To see why it’s hard to measure the area corresponding to any value except the middle value, let’s first consider a different probability distribution, the uniform distribution. Suppose I have a machine that can generate any number between 0 and 1 at random. Further, suppose that any such number is just as likely as any other such number.</p>
+</section>
+<section id="graphing-the-uniform-distribution" class="slide level2 nostretch smaller scrollable">
+<h2>Graphing the uniform distribution</h2>
+<p>Here’s a graph of the the uniform distribution of numbers generated by the machine. The horizontal line is the probability density function and the shaded area is the cumulative distribution function from 0 to 1/2. In other words, the probability of the machine generating numbers from 0 to 1/2 is 1/2. The probability of generating numbers from 0 to 1 is 1, the area of the entire rectangle.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" width="672"></p>
 </figure>
 </div>
 </div>
