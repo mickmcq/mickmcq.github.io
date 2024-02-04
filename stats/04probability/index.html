@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/tabby.min.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.4.549">
+
+  <meta name="author" content="Mick McQuaid">
+  <meta name="dcterms.date" content="2024-02-03">
+  <title>Stats: Probability</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-dark">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Stats: Probability</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Mick McQuaid 
+</div>
+</div>
+</div>
+
+  <p class="date">2024-02-03</p>
+</section>
+<section class="slide level2 center">
+
+<div class="r-fit-text">
+<p>Week FOUR</p>
+</div>
+</section>
+<section>
+<section id="probability-is-hard" class="title-slide slide level1 center">
+<h1>Probability is hard!</h1>
+
+</section>
+<section id="example-of-probability" class="slide level2 center">
+<h2>Example of probability</h2>
+<p>Rolling a pair of dice</p>
+<ul>
+<li>You know a general rule</li>
+<li>You want to know a single outcome (or a small set of outcomes)</li>
+</ul>
+</section>
+<section id="example-of-stats" class="slide level2 center">
+<h2>Example of stats</h2>
+<p>A/B testing a website</p>
+<ul>
+<li>You know a single outcome (or a small set of outcomes)</li>
+<li>You want to know a general rule (or an appropriate model)</li>
+</ul>
+</section></section>
+<section id="in-a-way-stats-and-probability-are-inverses-of-each-other" class="title-slide slide level1 center">
+<h1>In a way, stats and probability are inverses of each other</h1>
+
+</section>
+
+<section>
+<section id="approaches-to-probability" class="title-slide slide level1 center">
+<h1>Approaches to probability</h1>
+
+</section>
+<section id="bayesian-interpretation" class="slide level2 center">
+<h2>Bayesian interpretation</h2>
+<p>There are two competing schools of thought about what probability is. The Bayesian approach is that probability is <em>quantified belief or reasonable expectation of the outcomes of events based on a state of knowledge</em>. This approach is recently taught in graduate schools. It requires a lot of math background and is not widely studied in undergraduate courses. We will not extensively study this approach, but I want you to know that it exists and is rising in academic popularity.</p>
+</section>
+<section id="frequentist-interpretation" class="slide level2 center">
+<h2>Frequentist interpretation</h2>
+<p>Our textbook takes a <em>frequentist</em> approach to probability, one of the two main approaches to probability and the one usually taught in undergraduate courses in the USA. This approach models probability of an <em>outcome</em> as the number of times the outcome would occur if we observed the <em>random process</em> that produced it an infinite number of times. For example, if we flip a fair coin an infinite number of times, it comes up heads half the time, so the probability of heads is 0.5.</p>
+</section></section>
+<section>
+<section id="law-of-large-numbers" class="title-slide slide level1 center">
+<h1>Law of large numbers</h1>
+<p>This law claims that, as more outcomes are observed, the proportion of outcomes converges to the probability of the outcome. For example, if we flip a fair coin a hundred times, the probability of heads coming up half the time is greater than if we only flip it ten times.</p>
+</section>
+<section id="example-of-law-of-large-numbers" class="slide level2 center">
+<h2>Example of law of large numbers</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>flips
+heads tails 
+ 5003  4997 </code></pre>
+</div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section></section>
+<section>
+<section id="outcomesdisjoint-and-otherwise" class="title-slide slide level1 center">
+<h1>Outcomes—disjoint and otherwise</h1>
+
+</section>
+<section id="disjoint-outcomes" class="slide level2 center">
+<h2>Disjoint outcomes</h2>
+<p>These are outcomes that can not both happen. For example, in the fair coin flipping case, the outcome cannot be both heads and tails. But <span class="emph">the sum of all the disjoint probabilities is always 1</span>.</p>
+</section>
+<section id="probabilities-when-outcomes-are-not-disjoint" class="slide level2 center">
+<h2>Probabilities when outcomes are not disjoint</h2>
+<p>The textbook uses playing cards to illustrate concepts like <em>cards that are neither diamonds nor face cards</em>. You have to familiarize yourself with playing cards to understand these examples. The textbook uses the following Venn diagram to illustrate the above example.</p>
+</section>
+<section id="section" class="slide level2 center">
+<h2></h2>
+
+<img data-src="fiVennDiagramFace+Diamonds.png" class="r-stretch"></section>
+<section id="general-addition-rule" class="slide level2 center">
+<h2>General addition rule</h2>
+<p>The textbook gives a general rule for multiple outcomes, whether they are disjoint or not.</p>
+<p>If <em>A</em> and <em>B</em> are any two events, disjoint or not, then the probability that at least one of them will occur is</p>
+<p><span class="math display">\[
+P (A\text{ or }B) = P (A) + P (B) − P (A\text{ and }B)
+\]</span></p>
+<p>where <span class="math inline">\(P (A\text{ and }B)\)</span> is the probability that both events occur.</p>
+</section>
+<section id="counting-permutations" class="slide level2 center">
+<h2>Counting Permutations</h2>
+<p>Permutations can be thought of as lineups. For instance, suppose you have five people to put in a line. There are five people to choose from to be first in line, then four people remain to be second in line, and so on. You can count this up as <span class="math inline">\(5 \times 4 \times 3 \times 2 \times 1 = 5!\)</span> or five factorial. This holds true for as many objects as you wish to line up.</p>
+</section>
+<section id="counting-combinations" class="slide level2 center">
+<h2>Counting Combinations</h2>
+<p>Combinations can be thought of as committees. There is no order as in a lineup. You’re either a member or you’re not. Suppose you want to form a committee of five people from among twenty people. It doesn’t matter what order they come in so you can’t use the factorial method to count them. Another method is shown in <span class="citation" data-cites="Ash1993">Ash (<a href="#/colophon" role="doc-biblioref" onclick="">1993</a>)</span>. The main result is that, to choose a committee of 5 from among 20 people, use</p>
+<p><span class="math display">\[
+\binom{20}{5} = \frac{20!}{5!(20-5)!}
+\]</span></p>
+<p>This is read as <em>twenty choose 5</em>.</p>
+</section>
+<section id="the-binomial-coefficient" class="slide level2 center">
+<h2>The binomial coefficient</h2>
+<p>The definition of the binomial coefficient is</p>
+<p><span class="math display">\[
+\binom{n}{r} = \frac{n!}{r!(n-r)!}
+\]</span></p>
+</section>
+<section id="rules-for-combinations" class="slide level2 center">
+<h2>Rules for combinations</h2>
+<p><span class="math display">\[
+\binom{n}{r}=\binom{n}{n-r}
+\]</span></p>
+<p><span class="math display">\[
+\binom{n}{1}=n
+\]</span></p>
+<p><span class="math display">\[
+\binom{n}{n}=\binom{n}{0}=1
+\]</span></p>
+<p>This last result is because <span class="math inline">\(0!=1\)</span> by definition.</p>
+</section>
+<section id="example-of-a-combination" class="slide level2 center">
+<h2>Example of a combination</h2>
+<p><span class="citation" data-cites="Ash1993">Ash (<a href="#/colophon" role="doc-biblioref" onclick="">1993</a>)</span> gives the examples of finding and not finding the Queen of Spades (<span class="math inline">\(Q_s\)</span>) in a poker hand. You can think of a poker hand as a committee of 5 cards drawn from 52, so the total number of poker hands is given by <span class="math inline">\(\binom{52}{5}\)</span>. Finding hands containing the <span class="math inline">\(Q_s\)</span> amounts to choosing a committee of size four (the remainder of the hand, from among 51 cards (the remainder of the deck. So there are <span class="math inline">\(\binom{51}{4}\)</span> such hands.</p>
+<p><span class="math display">\[
+P(Q_s)=\dfrac{\binom{51}{4}}{\binom{52}{5}}=\frac{5}{52}
+\]</span></p>
+</section>
+<section id="simplifying-stacked-fractions" class="slide level2 center">
+<h2>Simplifying stacked fractions</h2>
+<p>You need to do this when solving a combination by hand. <span class="math display">\[
+\dfrac{\frac{a}{b}}{\frac{c}{d}}=\dfrac{a \cdot d}{b \cdot c}
+\]</span></p>
+</section></section>
+<section>
+<section id="probability-distributions" class="title-slide slide level1 center">
+<h1>Probability distributions</h1>
+
+</section>
+<section id="probability-distribution-definition" class="slide level2 center">
+<h2>Probability distribution definition</h2>
+<p>A probability distribution is a list of the possible outcomes with corresponding probabilities that satisfies three rules:</p>
+<ol type="1">
+<li>The outcomes listed must be disjoint.</li>
+<li>Each probability must be between 0 and 1.</li>
+<li>The probabilities must total 1.</li>
+</ol>
+</section>
+<section id="probability-distribution-for-two-fair-dice" class="slide level2 center">
+<h2>Probability distribution for two fair dice</h2>
+<p>Francis DiTraglia shows the following example of plotting the probability distribution for rolling two fair dice on his <a href="https://ditraglia.com/Econ103Public/Rtutorials/Rtutorial4.html">website</a>.</p>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><p>Why is 7 the most likely outcome?</p>
+</section>
+<section id="terms-from-set-theory" class="slide level2 center">
+<h2>Terms from set theory</h2>
+<p>Set theory is a mathematical discipline that uses tools like Venn diagrams to describes sets of objects. We can think of outcomes from random processes as objects, too, with the following terms.</p>
+<ul>
+<li>sample space: the set of all possible outcomes</li>
+<li>event: a particular outcome</li>
+<li>complement of an event: outcomes in the sample space outside a given event or events</li>
+</ul>
+</section>
+<section id="complementary-events" class="slide level2 center">
+<h2>Complementary events</h2>
+<p>The complement of event <span class="math inline">\(A\)</span> is denoted <span class="math inline">\(A^c\)</span>, and <span class="math inline">\(A^c\)</span> represents all outcomes not in <span class="math inline">\(A\)</span>. <span class="math inline">\(A\)</span> and <span class="math inline">\(A^c\)</span> are mathematically related:</p>
+<p><span class="math display">\[
+P (A) + P (A^c) = 1, \text{ i.e., } P (A) = 1 − P (A^c)
+\]</span></p>
+</section>
+<section id="independence" class="slide level2 center">
+<h2>Independence</h2>
+<p>Just as variables and observations can be independent, random processes can be independent, too. Two processes are <em>independent</em> if knowing the outcome of one provides no useful information about the outcome of the other. For instance, flipping a coin and rolling a die are two independent processes—knowing the coin was heads does not help determine the outcome of a die roll. On the other hand, stock prices usually move up or down together, so they are not independent.</p>
+</section>
+<section id="multiplication-rule-for-independent-processes" class="slide level2 center">
+<h2>Multiplication rule for independent processes</h2>
+<p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> represent events from two different and independent processes, then the probability that both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> occur can be calculated as the product of their separate probabilities:</p>
+<p><span class="math display">\[
+P (A\text{ and }B) = P (A) × P (B)
+\]</span></p>
+<p>Similarly, if there are <span class="math inline">\(k\)</span> events <span class="math inline">\(A_1, \ldots, A_k\)</span> from <span class="math inline">\(k\)</span> independent processes, then the probability they all occur is</p>
+<p><span class="math display">\[
+P (A_1) × P (A_2) × \cdots × P (A_k)
+\]</span></p>
+</section></section>
+<section>
+<section id="conditional-probability" class="title-slide slide level1 center">
+<h1>Conditional probability</h1>
+
+</section>
+<section id="conditional-probability-example" class="slide level2 center">
+<h2>Conditional probability example</h2>
+<p>This is where probability gets interesting. Some things depend on other things! The textbook uses a contingency table of the <code>photos_classify</code> data frame, which you can download from OpenIntro Stats, to explore this concept.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>              truth
+mach_learn     fashion  not  Sum
+  pred_fashion     197   22  219
+  pred_not         112 1491 1603
+  Sum              309 1513 1822</code></pre>
+</div>
+</div>
+</section>
+<section id="section-1" class="slide level2 center">
+<h2></h2>
+<p>We can use the entries in the contingency table to make statements about probability.</p>
+<ul>
+<li>probability that a fashion photo is correctly classified by ML (machine learning): 197/309</li>
+<li>probability that a given photo is about fashion when predicted by ML to be not: 112/1603</li>
+</ul>
+</section>
+<section id="marginal-probability" class="slide level2 center">
+<h2>Marginal probability</h2>
+<p>Marginal probability is the probability in the margins of table (right column and bottom row), e.g., ML predicts fashion photo at all: 219/1822.</p>
+</section>
+<section id="joint-probability" class="slide level2 center">
+<h2>Joint probability</h2>
+<p>Joint probability is the probabillity of two (or more) things being true, e.g., ML predicts fashion and truth is fashion: 197/1822. A joint probability would be any of the four interior cells divided by the lower right cell.</p>
+</section>
+<section id="conditional-probability-1" class="slide level2 center">
+<h2>Conditional probability</h2>
+<p>Conditional probability is the probability of some outcome given the condition of another outcome, such as the probability that ML predicts fashion when the photo is truly about fashion: 197/219.</p>
+</section>
+<section id="conditional-probabilitys-importance" class="slide level2 center">
+<h2>Conditional probability’s importance</h2>
+<p>Conditional probability is very important. It’s useful to know the general formula for conditional probability. The conditional probability of outcome <span class="math inline">\(A\)</span> given condition <span class="math inline">\(B\)</span> is computed as the following:</p>
+<p><span class="math display">\[
+P (A|B) = \frac{P (A\text{ and }B)}{P (B)}
+\]</span></p>
+</section>
+<section id="general-multiplication-rule" class="slide level2 center">
+<h2>General multiplication rule</h2>
+<p>We already saw a specific multiplication rule for independent events. But there is a more general rule, applicable whether independence is true or not. If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> represent two outcomes or events, then</p>
+<p><span class="math display">\[
+P (A\text{ and }B) = P (A|B) × P (B)
+\]</span></p>
+<p>It is useful to think of <span class="math inline">\(A\)</span> as the outcome of interest and <span class="math inline">\(B\)</span> as the condition.</p>
+</section>
+<section id="tree-diagrams" class="slide level2 center">
+<h2>Tree diagrams</h2>
+
+<img data-src="fiProbTree1.png" class="r-stretch"><aside class="notes">
+<p>This probability tree is from Wikipedia and uses different notation from our textbook.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="textbook-tree-diagram" class="slide level2 center">
+<h2>Textbook tree diagram</h2>
+
+<img data-src="fiProbTree2.png" class="r-stretch"><aside class="notes">
+<p>This probability tree is from the OpenIntro Stats textbook, page 102.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="bayes-theorem" class="title-slide slide level1 center">
+<h1>Bayes’ Theorem</h1>
+
+</section>
+<section id="bayes-theorem-definition" class="slide level2 center">
+<h2>Bayes’ Theorem Definition</h2>
+<p>It’s the centerpiece of Bayesian statistics so it’s a bit like a fish out of water in a frequentist course. It states, in words, that the posterior probability of an outcome <span class="math inline">\(A\)</span> given an outcome <span class="math inline">\(B\)</span> is the likelihood of the outcome <span class="math inline">\(B\)</span> times the prior probability of the outcome <span class="math inline">\(A\)</span> divided by the evidence of outcome <span class="math inline">\(B\)</span>. More succinctly,</p>
+<p><span class="math display">\[
+P(A|B)=\frac{P(B|A)P(A)}{P(B)}
+\]</span></p>
+</section>
+<section id="bayes-rule-intuition" class="slide level2 center">
+<h2>Bayes rule intuition</h2>
+<p>The intuition is that we usually know <em>something</em> and shouldn’t go into problem solving with no assumptions. An example of drug user testing given by Wikipedia is shown in the following frame graphically, where the test is ninety percent sensitive to a recipient being a drug user. The test is also eighty percent specific, meaning that it can detect that a non-user is a non-user eighty percent of the time.</p>
+</section>
+<section id="section-2" class="slide level2 center">
+<h2></h2>
+
+<img data-src="fiBayesExample.png" class="r-stretch"></section>
+<section id="bayes-rule-conclusion" class="slide level2 center">
+<h2>Bayes rule conclusion</h2>
+<p>What does this tell us about drug testing? Even if someone tests positive, the probability that they are a drug user is only 19%! This assumes prior knowledge that five percent of the general population are users of the drug.</p>
+</section>
+<section id="drug-testing-in-bayesian-terms" class="slide level2 center">
+<h2>Drug Testing in Bayesian Terms</h2>
+<p><span class="math display">\[
+\frac{0.9 \times 0.05}{0.9\times 0.05 + 0.2\times0.95}
+\]</span> By the way, this formulation uses the law of total probability in the denominator, expanding <span class="math inline">\(P(B)\)</span> into</p>
+<p><span class="math display">\[
+P(B|A)P(A)+P(B|\neg A)P(\neg A)
+\]</span></p>
+<p>where <span class="math inline">\(\neg A\)</span> is the complement of <span class="math inline">\(A\)</span>.</p>
+</section>
+<section id="bayes-theorem-rationale" class="slide level2 center">
+<h2>Bayes Theorem Rationale</h2>
+<p>This is very important to know about because, for example, someone might <em>only</em> tell you that a test is ninety percent sensitive and eighty percent specific and leave out the Bayes rule result that says that, given that only five percent of the general population are drug users, there’s a nineteen percent chance that testing positive indicates that you are a drug user. <span class="emph">Again, Bayes’ rule is very important when you have some prior knowledge.</span> In this case, the prior knowledge is a study that says that five percent of the general population are users of this drug.</p>
+</section></section>
+<section>
+<section id="small-populations" class="title-slide slide level1 center">
+<h1>Small populations</h1>
+
+</section>
+<section id="sampling-from-a-small-population" class="slide level2 center">
+<h2>Sampling from a small population</h2>
+<p>Recall that the population includes every object and is usually not practical to measure. For examples, every fish, every person, every thunderstorm are too many to represent. So we take a sample. A typical rule of thumb (or heuristic) is that, if we can sample more than ten percent of the population, we regard it as a small population.</p>
+</section>
+<section id="small-population-example" class="slide level2 center">
+<h2>Small population example</h2>
+<p>The textbook gives an example of being called on by the professor. The chance that you are called on in a class of 15 is 1/15. If the professor calls on three different people in succession, the chance that you are called on increases to 1/5:</p>
+<p><span class="math display">\[\begin{align}
+P(\neg\text{3 in a row}) &amp;=\\
+&amp;=P(\text{not picked first, second, third})\\
+&amp;=\frac{14}{15}\times\frac{13}{14}\times\frac{12}{13}\\
+&amp;=\frac{12}{15}\\
+\end{align}\]</span></p>
+<p>and the complement of 12/15 is 1/5.</p>
+</section></section>
+<section>
+<section id="random-variables" class="title-slide slide level1 center">
+<h1>Random variables</h1>
+
+</section>
+<section id="random-variable-definition" class="slide level2 center">
+<h2>Random variable definition</h2>
+<p>A process with a random numerical outcome is called a random variable. It’s kind of like a stochastic function in that there is an input (the process) and output (the outcome number).</p>
+<p>A random variable is usually represented as a capital, italicized Latin letter, e.g., <span class="math inline">\(X, Y, Z\)</span>. Specific outcomes are usually represented as a lowercase, italicized Latin letter with a subscript to denote which outcome, such as <span class="math inline">\(x_1, x_2, x_3\)</span>. The probability that a random variable <span class="math inline">\(X\)</span> has a specific outcome <span class="math inline">\(x_1\)</span> is represented as <span class="math inline">\(P(X=x_1)\)</span>.</p>
+</section>
+<section id="expectation" class="slide level2 center">
+<h2>Expectation</h2>
+<p>The expectation of <span class="math inline">\(X\)</span> is the expected value of <span class="math inline">\(X\)</span>, represented as <span class="math inline">\(E(X)\)</span>. The expected value is typically the average, but not always. If there are <span class="math inline">\(k\)</span> possible outcomes, then</p>
+<p><span class="math display">\[
+E(X)=\sum_{i=1}^kx_iP(X=x_i)
+\]</span></p>
+</section>
+<section id="sum" class="slide level2 center">
+<h2><span class="math inline">\(\sum\)</span></h2>
+<p>The Greek letter <span class="math inline">\(\sum\)</span> (Sigma) denotes a sum of a series of numbers, indexed in this case by <span class="math inline">\(i\)</span>. You can read it in English as the sum, going from <span class="math inline">\(1\)</span> to <span class="math inline">\(k\)</span>, of the expressions to the right of the Sigma sign. In other words,</p>
+<p><span class="math display">\[
+x_1P(X=x_1)+x_2P(X=x_2)+\cdots+x_kP(X=x_k)
+\]</span></p>
+<p>It’s the average as we usually understand it if each outcome is equally probable, in which case it’s the sum of the outcomes divided by the number of outcomes.</p>
+</section>
+<section id="mu-instead-of-ex" class="slide level2 center">
+<h2><span class="math inline">\(\mu\)</span> instead of <span class="math inline">\(E(X)\)</span></h2>
+<p>Writers often substitute <span class="math inline">\(E(X)=\mu\)</span> which can be confusing because Greek letters are usually used as parameters, while Latin letters are usually used as specific realizations of those parameters.</p>
+<p>The above assumes there are <span class="math inline">\(k\)</span> specific outcomes. We call this case a <em>discrete random variable</em>. It’s also possible to do math with a <em>continuous random variable</em>. In other words, <span class="math inline">\(k=\infty\)</span>. However, that requires calculus so the textbook skips it for now.</p>
+</section>
+<section id="variability-in-random-variables" class="slide level2 center">
+<h2>Variability in random variables</h2>
+<p>Recall that random variables are a kind of mapping between a process and specific numerical outcomes. Those specific outcomes differ. For example, the revenue of a store varies day by day, and we can say something about that variability.</p>
+</section>
+<section id="variance-and-standard-deviation" class="slide level2 center">
+<h2>Variance and standard deviation</h2>
+<p>We usually express it by two related concepts: variance (denoted by a lowercase sigma squared or <span class="math inline">\(\sigma^2\)</span>), and its square root, standard deviation (denoted by a lowercase sigma or <span class="math inline">\(\sigma\)</span>). You might wonder why we don’t just choose one of these symbols. Most statisticians just use standard deviation, but to prove that it is an unbiased estimator of variance, we need to square it for mathematical reasons that are beyond the scope of this course.</p>
+</section>
+<section id="we-prefer-to-use-standard-deviation" class="slide level2 center">
+<h2>We prefer to use standard deviation</h2>
+<p>Standard deviation is expressed in the same units as the subject under consideration, whereas variance is expressed in squared units. So when I said in the study guide that the standard deviation of completed exercises was about 2.69, I meant that in terms of number of exercises, meaning that most of you were within 2.69 completed exercises either way of each other. In other words, if you had three or nine completed exercises, you were a kind of outlier.</p>
+</section>
+<section id="linear-combinations-of-random-variables" class="slide level2 center">
+<h2>Linear combinations of random variables</h2>
+<p>We can put random variables together. For example, your GPA is calculated from a set of grades that may differ. If you play fantasy sports, your score comes from many different players. A recommender system for music listening may make calculations based on many different songs you listened to.</p>
+</section>
+<section id="expressing-linear-combinations" class="slide level2 center">
+<h2>Expressing linear combinations</h2>
+<p>A linear combination of two random variables can be expressed as <span class="math inline">\(aX+bY\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are fixed constants, for example, the number of credits applied to each class in your GPA portfolio. If you take four four credit classes, your GPA might be expressed as the linear combination</p>
+<p><span class="math display">\[
+4E(X_1)+4E(X_2)+4E(X_3)+4E(X_4)
+\]</span></p>
+<p>where <span class="math inline">\(E(X_i)\)</span> is a function of your grade, such as your grade mapped to a number and divided by the number of credits you’re taking.</p>
+</section></section>
+<section>
+<section id="continuous-distributions" class="title-slide slide level1 center">
+<h1>Continuous distributions</h1>
+<p>So far, we’ve considered discrete distributions, where <span class="math inline">\(k\)</span> takes on one of a finite set of values. What about the continuous case? For example, temperature can theoretically take on an infinite number of values, even though we only have the tools for discrete measurements.</p>
+</section>
+<section id="normal-distribution" class="slide level2 center">
+<h2>Normal distribution</h2>
+<p>The most famous continuous distribution is the normal distribution. This picture illustrates the normal distribution. The mound-shaped curve represents the probability density function and the area between the curve and the horizontal line represents the value of the cumulative distribution function.</p>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<section id="normal-distribution-example-1-of-2" class="slide level2 center">
+<h2>Normal distribution example (1 of 2)</h2>
+<p>Consider a normally distributed nationwide test.</p>
+<p>The total shaded area between the curve and the straight horizontal line can be thought of as one hundred percent of that area. In the world of probability, we measure that area as 1. The curve is symmetrical, so measure all the area to the left of the highest point on the curve as 0.5. That is half, or fifty percent, of the total area between the curve and the horizontal line at the bottom. Instead of saying <em>area between the curve and the horizontal line at the bottom</em>, people usually say <em>the area under the curve</em>.</p>
+</section>
+<section id="normal-distribution-example-2-of-2" class="slide level2 center">
+<h2>Normal distribution example (2 of 2)</h2>
+<p>For any value along the <span class="math inline">\(x\)</span>-axis, the <span class="math inline">\(y\)</span>-value on the curve represents the value of the probability density function.</p>
+<p>The area bounded by the vertical line between the <span class="math inline">\(x\)</span>-axis and the corresponding <span class="math inline">\(y\)</span>-value on the curve, though, is what we are usually interested in because that area represents probability.</p>
+</section>
+<section id="the-cumulative-distribution-function-cdf" class="slide level2 center">
+<h2>The Cumulative Distribution Function (CDF)</h2>
+<p>Here is a graph of the <em>size</em> of that area. It’s called the cumulative distribution function (cdf).</p>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
+<section id="explanation-of-the-cdf-graph" class="slide level2 center">
+<h2>Explanation of the CDF graph</h2>
+<p>The above graph can be read as having an input and output that correspond to the previous graph of the probability density function. As we move from right to left on the <span class="math inline">\(x\)</span>-axis, the area that would be to the left of a given point on the probability density function is the <span class="math inline">\(y\)</span>-value on this graph. For example, if we go half way across the <span class="math inline">\(x\)</span>-axis of the probability density function, the area to its left is one half of the total area, so the <span class="math inline">\(y\)</span>-value on the cumulative distribution function graph is one half.</p>
+</section>
+<section id="logistic-or-sigmoid-curves" class="slide level2 center">
+<h2>Logistic or Sigmoid curves</h2>
+<p>The shape of the cumulative distribution function is called a sigmoid curve (also sometimes called a logistic curve). You can see how it gets the s shape by looking again at the probability density function graph above. As you move from left to right on that graph, the area under the curve increases very slowly, then more rapidly, then slowly again. The places where the area grows more rapidly and then more slowly on the probability density function curve correspond to the s-shaped bends on the cumulative distribution curve.</p>
+</section>
+<section id="reading-the-sigmoid-curve-left-to-right" class="slide level2 center">
+<h2>Reading the sigmoid curve left to right</h2>
+<p>At the left side of the cumulative distribution curve, the <span class="math inline">\(y\)</span>-value is zero meaning zero probability. When we reach the right side of the cumulative distribution curve, the <span class="math inline">\(y\)</span>-value is 1 or 100 percent of the probability.</p>
+</section>
+<section id="the-nationwide-test-again" class="slide level2 center">
+<h2>The nationwide test again</h2>
+<p>Let’s get back to the example of a nationwide test. If we say that students nationwide took an test that had a mean score of 75 and that the score was normally distributed, we’re saying that the value on the <span class="math inline">\(x\)</span>-axis in the center of the curve is 75. Moreover, we’re saying that the area to the left of 75 is one half of the total area. We’re saying that the probability of a score less than 75 is 0.5 or fifty percent. We’re saying that half the students got a score below 75 and half got a score above 75.</p>
+</section>
+<section id="frequentism" class="slide level2 center">
+<h2>Frequentism</h2>
+<p>That is called the frequentist interpretation of probability. In general, that interpretation says that a probability of 0.5 is properly measured by saying that, if we could repeat the event enough times, we would find the event happening half of those times.</p>
+<p>Furthermore, the frequentist interpretation of the normal distribution is that, if we could collect enough data, such as administering the above test to thousands of students, we would see that the graph of the frequency of their scores would look more and more like the bell curve in the picture, where <span class="math inline">\(x\)</span> is a test score and <span class="math inline">\(y\)</span> is the number of students receiving that score.</p>
+</section>
+<section id="measuring-areas-under-the-bell-curve" class="slide level2 center">
+<h2>Measuring areas under the bell curve</h2>
+<p>Suppose we have the same test and the same distribution but that the mean score is 60. Then 60 is in the middle and half the students are on each side. That is easy to measure. But what if, in either case, we would like to know the probability associated with scores that are not at that convenient midpoint?</p>
+<p>It’s hard to measure any other area under the normal curve except for <span class="math inline">\(x\)</span>-values in the middle of the curve, corresponding to one half of the area. Why is this?</p>
+</section>
+<section id="the-uniform-distribution" class="slide level2 center">
+<h2>The uniform distribution</h2>
+<p>To see why it’s hard to measure the area corresponding to any value except the middle value, let’s first consider a different probability distribution, the uniform distribution. Suppose I have a machine that can generate any number between 0 and 1 at random. Further, suppose that any such number is just as likely as any other such number.</p>
+</section>
+<section id="graphing-the-uniform-distribution" class="slide level2 center">
+<h2>Graphing the uniform distribution</h2>
+<p>Here’s a graph of the the uniform distribution of numbers generated by the machine. The horizontal line is the probability density function and the shaded area is the cumulative distribution function from 0 to 1/2. In other words, the probability of the machine generating numbers from 0 to 1/2 is 1/2. The probability of generating numbers from 0 to 1 is 1, the area of the entire rectangle.</p>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<section id="areas-under-the-uniform-curve" class="slide level2 center">
+<h2>Areas under the uniform curve</h2>
+<p>It’s very easy to calculate any probability for this distribution, in contrast to the normal distribution. The reason it is easy is that you can just use the formula for the area of a rectangle, where area is base times side. The probability of being in the entire rectangle is <span class="math inline">\(1\times1=1\)</span>, and the probability of being in the part from <span class="math inline">\(x=0\)</span> to <span class="math inline">\(x=1/4\)</span> is just <span class="math inline">\(1\times(1/4)=1/4\)</span>. The cumulative distribution function of the uniform distribution is simpler than that of the normal distribution because area is being added at the same rate as we move from left to right on the above graph. Therefore it is just a straight diagonal line from (0,1) on the left to (1,1) on the right.</p>
+</section>
+<section id="section-3" class="slide level2 center">
+<h2></h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
+<section id="section-4" class="slide level2 center">
+<h2></h2>
+<p>Reading it is the same as reading the cumulative distribution function for the normal distribution. For any value on the <span class="math inline">\(x\)</span>-axis, say, 1/2, go up to the diagonal line and over to the value on the <span class="math inline">\(y\)</span>-axis. In this case, that value is 1/2. That is the area under the horizontal line in the probability density function graph from 0 to 1/2 (the shaded area). For a rectangle, calculating area is trivial.</p>
+</section>
+<section id="calculating-a-curved-region" class="slide level2 center">
+<h2>Calculating a curved region</h2>
+<p>Calculating the area of a curved region like the normal distribution can be more difficult. If you’ve studied any calculus, you know that there are techniques for calculating the area under a curve. These techniques are called integration techniques.</p>
+</section>
+<section id="integration-techniques" class="slide level2 center">
+<h2>Integration techniques</h2>
+<p>In the case of the normal distribution the formula for the height of the curve at any point on the <span class="math inline">\(x\)</span>-axis is</p>
+<p><span class="math display">\[\begin{equation*}
+\frac{1}{\sigma\sqrt{2\pi}}e^{-(x-\mu)^2/2\sigma^2}
+\end{equation*}\]</span></p>
+<p>and the area is the integral of that quantity from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(x\)</span>, which can be rewritten as</p>
+<p><span class="math display">\[\begin{equation*}
+\frac{1}{\sqrt{2\pi}}\int^x_{-\infty}e^{-t^2/2}dt
+=(1/2)\left(1+\text{erf}\left(\frac{x-\mu}{\sigma\sqrt{2}}\right)\right)
+\end{equation*}\]</span></p>
+</section>
+<section id="numerical-approximation" class="slide level2 center">
+<h2>Numerical approximation</h2>
+<p>The integral on the left is difficult to evaluate so people use numerical approximation techniques to find the expression on the right in the above equation. Those techniques are so time-consuming that, rather than recompute them every time they are needed, a very few people used to write the results into a table and publish it and most people working with probability would just consult the tables. Only in the past few decades have calculators become available that can do the tedious approximations. Hence, most statistics books, written by people who were educated decades ago, still teach you how to use such tables. There is some debate as to whether there is educational value in using the tables vs using calculators or smartphone apps or web-based tables or apps.</p>
+</section>
+<section id="the-f-distribution" class="slide level2 center">
+<h2>The F distribution</h2>
+<p>Another distribution that we’ll enounter later is called the F distribution. We’ll calculate an F-statistic when we build linear regression models, but I just want you to know the general shape of it for now. The region marked <span class="math inline">\(\alpha\)</span> corresponds inversely to the magnitude of the F statistic. In other words, a larger F statistic means a smaller <span class="math inline">\(\alpha\)</span>.</p>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<section class="slide level2 center">
+
+<div class="r-fit-text">
+<p>END</p>
+</div>
+</section></section>
+<section id="colophon" class="title-slide slide level1 smaller scrollable">
+<h1>Colophon</h1>
+<p>This slideshow was produced using <code>quarto</code></p>
+<p>Fonts are <em>Roboto Condensed Bold</em>, <em>JetBrains Mono Nerd Font</em>, and <em>STIX2</em></p>
+<div class="quarto-auto-generated-content">
+<p><img src="iSchoolLogo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+
+</div>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Ash1993" class="csl-entry" role="listitem">
+Ash, Carol. 1993. <em>The Probability Tutoring Book</em>. New York, NY: <span>IEEE</span> Press.
+</div>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

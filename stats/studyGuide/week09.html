@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -58,6 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -100,7 +101,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -109,6 +116,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -134,6 +142,33 @@ div.csl-indent {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating">
@@ -142,12 +177,12 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week09.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introduction to Linear Regression</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week09.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introduction to Linear Regression</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -157,7 +192,7 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Study Guide: Statistics for Informatics</a> 
@@ -275,7 +310,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -321,7 +356,9 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <section id="recap-week-8-inference-for-numerical-data" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="recap-week-8-inference-for-numerical-data"><span class="header-section-number">9.1</span> Recap week 8: Inference for numerical data</h2>
@@ -338,21 +375,33 @@ div.csl-indent {
 <section id="introduction" class="level3" data-number="9.2.1">
 <h3 data-number="9.2.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">9.2.1</span> Introduction</h3>
 <p>Let’s start with an example. Suppose we know how many times a team has won and we can graph it as follows. I haven’t included a scale on the graph but the underlying numbers of wins are 9, 15, 18, 22.5 (a tie), and 23.</p>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:&quot;\usetikzlibrary{backgrounds}&quot;}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week09_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" style="width:50.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="week09_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>What is our best prediction of the number of wins for a new team, irrespective of any other information. The answer is the mean of this number of wins, 17.5. It’s not a very good prediction but it’s the best we can do, given what little we know. Now suppose we know how much the team spends on player salaries. We’ll call that variable <em>payroll</em> and add it to the graph.</p>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:&quot;\usetikzlibrary{backgrounds}&quot;}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week09_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" style="width:50.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="week09_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Now we can see a pattern. Teams that spend more win more! But that’s not strictly true because there must be other variables at play. Right now, we don’t know what those variables are. But the best prediction we can make for the number of wins for a given new team depends in part on its payroll. We can now draw a diagonal line through this cloud of points and say that that line represents the best prediction for number of wins, like so.</p>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:&quot;\usetikzlibrary{backgrounds}&quot;}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week09_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" style="width:50.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="week09_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>One immediate question to ask is whether the diagonal line pictured above is the best line. People searched for ways of finding the best line for a long time before the most popular method, least squares, was published in 1805. That is the method used most frequently by software but other methods have emerged since then.</p>
@@ -360,15 +409,23 @@ div.csl-indent {
 <p>The <span class="citation" data-cites="Diez2019">Diez, Çetinkaya-Rundel, and Barr (<a href="references.html#ref-Diez2019" role="doc-biblioref">2019</a>)</span> textbook differs a bit from standard practice, using the Latin letter <em>b</em> in place of the Greek <span class="math inline">\(\beta\)</span>. This works well from my point of view because Latin letters are often used to denote estimates of parameters, while the parameters themselves are denoted by Greek letters. Keep in mind that we’re always working with samples so we’re estimating the true slope and intercept with <span class="math inline">\(b_1\)</span> and <span class="math inline">\(b_0\)</span>. Other statistics books sometimes use <span class="math inline">\(\hat{\beta}\)</span> to refer to estimates, which is kind of cumbersome.</p>
 <p>Most of our discussion of regression will focus on this least squares line and how good it is. Keep in mind that the word <em>regression</em> is more general than <em>least squares</em>. There are other methods and applications. Least squares is just the easiest way to introduce regression.</p>
 <p>What does the term <em>least squares</em> mean? In the following picture, we have added vertical lines connecting the dots to the least squares line. The squares of the lengths of these lines are the way we measure the quality of the line.</p>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:&quot;\usetikzlibrary{backgrounds}&quot;}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week09_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" style="width:50.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="week09_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>In the following pictures, the prediction line on the right is better than that on the left by an amount proportional to the difference between the total length of pink lines in the two pictures. Notice that both lines represent the very best possible prediction for <em>that</em> set of dots. It’s just that, on the right hand side, there’s a closer correspondence between payroll and wins.</p>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:&quot;\usetikzlibrary{backgrounds}&quot;}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week09_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week09_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -447,7 +504,6 @@ F-statistic: 9.722 on 1 and 3 DF,  p-value: 0.05256</code></pre>
 <section id="outliers" class="level3" data-number="9.2.7">
 <h3 data-number="9.2.7" class="anchored" data-anchor-id="outliers"><span class="header-section-number">9.2.7</span> Outliers</h3>
 <p>Back in the nineteen seventies, several prominent statisticians said that statistics needed visualization. Their influece is actually responsible for my teaching visualization in this course. One of them, Francis Anscombe, published a data frame that showed how misleading elementary statistics can be without visualization. This data frame has come to be called Anscombe’s quartet and it is often shown to students. Here it is.</p>
-<div class="cell-output-display">
 <table class="table">
 <thead>
 <tr class="header">
@@ -564,11 +620,14 @@ F-statistic: 9.722 on 1 and 3 DF,  p-value: 0.05256</code></pre>
 </tr>
 </tbody>
 </table>
-</div>
 <p>Each <span class="math inline">\(x,y\)</span> pair of this quartet has the same basic statistics and the exact same least squares line. But look at a visualization of them.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="week09_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week09_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The power of outliers can be seen in datasets 3 and 4 and the power of a nonlinear relationship can be seen in dataset 2.</p>
@@ -896,10 +955,18 @@ AIC: Akaike Information Criteria
 </div>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(k)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week09_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week09_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="cell-output-display">
-<p><img src="week09_files/figure-html/unnamed-chunk-18-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week09_files/figure-html/unnamed-chunk-18-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -1001,7 +1068,7 @@ F-statistic: 175.7 on 4 and 53935 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>How can you use this information? In a basic course like this, the information is not particularly useful and we will not pursue it. If you go on in statistics or data science, you will soon encounter situations where nonlinear effects matter a great deal. For example, this often arises in age-period-cohort analysis, where you want to separate the effects of people’s ages, usually divided into evenly spaced levels, and other numerical factors such as income, also usually divided into evenly spaced levels, and the effects of significant periods, such as the economic collapse of 2008 or the pandemic beginning in 2019, and finally the effects of being a member of a cohort or identifiable group. This kind of analysis is often conducted by epidemiologists, people with very large groups of customers, policymakers, and others concerned with large groups of people, or any “objects” with large numbers of attributes.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-Diez2019" class="csl-entry" role="listitem">
 Diez, David, Mine Çetinkaya-Rundel, and Cristopher D Barr. 2019. <em>OpenIntro Statistics, Fourth Edition</em>. self-published. <a href="https://openintro.org/os">https://openintro.org/os</a>.
 </div>
@@ -1088,10 +1155,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1101,8 +1167,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1115,6 +1190,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1158,6 +1352,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1183,6 +1378,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1244,17 +1465,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./week08.html" class="pagination-link">
+      <a href="./week08.html" class="pagination-link  aria-label=" &lt;span="" for="" numerical="" data&lt;="" span&gt;"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Inference for Numerical Data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./week10.html" class="pagination-link">
+      <a href="./week10.html" class="pagination-link" aria-label="<span class='chapter-number'>10</span>&nbsp; <span class='chapter-title'>More Linear Regression; Logistic Regression</span>">
         <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">More Linear Regression; Logistic Regression</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

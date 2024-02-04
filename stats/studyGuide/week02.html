@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -81,7 +81,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,12 +96,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <style>
@@ -118,6 +124,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating">
@@ -126,12 +159,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week02.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Numerical and Visual Data Summaries</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week02.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Numerical and Visual Data Summaries</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -141,7 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Study Guide: Statistics for Informatics</a> 
@@ -259,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -320,7 +353,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <section id="recap-week-01" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="recap-week-01"><span class="header-section-number">2.1</span> Recap Week 01</h2>
@@ -509,7 +544,11 @@ pain_free control treatment
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(annual_income,loan_amount)) <span class="sc">+</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week02_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week02_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The above is a very basic scatterplot. Later, we’ll learn to change colors, background, labels, legends, and more. Bear in mind that the scatterplot is meant to compare two numeric variables. You can’t use it for a numeric variable and a categorical variable.</p>
@@ -519,7 +558,11 @@ pain_free control treatment
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(homeownership)) <span class="sc">+</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week02_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week02_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>A dotplot may be helpful to illustrate a categorical variable, but I seldom use them. Using them in concert with a boxplot may make more sense. We’ll look at boxplots later.</p>
@@ -541,7 +584,11 @@ pain_free control treatment
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(annual_income)) <span class="sc">+</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week02_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week02_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Notice that the <em>x</em>-axis labels are shown in scientific notation. We can fix this using the <code>scales</code> package. By the way, in case I haven’t mentioned it before, we always refer to the horizontal axis as the <em>x</em>-axis and the vertical axis as the <em>y</em>-axis. This is the default for <code>r</code> and many other languages that create graphical displays.</p>
@@ -552,7 +599,11 @@ pain_free control treatment
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">comma_format</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week02_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week02_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>You may have noticed that Hadley Wickham, the inventor of the Tidyverse, dislikes the default number of bins in a histogram. So he programmed <code>ggplot()</code> to always show a warning message saying to pick a better number, depending on your data. We can fix that easily with a parameter to <code>geom_histogram()</code>. Then each bin (vertical stripe) will represent a thousand dollars.</p>
@@ -562,7 +613,11 @@ pain_free control treatment
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">1000</span>) <span class="sc">+</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">comma_format</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week02_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week02_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>You may notice that warning messages aren’t dealbreakers. An error message on the other hand, will often stop output dead in its tracks.</p>
@@ -618,7 +673,11 @@ num_cc_carrying_balance             loan_amount           interest_rate
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">comma_format</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week02_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week02_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The thick line in the middle of the box is the median, the middle value of the data set. The box itself is bound by the first and third quartiles, known as <em>hinges</em>. The full name of this construct is actually a <em>box and whiskers plot</em> and the lines extending horizontally from the box are called whiskers. The upper whisker extends from the hinge to the largest value no further than 1.5 * IQR from the hinge (where IQR is the inter-quartile range, or distance between the first and third quartiles). The lower whisker extends from the hinge to the smallest value at most 1.5 * IQR of the hinge. Data beyond the end of the whiskers are called “outlying” points and are plotted individually.</p>
@@ -629,7 +688,11 @@ num_cc_carrying_balance             loan_amount           interest_rate
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">comma_format</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week02_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week02_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The textbook’s next topic is <em>Robust Statistics</em> and we’re going to pretty much skip that for now, except to say that outliers, as shown in the textbook, can affect the value of some statistics more than others. The mean and median are a good example. The median is much more robust to outliers than is the mean, which can be dragged way up or down by the presence of just one or a few outliers, whereas the median can not. As a kind of thought experiment, consider the following data set and the addition of an outlier and the effect of the outlier on the mean and median.</p>
@@ -677,7 +740,11 @@ num_cc_carrying_balance             loan_amount           interest_rate
 <span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span>lm , <span class="at">color=</span><span class="st">"red"</span>, <span class="at">fill=</span><span class="st">"#69b3a2"</span>, <span class="at">se=</span><span class="cn">TRUE</span>) <span class="sc">+</span></span>
 <span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week02_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week02_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Notice that the confidence interval is narrower at the center than at the extremes. Why? It’s because we’re using more data to estimate at the center and have less uncertainty at the center than at the ends, where the data is truncated.</p>
@@ -703,7 +770,11 @@ num_cc_carrying_balance             loan_amount           interest_rate
 ℹ Please use `after_stat(x)` instead.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="week02_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week02_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Not only are the temperatures higher in the summer than in the winter, they are less variable, so we’re more certain of what the temperature might be on any given day in summer.</p>
@@ -737,19 +808,19 @@ num_cc_carrying_balance             loan_amount           interest_rate
 <td style="text-align: left; color: black !important; background-color: white !important;">no</td>
 <td style="text-align: right;">44</td>
 <td style="text-align: right;">33</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">77</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">77</td>
 </tr>
 <tr class="even">
 <td style="text-align: left; color: black !important; background-color: white !important;">yes</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">10</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">12</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">12</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; color: white !important; background-color: #AAAAAA !important; color: black !important; background-color: white !important;">Sum</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">46</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">43</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important; color: white !important; background-color: #AAAAAA !important;">89</td>
+<td style="text-align: left; color: white !important; background-color: rgba(170, 170, 170, 255) !important; color: black !important; background-color: white !important;">Sum</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">46</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">43</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">89</td>
 </tr>
 </tbody>
 </table>
@@ -762,7 +833,11 @@ num_cc_carrying_balance             loan_amount           interest_rate
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">with</span>(migraine,<span class="fu">table</span>(pain_free,group))</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mosaicplot</span>(tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week02_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week02_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We can also create bar plots.</p>
@@ -771,7 +846,11 @@ num_cc_carrying_balance             loan_amount           interest_rate
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(homeownership)) <span class="sc">+</span></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week02_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week02_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <div class="cell">
@@ -780,7 +859,11 @@ num_cc_carrying_balance             loan_amount           interest_rate
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
 <span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week02_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week02_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The above looks better but is misleading because it implies an ordinal relationship between the loan purposes and there is no such relationship. We would be better of specifying that the <code>loan_purpose</code> variable is qualitative.</p>
@@ -790,7 +873,11 @@ num_cc_carrying_balance             loan_amount           interest_rate
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
 <span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>(<span class="at">type=</span><span class="st">"qual"</span>,<span class="at">palette=</span><span class="st">"Set1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week02_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week02_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>I find the above palette to be ugly but several others are available. Google <em>colorbrewer</em> for more info. By the way, these colors have been extensively psychologically tested to verify that people can easily distinguish between them. I’m uncertain about colorblind people because the most prevalent form of color blindness is red-green.</p>
@@ -1582,8 +1669,8 @@ loan_purpose             A  B  C  D  E  F  G Sum
         style_positive = style_positive, style_negative = style_negative, 
         scale_cut = scale_cut, trim = trim, ...)
 }
-&lt;bytecode: 0x7f9c33414c08&gt;
-&lt;environment: 0x7f9c318fa6d8&gt;</code></pre>
+&lt;bytecode: 0x7f87e572afe0&gt;
+&lt;environment: 0x7f87e076e030&gt;</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. same info with commas in numbers</span></span>
 <span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>loan50 <span class="sc">|&gt;</span></span>
@@ -1689,7 +1776,11 @@ state rent mortgage own
 <div class="cell">
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>loan50 <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(annual_income)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week02_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week02_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <ol start="5" type="1">
@@ -1733,7 +1824,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;"></td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1745,7 +1836,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">car</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">1</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">1</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1757,7 +1848,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">credit_card</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">6</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">4</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">4</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -1766,22 +1857,22 @@ state rent mortgage own
 <td style="text-align: right;">13</td>
 </tr>
 <tr class="even">
-<td style="text-align: left; color: white !important; background-color: #AAAAAA !important; color: black !important; background-color: white !important;">debt_consolidation</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">2</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important; color: white !important; background-color: #AAAAAA !important;">9</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">4</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">7</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">1</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">23</td>
+<td style="text-align: left; color: white !important; background-color: rgba(170, 170, 170, 255) !important; color: black !important; background-color: white !important;">debt_consolidation</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">2</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">9</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">4</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">7</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">1</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">23</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left; color: black !important; background-color: white !important;">home_improvement</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">4</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">4</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1793,7 +1884,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">house</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">1</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1805,7 +1896,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">major_purchase</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1817,7 +1908,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">medical</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1829,7 +1920,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">moving</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1841,7 +1932,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">other</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1853,7 +1944,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">renewable_energy</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1865,7 +1956,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">small_business</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1877,7 +1968,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">vacation</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1889,7 +1980,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">wedding</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1901,7 +1992,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">Sum</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">15</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">19</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">19</td>
 <td style="text-align: right;">6</td>
 <td style="text-align: right;">8</td>
 <td style="text-align: right;">2</td>
@@ -1954,7 +2045,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;"></td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1966,7 +2057,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">car</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">1</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">1</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1978,7 +2069,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">credit_card</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">6</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">4</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">4</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -1987,22 +2078,22 @@ state rent mortgage own
 <td style="text-align: right;">13</td>
 </tr>
 <tr class="even">
-<td style="text-align: left; color: white !important; background-color: #AAAAAA !important; color: black !important; background-color: white !important;">debt_consolidation</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">2</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important; color: white !important; background-color: #AAAAAA !important;">9</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">4</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">7</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">1</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">23</td>
+<td style="text-align: left; color: white !important; background-color: rgba(170, 170, 170, 255) !important; color: black !important; background-color: white !important;">debt_consolidation</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">2</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">9</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">4</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">7</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">1</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">23</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left; color: black !important; background-color: white !important;">home_improvement</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">4</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">4</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2014,7 +2105,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">house</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">1</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2026,7 +2117,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">major_purchase</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2038,7 +2129,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">medical</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2050,7 +2141,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">moving</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2062,7 +2153,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">other</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2074,7 +2165,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">renewable_energy</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2086,7 +2177,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">small_business</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2098,7 +2189,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">vacation</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2110,7 +2201,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">wedding</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">0</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2122,7 +2213,7 @@ state rent mortgage own
 <td style="text-align: left; color: black !important; background-color: white !important;">Sum</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">15</td>
-<td style="text-align: right; color: white !important; background-color: #AAAAAA !important;">19</td>
+<td style="text-align: right; color: white !important; background-color: rgba(170, 170, 170, 255) !important;">19</td>
 <td style="text-align: right;">6</td>
 <td style="text-align: right;">8</td>
 <td style="text-align: right;">2</td>
@@ -2236,10 +2327,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -2249,8 +2339,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -2263,6 +2362,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -2306,6 +2524,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -2331,6 +2550,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -2392,17 +2637,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./week01.html" class="pagination-link">
+      <a href="./week01.html" class="pagination-link  aria-label=" &lt;span="" to="" the="" course&lt;="" span&gt;"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to the Course</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./week03.html" class="pagination-link">
+      <a href="./week03.html" class="pagination-link" aria-label="<span class='chapter-number'>3</span>&nbsp; <span class='chapter-title'>More about R and Quarto</span>">
         <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">More about R and Quarto</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 
