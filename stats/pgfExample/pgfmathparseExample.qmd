@@ -26,9 +26,6 @@ line represents the value of the cumulative distribution
 function.
 
 ```{r, engine = 'tikz',engine.opts=list(extra.preamble=c("\\usepackage{pgfplots,stix,pagecolor}","\\definecolor{qopage}{HTML}{0E2A35}")),echo=FALSE}
-\pgfmathdeclarefunction{gauss}{2}{%
-  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
-}
 \begin{tikzpicture}
 % picture of normal distribution pdf
 \begin{axis}[
@@ -47,11 +44,11 @@ function.
   },
   extra x tick labels={\scriptsize avg test score $\rightarrow$}
   ]
-  \addplot [fill=cyan!20, draw=none, domain=70:100] {gauss(100,8)} \closedcycle
+  \addplot [fill=cyan!20, draw=none, domain=70:100] {1/(8*sqrt(2*pi))*exp(-((x-100)^2)/(2*8^2))} \closedcycle
     node [style={font=\scriptsize},above,text width=1.5cm] at (axis cs:95,0.005)
       {probability of getting avg score or less};
 
-  \addplot [very thick,cyan!50!black] {gauss(100,8)};
+  \addplot [very thick,cyan!50!black] {1/(8*sqrt(2*pi))*exp(-((x-100)^2)/(2*8^2))};
 \draw [yshift=-2.2cm, <->](axis cs:70,0) -- node
 [fill=white] {$P(x \leqslant \text{avg})$} (axis cs:100,0);
 \end{axis}
