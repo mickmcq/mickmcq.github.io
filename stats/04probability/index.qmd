@@ -592,3 +592,93 @@ rectangle.
 \end{tikzpicture}
 ```
 
+## Areas under the uniform curve
+It's very easy to calculate any probability for this
+distribution, in contrast to the normal distribution. The
+reason it is easy is that you can just use the formula for
+the area of a rectangle, where area is base times side.
+The probability of being in the entire rectangle is
+$1\times1=1$, and the probability of being in the part
+from $x=0$ to $x=1/4$ is just $1\times(1/4)=1/4$. The
+cumulative distribution function of the uniform
+distribution is simpler than that of the normal
+distribution because area is being added at the same rate
+as we move from left to right on the above graph.
+Therefore it is just a straight diagonal line from (0,1)
+on the left to (1,1) on the right.
+
+##
+
+```{r, engine = 'tikz',engine.opts=list(extra.preamble=c("\\usepackage{pgfplots,stix,pagecolor}","\\definecolor{qopage}{HTML}{0E2A35}")),echo=FALSE}
+\begin{tikzpicture}
+% picture of uniform distribution cdf
+\begin{axis}[
+  no markers, domain=0:1, samples=100,
+  axis lines=left, xlabel=$x$, ylabel=$f(x)$,
+  every axis y label/.style={at={(0,1.0)},anchor=south},
+  every axis x label/.style={at={(1.0,0)},anchor=west},
+  height=5cm, width=5cm,
+  xtick=\empty, ytick=\empty,
+  enlargelimits=false, clip=false, axis on top,
+  extra x ticks={0.5},
+  extra y ticks={0.5},
+  extra x tick labels={$\frac{1}{2}$},
+  extra y tick labels={$\frac{1}{2}$}
+  ]
+  \addplot[mark=none,very thick,smooth,cyan!50!black] {x};
+\end{axis}
+\end{tikzpicture}
+```
+
+##
+Reading it is the same as reading the cumulative
+distribution function for the normal distribution. For any
+value on the $x$-axis, say, 1/2, go up to the diagonal
+line and over to the value on the $y$-axis. In this case,
+that value is 1/2. That is the area under the horizontal
+line in the probability density function graph from 0 to
+1/2 (the shaded area). For a rectangle, calculating area
+is trivial.
+
+## Calculating a curved region
+Calculating the area of a curved region like the normal
+distribution can be more difficult. If you've studied any
+calculus, you know that there are techniques for
+calculating the area under a curve. These techniques are
+called integration techniques.
+
+## Integration techniques
+In the case of the normal
+distribution the formula for the height of the curve at
+any point on the $x$-axis is
+
+\begin{equation*}
+\frac{1}{\sigma\sqrt{2\pi}}e^{-(x-\mu)^2/2\sigma^2}
+\end{equation*}
+
+and the area is the integral of that quantity from $-\infty$ to $x$,
+which can be rewritten as
+
+\begin{equation*}
+\frac{1}{\sqrt{2\pi}}\int^x_{-\infty}e^{-t^2/2}dt
+ =(1/2)\left(1+\text{erf}\left(\frac{x-\mu}{\sigma\sqrt{2}}\right)\right)
+\end{equation*}
+
+## Numerical approximation
+The integral on the left is difficult to evaluate so
+people use numerical approximation techniques to find the
+expression on the right in the above equation. Those
+techniques are so time-consuming that, rather than
+recompute them every time they are needed, a very few
+people used to write the results into a table and publish
+it and most people working with probability would just
+consult the tables. Only in the past few decades have
+calculators become available that can do the tedious
+approximations. Hence, most statistics books, written by
+people who were educated decades ago, still teach you how
+to use such tables. There is some debate as to whether
+there is educational value in using the tables vs using
+calculators or smartphone apps or web-based tables or
+apps.
+
+
