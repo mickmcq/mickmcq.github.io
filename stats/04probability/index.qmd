@@ -322,3 +322,105 @@ It is useful to think of $A$ as the outcome of interest and $B$ as the condition
 This probability tree is from the OpenIntro Stats textbook, page 102.
 :::
 
+# Bayes' Theorem
+
+## Bayes' Theorem Definition
+It's the centerpiece of Bayesian statistics so it's a bit like a fish out of water in a frequentist course. It states, in words, that the posterior probability of an outcome $A$ given an outcome $B$ is the likelihood of the outcome $B$ times the prior probability of the outcome $A$ divided by the evidence of outcome $B$. More succinctly,
+
+$$
+P(A|B)=\frac{P(B|A)P(A)}{P(B)}
+$$
+
+## Bayes rule intuition
+The intuition is that we usually know *something* and shouldn't go into problem solving with no assumptions. An example of drug user testing given by Wikipedia is shown in the following frame graphically, where the test is ninety percent sensitive to a recipient being a drug user. The test is also eighty percent specific, meaning that it can detect that a non-user is a non-user eighty percent of the time.
+
+##
+![](fiBayesExample.png)
+
+## Bayes rule conclusion
+What does this tell us about drug testing? Even if someone tests positive, the probability that they are a drug user is only 19%! This assumes prior knowledge that five percent of the general population are users of the drug.
+
+## Drug Testing in Bayesian Terms
+
+$$
+\frac{0.9 \times 0.05}{0.9\times 0.05 + 0.2\times0.95}
+$$
+By the way, this formulation uses the law of total probability in the denominator, expanding $P(B)$ into
+
+$$
+P(B|A)P(A)+P(B|\neg A)P(\neg A)
+$$
+
+where $\neg A$ is the complement of $A$.
+
+## Bayes Theorem Rationale
+This is very important to know about because, for example, someone might *only* tell you that a test is ninety percent sensitive and eighty percent specific and leave out the Bayes rule result that says that, given that only five percent of the general population are drug users, there's a nineteen percent chance that testing positive indicates that you are a drug user. [Again, Bayes' rule is very important when you have some prior knowledge.]{.emph} In this case, the prior knowledge is a study that says that five percent of the general population are users of this drug.
+
+# Small populations
+
+## Sampling from a small population
+Recall that the population includes every object and is usually not practical to measure. For examples, every fish, every person, every thunderstorm are too many to represent. So we take a sample. A typical rule of thumb (or heuristic) is that, if we can sample more than ten percent of the population, we regard it as a small population.
+
+## Small population example
+The textbook gives an example of being called on by the professor. The chance that you are called on in a class of 15 is 1/15. If the professor calls on three different people in succession, the chance that you are called on increases to 1/5:
+
+\begin{align}
+P(\neg\text{3 in a row}) &=\\
+&=P(\text{not picked first, second, third})\\
+&=\frac{14}{15}\times\frac{13}{14}\times\frac{12}{13}\\
+&=\frac{12}{15}\\
+\end{align}
+
+and the complement of 12/15 is 1/5.
+
+# Random variables
+
+## Random variable definition
+A process with a random numerical outcome is called a random variable. It's kind of like a stochastic function in that there is an input (the process) and output (the outcome number).
+
+A random variable is usually represented as a capital, italicized Latin letter, e.g., $X, Y, Z$. Specific outcomes are usually represented as a lowercase, italicized Latin letter with a subscript to denote which outcome, such as $x_1, x_2, x_3$. The probability that a random variable $X$ has a specific outcome $x_1$ is represented as $P(X=x_1)$.
+
+## Expectation
+The expectation of $X$ is the expected value of $X$, represented as $E(X)$. The expected value is typically the average, but not always. If there are $k$ possible outcomes, then
+
+$$
+E(X)=\sum_{i=1}^kx_iP(X=x_i)
+$$
+
+## $\sum$
+The Greek letter $\sum$ (Sigma) denotes a sum of a series of numbers, indexed in this case by $i$. You can read it in English as the sum, going from $1$ to $k$, of the expressions to the right of the Sigma sign. In other words,
+
+$$
+x_1P(X=x_1)+x_2P(X=x_2)+\cdots+x_kP(X=x_k)
+$$
+
+It's the average as we usually understand it if each outcome is equally probable, in which case it's the sum of the outcomes divided by the number of outcomes.
+
+## $\mu$ instead of $E(X)$
+
+Writers often substitute $E(X)=\mu$ which can be confusing because Greek letters are usually used as parameters, while Latin letters are usually used as specific realizations of those parameters.
+
+The above assumes there are $k$ specific outcomes. We call this case a *discrete random variable*. It's also possible to do math with a *continuous random variable*. In other words, $k=\infty$. However, that requires calculus so the textbook skips it for now.
+
+## Variability in random variables
+Recall that random variables are a kind of mapping between a process and specific numerical outcomes. Those specific outcomes differ. For example, the revenue of a store varies day by day, and we can say something about that variability.
+
+## Variance and standard deviation
+We usually express it by two related concepts: variance (denoted by a lowercase sigma squared or $\sigma^2$), and its square root, standard deviation (denoted by a lowercase sigma or $\sigma$). You might wonder why we don't just choose one of these symbols. Most statisticians just use standard deviation, but to prove that it is an unbiased estimator of variance, we need to square it for mathematical reasons that are beyond the scope of this course.
+
+## We prefer to use standard deviation
+Standard deviation is expressed in the same units as the subject under consideration, whereas variance is expressed in squared units. So when I said in the study guide that the standard deviation of completed exercises was about 2.69, I meant that in terms of number of exercises, meaning that most of you were within 2.69 completed exercises either way of each other. In other words, if you had three or nine completed exercises, you were a kind of outlier.
+
+## Linear combinations of random variables
+We can put random variables together. For example, your GPA is calculated from a set of grades that may differ. If you play fantasy sports, your score comes from many different players. A recommender system for music listening may make calculations based on many different songs you listened to.
+
+## Expressing linear combinations
+A linear combination of two random variables can be expressed as $aX+bY$, where $a$ and $b$ are fixed constants, for example, the number of credits applied to each class in your GPA portfolio. If you take four four credit classes, your GPA might be expressed as the linear combination
+
+$$
+4E(X_1)+4E(X_2)+4E(X_3)+4E(X_4)
+$$
+
+where $E(X_i)$ is a function of your grade, such as your grade mapped to a number and divided by the number of credits you're taking.
+
+
