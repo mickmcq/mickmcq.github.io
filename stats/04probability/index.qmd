@@ -682,34 +682,7 @@ apps.
 ## The F distribution
 Another distribution that we'll enounter later is called the F distribution. We'll calculate an F-statistic when we build linear regression models, but I just want you to know the general shape of it for now. The region marked $\alpha$ corresponds inversely to the magnitude of the F statistic. In other words, a larger F statistic means a smaller $\alpha$.
 
-```{r, engine = 'tikz',engine.opts=list(extra.preamble=c("\\usepackage{pgfplots,stix,pagecolor}","\\definecolor{qopage}{HTML}{0E2A35}")),echo=FALSE}
-\pgfmathdeclarefunction{fdist}{4}{%
-  \pgfmathparse{#4*(x^(0.5*#2-1))*((1+#2*x/#3)^(-0.5*#2-0.5*#3))}%
-}
-\begin{tikzpicture}
-  \tikzset{
-        every pin/.style={fill=yellow!50!white,rectangle,rounded corners=3pt,font=\tiny},
-        small dot/.style={fill=black,circle,scale=0.3}
-    }
-\begin{axis}[
-  no markers, domain=0:3.5, samples=200,
-  axis lines=left, xlabel={}, ylabel=\phantom{y},
-  every axis y label/.style={at=(current axis.above origin),anchor=south},
-  every axis x label/.style={at=(current axis.right of origin),anchor=west},
-  height=4cm, width=9cm,
-  xtick=\empty, ytick=\empty,
-  enlargelimits=false, clip=false, axis on top,
-    extra x ticks={0,2.5},
-    extra x tick labels={\scriptsize 0, \scriptsize $F_{\alpha}$}
-  ]
-  \addplot [fill=cyan!30, draw=none, domain=2.5:3.5]
-  {fdist(2,4,3,9)} \closedcycle node [style={font=\scriptsize},above,text width=1.5cm] at (axis cs:0,0.008) {};
-   \node[small dot,pin=80:{$\alpha$}]  at (axis cs:2.8,0.06) {};
-  \addplot [very thick,cyan!50!black] {fdist(2,4,3,9)};
-\end{axis}
-\end{tikzpicture}
-```
-
+![](fiFdist.png)
 
 ---
 
