@@ -1,0 +1,23 @@
+/*-- scss:defaults --*/
+
+// fonts
+$font-family-sans-serif: 'STIX Two Text',
+FreeSerif, serif !default;
+$font-family-math: 'STIX Two', math !default;
+
+// colors
+$body-bg: #002b36 !default;
+$body-color: #93a1a1 !default;
+$link-color: #268bd2 !default;
+$selection-bg: #d33682 !default;
+
+// headings
+$presentation-heading-font: "Roboto Condensed",
+  sans-serif, sansserif !default;
+$presentation-heading-color: #eee8d5 !default;
+
+/*-- scss:rules --*/
+
+.reveal a {
+  line-height: 1.3em;
+}
