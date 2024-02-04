@@ -436,3 +436,53 @@ function.
 
 ![](fiNormalA.png)
 
+## Normal distribution example (1 of 2)
+Consider a normally distributed nationwide test.
+
+The total shaded area between the curve and the straight
+horizontal line can be thought of as one hundred percent
+of that area. In the world of probability, we measure that
+area as 1. The curve is symmetrical, so measure all the
+area to the left of the highest point on the curve as 0.5.
+That is half, or fifty percent, of the total area between
+the curve and the horizontal line at the bottom. Instead
+of saying *area between the curve and the horizontal
+line at the bottom*, people usually say *the area
+under the curve*.
+
+## Normal distribution example (2 of 2)
+For any value along the $x$-axis, the $y$-value on the
+curve represents the value of the probability density
+function.
+
+The area bounded by the vertical line between the $x$-axis
+and the corresponding $y$-value on the curve, though, is
+what we are usually interested in because that area
+represents probability.
+
+## The Cumulative Distribution Function (CDF)
+Here is a graph of the *size* of that area. It's called the
+cumulative distribution function (cdf).
+
+```{r, engine = 'tikz',engine.opts=list(extra.preamble=c("\\usepackage{pgfplots,stix,pagecolor}","\\definecolor{qopage}{HTML}{0E2A35}")),echo=FALSE}
+\begin{tikzpicture}
+% picture of normal distribution cdf
+\begin{axis}[
+  no markers, domain=-5:5, samples=100,
+  axis lines=left, xlabel=$x$, ylabel=$f(x)$,
+  every axis y label/.style={at={(0,1.0)},anchor=south},
+  every axis x label/.style={at={(1.0,0)},anchor=west},
+  height=7cm, width=7cm,
+  xtick=\empty, ytick=\empty,
+  enlargelimits=false, clip=false, axis on top,
+  extra x ticks={0.5},
+  extra y ticks={0},
+  extra x tick labels={$\frac{1}{2}$},
+  extra y tick labels={$\frac{1}{2}$}
+  ]
+  \addplot[mark=none,very thick,smooth,cyan!50!black] {2/(1+e^(-x))-1};
+\end{axis}
+\end{tikzpicture}
+```
+
+
