@@ -322,6 +322,7 @@ It is useful to think of $A$ as the outcome of interest and $B$ as the condition
 This probability tree is from the OpenIntro Stats textbook, page 102.
 :::
 
+<!--
 # Bayes' Theorem
 
 ## Bayes' Theorem Definition
@@ -762,3 +763,4 @@ This slideshow was produced using `quarto`
 Fonts are *Roboto Condensed Bold*, *JetBrains Mono Nerd Font*, and *STIX2*
 
 
+-->
