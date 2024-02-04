@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -81,7 +81,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -115,6 +122,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating">
@@ -123,12 +157,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week13.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Human Computer Interaction Experiments</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week13.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Human Computer Interaction Experiments</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -138,7 +172,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Study Guide: Statistics for Informatics</a> 
@@ -256,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -374,7 +408,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <p>Following are my course notes from a 2018 Coursera course called <em>Designing, Running, and Analyzing Experiments</em>, taught by Jacob Wobbrock, a prominent HCI scholar. Note that Wobbrock is in no way responsible for any errors or deviations from his presentation.</p>
 <p>These course notes are an example of <em>reproducible research</em> and <em>literate programming</em>. They are reproducible research because the same file that generated this html document also ran all the experiments. This is an example of literate programming in the sense that the code, pictures, equations, and narrative are all encapsulated in one file. The source file for this project, along with the data files, are enough for you to reproduce the results and reproduce the documentation. All the source material is available in my github account, although in an obscure location therein.</p>
@@ -419,7 +455,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">width=</span><span class="fl">0.5</span>,<span class="at">alpha=</span><span class="fl">0.4</span>,<span class="at">fill=</span><span class="st">"lightskyblue1"</span>) <span class="sc">+</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Is the difference between preferences significant? A default <span class="math inline">\(\chi^2\)</span> test examines the proportions in two bins, expecting them to be equally apportioned.</p>
@@ -497,7 +537,11 @@ probability of success
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">width=</span><span class="fl">0.5</span>,<span class="at">alpha=</span><span class="fl">0.4</span>,<span class="at">fill=</span><span class="st">"lightskyblue1"</span>)<span class="sc">+</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>You can think of the three websites as representing three bins and the preferences as filling up those bins. Either each bin gets one third of the preferences or there is a discrepancy. The Pearson <span class="math inline">\(\chi^2\)</span> test functions as an omnibus test to tell whether there is any discrepancy in the proportions of the three bins.</p>
@@ -582,7 +626,11 @@ P value (Prob) = 0.0008024</code></pre>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Sex) <span class="sc">+</span></span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Although we can guess by looking at the above plot that the difference for females is significant and the difference for males is not, a Pearson chi-square test provides some statistical evidence for this hunch.</p>
@@ -673,7 +721,11 @@ odds ratio
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Sex) <span class="sc">+</span></span>
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. Pearson chi-square test</span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>prfs <span class="ot">&lt;-</span> <span class="fu">xtabs</span>( <span class="sc">~</span> Pref <span class="sc">+</span> Sex, <span class="at">data=</span>prefsABCsex)</span>
@@ -796,14 +848,22 @@ alternative hypothesis: two.sided</code></pre>
 <span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_grey</span>() <span class="sc">+</span></span>
 <span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pgviews,<span class="fu">aes</span>(Site,Pages,<span class="at">fill=</span>Site)) <span class="sc">+</span></span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">show.legend=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
 <span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Blues"</span>) <span class="sc">+</span></span>
 <span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-16-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-16-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. independent-samples t-test</span></span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Pages <span class="sc">~</span> Site, <span class="at">data=</span>pgviews, <span class="at">var.equal=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -861,14 +921,22 @@ mean in group A mean in group B
 <span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Paired"</span>) <span class="sc">+</span></span>
 <span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ide2,<span class="fu">aes</span>(IDE,Time,<span class="at">fill=</span>IDE)) <span class="sc">+</span></span>
 <span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">show.legend=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
 <span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Blues"</span>) <span class="sc">+</span></span>
 <span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-17-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-17-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. independent-samples t-test (suitable? maybe not, because...)</span></span>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Time <span class="sc">~</span> IDE, <span class="at">data=</span>ide2, <span class="at">var.equal=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -923,7 +991,11 @@ W = 0.894, p-value = 0.001285</code></pre>
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">pin=</span><span class="fu">c</span>(<span class="fl">2.75</span>,<span class="fl">1.25</span>),<span class="at">cex=</span><span class="fl">0.5</span>)</span>
 <span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(m)); <span class="fu">qqline</span>(<span class="fu">residuals</span>(m)) <span class="co"># plot residuals</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -1019,14 +1091,22 @@ mean in group Eclipse mean in group VStudio
 <span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Paired"</span>) <span class="sc">+</span></span>
 <span id="cb98-5"><a href="#cb98-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ide2,<span class="fu">aes</span>(IDE,logTime,<span class="at">fill=</span>IDE)) <span class="sc">+</span></span>
 <span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">show.legend=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
 <span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Blues"</span>) <span class="sc">+</span></span>
 <span id="cb99-4"><a href="#cb99-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-20-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-20-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. re-test for normality</span></span>
 <span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(ide2[ide2<span class="sc">$</span>IDE <span class="sc">==</span> <span class="st">"VStudio"</span>,]<span class="sc">$</span>logTime)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1057,7 +1137,11 @@ W = 0.96218, p-value = 0.1987</code></pre>
 <div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">pin=</span><span class="fu">c</span>(<span class="fl">2.75</span>,<span class="fl">1.25</span>),<span class="at">cex=</span><span class="fl">0.5</span>)</span>
 <span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(m)); <span class="fu">qqline</span>(<span class="fu">residuals</span>(m)) <span class="co"># plot residuals</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-20-3.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-20-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. re-test for homoscedasticity</span></span>
 <span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(logTime <span class="sc">~</span> IDE, <span class="at">data=</span>ide2, <span class="at">center=</span>median) <span class="co"># Brown-Forsythe test</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1164,14 +1248,22 @@ alternative hypothesis: true mu is not equal to 0</code></pre>
 <span id="cb123-4"><a href="#cb123-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Blues"</span>) <span class="sc">+</span></span>
 <span id="cb123-5"><a href="#cb123-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ide3,<span class="fu">aes</span>(IDE,Time,<span class="at">fill=</span>IDE)) <span class="sc">+</span></span>
 <span id="cb124-2"><a href="#cb124-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">show.legend=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
 <span id="cb124-3"><a href="#cb124-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Blues"</span>) <span class="sc">+</span></span>
 <span id="cb124-4"><a href="#cb124-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-22-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-22-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb125"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. test normality for new IDE</span></span>
 <span id="cb125-2"><a href="#cb125-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(ide3[ide3<span class="sc">$</span>IDE <span class="sc">==</span> <span class="st">"PyCharm"</span>,]<span class="sc">$</span>Time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1194,7 +1286,11 @@ W = 0.89706, p-value = 0.000103</code></pre>
 <div class="sourceCode cell-code" id="cb129"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">pin=</span><span class="fu">c</span>(<span class="fl">2.75</span>,<span class="fl">1.25</span>),<span class="at">cex=</span><span class="fl">0.5</span>)</span>
 <span id="cb129-2"><a href="#cb129-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(m)); <span class="fu">qqline</span>(<span class="fu">residuals</span>(m)) <span class="co"># plot residuals</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-22-3.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-22-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. test log-normality of new IDE</span></span>
 <span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">fitdistr</span>(ide3[ide3<span class="sc">$</span>IDE <span class="sc">==</span> <span class="st">"PyCharm"</span>,]<span class="sc">$</span>Time, <span class="st">"lognormal"</span>)<span class="sc">$</span>estimate</span>
@@ -1230,7 +1326,11 @@ W = 0.96563, p-value = 0.08893</code></pre>
 <div class="sourceCode cell-code" id="cb136"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">pin=</span><span class="fu">c</span>(<span class="fl">2.75</span>,<span class="fl">1.25</span>),<span class="at">cex=</span><span class="fl">0.5</span>)</span>
 <span id="cb136-2"><a href="#cb136-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(m)); <span class="fu">qqline</span>(<span class="fu">residuals</span>(m)) <span class="co"># plot residuals</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-22-4.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-22-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb137"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. test homoscedasticity</span></span>
 <span id="cb137-2"><a href="#cb137-2" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(logTime <span class="sc">~</span> IDE, <span class="at">data=</span>ide3, <span class="at">center=</span>median) <span class="co"># Brown-Forsythe test</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1403,7 +1503,11 @@ P value adjustment method: holm</code></pre>
 <span id="cb163-3"><a href="#cb163-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Blues"</span>) <span class="sc">+</span></span>
 <span id="cb163-4"><a href="#cb163-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Both the median and the variance is much larger for Illustrator than for InDesign.</p>
@@ -1563,7 +1667,11 @@ alternative hypothesis: true mu is not equal to 0</code></pre>
 <span id="cb188-3"><a href="#cb188-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Blues"</span>) <span class="sc">+</span></span>
 <span id="cb188-4"><a href="#cb188-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <p>:::</p>
 <p>Identify the average words per minute written with EdgeWrite.</p>
@@ -1729,7 +1837,11 @@ chi-squared = 9.7019, df = 2, p-value = 0.007821</code></pre>
 <span id="cb216-3"><a href="#cb216-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Blues"</span>) <span class="sc">+</span></span>
 <span id="cb216-4"><a href="#cb216-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We can use the same package for boxplots. Boxplots show the median as a bold line in the middle of the box. The box itself ranges from the first quartile (starting at the 25th percentile) to the third quartile (terminating at the 75th percentile). The whiskers run from the minimum to the maximum, where these are defined as the 25th percentile minus 1.5 times the interquartile range and the 75th percentile plus 1.5 times the interquartile range. The interquartile range is the width of the box. Dots outside the whiskers show outliers.</p>
@@ -1739,7 +1851,11 @@ chi-squared = 9.7019, df = 2, p-value = 0.007821</code></pre>
 <span id="cb217-3"><a href="#cb217-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Blues"</span>) <span class="sc">+</span></span>
 <span id="cb217-4"><a href="#cb217-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We would rather use parametric statistics if ANOVA assumptions are met. Recall that we can test for normality, normality of residuals, and homoscedasticity. In the case of a within-subjects experiment, we can also test for order effects which is one way to test the independence assumption. First test whether these times seem to be drawn from a normal distribution.</p>
@@ -1781,7 +1897,11 @@ W = 0.9603, p-value = 0.5783</code></pre>
 <div class="sourceCode cell-code" id="cb225"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb225-1"><a href="#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(m<span class="sc">$</span>Subject)) </span>
 <span id="cb225-2"><a href="#cb225-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(<span class="fu">residuals</span>(m<span class="sc">$</span>Subject))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-51-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-51-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We fail to reject the null hypothesis of normality and the QQ plot looks normal. So far, so good.</p>
@@ -1798,7 +1918,11 @@ W = 0.97303, p-value = 0.8172</code></pre>
 <div class="sourceCode cell-code" id="cb228"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb228-1"><a href="#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(m<span class="sc">$</span><span class="st">'Subject:Technique'</span>))</span>
 <span id="cb228-2"><a href="#cb228-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(<span class="fu">residuals</span>(m<span class="sc">$</span><span class="st">'Subject:Technique'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-52-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-52-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We fail to reject the null hypothesis of normality and the QQ plot looks normal. We’re getting there.</p>
@@ -1894,14 +2018,22 @@ mean difference
 <span id="cb243-3"><a href="#cb243-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Blues"</span>) <span class="sc">+</span></span>
 <span id="cb243-4"><a href="#cb243-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-61-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-61-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb244"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb244-1"><a href="#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(srchscrl,<span class="fu">aes</span>(Technique,Errors,<span class="at">fill=</span>Technique)) <span class="sc">+</span></span>
 <span id="cb244-2"><a href="#cb244-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">show.legend=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
 <span id="cb244-3"><a href="#cb244-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Blues"</span>) <span class="sc">+</span></span>
 <span id="cb244-4"><a href="#cb244-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-61-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-61-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Try to fit a Poisson distribution for count data. Note that <code>ks.test()</code> only works for continuous distributions, but Poisson distributions are discrete, so use fitdist, not fitdistr, and test with gofstat.</p>
@@ -1987,7 +2119,11 @@ alternative hypothesis: true mu is not equal to 0</code></pre>
 <span id="cb255-3"><a href="#cb255-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Blues"</span>) <span class="sc">+</span></span>
 <span id="cb255-4"><a href="#cb255-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-65-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-65-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb256"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb256-1"><a href="#cb256-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(srchscrl,<span class="fu">aes</span>(Technique,Effort,<span class="at">fill=</span>Technique)) <span class="sc">+</span></span>
 <span id="cb256-2"><a href="#cb256-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">show.legend=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
@@ -1999,7 +2135,11 @@ alternative hypothesis: true mu is not equal to 0</code></pre>
 `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-65-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-65-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Our response is ordinal within-subjects, so use nonparametric Wilcoxon signed-rank.</p>
@@ -2103,7 +2243,11 @@ alternative hypothesis: true mu is not equal to 0</code></pre>
 <span id="cb268-5"><a href="#cb268-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Keyboard<span class="sc">~</span>Posture) <span class="sc">+</span></span>
 <span id="cb268-6"><a href="#cb268-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-69-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-69-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -2116,7 +2260,11 @@ alternative hypothesis: true mu is not equal to 0</code></pre>
 <span id="cb269-4"><a href="#cb269-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Posture) <span class="sc">+</span></span>
 <span id="cb269-5"><a href="#cb269-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-70-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-70-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -2128,7 +2276,11 @@ alternative hypothesis: true mu is not equal to 0</code></pre>
 <span id="cb270-3"><a href="#cb270-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">interaction.plot</span>(Posture, Keyboard, WPM,</span>
 <span id="cb270-4"><a href="#cb270-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(mbltxt<span class="sc">$</span>WPM))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-71-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-71-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -2291,7 +2443,11 @@ mean difference
 <span id="cb289-3"><a href="#cb289-3" aria-hidden="true" tabindex="-1"></a>        mbltxt.wide[mbltxt.wide<span class="sc">$</span>Keyboard <span class="sc">==</span> <span class="st">"iPhone"</span>,]<span class="sc">$</span>Walk,</span>
 <span id="cb289-4"><a href="#cb289-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">"iPhone.Sit vs. iPhone.Walk"</span>, <span class="at">ylab=</span><span class="st">"WPM"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-79-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-79-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -2342,7 +2498,11 @@ mean difference
 <span id="cb294-5"><a href="#cb294-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Keyboard<span class="sc">~</span>Posture) <span class="sc">+</span></span>
 <span id="cb294-6"><a href="#cb294-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-81-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-81-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -2355,7 +2515,11 @@ mean difference
 <span id="cb295-4"><a href="#cb295-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Posture) <span class="sc">+</span></span>
 <span id="cb295-5"><a href="#cb295-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>(<span class="at">base_size=</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-82-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-82-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -2367,7 +2531,11 @@ mean difference
 <span id="cb296-3"><a href="#cb296-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">interaction.plot</span>(Posture, Keyboard, Error_Rate,</span>
 <span id="cb296-4"><a href="#cb296-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(mbltxt<span class="sc">$</span>Error_Rate))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-83-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-83-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -2410,7 +2578,11 @@ W = 0.98453, p-value = 0.5227</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb302"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb302-1"><a href="#cb302-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(m)); <span class="fu">qqline</span>(<span class="fu">residuals</span>(m)) <span class="co"># seems to conform</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-85-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-85-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -2422,7 +2594,11 @@ W = 0.98453, p-value = 0.5227</code></pre>
 <span id="cb303-3"><a href="#cb303-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">interaction.plot</span>(Posture, Keyboard, Error_Rate,</span>
 <span id="cb303-4"><a href="#cb303-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(mbltxt<span class="sc">$</span>Error_Rate)))) <span class="co"># for convenience</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-86-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-86-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -2543,12 +2719,20 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span id="cb318-2"><a href="#cb318-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(avatars,<span class="fu">interaction.plot</span>(Sex,Avatar,Positives,</span>
 <span id="cb318-3"><a href="#cb318-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fu">max</span>(avatars<span class="sc">$</span>Positives))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-91-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-91-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb319"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb319-1"><a href="#cb319-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(avatars,<span class="fu">interaction.plot</span>(Avatar,Sex,Positives,</span>
 <span id="cb319-2"><a href="#cb319-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fu">max</span>(avatars<span class="sc">$</span>Positives))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-91-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-91-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Conduct a factorial ANOVA on Positives by Sex and Avatar and report the largest <span class="math inline">\(F\)</span>-statistic. Report which effects are significant.</p>
@@ -2651,12 +2835,20 @@ mean of x mean of y
 <span id="cb336-2"><a href="#cb336-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(notes,<span class="fu">interaction.plot</span>(Phone,Notes,Words,</span>
 <span id="cb336-3"><a href="#cb336-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fu">max</span>(notes<span class="sc">$</span>Words))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-96-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-96-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb337"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb337-1"><a href="#cb337-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(notes,<span class="fu">interaction.plot</span>(Notes,Phone,Words,</span>
 <span id="cb337-2"><a href="#cb337-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fu">max</span>(notes<span class="sc">$</span>Words))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-96-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-96-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Test for an order effect in the presentation of order of the Notes factor. Report the <span class="math inline">\(p\)</span>-value.</p>
@@ -2783,12 +2975,20 @@ mean difference
 <span id="cb359-2"><a href="#cb359-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(sv,<span class="fu">interaction.plot</span>(Social,Clip,Valued,</span>
 <span id="cb359-3"><a href="#cb359-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fu">max</span>(sv<span class="sc">$</span>Valued))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-102-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-102-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb360"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb360-1"><a href="#cb360-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(sv,<span class="fu">interaction.plot</span>(Clip,Social,Valued,</span>
 <span id="cb360-2"><a href="#cb360-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fu">max</span>(sv<span class="sc">$</span>Valued))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-102-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-102-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Test for an order effect in the presentation of order of the ClipOrder or SocialOrder factor. Report the <span class="math inline">\(p\)</span>-values.</p>
@@ -2953,7 +3153,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span id="cb383-5"><a href="#cb383-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">1.5</span>, <span class="at">y =</span> <span class="dv">18</span>, <span class="at">adj=</span><span class="dv">1</span>,  <span class="at">family=</span><span class="st">"serif"</span>,</span>
 <span id="cb383-6"><a href="#cb383-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="fu">c</span>(<span class="st">"Males prefer</span><span class="sc">\n</span><span class="st">website C"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-108-1.png" class="img-fluid" style="width:75.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-108-1.png" class="img-fluid figure-img" style="width:75.0%"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb384"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb384-1"><a href="#cb384-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(prefsABCsex[prefsABCsex<span class="sc">$</span>Sex <span class="sc">==</span> <span class="st">"F"</span>,],<span class="fu">aes</span>(Pref)) <span class="sc">+</span></span>
 <span id="cb384-2"><a href="#cb384-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>() <span class="sc">+</span></span>
@@ -2962,7 +3166,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span id="cb384-5"><a href="#cb384-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">1.5</span>, <span class="at">y =</span> <span class="dv">18</span>, <span class="at">adj=</span><span class="dv">1</span>,  <span class="at">family=</span><span class="st">"serif"</span>,</span>
 <span id="cb384-6"><a href="#cb384-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="fu">c</span>(<span class="st">"Females dislike</span><span class="sc">\n</span><span class="st">website A"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-108-2.png" class="img-fluid" style="width:75.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-108-2.png" class="img-fluid figure-img" style="width:75.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>These histograms lead us to suspect that C is preferred by males and that A is disliked by females, but we should still run tests to be convinced that the variability observed is not due to chance.</p>
@@ -3099,7 +3307,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span id="cb403-5"><a href="#cb403-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_grey</span>() <span class="sc">+</span></span>
 <span id="cb403-6"><a href="#cb403-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-112-1.png" class="img-fluid" style="width:75.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-112-1.png" class="img-fluid figure-img" style="width:75.0%"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb404"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb404-1"><a href="#cb404-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(srchscrlvce,<span class="fu">aes</span>(Technique,Effort,<span class="at">fill=</span>Technique)) <span class="sc">+</span></span>
 <span id="cb404-2"><a href="#cb404-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tufteboxplot</span>(<span class="at">show.legend=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
@@ -3120,7 +3332,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 ℹ Please use the `linewidth` aesthetic instead.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-112-2.png" class="img-fluid" style="width:75.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-112-2.png" class="img-fluid figure-img" style="width:75.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The boxplots (these are Tufte-style boxplots) are not encouraging. We may not find a significant difference among these three techniques but let us try anyway. We analyze Effort Likert ratings by Technique using ordinal logistic regression.</p>
@@ -3192,14 +3408,22 @@ Voice - Search == 0   1.024007   0.552298   1.854    0.191
 <span id="cb416-5"><a href="#cb416-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_grey</span>() <span class="sc">+</span></span>
 <span id="cb416-6"><a href="#cb416-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-115-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-115-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb417"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb417-1"><a href="#cb417-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(srchscrlvce,<span class="fu">aes</span>(Technique,Errors,<span class="at">fill=</span>Technique)) <span class="sc">+</span></span>
 <span id="cb417-2"><a href="#cb417-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">show.legend=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
 <span id="cb417-3"><a href="#cb417-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Greens"</span>) <span class="sc">+</span></span>
 <span id="cb417-4"><a href="#cb417-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_tufte</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-115-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-115-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>These boxplots are very encouraging. There appears to be a clear difference between all three of these techniques. Notice that you could draw horizontal lines across the plot without intersecting the boxes. That represents a high degree of separation.</p>
@@ -3423,7 +3647,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span id="cb440-2"><a href="#cb440-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(hw,<span class="fu">interaction.plot</span>(Recognizer,Hand,Errors,</span>
 <span id="cb440-3"><a href="#cb440-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fu">max</span>(hw<span class="sc">$</span>Errors))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-124-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-124-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Test whether the Errors of each Recognizer fit a Poisson distribution. First fit the Poisson distribution using <code>fitdist()</code>, then test the fit using <code>gofstat()</code>. The null hypothesis of this test is that the data do not deviate from a Poisson distribution.</p>
@@ -3577,7 +3805,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 <span id="cb455-2"><a href="#cb455-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(bf,<span class="fu">interaction.plot</span>(Website,International,<span class="fu">as.numeric</span>(Ease),</span>
 <span id="cb455-3"><a href="#cb455-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fu">max</span>(<span class="fu">as.numeric</span>(bf<span class="sc">$</span>Ease)))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-129-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-129-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Use ordinal logistic regression to examine Ease by Website and International. Report the <span class="math inline">\(p\)</span>-value of the Website main effect.</p>
@@ -4129,7 +4361,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 <div class="sourceCode cell-code" id="cb529"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb529-1"><a href="#cb529-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">pin=</span><span class="fu">c</span>(<span class="fl">2.75</span>,<span class="fl">1.25</span>),<span class="at">cex=</span><span class="fl">0.5</span>)</span>
 <span id="cb529-2"><a href="#cb529-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Liked<span class="sc">~</span>Teaser,<span class="at">data=</span>te)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-156-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-156-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Investigate order effects.</p>
@@ -4227,7 +4463,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 <div class="sourceCode cell-code" id="cb542"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb542-1"><a href="#cb542-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">pin=</span><span class="fu">c</span>(<span class="fl">2.75</span>,<span class="fl">1.25</span>),<span class="at">cex=</span><span class="fl">0.5</span>)</span>
 <span id="cb542-2"><a href="#cb542-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(vo,<span class="fu">interaction.plot</span>(Social,Sex,Vocab,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fu">max</span>(vo<span class="sc">$</span>Vocab))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-161-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-161-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Perform Kolmogorov-Smirnov goodness-of-fit tests on Vocab for each level of Social using exponential distributions.</p>
@@ -4380,7 +4620,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="sourceCode cell-code" id="cb562"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb562-1"><a href="#cb562-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">pin=</span><span class="fu">c</span>(<span class="fl">2.75</span>,<span class="fl">1.25</span>),<span class="at">cex=</span><span class="fl">0.5</span>)</span>
 <span id="cb562-2"><a href="#cb562-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.numeric</span>(Effort) <span class="sc">~</span> Engine,<span class="at">data=</span>ws2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week13_files/figure-html/unnamed-chunk-168-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-168-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb563"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb563-1"><a href="#cb563-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. pacman::p_load(lme4)</span></span>
 <span id="cb563-2"><a href="#cb563-2" aria-hidden="true" tabindex="-1"></a><span class="co">#. pacman::p_load(multcomp)</span></span>
@@ -4508,10 +4752,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -4521,8 +4764,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -4535,6 +4787,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -4578,6 +4949,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -4603,6 +4975,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -4664,17 +5062,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./week12.html" class="pagination-link">
+      <a href="./week12.html" class="pagination-link  aria-label=" &lt;span="" 4;="" take-home="" exam&lt;="" span&gt;"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Milestone 4; Take-home Exam</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./week14.html" class="pagination-link">
+      <a href="./week14.html" class="pagination-link" aria-label="<span class='chapter-number'>14</span>&nbsp; <span class='chapter-title'>Data Science Intro</span>">
         <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Data Science Intro</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

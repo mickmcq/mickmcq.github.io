@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -58,6 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -100,7 +101,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -109,6 +116,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -134,6 +142,33 @@ div.csl-indent {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating">
@@ -142,12 +177,12 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week06.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Details of `ggplot2`; Introduction to Inference</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./week06.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Details of <code>ggplot2</code>; Introduction to Inference</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -157,7 +192,7 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Study Guide: Statistics for Informatics</a> 
@@ -275,7 +310,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -369,7 +404,9 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <section id="recap-week-05" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="recap-week-05"><span class="header-section-number">6.1</span> Recap Week 05</h2>
@@ -391,7 +428,11 @@ div.csl-indent {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The above code doesn’t produce a plot by itself. We would have to add a layer, such as a geom or stat. (Every geom has a default stat and every stat has a default geom.) For example,</p>
@@ -399,7 +440,11 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>adds a scatterplot, whereas</p>
@@ -407,7 +452,11 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="fu">aes</span>(<span class="at">x =</span> cty, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color=</span>displ,<span class="at">size=</span>displ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>adds the aesthetics from the second example on the cheatsheet.</p>
@@ -418,34 +467,62 @@ div.csl-indent {
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(seals,<span class="fu">aes</span>(<span class="at">x=</span>long,<span class="at">y=</span>lat))</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>a <span class="sc">+</span> <span class="fu">geom_blank</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">+</span> <span class="fu">expand_limits</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in max(lengths(data)): no non-missing arguments to max; returning -Inf</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>b <span class="sc">+</span> <span class="fu">geom_curve</span>(<span class="fu">aes</span>(<span class="at">yend =</span> lat <span class="sc">+</span> <span class="dv">1</span>, <span class="at">xend =</span> long <span class="sc">+</span> <span class="dv">1</span>), <span class="at">curvature =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">+</span> <span class="fu">geom_path</span>(<span class="at">lineend =</span> <span class="st">"butt"</span>, <span class="at">linejoin =</span> <span class="st">"round"</span>, <span class="at">linemitre =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-5-4.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-5-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">+</span> <span class="fu">geom_polygon</span>(<span class="fu">aes</span>(<span class="at">alpha =</span> <span class="dv">50</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-5-5.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-5-5.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>b <span class="sc">+</span> <span class="fu">geom_rect</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> long, <span class="at">ymin =</span> lat, <span class="at">xmax =</span> long <span class="sc">+</span> <span class="dv">1</span>, <span class="at">ymax =</span> lat <span class="sc">+</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-5-6.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-5-6.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">+</span> <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> unemploy <span class="sc">-</span> <span class="dv">900</span>, <span class="at">ymax =</span> unemploy <span class="sc">+</span> <span class="dv">900</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-5-7.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-5-7.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <section id="line-segments" class="level4" data-number="6.3.1.1">
@@ -453,15 +530,27 @@ div.csl-indent {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>b <span class="sc">+</span> <span class="fu">geom_abline</span>(<span class="fu">aes</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>b <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> lat))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>b <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> long))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-6-3.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-6-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -472,27 +561,51 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(hwy)); c2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>c <span class="sc">+</span> <span class="fu">geom_area</span>(<span class="at">stat =</span> <span class="st">"bin"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>c <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="at">kernel =</span> <span class="st">"gaussian"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>c <span class="sc">+</span> <span class="fu">geom_dotplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-7-3.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-7-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>c <span class="sc">+</span> <span class="fu">geom_freqpoly</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-7-4.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-7-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>c <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-7-5.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-7-5.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>c2 <span class="sc">+</span> <span class="fu">geom_qq</span>(<span class="fu">aes</span>(<span class="at">sample =</span> hwy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-7-6.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-7-6.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -502,7 +615,11 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(fl))</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>d <span class="sc">+</span> <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -512,27 +629,51 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>e <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg,<span class="fu">aes</span>(cty,hwy))</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>e <span class="sc">+</span> <span class="fu">geom_label</span>(<span class="fu">aes</span>(<span class="at">label =</span> cty), <span class="at">nudge_x =</span> <span class="dv">1</span>, <span class="at">nudge_y =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>e <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>e <span class="sc">+</span> <span class="fu">geom_quantile</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-9-3.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-9-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>e <span class="sc">+</span> <span class="fu">geom_rug</span>(<span class="at">sides =</span> <span class="st">"bl"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-9-4.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-9-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>e <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-9-5.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-9-5.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>e <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> cty), <span class="at">nudge_x =</span> <span class="dv">1</span>, <span class="at">nudge_y =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-9-6.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-9-6.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -542,19 +683,35 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg,<span class="fu">aes</span>(class,hwy))</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>f <span class="sc">+</span> <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>f <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>f <span class="sc">+</span> <span class="fu">geom_dotplot</span>(<span class="at">binaxis =</span> <span class="st">"y"</span>, <span class="at">stackdir =</span> <span class="st">"center"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-10-3.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-10-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>f <span class="sc">+</span> <span class="fu">geom_violin</span>(<span class="at">scale =</span> <span class="st">"area"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-10-4.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-10-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -564,11 +721,19 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(cut, color))</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> <span class="fu">geom_count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">height =</span> <span class="dv">2</span>, <span class="at">width =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-11-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-11-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -578,61 +743,96 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(carat, price))</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>h <span class="sc">+</span> <span class="fu">geom_bin2d</span>(<span class="at">binwidth =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="dv">500</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>h <span class="sc">+</span> <span class="fu">geom_density_2d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-12-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-12-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>h <span class="sc">+</span> <span class="fu">geom_hex</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Computation failed in `stat_binhex()`
-Caused by error in `compute_group()`:
-! The package "hexbin" is required for `stat_binhex()`</code></pre>
-</div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-12-3.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-12-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
 <section id="continuous-function" class="level3" data-number="6.3.8">
 <h3 data-number="6.3.8" class="anchored" data-anchor-id="continuous-function"><span class="header-section-number">6.3.8</span> Continuous function</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, unemploy))</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>i <span class="sc">+</span> <span class="fu">geom_area</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(economics, <span class="fu">aes</span>(date, unemploy))</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>i <span class="sc">+</span> <span class="fu">geom_area</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>i <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-13-2.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>i <span class="sc">+</span> <span class="fu">geom_step</span>(<span class="at">direction =</span> <span class="st">"hv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>i <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-13-3.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-13-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>i <span class="sc">+</span> <span class="fu">geom_step</span>(<span class="at">direction =</span> <span class="st">"hv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-13-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
 <section id="visualizing-error" class="level3" data-number="6.3.9">
 <h3 data-number="6.3.9" class="anchored" data-anchor-id="visualizing-error"><span class="header-section-number">6.3.9</span> Visualizing error</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">grp =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>), <span class="at">fit =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">se =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>j <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(grp, fit, <span class="at">ymin =</span> fit <span class="sc">-</span> se, <span class="at">ymax =</span> fit <span class="sc">+</span> se))</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>j <span class="sc">+</span> <span class="fu">geom_crossbar</span>(<span class="at">fatten =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">grp =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>), <span class="at">fit =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">se =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>j <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(grp, fit, <span class="at">ymin =</span> fit <span class="sc">-</span> se, <span class="at">ymax =</span> fit <span class="sc">+</span> se))</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>j <span class="sc">+</span> <span class="fu">geom_crossbar</span>(<span class="at">fatten =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>j <span class="sc">+</span> <span class="fu">geom_errorbar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-14-2.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>j <span class="sc">+</span> <span class="fu">geom_linerange</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>j <span class="sc">+</span> <span class="fu">geom_errorbar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-14-3.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-14-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>j <span class="sc">+</span> <span class="fu">geom_pointrange</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>j <span class="sc">+</span> <span class="fu">geom_linerange</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-14-4.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-14-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>j <span class="sc">+</span> <span class="fu">geom_pointrange</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-14-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -640,22 +840,26 @@ Caused by error in `compute_group()`:
 <h3 data-number="6.3.10" class="anchored" data-anchor-id="maps"><span class="header-section-number">6.3.10</span> Maps</h3>
 <p>Previously, I showed how to use the <code>map_data()</code> function to make maps. But I found out that, according to Chapter 6 of the third edition of the <code>ggplot2</code> book (available free at <a href="https://ggplot2-book.org/">https://ggplot2-book.org/</a>), the <code>map_data()</code> function isn’t currently maintained. That chapter recommends the use of a method of saving geographic data called <em>simple features</em> and packaged as the <code>sf</code> package. Here is a map made using that package and the <code>USAboundaries</code> package, which contains a wealth of geographic information about the USA.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(USAboundaries)</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(sf)</span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse)</span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/vehiclesTiny.Rdata"</span>))</span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>dfMeanPrice <span class="ot">&lt;-</span> dfTiny <span class="sc">|&gt;</span> <span class="fu">group_by</span>(state) <span class="sc">|&gt;</span></span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarize</span>(<span class="at">meanprice=</span><span class="fu">mean</span>(price,<span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
-<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>dfMeanPrice <span class="ot">&lt;-</span> dfMeanPrice <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">stusps=</span><span class="fu">toupper</span>(state))</span>
-<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>statesContemporary <span class="ot">&lt;-</span> <span class="fu">us_states</span>(<span class="at">states=</span><span class="fu">c</span>(<span class="st">"Alabama"</span>, <span class="st">"Arizona"</span>, <span class="st">"Arkansas"</span>, <span class="st">"California"</span>, <span class="st">"Colorado"</span>, <span class="st">"Connecticut"</span>, <span class="st">"Delaware"</span>, <span class="st">"Florida"</span>, <span class="st">"Georgia"</span>, <span class="st">"Idaho"</span>, <span class="st">"Illinois"</span>, <span class="st">"Indiana"</span>, <span class="st">"Iowa"</span>, <span class="st">"Kansas"</span>, <span class="st">"Kentucky"</span>, <span class="st">"Louisiana"</span>, <span class="st">"Maine"</span>, <span class="st">"Maryland"</span>, <span class="st">"Massachusetts"</span>, <span class="st">"Michigan"</span>, <span class="st">"Minnesota"</span>, <span class="st">"Mississippi"</span>, <span class="st">"Missouri"</span>, <span class="st">"Montana"</span>, <span class="st">"Nebraska"</span>, <span class="st">"Nevada"</span>, <span class="st">"New Hampshire"</span>, <span class="st">"New Jersey"</span>, <span class="st">"New Mexico"</span>, <span class="st">"New York"</span>, <span class="st">"North Carolina"</span>, <span class="st">"North Dakota"</span>, <span class="st">"Ohio"</span>, <span class="st">"Oklahoma"</span>, <span class="st">"Oregon"</span>, <span class="st">"Pennsylvania"</span>, <span class="st">"Rhode Island"</span>, <span class="st">"South Carolina"</span>, <span class="st">"South Dakota"</span>, <span class="st">"Tennessee"</span>, <span class="st">"Texas"</span>, <span class="st">"Utah"</span>, <span class="st">"Vermont"</span>, <span class="st">"Virginia"</span>, <span class="st">"Washington"</span>, <span class="st">"West Virginia"</span>, <span class="st">"Wisconsin"</span>, <span class="st">"Wyoming"</span>))</span>
-<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>dfStateMeanPrice <span class="ot">&lt;-</span> <span class="fu">merge</span>(statesContemporary,dfMeanPrice,<span class="at">by=</span><span class="st">"stusps"</span>)</span>
-<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dfStateMeanPrice) <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="at">data=</span>dfStateMeanPrice,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">fill=</span>meanprice)) <span class="sc">+</span> <span class="fu">coord_sf</span>() <span class="sc">+</span> <span class="fu">geom_sf_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>stusps),<span class="at">color=</span><span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(USAboundaries)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(sf)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse)</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/vehiclesTiny.Rdata"</span>))</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>dfMeanPrice <span class="ot">&lt;-</span> dfTiny <span class="sc">|&gt;</span> <span class="fu">group_by</span>(state) <span class="sc">|&gt;</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarize</span>(<span class="at">meanprice=</span><span class="fu">mean</span>(price,<span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>dfMeanPrice <span class="ot">&lt;-</span> dfMeanPrice <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">stusps=</span><span class="fu">toupper</span>(state))</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>statesContemporary <span class="ot">&lt;-</span> <span class="fu">us_states</span>(<span class="at">states=</span><span class="fu">c</span>(<span class="st">"Alabama"</span>, <span class="st">"Arizona"</span>, <span class="st">"Arkansas"</span>, <span class="st">"California"</span>, <span class="st">"Colorado"</span>, <span class="st">"Connecticut"</span>, <span class="st">"Delaware"</span>, <span class="st">"Florida"</span>, <span class="st">"Georgia"</span>, <span class="st">"Idaho"</span>, <span class="st">"Illinois"</span>, <span class="st">"Indiana"</span>, <span class="st">"Iowa"</span>, <span class="st">"Kansas"</span>, <span class="st">"Kentucky"</span>, <span class="st">"Louisiana"</span>, <span class="st">"Maine"</span>, <span class="st">"Maryland"</span>, <span class="st">"Massachusetts"</span>, <span class="st">"Michigan"</span>, <span class="st">"Minnesota"</span>, <span class="st">"Mississippi"</span>, <span class="st">"Missouri"</span>, <span class="st">"Montana"</span>, <span class="st">"Nebraska"</span>, <span class="st">"Nevada"</span>, <span class="st">"New Hampshire"</span>, <span class="st">"New Jersey"</span>, <span class="st">"New Mexico"</span>, <span class="st">"New York"</span>, <span class="st">"North Carolina"</span>, <span class="st">"North Dakota"</span>, <span class="st">"Ohio"</span>, <span class="st">"Oklahoma"</span>, <span class="st">"Oregon"</span>, <span class="st">"Pennsylvania"</span>, <span class="st">"Rhode Island"</span>, <span class="st">"South Carolina"</span>, <span class="st">"South Dakota"</span>, <span class="st">"Tennessee"</span>, <span class="st">"Texas"</span>, <span class="st">"Utah"</span>, <span class="st">"Vermont"</span>, <span class="st">"Virginia"</span>, <span class="st">"Washington"</span>, <span class="st">"West Virginia"</span>, <span class="st">"Wisconsin"</span>, <span class="st">"Wyoming"</span>))</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>dfStateMeanPrice <span class="ot">&lt;-</span> <span class="fu">merge</span>(statesContemporary,dfMeanPrice,<span class="at">by=</span><span class="st">"stusps"</span>)</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dfStateMeanPrice) <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="at">data=</span>dfStateMeanPrice,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">fill=</span>meanprice)) <span class="sc">+</span> <span class="fu">coord_sf</span>() <span class="sc">+</span> <span class="fu">geom_sf_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>stusps),<span class="at">color=</span><span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in st_point_on_surface.sfc(sf::st_zm(x)): st_point_on_surface may not
 give correct results for longitude/latitude data</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>It probably seems inconvenient to have to name all the states. The only reason I did that was that, if I didn’t, the resulting map included some US territories in the Pacific Ocean, greatly reducing the size of the continental USA in the map. I couldn’t find a way to omit them except by just manually listing all the states in the continental US.</p>
@@ -664,33 +868,41 @@ give correct results for longitude/latitude data</code></pre>
 <section id="additional-plots" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="additional-plots"><span class="header-section-number">6.4</span> Additional plots</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse)</span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/vehicles.csv"</span>))</span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>cylinders <span class="ot">&lt;-</span> <span class="fu">as_factor</span>(df<span class="sc">$</span>cylinders)</span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[df<span class="sc">$</span>price<span class="sc">&lt;</span><span class="dv">500000</span><span class="sc">&amp;</span>df<span class="sc">$</span>price<span class="sc">&gt;</span><span class="dv">500</span>,]</span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span>df[df<span class="sc">$</span>cylinders<span class="sc">==</span><span class="st">"10 cylinders"</span><span class="sc">|</span>df<span class="sc">$</span>cylinders<span class="sc">==</span><span class="st">"12 cylinders"</span>,]</span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>price<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(df<span class="sc">$</span>price)</span>
-<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen=</span><span class="dv">999</span>)</span>
-<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(price,cylinders))<span class="sc">+</span><span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">paste0</span>(<span class="fu">Sys.getenv</span>(<span class="st">"STATS_DATA_DIR"</span>),<span class="st">"/vehicles.csv"</span>))</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>cylinders <span class="ot">&lt;-</span> <span class="fu">as_factor</span>(df<span class="sc">$</span>cylinders)</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[df<span class="sc">$</span>price<span class="sc">&lt;</span><span class="dv">500000</span><span class="sc">&amp;</span>df<span class="sc">$</span>price<span class="sc">&gt;</span><span class="dv">500</span>,]</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span>df[df<span class="sc">$</span>cylinders<span class="sc">==</span><span class="st">"10 cylinders"</span><span class="sc">|</span>df<span class="sc">$</span>cylinders<span class="sc">==</span><span class="st">"12 cylinders"</span>,]</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>price<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(df<span class="sc">$</span>price)</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen=</span><span class="dv">999</span>)</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(price,cylinders))<span class="sc">+</span><span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 156391 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>dfa <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">count</span>(condition,cylinders)</span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(treemap)</span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>palette.HCL.options <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">hue_start=</span><span class="dv">270</span>, <span class="at">hue_end=</span><span class="dv">360</span><span class="sc">+</span><span class="dv">150</span>)</span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="fu">treemap</span>(dfa,</span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">index=</span><span class="fu">c</span>(<span class="st">"condition"</span>,<span class="st">"cylinders"</span>),</span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">vSize=</span><span class="st">"n"</span>,</span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">type=</span><span class="st">"index"</span>,</span>
-<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">palette=</span><span class="st">"Reds"</span></span>
-<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>dfa <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">count</span>(condition,cylinders)</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(treemap)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>palette.HCL.options <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">hue_start=</span><span class="dv">270</span>, <span class="at">hue_end=</span><span class="dv">360</span><span class="sc">+</span><span class="dv">150</span>)</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">treemap</span>(dfa,</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">index=</span><span class="fu">c</span>(<span class="st">"condition"</span>,<span class="st">"cylinders"</span>),</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">vSize=</span><span class="st">"n"</span>,</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">type=</span><span class="st">"index"</span>,</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">palette=</span><span class="st">"Reds"</span></span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The palette in this case is selected from RColorbrewer. You can find the full set of RColorbrewer palettes at the R Graph Gallery.</p>
@@ -699,21 +911,21 @@ give correct results for longitude/latitude data</code></pre>
 <h2 data-number="6.5" class="anchored" data-anchor-id="a-complete-scatterplot"><span class="header-section-number">6.5</span> A complete scatterplot</h2>
 <p>The following scatterplot is completed in stages in section 2.2 of R4DS, which is available on Canvas as Wickham2023.pdf or online by googling <em>r4ds 2e</em>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(palmerpenguins)</span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(ggthemes)</span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g)</span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> species, <span class="at">shape =</span> species)) <span class="sc">+</span></span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Body mass and flipper length"</span>,</span>
-<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
-<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Flipper length (mm)"</span>, <span class="at">y =</span> <span class="st">"Body mass (g)"</span>,</span>
-<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Species"</span>, <span class="at">shape =</span> <span class="st">"Species"</span></span>
-<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_colorblind</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(palmerpenguins)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(ggthemes)</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> penguins,</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g)</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> species, <span class="at">shape =</span> species)) <span class="sc">+</span></span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Body mass and flipper length"</span>,</span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Flipper length (mm)"</span>, <span class="at">y =</span> <span class="st">"Body mass (g)"</span>,</span>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Species"</span>, <span class="at">shape =</span> <span class="st">"Species"</span></span>
+<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_colorblind</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 2 rows containing non-finite values (`stat_smooth()`).</code></pre>
 </div>
@@ -721,7 +933,11 @@ give correct results for longitude/latitude data</code></pre>
 <pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -732,9 +948,13 @@ give correct results for longitude/latitude data</code></pre>
 <section id="normal-distribution" class="level2" data-number="6.7">
 <h2 data-number="6.7" class="anchored" data-anchor-id="normal-distribution"><span class="header-section-number">6.7</span> normal distribution</h2>
 <p>This picture illustrates the normal distribution. The mound-shaped curve represents the probability density function and the area between the curve and the horizontal line represents the value of the cumulative distribution function.</p>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Consider a normally distributed nationwide test.</p>
@@ -742,9 +962,13 @@ give correct results for longitude/latitude data</code></pre>
 <p>For any value along the <span class="math inline">\(x\)</span>-axis, the <span class="math inline">\(y\)</span>-value on the curve represents the value of the probability density function.</p>
 <p>The area bounded by the vertical line between the <span class="math inline">\(x\)</span>-axis and the corresponding <span class="math inline">\(y\)</span>-value on the curve, though, is what we are usually interested in because that area represents probability.</p>
 <p>Here is a graph of the <em>size</em> of that area. It’s called the cumulative distribution function.</p>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" style="width:50.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The above graph can be read as having an input and output that correspond to the previous graph of the probability density function. As we move from right to left on the <span class="math inline">\(x\)</span>-axis, the area that would be to the left of a given point on the probability density function is the <span class="math inline">\(y\)</span>-value on this graph. For example, if we go half way across the <span class="math inline">\(x\)</span>-axis of the probability density function, the area to its left is one half of the total area, so the <span class="math inline">\(y\)</span>-value on the cumulative distribution function graph is one half.</p>
@@ -757,16 +981,24 @@ give correct results for longitude/latitude data</code></pre>
 <p>It’s hard to measure any other area under the normal curve except for <span class="math inline">\(x\)</span>-values in the middle of the curve, corresponding to one half of the area. Why is this?</p>
 <p>To see why it’s hard to measure the area corresponding to any value except the middle value, let’s first consider a different probability distribution, the uniform distribution. Suppose I have a machine that can generate any number between 0 and 1 at random. Further, suppose that any such number is just as likely as any other such number.</p>
 <p>Here’s a graph of the the uniform distribution of numbers generated by the machine. The horizontal line is the probability density function and the shaded area is the cumulative distribution function from 0 to 1/2. In other words, the probability of the machine generating numbers from 0 to 1/2 is 1/2. The probability of generating numbers from 0 to 1 is 1, the area of the entire rectangle.</p>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>It’s very easy to calculate any probability for this distribution, in contrast to the normal distribution. The reason it is easy is that you can just use the formula for the area of a rectangle, where area is base times side. The probability of being in the entire rectangle is <span class="math inline">\(1\times1=1\)</span>, and the probability of being in the part from <span class="math inline">\(x=0\)</span> to <span class="math inline">\(x=1/4\)</span> is just <span class="math inline">\(1\times(1/4)=1/4\)</span>.</p>
 <p>The cumulative distribution function of the uniform distribution is simpler than that of the normal distribution because area is being added at the same rate as we move from left to right on the above graph. Therefore it is just a straight diagonal line from (0,1) on the left to (1,1) on the right.</p>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" style="width:50.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Reading it is the same as reading the cumulative distribution function for the normal distribution. For any value on the <span class="math inline">\(x\)</span>-axis, say, 1/2, go up to the diagonal line and over to the value on the <span class="math inline">\(y\)</span>-axis. In this case, that value is 1/2. That is the area under the horizontal line in the probability density function graph from 0 to 1/2 (the shaded area). For a rectangle, calculating area is trivial.</p>
@@ -796,34 +1028,58 @@ give correct results for longitude/latitude data</code></pre>
 <section id="sketch-the-graphs-of-probabilities" class="level3" data-number="6.7.3">
 <h3 data-number="6.7.3" class="anchored" data-anchor-id="sketch-the-graphs-of-probabilities"><span class="header-section-number">6.7.3</span> sketch the graphs of probabilities</h3>
 <p>Sketch the normal curve six times, identifying a different region on it each time. For these graphs, let <span class="math inline">\(y\sim N(100,8)\)</span>.</p>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+</div>
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+</div>
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+</div>
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+</div>
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+</div>
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -891,9 +1147,13 @@ give correct results for longitude/latitude data</code></pre>
 <p>Consider an example for calculating a <span class="math inline">\(z\)</span>-score where <span class="math inline">\(x\sim N(50,15)\)</span>, which is a statistical notation for saying <span class="math inline">\(x\)</span> is a random normal variable with mean 50 and standard deviation 15. It is also read as if you said that <span class="math inline">\(x\)</span> has the normal distribution with mean 50 and standard deviation 15.</p>
 <section id="picture-the-example." class="level4" data-number="6.8.4.1">
 <h4 data-number="6.8.4.1" class="anchored" data-anchor-id="picture-the-example."><span class="header-section-number">6.8.4.1</span> Picture the example.</h4>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" style="width:50.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -907,9 +1167,13 @@ give correct results for longitude/latitude data</code></pre>
 </section>
 <section id="this-is-the-z-score-table-concept." class="level4" data-number="6.8.4.4">
 <h4 data-number="6.8.4.4" class="anchored" data-anchor-id="this-is-the-z-score-table-concept."><span class="header-section-number">6.8.4.4</span> This is the <span class="math inline">\(z\)</span>-score table concept.</h4>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" style="width:50.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -921,9 +1185,13 @@ give correct results for longitude/latitude data</code></pre>
 </section>
 <section id="apply-the-z-score-to-the-table." class="level2" data-number="6.9">
 <h2 data-number="6.9" class="anchored" data-anchor-id="apply-the-z-score-to-the-table."><span class="header-section-number">6.9</span> Apply the <span class="math inline">\(z\)</span>-score to the table.</h2>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid" style="width:50.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 <section id="obtain-an-intermediate-result." class="level4" data-number="6.9.0.1">
@@ -954,18 +1222,26 @@ give correct results for longitude/latitude data</code></pre>
 <section id="this-one-takes-an-extra-step." class="level4" data-number="6.9.2.2">
 <h4 data-number="6.9.2.2" class="anchored" data-anchor-id="this-one-takes-an-extra-step."><span class="header-section-number">6.9.2.2</span> This one takes an extra step.</h4>
 <p>What is the probability that <span class="math inline">\(y\)</span> is between 30 and 40?</p>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" style="width:50.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
 <section id="find-the-difference-between-areas." class="level4" data-number="6.9.2.3">
 <h4 data-number="6.9.2.3" class="anchored" data-anchor-id="find-the-difference-between-areas."><span class="header-section-number">6.9.2.3</span> Find the difference between areas.</h4>
 <p>Subtract the probability that <span class="math inline">\(y\)</span> is between 50 and 60 from the probability that <span class="math inline">\(y\)</span> is between 50 and 70.</p>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" style="width:50.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -986,19 +1262,31 @@ give correct results for longitude/latitude data</code></pre>
 <p>Step 3 is to draw that standardized picture. It’s the same as the picture above except standardized so that it fits the tables / apps for calculating probability / area. Now, instead of <span class="math inline">\(y\)</span> we’re looking for <span class="math inline">\(z\)</span> and the probability associated with <span class="math inline">\(z\)</span> on a standardized table will be the same as for <span class="math inline">\(y\)</span> on a table for the parameters given in the original question.</p>
 <p>Step 4 is to pick one of the three kinds of tables / apps to input the standardized <span class="math inline">\(z\)</span> score to get a probability as output. In this example, we only have to do this step once because we only want to know the area greater than <span class="math inline">\(y\)</span>. If we wanted to know a range between two <span class="math inline">\(y\)</span> values, we’d need the <span class="math inline">\(z\)</span> scores for each of them so we’d have to do it twice.</p>
 <p>The three kinds of output from tables / apps are as follows.</p>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" style="width:50.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
 </div>
 </div>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+</div>
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid" style="width:50.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
 </div>
 </div>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+</div>
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" style="width:50.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The first figure shows how the table works in some books. It provides the value from 0 to <span class="math inline">\(|z|\)</span>. If <span class="math inline">\(z\)</span> is negative, using this table requires you to input <span class="math inline">\(|z|\)</span> instead. In this question, the value you get will be .3944. To get the ultimate answer to this question, Step 5 will be to add this value to .5, giving a final answer of .8944.</p>
@@ -1156,7 +1444,8 @@ t=\frac{\overline{y}-\mu_0}{s/\sqrt{n}}
 </section>
 <section id="find-a-probability-to-estimate-a-mean." class="level3" data-number="6.14.3">
 <h3 data-number="6.14.3" class="anchored" data-anchor-id="find-a-probability-to-estimate-a-mean."><span class="header-section-number">6.14.3</span> Find a probability to estimate a mean.</h3>
-<p>Estimating a mean involves finding a region where the mean is likely to be. The first question to ask is <em>how likely?</em> and to do so, we use a concept called alpha, denoted by the Greek letter <span class="math inline">\(\alpha\)</span>. Traditionally, people have used three values of <span class="math inline">\(\alpha\)</span> for the past century, .10, .05, and .01. These correspond to regions of <span class="math inline">\(1-\alpha\)</span> under the normal distribution curve, so these regions are 90 percent of the area, 95 percent of the area, and 99 percent of the area. What we are saying, for instance, if <span class="math inline">\(\alpha=0.01\)</span> is that we are 99 percent confident that the true population mean lies within the region we’ve calculated, <span class="math inline">\(\overline{y}\pm 2.576\sigma_{\overline{y}}\)</span></p>
+<p>Estimating a mean involves finding a region where the mean is likely to be. The first question to ask is <em>how likely?</em> and to do so, we use a concept called alpha, denoted by the Greek letter <span class="math inline">\(\alpha\)</span>. Traditionally, people have used three values of <span class="math inline">\(\alpha\)</span> for the past century, .10, .05, and .01. These correspond to regions of <span class="math inline">\(1-\alpha\)</span> under the normal distribution curve, so these regions are 90 percent of the area, 95 percent of the area, and 99 percent of the area. What we are saying, for instance, if <span class="math inline">\(\alpha=0.01\)</span> is that we are 99 percent confident that the true population mean lies within the region we’ve calculated, <span class="math inline">\(\overline{y}\pm
+2.576\sigma_{\overline{y}}\)</span></p>
 </section>
 <section id="alpha-selection-is-driven-by-criticality." class="level3" data-number="6.14.4">
 <h3 data-number="6.14.4" class="anchored" data-anchor-id="alpha-selection-is-driven-by-criticality."><span class="header-section-number">6.14.4</span> <span class="math inline">\(\alpha\)</span> selection is driven by criticality.</h3>
@@ -1245,39 +1534,63 @@ t=\frac{\overline{y}-\mu_0}{s/\sqrt{n}}
 </table>
 <p>The above table refers to two-tailed tests. Only examples (e) and (f) below refer to two-tailed tests. In the other four cases, the <span class="math inline">\(z\)</span>-scores refer to <span class="math inline">\(z_{\alpha}\)</span> rather than <span class="math inline">\(z_{\alpha/2}\)</span>.</p>
 <p>(a) <span class="math inline">\(\alpha=0.025\)</span>, a one-tailed rejection region</p>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>(b) <span class="math inline">\(\alpha=0.05\)</span>, a one-tailed rejection region</p>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>(c) <span class="math inline">\(\alpha=0.005\)</span>, a one-tailed rejection region</p>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>(d) <span class="math inline">\(\alpha=0.0985\)</span>, a one-tailed rejection region</p>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>(e) <span class="math inline">\(\alpha=0.10\)</span>, a two-tailed rejection region</p>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>(f) <span class="math inline">\(\alpha=0.01\)</span>, a two-tailed rejection region</p>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -1286,17 +1599,25 @@ t=\frac{\overline{y}-\mu_0}{s/\sqrt{n}}
 <h2 data-number="6.16" class="anchored" data-anchor-id="test-a-hypothesis-about-a-sample-mean"><span class="header-section-number">6.16</span> test a hypothesis about a sample mean</h2>
 <p>The test statistic is <span class="math inline">\(t_c\)</span>, where the <span class="math inline">\(c\)</span> subscript stands for <em>calculated</em>. Most people just call it <span class="math inline">\(t\)</span>. In my mind, that leads to occasional confusion about whether it is a value calculated from a sample. We’ll compare the test statistic to <span class="math inline">\(t_{\alpha,\nu}\)</span>, the value of the statistic at a given level of significance, identified using a table or calculator.</p>
 <p>The test leads to two situations. The first, pictured below, is the situation where we fail to reject the null hypothesis and conclude that we have not seen evidence in the sample that the point estimate differs from what the modest hypothesis claims it is. Often, this is an estimate of a mean, where the population mean, <span class="math inline">\(\mu_0\)</span>, is being estimated by a sample mean, <span class="math inline">\(\bar{y}\)</span>. The following picture doesn’t show <span class="math inline">\(\bar{y}\)</span>, just the tail. <span class="math inline">\(\bar{y}\)</span> would be at the top of the hump, not shown here.</p>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The above possibility shows the situation where <span class="math inline">\(t_{\alpha,\nu}&gt;t_c\)</span>, which is equivalent to saying that <span class="math inline">\(p&gt;\alpha\)</span>.</p>
 <p>The <span class="math inline">\(x\)</span>-axis scale begins to the left of the fragment shown here, and values of <span class="math inline">\(t\)</span> increase from left to right. At the same time, the shaded regions decrease in size from left to right. Note that the entire shaded region above is <span class="math inline">\(p\)</span>, while only the darker region at the right is <span class="math inline">\(\alpha\)</span>.</p>
 <p>The situation pictured below is the reverse. In this situation, we reject the null hypothesis and conclude instead that the point estimate does not equal the value in the modest hypothesis. In this case <span class="math inline">\(t_{\alpha,\nu}&lt;t_c\)</span>, which is equivalent to saying that <span class="math inline">\(p&lt;\alpha\)</span>.</p>
-<div class="cell" data-engine.opts="{&quot;extra.preamble&quot;:[&quot;\usepackage{pgfplots,stix,pagecolor}&quot;,&quot;\pgfplotsset{compat=1.18}&quot;]}">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="week06_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="week06_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Let’s make this more concrete with an example.</p>
@@ -1330,7 +1651,7 @@ n(\overline{y})^2}{n-1}}=2\]</span></p>
 <p>Step 5. Identify the rejection region marker. This is simply a matter of calculating (or reading from a table) an appropriate <span class="math inline">\(t\)</span>-statistic for the <span class="math inline">\(\alpha\)</span> you chose in the previous step. This is <span class="math inline">\(t_{\alpha,\nu}=t_{0.05,4}=2.131847\)</span>. Note that <span class="math inline">\(\nu\)</span> is the symbol the book uses for df, or degrees of freedom. It is a Greek letter pronounced nyoo. For a single sample <span class="math inline">\(t\)</span>-statistic, df<span class="math inline">\(=\nu=n-1\)</span>.</p>
 <p>This can be found using R by saying</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.95</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.95</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.131847</code></pre>
 </div>
@@ -1339,18 +1660,18 @@ n(\overline{y})^2}{n-1}}=2\]</span></p>
 <p>Step 6. Calculate the <span class="math inline">\(p\)</span>-value. This is the size of the region whose location was specified in the previous step, written as <span class="math inline">\(p=P(t_{\alpha,\nu}&gt;t_c)\)</span>. It is the probability of observing a <span class="math inline">\(t\)</span>-statistic greater than the calculated <span class="math inline">\(t\)</span>-statistic if the null hypothesis is true. It is found by a calculator or app or software. It can only be calculated by hand if you know quite a bit more math than is required for this course. In this case <span class="math inline">\(p=P(t_{\alpha,\nu}&gt;t_c)=0.0007195\)</span>.</p>
 <p>We can identify both <span class="math inline">\(t_\alpha\)</span> and <span class="math inline">\(t_c\)</span> using R as follows:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. t sub alpha</span></span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.95</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. t sub alpha</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.95</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.131847</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. find the alpha region associated with t sub alpha</span></span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pt</span>(<span class="fl">2.131847</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co">#. find the alpha region associated with t sub alpha</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pt</span>(<span class="fl">2.131847</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.04999999</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>,<span class="dv">23</span>,<span class="dv">21</span>,<span class="dv">21</span>,<span class="dv">20</span>)</span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(x,<span class="at">alternative=</span><span class="st">"greater"</span>,<span class="at">mu=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>,<span class="dv">23</span>,<span class="dv">21</span>,<span class="dv">21</span>,<span class="dv">20</span>)</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(x,<span class="at">alternative=</span><span class="st">"greater"</span>,<span class="at">mu=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
@@ -1381,7 +1702,7 @@ mean of x
 <p>Let’s return to the two pictures we started with. Notice that <span class="math inline">\(p&lt;\alpha\)</span> in this case, which is equivalent to saying that <span class="math inline">\(t_c&gt;t_{\alpha,\nu}\)</span>, so we are looking at the second of the two pictures.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-James2021" class="csl-entry" role="listitem">
 James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. <em>An Introduction to Statistical Learning, 2nd Edition</em>. Springer New York.
 </div>
@@ -1471,10 +1792,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1484,8 +1804,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1498,6 +1827,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1541,6 +1989,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1566,6 +2015,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1627,17 +2102,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./week05.html" class="pagination-link">
+      <a href="./week05.html" class="pagination-link  aria-label=" &lt;span="" of="" random="" variables&lt;="" span&gt;"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Distributions of Random Variables</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./week07.html" class="pagination-link">
+      <a href="./week07.html" class="pagination-link" aria-label="<span class='chapter-number'>7</span>&nbsp; <span class='chapter-title'>More about Inference</span>">
         <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">More about Inference</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 
