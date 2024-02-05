@@ -434,7 +434,35 @@ function and the area between the curve and the horizontal
 line represents the value of the cumulative distribution
 function.
 
-![](fiNormalA.png)
+```{r, engine = 'tikz',engine.opts=list(extra.preamble=c("\\usepackage{pgfplots,stix,pagecolor}","\\definecolor{qopage}{HTML}{0E2A35}")),echo=FALSE}
+\begin{tikzpicture}
+% picture of normal distribution pdf
+\begin{axis}[
+  no markers, domain=70:130, samples=100,
+  axis lines=left, xlabel=$x$, ylabel=$f(x)$,
+  every axis y label/.style={at=(current axis.above origin),anchor=south},
+  every axis x label/.style={at=(current axis.right of origin),anchor=west},
+  height=3.6cm, width=10.6cm,
+  xtick=\empty, ytick=\empty,
+  enlargelimits=false, clip=false, axis on top,
+  extra x ticks={100},
+  extra x tick style={
+    tick label style={
+      rotate=90,anchor=east
+    }
+  },
+  extra x tick labels={\scriptsize avg test score $\rightarrow$}
+  ]
+  \addplot [fill=cyan!20, draw=none, domain=70:100] {1/(8*sqrt(2*pi))*exp(-((x-100)^2)/(2*8^2))} \closedcycle
+    node [style={font=\scriptsize},above,text width=1.5cm] at (axis cs:95,0.005)
+      {probability of getting avg score or less};
+
+  \addplot [very thick,cyan!50!black] {1/(8*sqrt(2*pi))*exp(-((x-100)^2)/(2*8^2))};
+\draw [yshift=-2.2cm, <->](axis cs:70,0) -- node
+[fill=white] {$P(x \leqslant \text{avg})$} (axis cs:100,0);
+\end{axis}
+\end{tikzpicture}
+```
 
 ## Normal distribution example (1 of 2)
 Consider a normally distributed nationwide test.
@@ -682,7 +710,30 @@ apps.
 ## The F distribution
 Another distribution that we'll enounter later is called the F distribution. We'll calculate an F-statistic when we build linear regression models, but I just want you to know the general shape of it for now. The region marked $\alpha$ corresponds inversely to the magnitude of the F statistic. In other words, a larger F statistic means a smaller $\alpha$.
 
-![](fiFdist.png)
+```{r, engine = 'tikz',engine.opts=list(extra.preamble=c("\\usepackage{pgfplots,stix,pagecolor}","\\definecolor{qopage}{HTML}{0E2A35}")),echo=FALSE}
+\begin{tikzpicture}
+  \tikzset{
+        every pin/.style={fill=yellow!50!white,rectangle,rounded corners=3pt,font=\tiny},
+        small dot/.style={fill=black,circle,scale=0.3}
+    }
+\begin{axis}[
+  no markers, domain=0:3.5, samples=200,
+  axis lines=left, xlabel={}, ylabel=\phantom{y},
+  every axis y label/.style={at=(current axis.above origin),anchor=south},
+  every axis x label/.style={at=(current axis.right of origin),anchor=west},
+  height=4cm, width=9cm,
+  xtick=\empty, ytick=\empty,
+  enlargelimits=false, clip=false, axis on top,
+    extra x ticks={0,2.5},
+    extra x tick labels={\scriptsize 0, \scriptsize $F_{\alpha}$}
+  ]
+  \addplot [fill=cyan!30, draw=none, domain=2.5:3.5]
+  {9*(x^(0.5*4-1))*((1+4*x/3)^(-0.5*4-0.5*3))} \closedcycle node [style={font=\scriptsize},above,text width=1.5cm] at (axis cs:0,0.008) {};
+   \node[small dot,pin=80:{$\alpha$}]  at (axis cs:2.8,0.06) {};
+  \addplot [very thick,cyan!50!black] {9*(x^(0.5*4-1))*((1+4*x/3)^(-0.5*4-0.5*3))};
+\end{axis}
+\end{tikzpicture}
+```
 
 ---
 
