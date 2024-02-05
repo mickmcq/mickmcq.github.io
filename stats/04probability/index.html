@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.4.549">
 
   <meta name="author" content="Mick McQuaid">
-  <meta name="dcterms.date" content="2024-02-04">
+  <meta name="dcterms.date" content="2024-02-05">
   <title>Stats: Probability</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -358,7 +358,7 @@ Mick McQuaid
 </div>
 </div>
 
-  <p class="date">2024-02-04</p>
+  <p class="date">2024-02-05</p>
 </section>
 <section class="slide level2 center">
 
@@ -416,7 +416,7 @@ Mick McQuaid
 <div class="cell-output cell-output-stdout">
 <pre><code>flips
 heads tails 
- 5110  4890 </code></pre>
+ 4978  5022 </code></pre>
 </div>
 
 </div>
@@ -738,7 +738,7 @@ x_1P(X=x_1)+x_2P(X=x_2)+\cdots+x_kP(X=x_k)
 <h2>Normal distribution</h2>
 <p>The most famous continuous distribution is the normal distribution. This picture illustrates the normal distribution. The mound-shaped curve represents the probability density function and the area between the curve and the horizontal line represents the value of the cumulative distribution function.</p>
 
-<img data-src="fiNormalA.png" class="r-stretch"></section>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
 <section id="normal-distribution-example-1-of-2" class="slide level2 center">
 <h2>Normal distribution example (1 of 2)</h2>
 <p>Consider a normally distributed nationwide test.</p>
@@ -753,7 +753,7 @@ x_1P(X=x_1)+x_2P(X=x_2)+\cdots+x_kP(X=x_k)
 <h2>The Cumulative Distribution Function (CDF)</h2>
 <p>Here is a graph of the <em>size</em> of that area. It’s called the cumulative distribution function (cdf).</p>
 
-<img data-src="index_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" width="576"></section>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" width="576"></section>
 <section id="explanation-of-the-cdf-graph" class="slide level2 center">
 <h2>Explanation of the CDF graph</h2>
 <p>The above graph can be read as having an input and output that correspond to the previous graph of the probability density function. As we move from right to left on the <span class="math inline">\(x\)</span>-axis, the area that would be to the left of a given point on the probability density function is the <span class="math inline">\(y\)</span>-value on this graph. For example, if we go half way across the <span class="math inline">\(x\)</span>-axis of the probability density function, the area to its left is one half of the total area, so the <span class="math inline">\(y\)</span>-value on the cumulative distribution function graph is one half.</p>
@@ -791,7 +791,7 @@ x_1P(X=x_1)+x_2P(X=x_2)+\cdots+x_kP(X=x_k)
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
 </figure>
 </div>
 </div>
@@ -804,7 +804,7 @@ x_1P(X=x_1)+x_2P(X=x_2)+\cdots+x_kP(X=x_k)
 <section id="section-3" class="slide level2 center">
 <h2></h2>
 
-<img data-src="index_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
 <section id="section-4" class="slide level2 center">
 <h2></h2>
 <p>Reading it is the same as reading the cumulative distribution function for the normal distribution. For any value on the <span class="math inline">\(x\)</span>-axis, say, 1/2, go up to the diagonal line and over to the value on the <span class="math inline">\(y\)</span>-axis. In this case, that value is 1/2. That is the area under the horizontal line in the probability density function graph from 0 to 1/2 (the shaded area). For a rectangle, calculating area is trivial.</p>
@@ -833,7 +833,7 @@ x_1P(X=x_1)+x_2P(X=x_2)+\cdots+x_kP(X=x_k)
 <h2>The F distribution</h2>
 <p>Another distribution that we’ll enounter later is called the F distribution. We’ll calculate an F-statistic when we build linear regression models, but I just want you to know the general shape of it for now. The region marked <span class="math inline">\(\alpha\)</span> corresponds inversely to the magnitude of the F statistic. In other words, a larger F statistic means a smaller <span class="math inline">\(\alpha\)</span>.</p>
 
-<img data-src="fiFdist.png" class="r-stretch"></section>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section>
 <section class="slide level2 center">
 
 <div class="r-fit-text">
