@@ -5,12 +5,14 @@
 <script src="index_files/libs/quarto-html/popper.min.js"></script>
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.2.313">
+  <meta name="generator" content="quarto-1.4.549">
 
   <meta name="author" content="Mick McQuaid">
-  <title>Human Computer Interaction: User research</title>
+  <meta name="dcterms.date" content="2024-02-08">
+  <title>HCI: User research</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -25,14 +27,16 @@
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
       width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
-    .hanging div.csl-entry {
+    .hanging-indent div.csl-entry {
       margin-left:2em;
       text-indent:-2em;
     }
@@ -46,9 +50,8 @@
     }
     div.csl-indent {
       margin-left: 2em;
-    }
-  </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+    }  </style>
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="style.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -92,44 +95,44 @@
     font-weight: 400;
   }
 
-  .callout.callout-captioned.callout-style-simple .callout-body {
+  .callout.callout-titled.callout-style-simple .callout-body {
     margin-top: 0.2em;
   }
 
-  .callout:not(.callout-captioned) .callout-body {
+  .callout:not(.callout-titled) .callout-body {
       display: flex;
   }
 
-  .callout:not(.no-icon).callout-captioned.callout-style-simple .callout-content {
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
     padding-left: 1.6em;
   }
 
-  .callout.callout-captioned .callout-header {
+  .callout.callout-titled .callout-header {
     padding-top: 0.2em;
     margin-bottom: -0.2em;
   }
 
-  .callout.callout-captioned .callout-caption  p {
+  .callout.callout-titled .callout-title  p {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
   }
     
-  .callout.callout-captioned.callout-style-simple .callout-content  p {
+  .callout.callout-titled.callout-style-simple .callout-content  p {
     margin-top: 0;
   }
 
-  .callout.callout-captioned.callout-style-default .callout-content  p {
+  .callout.callout-titled.callout-style-default .callout-content  p {
     margin-top: 0.7em;
   }
 
-  .callout.callout-style-simple div.callout-caption {
+  .callout.callout-style-simple div.callout-title {
     border-bottom: none;
     font-size: .9rem;
     font-weight: 600;
     opacity: 75%;
   }
 
-  .callout.callout-style-default  div.callout-caption {
+  .callout.callout-style-default  div.callout-title {
     border-bottom: none;
     font-weight: 600;
     opacity: 85%;
@@ -161,7 +164,7 @@
     background-size: 0.9rem 0.9rem;
   }
 
-  .callout-caption {
+  .callout-title {
     display: flex
   }
     
@@ -174,16 +177,17 @@
     display: none !important;
   }
 
-  .callout.callout-captioned .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
-  .callout.callout-captioned .callout-icon::before {
+  .callout.callout-titled .callout-icon::before {
     margin-top: .5rem;
     padding-right: .5rem;
   }
 
-  .callout:not(.callout-captioned) .callout-icon::before {
+  .callout:not(.callout-titled) .callout-icon::before {
     margin-top: 1rem;
     padding-right: .5rem;
   }
@@ -198,7 +202,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
   }
 
-  div.callout-note.callout-style-default .callout-caption {
+  div.callout-note.callout-style-default .callout-title {
     background-color: #dae6fb
   }
 
@@ -210,7 +214,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
   }
 
-  div.callout-important.callout-style-default .callout-caption {
+  div.callout-important.callout-style-default .callout-title {
     background-color: #f7dddc
   }
 
@@ -222,7 +226,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
   }
 
-  div.callout-warning.callout-style-default .callout-caption {
+  div.callout-warning.callout-style-default .callout-title {
     background-color: #fcefdc
   }
 
@@ -234,7 +238,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
   }
 
-  div.callout-tip.callout-style-default .callout-caption {
+  div.callout-tip.callout-style-default .callout-title {
     background-color: #ccf1e3
   }
 
@@ -246,7 +250,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
   }
 
-  div.callout-caution.callout-style-default .callout-caption {
+  div.callout-caution.callout-style-default .callout-title {
     background-color: #ffe5d0
   }
 
@@ -344,7 +348,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Human Computer Interaction:<br>User research</h1>
+  <h1 class="title">HCI:<br>User research</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -354,7 +358,7 @@ Mick McQuaid
 </div>
 </div>
 
-  <p class="date">2/2/23</p>
+  <p class="date">2024-02-08</p>
 </section>
 <section class="slide level2 center">
 
@@ -365,74 +369,140 @@ Mick McQuaid
 <section id="today" class="title-slide slide level1 center">
 <h1>Today</h1>
 <ul>
-<li>Q and A from last time</li>
-<li>Discussion leading (Na Kyoung Jang)</li>
-<li>Design Critique (Yachun Huang)</li>
-<li>Article Presentation (?)</li>
-<li>Figma tutorial (Vaishnavi)</li>
-<li>Break</li>
+<li>Feedback from last time</li>
+<li>Discussion leading (Mick)</li>
+<li>Design Critique (Steven)</li>
+<li>Article Presentation (Mick–Joyojeet)</li>
 <li>User Research</li>
-<li>Readings</li>
+<li>Figma tutorial (Rachel)</li>
 </ul>
 </section>
 
 <section>
-<section id="q-and-a-from-last-time" class="title-slide slide level1 center">
-<h1>Q and A from last time</h1>
+<section id="feedback-from-last-time" class="title-slide slide level1 center">
+<h1>Feedback from last time</h1>
 
 </section>
 <section id="learning" class="slide level2 center">
 <h2>Learning</h2>
-<ul>
-<li>“I have learned that our group project idea still has some problems, and I would like to think more about the planner topic. Or we may change the topic to find a better one.”</li>
-<li>“I did enjoy the history of the processes. It is interesting to see how we evolved from Baby Bubblehead.”</li>
-<li>In the discussion we had regarding the mental models on how much time it would take for the user to get used to, I really learned a lot on with the examples fellow students came up with</li>
-</ul>
 </section>
-<section id="more-learning" class="slide level2 center">
-<h2>More learning</h2>
-<ul>
-<li>I particularly enjoyed the conversation around data privacy and how design can help maintain the same e.g.&nbsp;by giving bite-sized tips to users, letting them opt-in rather than opting them into the data sharing system by default, copyrighting and so on.</li>
-<li>The important point I have learned today is a good website should take into account a variety of factors, including usability, impossibility to build, etc.</li>
-</ul>
+<section id="section" class="slide level2 center">
+<h2></h2>
+<p>From my perspective, Fitts’s Law brings attention to the profound impact that the size and placement of interactive elements can have on our efficiency and comfort in digital interactions. The law’s simplicity belies its practical importance – larger and closer targets make tasks quicker and more accurate. Embracing Fitts’s Law is, in my opinion, can be a key aspect of creating user interfaces that feel intuitive and responsive.</p>
 </section>
-<section id="still-more-learning" class="slide level2 center">
-<h2>Still more learning</h2>
-<ul>
-<li>I learned a lot from the discussion and the presentations today. Especially from the discussion where important examples, relevant to current design practices in industry were brought up. I also found the point around gmail removing the reply button quite fascinating. I have a follow up question around that, which is -</li>
-<li>It is important to look at the history of HCI research as related to human cognition because new work can be informed by past lessons / mistakes / shortcomings / realizations</li>
-<li>Cognition in UX and past studies and understanding in terms of laws, theory associated in it.</li>
-</ul>
+<section id="section-1" class="slide level2 center">
+<h2></h2>
+<p>As someone who will be presenting regularly in the near future, it was really important and insightful to learn that it takes 45 seconds for people to formulate an answer to a question that has been posed to them. I will keep this in mind next time when asking questions, so as to not rush the thought process.</p>
 </section>
-<section id="even-more-learning" class="slide level2 center">
-<h2>Even more learning</h2>
-<ul>
-<li>Dark patterns, intentionally bad design, and deceiving design was a very interesting conversation</li>
-<li>I appreciated the discussion and the examples shared by everyone; it made me reflect on the readings and think of other perspectives that I haven’t thought of. My takeaways from the class was the ethical considerations that designers need to take into account; for example “making it hard” for people to unsubscribe, or unfollow etc.</li>
-</ul>
+<section id="section-2" class="slide level2 center">
+<h2></h2>
+<p>I think Norman’s point about how ineffective GDP statistic is and how it lack relevance to individual lives is important. While the economy is one of the foundations of the world, these single numbers cannot provide a consistent picture of reality, or even ensure its truthfulness.</p>
+<p>I like the different ideas they propose for measuring the state of social life and human happiness, which are more humane. And I think it’s hard for people to recognize where they fit in, or how they will be affected, either way.</p>
+</section>
+<section id="section-3" class="slide level2 center">
+<h2></h2>
+<p>I strongly agree that social media applications like Instagram play a big role in influencing people’s cultural or ethical beliefs. For unopinionated or gullible people, this is particularly dangerous as these applications are designed to display posts/reels that reinforce an idea based on the user’s activity. This is a very concerning issue in my opinion as their exposure to the outside world is completely based on one perspective or thought.</p>
+</section>
+<section id="section-4" class="slide level2 center">
+<h2></h2>
+<p>During our conversation about measurement, we delved into how risk management evaluates individuals differently depending on their societal hierarchy status. Being in risk management, this conversation was really interesting, because how certain risk is heavily depended on revenue. I have seen countless times where enough revenue can “bend” or “lower” the risk given, but I have also seen times where no amount of revenue would even out the potential risk a company might endure. I wish we discussed more openly about measurement, would like to hear my peers thoughts on it!</p>
+</section>
+<section id="section-5" class="slide level2 center">
+<h2></h2>
+<p>I learned about Hick’s law and the ways that people have tried to quantify more nebulous ideas of cognition such as decision making through formulaic approaches</p>
+</section>
+<section id="section-6" class="slide level2 center">
+<h2></h2>
+<p>the importance of simplifying complex information, like climate change, for public understanding without compromising scientific integrity.</p>
+</section>
+<section id="section-7" class="slide level2 center">
+<h2></h2>
+<p>inadequacy of GDP as the sole measure of societal progress and well-being, advocating for alternative metrics that encompass a broader range of factors, including well-being, equity, environmental sustainability, and more.</p>
+</section>
+<section id="of-3" class="slide level2 center">
+<h2>1 of 3</h2>
+<p>From my notes: “Measurements are facts, but is complete without the story. Stories provide meaning, and are easy to remember. It does not matter how complex something is, if it is meaningful and easy to understand, people will call it simple. Complexity is a fact of the world, and simplicity is a state of the mind.”</p>
+</section>
+<section id="of-3-1" class="slide level2 center">
+<h2>2 of 3</h2>
+<p>This is especially true, when science demands that we make sacrifices for the greater good. The use of R22 as a refrigerant for example was both an ozone depleting gas and a green house gas. The industry switched to R134 as it was not an ozone depleting gas, and had less of an impact on global warming. The switch was actually motivated by profits, as R134 was cheaper.</p>
+</section>
+<section id="of-3-2" class="slide level2 center">
+<h2>3 of 3</h2>
+<p>When it comes to global warming in this age, going green has a cost whether that is monetary or time. I agree with Norman, telling people that crossing the 1.5 degree threshold or 2.0 degree threshold has no meaning to the common person. If we want to make progress towards global warming, we need to make it easy for people to execute, easy to understand, and we need to make sure people understand why it is important. An example was the lady in New York painting where the sea levels would rise.</p>
+</section>
+<section id="section-8" class="slide level2 center">
+<h2></h2>
+<p>The definition of affordance was something I paid extra attention to as I tend to mix them up myself. I learnt how much it differs from signifiers and that affordance has a lt to do with capabilities and action of an object. Which to be honest isn’t as complicated as I had initially thought.</p>
 </section>
 <section id="questions" class="slide level2 center">
 <h2>Questions</h2>
-<ul>
-<li>I had a lot of questions about the group topics, so being able to discuss them openly in class was helpful. Also, moving the lecture to the end will help me remember my questions.</li>
-<li>Nothing much, looking forward for the next lecture</li>
-<li>I would like to know more about designing for privacy and also for parents who are wary of their children’s online safety.</li>
-</ul>
 </section>
-<section id="more-questions" class="slide level2 center">
-<h2>More questions</h2>
-<ul>
-<li>none</li>
-<li>How often does the world of design/design research get disrupted by a new company, product or service that introduces a popular feature which doesn’t align with established design best practices? This is hypothetical, but I imagine there are certain brands or company models that disrupt the norm and require researchers to reorient or reassess established principles</li>
-</ul>
+<section id="section-9" class="slide level2 center">
+<h2></h2>
+<p>Inspired from the Fitts’s Law, how can one pull a users attention to specific important features in the design with varying sizes and colors, without over-shadowing the others to optimize the experience?</p>
 </section>
-<section id="even-more-questions" class="slide level2 center">
-<h2>Even more questions</h2>
-<ul>
-<li>Loved the discussion, it honestly helped me better remember and understand the readings. Definitely wished it was at the beginning of class, for time’s sake and also from the perspective of the presenters. It would be nice to get it out of the way and focus on class.</li>
-<li>When talking about constraints, mainly legal, how do designers adjust to the different regulations (for example: GDPR vs.&nbsp;US) when the app/website is present in different countries? How do designers balance the uniformity of their designs while navigating these different constraints?</li>
-</ul>
+<section id="section-10" class="slide level2 center">
+<h2></h2>
+<p>Regarding to ethical questions of AI portfolio website, before AI tools appeared, people would look for some good website examples from others, and imitate the layout or structure in some level. For my understanding, AI is now doing it for us, replacing the brain works and making the process easier with better results. So for me the answer is vague, because how we work before AI is not technically that ‘ethical’.</p>
+</section>
+<section id="section-11" class="slide level2 center">
+<h2></h2>
+<p>I missed some steps in the Figma prototyping session. Will try again at home referring to YouTube videos</p>
+</section>
+<section id="section-12" class="slide level2 center">
+<h2></h2>
+<p>What kind of examples where high-level cognition can trigger low-level emotion as vice vera?</p>
+</section>
+<section id="section-13" class="slide level2 center">
+<h2></h2>
+<p>I was curious about how to better communicate big ideas in easy to understand concepts? How do we better bridge that gap between daunting concepts and making change around us that connects with people?</p>
+</section>
+<section id="section-14" class="slide level2 center">
+<h2></h2>
+<p>I actually prefer Skeuomorphism vs flat designs, it find the old designs easier to read and recognize when i am quickly glancing at my applications. Comparing the old Google logos to the new ones for example, the new logos require me to pay attention on what i am clicking. With this in mind, why does the industry keep going towards this minimalist design?</p>
 </section></section>
+<section>
+<section id="discussion" class="title-slide slide level1 center">
+<h1>Discussion</h1>
+
+</section>
+<section id="gen-ai-again" class="slide level2 center">
+<h2>gen AI (again!)</h2>
+<p>How are you using gen AI in user research? How could you? (Both senses!)</p>
+<p>If not, how are you using gen AI right now?</p>
+</section>
+<section id="audio-recording" class="slide level2 center">
+<h2>Audio recording</h2>
+<p>Where do you stand on the audio recording debate?</p>
+</section>
+<section id="competitive-analysis" class="slide level2 center">
+<h2>Competitive analysis</h2>
+<p>What is the best way to do competitive analysis? What are the pitfalls?</p>
+</section>
+<section id="note-taking" class="slide level2 center">
+<h2>Note-taking</h2>
+<p>What shorthand symbols do you use in note-taking? What else could you use?</p>
+</section>
+<section id="empathy" class="slide level2 center">
+<h2>Empathy</h2>
+<p>Is there any downside to developing empathy with the user during initial design?</p>
+</section>
+<section id="bias" class="slide level2 center">
+<h2>Bias</h2>
+<p>Is our data collection ever free from bias? Is it ever really complete?</p>
+</section></section>
+<section id="design-critique" class="title-slide slide level1 center">
+<h1>Design Critique</h1>
+<p><span class="math inline">\(\langle\)</span> pause for Steven’s design critique <span class="math inline">\(\rangle\)</span></p>
+</section>
+
+<section id="article" class="title-slide slide level1 center">
+<h1>Article</h1>
+<p>Article by Joyojeet Pal is in Canvas &gt; resources &gt; Pal2017.pdf</p>
+<p><span class="math inline">\(\langle\)</span> pause for Joyojeet Pal video <span class="math inline">\(\rangle\)</span></p>
+</section>
+
 <section>
 <section id="user-research" class="title-slide slide level1 center">
 <h1>User research</h1>
@@ -664,23 +734,23 @@ Mick McQuaid
 <section id="views-of-the-ci-interview" class="slide level2 center">
 <h2>Views of the CI interview</h2>
 </section>
-<section id="section" class="slide level2 center">
+<section id="section-15" class="slide level2 center">
 <h2></h2>
 
 <img data-src="fiCIinterview1.jpg" class="r-stretch"></section>
-<section id="section-1" class="slide level2 center">
+<section id="section-16" class="slide level2 center">
 <h2></h2>
 
 <img data-src="fiCIinterview2.jpg" class="r-stretch"></section>
-<section id="section-2" class="slide level2 center">
+<section id="section-17" class="slide level2 center">
 <h2></h2>
 
 <img data-src="fiCIinterview3.jpg" class="r-stretch"></section>
-<section id="section-3" class="slide level2 center">
+<section id="section-18" class="slide level2 center">
 <h2></h2>
 
 <img data-src="fiCIinterview4.jpg" class="r-stretch"></section>
-<section id="section-4" class="slide level2 center">
+<section id="section-19" class="slide level2 center">
 <h2></h2>
 
 <img data-src="fiCIvsIntvwvsObs.jpg" class="r-stretch"></section></section>
@@ -769,7 +839,7 @@ Mick McQuaid
 <li>Any break in the chain from interview to key issues jeopardizes the persona milestone, coming up next</li>
 </ul>
 </section>
-<section id="section-5" class="slide level2 center">
+<section id="section-20" class="slide level2 center">
 <h2></h2>
 <div class="container">
 <div class="col">
@@ -783,19 +853,19 @@ Mick McQuaid
 <section id="different-views-of-the-process" class="slide level2 center">
 <h2>Different views of the process</h2>
 </section>
-<section id="section-6" class="slide level2 center">
+<section id="section-21" class="slide level2 center">
 <h2></h2>
 
 <img data-src="fiAffinityVariety.png" class="r-stretch"></section>
-<section id="section-7" class="slide level2 center">
+<section id="section-22" class="slide level2 center">
 <h2></h2>
 
 <img data-src="fiAffinityTiny.png" class="r-stretch"></section>
-<section id="section-8" class="slide level2 center">
+<section id="section-23" class="slide level2 center">
 <h2></h2>
 
 <img data-src="fiAffinityInProcess.jpg" class="r-stretch"></section>
-<section id="section-9" class="slide level2 center">
+<section id="section-24" class="slide level2 center">
 <h2></h2>
 
 <img data-src="fiAffinityLarge.jpg" class="r-stretch"></section>
@@ -967,29 +1037,29 @@ Mick McQuaid
 <section>
 <section id="references" class="title-slide slide level1 smaller scrollable">
 <h1>References</h1>
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-Beyer1999" class="csl-entry" role="doc-biblioentry">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Beyer1999" class="csl-entry" role="listitem">
 Beyer, Hugh, and Karen Holtzblatt. 1999. <span>“Contextual Design.”</span> <em>Interactions</em> 6 (1): 32–42.
 </div>
-<div id="ref-Hartson2019" class="csl-entry" role="doc-biblioentry">
+<div id="ref-Hartson2019" class="csl-entry" role="listitem">
 Hartson, Rex, and Pardha Pyla. 2019. <em>The UX Book, 2nd Edition</em>. Cambridge, MA: Morgan Kaufman.
 </div>
-<div id="ref-Holtzblatt2005" class="csl-entry" role="doc-biblioentry">
+<div id="ref-Holtzblatt2005" class="csl-entry" role="listitem">
 Holtzblatt, Karen, Jessamyn Burns Wendell, and Shelley Wood. 2005. <em>Rapid Contextual Design: A How-to Guide to Key Techniques for User-Centered Design</em>. San Francisco, CA: Morgan Kaufmann.
 </div>
-<div id="ref-Johnson2020" class="csl-entry" role="doc-biblioentry">
+<div id="ref-Johnson2020" class="csl-entry" role="listitem">
 Johnson, Jeff. 2020. <em>Designing with the Mind in Mind, 3rd Edition</em>. Cambridge, MA: Morgan Kaufman.
 </div>
-<div id="ref-Lazar2017" class="csl-entry" role="doc-biblioentry">
+<div id="ref-Lazar2017" class="csl-entry" role="listitem">
 Lazar, Jonathan, Jinjuan Heidi Feng, and Harry Hochheiser. 2017. <em>Research Methods in Human-Computer Interaction, 2nd Ed.</em> West Sussex, UK: Wiley.
 </div>
-<div id="ref-Norman2013" class="csl-entry" role="doc-biblioentry">
+<div id="ref-Norman2013" class="csl-entry" role="listitem">
 Norman, Donald A. 2013. <em>The Design of Everyday Things, 2nd Edition</em>. Basic Books.
 </div>
-<div id="ref-Olson2014" class="csl-entry" role="doc-biblioentry">
+<div id="ref-Olson2014" class="csl-entry" role="listitem">
 Olson, Judith S., and Wendy A. Kellogg, eds. 2014. <em>Ways of Knowing in <span>HCI</span></em>. Springer New York. <a href="https://doi.org/10.1007/978-1-4939-0378-8">https://doi.org/10.1007/978-1-4939-0378-8</a>.
 </div>
-<div id="ref-Shinohara2007" class="csl-entry" role="doc-biblioentry">
+<div id="ref-Shinohara2007" class="csl-entry" role="listitem">
 Shinohara, Kristen, and Josh Tenenberg. 2007. <span>“Observing Sara: A Case Study of a Blind Person’s Interactions with Technology.”</span> In <em>Proceedings of the 9th International ACM SIGACCESS Conference on Computers and Accessibility</em>, 171–78. Assets ’07. New York, NY, USA: ACM. <a href="https://doi.org/10.1145/1296843.1296873">https://doi.org/10.1145/1296843.1296873</a>.
 </div>
 </div>
@@ -1004,9 +1074,11 @@ Shinohara, Kristen, and Josh Tenenberg. 2007. <span>“Observing Sara: A Case St
 <h1>Colophon</h1>
 <p>This slideshow was produced using <code>quarto</code></p>
 <p>Fonts are <em>League Gothic</em> and <em>Lato</em></p>
+<div class="quarto-auto-generated-content">
+<p><img src="iSchoolLogo.png" class="slide-logo"></p>
+<div class="footer footer-default">
 
-<img src="iSchoolLogo.png" class="slide-logo r-stretch"><div class="footer footer-default">
-
+</div>
 </div>
 </section>
     </div>
@@ -1035,12 +1107,11 @@ Shinohara, Kristen, and Josh Tenenberg. 2007. <span>“Observing Sara: A Case St
       Reveal.initialize({
 'controlsAuto': false,
 'previewLinksAuto': true,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -1244,9 +1315,23 @@ Shinohara, Kristen, and Josh Tenenberg. 2007. <span>“Observing Sara: A Case St
       tabsets.forEach(function(tabset) {
         const tabby = new Tabby('#' + tabset.id);
       });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
       const clipboard = new window.ClipboardJS('.code-copy-button', {
-        target: function(trigger) {
-          return trigger.previousElementSibling;
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
         }
       });
       clipboard.on('success', function(e) {
@@ -1282,10 +1367,9 @@ Shinohara, Kristen, and Josh Tenenberg. 2007. <span>“Observing Sara: A Case St
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1294,9 +1378,18 @@ Shinohara, Kristen, and Josh Tenenberg. 2007. <span>“Observing Sara: A Case St
           },
           interactive: true,
           interactiveBorder: 10,
-          theme: 'quarto-reveal',
-          placement: 'bottom-start'
+          theme: 'light-border',
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
