@@ -1,7 +1,7 @@
 ---
-title: "Human Computer Interaction:<br>User research"
+title: "HCI:<br>User research"
 author: Mick McQuaid
-date: 2023-02-02
+date: today
 bibliography: master.bib
 format:
   revealjs:
@@ -22,48 +22,106 @@ Week FOUR
 
 # Today
 
-- Q and A from last time
-- Discussion leading (Na Kyoung Jang)
-- Design Critique (Yachun Huang)
-- Article Presentation (?)
-- Figma tutorial (Vaishnavi)
-- Break
+- Feedback from last time
+- Discussion leading (Mick)
+- Design Critique (Steven)
+- Article Presentation (Mick--Joyojeet)
 - User Research
-- Readings
+- Figma tutorial (Rachel)
 
-# Q and A from last time
+# Feedback from last time
 
 ## Learning
 
-- "I have learned that our group project idea still has some problems, and I would like to think more about the planner topic. Or we may change the topic to find a better one. "
-- "I did enjoy the history of the processes. It is interesting to see how we evolved from Baby Bubblehead."
-- In the discussion we had regarding the mental models on how much time it would take for the user to get used to, I really learned a lot on with the examples fellow students came up with
+##
+From my perspective, Fitts's Law brings attention to the profound impact that the size and placement of interactive elements can have on our efficiency and comfort in digital interactions. The law's simplicity belies its practical importance – larger and closer targets make tasks quicker and more accurate. Embracing Fitts's Law is, in my opinion, can be a key aspect of creating user interfaces that feel intuitive and responsive.
 
-## More learning
-- I particularly enjoyed the conversation around data privacy and how design  can help maintain the same e.g. by giving bite-sized tips to users, letting them opt-in rather than opting them into the data sharing system by default, copyrighting and so on.
-- The important point I have learned today is a good website should take into account a variety of factors, including usability, impossibility to build, etc.
+##
+As someone who will be presenting regularly in the near future, it was really important and insightful to learn that it takes 45 seconds for people to formulate an answer to a question that has been posed to them. I will keep this in mind next time when asking questions, so as to not rush the thought process. 
 
-## Still more learning
-- I learned a lot from the discussion and the presentations today. Especially from the discussion where important examples, relevant to current design practices in industry were brought up. I also found the point around gmail removing the reply button quite fascinating. I have a follow up question around that, which is -
-- It is important to look at the history of HCI research as related to human cognition because new work can be informed by past lessons / mistakes / shortcomings / realizations
-- Cognition in UX and past studies and understanding in terms of laws, theory associated in it.
+##
+I think Norman's point about how ineffective GDP statistic is and how it lack relevance to individual lives is important.  While the economy is one of the foundations of the world, these single numbers cannot provide a consistent picture of reality, or even ensure its truthfulness.
 
-## Even more learning
-- Dark patterns, intentionally bad design, and deceiving design was a very interesting conversation
-- I appreciated the discussion and the examples shared by everyone; it made me reflect on the readings and think of other perspectives that I haven't thought of. My takeaways from the class was the ethical considerations that designers need to take into account; for example "making it hard" for people to unsubscribe, or unfollow etc.
+I like the different ideas they propose for measuring the state of social life and human happiness, which are more humane. And I think it's hard for people to recognize where they fit in, or how they will be affected, either way.
+
+##
+I strongly agree that social media applications like Instagram play a big role in influencing people's cultural or ethical beliefs. For unopinionated or gullible people, this is particularly dangerous as these applications are designed to display posts/reels that reinforce an idea based on the user's activity. This is a very concerning issue in my opinion as their exposure to the outside world is completely based on one perspective or thought. 
+
+##
+During our conversation about measurement, we delved into how risk management evaluates individuals differently depending on their societal hierarchy status. Being in risk management, this conversation was really interesting, because how certain risk is heavily depended on revenue. I have seen countless times where enough revenue can "bend" or "lower" the risk given, but I have also seen times where no amount of revenue would even out the potential risk a company might endure. I wish we discussed more openly about measurement, would like to hear my peers thoughts on it!
+
+##
+I learned about Hick's law and the ways that people have tried to quantify more nebulous ideas of cognition such as decision making through formulaic approaches
+
+##
+the importance of simplifying complex information, like climate change, for public understanding without compromising scientific integrity. 
+
+##
+inadequacy of GDP as the sole measure of societal progress and well-being, advocating for alternative metrics that encompass a broader range of factors, including well-being, equity, environmental sustainability, and more.
+
+## 1 of 3
+From my notes: "Measurements are facts, but is complete without the story. Stories provide meaning, and are easy to remember. It does not matter how complex something is, if it is meaningful and easy to understand, people will call it simple. Complexity is a fact of the world, and simplicity is a state of the mind. " 
+
+## 2 of 3
+This is especially true, when science demands that we make sacrifices for the greater good. The use of R22 as a refrigerant for example was both an ozone depleting gas and a green house gas. The industry switched to R134 as it was not an ozone depleting gas, and had less of an impact on global warming. The switch was actually motivated by profits, as R134 was cheaper. 
+
+## 3 of 3
+When it comes to global warming in this age, going green has a cost whether that is monetary or time. I agree with Norman, telling people that crossing the 1.5 degree threshold or 2.0 degree threshold has no meaning to the common person. If we want to make progress towards global warming, we need to make it easy for people to execute, easy to understand, and we need to make sure people understand why it is important. An example was the lady in New York painting where the sea levels would rise. 
+
+##
+The definition of affordance was something I paid extra attention to as I tend to mix them up myself. I learnt how much it differs from signifiers and that affordance has a lt to do with capabilities and action of an object. Which to be honest isn't as complicated as I had initially thought. 
 
 ## Questions
-- I had a lot of questions about the group topics, so being able to discuss them openly in class was helpful. Also, moving the lecture to the end will help me remember my questions.
-- Nothing much, looking forward for the next lecture
-- I would like to know more about designing for privacy and also for parents who are wary of their children's online safety.
 
-## More questions
-- none
-- How often does the world of design/design research get disrupted by a new company, product or service that introduces a popular feature which doesn't align with established design best practices? This is hypothetical, but I imagine there are certain brands or company models that disrupt the norm and require researchers to reorient or reassess established principles
+##
+Inspired from the Fitts's Law, how can one pull a users attention to specific important features  in the design with varying sizes and colors, without over-shadowing the others to optimize the experience?
 
-## Even more questions
-- Loved the discussion, it honestly helped me better remember and understand the readings. Definitely wished it was at the beginning of class, for time's sake and also from the perspective of the presenters. It would be nice to get it out of the way and focus on class.
-- When talking about constraints, mainly legal, how do designers adjust to the different regulations (for example: GDPR vs. US) when the app/website is present in different countries? How do designers balance the uniformity of their designs while navigating these different constraints? 
+##
+Regarding to ethical questions of AI portfolio website, before AI tools appeared, people would look for some good website examples from others, and imitate the layout or structure in some level. For my understanding, AI is now doing it for us, replacing the brain works and making the process easier with better results. So for me the answer is vague, because how we work before AI is not technically that 'ethical'.
+
+##
+I missed some steps in the Figma prototyping session. Will try again at home referring to YouTube videos
+
+##
+What kind of examples where high-level cognition can trigger low-level emotion as vice vera?
+
+##
+I was curious about how to better communicate big ideas in easy to understand concepts? How do we better bridge that gap between daunting concepts and making change around us that connects with people?
+
+##
+I actually prefer Skeuomorphism vs flat designs, it find the old designs easier to read and recognize when i am quickly glancing at my applications. Comparing the old Google logos to the new ones for example, the new logos require me to pay attention on what i am clicking. With this in mind, why does the industry keep going towards this minimalist design?
+
+# Discussion
+
+## gen AI (again!)
+How are you using gen AI in user research? How could you? (Both senses!)
+
+If not, how are you using gen AI right now?
+
+## Audio recording
+Where do you stand on the audio recording debate?
+
+## Competitive analysis
+What is the best way to do competitive analysis? What are the pitfalls?
+
+## Note-taking
+What shorthand symbols do you use in note-taking? What else could you use?
+
+## Empathy
+Is there any downside to developing empathy with the user during initial design?
+
+## Bias
+Is our data collection ever free from bias? Is it ever really complete?
+
+# Design Critique
+
+$\langle$ pause for Steven's design critique $\rangle$
+
+# Article
+
+Article by Joyojeet Pal is in Canvas > resources > Pal2017.pdf
+
+$\langle$ pause for Joyojeet Pal video $\rangle$
 
 # User research
 
