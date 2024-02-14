@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Mick McQuaid">
-<meta name="dcterms.date" content="2024-02-07">
+<meta name="dcterms.date" content="2024-02-14">
 
 <title>HW Instructions i306 Statistics for Informatics</title>
 <style>
@@ -3109,7 +3109,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 7, 2024</p>
+      <p class="date">February 14, 2024</p>
     </div>
   </div>
   
@@ -3169,6 +3169,37 @@ vertical-align: -.125em;
 <h2 class="anchored" data-anchor-id="milestone-2-description-visualization">Milestone 2: description (visualization)</h2>
 <p>This assignment is to describe the data using pictures, such as barplots, mosaic plots, histograms, and more.</p>
 <p>As with the previous milestone, your findings must be organized into a coherent report. Follow the points to remember and suggested steps from Milestone 1 again. Do include the Numerical Description section and the headings for the following sections in this iteration of the report.</p>
+<p>Here are the points I will look for in scoring this milestone:</p>
+<ul>
+<li>I want you to make at least 5 different plots</li>
+<li>refer to the ggplot cheatsheet and think about the data types (continuous vs discrete)</li>
+<li>refer to the R Graph Gallery for examples with similar data to yours (e.g., ridgeline plots are covered here but not on the ggplot cheatsheet)</li>
+<li>use appropriate plots for variable types</li>
+<li>don’t just do the same plot description with different variables, over and over</li>
+<li>scatterplots are really informative if you have numeric variables on both axes, like year and price</li>
+<li>use log or exponential scales if relationships appear to be curvilinear</li>
+<li>use labels, legends, captions, titles, and subtitles</li>
+<li>don’t use scientific notation for axes</li>
+<li>try to make plots fit on the screen—that can be challenging when you use faceting</li>
+<li>especially use faceting when you have two continuous variables, like price and year, and a discrete variable, like neighborhood</li>
+<li>feel free to use faceting for variables like, say, the six most expensive neighborhoods, cutting down on scrolling</li>
+<li>sort bars by height when you make bar plots</li>
+<li>don’t use pie charts except in special cases (four to seven slices with obvious differences in slice size)</li>
+<li>don’t make stacked bar charts out of percentages (all bars are the same height)</li>
+<li>include an intro and summary</li>
+<li>overlay box plots or violin plots with geom_jitter() (and use alpha channel, which is opacity)</li>
+<li>avoid default colors—use colorbrewer (discrete) or viridis (continuous)</li>
+<li>use color for meaning rather than decoration</li>
+<li>don’t let labels overlap each other—put them on a diagonal if they are long</li>
+<li>don’t create bar plots with two bars because people can compare two numbers in their minds</li>
+<li>put commas in long numbers</li>
+<li>use layered plots, e.g., put geom_smooth(method=lm) over scatterplots to see the relationship</li>
+<li>word clouds are not too useful unless the words are of similar length</li>
+<li>reject plots that turn out not to show anything important, e.g., suppose a plot shows that the category being plotted is irrelevant</li>
+<li>it can be hard to reject a plot you’ve put time into but do it anyway</li>
+<li>imagine a person trying to read meaning into your plot</li>
+<li>make your plots either reinforce or complement what you did in milestone 1 (or both!)</li>
+</ul>
 </section>
 <section id="milestone-3-regression" class="level2">
 <h2 class="anchored" data-anchor-id="milestone-3-regression">Milestone 3: regression</h2>
