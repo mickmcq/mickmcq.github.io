@@ -1,7 +1,7 @@
 ---
-title: "Human Computer Interaction:<br>Modeling"
+title: "HCI:<br>Modeling"
 author: Mick McQuaid
-date: 2023-02-09
+date: today
 bibliography: master.bib
 format:
   revealjs:
@@ -23,15 +23,115 @@ Week FIVE
 # Today
 
 - Q and A from last time
-- Discussion leading (Ty Chaney)
-- Design Critique (Jyotsna Vempati)
-- Article Presentation (Bhanu Kowshik)
+- Discussion leading (Mick)
+- Design Critique (Alix)
+- Article Presentation (Kaodili)
 - Break
 - Modeling
 - Readings
 
-# Q and A from last time
-Oops!
+# Learning from last time
+
+##
+
+I found the points being made by Joyojeet Pal to be very interesting. What is "good," who get sto determine what is "good," and how do we measure this I found very interesting.
+
+##
+
+I have learned more about the ways in which AI can assist in design workflow, and many of these methods do not effect the originality of a project, and significantly improve efficiency. I think AI makes different fields more approachable, which benefit a lot for interdisciplinary design.
+
+##
+
+It was nice to understand my peers views on the multiple discussions we had in this class. Creativity being used in different perspectives was eye-opening and helped me understand the way others view how we see society today.
+
+Another thing I wanted to highlight is that when we were discussing on if universities make economic impact, I stated that the government has share within certain media companies. This is false, congress women and men as well as senators have investments in a lot companies, and this would make them a stakeholder within the company. Which can be used to manipulate certain regulations in their favor.
+
+##
+
+Today was a nice recap from the previous class. I didn't think that competitive analysis could stifle innovation but after today's discussion that makes sense. Companies want to make money, and that involves risk management. Sometimes exploring avenues of already existing products is safer and cheaper than trailblazing a new product in a non-existing market. Movies are a great example of this, and medical devices as well (basing devices off of a predicate design vs new device).
+
+##
+
+It was interesting having the conversation on Skeuomorphic design vs Minimalist design. It was also interesting to learn how others use generative AI.
+
+##
+
+The in class discussions were insightful. Especially the discussion on the industry leaning towards minimalist design. Being able to make the connect from minimalist design to user experience because most designs strive to be as straightforward as possible made so much sense.
+
+##
+
+The Joyojeet video on CHIforGood or GoodForCHI was interesting. The example of stock photos of people in ethnic dress using technology spontaneously evoking the need for doing “good” was quite funny because I often felt the same but I never noticed the bias. I wonder if this is because rural or traditional is generally considered unprogressed or left-behind in society.
+
+##
+
+Figma was really helpful, as I was designing it for our project I believe it was really nice to get some help and guidance.
+
+##
+
+importance of communication in design, the role of metaphors, and the increasing sophistication in visual displays.
+
+the nuances of conducting effective research and analysis in design.
+
+Having a critical view in the design and research process, what are the invisible impacts of biases in my research and whether I am helping society at large?
+
+
+# Questions
+
+##
+
+I am curious about the place that user research occupies and the levels in which the research gets utilized or passed by in different industries. How much of the research is used, and how many places invest, or seem to invest in user research in a meaningful way?
+
+##
+
+The measurement of 'good' makes me think about design masters who has their own brand and masterpieces convey their values or aesthetics. For instance, the spider juicer  from Phillippe Starck has been criticized a lot but also successful and famous. His subjective opinion seems to disregard and win the evaluation criteria of the public as they pay for it. Although I am sure it also relied on his fame.
+
+In what cases do you think a standard of good can be re-established, or ignored?
+
+##
+
+Going back to the question "is data information collecting ever completed?" What are some ways for us to implement a hard stop on when we are gathering data for user research?
+
+##
+
+What is your favorite types/examples of visualization to help break down complex information to easy to understand concepts. 
+
+##
+
+I don't have a question but thank you Rachel for the tutorials. They've been great.
+
+##
+
+Other than user ratings and Likert scale, what other scales are used to measure user responses?
+
+##
+
+I don't have a question technically, but I really learned about the user research and approaches that can be effective from a developers end to make the most to the audience. Also the best parts to communicate the ideas out and peers perspectives on it was interesting.
+
+##
+
+Given the challenges in defining what constitutes "good" design, how can we envision the integration of AI and machine learning technologies impacting the future of design practices, especially in terms of inclusivity and ethical considerations? 
+
+# User Research Slides
+
+$\langle$ pause for those slides $\rangle$
+
+# Design for a better world, III Sustainable
+
+$\langle$ pause for short discussion $\rangle$
+
+# Discussion leading (Mick)
+
+## User Stories vs Requirement Statements vs Both?
+
+## Broad appeal vs niche market?
+
+## How to make user stories flexible, make them capture enough nuance?
+
+## What's the best model for you? How do you reconcile flow with non-temporal models?
+
+## Are models too complex? Can too many models spoil the broth?
+
+## Can personas represent a diverse audience? Will we just get Frankenpersonas?
 
 # Modeling
 What is a model?
