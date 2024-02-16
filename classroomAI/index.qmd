@@ -1,0 +1,130 @@
+---
+title: "Classroom<br>gen AI"
+author: Mick McQuaid
+date: today
+bibliography: master.bib
+format:
+  revealjs:
+    logo: iSchoolLogo.png
+    theme: moon
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+::: {.r-fit-text}
+TxHCI
+:::
+
+## The classroom, in theory and practice
+
+::: {.container}
+:::: {.col}
+![](fiOrderlyTraffic.jpg){width=70%}
+
+theory
+::::
+:::: {.col}
+![](fiSnowInRaleigh2014.jpg)
+
+practice
+::::
+:::
+
+## They will do it
+
+::: {.r-fit-text}
+resistance is futile
+:::
+
+## How will they do it?
+and how can you influence it?
+
+## So welcome to your new job
+You have to learn prompt engineering as a basic academic skill
+
+## Prompt Engineering Books
+
+::: {.container}
+:::: {.col}
+![](fiPromptEngrBook.png)
+::::
+:::: {.col}
+![](fiPromptEngrTOC.png)
+::::
+:::
+
+::: {.notes}
+You can visit repositories like Anna's Archive to find plenty of awful books on prompt engineering. I looked at three of them and all three appear to have been written by ChatGPT. One didn't even use good prompt engineering to do so! This invites the question of how to learn prompt engineering. As far as I can tell, trial and error is currently the best way. ChatGPT can apparently not tell you how best to take advantage of it. One passage that I skimmed went from talking about the Parthenon to a Greek galley in mid-sentence.
+
+One good prompt engineering resource I found was the OpenAI guide at [https://platform.openai.com/docs/guides/prompt-engineering](https://platform.openai.com/docs/guides/prompt-engineering).
+
+This also leads to a repository at [https://cookbook.openai.com/](https://cookbook.openai.com/)
+not to mention a compendium of other resources at
+[https://cookbook.openai.com/articles/related_resources](https://cookbook.openai.com/articles/related_resources)
+
+A more up-to-date repository, and a must-have for serious gen ai users, is [Hugging Face Hub](https://huggingface.co/models)
+Documentation [here](https://huggingface.co/docs/hub/en/index)
+:::
+
+## Prompt engineering pitfall example
+A python programming instructor told me that a student failed an assignment because they had ChatGPT do the assignment based on the specification and it misunderstood some numbers as strings and did concatenation instead of arithmetic.
+
+## Learn from students
+- prompt engineering skill is now a basic academic skill like googling
+- what gen AI is good for (and bad for)
+
+## Things they'll do
+- making images
+- understanding data analysis
+- rough drafts (ugh---sometimes final drafts)
+
+## Making images
+- Photo-realistic personas with specific characteristics
+- Images of concepts like jealousy and intimacy to use in surveys and interviews
+- Images of situations for storyboards
+
+## Understanding data analysis
+- My students use it to explain syntax of code
+- It is allegedly good for dirty data wrangling
+
+## Rough drafts
+- My students use it to write explanations which they hopefully refine
+- Sometimes it's obvious from the sentence structure that they didn't refine it
+- Poor use of adjectives is a clue
+- Hallucinated citations is a clue
+- Certain words like "delve" are a clue
+
+## My experience
+- I use it to format bibliographies as BibTeX
+- I tried to use it to format a table image as a Pandoc table (through a system that didn't allow a conversation)
+- My wife found that Youtuber Leila Gharani had useful prompt engineering advice about complicated spreadsheets
+
+## Things you can't do
+- make assignments they can do completely with a little prompt engineering (you have to test)
+
+## Policies
+- I require documentation of gen AI usage (it's a challenge to get good documentation)
+- Any gen AI is permitted, but students are responsible for the results, including hallucinations such as nonexistent citations
+
+# References
+
+::: {#refs}
+:::
+
+---
+
+::: {.r-fit-text}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *League Gothic* and *Lato*
+
