@@ -461,7 +461,7 @@ Mick McQuaid
 </section>
 <section id="point-estimates" class="slide level2 center">
 <h2>Point estimates</h2>
-<p>Example: Biden’t approval rating is 38% (Reuters, 2024-01-31). This is a point estimate.</p>
+<p>Example: Biden’s approval rating is 38% (Reuters, 2024-01-31). This is a point estimate.</p>
 <p>How good is this point estimate? Two factors are sampling error and bias.</p>
 <ul>
 <li>Who’s in the sample?</li>
@@ -491,10 +491,10 @@ Mick McQuaid
 <span id="cb3-8"><a href=""></a><span class="co"># the sample size.</span></span>
 <span id="cb3-9"><a href=""></a>(phat <span class="ot">&lt;-</span> <span class="fu">sum</span>(sampledEntries <span class="sc">==</span> <span class="st">"support"</span>) <span class="sc">/</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.876</code></pre>
+<pre><code>[1] 0.888</code></pre>
 </div>
 </div>
-<p>This estimate, 0.876, differs every time we sample. Let’s look at a different sample from the textbook’s lab website.</p>
+<p>This estimate, 0.888, differs every time we sample. Let’s look at a different sample from the textbook’s lab website.</p>
 </section>
 <section id="global-monitor" class="slide level2 center">
 <h2>Global Monitor</h2>
@@ -515,7 +515,7 @@ Mick McQuaid
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>global_monitor <span class="sc">|&gt;</span></span>
 <span id="cb6-2"><a href=""></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(scientist_work)) <span class="sc">+</span></span>
-<span id="cb6-3"><a href=""></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb6-3"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">fill=</span><span class="st">"#87CEFA"</span>) <span class="sc">+</span></span>
 <span id="cb6-4"><a href=""></a>  <span class="fu">labs</span>(</span>
 <span id="cb6-5"><a href=""></a>    <span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">""</span>,</span>
 <span id="cb6-6"><a href=""></a>    <span class="at">title =</span> <span class="st">"Do you believe that the work scientists do benefit people like you?"</span></span>
@@ -556,8 +556,8 @@ Mick McQuaid
 <pre><code># A tibble: 2 × 3
   scientist_work      n p_hat
   &lt;chr&gt;           &lt;int&gt; &lt;dbl&gt;
-1 Benefits           36  0.72
-2 Doesn't benefit    14  0.28</code></pre>
+1 Benefits           42  0.84
+2 Doesn't benefit     8  0.16</code></pre>
 </div>
 </div>
 </section>
@@ -576,7 +576,7 @@ Mick McQuaid
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>sample_props50 <span class="sc">|&gt;</span></span>
 <span id="cb13-2"><a href=""></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(p_hat)) <span class="sc">+</span></span>
-<span id="cb13-3"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.02</span>) <span class="sc">+</span></span>
+<span id="cb13-3"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.02</span>,<span class="at">fill=</span><span class="st">"#87CEFA"</span>) <span class="sc">+</span></span>
 <span id="cb13-4"><a href=""></a>  <span class="fu">labs</span>(</span>
 <span id="cb13-5"><a href=""></a>    <span class="at">x =</span> <span class="st">"p_hat (Doesn't benefit)"</span>,</span>
 <span id="cb13-6"><a href=""></a>    <span class="at">title =</span> <span class="st">"Sampling distribution of p_hat"</span>,</span>
@@ -659,11 +659,11 @@ Mick McQuaid
 <h2>Example of a 95 percent confidence interval</h2>
 <p>For the solar power example given in the textbook,</p>
 <p><span class="math display">\[\hat{p}\pm 1.96 \times SE_{\hat{p}} \rightarrow 0.887 \pm 1.96 \times 0.010 \rightarrow (0.8674,0.9066)\]</span></p>
-<p>which is expressed in words as <em>We are 95 percent confident that the actual proportion of American adults who support expanding solar power is between 86.7 percent and 90.7 percent</em>. It is also common to say instead that <em>88 percent of Americans support expanding solar power (with a margin of error of 1.96 percent)</em>.</p>
+<p>which is expressed in words as <em>We are 95 percent confident that the actual proportion of American adults who support expanding solar power is between 86.7 percent and 90.7 percent</em>. It is also common to say instead that <em>89 percent of Americans support expanding solar power (with a margin of error of 1.96 percent)</em>.</p>
 </section>
 <section id="other-confidence-intervals" class="slide level2 center">
 <h2>Other confidence intervals</h2>
-<p>We could substitute 2.58 for 1.96 to obtain a 99 percent confidence interval. For a 90 percent confidence interval, substitute 1.645.</p>
+<p>We could substitute 2.576 for 1.96 to obtain a 99 percent confidence interval. For a 90 percent confidence interval, substitute 1.645.</p>
 </section>
 <section id="plausibility-vs-possibility" class="slide level2 center">
 <h2>Plausibility vs possibility</h2>
@@ -680,7 +680,7 @@ Mick McQuaid
 </section>
 <section id="the-null-and-alternative-hypothesis" class="slide level2 center">
 <h2>The null and alternative hypothesis</h2>
-<p>The null hypothesis ordinarily represents the status quo or some skeptical belief about a new outcome, while the alternative hypothesis ordinarily represents an optimistic belief about the outcome under study, such as the effect of a new drug, where the null hypothesis would say that the drug has no effect and the alternative hypothesis is that it cures condition <span class="math inline">\(x\)</span>.</p>
+<p>The null hypothesis ordinarily represents the status quo or some skeptical belief about a new outcome, while the alternative hypothesis ordinarily represents an optimistic belief about the outcome under study, such as the effect of a new drug, where the null hypothesis would say that the drug has no effect and the alternative hypothesis is that it cures condition <span class="math inline">\(xyz\)</span>.</p>
 <p>Why would we phrase them this way? It is because we want to partition the risk of failure. To do that, we need the concepts of Type I and Type II error.</p>
 </section></section>
 <section>
@@ -863,7 +863,7 @@ Mick McQuaid
 </section>
 <section id="pictures-of-the-alpha-levels" class="slide level2 center">
 <h2>Pictures of the alpha levels</h2>
-<p>The following three pictures show these three cases. The first version, <em>life-or-death</em>, has the smallest rejection region. Suppose the test is whether a radical cancer treatment gives longer life than a traditional cancer treatment. Let’s say that the traditional treatment gives an average of 15 months longer life. The null hypothesis is that the new treatment also gives 15 months longer life. The alternative hypothesis is that the radical treatment gives 22 months more life on average based on on only five patients who received the new treatment. A patient can only do one treatment or the other. The status quo would be to take the traditional treatment unless there is strong evidence that the radical treatment provides an average longer life.</p>
+<p>The following pictures show these three cases. The first version, <em>life-or-death</em>, has the smallest rejection region. Suppose the test is whether a radical cancer treatment gives longer life than a traditional cancer treatment. Let’s say that the traditional treatment gives an average of 15 months longer life. The null hypothesis is that the new treatment also gives 15 months longer life. The alternative hypothesis is that the radical treatment gives 22 months more life on average based on on only five patients who received the new treatment. A patient can only do one treatment or the other. The status quo would be to take the traditional treatment unless there is strong evidence that the radical treatment provides an average longer life.</p>
 </section>
 <section id="minimizing-the-chance-of-mistake" class="slide level2 center">
 <h2>Minimizing the chance of mistake</h2>
@@ -915,7 +915,7 @@ t=\frac{\overline{y}-\mu_0}{s/\sqrt{n}}
 <section id="practice-estimating-a-population-mean" class="slide level2 center">
 <h2>practice estimating a population mean</h2>
 <p>Consider an outlet store that purchased used display panels to refurbish and resell. The relevant statistics for failure time of the sample are <span class="math inline">\(n=50, \overline{y}=1.9350, s=0.92865\)</span>.</p>
-<p>But these are the only necessary numbers to solve the problem. The standard error, .1313 can be calculated from <span class="math inline">\(s/\sqrt{n} = 0.92865/\sqrt{50}=.1313.\)</span></p>
+<p>But these are the only necessary numbers to solve the problem. The standard error, .1313, can be calculated from <span class="math inline">\(s/\sqrt{n} = 0.92865/\sqrt{50}=.1313.\)</span></p>
 </section>
 <section id="section-3" class="slide level2 center">
 <h2></h2>
@@ -950,7 +950,7 @@ t=\frac{\overline{y}-\mu_0}{s/\sqrt{n}}
 <p>Imprisoning an innocent person is like a Type I error: we rejected the null hypothesis when it was true. Letting a guilty person go free is like a Type II error: we failed to reject the null hypothesis when it was false.</p>
 </section>
 <section id="identify-rejection-region-marker" class="slide level2 center">
-<h2>identify rejection region marker</h2>
+<h2>Identify rejection region marker</h2>
 <p>How do you identify rejection region markers? A rejection region marker is the value of a test statistic that leads to rejection of the null hypothesis. It marks the edge of a region under the curve corresponding to the level of significance, <span class="math inline">\(\alpha\)</span>. The marker is not a measure of the size of the region. The rejection region marker can vary from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(+\infty\)</span> while the size of the region is somewhere between zero and one.</p>
 </section>
 <section id="section-7" class="slide level2 center">
@@ -1028,12 +1028,12 @@ t=\frac{\overline{y}-\mu_0}{s/\sqrt{n}}
 
 <img data-src="index_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
 <section id="test-a-hypothesis-about-a-sample-mean" class="slide level2 center">
-<h2>test a hypothesis about a sample mean</h2>
+<h2>Test a hypothesis about a sample mean</h2>
 <p>The test statistic is <span class="math inline">\(t_c\)</span>, where the <span class="math inline">\(c\)</span> subscript stands for <em>calculated</em>. Most people just call it <span class="math inline">\(t\)</span>. In my mind, that leads to occasional confusion about whether it is a value calculated from a sample. We’ll compare the test statistic to <span class="math inline">\(t_{\alpha,\nu}\)</span>, the value of the statistic at a given level of significance, identified using a table or calculator.</p>
 </section>
 <section id="section-15" class="slide level2 center">
 <h2></h2>
-<p>The test leads to two situations. The first, pictured below, is the situation where we fail to reject the null hypothesis and conclude that we have not seen evidence in the sample that the point estimate differs from what the modest hypothesis claims it is. Often, this is an estimate of a mean, where the population mean, <span class="math inline">\(\mu_0\)</span>, is being estimated by a sample mean, <span class="math inline">\(\bar{y}\)</span>. The following picture doesn’t show <span class="math inline">\(\bar{y}\)</span>, just the tail. <span class="math inline">\(\bar{y}\)</span> would be at the top of the hump, not shown here.</p>
+<p>The test leads to two situations. The first, pictured next, is the situation where we fail to reject the null hypothesis and conclude that we have not seen evidence in the sample that the point estimate differs from what the modest hypothesis claims it is. Often, this is an estimate of a mean, where the population mean, <span class="math inline">\(\mu_0\)</span>, is being estimated by a sample mean, <span class="math inline">\(\bar{y}\)</span>. The following picture doesn’t show <span class="math inline">\(\bar{y}\)</span>, just the tail. <span class="math inline">\(\bar{y}\)</span> would be at the top of the hump, not shown here.</p>
 </section>
 <section id="section-16" class="slide level2 center">
 <h2></h2>
@@ -1041,7 +1041,7 @@ t=\frac{\overline{y}-\mu_0}{s/\sqrt{n}}
 <img data-src="index_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"></section>
 <section id="section-17" class="slide level2 center">
 <h2></h2>
-<p>The above possibility shows the situation where <span class="math inline">\(t_{\alpha,\nu}&gt;t_c\)</span>, which is equivalent to saying that <span class="math inline">\(p&gt;\alpha\)</span>.</p>
+<p>The preceding possibility shows the situation where <span class="math inline">\(t_{\alpha,\nu}&gt;t_c\)</span>, which is equivalent to saying that <span class="math inline">\(p&gt;\alpha\)</span>.</p>
 <p>The <span class="math inline">\(x\)</span>-axis scale begins to the left of the fragment shown here, and values of <span class="math inline">\(t\)</span> increase from left to right. At the same time, the shaded regions decrease in size from left to right. Note that the entire shaded region above is <span class="math inline">\(p\)</span>, while only the darker region at the right is <span class="math inline">\(\alpha\)</span>.</p>
 <p>The situation pictured next is the reverse. In this situation, we reject the null hypothesis and conclude instead that the point estimate does not equal the value in the modest hypothesis. In this case <span class="math inline">\(t_{\alpha,\nu}&lt;t_c\)</span>, which is equivalent to saying that <span class="math inline">\(p&lt;\alpha\)</span>.</p>
 </section>
@@ -1084,12 +1084,12 @@ t=\frac{\overline{y}-\mu_0}{s/\sqrt{n}}
 <section id="section-23" class="slide level2 center">
 <h2></h2>
 <p>At the end of step 2, we have determined the alternative hypothesis to be</p>
-<p><span class="math inline">\(H_a: \mu&gt;\mu_0\)</span> with <span class="math inline">\(\mu_0=15\)</span>.</p>
+<p><span class="math inline">\(H_A: \mu&gt;\mu_0\)</span> with <span class="math inline">\(\mu_0=15\)</span>.</p>
 </section>
 <section id="step-3.-choose-the-test-statistic." class="slide level2 center">
 <h2>Step 3. Choose the test statistic.</h2>
 <p>Previously, we have learned two test statistics, <span class="math inline">\(z\)</span> and <span class="math inline">\(t\)</span>. We have learned that the choice between them is predicated on sample size. If <span class="math inline">\(n\geqslant30\)</span>, use <span class="math inline">\(z\)</span>, otherwise use <span class="math inline">\(t\)</span>. Here <span class="math inline">\(n=5\)</span> so use <span class="math inline">\(t\)</span>. We can calculate the <span class="math inline">\(t\)</span>-statistic, which I called <span class="math inline">\(t_c\)</span> for <em>calculated</em> above, for the sample using the formula <span class="math display">\[
-t=\frac{\overline{y}-\mu_0}{s/\sqrt{n}}
+t_c=\frac{\overline{y}-\mu_0}{s/\sqrt{n}}
 \]</span></p>
 </section>
 <section id="section-24" class="slide level2 center">
@@ -1137,23 +1137,29 @@ n(\overline{y})^2}{n-1}}=2\]</span></p>
 <section id="section-29" class="slide level2 center">
 <h2></h2>
 <p>In this case <span class="math inline">\(p=P(t_{\alpha,\nu}&gt;t_c)=0.0007195\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">pt</span>(<span class="fl">7.8262</span>,<span class="dv">4</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.000719558</code></pre>
+</div>
+</div>
 <p>We can identify both <span class="math inline">\(t_\alpha\)</span> and <span class="math inline">\(t_c\)</span> using R as follows.</p>
 </section>
 <section id="section-30" class="slide level2 center">
 <h2></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="co">#. t sub alpha</span></span>
-<span id="cb16-2"><a href=""></a><span class="fu">qt</span>(<span class="fl">0.95</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="co">#. t sub alpha</span></span>
+<span id="cb18-2"><a href=""></a><span class="fu">qt</span>(<span class="fl">0.95</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.131847</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="co">#. find the alpha region associated with t sub alpha</span></span>
-<span id="cb18-2"><a href=""></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pt</span>(<span class="fl">2.131847</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="co">#. find the alpha region associated with t sub alpha</span></span>
+<span id="cb20-2"><a href=""></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pt</span>(<span class="fl">2.131847</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.04999999</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>,<span class="dv">23</span>,<span class="dv">21</span>,<span class="dv">21</span>,<span class="dv">20</span>)</span>
-<span id="cb20-2"><a href=""></a><span class="fu">t.test</span>(x,<span class="at">alternative=</span><span class="st">"greater"</span>,<span class="at">mu=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>,<span class="dv">23</span>,<span class="dv">21</span>,<span class="dv">21</span>,<span class="dv">20</span>)</span>
+<span id="cb22-2"><a href=""></a><span class="fu">t.test</span>(x,<span class="at">alternative=</span><span class="st">"greater"</span>,<span class="at">mu=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
@@ -1183,7 +1189,7 @@ mean of x
 <p>To summarize the answer, the seven elements of this statistical test of hypothesis are:</p>
 <ol type="1">
 <li><strong>null hypothesis</strong> <span class="math inline">\(H_0: \mu=15\)</span></li>
-<li><strong>alternative hypothesis</strong> <span class="math inline">\(H_{a}: \mu&gt;15\)</span></li>
+<li><strong>alternative hypothesis</strong> <span class="math inline">\(H_{A}: \mu&gt;15\)</span></li>
 <li><strong>test statistic</strong> <span class="math inline">\(t_c=7.8262\)</span></li>
 <li><strong>level of significance</strong> <span class="math inline">\(\alpha=0.05\)</span></li>
 <li><strong>rejection region marker</strong> <span class="math inline">\(t_{0.05,4} = 2.131847\)</span></li>
