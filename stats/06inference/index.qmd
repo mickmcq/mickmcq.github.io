@@ -59,14 +59,14 @@ Simulated example: support for solar energy in the USA
 ## R code for the example
 
 ```{r solarEnergy}
-# 1. Create a set of 250 million entries, where 88% of them are "support"
-# and 12% are "not".
+#. 1. Create a set of 250 million entries, where 88% of them are "support"
+#. and 12% are "not".
 popSize <- 250000000
 possibleEntries <- c(rep("support", 0.88 * popSize), rep("not", 0.12 * popSize))
-# 2. Sample 1000 entries without replacement.
+#. 2. Sample 1000 entries without replacement.
 sampledEntries <- sample(possibleEntries, size = 1000)
-# 3. Compute p-hat: count the number that are "support", then divide by
-# the sample size.
+#. 3. Compute p-hat: count the number that are "support", then divide by
+#. the sample size.
 (phat <- sum(sampledEntries == "support") / 1000)
 ```
 
