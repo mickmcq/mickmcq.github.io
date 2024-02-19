@@ -41,7 +41,7 @@ stem(x)
 # Inference
 
 ## Point estimates
-Example: Biden't approval rating is 38% (Reuters, 2024-01-31). This is a point estimate.
+Example: Biden's approval rating is 38% (Reuters, 2024-01-31). This is a point estimate.
 
 How good is this point estimate? Two factors are sampling error and bias.
 
@@ -91,7 +91,7 @@ global_monitor <- tibble(
 ```{r globalMonitorVis}
 global_monitor |>
 ggplot(aes(scientist_work)) +
-  geom_bar() +
+  geom_bar(fill="#87CEFA") +
   labs(
     x = "", y = "",
     title = "Do you believe that the work scientists do benefit people like you?"
@@ -137,7 +137,7 @@ sample_props50 <- global_monitor |>
 ```{r histogramFifteenThouSamples}
 sample_props50 |>
 ggplot(aes(p_hat)) +
-  geom_histogram(binwidth = 0.02) +
+  geom_histogram(binwidth = 0.02,fill="#87CEFA") +
   labs(
     x = "p_hat (Doesn't benefit)",
     title = "Sampling distribution of p_hat",
@@ -242,10 +242,10 @@ For the solar power example given in the textbook,
 
 $$\hat{p}\pm 1.96 \times SE_{\hat{p}} \rightarrow 0.887 \pm 1.96 \times 0.010 \rightarrow (0.8674,0.9066)$$
 
-which is expressed in words as *We are 95 percent confident that the actual proportion of American adults who support expanding solar power is between 86.7 percent and 90.7 percent*. It is also common to say instead that *88 percent of Americans support expanding solar power (with a margin of error of 1.96 percent)*.
+which is expressed in words as *We are 95 percent confident that the actual proportion of American adults who support expanding solar power is between 86.7 percent and 90.7 percent*. It is also common to say instead that *89 percent of Americans support expanding solar power (with a margin of error of 1.96 percent)*.
 
 ## Other confidence intervals
-We could substitute 2.58 for 1.96 to obtain a 99 percent confidence interval. For a 90 percent confidence interval, substitute 1.645.
+We could substitute 2.576 for 1.96 to obtain a 99 percent confidence interval. For a 90 percent confidence interval, substitute 1.645.
 
 ## Plausibility vs possibility
 Confidence intervals provide only a plausible range for a population parameter, not the possible range. Some estimates will lie outside the confidence interval.
@@ -258,7 +258,7 @@ Hypothesis tests concern two hypotheses, the null hypothesis (written $H_0$ and 
 
 ## The null and alternative hypothesis
 
-The null hypothesis ordinarily represents the status quo or some skeptical belief about a new outcome, while the alternative hypothesis ordinarily represents an optimistic belief about the outcome under study, such as the effect of a new drug, where the null hypothesis would say that the drug has no effect and the alternative hypothesis is that it cures condition $x$.
+The null hypothesis ordinarily represents the status quo or some skeptical belief about a new outcome, while the alternative hypothesis ordinarily represents an optimistic belief about the outcome under study, such as the effect of a new drug, where the null hypothesis would say that the drug has no effect and the alternative hypothesis is that it cures condition $xyz$.
 
 Why would we phrase them this way? It is because we want to partition the risk of failure. To do that, we need the concepts of Type I and Type II error.
 
@@ -376,7 +376,7 @@ not severe.
 
 ## Pictures of the alpha levels
 
-The following three pictures show these three cases. The first
+The following pictures show these three cases. The first
 version, *life-or-death*, has the smallest rejection
 region. Suppose the test is whether a radical cancer
 treatment gives longer life than a traditional cancer
@@ -458,7 +458,7 @@ error.
   xtick=\empty, ytick=\empty,
   enlargelimits=false, clip=false, axis on top,
     extra x ticks={0,2.4},
-    extra x tick labels={\scriptsize 0, \scriptsize $2.58$}
+    extra x tick labels={\scriptsize 0, \scriptsize $2.576$}
   ]
   \addplot [fill=cyan!30, draw=none, domain=2.4:3.5]
   {9*(x^(0.5*4-1))*((1+2*x/3)^(-0.5*4-0.5*3))} \closedcycle node [style={font=\scriptsize},above,text width=1.5cm] at (axis cs:0,0.008) {};
@@ -580,7 +580,7 @@ The relevant statistics for failure time of the sample are
 $n=50, \overline{y}=1.9350, s=0.92865$.
 
 But these are the only necessary numbers
-to solve the problem. The standard error, .1313 can be calculated from
+to solve the problem. The standard error, .1313, can be calculated from
 $s/\sqrt{n} = 0.92865/\sqrt{50}=.1313.$
 
 ##
@@ -655,7 +655,7 @@ Letting a guilty person go free is like a Type II error:
 we failed to reject the null hypothesis when it was
 false.
 
-## identify rejection region marker
+## Identify rejection region marker
 
 How do you identify rejection
 region markers? A rejection region marker is the value of a
@@ -828,7 +828,7 @@ $z_{\alpha/2}$.
 \end{tikzpicture}
 ```
 
-## test a hypothesis about a sample mean
+## Test a hypothesis about a sample mean
 
 The test statistic is
 $t_c$, where the $c$ subscript stands for *calculated*.
@@ -841,7 +841,7 @@ significance, identified using a table or calculator.
 
 ##
 The test leads to two situations. The first, pictured
-below, is the situation where we fail to reject the null
+next, is the situation where we fail to reject the null
 hypothesis and conclude that we have not seen evidence
 in the sample that the point estimate differs from what the modest hypothesis claims it is. Often, this is an estimate of a mean, where the population mean, $\mu_0$, is being estimated by a sample mean, $\bar{y}$. The following picture doesn't show $\bar{y}$, just the tail. $\bar{y}$ would be at the top of the hump, not shown here.
 
@@ -879,7 +879,7 @@ in the sample that the point estimate differs from what the modest hypothesis cl
 ```
 
 ##
-The above possibility shows the situation where
+The preceding possibility shows the situation where
 $t_{\alpha,\nu}>t_c$, which is equivalent to saying that
 $p>\alpha$.
 
@@ -958,12 +958,12 @@ The appropriate alternative hypothesis can be selected from among three choices:
 ##
 At the end of step 2, we have determined the alternative hypothesis to be
 
-$H_a: \mu>\mu_0$ with $\mu_0=15$.
+$H_A: \mu>\mu_0$ with $\mu_0=15$.
 
 ## Step 3. Choose the test statistic.
 Previously, we have learned two test statistics, $z$ and $t$. We have learned that the choice between them is predicated on sample size. If $n\geqslant30$, use $z$, otherwise use $t$. Here $n=5$ so use $t$. We can calculate the $t$-statistic, which I called $t_c$ for *calculated* above, for the sample using the formula
 $$
-t=\frac{\overline{y}-\mu_0}{s/\sqrt{n}}
+t_c=\frac{\overline{y}-\mu_0}{s/\sqrt{n}}
 $$
 
 ##
@@ -1029,6 +1029,10 @@ course.
 In this case
 $p=P(t_{\alpha,\nu}>t_c)=0.0007195$.
 
+```{r}
+pt(7.8262,4,lower.tail=FALSE)
+```
+
 We can identify both $t_\alpha$ and $t_c$ using R as follows.
 
 ##
@@ -1055,7 +1059,7 @@ We reject the null hypothesis that $\mu=\mu_0$, or in other words, we reject the
 To summarize the answer, the seven elements of this statistical test of hypothesis are:
 
 1. __null hypothesis__ $H_0: \mu=15$
-2. __alternative hypothesis__ $H_{a}: \mu>15$
+2. __alternative hypothesis__ $H_{A}: \mu>15$
 3. __test statistic__ $t_c=7.8262$
 4. __level of significance__ $\alpha=0.05$
 5. __rejection region marker__ $t_{0.05,4} = 2.131847$
