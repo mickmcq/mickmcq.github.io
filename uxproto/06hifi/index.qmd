@@ -562,7 +562,7 @@ All we should be doing as visual designers is making suggestions as to how the l
 The CSS of suggestion is at the heart of algorithmic layout design. Instead of telling browsers what to do, we allow browsers to make their own calculations, and draw their own conclusions, to best suit the user, their screen, and device. Nobody should experience obscured content under any circumstances."
 
 ## Composition over inheritance
-Combining simple independent parts gives you more flexibility and leads to more efficiency than connecting everything through interitance to a shared origin.
+Combining simple independent parts gives you more flexibility and leads to more efficiency than connecting everything through inheritance to a shared origin.
 
 ## Illustration: how to make this?
 ![](fiDialogBox.png)
