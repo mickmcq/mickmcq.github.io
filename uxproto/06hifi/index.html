@@ -8,10 +8,10 @@
 <link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.450">
+  <meta name="generator" content="quarto-1.4.550">
 
   <meta name="author" content="Mick McQuaid">
-  <meta name="dcterms.date" content="2023-09-28">
+  <meta name="dcterms.date" content="2024-02-19">
   <title>UX Prototyping hifi</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -32,7 +32,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -99,6 +99,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -242,7 +243,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -421,7 +423,7 @@ Mick McQuaid
 </div>
 </div>
 
-  <p class="date">2023-09-28</p>
+  <p class="date">2024-02-19</p>
 </section>
 <section class="slide level2 center">
 
@@ -1077,27 +1079,27 @@ Mick McQuaid
 <img data-src="fiBoxModel.png" class="r-stretch"></section>
 <section id="chrome-paragraphs" class="slide level2 center">
 <h2>Chrome paragraphs</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb1-1"><a href="#cb1-1"></a>p {</span>
-<span id="cb1-2"><a href="#cb1-2"></a>  <span class="kw">display</span>: <span class="dv">block</span><span class="op">;</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>  <span class="kw">list-style-type</span>: <span class="dv">disc</span><span class="op">;</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>  <span class="kw">margin-block-start</span>: <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a>  <span class="kw">margin-block-end</span>: <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>  <span class="kw">margin-inline-start</span>: <span class="dv">0</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a>  <span class="kw">margin-inline-end</span>: <span class="dv">0</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a>  <span class="kw">padding-inline-start</span>: <span class="dv">40</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb1-1"><a href=""></a>p {</span>
+<span id="cb1-2"><a href=""></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">block</span><span class="op">;</span></span>
+<span id="cb1-3"><a href=""></a>  <span class="kw">list-style-type</span><span class="ch">:</span> <span class="dv">disc</span><span class="op">;</span></span>
+<span id="cb1-4"><a href=""></a>  <span class="kw">margin-block-start</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb1-5"><a href=""></a>  <span class="kw">margin-block-end</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb1-6"><a href=""></a>  <span class="kw">margin-inline-start</span><span class="ch">:</span> <span class="dv">0</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb1-7"><a href=""></a>  <span class="kw">margin-inline-end</span><span class="ch">:</span> <span class="dv">0</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb1-8"><a href=""></a>  <span class="kw">padding-inline-start</span><span class="ch">:</span> <span class="dv">40</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb1-9"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="chrome-unordered-lists" class="slide level2 center">
 <h2>Chrome unordered lists</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb2-1"><a href="#cb2-1"></a>ul {</span>
-<span id="cb2-2"><a href="#cb2-2"></a>  <span class="kw">display</span>: <span class="dv">block</span><span class="op">;</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a>  <span class="kw">list-style-type</span>: <span class="dv">disc</span><span class="op">;</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a>  <span class="kw">margin-block-start</span>: <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a>  <span class="kw">margin-block-end</span>: <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a>  <span class="kw">margin-inline-start</span>: <span class="dv">0</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a>  <span class="kw">margin-inline-end</span>: <span class="dv">0</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a>  <span class="kw">padding-inline-start</span>: <span class="dv">40</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb2-1"><a href=""></a>ul {</span>
+<span id="cb2-2"><a href=""></a>  <span class="kw">display</span><span class="ch">:</span> <span class="dv">block</span><span class="op">;</span></span>
+<span id="cb2-3"><a href=""></a>  <span class="kw">list-style-type</span><span class="ch">:</span> <span class="dv">disc</span><span class="op">;</span></span>
+<span id="cb2-4"><a href=""></a>  <span class="kw">margin-block-start</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb2-5"><a href=""></a>  <span class="kw">margin-block-end</span><span class="ch">:</span> <span class="dv">1</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb2-6"><a href=""></a>  <span class="kw">margin-inline-start</span><span class="ch">:</span> <span class="dv">0</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-7"><a href=""></a>  <span class="kw">margin-inline-end</span><span class="ch">:</span> <span class="dv">0</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-8"><a href=""></a>  <span class="kw">padding-inline-start</span><span class="ch">:</span> <span class="dv">40</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-9"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="display-property" class="slide level2 center">
 <h2>Display property</h2>
@@ -1120,13 +1122,13 @@ Mick McQuaid
 <section id="logical-properties" class="slide level2 center">
 <h2>Logical properties</h2>
 <p>Eschew terms like “left” and “right” instead using start and end, e.g.,</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">.icon</span> {</span>
-<span id="cb3-2"><a href="#cb3-2"></a>  <span class="kw">margin-inline-end</span>: <span class="dv">0.5</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb3-1"><a href=""></a><span class="fu">.icon</span> {</span>
+<span id="cb3-2"><a href=""></a>  <span class="kw">margin-inline-end</span><span class="ch">:</span> <span class="dv">0.5</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb3-3"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="formatting-contexts" class="slide level2 center">
 <h2>Formatting contexts</h2>
-<p><code class="sourceCode css">display<span class="in">: flex</span></code> or <code class="sourceCode css">display<span class="in">: grid</span></code> causes a <code class="sourceCode css">&lt;div<span class="op">&gt;</span></code> to continue to behave like a <code class="sourceCode css">block</code>, but changes its child elements’ behavior. Now the flow direction changes from vertical to horizontal, as the child elements distribute themselves horizontally. Composite layouts consist of nested formatting contexts.</p>
+<p><code class="sourceCode css">display<span class="in">:</span> flex</code> or <code class="sourceCode css">display<span class="in">:</span> grid</code> causes a <code class="sourceCode css">&lt;div<span class="op">&gt;</span></code> to continue to behave like a <code class="sourceCode css">block</code>, but changes its child elements’ behavior. Now the flow direction changes from vertical to horizontal, as the child elements distribute themselves horizontally. Composite layouts consist of nested formatting contexts.</p>
 </section>
 <section id="content-in-boxes" class="slide level2 center">
 <h2>Content in boxes</h2>
@@ -1134,19 +1136,19 @@ Mick McQuaid
 </section>
 <section id="box-sizing" class="slide level2 center">
 <h2>Box sizing</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb4-1"><a href="#cb4-1"></a><span class="op">*</span> {</span>
-<span id="cb4-2"><a href="#cb4-2"></a>  <span class="kw">box-sizing</span>: <span class="dv">border-box</span><span class="op">;</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb4-1"><a href=""></a><span class="op">*</span> {</span>
+<span id="cb4-2"><a href=""></a>  <span class="kw">box-sizing</span><span class="ch">:</span> <span class="dv">border-box</span><span class="op">;</span></span>
+<span id="cb4-3"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>makes calculating and anticipating box dimensions easier.</p>
 </section>
 <section id="exception" class="slide level2 center">
 <h2>Exception</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb5-1"><a href="#cb5-1"></a><span class="op">*</span> {</span>
-<span id="cb5-2"><a href="#cb5-2"></a>  <span class="kw">box-sizing</span>: <span class="dv">border-box</span><span class="op">;</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a>}</span>
-<span id="cb5-4"><a href="#cb5-4"></a>center-l {</span>
-<span id="cb5-5"><a href="#cb5-5"></a>  <span class="kw">box-sizing</span>: <span class="dv">content-box</span><span class="op">;</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb5-1"><a href=""></a><span class="op">*</span> {</span>
+<span id="cb5-2"><a href=""></a>  <span class="kw">box-sizing</span><span class="ch">:</span> <span class="dv">border-box</span><span class="op">;</span></span>
+<span id="cb5-3"><a href=""></a>}</span>
+<span id="cb5-4"><a href=""></a>center-l {</span>
+<span id="cb5-5"><a href=""></a>  <span class="kw">box-sizing</span><span class="ch">:</span> <span class="dv">content-box</span><span class="op">;</span></span>
+<span id="cb5-6"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="lesson" class="slide level2 center">
 <h2>Lesson:</h2>
@@ -1155,7 +1157,7 @@ Mick McQuaid
 </section>
 <section id="composition-over-inheritance" class="slide level2 center">
 <h2>Composition over inheritance</h2>
-<p>Combining simple independent parts gives you more flexibility and leads to more efficiency than connecting everything through interitance to a shared origin.</p>
+<p>Combining simple independent parts gives you more flexibility and leads to more efficiency than connecting everything through inheritance to a shared origin.</p>
 </section>
 <section id="illustration-how-to-make-this" class="slide level2 center">
 <h2>Illustration: how to make this?</h2>
@@ -1163,21 +1165,21 @@ Mick McQuaid
 <img data-src="fiDialogBox.png" class="r-stretch"></section>
 <section id="the-wrong-way-inherited-properties" class="slide level2 center">
 <h2>The wrong way: inherited properties</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">.dialog</span> {</span>
-<span id="cb6-2"><a href="#cb6-2"></a>  <span class="co">/* ... */</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a>}</span>
-<span id="cb6-4"><a href="#cb6-4"></a></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="fu">.dialog_header</span> {</span>
-<span id="cb6-6"><a href="#cb6-6"></a>  <span class="co">/* ... */</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a>}</span>
-<span id="cb6-8"><a href="#cb6-8"></a></span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="fu">.dialog_body</span> {</span>
-<span id="cb6-10"><a href="#cb6-10"></a>  <span class="co">/* ... */</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a>}</span>
-<span id="cb6-12"><a href="#cb6-12"></a></span>
-<span id="cb6-13"><a href="#cb6-13"></a><span class="fu">.dialog_foot</span> {</span>
-<span id="cb6-14"><a href="#cb6-14"></a>  <span class="co">/* ... */</span></span>
-<span id="cb6-15"><a href="#cb6-15"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb6-1"><a href=""></a><span class="fu">.dialog</span> {</span>
+<span id="cb6-2"><a href=""></a>  <span class="co">/* ... */</span></span>
+<span id="cb6-3"><a href=""></a>}</span>
+<span id="cb6-4"><a href=""></a></span>
+<span id="cb6-5"><a href=""></a><span class="fu">.dialog_header</span> {</span>
+<span id="cb6-6"><a href=""></a>  <span class="co">/* ... */</span></span>
+<span id="cb6-7"><a href=""></a>}</span>
+<span id="cb6-8"><a href=""></a></span>
+<span id="cb6-9"><a href=""></a><span class="fu">.dialog_body</span> {</span>
+<span id="cb6-10"><a href=""></a>  <span class="co">/* ... */</span></span>
+<span id="cb6-11"><a href=""></a>}</span>
+<span id="cb6-12"><a href=""></a></span>
+<span id="cb6-13"><a href=""></a><span class="fu">.dialog_foot</span> {</span>
+<span id="cb6-14"><a href=""></a>  <span class="co">/* ... */</span></span>
+<span id="cb6-15"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="the-right-way-layout-primitives" class="slide level2 center">
 <h2>The right way: layout primitives</h2>
@@ -1224,13 +1226,13 @@ Mick McQuaid
 <section id="example-the-stack" class="slide level2 center">
 <h2>Example: The stack</h2>
 <p>Problem</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb7-1"><a href="#cb7-1"></a>p {</span>
-<span id="cb7-2"><a href="#cb7-2"></a>  <span class="kw">margin-bottom</span>: <span class="dv">1.5</span><span class="dt">rem</span><span class="op">;</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb7-1"><a href=""></a>p {</span>
+<span id="cb7-2"><a href=""></a>  <span class="kw">margin-bottom</span><span class="ch">:</span> <span class="dv">1.5</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb7-3"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Solution</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">.stack</span> <span class="op">&gt;</span> <span class="op">*</span> <span class="op">+</span> <span class="op">*</span> {</span>
-<span id="cb8-2"><a href="#cb8-2"></a>  <span class="kw">margin-block-start</span>: <span class="dv">1.5</span><span class="dt">rem</span><span class="op">;</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb8-1"><a href=""></a><span class="fu">.stack</span> <span class="op">&gt;</span> <span class="op">*</span> <span class="op">+</span> <span class="op">*</span> {</span>
+<span id="cb8-2"><a href=""></a>  <span class="kw">margin-block-start</span><span class="ch">:</span> <span class="dv">1.5</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb8-3"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
 <p>The problem is that, if the paragraph is followed by another element, this property is desirable. In the case of a last paragraph, it is not.</p>
 <p>The solution is to style the context rather than the elements. The stack layout primitive injects margin between elements via their common parent. The <span class="math inline">\(+\)</span> is the adjacent sibling combinator and the <span class="math inline">\(*\)</span> or wildcard ensures that any separating elements are connected. The property is only applied if an element is preceded by another element. The <span class="math inline">\(* + *\)</span> construct is called an owl.</p>
@@ -1385,7 +1387,7 @@ Mick McQuaid
 <section>
 <section id="references" class="title-slide slide level1 smaller scrollable">
 <h1>References</h1>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Bringhurst2004" class="csl-entry" role="listitem">
 Bringhurst, Robert. 2004. <em>The Elements of Typographic Style, Version 3.0</em>. Point Roberts, WA: Hartley &amp; Marks.
 </div>
@@ -1416,9 +1418,11 @@ Wass, John A. 2015. <span>“Book Review: Statistics Done Wrong.”</span> <em>S
 <h1>Colophon</h1>
 <p>This slideshow was produced using <code>quarto</code></p>
 <p>Fonts are <em>League Gothic</em> and <em>Lato</em> (and <em>STIX</em> for the tiny amount of math)</p>
+<div class="quarto-auto-generated-content">
+<p><img src="iSchoolLogo.png" class="slide-logo"></p>
+<div class="footer footer-default">
 
-<img src="iSchoolLogo.png" class="slide-logo r-stretch"><div class="footer footer-default">
-
+</div>
 </div>
 </section>
     </div>
@@ -1447,7 +1451,6 @@ Wass, John A. 2015. <span>“Book Review: Statistics Done Wrong.”</span> <em>S
       Reveal.initialize({
 'controlsAuto': false,
 'previewLinksAuto': true,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1708,10 +1711,9 @@ Wass, John A. 2015. <span>“Book Review: Statistics Done Wrong.”</span> <em>S
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1721,8 +1723,17 @@ Wass, John A. 2015. <span>“Book Review: Statistics Done Wrong.”</span> <em>S
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
