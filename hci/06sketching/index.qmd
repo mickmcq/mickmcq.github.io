@@ -1,7 +1,7 @@
 ---
-title: "Human Computer Interaction:<br>Sketching"
+title: "HCI:<br>Sketching"
 author: Mick McQuaid
-date: 2023-02-16
+date: today
 bibliography: master.bib
 format:
   revealjs:
@@ -17,44 +17,110 @@ format:
 ---
 
 ::: {.r-fit-text}
-Week FIVE
+Week SIX
 :::
 
 # Today
 
+- Next week's guest speaker
+- Setareh---can she switch with Ananya?
+- Tutorial emphasis
 - Q and A from last time
-- Discussion leading (Ty Chaney)
-- Design Critique (Siyu Chen)
-- Article Presentation (Kali Foyle)
-- Break (break may be earlier or later in sequence)
-- Discussion leading (Swaraj Saha)
-- Article Presentation (Nimra Ishfaq)
+- Discussion leading (Mick McQuaid)
+- Design Critique (Aneri Dipakbhai Dalwadi)
+- Article Presentation (Carlie Ruelas Herrera)
 - Sketching
-- Readings
+- Figma? WAADs?
 
-# Q and A from last time
+# What was the most important point you learned today?
 
-## Learning (1 of 2)
-
-- Surveys allow you to gather information from many more people than would be practical in other methods.
-- In today's class, for sara, I was impressed by the design for blind people, and I think we can go deeper into the design needed by users with different needs
-- Interviewing, including many other methods in user research, is a skill that is developed and strengthened over time. It's not something you can just read about and be great at.
-
-## Learning (2 of 2)
-- The formal names for all the methods of interviews. I also really liked learning more about affinity mapping.
-- Contextual Inquiry, affinity mapping, and how to perform those
-- It was helpful to go through the data elicitation process in class. From one of the discussions in class - 'Observing Sara' case study caught my attention and it was an interesting read. The rationale behind the benefits of a one person study was something I've come across for the first time.
+##
+The Facebook–Cambridge Analytica data scandal is another example where automated data collected from 87 million Facebook profiles was used for political advertising. The more I learn about these cases and how privacy regulations formulated to benefit the data companies, I freak out about how much control these algorithms have over my life.
 
 
-## Questions (1 of 2)
+##
+Don Norman's obsolescence of design highlights the responsibility of designers to create products that are durable, upgradable, and timeless, reducing unnecessary waste and promoting sustainability. I definitely agree with it as it also highlights the role of consumer behavior and societal trends in shaping product obsolescence.
 
-### Is user research the same as UX research?
-This is an important question because terminology is in flux. I don't know the definitive answer to this question and I suspect that there is not a definitive answer. People use different terms to mean the same thing and the same term to mean different things! And people are changing their terminology all the time. Let's ask the class. The related question we can ask is whether we can understand user experience or should understand user experience without understanding the user.
+##
+I learned about the different resources  available to us for exploring more in-depth about research techniques for collecting user data.
 
-## Questions (2 of 2)
+##
+I found the discussion section during the beginning of class super insightful, especially when hearing my peers' perspectives on determining a hard stop for data collection. We discussed about the idea of implementing specific metrics that could be used to help with implementing a hard stop. Thank you for such amazing insights!
 
-### Which is the best research method to use when a design team is pressed for time?
-My opinion is that contextual inquiry is the best research method in this case, provided that two criteria are met: (1) the work process is not exotic, and (2) the potential users are receptive to change.
+##
+The ethical line combating misinformation and freedom of speech is very blurred.
+
+##
+Repair, reuse, regenerate, and more transform ideas in design! “Do not create waste, so you do not need to recycle.” This idea is beyond the design of matter and is about efficiency in thinking and research in a way that, in combination of going over the research design, inspired me to change some aspects of my research agenda. Specifically, being more mindful of the research design and how it can alter my results; thinking of more intuitive measurements; and not committing to outdated measurements of new concepts.
+
+##
+Rachel was wonderful as always. Also, great presentations! The shift of the  format from a traditional class setting to a seminar-style significantly altered the atmosphere of the class (an experiment in its nature). I thoroughly enjoyed the in-depth conversations and could actually hear everyone.
+
+##
+I like the part of sharing what people think are the most useful visualization tools. From my perspective, turning any visualization into 3D , such as making it an isometric or vertical layering, is useful when there are comprehensive information. It is easier for human vision to capture the structure of the model. When the entire presentation or portfolio is in a flat style, 3D graphics can be very compelling.
+
+##
+When taking about how we are dragged to buy new versions when we are using the apple watch in contrast to having a traditional watch, the thought that stayed is the strategy to keep the users hung to the product. "The Apple Ladder" does the exact same thing -- launching versions every year, marketing at the peak.  Their approach, combined with their diverse range of products and the strong loyalty they've built with their customers, has helped Apple stay ahead in the tech industry. The ladder they pull is by keeping the initial price range quiet high, and keeping the subsequent products at close range in prices. So a customer will inturn endup buying somwthing worth \$800 when they started from \$350. I think it's smart!
+
+## What question(s) do you have about the material covered in today's class?
+
+##
+No questions in today's class! Figma tutorials are very helpful!
+
+##
+I was curious with how facebook quantified/measured the result of the experiment they carried out on their users' change of moods.
+
+##
+Will we be practicing data modeling in class at all, such as workshop-style?
+
+##
+Also, will we be covering components in Figma? I have not had time to dig into those more, and I find them incredibly useful in theory.
+
+##
+In terms of visualizations, are there specific visuals that have the potential to evoke emotions from our audience when showcasing your work? Will we have the opportunity to explore this topic further in future classes?
+
+##
+With foreign governments (we have evidence that Russia is sowing discord in our country using online platforms), and social media algorithms (some of the engaging content that is pushed can often be flat our wrong) dividing our country and spreading false information, what can we do to to combat this?
+
+##
+No specific question I was wondering if there are any suggestions for prerecorded Figma tutorials so we can be more prepared.
+
+##
+When speaking of the chaos of user research in reality, I wonder how much we should take control over the research (for example interviews) , and how much freedom we should give to interviewees.
+
+##
+We talked about various ways to collect and work with information with their flaws, including diaries, surveys, case studies, how can I ensure that the data collected through each method  aligns with the goals and objectives of the product development process?
+
+## Discussion
+
+## Metaphors beyond visual cues
+How can UX designers use metaphors beyond mere visual cues? Mental shortcuts ... enriching usability but also promoting sustainable practices ...
+
+## What does design mean to you?
+(a question we have to keep asking ourselves)
+
+## Feedback
+How can the design team effectively gather and synthesize user feedback?
+
+## Validity
+Given the subjective nature of user feedback and potential biases inherent in self-report measures, to what extent can the results obtained from such studies be considered reliable and valid?
+
+## Top-down design
+Can we also say that the initial phase of top down design is not user centered?
+
+(Example: Apple Vision Pro)
+
+## Continuous innovation
+What are some methods or strategies you could implement to ensure continuous innovation?
+
+## Ahead of the wave, yet riding the crest
+How can designers innovate to stay ahead of current trends, while ensuring that their technology catches on and becomes mainstream?
+
+## Values inherent in top-down and bottom-up design
+Would you expect a workspace using a specific approach to hold certain values? If yes, what values do you would you expect?
+
+## Drivers of top-down design
+The article says 'Top-down design is heavily driven by domain knowledge', while I think top-down design is more driven by technology. How do you understand this question?
 
 # Sketching
 
@@ -132,7 +198,7 @@ Readings last week include @Hartson2019: Ch 9, 10
 Readings this week include @Hartson2019: Ch 12, 13, 14
 
 # Assignments
-none
+Project 2 due Friday
 
 # References
 
