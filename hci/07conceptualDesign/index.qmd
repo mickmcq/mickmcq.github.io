@@ -1,7 +1,7 @@
 ---
-title: "Human Computer Interaction:<br>Conceptual Design"
+title: "HCI:<br>Conceptual Design"
 author: Mick McQuaid
-date: 2023-02-23
+date: today
 bibliography: master.bib
 format:
   revealjs:
@@ -22,71 +22,101 @@ Week SEVEN
 
 # Today
 
+- Guest Speaker / Discussant, Erica Braverman
 - Q and A from last time
-- Discussion leading (Bhanu Kowshik)
-- Design Critique (Madhav Varma)
-- Article Presentation (Nimra Ishfaq)
-- Break (break may be earlier or later in sequence)
-- Conceptual Design
+- Discussion leading (skipped)
+- Design Critique (skipped)
+- Article Presentation (Ananya Gubbi Mohanbabu)
+- Conceptual Design Exercises
 - Figma Exercise
 
 # Q and A from last time
 
 ## Learning
 
-- mind-create-sketch-read
-- Iteration, sketching, critiquing and refinement all go together / occur at once in the design process.
-- From the design critique we had today on cat person box where the presenter had shown few pictures. I learned how we can create opportunity through crisis
-- Personas. I really did not understand the criticism of personas, but after discussing how they can be misused it made sense.
+##
+As for the user research part, I find it necessary to reflect on my user interviews. For example, in milestone 2, I looked back at my interview notes and found that at many points, I should have asked users multiple whys, so that I might have unearthed users' secret thoughts and values. But at that time, I thought the answer was expected and did not need to be explained, or I was just busy pushing the interview process.
 
-## More learning
-- I know this is like what we always talk about but it really hit home today - Design is a process, and each of the steps making it up are done with the goal of creating a thing which is useful to people. This sounds obvious but I try to keep this viewpoint in mind when we get into very specific techniques
-- I think the discussion leading is very helpful,  Let me reinforce the reading once again, and better understanding of the reading.
+##
+The Figma tutorial was very informative, thank you Rachel!!
 
-## Still more learning
-- I found the discussion about habits for approaching design as a creative process that involves looking up inspiration, resting, utilizing knowledge from seemingly irrelevant domains insightful because it makes the design process more human and focuses on growing as a person outside of UX.
-- I really liked the Eames quotes, I hadn't ever considered design as almost art with constraints. And it makes a lot of sense for myself considering, I started out as an artist and found design after getting a degree in IT.
-- Contextual inquiry had a great role to play in the design process.
+##
+The Austin History Museum certainly had a cumbersome website that is difficult for users to navigate through. While there were interesting discussions about using library jargons, having no funding to focus on website designs, and having a lot of information to showcase on the website, I think this generally extends to all government websites. Education, weather, taxes, visa appointment websites are all information heavy and have poor information architecture and system design.
 
-## Even more learning
-- Buxton has simplified the concept of the dialogue between mind and sketching process.
-- How persona could be a good way to crack a better target audience also how it depends on the chain and series of pre-defined things.
-- I enjoyed the discussion about empathy and if it is measurable or not. It is definitely making me think about my interactions with technology (social media, website, AI assistants, etc.).
-- The discussion about personas was also interesting.
+##
+I really liked the whole auto-animation tutorial we did in Figma today. It was really exciting, and I'd wanted to do it for a long time. I finally had the opportunity to do it in today's class, which was very rewarding. I was so eager to complete it that I found myself trying to guess what Rachel would do next by working ahead and finding myself making mistakes, but I eventually learned from Rachel's way and enjoyed the process. I'm excited to see what else I learn about components in Figma.
 
-## Even still yet more learning
-- I really found the generative AI article and how it affects design interesting in today's class. It was also great to discuss about personas and where they work and where they don't.
-- It was interesting to learn that unethical design is an outcome of a designer's ethical lapse. And how easy it might be to overlook these patterns while creating products, especially when there are business requirements, and stakeholder feedback that needs to be prioritized.
-- Another takeaway from the class was that design is all about constraints and that's how it differs from art.
+##
+The sketches are really important factor that play a role in designing. however, funding would play a major role in the drive for innovation, improvement, and implementation.
 
+##
+I am looking forward to learning more about sketching from those sketching resources.
+
+To me sketching is like note taking. I feel like it isn't entirely understood by others until it's refined.
+
+Kinda like when you go for an interview and you're taking note, I don't think anyone who isn't you truly understands everything you've written in that preliminary phase.
+
+My categorization would be sketching, lofi prototypes then hifi.
+
+##
+Multiple people should contribute to affinity diagramming for a collective process of "clumping and bubbling up" insights.  And the fact that insight comes from the stories of users so interviews potentially more insightful.
+
+##
+Being a good interviewer is a skill. This is the art of extracting not just a abundance information, but an abundance of good, useful information that can be synthesized. Everyone has a story to tell during an interview. If the interviewer give them too much, or not enough freedom, we lose that part of the story. It depends on the person being interviewed as well. An example is that in a study, they found that some autistic people feel uncomfortable from small talk. A good interviewer will need to know how to read the person, and adjust their methods accordingly.
 
 ## QandA
 
-## Eames quote
-- I'm interested in the Charles Eames quote about design being all about constraints, and how this is the only distinction from art. Is this really all that is different between design and art? They seem very similar, but often serve much different functions.
-- *There are at least as many opinions on this topic as there are artists and designers! What's yours?*
+##
+How do we find the focus of design after building the WAAD, rather than trying to cover everything or over-investing in details?
 
-## Comment on books
-- Since we caught up on discussions today, I did not have any questions. Thank you for creating a folder for books and articles. One book I did not mention, that promotes creativity but is not advertised as design related, is *A Curious Mind* by Brian Grazer.
+*My view is that the affinity diagramming process leads to a high level view, allowing you to ignore the affinity notes.*
 
-## Research methods
-- How can I learn more about individual research methods to be able to compare them from a research/ epistemology perspective?
-- *One way is to read books like @Olson2014 that try to compare the research methods on various axes.*
+##
+No questions for now! Thank you for a very informative class!
 
-## Mid-fi
-- Im still unsure what are the limitations of mid fi prototyping?
-- *My take is that the mid-fi is not suitable for a final developer handoff because it leaves too many questions open, but that it could be used to consult with the developer during the iterative process*.
+*Thank you for a very informative class!*
 
-## Seeing that and seeing as
-- Is Buxton's seeing that and seeing as could be compared with our design tool's view as (editor/user)?
-- *I'm not sure I understand the question. But I would say to bear in mind that it's a dialectic process undertaken by the same person in both cases. First, seeing that, then seeing as, then returning to seeing that. By the way, the concept of __Seeing That and Seeing As__ was introduced by @Goldschmidt1991 and just cited by @Buxton2007*.
+##
+We discussed that continuous innovation and development is necessary and is inevitable. I wonder if there are any design and sketching techniques from the 60s that have changed over time. Since we are still talking about books that were written then, I think this is contradictory to the former point.
 
-## Group time
-- Would it be possible to have some time at the end of class for group projects? It would be helpful if we can have 10 minutes at the end of the lecture to talk about group projects and meet with the team (in-person), it's been challenging to find times where we can meet in-person because of our different schedules.
-- *Not sure. We can certainly try!*
+*Great point! There are new techniques, but we still study very old ones.*
+
+##
+N/A
+
+*Okay*
+
+##
+How can the iterative nature of Affinity Diagramming be leveraged to not only organize and categorize ideas but also to uncover underlying insights, patterns, and connections that may not be immediately apparent, for more effective solutions?
+
+*That is the human part of the process that is difficult for LLMs to replicate!*
+
+##
+I found the concept of emotion and beauty in UX design as interesting because I enjoyed Don Norman's book. I was curious about the place of beauty and emotion in design, and how that fits into an information-driven program such as our own here at the iSchool.
+
+*Schiller and Goethe argued about which is more important, beauty or truth. It's a worthwhile argument!*
+
+##
+You didn't say what we shouldn't take notes about during an interview.
+
+*Good point! Hard to know what will prove irrelevant to the task at hand! Requires interview experience and reflection!*
+
+##
+How do you know when you have enough insights to move from affinity mapping to prototyping?
+
+*You don't, in my view! You move from affinity diagramming to personas to storyboard and then prototyping!*
+
+How might the sketching/interpretation process be adapted for digital tools vs analog sketchbooks?
+
+*Some people do okay with iPads, but digital whiteboards have mostly been a flop.*
+
+##
+Given that producing and organizing affinity notes is a huge resource and labor sink, what is your thoughts on letting an AI categorize the insights, and letting all of the different processes bubble together that way?
+
+*We need to give it a try---my guess is that it will leave out the magic, but hard to tell without experience.*
 
 # Conceptual Design
-Instead of droning on about this topic, I'd like to do the exercises in the chapters.
+Instead of droning on about this topic, I'd like to do the exercises in the chapters. In particular, let's do three storyboards, one for each perspective (emotional, interaction, and ecological) as described in Exercise 17-2 on pages 371--372. Let's take an hour to do this, so about fifteen minutes per sketch, with a short break after each one to share with the other group.
 
 # Readings
 
