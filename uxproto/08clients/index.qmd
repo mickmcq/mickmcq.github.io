@@ -20,6 +20,18 @@ format:
 Week EIGHT
 :::
 
+# Q and A from last time
+
+## When is animation too much?
+Are there standards to follow with animation?
+
+*I suspect it's a community thing and you have to know what your community is comfortable with. For me, it's too much when it's laggy on my old, slow machine or when it draws attention to itself, but I am only part of some communities, not all.*
+
+## Alternative ways to work with components
+How do teams collaborate on component design?
+
+*The audience for the component designers is other designers, but that doesn't always mean that you know the other designers well, e.g., the Wikipedia redesign we discussed. Check out the design system videos we didn't get to!*
+
 # Clients
 
 ##
