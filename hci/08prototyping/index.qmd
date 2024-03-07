@@ -1,7 +1,7 @@
 ---
-title: "Human Computer Interaction:<br>Prototyping"
+title: "HCI:<br>Prototyping"
 author: Mick McQuaid
-date: 2023-03-02
+date: today
 bibliography: master.bib
 format:
   revealjs:
@@ -23,35 +23,66 @@ Week EIGHT
 # Today
 
 - Q and A from last time
-- Discussion leading ()
-- Design Critique ()
-- Article Presentation ()
-- Break (break may be earlier or later in sequence)
+- Naheel Jawaid recap
+- Discussion
 - Prototyping
 
 # Q and A from last time
 
 ## Learning
-- I've never considered the way that certain hardwares (e.g. the CVS self-checkout system) can be fairly badly designed yet intuitively useful. This kind of reminds me of Norman's (2013) point on when things are difficult to use, it's not because of the person using it, it's bad design.
-- I liked the class-led discussion today about the ecology of Apple and how it is both useful and entrapping.
-- Discussion over read only mode helps to understand better.
 
-## More learning
-Art vs Design - After considering everyone's perspectives, a few things sprang to mind: both art and design are answers to some significant problems. Art is an aesthetic remedy, whereas design is an optimum solution. A royal throne is an example of art, whereas an ergonomic chair is an example of design. In fact, both are intended to sit. All presentations were exceptional.
+##
+There were so many experiences shared that addressed about the accessibility for the disability community. Recognizing and acknowledging the diverse feelings and challenges faced by individuals with disabilities is an essential first step towards creating inclusive solutions. There are possibilities that one solution works for a group doesn't work for the other: think for avenue for the product can help. One can include more than one avenue can help(subtitles, images can have more texts, etc). So, "Diversity in solutions is key".
 
-## Possible learnings, possible questions
-- A brief understanding on Mental model,
-- Which user research to use at what timeline.
+##
+Erica's talk was very inspiring.
 
-## QandA: Storyboards
-Is it best to complete storyboards before modeling or after?
+##
+I wasn't aware that screen sharing tools override screen readers functions making it inaccessible to blind and low-vision users. Other interesting issues I learned about were security and information sharing using screen readers.
 
-*Answer: In my mind it depends on the type of modeling you mean. I would do storyboards after user modeling. What do others think?*
+##
+I really enjoyed Ananya's presentation on Context-Awareness Settings. I think it was a very engaging presentation and topic that was very easy to understand, given the capabilities of devices these days. I think it was also from a good article.
 
-## QandA: Apple
-Is Apple, which has a stranglehold on the market and is a leader in globalization for its goods, truly concentrating on its main objective to genuinely make design simple for everybody or forcing people to adapt?
+## Q and A
 
-*Answer: (1) I would argue that Apple does __not__ have a stranglehold. Apple is only as good as consumers think it is. Microsoft, on the other hand, has what I would call a stranglehold. I don't choose Microsoft products---they are chosen for me. I can't avoid them. (2) I agree Apple is a leader in globalization and I think globalization is in many ways a bad thing. It is a boutique maker, trying to concentrate on a small number of products and a small number of choices, especially during the tenure of Tim Cook, an operations guy. What do other think?*
+##
+Nothing unresolved. The class discussions were quiet broad and descriptive.
+
+##
+How can the process of co-ideation be made accessible using automated tools?
+
+##
+N/A
+
+# Naheel Jawaid recap
+
+## Naheel Jawaid
+- Currently a UX designer at Google
+- Plans to start own company soon
+- Gave an engaging talk at UX Design club yesterday
+- Offers free design school!
+
+## Four things you do
+- Product thinking
+- Interaction design
+- Visual design
+- Communication
+
+Example: AirBnB vs CraigsList
+
+## Your portfolio
+... must prove you can do these four things
+
+## More from Naheel
+- Schools set standards too low
+- Show your work to industry people
+- Pick one thing and go deep---keeping all doors open means you'll be last in line at each door
+- If you're not getting offers, concentrate on doing good work---offers will emerge
+- ARglasses example---constraints and landscape
+
+## Recommendations
+- tools: Protopie and Origami
+- portfolios: thereal.kim and rauno.me/craft
 
 # Discussion
 
@@ -112,7 +143,7 @@ A guest speaker from ExxonMobil told my other class that he wants to see paper a
 I disagree with the book that this method is rare. I saw a demo of it yesterday for a study of new VR technology that is not yet implemented. The designers are trying to decide which technology to implement, so they're doing a Wizard of Oz study of five possibilities.
 
 ## Misinformation in affordances
-Christina pointed out that this can occur anywhere, not just doors. Can we think of some examples?
+A previous student (Christina Jia) pointed out that this can occur anywhere, not just doors. Can we think of some examples?
 
 ## Is affordance only relevant as an influence?
 Well, is it?
