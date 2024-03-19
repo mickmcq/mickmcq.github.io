@@ -167,22 +167,31 @@ being in the same room, working on the same problem, with both brains focused on
 - Lack of body language
 
 ## Stages
-- Research (one member transcribes)
-- Sensemaking (synth builds big picture, takes the lead)
+- Research (synth transcribes) (what to do)
+- Sensemaking (synth builds big picture, takes the lead) (how to do it)
 - Wireframing / sketching (gen takes the lead in drawing)
 - Detailed design (synth produces narrative, gen produces visuals)
 
+::: {.notes}
+For the upcoming exercise, you're going to spend the first stage deciding what to do. So think of research as talking about your project and what would make a good candidate for microinteraction.
+
+Spend the second stage deciding how to do it. You've found a candidate for microinteraction, so now you have to make decisions about it concerning design elements like color and transition timing.
+
+Spend the third stage and the fourth stage actually doing it. Initially sketch it, then accomplish it in Figma or whatever app.
+:::
+
 ## Exercise: pair design your microinteraction
-- Break into pairs (not necessarily your project teammate)
-- Choose some aspect of your project
+- Break into pairs (not your project teammate)
+- Choose some aspect of either project during the research stage
 - Spend the allocated time in gen and synth roles,
-  swapping at least once
+  swapping at each stage for four stages
 
 ## Did this work? If so, why?
 - Pairing forces constant iteration: idea testing and course correction
 - It brings to bear two brains and two stances
 - Designers are happier
 - Each partner can focus on their core aptitudes
+- Who felt more natural as a gen? As a synth?
 
 ## Other reasons
 - Partners learn from each other
