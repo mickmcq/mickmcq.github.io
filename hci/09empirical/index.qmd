@@ -1,7 +1,7 @@
 ---
-title: "Human Computer Interaction:<br>Empirical Evaluation"
+title: "HCI:<br>Empirical Evaluation"
 author: Mick McQuaid
-date: 2023-03-09
+date: today
 bibliography: master.bib
 format:
   revealjs:
@@ -31,44 +31,62 @@ Week NINE
 
 # Q and A from last time
 
-## Learning
-- I learned some prototype ways and different animation effects.
-- Prototype transitions. It has been a long time since I have played with Figma. It was intimidating at first, but doing it as a class helped.
-- Learning to use Figma was helpful, I have no background in design but my classmate's work makes it easier for me to understanding how to work in Figma.
+## Learning 1 of 4
 
-## Q&A
-In Figma, I noticed that Design refers to creating the interface and what it visually looks like, but Prototype refers to creating the interaction. Is this the case outside of Figma? Is this the best way to understand prototyping?
+Learning about Naheel Jawaid's presentation was very interesting, particularly the insight that having all doors open could mean being last in line. Essentially, this would suggest that I must fully commit to a path to make significant progress. It resonates with the advice my dad consistently gave me about life, which I used to resist because I believed in keeping all options open. However, after hearing Naheel's perspective, I now see the value in committing to a direction, though I still believe in maintaining some flexibility within reason.
 
-*Answer: I think it is particular to Figma and is not how I understand the dichotomy between design and prototyping, which I see as the difference between generating alternatives and implementing one of those alternatives.*
+## Learning 2 of 4
+I enjoyed the discussions about AirBNB vs Craigslist. I always thought that Craigslist was cluttered, and the design was a little archaic. I never thought that the clutter was an intentional design choice (so the user feels like they have a bargain).
+
+## Learning 3 of 4
+I appreciate those two portfolio website examples which are really impressive. And thank you Rachel to teach me something I've always wanted to learn but didn't figure out.
+
+## Learning 4 of 4
+I thought the discussion on the different categorizations of prototype variants was interesting.
+
+## Q&A 1 of 5
+N/A. Shout out to Rachel!! I've noticed that my ability to follow along with these Figma tutorials has improved significantly, and I'm not feeling as lost!
+
+## Q&A 2 of 5
+Can you provide us with more examples of good portfolios?
+
+## Q&A 3 of 5
+rauno.me/craft was really satisfying and fun to look at.
+
+## Q&A 4 of 5
+When I use websites that look old, I would doubt if the content and system are under maintenance and updated. I'm curious to hear more about the good and bad experiences of these sites.
+
+## Q&A 5 of 5
+I am curious about trying the other tools recommended by Naheel (the speaker who's talk you summarized for us). It is nice to hear more about what designers are using and trying outside of Figma (since I feel Figma really boomed and it sounds rather ubiquitous, but there are other tools.)
 
 # Discussion
 
-## Reusing participants
-My question is from chapter 23 of the UX book. The chapter suggests that using the same participants for more than one cycle of formative evaluation. However, wouldn't this technique fail if the design/research team is doing A/B testing with two new prototypes? Wouldn't the participant be influenced by their thoughts regarding previous versions? In that case I believe it wouldn't be true A/B testing, but A/B/C testing essentially.
+## Experts of novel products
+How do you find expert users for novel products that no one has seen before?
 
-## Recency bias
-I had a similar question, as I know this is a problem with a lot of social science experiments as well. To counteract the recency bias (remembering what you just did/responded to in the last simulation), there's usually a time break of a couple days between each task. I wonder how practical this is to in UX work, though, especially give the constraints of time/money.
+*(Note re iPhone: Android team members I talked to said that, as soon as they saw it, they knew they had to scrap their existing work)*
 
-## Remote user testing
-I am interested in the ways that UX designers interact with participants in testing their prototypes. A lot of the methods described in the book seemed to be performed in person. I know a lot of UX positions are now completely remote, though. I’m wondering how an online-simulated user testing experience would differ from in-person, and the pros and cons to both.
+## Surprising behavior
+Which empirical evaluation techniques are most likely to lead to surprising behavior and possible design pivots?
 
-## Teaching and managing up
-Chapter 22’s breakdown of the UX Target Table was beneficial, and I hope to implement the model in my work. Last year there was a spike in the requests for benchmarking our products. After each product area received a score it became less of interest. Even when collecting our scores, I don't recall using Target Tables or anything similar. How do we as entry-to-mid-level researchers evangelize these processes in organizations that are less mature in their UX strategy? What are some best practices for teaching / managing up?
+## Qual vs Quant
+Is qualitative data more valuable than quantitative data? If so, why? Is it possible that it depends on context?
 
-## Sophisticated techniques
-Empirical evaluation is a more systematic way of collecting data and evaluating the usability of a product. A lot of the methods described are ones I'm very familiar with after having used them often in school and at different workplaces such as using the think-aloud technique or administering questionnaires using the likert scale. I have yet to encounter it but are there more sophisticated methods of measuring user engagement, potentially some that require specific and advanced tools?
+*(Note: I just had a horrendous experience with the KLM website over break and yet they tried to survey me every step of the way.)*
 
-## User testing facilitators and observers
-... I find the testing process itself to be rigorous and wonder if it requires more than two people (a facilitator and a notetaker) to capture all data points, including quantitative (such as number of errors, time-on-task, task path) and qualitative (such as user expression, verbal feedback, etc.) data. But having tools to automate a portion of data collection might simplify the process.
+## How is data collection accomplished?
+Do you partner with data analysis experts or learn all the skills? How do you track and store observations, time on task, user comments, and more?
 
-## Risks
-How do UX designers manage the limitations of the different methods used? User testing may not provide a complete understanding of user needs and experiences as there may always be gaps in our knowledge of user experience that cannot be fully captured through testing. In such cases, how do we acknowledge these limitations?
+## Benchmark tasks
+How do you select benchmark tasks?
+
+*(Note: Isn't this largely dictated by the goals of the system being tested?)*
+
+## Collaboration between Design and Engineering
+How can UX and engineering teams establish a collaborative and integrated approach?
 
 ##
 ![](fiRisksOpptys.png)
-
-## Recordings
-While Chapter 24 acknowledges that video recording can be unreliable, it also provides the most accurate data in its raw form. Summarizing user interviews inevitably involves some degree of subjective interpretation, but is it worth avoiding video recording despite the potential loss of valuable information?
 
 # Empirical evaluation
 
@@ -135,11 +153,12 @@ Described in a book chapter, "Dimensions of Usability", in a book, *Content and 
 
 ## Steve Krug's approach
 (pause for video)
+
 # Readings
 
 Readings last week included @Hartson2019: Ch 20
 
-Readings last week include @Hartson2019: Ch 22--24
+Readings this week include @Hartson2019: Ch 22--24
 
 # Assignments
 None
