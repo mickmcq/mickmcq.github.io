@@ -1,0 +1,726 @@
+---
+title: "Stats: <br>Multiple Linear Regression;<br>Logistic Regression"
+author: Mick McQuaid
+date: today
+bibliography: master.bib
+monofont: JetBrainsMono Nerd Font
+format:
+  revealjs:
+    logo: iSchoolLogo.png
+    theme: statstheme.scss
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  echo=TRUE
+)
+pacman::p_load(tidyverse)
+```
+
+::: {.r-fit-text}
+Week NINE
+:::
+
+# New Logo
+
+## from Lego Batman
+![](fiStatistics.png)
+
+# Homework
+
+```{r}
+x <- c(0,2,0,1.4,2,1.9,1.8,1.9,1.9,1.9,2)
+stem(x)
+```
+
+# Multiple Linear Regression
+
+## Multiple regression intro (Chapter 9)
+Everything we've done so far has assumed that we know one piece of information's relationship to another piece of information. Take the example of teams, where we knew the payroll and want to know the number of wins. Suppose we also knew a number of other statistics that might affect wins. How would we incorporate them? The answer is simple. We *add* them.
+
+##
+Because we're using a linear equation, that is, the equation of a line to model the data, there's no reason we can't add terms to the equation. These terms are additive, meaning that we add each term and each term has a coefficient. So now, our estimate of $y$, which we call $\hat{y}$, looks like this for $n$ terms.
+
+$$\hat{y}=b_0+b_1x_1+b_2x_2+\cdots+b_nx_n$$
+
+##
+In R, we simply add the column names. For example, consider the built-in data frame `mtcars` where the outcome variable is `mpg`. We can construct a model of the relationship between `mpg` and two input variables we suspect of influencing `mpg` as follows.
+
+##
+
+```{r}
+m <- with(mtcars,lm(mpg ~ hp+wt))
+summary(m)
+```
+
+##
+The output looks a bit different now. First, there are 32 residuals, so the individual residuals are not listed. Instead, you see summary statistics for the residuals.
+
+##
+Next, look at the coefficients table. There are three rows now, for the intercept, for hp, and for wt. Notice that all three have significance codes at the end of the row. Normally, you shouldn't be concerned about the significance code for the intercept, but the other two are interesting. The code for `hp` is two stars, meaning that it is less than 0.01, while the code for `wt` is three stars, meaning that it is less than 0.001. The $p$-value of 1.12e-06, which is abbreviated scientific notation, means to take 1.12 and shift the decimal point six places to the left, giving 0.00000112 as the decimal equivalent.
+
+\newcommand{\RSS}{R\!S\!S}
+\newcommand{\RSE}{R\!S\!E}
+\newcommand{\MSE}{M\!S\!E}
+\newcommand{\SSyy}{S\!S_{yy}}
+\newcommand{\SSxx}{S\!S_{xx}}
+\newcommand{\SSxy}{S\!S_{xy}}
+
+##
+The residual standard error is 2.593 on 29 degrees of freedom. As mentioned before, the residual standard error (often abbreviated $\RSE$) is the square root of the expression formed by the ratio of the residual sum of squares (often abbreviated $\RSS$) divided by the degrees of freedom. Expressing this as a formula is as follows.
+
+$$\RSE=\sqrt{\frac{\RSS}{\text{df}}}$$
+
+$\RSS$ can be found in R for the above model as follows.
+
+```{r}
+(rss <- sum(residuals(m)^2))
+```
+
+##
+Similarly, $\RSE$ can be found in R for the above model as follows.
+
+```{r}
+(rse <- sqrt( sum(residuals(m)^2) / m$df.residual ))
+```
+
+The mathematical formulas for these values are as follows.
+
+\begin{align*}
+\RSS &=\sum_{i=1}^{n}(y_i-\hat{y}_{i})^2 \\
+     &=\SSyy-\hat{\beta}_1\SSxy
+\end{align*}
+
+##
+The term $\SSxy$ in the preceding formula is only relevant for simple linear regression with one predictor, where $\SSxy = \sum(x_i-\overline{x})(y_i-\overline{y})$. A formula for $\hat{\beta}_1$ in that case would be the following.
+
+$$\hat{\beta}_1=\frac{\SSxy}{\SSxx}$$
+
+$\SSxx$ in that case would be the sum of squares of deviations of the predictors from their mean: $\sum(x_i-\overline{x})^2$.
+
+##
+
+$$\RSE =\sqrt{\frac{\sum_{i=1}^{n}(y_i-\hat{y}_{i})^2}{n-(k+1)}} $$
+
+where $k$ is the number of parameters being estimated. For example, in the above model `wt` and `hp` are the two parameters being estimated.
+
+##
+The Multiple R-squared is 82 percent and the Adjusted R-squared is 81 percent. This is a good sign because the Adjusted R-squared is adjusted for the case where you have included too many variables on the right hand side of the linear model formula. If it's similar to Multiple R-squared, that means you probably have not included too many variables.
+
+$$ R^2=\frac{\SSyy-\RSS}{\SSyy}
+   =1-\frac{\RSS}{\SSyy} $$
+
+$$ R^2_a=1-\left(\frac{n-1}{n-(k+1)}\right)(1-R^2) $$
+
+##
+The $F$-statistic is important now, because of its interpretation. The $F$-statistic tells you that at least one of the variables is significant, taken in combination with the others. The $t$-statistics only give the individual contribution of the variables, so it's possible to have a significant $t$-statistic without a significant $F$-statistic. The first thing to check in regression output is the $F$-statistic. If it's too small, i.e., has a large $p$-value, try a different model.
+
+$$F_c=\frac{(\SSyy-\RSS)/k}{\RSS/[n-(k+1)]}
+=\frac{R^2/k}{(1-R^2)/[n-(k+1)]}$$
+
+##
+The $c$ subscript after $F$ simply signifies that it is the computed value of $F$, the one you see in the regression table. This is to contrast it with $F_\alpha$, the value to which you compare it in making the hypothesis that one or more variables in the model are significant. You don't need to compute $F_\alpha$ since the $p$-value associated with $F_c$ gives you enough information to reject or fail to reject the null hypothesis that none of the variables in the model are significant. If you want to calculate it anyway, you can say the following in R:
+
+```{r}
+qf(0.05,2,29,lower.tail=FALSE)
+```
+
+##
+The preceding calculation assumes you choose 0.05 as the alpha level and that there are $k=2$ parameters estimated in the model and that $n-(k+1)=29$. These are the numerator and denominator degrees of freedom.
+
+##
+You might think that including more variables results in a strictly better model. This is not true for reasons to be explored later. For now, try including all the variables in the data frame by the shorthand of a dot on the right hand side of the formula.
+
+##
+
+```{r}
+summary(lm(mpg ~ ., data=mtcars))
+```
+
+##
+You might find this output a bit surprising. You know from the $F$-statistic that at least one of the variables is contributing significantly to the model but individually, the contributions seem minimal based on the small $t$-statistics. The model is only a bit better, explaining 86 percent of the variability in the data, and the adjusted $R^2$ value hasn't improved at all, suggesting that you may have too many variables.
+
+##
+At this stage, you would probably remove some variables, perhaps by trial and error. How would you do this? You could start by running linear models over and over again. For example, you could construct one linear model for each variable and see which one has the largest contribution. Then you could try adding a second variable from among the remaining variables, and do that with each remaining variable, until you find one that adds the Largest contribution. You could continue in this way until you've accounted for all the variables, but would take forever to do.
+
+##
+Luckily, R has functions to assist with this process and run regressions for you over and over again. I'm going to demonstrate one of them now for which we have to add the leaps package. I should point out that this involves doing some machine learning which is not strictly in the scope of this class, but will save you a lot of time.
+
+##
+
+```{r}
+pacman::p_load(caret)
+pacman::p_load(leaps)
+set.seed(123)
+train.control <- trainControl(method = "cv", number = 10)
+m <- train(mpg ~ ., data = mtcars,
+                    method = "leapBackward",
+                    tuneGrid = data.frame(nvmax = 1:10),
+                    trControl = train.control
+                    )
+m$results
+```
+
+##
+
+```{r}
+m$bestTune[,1]
+summary(m$finalModel)
+coef(m$finalModel,m$bestTune[,1])
+```
+
+##
+
+```{r}
+summary(lm(mpg~wt+qsec,data=mtcars))
+```
+
+##
+The preceding code uses a process of backward selection of models and arrives at a best model with two variables. Backward selection starts with all the variables and gradually removes the worst one at each iteration.
+
+The following code uses a process of sequential selection, which combines both forward and backward. It takes longer to run, but can result in a better model. In this case, it chooses four variables.
+
+##
+
+```{r}
+m <- train(mpg ~ ., data = mtcars,
+                    method = "leapSeq",
+                    tuneGrid = data.frame(nvmax = 1:10),
+                    trControl = train.control
+                    )
+m$results
+m$bestTune[,1]
+```
+
+##
+
+```{r}
+summary(m$finalModel)
+coef(m$finalModel,m$bestTune[,1])
+```
+
+##
+
+```{r}
+summary(lm(mpg~hp+wt+qsec+am,data=mtcars))
+```
+
+##
+Which model is better? The latter model has the best adjusted $R^2$ value. But it also has what appears to be a spurious variable, hp. It could be that hp is contributing indirectly, by being collinear with one of the other variables. Should we take it out and try again or should we accept the two variable model? That depends on several factors.
+
+##
+There is a principle called Occam's Razor, named after William of Occam (who didn't invent it, by the way---things often get named after popularizers rather than inventors). The principle states that, if two explanations have the same explanatory power, you should accept the simpler one. In this context, *simpler* means fewer variables. The tricky part is what is meant by the *same* explanatory power. Here we have a comparison of 0.8368 adjusted $R^2$ vs 0.8144. Are those close enough to be considered the same? It depends on the context.
+
+##
+If you're a car buyer I would say yes but if you're a car manufacturer I would say no. Your opinion might differ. It's easy to teach the mechanics of these methods (even if you don't think so yet!) but much harder to come up with the insights to interpret them. (Actually, I would probably choose the three variable model of wt, qsec, and am, but you can test that for yourself.)
+
+## Feature selection with qualitative variables
+Unfortunately, the `leaps` package is not much help with qualitative variables. Another approach is to use the `olsrr` package as follows.
+
+```{r}
+pacman::p_load(olsrr)
+m <- lm(price ~ carat + cut + color + clarity, data = diamonds)
+k <- ols_step_best_subset(m)
+k
+```
+
+##
+
+```{r}
+plot(k)
+```
+
+## Note on ordered factors
+When you conduct a linear regression, you are generally looking for the linear effects of input variables on output variables. For example, consider the `diamonds` data frame that is automatically installed with `ggplot`. The `price` output variable may be influenced by a number of input variables, such as `cut`, `carat`, and `color`. It happens that R interprets two of these as ordered factors and does something interesting with them. Let's conduct a regression of `price` on `cut`.
+
+##
+
+```{r}
+summary(lm(price~cut,data=diamonds))
+```
+
+##
+Note that the output includes four independent variables instead of just `cut`. The first one, `cut.L`, represents `cut`. The `L` stands for *linear* and estimates the linear effect of `cut` on `price`. The other three are completely independent of the linear effect of `cut` on `price`. The next, `cut.Q`, estimates the quadratic effect of `cut` on `price`. The third, `cut.C`, estimates the cubic effect of `cut` on `price`. The fourth, `cut^4` estimates the effect of a fourth degree polynomial contrast of `cut` on `price`. Together, all four of these terms are orthogonal polynomial contrasts. They are chosen by R to be independent of each other since a mixture could reveal spurious effects. Why did R stop at four such contrasts? Let's examine `cut` further.
+
+##
+
+```{r}
+table(diamonds$cut)
+```
+
+You can see that `cut` has five levels. R automatically chooses $\text{level}-1$ polynomial contrasts when presented with an ordered factor. How can you make R stop doing this if you don't care about the nonlinear effects? You can present the factor as unordered without altering the factor as it is stored. Then your regression output will list one term for each level of the factor, estimating the effect of that level on the output variable.
+
+##
+
+```{r}
+diamonds$cut <- factor(diamonds$cut,ordered=FALSE)
+summary(lm(price~cut,data=diamonds))
+```
+
+##
+
+By the way, you can also say it in one line as:
+
+```{r}
+summary(lm(price~factor(cut,ordered=F),data=diamonds))
+```
+
+##
+Notice that generating the orthogonal polynomial contrasts does not alter the linear model in any way. It's just extra information. Both models produce the same $R^2$ and the same $F$-statistic and the same $p$-value of the $F$-statistic.
+
+##
+It is *VERY* important to note that there is an assumption in the generation of these orthogonal polynomial contrasts. They assume that the differences between the levels of the ordered factor are evenly spaced. If the levels are not evenly spaced, the information provided will be misleading. Take for instance the world's top three female sprinters. I read an article claiming that the difference between the top two (Richardson and Jackson at the time of this writing) was much smaller than the difference between the second and third. There are many statistical tools that use ranks, such as 1, 2, and 3, as ordered factors. Here is a case where that would be misleading.
+
+##
+How can you use this information? In a basic course like this, the information is not particularly useful and we will not pursue it. If you go on in statistics or data science, you will soon encounter situations where nonlinear effects matter a great deal.
+
+##
+For example, this often arises in age-period-cohort analysis, where you want to separate the effects of people's ages, usually divided into evenly spaced levels, and other numerical factors such as income, also usually divided into evenly spaced levels, and the effects of significant periods, such as the economic collapse of 2008 or the pandemic beginning in 2019, and finally the effects of being a member of a cohort or identifiable group. This kind of analysis is often conducted by epidemiologists, people with very large groups of customers, policymakers, and others concerned with large groups of people, or any "objects" with large numbers of attributes.
+
+## More on Multiple regression
+The OpenIntro Stats book gives an example of multiple regression with the `mariokart` data frame from their website. This involves the sale of 143 copies of the game *Mario Kart* for the Wii platform on eBay. They first predict the price based on most of the variables, like so.
+
+##
+
+```{r}
+load(paste0(Sys.getenv("STATS_DATA_DIR"),"/mariokart.rda"))
+m<-(lm(total_pr~cond+stock_photo+duration+wheels,data=mariokart))
+summary(m)
+```
+
+##
+
+```{r}
+plot(m, c(1))
+```
+
+##
+
+```{r}
+plot(m, c(2))
+```
+
+##
+
+```{r}
+plot(m, c(3))
+```
+
+##
+
+```{r}
+plot(m, c(4))
+```
+
+##
+There are four diagnostic plots in the above output. Each one gives us information about the quality of the model.
+
+## Residuals vs Fitted
+This plot tells you the magnitude of the difference between the residuals and the fitted values. There are three things to watch for here. First, are there any drastic outliers? Yes, there are two, points 65 and 20. (Those are row numbers in the data frame.) You need to investigate those and decide whether to omit them from further analysis. Were they typos? Mismeasurements? Or is the process from which they derive intrinsically subject to occasional extreme variation. In the third case, you probably don't want to omit them.
+
+##
+Second, is the solid red line near the dashed zero line? Yes it is, indicating that the residuals have a mean of approximately zero. (The red line shows the mean of the residuals in the immediate region of the $x$-values of the observed data.)
+
+##
+Third, is there a pattern to the residuals? No, there is not. The residuals appear to be of the same general magnitude at one end as the other. The things that would need action would be a curve or multiple curves, or a widening or narrowing shape, like the cross section of a horn.
+
+## Normal Q-Q
+This is an important plot. I see many students erroneously claiming that residuals are normally distributed because they have a vague bell shape. That is not good enough to detect normality. The Q-Q plot is the standard way to detect normality. If the points lie along the dashed line, you can be reasonably safe in an assumption of normality. If they deviate from the dashed line, the residuals are probably not normally distributed.
+
+## Scale-Location
+Look for two things here. First, the red line should be approximately horizontal, meaning that there is not much variability in the standardized residuals. Second, look at the spread of the points around the red line. If they don't show a pattrn, this reinforces the assumption of homoscedasticity that we already found evidence for in the first plot.
+
+## Residuals vs Leverage
+This shows you influential points that you may want to remove. Point 84 has high leverage (potential for influence) but is probably not actually very influential because it is so far from Cook's Distance. Points 20 and 65 are outliers but only point 20 is more than Cook's Distance away from the mean. In this case, you would likely remove point 20 from consideration unless there were a mitigating reason. For example, game collectors often pay extra for a game that has unusual attributes, such as shrink-wrapped original edition.
+
+##
+As an example of a point you would definitely remove, draw a horizontal line from point 20 to a vertical line from point 84. Where they meet would be a high-leverage outlier that is unduly affecting the model no matter what it's underlying cause. On the other hand, what if you have many such points? Unfortunately, that probably means the model isn't very good.
+
+## Removing offending observations
+Suppose we want to get rid of points 20 and 65 and rerun the regression. We could either do this using plain R or the tidyverse. I prefer the tidyverse method because of clarity of exposition.
+
+##
+
+```{r}
+df <- mariokart |>
+  filter(!row_number() %in% c(20, 65))
+m<-(lm(total_pr~cond+stock_photo+duration+wheels,data=df))
+summary(m)
+```
+
+##
+
+```{r}
+plot(m, which=c(1))
+```
+
+##
+
+```{r}
+plot(m, which=c(2))
+```
+
+##
+
+```{r}
+plot(m, which=c(3))
+```
+
+##
+
+```{r}
+plot(m, which=c(4))
+```
+
+##
+What a difference this makes in the output and the statistics and plots about the output!
+Keep in mind, though, that I just did this as an example. Points 20 and 65 may be totally legitimate in this case. Also, note that you could use plain R without the tidyverse to eliminate those rows by saying something like `df <- mariokart[-c(20,65),]`. The bracket notation assumes anything before the comma refers to a row and anything after a comma refers to a column. In this case, I didn't say anything about the columns, so the square brackets just have a dangling comma in them. The important point is that one method or another may seem more natural to you. For most students, the tidyverse approach is probably more natural, so I highlight that.
+
+## Regression gone wrong
+There is a dataframe in both the `MASS` and `ISLR2` called `Boston`. It illustrates the problem of systemic racism and how that can affect statistical models such as we are generating in logistic regression. It is instructive to look at this dataframe rather than ignore it so we can learn how such things happen and, perhaps, how to guard against them.
+
+##
+The `Boston` dataframe is popular in textbooks and statistics classes. I've used it myself without thinking too much about it. It has a column called `black` which I naively assumed could be used to illustrate racism in Boston, a city notorious for segregation of the black population into a ghetto.
+
+##
+I was about to use it in this class when a student asked if the `black` column was removed in the `ISLR2` package because of racism. I didn't know. I looked at both copies, the one in `MASS` and the one in `ISLR2` (a more recent package) and discovered that, indeed, the `black` column had been removed in the more recent package. Why? I searched for articles about the `Boston` dataframe and found two alarming articles analyzing it, one of which pointed out that some prominent statisticians had deleted it from their Python package after learning of the problem.
+
+##
+Far from being used to illustrate racism, this dataframe may have actually been perpetuating racist activity. The original purpose of the dataframe is innocuous. It is meant to illustrate the relationship of air pollution to housing prices, which seems like a laudable goal. There is evidence, though, that in assembling the dataframe, the creators made some racist assumptions that have had a lasting negative effect. What we know about assembling the dataframe is incomplete, based on incomplete documentation and attempted reconstruction by [M. Carlisle](https://medium.com/@docintangible/racist-data-destruction-113e3eff54a8), a self-described Mathematics PhD posting on Medium. The following information comes from Carlisle's post, although I am responsible for any errors of interpretation.
+
+##
+It appears that the creators of the dataframe committed an error you can easily avoid, thanks in part to contemporary tools that were not available in 1975. They took some data from the US Census, but did not record it directly. Instead, they subjected it to a non-invertible transformation and recorded the result. That means that we can't be sure of the original data and we are stuck, in a sense, with their interpretation of that data.
+
+##
+Critically, that interpretation encoded two racist assumptions that should have been testable to root out racism rather than encoded to perpetuate it. The transformation is $v=1000(B-0.63)^2$, where $B$ is the proportion of the Black population by town. By non-invertible it is meant that $B$ can't be derived from $v$ except in some cases because squaring makes the number positive regardless of whether $B-0.63$ is positive or negative. This is a very basic error you should not emulate. Luckily, tools like Quarto make it possible to document all your transformations so you can use the raw data and someone else can substitute a different transformation. This is a key point to remember.
+
+##
+What about the equation itself? What social value is it encoding? Keep in mind that $v$ is the contribution of "Blackness" to the median value of homes in a town. The shape of the function is a parabola as follows.
+
+```{r}
+curve(1000*(x-0.63)^2,from=0,to=1,xlab="blackness",y="value")
+```
+
+##
+It appears that the value is in squared thousands of dollars, meaning that the median value of a totally segregated white neighborhood is about `r sqrt(1000*(0-0.63)^2)`K USD higher than that of a neighborhood with 63 percent black population (where the parabola bottoms out). In a completely black neighborhood, the median value of a home is about `r sqrt(1000*(1-0.63)^2)`K USD more than in the neighborhood with 63 percent black population. In other words, the equation is telling current homeowners that the value of their home will be decreased by integration and that they are financially better off under segregation.
+
+##
+What if this dataframe is used for inferring the appropriate sale price of new homes? This is really pernicious. It helps to perpetuate segregation by reinforcing the parabola. The fact that that this has become a textbook dataframe practically ensures that someone will use it to set prices or to make offers.
+
+##
+When M. Carlisle set out to find out the original Census numbers used, it turned out to be impossible, presumably because of sloppiness in the original data collection. As you may guess, there are only two possibilities for $v$ for every instance of $B$, so some matching should be possible. But it wasn't possible for every town! The numbers from the analysis didn't match any numbers from the 1970 census in several cases.
+
+There is another glaring problem with this dataframe, mentioned in the other article I found, at [FairLearn](https://fairlearn.org/main/user_guide/datasets/boston_housing_data.html). That article includes the following paragraph:
+
+##
+*The definition of the LSTAT variable is also suspect. Harrison and Rubenfield define lower status as a function of the proportion of adults without some high school education and the proportion of male workers classified as laborers. They apply a logarithmic transformation to the variable with the assumption that resulting variable distribution reflects their understanding of socioeconomic distinctions. However, the categorization of a certain level of education and job category as indicative of “lower status” is reflective of social constructs of class and not objective fact. Again, the authors provide no evidence of a proposed relationship between LSTAT and MEDV and do not sufficiently justify its inclusion in the hedonic pricing model.*
+
+##
+The `lstat` column is problematic for at least three reasons: (1) it represents a hypothesis with no empirical support, (2) it exhibits intersectionality with the `black` column because of the prevalance of black males in both categories, and (3) it is a jumble of three things (education, job classification, and logarithmic transformation) meant to reinforce a social conception of "class".
+Contemporary toolkits like Quarto can partially ameliorate problems like (3) by keeping an audit trail from raw data through model building. But (1) requires you to drop stereotypes rather than turn them into unsupported hypotheses and (2) challenges you to more deeply understand data to spot potential for malfeasance.
+
+##
+What about other ethical problems with this dataframe? The FairLearn article goes into more depth than I have here and unpacks the problems into different named constructs with precise definitions. It is well worth reading. It also references the discussion over what to do with this dataframe on [GitHub](https://github.com/scikit-learn/scikit-learn/issues/16155). You can see evidence of what some people chose to do by comparing the `MASS` and `ISLR2` versions, both of which are mistaken in their disposition in my opinion.
+Ultimately, the FairLearn article recommends abandoning this dataframe for predictive analysis exercises, so I have done that in our weekly exercises. Special thanks are owed to the student who got me searching for the above information!
+
+# Logistic Regression
+
+## Logistic Regression Intro
+Logistic regression is a kind of classification rather than regression. The book doesn't make this point, but most textbooks do. You can divide machine learning problems into problems of regression and problems of classification. In regression, the $y$ variable is more or less continuous, whereas in the classification problem, $y$ is a set of categories, ordered or not. The word logistic comes from the logistic function, which is illustrated below. This interesting function takes an input from $-\infty$ to $+\infty$ and gives an output between zero and one. It can be used to reduce wildly varying inputs into a yes / no decision. It is also known as the sigmoid function.
+
+##
+
+```{r}
+#| engine = 'tikz',
+#| engine.opts=list(extra.preamble=c("\\usepackage{pgfplots}","\\pgfplotsset{compat=1.18}")),
+#| out.width='50%',
+#| echo=FALSE
+\begin{tikzpicture}
+\begin{axis}%
+[
+    grid=major,
+    xmin=-6,
+    xmax=6,
+    axis x line=bottom,
+    ytick={0,.5,1},
+    ymax=1,
+    axis y line=middle,
+]
+    \addplot%
+    [
+        blue,%
+        mark=none,
+        samples=100,
+        domain=-6:6,
+    ]
+    (x,{1/(1+exp(-x))});
+\end{axis}
+\end{tikzpicture}
+```
+
+##
+
+Note that zero and one happen to be the boundaries of a probability measure. Hence, you can use the logistic function to reduce arbitrary numbers to a probability.
+
+##
+
+```{r}
+load(paste0(Sys.getenv("STATS_DATA_DIR"),"/resume.rda"))
+names(resume)
+```
+
+##
+
+```{r}
+with(resume,table(race,received_callback))
+with(resume,table(gender,received_callback))
+with(resume,table(honors,received_callback))
+```
+
+##
+
+```{r}
+summary(glm(received_callback ~ honors,data=resume,family="binomial"))
+```
+
+##
+
+```{r}
+summary(glm(received_callback ~ race,data=resume,family="binomial"))
+```
+
+##
+
+```{r}
+summary(glm(received_callback ~ gender,data=resume,family="binomial"))
+```
+
+##
+One easy way to compare these models is by comparing the values of AIC, the Akaike Information Criterion. This measures the loss of information in each model and the model with the lowest value of AIC has lost the least. In comparing the AIC values, it is typical to calculate $\exp((\text{AIC}_{\text{min}}-\text{AIC}_{\text{alternative}})/2)$. This value, the relative likelihood, is the likelihood that the alternative model minimizes the information loss.
+
+##
+Keep in mind that the AIC is only a tool to compare models, not an absolute measure. There is no such thing as an absolutely good AIC value. In the above cases, the relative likelihood for the two models with higher AIC values is vanishingly small. The model using `honors` loses far less information than do the other two.
+
+Another approach is to calculate `AICc`, `Delta_AICc`, and `AICcWt` using R.
+
+##
+
+```{r}
+m1 <- glm(received_callback ~ honors,data=resume,family="binomial")
+m2 <- glm(received_callback ~ race,data=resume,family="binomial")
+m3 <- glm(received_callback ~ gender,data=resume,family="binomial")
+pacman::p_load(AICcmodavg)
+models <- list(m1,m2,m3)
+model_names <- c("honors", "race", "gender")
+aictab(cand.set = models, modnames = model_names)
+```
+
+##
+A common rule, discredited by @Anderson2008 is that, if `Delta_AICc` is greater than 2, the model should be discarded.
+But it is not the case that any model can be judged as good or bad based on AIC. Instead, the AIC tells us only relative information about the models: which is better from an information loss standpoint. The `AICcWt` or Akaike weight, is the probability that the given model is the best of the models in the table from an information loss standpoint. Here there is a clear winner. The difference between 83 percent and seventeen percent is striking.
+
+## `tidymodels` approach
+Datacamp shows a different way, using `tidymodels` in one of their [tutorials](https://www.datacamp.com/tutorial/logistic-regression-R).
+In this example, the bank wants to divide customers into those likely to buy and those unlikely to buy some banking product. They would like to divide the customers into these two groups using logistic regression, with a cutoff point of fifty-fifty. If there's better than a fifty-fifty chance, they will send a salesperson but if there's less than a fifty-fifty chance, they won't send a salesperson.
+
+##
+
+```{r}
+pacman::p_load(tidymodels)
+
+#. Read the dataset and convert the target variable to a factor
+bank_df <- read_csv2(paste0(Sys.getenv("STATS_DATA_DIR"),"/bank-full.csv"))
+bank_df$y = as.factor(bank_df$y)
+
+#. Plot job occupation against the target variable
+ggplot(bank_df, aes(job, fill = y)) +
+    geom_bar() +
+    coord_flip()
+```
+
+##
+
+A crucial concept you'll learn if you take a more advanced class, say 310D, is the notion of dividing data into two or three data frames, a training frame, a validation frame and a test frame. This is the conventional way to test machine learning models, of which logistic regression is one. You train the model on one set of data, validate it on another, then test it on another, previously unseen set. The next thing in this example is training and testing.
+
+##
+
+```{r}
+#. Split data into train and test
+set.seed(421)
+split <- initial_split(bank_df, prop = 0.8, strata = y)
+train <- split |> 
+         training()
+test <- split |>
+        testing()
+```
+
+##
+
+```{r}
+#. Train a logistic regression model
+m <- logistic_reg(mixture = double(1), penalty = double(1)) |>
+  set_engine("glmnet") |>
+  set_mode("classification") |>
+  fit(y ~ ., data = train)
+```
+
+##
+
+```{r}
+#. Model summary
+tidy(m)
+#. Class Predictions
+pred_class <- predict(m,
+                      new_data = test,
+                      type = "class")
+```
+
+##
+
+```{r}
+#. Class Probabilities
+pred_proba <- predict(m,
+                      new_data = test,
+                      type = "prob")
+results <- test |>
+           select(y) |>
+           bind_cols(pred_class, pred_proba)
+
+accuracy(results, truth = y, estimate = .pred_class)
+```
+
+## Hyperparameter tuning
+There are aspects of this approach, called hyperparameters, that influence the quality of the model. It can be tedious to adjust these aspects, called penalty and mixture, so here's a technique for doing it automatically. You'll learn about this and similar techniques if you take a more advanced course like 310D, Intro to Data Science.
+
+##
+
+```{r}
+#. Define the logistic regression model with penalty and mixture hyperparameters
+log_reg <- logistic_reg(mixture = tune(), penalty = tune(), engine = "glmnet")
+```
+
+##
+
+```{r}
+#. Define the grid search for the hyperparameters
+grid <- grid_regular(mixture(), penalty(), levels = c(mixture = 4, penalty = 3))
+```
+
+##
+
+```{r}
+#. Define the workflow for the model
+log_reg_wf <- workflow() |>
+  add_model(log_reg) |>
+  add_formula(y ~ .)
+```
+
+##
+
+```{r}
+#. Define the resampling method for the grid search
+folds <- vfold_cv(train, v = 5)
+```
+
+##
+
+```{r}
+#. Tune the hyperparameters using the grid search
+log_reg_tuned <- tune_grid(
+  log_reg_wf,
+  resamples = folds,
+  grid = grid,
+  control = control_grid(save_pred = TRUE)
+)
+```
+
+##
+
+```{r}
+select_best(log_reg_tuned, metric = "roc_auc")
+```
+
+##
+
+```{r}
+#. Fit the model using the optimal hyperparameters
+log_reg_final <- logistic_reg(penalty = 0.0000000001, mixture = 0) |>
+                 set_engine("glmnet") |>
+                 set_mode("classification") |>
+                 fit(y~., data = train)
+```
+
+##
+
+```{r}
+#. Evaluate the model performance on the testing set
+pred_class <- predict(log_reg_final,
+                      new_data = test,
+                      type = "class")
+results <- test |>
+  select(y) |>
+  bind_cols(pred_class, pred_proba)
+```
+
+##
+
+```{r}
+#. Create confusion matrix
+conf_mat(results, truth = y,
+         estimate = .pred_class)
+precision(results, truth = y,
+          estimate = .pred_class)
+recall(results, truth = y,
+          estimate = .pred_class)
+```
+
+## Evaluation metrics
+Following are two tables from @James2021 that you can use to evaluate a classification model.
+
+##
+![](fiConfMatr.png)
+
+##
+![](fiPrecisionRecall.png)
+
+##
+Another view is provided at [Wikipedia](https://en.wikipedia.org/wiki/Precision_and_recall) in the following picture
+
+![](fiPrecisionRecallPicture.png){fig-align="center" width=50%}
+
+##
+
+```{r}
+coeff <- tidy(log_reg_final) |>
+  arrange(desc(abs(estimate))) |>
+  filter(abs(estimate) > 0.5)
+coeff
+```
+
+##
+
+```{r}
+ggplot(coeff, aes(x = term, y = estimate, fill = term)) +
+  geom_col() +
+  coord_flip()
+```
+
+
+# References
+
+::: {#refs}
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *Roboto Condensed Bold*, *JetBrains Mono Nerd Font*, and *STIX2*
+
