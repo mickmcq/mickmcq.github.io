@@ -495,7 +495,7 @@ Do you need recordings?
 ## remote testing
 Why not test users you can not meet?
 
-e.g., Amazon's mechanical turk
+e.g., Amazon's Mechanical Turk (MTurk), ClickWorker, crowdsourcing platforms for micro-tasks
 
 ## pros of mechanical turk
 - number of participants
@@ -508,6 +508,7 @@ e.g., Amazon's mechanical turk
 - can't recover from errors
 - can't ask questions contingent on what happens
 - may miss important context
+- 33--46% of turkers use LLMs to answer
 
 ## user nights at yahoo!
 - Yahoo ran a user night every Tuesday from 7 to 9
@@ -657,6 +658,14 @@ Now it is time get some evidence from your recordings and prepare it for present
 You'll want to find video clips that illustrate important points.
 
 You'll want to log markers so you can get a graph that supports your findings.
+
+## alternatives
+- qualitative data analysis software (qdas)
+  - I've used MaxQDA, and others are NVivo, Atlas.Ti, and Dedoose
+  - Generally very expensive, hard to learn, and not too popular
+- usertesting.com
+  - Previously free for students, so we used it in class
+  - Probably much more popular that the qdas alternatives
 
 # results
 
