@@ -123,6 +123,10 @@ Reflexive thematic analysis (@Braun2022)
 
 ![](fiThematicGuide.png)
 
+# Analytic Evaluation
+
+Let's look at [HCI experiments](https://mickmcquaid.com/stats/studyGuide/week13.html)
+
 # Readings
 
 Readings last week include @Hartson2019: Ch 22--24
