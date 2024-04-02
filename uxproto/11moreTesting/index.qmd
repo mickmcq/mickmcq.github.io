@@ -24,8 +24,8 @@ Week ELEVEN
 
 *Thanks to the student who pointed out that I shouldn't
 ignore UserTesting.com just because it lacks a free
-student tier---in fact, it turns out to have a (limited)
-free student tier!*
+student tier---in fact, it turns out it used to have a (limited)
+free student tier! That was suspended, but now it may be back. In any event, it does allow a single free test.*
 
 ::: {.notes}
 I applied for this academic program:
