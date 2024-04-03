@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.4.552">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Mick McQuaid">
-<meta name="dcterms.date" content="2024-02-14">
+<meta name="dcterms.date" content="2024-04-03">
 
 <title>HW Instructions i306 Statistics for Informatics</title>
 <style>
@@ -3109,7 +3109,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 14, 2024</p>
+      <p class="date">April 3, 2024</p>
     </div>
   </div>
   
@@ -3154,16 +3154,13 @@ vertical-align: -.125em;
 <p>Suggested steps:</p>
 <p>Step 1. Get rid of rows you don’t want, such as drastic outliers that won’t help in your eventual task of price prediction. Five outliers have already been removed but you may find others, such as an extremely large LotArea.</p>
 <p>Step 2. Get rid of columns you don’t want to analyze, such as Order and PID. Some columns have a lot of NAs, such as ALley, which is 93 percent NA. You have to decide whether these columns are helpful in making predictions, and you must choose whether to delete them. Part of your grade depends on your judgment resulting from examining the data. For milestone 1, I suggest you take a deep dive into 10–20 columns (including SalePrice) and ignore or delete the others.</p>
-<p>Step 3. Convert some of the <code>chr</code> columns to factor. For instance, you can say <code>df$MSSubClass &lt;- as.factor(df$MSSubClass)</code>.</p>
-<p>Step 4. Save your file in binary format by saying something like <code>save(df,file=&quot;df.RData&quot;)</code></p>
-<p>Step 5. Quit using the <code>template.qmd</code> file and open a file called <code>intermediate.qmd</code></p>
-<p>Step 6. At the beginning of that file, say <code>load(&quot;df.RData&quot;)</code>.</p>
-<p>Step 7. Do all your work in that file, then paste the work back into your <code>template.qmd</code> file so you can run it as required. (Remember, you are not turning in a <code>.RData</code> file. Your <code>m1.qmd</code> file must start with reading in the <code>amesHousing2011.csv</code> file and do processing on the resulting data frame.) Be sure to rename the <code>template.qmd</code> file as <code>m1.qmd</code>, not <code>M1.qmd</code> or <code>m-1.qmd</code> or <code>m 1.qmd</code> or anything else.</p>
-<p>Step 8. Organize your work into subsections that make sense according to your findings. Make your final report something you could hand to a manager to familiarize them with the data. The numerical description section of the report should end with a summary of your findings.</p>
+<p>Step 3. Convert some of the <code>chr</code> columns to factor. For instance, you can say <code>df$MSSubClass &lt;- as.factor(df$MSSubClass)</code>. You can convert to an ordered factor by saying <code>df$LotShape &lt;- factor(df$LotShape,ordered=TRUE,levels=c(&quot;Reg&quot;,&quot;IR1,&quot;IR2&quot;,&quot;IR3&quot;))</code> (and you should do so for columns listed as Ordinal in the amesHousing2011doc.txt file).</p>
+<p>Step 4. Your <code>m1.qmd</code> file must start with reading in the <code>amesHousing2011.csv</code> file and do processing on the resulting data frame. Be sure to rename the <code>template.qmd</code> file as <code>m1.qmd</code>, not <code>M1.qmd</code> or <code>m-1.qmd</code> or <code>m 1.qmd</code> or anything else.</p>
+<p>Step 5. Organize your work into subsections that make sense according to your findings. Make your final report something you could hand to a manager to familiarize them with the data. The numerical description section of the report should end with a summary of your findings.</p>
 <p>You should certainly have several contingency tables and several uses of the <code>summary()</code> function. I expect a minimum should be three contingency tables for a C, four for a B, and five for an A. You should take advantage of the subsection <em>Numerical summary shortcuts</em> in section 2 (Numerical and Visual Data Summaries) of the Study Guide. This will give you most of what you need except for contingency tables. A contingency table depicts co-occurrance of two or more character variables or factors. For example, using the Ames data, <code>table(df$Neighborhood,df$LotShape)</code>, shows that some lot shapes are characteristic of some neighborhoods.</p>
 <p>On the other hand, some contingency tables are too large to be useful. You have to exercise judgment about whether it would be reasonable for a manager to realistically eyeball a given contingency table. (A common rule of thumb is whether the entire table fits on my screen.) If I find it too large to eyeball, I will deduct points. Quite a bit of this and the next milestone is about reducing unwieldly amounts of data to reasonably small descriptions.</p>
 <p>One artifact, the stem-and-leaf plot, using the <code>stem()</code> function in R, can be regarded as either a numerical summary or a visual summary. It can be used in either m1 or m2.</p>
-<p>You should use the dplyr package to summarize the data. In particular, you should find the functions <code>select()</code>, <code>filter()</code>, <code>mutate()</code>, <code>group_by()</code>, and <code>summarize()</code> useful. The file <code>m1worksheet.qmd</code> shows some ways you can use them.</p>
+<p>You should use the dplyr package to summarize the data. In particular, you should find the functions <code>select()</code>, <code>filter()</code>, <code>mutate()</code>, <code>group_by()</code>, and <code>summarize()</code> useful. The file <code>m1worksheet.qmd</code> shows some ways you can use them. Keep in mind that, when you load the tidyverse, you will have automatically loaded dplyr, so it is wasteful to load it separately.</p>
 </section>
 <section id="milestone-2-description-visualization" class="level2">
 <h2 class="anchored" data-anchor-id="milestone-2-description-visualization">Milestone 2: description (visualization)</h2>
@@ -3207,7 +3204,7 @@ vertical-align: -.125em;
 <p>You are responsible for completing the following steps.</p>
 <ol type="1">
 <li>Create two linear models through trial and error. Explain them.</li>
-<li>Create a model through the <code>ols_step_best_model()</code> function of the <code>olsrr</code> package. Explain it.</li>
+<li>Create a model through the <code>ols_step_best_subset()</code> function of the <code>olsrr</code> package. Explain it.</li>
 <li>Create a fourth model based on, but not identical to, the model created above. The reason that it is not identical is that you will probably find that the model created in step 2 contains only some values of the categorical variables. This fourth model will be manually specified, not determined by the <code>olsrr</code> approach. This fourth model is the model you will use for milestone 4. Explain it.</li>
 </ol>
 <p>You must come up with an overall summary that summarizes your reasoning for the path you took. You should include some visualizations or refer to the visualizations from milestone 2 to help explain why you chose some variables and not others. Keep in mind that your .qmd file should include your milestone 1 (possibly altered) and milestone 2 (possibly altered), so that the report builds up on what you now know about the data.</p>
@@ -3321,6 +3318,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -3355,7 +3370,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
