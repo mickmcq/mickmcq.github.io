@@ -31,5 +31,7 @@ icon: fa-edit
 
 [10analytic](/hci/10analytic/index.html) introduces analytic evaluation.
 
+[11affordance](/hci/11affordance/index.html) introduces affordances, laws, and errors.
+
 [hciExperiments](/hciExperiments/index.html) introduces quantitative evaluation.
 
