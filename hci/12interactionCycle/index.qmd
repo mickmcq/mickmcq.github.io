@@ -1,0 +1,160 @@
+---
+title: "HCI:<br>Interaction<br>Cycle"
+author: Mick McQuaid
+date: today
+bibliography: master.bib
+format:
+  revealjs:
+    logo: iSchoolLogo.png
+    theme: moon
+    css: style.css
+    transition: slide
+    background-transition: fade
+    preview-links: auto
+    controls: true
+    controls-layout: bottom-right
+    center: true
+---
+
+::: {.r-fit-text}
+Week TWELVE
+:::
+
+# Q and A from last time
+
+## Learning
+
+##
+When we were going over other students discussions, we come crossed a question on if we would implement AI within our workplace if we knew our job would be at risk?  Personally, I operate under the assumption that my job is constantly at risk.  I've been advised that we are fighting for our jobs everyday and we need to make sure we consistently deliver value to the company. Therefore, if I perceive AI as a potential threat to my role, I would already be exploring strategies to ensure that the unique value I offer cannot be easily replaced by AI.
+
+##
+I liked the tid bit on how magazines juxtapose the "cute" things with contrasting things to sort of create an emotional affordance that contributes to positive feelings of reading the magazine. This was something that i thought was invented in the era of social media scrolling.
+
+## Q&A
+
+##
+No questions, but I'm excited to see the other teams project and how they plan on designing the interface!
+
+##
+N/A
+
+# Design Critique
+
+::: {.incremental}
+- My choice of everyday bag
+- Billingham Hadley Small
+- Over twenty years old
+- Carried all my cameras (one at a time)
+- Now carries just my laptop, which at just 11" wide, is narrower than any other clamshell laptop I could find
+:::
+
+##
+::: {.incremental}
+- Durable (did I mention 20+ years?)
+- Quiet (no velcro)
+- Can hang daily items from strap
+- Excellent reconfigurable padding
+- New model has detachable strap and top handle (only quibble)
+:::
+
+# Article Presentation
+@Gaver2004 changed the course of academic HCI history. I've met several people who say that this brief paper caused the academic HCI community to veer from the founders' focus on work to a focus on play and on new modes of inquiry.
+
+## Topic
+The topic was *The Drift Table*, "an electronic coffee table that displays slowly moving aerial photography controlled by the distribution of weight on its surface. It was designed to investigate our ideas about how technologies for the home could support ludic activities---that is, activities motivated by curiosity, exploration, and reflection rather than externally-defined tasks."
+
+## Overview
+The paper is a case study, in a sense from the same genre as *Observing Sara* that I mentioned last time.
+
+It was a multidisciplinary work, involving various artists, ethnographers, psychologists, and computer scientists.
+
+It was part of a larger six-year collaboration between 60 researchers across eight academic institutions working in half a dozen disciplines.
+
+They designed and developed the drift table, then deployed it in peoples' homes for a few weeks.
+
+## Views of the Drift Table
+
+::: {layout-ncol=3}
+
+![](fiHero.png)
+
+![](fiInnards.png)
+
+![](fiInSitu.png)
+
+:::
+
+
+## Probes
+
+::: {layout-ncol=3}
+
+![](fiLeft.png)
+
+![](fiCenter.png)
+
+![](fiRight.png)
+
+:::
+
+## Lessons about ludic activities
+- Support social engagement in ludic activities
+- Allow the ludic to be interleaved with everyday utilitarian activities
+- Don't expect ludic designs to leave everyday activities untouched
+- Don't seek to meet users' immediate desires
+
+# Discussion
+
+## Complexity
+At what point do we accept complexity into the system rather than trying to oversimplify a system? 
+
+## Influences
+... it's also important to note that human behavior and cognition are highly nuanced. Users' experiences with technology are influenced by a myriad of factors beyond just the design of the interface or system.
+
+## Shortcuts
+I wonder what you think about the design and translation of shortcuts.
+
+## Bridging the gulf
+What are your favorite examples of effective conceptual designs that help bridge the Gulf Execution from the system side?
+
+# Interaction Cycle
+Invented by Harson and Pyla; not sure if it's caught on
+
+##
+![](fiStagesOfAction.png)
+
+##
+![](fiTransitionToInteraction.png)
+
+##
+![](fiMultipleInteractionCycles.png)
+
+##
+![](fiStacking.png)
+
+# Readings
+
+Readings last week include @Hartson2019: Ch 30, @Johnson2020: Ch 13, @Norman2013: Ch 5
+
+Readings this week include @Hartson2019: Ch 31
+
+# Assignments
+Milestone 5
+
+# References
+
+::: {#refs}
+:::
+
+---
+
+::: {.r-fit-text}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *League Gothic* and *Lato*
+

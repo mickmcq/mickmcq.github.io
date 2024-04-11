@@ -33,5 +33,7 @@ icon: fa-edit
 
 [11affordance](/hci/11affordance/index.html) introduces affordances, laws, and errors.
 
+[12interactionCycle](/hci/12interactionCycle/index.html) introduces Hartson and Pyla's interaction cycle.
+
 [hciExperiments](/hciExperiments/index.html) introduces quantitative evaluation.
 
