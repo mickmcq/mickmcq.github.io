@@ -35,7 +35,7 @@ icon: fa-edit
 
 [12interactionCycle](/hci/12interactionCycle/index.html) introduces Hartson and Pyla's interaction cycle.
 
-[13guidelines](/hci/13guildelines/index.html) discusses design guidelines from industry and from Hartson and Pyla.
+[13guidelines](/hci/13guidelines/index.html) discusses design guidelines from industry and from Hartson and Pyla.
 
 [hciExperiments](/hciExperiments/index.html) introduces quantitative evaluation.
 
