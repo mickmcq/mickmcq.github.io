@@ -32,13 +32,13 @@ On the other hand, it's okay to come to me with vague questions, like "I don't g
 You should remove the instructions from the file you turn in. That means remove the first two paragraphs and the last sentence. Leave the questions in and interleave the questions with your answers.
 
 ## Texas has the most mortgages
-Several people said that California did, even though California only leads in rentals.
+Two people said that California did, even though California only leads in rentals.
 
 ## Leave a blank line before headings
 One person formatted the document incorrectly, leading to a heading not appearing as a heading. You should always review the work before you turn it in.
 
 ## Name the files as I ask
-I will take off points in future for files not correctly named.
+I have a reason for this, which involves how I process your files. They should have been named `week02exercises.qmd` and `week02exercises.html`
 
 ## Turn in the assignment on time!
 I will go over the homework on the Monday after it's due, so I can't accept late submissions after that. If I accept something between Friday and Monday, it will be with a substantial penalty.
@@ -46,8 +46,8 @@ I will go over the homework on the Monday after it's due, so I can't accept late
 ## Scores
 
 ```{r,echo=TRUE}
-score <- c(2, 1.9, 1.9, 2, 1.9, 1.9, 2, 2, 1.9, 1.9, 1.9)
-stem(score)
+score <- scan("scores.tsv",double())
+stemr(score,z=5)
 ```
 
 ## More on scores
@@ -157,7 +157,7 @@ Everything not in a code chunk is assumed to be Pandoc-flavored Markdown.
 Since Markdown was invented around 2004, many flavors of it have developed. The one we're using is the one interpreted by the program `pandoc`, documented at [https://pandoc.org/](https://pandoc.org/).
 
 ## Why so many flavors?
-Markdown was originally devised as a shorthand for HTML by a person (Jon Gruber) was tired of having to write out lengthy HTML constructs for his blog. He wanted something simpler but also readable on its own. By the way, the original Markdown description is still on the web after all these years at [https://daringfireball.net/projects/markdown/](https://daringfireball.net/projects/markdown/), although there are many more descriptive sites. What happened in the years since was that (A) people wanted their own shorthand sets, and (B) it turned out to be really easy to write a converter from Markdown to HTML.
+Markdown was originally devised as a shorthand for HTML by a person (Jon Gruber) who was tired of having to write out lengthy HTML constructs for his blog. He wanted something simpler but also readable on its own. By the way, the original Markdown description is still on the web after all these years at [https://daringfireball.net/projects/markdown/](https://daringfireball.net/projects/markdown/), although there are many more descriptive sites. What happened in the years since was that (A) people wanted their own shorthand sets, and (B) it turned out to be really easy to write a converter from Markdown to HTML.
 
 ## Some of Markdown's features
 You have experienced some of Markdown's features, such as [a blank line followed by two hashtags followed by a space]{.emph} for a level two heading. You might have surrounded a word by asterisks to italicize it, or double asterisks to bold-face it. You might have used straight quotation marks and found them converted to typographical quotation marks (a different opening and closing mark).

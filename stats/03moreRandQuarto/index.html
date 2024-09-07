@@ -8,10 +8,10 @@
 <link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.549">
+  <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Mick McQuaid">
-  <meta name="dcterms.date" content="2024-01-29">
+  <meta name="dcterms.date" content="2024-09-07">
   <title>Stats: More R &amp; Quarto</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -43,7 +43,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -403,7 +403,7 @@ Mick McQuaid
 </div>
 </div>
 
-  <p class="date">2024-01-29</p>
+  <p class="date">2024-09-07</p>
 </section>
 <section class="slide level2 center">
 
@@ -427,7 +427,7 @@ Mick McQuaid
 </section>
 <section id="texas-has-the-most-mortgages" class="slide level2 center">
 <h2>Texas has the most mortgages</h2>
-<p>Several people said that California did, even though California only leads in rentals.</p>
+<p>Two people said that California did, even though California only leads in rentals.</p>
 </section>
 <section id="leave-a-blank-line-before-headings" class="slide level2 center">
 <h2>Leave a blank line before headings</h2>
@@ -435,7 +435,7 @@ Mick McQuaid
 </section>
 <section id="name-the-files-as-i-ask" class="slide level2 center">
 <h2>Name the files as I ask</h2>
-<p>I will take off points in future for files not correctly named.</p>
+<p>I have a reason for this, which involves how I process your files. They should have been named <code>week02exercises.qmd</code> and <code>week02exercises.html</code></p>
 </section>
 <section id="turn-in-the-assignment-on-time" class="slide level2 center">
 <h2>Turn in the assignment on time!</h2>
@@ -444,15 +444,34 @@ Mick McQuaid
 <section id="scores" class="slide level2 center">
 <h2>Scores</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>score <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="fl">1.9</span>, <span class="fl">1.9</span>, <span class="dv">2</span>, <span class="fl">1.9</span>, <span class="fl">1.9</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="fl">1.9</span>, <span class="fl">1.9</span>, <span class="fl">1.9</span>)</span>
-<span id="cb1-2"><a href=""></a><span class="fu">stem</span>(score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>score <span class="ot">&lt;-</span> <span class="fu">scan</span>(<span class="st">"scores.tsv"</span>,<span class="fu">double</span>())</span>
+<span id="cb1-2"><a href=""></a><span class="fu">stemr</span>(score,<span class="at">z=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
   The decimal point is 1 digit(s) to the left of the |
 
-  19 | 0000000
-  19 | 
-  20 | 0000</code></pre>
+
+  20 | 00000
+  19 | 0000000000
+  18 | 00
+  17 | 
+  16 | 
+  15 | 
+  14 | 
+  13 | 
+  12 | 
+  11 | 
+  10 | 
+   9 | 
+   8 | 
+   7 | 
+   6 | 
+   5 | 
+   4 | 
+   3 | 
+   2 | 
+   1 | 
+   0 | 0000</code></pre>
 </div>
 </div>
 </section>
@@ -820,7 +839,7 @@ Mick McQuaid
 </section>
 <section id="why-so-many-flavors" class="slide level2 center">
 <h2>Why so many flavors?</h2>
-<p>Markdown was originally devised as a shorthand for HTML by a person (Jon Gruber) was tired of having to write out lengthy HTML constructs for his blog. He wanted something simpler but also readable on its own. By the way, the original Markdown description is still on the web after all these years at <a href="https://daringfireball.net/projects/markdown/">https://daringfireball.net/projects/markdown/</a>, although there are many more descriptive sites. What happened in the years since was that (A) people wanted their own shorthand sets, and (B) it turned out to be really easy to write a converter from Markdown to HTML.</p>
+<p>Markdown was originally devised as a shorthand for HTML by a person (Jon Gruber) who was tired of having to write out lengthy HTML constructs for his blog. He wanted something simpler but also readable on its own. By the way, the original Markdown description is still on the web after all these years at <a href="https://daringfireball.net/projects/markdown/">https://daringfireball.net/projects/markdown/</a>, although there are many more descriptive sites. What happened in the years since was that (A) people wanted their own shorthand sets, and (B) it turned out to be really easy to write a converter from Markdown to HTML.</p>
 </section>
 <section id="some-of-markdowns-features" class="slide level2 center">
 <h2>Some of Markdown’s features</h2>
@@ -1134,18 +1153,7 @@ Mick McQuaid
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1177,7 +1185,47 @@ Mick McQuaid
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
@@ -1214,7 +1262,11 @@ Mick McQuaid
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
