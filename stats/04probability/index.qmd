@@ -21,6 +21,13 @@ format:
 Week FOUR
 :::
 
+# Week 3 Exercises
+
+```{r}
+x <- scan("week03scores",double())
+stemr(x,5)
+```
+
 # Probability is hard!
 
 ## Example of probability
