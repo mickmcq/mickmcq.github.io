@@ -179,6 +179,23 @@ plot(table(sims), xlab = 'Sum', ylab = 'Frequency', main = '10,000 Rolls of 2 Fa
 
 Why is 7 the most likely outcome?
 
+## A probability model
+Our textbook defines a model of a discrete probability example as a three step process:
+
+- List the events and their probabilities
+- Calculate the expected values of the events
+- Calculate the standard deviation
+
+To do the above steps, make a table of seven rows, labeled
+(1) $i$,
+(2) $x_i$,
+(3) $P(X=x_i)$,
+(4) $x_i \times P(X=x_i)$,
+(5) $x_i - E(x)$,
+(6) $\left(x_i - E(x)\right)^2$,
+(7) $\left(x_1 - E(x)\right)^2 \times P(X=x_i)$
+with one column for each $i$
+
 ## Terms from set theory
 Set theory is a mathematical discipline that uses tools like Venn diagrams to describes sets of objects. We can think of outcomes from random processes as objects, too, with the following terms.
 
