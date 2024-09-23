@@ -23,13 +23,28 @@ Week FIVE
 
 # Homework
 
+## Week 4 Exercise scores
+
 ```{r}
 x<-scan("week04scores.tsv",5)
 stemr(x,5)
 ```
 
+## Some issues
+- Be sure to submit both qmd and html file
+- Be sure to include the header in the template files---otherwise, you won't embed resources like the `venn.png` file
+- Try to distinguish your answers from the questions with color, italics, bold, underlining, or some other means
+- Try to leave a blank line before headings
+- Show your work
+- Proofread
+- If things aren't working, reach out
 
+## Evidence of collaboration or Gen AI
+- You must respect the rules in the syllabus
+- If you collaborate, say so (with both names)
+- If you use Gen AI, say so (with details)
 
+# Distributions
 
 ## Five distributions
 We previously looked at the normal distribution. In this
