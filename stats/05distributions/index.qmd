@@ -24,8 +24,8 @@ Week FIVE
 # Homework
 
 ```{r}
-x<-c(0,2,0,1.6,2,1.8,2,1.7,1.9,0,2)
-stem(x)
+x<-scan("week04scores.tsv",5)
+stemr(x,5)
 ```
 
 
