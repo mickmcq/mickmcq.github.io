@@ -8,10 +8,10 @@
 <link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.550">
+  <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Mick McQuaid">
-  <meta name="dcterms.date" content="2024-02-19">
+  <meta name="dcterms.date" content="2024-09-30">
   <title>Stats: Foundations for Inference</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -43,7 +43,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -423,7 +423,7 @@ Mick McQuaid
 </div>
 </div>
 
-  <p class="date">2024-02-19</p>
+  <p class="date">2024-09-30</p>
 </section>
 <section class="slide level2 center">
 
@@ -431,24 +431,55 @@ Mick McQuaid
 <p>Week FIVE</p>
 </div>
 </section>
-<section id="homework" class="title-slide slide level1 center">
-<h1>Homework</h1>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="fl">1.6</span>,<span class="dv">2</span>,<span class="fl">1.8</span>,<span class="dv">2</span>,<span class="fl">1.9</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="fl">1.8</span>)</span>
-<span id="cb1-2"><a href=""></a><span class="fu">stem</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-  The decimal point is at the |
+<section>
+<section id="milestone-1" class="title-slide slide level1 center">
+<h1>Milestone 1</h1>
 
-  0 | 0
-  0 | 
-  1 | 
-  1 | 6889
-  2 | 000000</code></pre>
-</div>
-</div>
 </section>
-
+<section id="some-milestone-1-remarks" class="slide level2 center">
+<h2>Some Milestone 1 remarks</h2>
+<ul>
+<li>Foxtrot: need clearer data definitions—e.g., what are the classes in MSSubClass?</li>
+<li>Foxtrot: good job on data cleaning—may want to say why you removed outliers</li>
+<li>Foxtrot: may want to substitute <code>skim()</code> for <code>summary()</code></li>
+<li>Foxtrot: good insights, but may want to interleave some with stats</li>
+<li>Foxtrot: some of your insights may lead to dropping columns, e.g., garage size</li>
+</ul>
+</section>
+<section id="more-milestone-1-remarks" class="slide level2 center">
+<h2>More Milestone 1 remarks</h2>
+<ul>
+<li>Echo: please use the <code>STATS_DATA_DIR</code> variable</li>
+<li>Echo: need clearer data definitions—e.g., what are the classes in MSSubClass?</li>
+<li>Echo: may want to use <code>mutate(across(where(is.character), as.factor))</code></li>
+<li>Echo: may want to substitute <code>skim()</code> for <code>summary()</code></li>
+<li>Echo: may not need to mention that 1 room houses are unpopular</li>
+<li>Echo: good insights on foundations</li>
+<li>Echo: should get more out of Table 4 (characterize different neighborhoods)</li>
+<li>Echo: <code>GarageArea</code> unlikely to matter; need better choice for <code>stem()</code></li>
+</ul>
+</section>
+<section id="still-more-milestone-1-remarks" class="slide level2 center">
+<h2>Still More Milestone 1 remarks</h2>
+<ul>
+<li>Charlie: good job on data dictionary</li>
+<li>Charlie: need to show code for outlier deletion</li>
+<li>Charlie: good insights in summary section</li>
+<li>Charlie: good takeaways but may need to intersperse with contingency tables</li>
+</ul>
+</section>
+<section id="even-more-milestone-1-remarks" class="slide level2 center">
+<h2>Even More Milestone 1 remarks</h2>
+<ul>
+<li>Alpha: omit directives in angle brackets</li>
+<li>Alpha: may want to use base R pipe (|&gt;) instead of Magritte pipe (%&gt;%)</li>
+<li>Alpha: may want to specify order with <code>order=TRUE</code> or <code>fct_reorder(Name,value1, value2, ...)</code></li>
+<li>Alpha: <code>YearBuilt</code> and <code>YearRemod/Add</code> are integers not numeric</li>
+<li>Alpha: move barplot to visual description</li>
+<li>Alpha: YrSold and MoSold insight needs work; same for Neighborhood and HouseStyle</li>
+<li>Alpha: ExterQual and SaleCondition may be irrelevant</li>
+</ul>
+</section></section>
 <section id="slow-ggplotting" class="title-slide slide level1 center">
 <h1>Slow ggplotting</h1>
 <p><a href="https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#1">https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#1</a></p>
@@ -461,7 +492,7 @@ Mick McQuaid
 </section>
 <section id="point-estimates" class="slide level2 center">
 <h2>Point estimates</h2>
-<p>Example: Biden’s approval rating is 38% (Reuters, 2024-01-31). This is a point estimate.</p>
+<p>Example: Biden’s approval rating is 41.4% (Five-Thirty-Eight, 2024-09-27). This is a point estimate.</p>
 <p>How good is this point estimate? Two factors are sampling error and bias.</p>
 <ul>
 <li>Who’s in the sample?</li>
@@ -481,20 +512,20 @@ Mick McQuaid
 <section id="r-code-for-the-example" class="slide level2 center">
 <h2>R code for the example</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co">#. 1. Create a set of 250 million entries, where 88% of them are "support"</span></span>
-<span id="cb3-2"><a href=""></a><span class="co">#. and 12% are "not".</span></span>
-<span id="cb3-3"><a href=""></a>popSize <span class="ot">&lt;-</span> <span class="dv">250000000</span></span>
-<span id="cb3-4"><a href=""></a>possibleEntries <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"support"</span>, <span class="fl">0.88</span> <span class="sc">*</span> popSize), <span class="fu">rep</span>(<span class="st">"not"</span>, <span class="fl">0.12</span> <span class="sc">*</span> popSize))</span>
-<span id="cb3-5"><a href=""></a><span class="co">#. 2. Sample 1000 entries without replacement.</span></span>
-<span id="cb3-6"><a href=""></a>sampledEntries <span class="ot">&lt;-</span> <span class="fu">sample</span>(possibleEntries, <span class="at">size =</span> <span class="dv">1000</span>)</span>
-<span id="cb3-7"><a href=""></a><span class="co">#. 3. Compute p-hat: count the number that are "support", then divide by</span></span>
-<span id="cb3-8"><a href=""></a><span class="co">#. the sample size.</span></span>
-<span id="cb3-9"><a href=""></a>(phat <span class="ot">&lt;-</span> <span class="fu">sum</span>(sampledEntries <span class="sc">==</span> <span class="st">"support"</span>) <span class="sc">/</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co">#. 1. Create a set of 250 million entries, where 88% of them are "support"</span></span>
+<span id="cb1-2"><a href=""></a><span class="co">#. and 12% are "not".</span></span>
+<span id="cb1-3"><a href=""></a>popSize <span class="ot">&lt;-</span> <span class="dv">250000000</span></span>
+<span id="cb1-4"><a href=""></a>possibleEntries <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"support"</span>, <span class="fl">0.88</span> <span class="sc">*</span> popSize), <span class="fu">rep</span>(<span class="st">"not"</span>, <span class="fl">0.12</span> <span class="sc">*</span> popSize))</span>
+<span id="cb1-5"><a href=""></a><span class="co">#. 2. Sample 1000 entries without replacement.</span></span>
+<span id="cb1-6"><a href=""></a>sampledEntries <span class="ot">&lt;-</span> <span class="fu">sample</span>(possibleEntries, <span class="at">size =</span> <span class="dv">1000</span>)</span>
+<span id="cb1-7"><a href=""></a><span class="co">#. 3. Compute p-hat: count the number that are "support", then divide by</span></span>
+<span id="cb1-8"><a href=""></a><span class="co">#. the sample size.</span></span>
+<span id="cb1-9"><a href=""></a>(phat <span class="ot">&lt;-</span> <span class="fu">sum</span>(sampledEntries <span class="sc">==</span> <span class="st">"support"</span>) <span class="sc">/</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.895</code></pre>
+<pre><code>[1] 0.891</code></pre>
 </div>
 </div>
-<p>This estimate, 0.895, differs every time we sample. Let’s look at a different sample from the textbook’s lab website.</p>
+<p>This estimate, 0.891, differs every time we sample. Let’s look at a different sample from the textbook’s lab website.</p>
 </section>
 <section id="global-monitor" class="slide level2 center">
 <h2>Global Monitor</h2>
@@ -503,33 +534,43 @@ Mick McQuaid
 <section id="the-global-monitor-situation" class="slide level2 center">
 <h2>The Global Monitor situation</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse,openintro,infer,scales)</span>
-<span id="cb5-2"><a href=""></a>global_monitor <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb5-3"><a href=""></a>  <span class="at">scientist_work =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Benefits"</span>, <span class="dv">800000</span>), <span class="fu">rep</span>(<span class="st">"Doesn't benefit"</span>, <span class="dv">200000</span>))</span>
-<span id="cb5-4"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse,openintro,infer,scales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+The downloaded binary packages are in
+    /var/folders/hg/8vdwcz0s305br3gmnqmf1rrw0000gs/T//RtmpHs8bzt/downloaded_packages</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+The downloaded binary packages are in
+    /var/folders/hg/8vdwcz0s305br3gmnqmf1rrw0000gs/T//RtmpHs8bzt/downloaded_packages</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>global_monitor <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb6-2"><a href=""></a>  <span class="at">scientist_work =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Benefits"</span>, <span class="dv">800000</span>), <span class="fu">rep</span>(<span class="st">"Doesn't benefit"</span>, <span class="dv">200000</span>))</span>
+<span id="cb6-3"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>(Of course it’s unrealistic to pretend there are only 1 million people worldwide or that you could ask all of them what they think.)</p>
 </section>
 <section id="visualize-the-situation" class="slide level2 center">
 <h2>Visualize the situation</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>global_monitor <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href=""></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(scientist_work)) <span class="sc">+</span></span>
-<span id="cb6-3"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">fill=</span><span class="st">"#87CEFA"</span>) <span class="sc">+</span></span>
-<span id="cb6-4"><a href=""></a>  <span class="fu">labs</span>(</span>
-<span id="cb6-5"><a href=""></a>    <span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">""</span>,</span>
-<span id="cb6-6"><a href=""></a>    <span class="at">title =</span> <span class="st">"Do you believe that the work scientists do benefit people like you?"</span></span>
-<span id="cb6-7"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb6-8"><a href=""></a>   <span class="fu">coord_flip</span>() <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">comma_format</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>global_monitor <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href=""></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(scientist_work)) <span class="sc">+</span></span>
+<span id="cb7-3"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">fill=</span><span class="st">"#87CEFA"</span>) <span class="sc">+</span></span>
+<span id="cb7-4"><a href=""></a>  <span class="fu">labs</span>(</span>
+<span id="cb7-5"><a href=""></a>    <span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">""</span>,</span>
+<span id="cb7-6"><a href=""></a>    <span class="at">title =</span> <span class="st">"Do you believe that the work scientists do benefit people like you?"</span></span>
+<span id="cb7-7"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb7-8"><a href=""></a>   <span class="fu">coord_flip</span>() <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">comma_format</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/globalMonitorVis-1.png" width="960" class="r-stretch"></section>
 <section id="verify-correct-construction-of-the-data-frame" class="slide level2 center">
 <h2>Verify correct construction of the data frame</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>global_monitor <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a href=""></a>  <span class="fu">count</span>(scientist_work) <span class="sc">|&gt;</span></span>
-<span id="cb7-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">p =</span> n <span class="sc">/</span><span class="fu">sum</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>global_monitor <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a href=""></a>  <span class="fu">count</span>(scientist_work) <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">p =</span> n <span class="sc">/</span><span class="fu">sum</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   scientist_work       n     p
@@ -542,46 +583,46 @@ Mick McQuaid
 <section id="sample-50-people" class="slide level2 center">
 <h2>Sample 50 people</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>samp1 <span class="ot">&lt;-</span> global_monitor <span class="sc">|&gt;</span></span>
-<span id="cb9-2"><a href=""></a>  <span class="fu">sample_n</span>(<span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>samp1 <span class="ot">&lt;-</span> global_monitor <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href=""></a>  <span class="fu">sample_n</span>(<span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="find-the-sample-mean" class="slide level2 center">
 <h2>Find the sample mean</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>samp1 <span class="sc">|&gt;</span></span>
-<span id="cb10-2"><a href=""></a>  <span class="fu">count</span>(scientist_work) <span class="sc">|&gt;</span></span>
-<span id="cb10-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">p_hat =</span> n <span class="sc">/</span><span class="fu">sum</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>samp1 <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href=""></a>  <span class="fu">count</span>(scientist_work) <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">p_hat =</span> n <span class="sc">/</span><span class="fu">sum</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   scientist_work      n p_hat
   &lt;chr&gt;           &lt;int&gt; &lt;dbl&gt;
-1 Benefits           40   0.8
-2 Doesn't benefit    10   0.2</code></pre>
+1 Benefits           41  0.82
+2 Doesn't benefit     9  0.18</code></pre>
 </div>
 </div>
 </section>
 <section id="now-sample-15000-times" class="slide level2 center">
 <h2>Now sample 15,000 times</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>sample_props50 <span class="ot">&lt;-</span> global_monitor <span class="sc">|&gt;</span></span>
-<span id="cb12-2"><a href=""></a>  <span class="fu">rep_sample_n</span>(<span class="at">size =</span> <span class="dv">50</span>, <span class="at">reps =</span> <span class="dv">15000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb12-3"><a href=""></a>  <span class="fu">count</span>(scientist_work) <span class="sc">|&gt;</span></span>
-<span id="cb12-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">p_hat =</span> n <span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">|&gt;</span></span>
-<span id="cb12-5"><a href=""></a>  <span class="fu">filter</span>(scientist_work <span class="sc">==</span> <span class="st">"Doesn't benefit"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>sample_props50 <span class="ot">&lt;-</span> global_monitor <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href=""></a>  <span class="fu">rep_sample_n</span>(<span class="at">size =</span> <span class="dv">50</span>, <span class="at">reps =</span> <span class="dv">15000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a href=""></a>  <span class="fu">count</span>(scientist_work) <span class="sc">|&gt;</span></span>
+<span id="cb13-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">p_hat =</span> n <span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">|&gt;</span></span>
+<span id="cb13-5"><a href=""></a>  <span class="fu">filter</span>(scientist_work <span class="sc">==</span> <span class="st">"Doesn't benefit"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="histogram-of-15000-samples" class="slide level2 center">
 <h2>Histogram of 15,000 samples</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>sample_props50 <span class="sc">|&gt;</span></span>
-<span id="cb13-2"><a href=""></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(p_hat)) <span class="sc">+</span></span>
-<span id="cb13-3"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.02</span>,<span class="at">fill=</span><span class="st">"#87CEFA"</span>) <span class="sc">+</span></span>
-<span id="cb13-4"><a href=""></a>  <span class="fu">labs</span>(</span>
-<span id="cb13-5"><a href=""></a>    <span class="at">x =</span> <span class="st">"p_hat (Doesn't benefit)"</span>,</span>
-<span id="cb13-6"><a href=""></a>    <span class="at">title =</span> <span class="st">"Sampling distribution of p_hat"</span>,</span>
-<span id="cb13-7"><a href=""></a>    <span class="at">subtitle =</span> <span class="st">"Sample size = 50, Number of samples = 15000"</span></span>
-<span id="cb13-8"><a href=""></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>sample_props50 <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href=""></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(p_hat)) <span class="sc">+</span></span>
+<span id="cb14-3"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.02</span>,<span class="at">fill=</span><span class="st">"#87CEFA"</span>) <span class="sc">+</span></span>
+<span id="cb14-4"><a href=""></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-5"><a href=""></a>    <span class="at">x =</span> <span class="st">"p_hat (Doesn't benefit)"</span>,</span>
+<span id="cb14-6"><a href=""></a>    <span class="at">title =</span> <span class="st">"Sampling distribution of p_hat"</span>,</span>
+<span id="cb14-7"><a href=""></a>    <span class="at">subtitle =</span> <span class="st">"Sample size = 50, Number of samples = 15000"</span></span>
+<span id="cb14-8"><a href=""></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="index_files/figure-revealjs/histogramFifteenThouSamples-1.png" width="960" class="r-stretch"></section>
@@ -706,7 +747,7 @@ Mick McQuaid
 </section>
 <section id="section" class="slide level2 center">
 <h2></h2>
-<table style="width:97%;">
+<table class="caption-top" style="width:97%;">
 <colgroup>
 <col style="width: 17%">
 <col style="width: 23%">
@@ -751,7 +792,7 @@ Mick McQuaid
 <section id="section-1" class="slide level2 center">
 <h2></h2>
 <p>Possible results of classification (<span class="citation" data-cites="James2021">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span>, Table 4.6)</p>
-<table style="width:97%;">
+<table class="caption-top" style="width:97%;">
 <colgroup>
 <col style="width: 16%">
 <col style="width: 20%">
@@ -796,7 +837,7 @@ Mick McQuaid
 <section id="section-2" class="slide level2 center">
 <h2></h2>
 <p>Synonyms for important measures (<span class="citation" data-cites="James2021">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span>, Table 4.7)</p>
-<table>
+<table class="caption-top">
 <thead>
 <tr class="header">
 <th style="text-align: left;">name</th>
@@ -956,7 +997,7 @@ t=\frac{\overline{y}-\mu_0}{s/\sqrt{n}}
 <section id="section-7" class="slide level2 center">
 <h2></h2>
 <p>The following table shows the relevant values of <span class="math inline">\(\alpha\)</span> and related quantities.</p>
-<table style="width:64%;">
+<table class="caption-top" style="width:64%;">
 <colgroup>
 <col style="width: 15%">
 <col style="width: 12%">
@@ -1120,7 +1161,7 @@ n(\overline{y})^2}{n-1}}=2\]</span></p>
 <h2></h2>
 <p>This can be found using R by saying</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">qt</span>(<span class="fl">0.95</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">qt</span>(<span class="fl">0.95</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.131847</code></pre>
 </div>
@@ -1138,7 +1179,7 @@ n(\overline{y})^2}{n-1}}=2\]</span></p>
 <h2></h2>
 <p>In this case <span class="math inline">\(p=P(t_{\alpha,\nu}&gt;t_c)=0.0007195\)</span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">pt</span>(<span class="fl">7.8262</span>,<span class="dv">4</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">pt</span>(<span class="fl">7.8262</span>,<span class="dv">4</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.000719558</code></pre>
 </div>
@@ -1148,18 +1189,18 @@ n(\overline{y})^2}{n-1}}=2\]</span></p>
 <section id="section-30" class="slide level2 center">
 <h2></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="co">#. t sub alpha</span></span>
-<span id="cb18-2"><a href=""></a><span class="fu">qt</span>(<span class="fl">0.95</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="co">#. t sub alpha</span></span>
+<span id="cb19-2"><a href=""></a><span class="fu">qt</span>(<span class="fl">0.95</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.131847</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="co">#. find the alpha region associated with t sub alpha</span></span>
-<span id="cb20-2"><a href=""></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pt</span>(<span class="fl">2.131847</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="co">#. find the alpha region associated with t sub alpha</span></span>
+<span id="cb21-2"><a href=""></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pt</span>(<span class="fl">2.131847</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.04999999</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>,<span class="dv">23</span>,<span class="dv">21</span>,<span class="dv">21</span>,<span class="dv">20</span>)</span>
-<span id="cb22-2"><a href=""></a><span class="fu">t.test</span>(x,<span class="at">alternative=</span><span class="st">"greater"</span>,<span class="at">mu=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>,<span class="dv">23</span>,<span class="dv">21</span>,<span class="dv">21</span>,<span class="dv">20</span>)</span>
+<span id="cb23-2"><a href=""></a><span class="fu">t.test</span>(x,<span class="at">alternative=</span><span class="st">"greater"</span>,<span class="at">mu=</span><span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
@@ -1501,18 +1542,7 @@ James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. <em>A
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1544,7 +1574,47 @@ James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. <em>A
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
@@ -1581,7 +1651,11 @@ James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. <em>A
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

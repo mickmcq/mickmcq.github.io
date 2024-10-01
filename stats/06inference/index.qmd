@@ -27,12 +27,39 @@ knitr::opts_chunk$set(
 Week FIVE
 :::
 
-# Homework
+# Milestone 1
 
-```{r hw}
-x <- c(0,2,2,1.6,2,1.8,2,1.9,2,2,1.8)
-stem(x)
-```
+## Some Milestone 1 remarks
+- Foxtrot: need clearer data definitions---e.g., what are the classes in MSSubClass?
+- Foxtrot: good job on data cleaning---may want to say why you removed outliers
+- Foxtrot: may want to substitute `skim()` for `summary()`
+- Foxtrot: good insights, but may want to interleave some with stats
+- Foxtrot: some of your insights may lead to dropping columns, e.g., garage size
+
+## More Milestone 1 remarks
+- Echo: please use the `STATS_DATA_DIR` variable
+- Echo: need clearer data definitions---e.g., what are the classes in MSSubClass?
+- Echo: may want to use `mutate(across(where(is.character), as.factor))`
+- Echo: may want to substitute `skim()` for `summary()`
+- Echo: may not need to mention that 1 room houses are unpopular
+- Echo: good insights on foundations
+- Echo: should get more out of Table 4 (characterize different neighborhoods)
+- Echo: `GarageArea` unlikely to matter; need better choice for `stem()`
+
+## Still More Milestone 1 remarks
+- Charlie: good job on data dictionary
+- Charlie: need to show code for outlier deletion
+- Charlie: good insights in summary section
+- Charlie: good takeaways but may need to intersperse with contingency tables
+
+## Even More Milestone 1 remarks
+- Alpha: omit directives in angle brackets
+- Alpha: may want to use base R pipe (`|>`) instead of Magritte pipe (`%>%`)
+- Alpha: may want to specify order with `order=TRUE` or `fct_reorder(Name,value1, value2, ...)`
+- Alpha: `YearBuilt` and `YearRemod/Add` are integers not numeric
+- Alpha: move barplot to visual description
+- Alpha: YrSold and MoSold insight needs work; same for Neighborhood and HouseStyle
+- Alpha: ExterQual and SaleCondition may be irrelevant
 
 # Slow ggplotting
 
@@ -41,7 +68,7 @@ stem(x)
 # Inference
 
 ## Point estimates
-Example: Biden's approval rating is 38% (Reuters, 2024-01-31). This is a point estimate.
+Example: Biden's approval rating is 41.4% (Five-Thirty-Eight, 2024-09-27). This is a point estimate.
 
 How good is this point estimate? Two factors are sampling error and bias.
 
