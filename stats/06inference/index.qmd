@@ -27,6 +27,13 @@ knitr::opts_chunk$set(
 Week SIX
 :::
 
+# Homework
+
+```{r hw}
+x <- scan("week05exercises.tsv")
+stemr(x,5)
+```
+
 # Milestone 1
 
 ## Some Milestone 1 remarks
