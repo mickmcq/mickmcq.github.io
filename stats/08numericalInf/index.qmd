@@ -1,5 +1,5 @@
 ---
-title: "Stats: Numerical Inference"
+title: "Stats: <br>Numerical Inference"
 author: Mick McQuaid
 date: today
 bibliography: master.bib
@@ -30,8 +30,8 @@ Week EIGHT
 # Homework
 
 ```{r hw}
-x<-c(0,2,NA,2,2,1.9,1.9,1.9,1.9,0,2)
-stem(x)
+x <- scan("week07exercises.tsv")
+stemr(x,5)
 ```
 
 ```{r, include=FALSE}

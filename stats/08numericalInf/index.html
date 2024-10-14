@@ -8,11 +8,11 @@
 <link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.550">
+  <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Mick McQuaid">
-  <meta name="dcterms.date" content="2024-03-04">
-  <title>Stats: Numerical Inference</title>
+  <meta name="dcterms.date" content="2024-10-14">
+  <title>Stats:  Numerical Inference</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -43,7 +43,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -413,7 +413,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Stats: Numerical Inference</h1>
+  <h1 class="title">Stats: <br>Numerical Inference</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -423,7 +423,7 @@ Mick McQuaid
 </div>
 </div>
 
-  <p class="date">2024-03-04</p>
+  <p class="date">2024-10-14</p>
 </section>
 <section class="slide level2 center">
 
@@ -434,17 +434,34 @@ Mick McQuaid
 <section id="homework" class="title-slide slide level1 center">
 <h1>Homework</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="cn">NA</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="fl">1.9</span>,<span class="fl">1.9</span>,<span class="fl">1.9</span>,<span class="fl">1.9</span>,<span class="dv">0</span>,<span class="dv">2</span>)</span>
-<span id="cb1-2"><a href=""></a><span class="fu">stem</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">scan</span>(<span class="st">"week07exercises.tsv"</span>)</span>
+<span id="cb1-2"><a href=""></a><span class="fu">stemr</span>(x,<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-  The decimal point is at the |
+  The decimal point is 1 digit(s) to the left of the |
 
-  0 | 00
-  0 | 
-  1 | 
-  1 | 9999
-  2 | 0000</code></pre>
+
+  20 | 00000
+  19 | 000
+  18 | 0000
+  17 | 0000
+  16 | 0
+  15 | 0
+  14 | 
+  13 | 
+  12 | 
+  11 | 
+  10 | 
+   9 | 
+   8 | 
+   7 | 
+   6 | 
+   5 | 
+   4 | 
+   3 | 
+   2 | 
+   1 | 
+   0 | 00</code></pre>
 </div>
 </div>
 </section>
@@ -1054,18 +1071,7 @@ Diez, David, Mine Çetinkaya-Rundel, and Cristopher D Barr. 2019. <em>OpenIntro 
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1097,7 +1103,47 @@ Diez, David, Mine Çetinkaya-Rundel, and Cristopher D Barr. 2019. <em>OpenIntro 
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
@@ -1134,7 +1180,11 @@ Diez, David, Mine Çetinkaya-Rundel, and Cristopher D Barr. 2019. <em>OpenIntro 
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
