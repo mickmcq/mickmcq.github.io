@@ -1,5 +1,5 @@
 ---
-title: "Stats: Categorical Inference"
+title: "Stats: <br>Categorical Inference"
 author: Mick McQuaid
 date: today
 bibliography: master.bib
@@ -30,14 +30,17 @@ Week SEVEN
 # Homework
 
 ```{r hw}
-x<-c(0,1.9,1.7,1.9,2,1.9,1.8,1.7,1.9,0,1.9)
-stem(x)
+x <- scan("week06exercises.tsv")
+stemr(x,5)
 ```
 
 ## One homework issue
 Difference between $\hat{p}$ and $p$, where $\hat{p}$ is what we observe and $p$ is what we believe to be true in general
 
 We form a hypothesis about $p$ and observe $\hat{p}$ as evidence
+
+## More on the difference
+We know $\hat{p}$ so we don't need to form a hypothesis about it. It's the sample proportion we observe. It's a tool to make an inference about $p$, the actual proportion. The hypothesis is an assertion about something we don't know for certain. We'll use the evidence ($\hat{p}$) plus what we know about distributions to verify or invalidate the assertion.
 
 ## Textbook section 6.1 Inference for a single proportion
 
@@ -230,6 +233,12 @@ chisq.test(df)
 ```
 
 The $\chi^2$ tests suggests that the genders are not independent for the three sports, meaning that the preferences may differ by gender.
+
+---
+
+::: {.r-fit-text}
+END
+:::
 
 # References
 
