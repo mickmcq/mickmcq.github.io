@@ -31,6 +31,20 @@ Week NINE
 
 ##
 
+```{r hw}
+x <- scan("week08exerciseScores.tsv")
+stemr(x,5)
+```
+
+##
+
+```{r m2}
+x <- scan("milestone2Scores.tsv")
+stemr(x,0.5)
+```
+
+#
+
 ![](fiGoodness.png)
 
 ```{r, include=FALSE}
