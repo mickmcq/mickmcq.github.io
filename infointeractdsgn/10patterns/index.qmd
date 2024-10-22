@@ -37,14 +37,14 @@ DESIGN PATTERNS AGAIN
 
 ## Categories
 - Cognition and Behavior Related to Interface Design, p 11
-- Information Architecture Patterns, p 39, "Special" Group
-- Navigation Design Patterns, p 142, Group (Taylor's version)
-- Screen Layout Patterns, p 226, Group 8
-- Mobile Interface Patterns, p 305, Group connect 4
-- List Patterns, p 340, Group noop
-- Action Patterns, p 383, Group tew
-- Complex Data Patterns, p 446, Group Wordle
-- Forms Patterns, p 476, The hive five
+- Information Architecture Patterns, p 39
+- Navigation Design Patterns, p 142
+- Screen Layout Patterns, p 226
+- Mobile Interface Patterns, p 305
+- List Patterns, p 340
+- Action Patterns, p 383
+- Complex Data Patterns, p 446
+- Forms Patterns, p 476
 
 ## Cognition and behavior patterns
 ::: {.container}
@@ -106,8 +106,8 @@ This pattern corresponds to three of the @Nielsen1994 guidelines:
 - Make a few Google Slide slides as a group, including a title with your names
 - Give us a feel of your category of patterns, along with a few examples
 - Merge what you've done into the class slideshow at
-  [https://docs.google.com/presentation/d/1jw1QW9Q0wwYlAi5xE2ZW2MMRj7Qmhv1ZZuxzU5MHv8g/edit?usp=sharing](https://docs.google.com/presentation/d/1jw1QW9Q0wwYlAi5xE2ZW2MMRj7Qmhv1ZZuxzU5MHv8g/edit?usp=sharing)
-- One person from each group asks me for edit access and pastes in the group's slides
+  [https://docs.google.com/presentation/d/1FXauE830Ok7DMCMUeS7IAUG4XnlDo11I2cd6fElFQm0/edit?usp=sharing](https://docs.google.com/presentation/d/1FXauE830Ok7DMCMUeS7IAUG4XnlDo11I2cd6fElFQm0/edit?usp=sharing)
+- One person from each group pastes in the group's slides
 - You present them on Wednesday
 
 ## Why present?
