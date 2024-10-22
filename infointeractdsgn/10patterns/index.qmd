@@ -37,14 +37,14 @@ DESIGN PATTERNS AGAIN
 
 ## Categories
 - Cognition and Behavior Related to Interface Design, p 11
-- Information Architecture Patterns, p 39
-- Navigation Design Patterns, p 142
-- Screen Layout Patterns, p 226
-- Mobile Interface Patterns, p 305
-- List Patterns, p 340
-- Action Patterns, p 383
-- Complex Data Patterns, p 446
-- Forms Patterns, p 476
+- Information Architecture Patterns, p 39, AASI
+- Navigation Design Patterns, p 142, catLovers
+- Screen Layout Patterns, p 226, DLSS
+- Mobile Interface Patterns, p 305, ETG
+- List Patterns, p 340, JGRH CO
+- Action Patterns, p 383, Monkey Business
+- Complex Data Patterns, p 446, The Latte Lab
+- Forms Patterns, p 476, UX Girliez
 
 ## Cognition and behavior patterns
 ::: {.container}
