@@ -83,7 +83,7 @@ This pattern corresponds to three of the @Nielsen1994 guidelines:
 :::
 
 ## How to support safe exploration?
-- Multilevel undo (one of the action patterns Group tew can explore)
+- Multilevel undo (one of the action patterns Monkey Business can explore)
 - Predictable back button (no back button hijacking or interstitials ...)
 
 ## Another example: Satisficing
