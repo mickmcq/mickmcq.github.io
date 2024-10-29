@@ -25,7 +25,7 @@ pacman::p_load(tidyverse)
 ```
 
 ::: {.r-fit-text}
-Week NINE
+Week TEN
 :::
 
 # New Logo
@@ -35,10 +35,7 @@ Week NINE
 
 # Homework
 
-```{r}
-x <- c(0,2,0,1.4,2,1.9,1.8,1.9,1.9,1.9,2)
-stem(x)
-```
+Everyone did the homework correctly except that one student submitted the wrong assignment. I thought some people would be thrown off by the different column names in destination airports in two different data frames (`faa` and `dest`) but that was not the case.
 
 # Multiple Linear Regression
 
