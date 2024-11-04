@@ -1,6 +1,5 @@
 ---
 title: Accessibility
-subtitle: slideshows to introduce accessibility
 layout: default
 rank: 3
 icon: fa-edit
