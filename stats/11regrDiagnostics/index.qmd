@@ -1,0 +1,192 @@
+---
+title: "Regression Diagnostics"
+format: html
+---
+
+```{r}
+library(tidyverse)
+m <- lm(price ~ .,data=diamonds)
+```
+
+```{r}
+summary(m)
+```
+
+```{r}
+load(paste0(Sys.getenv("STATS_DATA_DIR"),"/mariokart.rda"))
+m<-(lm(total_pr~cond+stock_photo+duration+wheels,data=mariokart))
+summary(m)
+```
+
+```{r}
+plot(m)
+```
+
+## Residuals vs Fitted
+
+This plot tells you the magnitude of the difference between the residuals and the fitted values. There are three things to watch for here. First, are there any drastic outliers? Yes, there are two, points 65 and 20. (Those are row numbers in the data frame.) You need to investigate those and decide whether to omit them from further analysis. Were they typos? Mismeasurements? Or is the process from which they derive intrinsically subject to occasional extreme variation. In the third case, you probably don't want to omit them.
+
+Second, is the solid red line near the dashed zero line? Yes it is, indicating that the residuals have a mean of approximately zero. (The red line shows the mean of the residuals in the immediate region of the $x$-values of the observed data.)
+
+Third, is there a pattern to the residuals? No, there is not. The residuals appear to be of the same general magnitude at one end as the other. The things that would need action would be a curve or multiple curves, or a widening or narrowing shape, like the cross section of a horn.
+
+
+
+```{r}
+plot(m,which=c(1))
+```
+
+## Normal Q-Q
+This is an important plot. I see many students erroneously claiming that residuals are normally distributed because they have a vague bell shape. That is not good enough to detect normality. The Q-Q plot is the standard way to detect normality. If the points lie along the dashed line, you can be reasonably safe in an assumption of normality. If they deviate from the dashed line, the residuals are probably not normally distributed.
+
+```{r}
+plot(m,which=c(2))
+```
+
+## Scale-Location
+Look for two things here. First, the red line should be approximately horizontal, meaning that there is not much variability in the standardized residuals. Second, look at the spread of the points around the red line. If they don't show a pattrn, this reinforces the assumption of homoscedasticity that we already found evidence for in the first plot.
+
+```{r}
+plot(m,which=c(3))
+```
+
+```{r}
+plot(m,which=c(4))
+```
+
+## Residuals vs Leverage
+This shows you influential points that you may want to remove. Point 84 has high leverage (potential for influence) but is probably not actually very influential because it is so far from Cook's Distance. Points 20 and 65 are outliers but only point 20 is more than Cook's Distance away from the mean. In this case, you would likely remove point 20 from consideration unless there were a mitigating reason. For example, game collectors often pay extra for a game that has unusual attributes, such as shrink-wrapped original edition. As an example of a point you would definitely remove, draw a horizontal line from point 20 to a vertical line from point 84. Where they meet would be a high-leverage outlier that is unduly affecting the model no matter what it's underlying cause. On the other hand, what if you have many such points? Unfortunately, that probably means the model isn't very good.
+
+```{r}
+plot(m,which=c(5))
+```
+
+```{r}
+plot(m,which=c(6))
+```
+
+```{r}
+#.  If you render with the following,
+#.  you get an error message saying
+#.  "'which' must be in 1:6"
+#. plot(m,which=c(7))
+```
+
+## Variable selection
+
+```{r}
+pacman::p_load(olsrr)
+m <- lm(price ~ ., data=diamonds)
+(best <- ols_step_best_subset(m))
+```
+
+Look for *elbows* in the plots of the metrics to find the best model.
+
+```{r}
+plot(best)
+```
+
+My impression is that the best model has three variables: carat, color, and clarity. This is based entirely on diminishing returns of adding more variables.
+
+# Demo with three data sets
+
+## Fast Food
+
+```{r}
+load("fastfood.rda")
+ls()
+str(fastfood)
+table(fastfood$restaurant)
+pacman::p_load(tidyverse)
+df <- fastfood
+df |> count(restaurant)
+df |>
+  count(restaurant) |>
+  mutate(restaurant = reorder(restaurant,n)) |>
+  ggplot(aes(y=restaurant,x=n)) +
+  geom_col(fill="#4e0090") +
+  theme_minimal()
+```
+
+I'd like to know if each restaurant has a *signature*, like low sodium, low cholesterol, high protein, etc. So I'm going to see if I can identify restaurants by their levels of these ingredients. One way to do this is to employ [multinomial logistic regression](https://stats.oarc.ucla.edu/r/dae/multinomial-logistic-regression/) as described by a UCLA stats website.
+
+```{r}
+pacman::p_load(nnet)
+(m <- multinom(restaurant ~ sodium, data=df))
+summary(m)
+(m <- multinom(restaurant ~ cholesterol, data=df))
+summary(m)
+(m <- multinom(restaurant ~ protein, data=df))
+summary(m)
+```
+
+This isn't too informative by itself. The summaries give us the coefficients and their standard errors, but we would need to use these to calculate a $t$-statistic and a $p$-value ourselves. In any case, the effects don't look significant at a glance.
+
+What if we order the restaurants by average sodium?
+
+```{r}
+df |>
+  group_by(restaurant) |>
+  dplyr::summarize(Mean = mean(sodium,na.rm=TRUE)) |>
+  arrange(Mean)
+```
+
+```{r}
+df |>
+  group_by(restaurant) |>
+  dplyr::summarize(Mean = mean(cholesterol,na.rm=TRUE)) |>
+  arrange(Mean)
+```
+
+```{r}
+df |>
+  group_by(restaurant) |>
+  dplyr::summarize(Mean = mean(protein,na.rm=TRUE)) |>
+  arrange(Mean)
+```
+
+For any of these, we could create a barchart.
+
+```{r}
+df |>
+  group_by(restaurant) |>
+  dplyr::summarize(Mean = mean(protein,na.rm=TRUE)) |>
+  mutate(restaurant = reorder(restaurant,Mean)) |>
+  ggplot(aes(y=restaurant,x=Mean)) +
+  geom_col(fill="#ff0000") +
+  theme_minimal()
+```
+
+Another thing we might check on is whether there's a relationship between sodium and cholesterol.
+
+```{r}
+df |>
+  #ggplot(aes(sodium,cholesterol)) +
+  ggplot(aes(log(sodium),log(cholesterol))) +
+  geom_point() +
+  geom_smooth(method=lm)
+```
+
+Looks likely!
+
+## Fatal Police Shootings
+
+```{r}
+load("fatal_police_shootings.rda")
+ls()
+str(fatal_police_shootings)
+df <- fatal_police_shootings
+df$date <- ymd(df$date)
+str(df)
+summary(df$date)
+stem(df$date)
+stem(as.integer(df$date))
+```
+
+```{r}
+str(df)
+table(df$flee)
+df$flee <- ifelse(df$fleeing=="Not fleeing",0,1)
+m <- glm(flee ~ age,data=df,family="binomial")
+summary(m)
+```

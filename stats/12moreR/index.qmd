@@ -1,0 +1,238 @@
+---
+title: "More R"
+format: html
+---
+
+```{r}
+pacman::p_load(tidyverse)
+```
+
+# Homework
+
+```{r}
+x <- c(0,3.7,0,3.7,3.9,3.8,3.8,3.8,3.8,3.7,3.8)
+stem(x)
+```
+
+# Demo with more data sets
+
+## Fatal Police Shootings
+
+```{r}
+load("fatal_police_shootings.rda")
+ls()
+str(fatal_police_shootings)
+df <- fatal_police_shootings
+df$date <- ymd(df$date)
+str(df)
+summary(df$date)
+# stem(df$date)
+stem(as.integer(df$date))
+```
+
+```{r}
+str(df)
+df$fleeing <- ifelse(df$flee=="Not fleeing",0,1)
+m <- glm(fleeing ~ age,data=df,family="binomial")
+summary(m)
+```
+
+```{r}
+table(df$race)
+df |> ggplot(aes(race,age)) +
+  geom_boxplot() +
+  geom_jitter(alpha=0.1)
+```
+
+```{r}
+df |> count(armed) |> arrange(desc(n))
+```
+
+Is there a difference between threat levels if a body camera is turned on?
+
+```{r}
+tbl<-table(df$threat_level,df$body_camera)
+chisq.test(tbl)
+```
+
+## Sleep in mammals
+
+```{r}
+load("mammals.rda")
+ls()
+str(mammals)
+df <- mammals
+m <- lm(total_sleep ~ brain_wt,data=df)
+summary(m)
+```
+
+```{r}
+df |> select(total_sleep,species) |> arrange(total_sleep) |> print(n=62)
+```
+
+```{r}
+pacman::p_load(GGally)
+df |> select(-species) |> ggpairs()
+df |> select(-species,-gestation,-exposure,-danger,-body_wt,-predation) |> ggpairs()
+pacman::p_load(corrgram)
+df |> select(-species,-gestation,-exposure,-danger,-body_wt,-predation) |> corrgram(upper.panel=panel.pie)
+```
+
+There are loads of other options for scatterplot matrices, known in the R Graph Gallery as [correlograms](https://r-graph-gallery.com/correlogram.html).
+
+```{r}
+pacman::p_load(ellipse)
+pacman::p_load(RColorBrewer)
+data <- cor(df[,2:7])
+my_colors <- brewer.pal(5,"Spectral")
+my_colors <- colorRampPalette(my_colors)(100)
+ord <- order(data[1,])
+data_ord <- data[ord,ord]
+plotcorr(data_ord, col=my_colors[data_ord*50+50], mar=c(1,1,1,1) )
+```
+
+This didn't work well, so my first guess is that I misspelled something. To check that, I'll use the above code to reproduce the example in the R Graph Gallery.
+
+```{r}
+data <- cor(mtcars)
+my_colors <- brewer.pal(5,"Spectral")
+my_colors <- colorRampPalette(my_colors)(100)
+ord <- order(data[1,])
+data_ord <- data[ord,ord]
+plotcorr(data_ord, col=my_colors[data_ord*50+50], mar=c(1,1,1,1) )
+```
+
+This plots correctly, so there must be something else wrong. The next step is to find out what `ord` and `data_ord` are.
+
+```{r}
+ord
+data_ord
+```
+
+Now I see the problem! Everything but but `brain_wt` and `body_wt` has NA values (three such values, I think).
+
+```{r}
+# help(cor)
+data <- cor(df[,2:7],use="complete.obs")
+my_colors <- brewer.pal(5,"Spectral")
+my_colors <- colorRampPalette(my_colors)(100)
+ord <- order(data[1,])
+data_ord <- data[ord,ord]
+plotcorr(data_ord, col=my_colors[data_ord*50+50], mar=c(1,1,1,1) )
+```
+
+## Employment Resumes
+
+```{r}
+load("resume.rda")
+ls()
+str(resume)
+df <- resume
+m <- glm(received_callback ~ .,data=df,family="binomial")
+summary(m)
+m <- glm(received_callback ~ race,data=df,family="binomial")
+summary(m)
+m <- glm(received_callback ~ gender,data=df,family="binomial")
+summary(m)
+(tbl <- table(df$gender,df$race))
+chisq.test(tbl)
+(tbl <- table(df$received_callback,df$race))
+chisq.test(tbl)
+```
+
+## Sleep Deprivation
+
+```{r}
+load("sleep_deprivation.rda")
+ls()
+str(sleep_deprivation)
+df <- sleep_deprivation
+table(df$sleep,df$profession)
+m <- glm(profession ~ sleep,data=df,family="binomial")
+summary(m)
+m <- glm(sleep ~ profession,data=df,family="binomial")
+summary(m)
+df$sleep <- ordered(df$sleep, levels = c("<6","6-8",">8"))
+m <- glm(sleep ~ profession,data=df,family="binomial")
+summary(m)
+m <- glm(profession ~ sleep,data=df,family="binomial")
+summary(m)
+```
+
+Oops! It is only by coincidence that we get an output for each of these models. The `glm()` function is not applicable to multinomial models unless we do a lot of math on it. Even then, it's not universally applicable. Much better is to actually construct a multinomial logistic regression model. We did that last time with the `multinom()` function, but the output was hard to interpret. Let's use the `tidy()` function to make it easier to read.
+
+```{r}
+pacman::p_load(nnet)
+pacman::p_load(broom)
+pacman::p_load(kableExtra)
+m <- multinom(sleep ~ profession,data=df)
+tidy(m, conf.int = TRUE) |> kable() |> kable_styling("basic",full_width=FALSE)
+```
+
+The `kable` stuff is because, by default, the tibble output format of `tidy()` only shows the first ten letters of a `chr` column, which is not enough to distinguish between them, given that they are all prefixed with the word "profession." The `kableExtra` package provides the tools to construct a better-looking html table.
+
+```{r}
+df$sleep <- ordered(df$sleep, levels = c(">8","6-8","<6"))
+m <- multinom(sleep ~ profession,data=df)
+tidy(m, conf.int = TRUE) |> kable() |> kable_styling("basic",full_width=FALSE)
+```
+
+## Murders (not recommended for analysis)
+
+```{r}
+load("murders.rda")
+ls()
+str(murders)
+df <- murders
+m <- lm(annual_murders_per_mil ~ .,data=df)
+summary(m)
+```
+
+When people are unemployed, their thoughts turn to murder. Wait, wut?
+
+## NBA players 2018--2019
+
+```{r}
+load("nba_players_19.rda")
+ls()
+str(nba_players_19)
+df <- nba_players_19
+df |> ggplot(aes(position,height)) +
+  geom_boxplot() +
+  geom_jitter(alpha=0.2)
+```
+
+## Poker (anonymous)
+
+```{r}
+load("poker.rda")
+ls()
+str(poker)
+df <- poker
+stem(df$winnings)
+df |> ggplot(aes(winnings)) +
+  geom_histogram()
+```
+
+## SAT and GPA data
+
+```{r}
+load("satgpa.rda")
+ls()
+str(satgpa)
+df <- satgpa
+# m <- glm(sex ~ .,data=df,family="binomial")
+table(df$sex)
+df$sex <- ifelse(df$sex == 2,0,1)
+m <- glm(sex ~ .,data=df,family="binomial")
+summary(m)
+```
+
+Who knows which sex is which? Anyway.
+
+```{r}
+m <- lm(sat_m ~ hs_gpa,data=df)
+summary(m)
+m <- lm(fy_gpa ~ sat_m,data=df)
+summary(m)
+```
