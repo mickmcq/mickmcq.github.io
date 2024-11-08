@@ -1,5 +1,5 @@
 ---
-title: INF385C
+title: INF385C, HCI
 subtitle: Human Computer Interaction
 layout: default
 rank: 2

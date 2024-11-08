@@ -1,5 +1,5 @@
 ---
-title: INF385T
+title: INF385T, UX Proto
 subtitle: UX Prototyping
 layout: default
 rank: 2

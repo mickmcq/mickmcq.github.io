@@ -1,5 +1,5 @@
 ---
-title: INF385T
+title: INF385T, PromptEngr
 subtitle: Prompt Engineering
 layout: default
 rank: 2

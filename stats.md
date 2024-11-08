@@ -1,5 +1,5 @@
 ---
-title: i306
+title: i306, Stats
 subtitle: Statistics for Informatics
 layout: default
 rank: 2

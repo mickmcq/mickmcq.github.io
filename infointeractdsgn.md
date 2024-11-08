@@ -1,5 +1,5 @@
 ---
-title: I320U
+title: I320U, Inf & Interact Dsgn
 subtitle: Interaction and Information Design
 layout: default
 rank: 2
