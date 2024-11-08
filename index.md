@@ -9,10 +9,10 @@ icon: fa-home
 ---
 These are the courses I teach at the University of Texas at Austin:
 
-- [INF385C, Human Computer Interaction](inf385c.html)
-- [I320U, Information and Interaction Design](/i320u.html)
-- [I306, Statistics for Informatics](i306.html)
-- [INF385T, UX Prototyping](inf385t.html)
+- [INF385C, Human Computer Interaction](hci.html)
+- [I320U, Information and Interaction Design](infointeractdsgn.html)
+- [I306, Statistics for Informatics](stats.html)
+- [INF385T, UX Prototyping](uxproto.html)
 
 These are the courses I taught at Rochester Institute of Technology:
 
