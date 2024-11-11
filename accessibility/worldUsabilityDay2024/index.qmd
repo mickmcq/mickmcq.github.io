@@ -35,6 +35,13 @@ How to Start?
 - Yet manual intervention is always required
 - Even the best AI tools don't save you much time
 - Yet your clients don't understand why you can't sprinkle [magic fairy dust]{.emph} on your designs to make them accessible
+- Use AI for individual empowerment
+:::
+
+::: {.notes}
+I've investigated the commercial AI tools for PDF remediation and they don't work. The best of them make many errors and all claim to require manual intervention, which means they don't break the bottleneck in PDF remediation.
+
+Where AI *is* succeeding is in empowerment of individuals. For example, I work with a disabled grad student who struggles to use conference websites. He has found that he can use a gen AI tool, such as Claude, Gemini, or ChatGPT to package the website in an accessible manner. Note that he does not rely on AI tools meant for accessibility, just plain vanilla tools that happen to help.
 :::
 
 ## We're losing the struggle for accessibility
@@ -44,6 +51,10 @@ How to Start?
 - Technological development outpaces design---new things appear at a faster rate than we can design for them
 - Universal design is a double-edged sword
 - Did I mention that AI isn't helping much?
+:::
+
+::: {.notes}
+Gregg Vanderheide, an accessibility pioneer, says we're falling further and further behind the rampaging advances in technology, partly because of scalability issues, which AI is supposed to address but hasn't so far; AI has just empowered individual disabled people
 :::
 
 ## What can you do?
@@ -78,7 +89,7 @@ When you think of disability, do you think of a spectrum?
 ![](fiSituationalDisability.jpg)
 
 ::: {.notes}
-This picture of a spectrum of disabilities is not comprehensive. The neurodiversity community needs accessibility attention too.
+This picture of a spectrum of disabilities is not comprehensive. The neurodiverse community needs accessibility attention too.
 
 Picture source: https://www.microsoft.com/design/inclusive/
 :::
@@ -132,6 +143,21 @@ Also note that there are exceptions for preexisting content and content posted b
 - Neurodiverse communities build their own inclusive tools
 :::
 
+::: {.notes}
+See, for instance, the following for more on building inclusive tools.
+
+Carik, B., Ping, K., Ding, X., & Rho, E. H. (2025). Exploring Large Language Models Through a Neurodivergent Lens: Use, Challenges, Community-Driven Workarounds, and Concerns. *Proceedings of The 2025 ACM International Conference on Supporting Group Work (GROUP ’25)*, 1(1), 1–29. [https://doi.org/10.48550/arXiv.2410.06336](https://doi.org/10.48550/arXiv.2410.06336)
+
+See also
+
+Mohs, S. (2023, July 7). Neurodiverse? Use GenAI to Work Smarter. *Medium.* [https://medium.com/@svmohs/neurodiverse-use-genai-to-work-smarter-d43bf2e2be75](https://medium.com/@svmohs/neurodiverse-use-genai-to-work-smarter-d43bf2e2be75)
+
+Fleck, C. (2024, June). AI for ADHD: How to Make ChatGPT Work for You. *ADDitude*. [https://www.additudemag.com/chatgpt-ai-adhd-executive-function-support](https://www.additudemag.com/chatgpt-ai-adhd-executive-function-support)
+
+Suter, C. (2023, October 11). How GenAI is Boosting my Confidence in Writing With Dyslexia. *LinkedIn*. [https://www.linkedin.com/pulse/how-genai-boosting-my-confidence-writing-dyslexia-chris-suter-42osf](https://www.linkedin.com/pulse/how-genai-boosting-my-confidence-writing-dyslexia-chris-suter-42osf)
+
+:::
+
 # Takeaways
 
 ## How can you streamline your work?
@@ -161,7 +187,7 @@ Also note that there are exceptions for preexisting content and content posted b
 
 email [mcq@utexas.edu](mailto:mcq@utexas.edu) to share further ideas and questions
 
-visit [https://mickmcquaid.com](https://mickmcquaid.com) and click on Accessibility Slides
+visit [https://mickmcquaid.com](https://mickmcquaid.com) and click on Accessibility
 
 Thanks for listening!
 
