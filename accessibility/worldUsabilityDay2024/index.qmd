@@ -91,7 +91,7 @@ When you think of disability, do you think of a spectrum?
 ::: {.notes}
 This picture of a spectrum of disabilities is not comprehensive. The neurodiverse community needs accessibility attention too.
 
-Picture source: https://www.microsoft.com/design/inclusive/
+Picture source: [https://www.microsoft.com/design/inclusive/](https://www.microsoft.com/design/inclusive/)
 :::
 
 ## Good news, everyone!
@@ -182,6 +182,10 @@ Suter, C. (2023, October 11). How GenAI is Boosting my Confidence in Writing Wit
   - use the *s* key on your keyboard for speaker's notes and attributions
 - attend ASSETS or review the work there
 - have informal conversations with academics
+
+::: {.notes}
+[https://www.sigaccess.org/assets/](https://www.sigaccess.org/assets/)
+:::
 
 # Please contact me!
 
