@@ -125,9 +125,17 @@ Also note that there are exceptions for preexisting content and content posted b
 - Clients still have the compliance mindset, not the anti-ableist mindset
 - You may need to communicate the difference to them
 - You may need to recruit disabled people to design and test
-- This is extra work on top of your current burdens
+- This is *extra* work on top of your current burdens
 :::
 ::::
+:::
+
+::: {.notes}
+It can be hard to hear that your list of responsibilities is lengthening without a bump in pay or reduction of other responsibilities. But consider two things
+
+- It was always our responsibility, we just didn't know it!
+- You can educate the organization to spread the work across all employees by teaching people that accessibility is everyone's responsibility. Everyone needs to say "What can we do to make you more successful in your role?" for example.
+
 :::
 
 # We're awakening to more challenges
