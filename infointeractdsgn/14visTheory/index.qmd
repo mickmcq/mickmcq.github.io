@@ -202,7 +202,7 @@ each of the concepts
 
 ::: {.notes}
 so there is a chapter for algebra,
-a chapter for scales, and so on
+a chapter for scales, and so on, one for each of the process bubbles in the data flow diagram of how to make a pie
 :::
 
 ##
@@ -247,6 +247,102 @@ lecture with a lot of equations
 won't be very memorable unless
 you already have a math background
 :::
+
+---
+
+[Part II]{.r-fit-text}
+
+## Semantics
+We could look at any of the chapters, such as Time or Uncertainty, but we'll just look at Space for now
+
+## Space
+Four perspectives on space
+
+- Terminology
+- Mathematical Space
+- Psychological Space
+- Graphing Space
+
+## Terminology
+- graphics frame: a set of tuples ranging over all possible values in the domain of a $p$-dimensional varset
+- tuple: a pair $(a,b)$
+- $n$-tuple: a set $\{a_1,a_2,\ldots,a_n\}$ (note that this means that only pairs and sets can be depicted)
+- graph: a subset of these tuples (note that Wilkinson separate defines graphs differently and we'll have to deal with that in a few slides from now)
+- graphic: the perceptual realization of a graph
+
+## Two kinds of space
+- preceding definitions say that a graph is just a concept, not what we see: the graphic is what we see
+- this means there are two kinds of space
+  - underlying space (any space with a mathematical definition)
+  - represented space (what we see: always 2$D$ or 3$D$)
+
+## Example: beadlet anemones
+![](fiBeadletAnemones.png)
+
+::: {.notes}
+These are tiny creatures, about two inches in diameter when fully grown, that live on rocks in oceans and estuaries. They often form colonies that can be diagrammed. Notice that the rock is 3$D$ but the diagram is 2$D$.
+:::
+
+## A minimum spanning tree of a rock covered with beadlet anemones
+![](fiMinSpanningTree.png)
+
+::: {.notes}
+A minimum spanning tree is a mathematical construct you can derive from any group of like objects with some differing distances between them. The tree shows one path from a root (one of the beadlet anemones) to any branch or leaf (another beadlet anemone). You don't need to know the mathematical properties right now, just that more than one is possible for any given set of objects (usually a social network in real life) and one may be better than another. In this case, you would need to know something about beadlet anemones to understand which minimum spanning tree is best.
+:::
+
+## A different layout of the same tree
+![](fiDifferentMST.png)
+
+::: {.notes}
+Here is a different minimum spanning tree of the beadlet anemones. It is mathematically identical to the one above except that it does not capture the geographic relationship of the anemones. The only difference is that the distance between the unlinked points is not meaningful. Only the links have meaning.
+:::
+
+## Display space and underlying space
+The display space and the underlying space can have different relationships. If the display space misses information about the underlying space, we may not be able to understand the graphic. The graphic may reflect only part of the graph.
+
+## Graphics as a mapping function
+$f: S\rightarrow P$, where $S$ is the underlying mathematical space and $P$ is a Euclidean displace space represented by a *position* aesthetic. (Aesthetics are the things you can see, like texture, orientation, color, etc.)
+
+To fully understand the graphic, you need to know the function $f$ and the underlying mathematical space $S$.
+
+## Three perspectives on space
+- Mathematical
+- Psychological
+- Graphical
+
+## Mathematical space
+Mathematical spaces have topological properties, for instance
+
+- values may be on a continuum
+- values may be categorical and hence isolated from each other
+- values may lie in a compact region
+- values may lie in an unbounded region
+
+## Topological space
+- a topological space $S$ is a set $X$ and a collection $T$ of subsets of $X$ satisfying these axioms
+  - the empty set and $X$ are in $T$
+  - the union of any number of sets in $T$ is also in $T$
+  - the intersection of any two sets in $T$ is also in $T$
+
+## Yet more terms
+- the elements of $X$ are points
+- The set $T$ is a topology on $X$
+- the elements of $T$ are the open sets of $X$
+- a subset of $X$ is closed if its complement is open
+- any set $B$ is a basis for $T$ if every member of $T$ is a union of members of $B$
+
+## Using the terms
+We could go on to define topologies of the real number line using the previous definitions, but for now we'll just consider connected, totally disconnected, and discrete spaces
+
+## Connected spaces
+We can draw a line between any two points and that line can be meaningful, for example the two points could be temperatures and the line could represent the number of degrees between those temperatures
+
+## Totally disconnected spaces
+Each point is in a category so you can't draw a meaningful line between the categories. For example, each point is a species of bird and a line between two of them has no metric meaning
+
+## Discrete spaces
+
+
 
 # References
 
