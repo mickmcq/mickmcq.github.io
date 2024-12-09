@@ -17,6 +17,8 @@ format:
     center: true
 ---
 
+\usepackage{amsmath, amssymb}
+
 ```{r, include=FALSE}
 knitr::opts_chunk$set(
   echo=TRUE
@@ -162,13 +164,15 @@ Any two sample hypothesis test with a control sample and a variant can be constr
 *Suppose a coin is biased so that $p(\textrm{heads})=4/5$. What is the probability of getting three or more heads in five flips?*
 
 ## Biased coin
-$p(5h)+p(4h)+p(3h)=(4/5)^5+(4/5)^4*(1/5)^1+(4/5)^3*(1/5)^2\approx 0.94$
+$$p(5h)+p(4h)+p(3h)$$
+$$=(4/5)^5+(4/5)^4*(1/5)^1+(4/5)^3*(1/5)^2$$
+$$\approx 0.94$$
 
 ## Random variable
 *Let X be a normally distributed random variable with mean 1020 and standard deviation 50. What is the probability that $X>1200$?*
 
 ## Random variable
-The correct R formula would be `1-pnorm(1200,1020,50)` and its value in this case is `r 1-pnorm(1200,1020,50)`.
+The correct R formula would be `1-pnorm(1200,1020,50)` and its value in this case is `r format(1-pnorm(1200,1020,50),scientific=F)`.
 
 ## Customers calling
 *Suppose that, on average, 2.5 customers call a call center every minute. What are the chances that at most 3 people call in four minutes?*
@@ -182,11 +186,14 @@ This is a standard Poisson distribution problem, also framed as customers arrivi
 ## HIV testing
 Let's use a formula from Wikipedia for precision based on sensitivity, specificity, and prevalence for positive predictive value (PPV) which is a measure of precision:
 
+
 $$
+{\scriptstyle
 \eqalign{
 \textrm{PPV}&=\frac{\textrm{sensitivity}\times\textrm{prevalence}}{\textrm{sensitivity}\times\textrm{prevalence}+(1-\textrm{specificity})\times(1-\textrm{prevalence})}\\
 &=\frac{0.997*0.001}{0.997*0.001+(1-0.985)*(1-0.001)}\\
 &\approx 0.06238268
+}
 }
 $$
 

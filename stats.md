@@ -48,3 +48,5 @@ For week 13, we're using the ISLR2 textbook and there are no lecture slides.
 
 [week14review](https://mickmcquaid.com/stats/week14review/index.html) is a slideshow that concludes the course
 
+[qAndA](https://mickmcquaid.com/stats/15qanda/index.html) is a slideshow of potential job interview questions.
+
