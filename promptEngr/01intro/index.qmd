@@ -72,17 +72,22 @@ Welcome!
 - Then we'll review @Dhar2024 for a bit of history.
 - Finally, we'll do another exercise.
 - In fact, the general format of the class will usually be some lecture followed by some exercises.
+- Next week, we'll discuss the general framework for the semester, but I want to give you something to think about first---one view of learning is that it is like hanging ornaments on an Xmas tree---you need the tree but you also need to appreciate the ornaments: which should come first?
 :::
 
-# But first, TANSTAAFL
+# Before we begin, TANSTAAFL
 
 That stands for "There ain't no such thing as a free lunch"
 
 Many people think AI will provide a free lunch. I don't.
 
+::: {.notes}
+This phrase and acronym were popularized by a science fiction writer (Robert A. Heinlein) nearly a century ago, when many people were optimistic about new technologies and their promise of improving our lives. It was prescient at that time to observe that these technologies come with a cost. As we approach generative AI, we need to remain vigilant about the costs, whether we stop to mention it or not.
+:::
+
 ##
 
-![](fiBestProjSpec.jpg)
+![](fiBestProjSpec.jpg){fig-align="center"}
 
 You will have to work (think) to make AI work (think) for you
 
@@ -94,8 +99,26 @@ $\langle$ Pause to let the room clear $\rangle$
 
 # Exercise: What I already know
 - There is a google doc referenced in Canvas (on the course's home page) that I want you to edit
-- There are some starter text for you to add to
+- There is some starter text for you to add to
 - Please also add your own sections but *please* use appropriate section headings and subheadings rather than jury-rigging text attributes as headings
+
+::: {.notes}
+One of my two main pet peeves is when students make a "heading" by simply continuing to type but changing the font to boldface. That prevents us from doing things like developing an automatic table of contents. Please don't do that in this class. (My other pet peeve is using the word "leverage" as a synonym for "use". Please use the word "use" instead of leveraging the word "leverage" in this class and expunge "leverage" from results of prompting---generative AI tools are quite fond of "leverage".)
+:::
+
+##
+
+```{r, engine = 'tikz',echo=FALSE}
+#| fig-align: center
+ \begin{tikzpicture}
+     % Draw the red circle with a slash
+     \draw[red, line width=3mm] (0,0) circle (2cm);
+     \draw[red, line width=3mm] (-1.4,-1.4) -- (1.4,1.4);
+
+     % Add the word "LEVERAGE" behind the circle
+     \node[opacity=0.5] at (0,0) {\Huge \textsf{LEVERAGE}};
+ \end{tikzpicture}
+```
 
 # Paradigm shifts in AI
 
@@ -206,6 +229,25 @@ The intelligence of that creature known as a crowd is the square root of the num
 --- Terry Pratchett
 :::
 
+::: {.notes}
+Bob Briggs, an obscure scholar, liked to preface the use of groupware (software for group work) by saying that "All of us know more than any of us". But famous author Terry Pratchett liked to remind us of the destructive power of certain groups of people.
+
+Which view do you subscribe to? Perhaps both at different times and in different places? Sometimes collaboration helps us the most and sometimes solitary work serves us best. Which situation are we in today? Will we stay in this situation all semester long?
+:::
+
+## The Art of Conversation
+::: {.incremental}
+- If you search for books about the art of conversation, what will you find?
+- The first book I found talked about conversation for pure pleasure
+- The second book I found talked about body language during conversation
+- Prompt engineering is essentially a conversation, but so different from what I think of as conversation
+- We need to think of it as conversation, but study it separately from conversation that gives us enjoyment or happens face-to-face with another person
+:::
+
+::: {.notes}
+I should add that body language is not a far-fetched concept in the conversation with generative AI. Certainly the camera in your laptop can detect your interest in the conversation, your mood, and more. And generative AI tools can certainly produce avatars that react to your body language.
+:::
+
 # Another exercise
 
 ## Write a short Python program
@@ -252,6 +294,12 @@ The intelligence of that creature known as a crowd is the square root of the num
 ## Problem?
 ![](fiPythonEnvironmentXKCD.png)
 
+::: {.notes}
+If you are on macOS, I encourage you to reduce your Python installations to no more than two, the one macOS installs (because it's hard to get rid of and may get reinstalled automatically upon an OS update), and the one you actually use. I use `pyenv` and I install that using `homebrew`. Then I install Python using `pyenv`, not using `homebrew`. The reason is that, if you actually need additional Python versions, `pyenv` manages them for you. I would get rid of miniconda, anaconda, and other automatic Python installations if I were you.
+
+If you are on Windows, good luck. I don't know how it works. I switched to mac so I wouldn't have to deal with Windows.
+:::
+
 ---
 
 ::: {style="text-align: right; font-size: 300px; font-weight: bold;"}
@@ -267,5 +315,5 @@ END
 
 This slideshow was produced using `quarto`
 
-Fonts are *Robot Light*, *Roboto Bold*, and *JetBrains Mono Nerd Font*
+Fonts are *Roboto Light*, *Roboto Bold*, and *JetBrains Mono Nerd Font*
 

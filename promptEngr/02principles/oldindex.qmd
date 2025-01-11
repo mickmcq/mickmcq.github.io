@@ -1,0 +1,50 @@
+# Issues
+- vague direction
+- unformatted output
+- missing examples
+- limited evaluation
+- no task division
+
+::: {.notes}
+These issues and the following principles are taken from @Phoenix2024, Chapter 1. Note that the authors assert that they are not *tips* or *hacks* but model-agnostic principles.
+:::
+
+# Principles arising from the issues
+- give direction
+- specify format
+- provide examples
+- evaluate quality
+- divide labor
+
+## 1. Give direction
+- imagine direction a human would need
+- ask it to role-play (e.g., Steve Jobs product-naming)
+- ask it to generate a list of best practices, then ask it to follow them
+- for image generation, supply the name of a prominent artist
+
+::: {.notes}
+Several names are given to the practice of asking it to supply best practices and then follow those best practices. Generated knowledge prompting (@Liu2022), prewarming, and internal retrieval are the best known.
+:::
+
+## 2. Specify format
+- JSON, YAML, HTML are all worthwhile formats to specify---JSON because it is universally used in web applications, YAML as an occasional substitute for JSON, and HTML because it can be directly pasted into a document
+- stock photo, illustration, and oil painting are common image generation formats to specify, but there are many more
+- specifications may clash in unpredictable ways, so it may be necessary to drop some specifications during prompt development
+- there may also be clashes between principles 1 and 2, leading you to sacrifice one or the other
+
+::: {.notes}
+At a minimum, all knowledge workers should know JSON, HTML, and CSS for communication online. If you aren't familiar with JSON, you should immediately familiarize yourself with it. @Phoenix2024 recommends the [W3Schools tutorial](https://www.w3schools.com/js/js_json_intro.asp). I can't stand the ads on that site, so I prefer [https://json.org](https://json.org). But there you need to understand rail diagrams.
+:::
+
+## 3. Provide examples
+- zero-shot prompts contain *no* examples
+- one-shot prompts contain *one* example
+- few-shot prompts contain *several* examples
+
+##
+
+![](fiZeroOneFew.png)
+
+::: {.notes}
+A famous paper, @Brown2020, demonstrated the power of examples. This frame shows part of Figure 1.1 from the paper, illustrating how much the performance profiles for zero-, one-, and few-shot prompts differ.
+:::
