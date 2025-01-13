@@ -30,6 +30,7 @@ engine: knitr
 embed-resources: true
 bibliography: master.bib
 monofont: JetBrainsMono Nerd Font
+mathfont: Kurier
 css: "style.css"
 ---
 
@@ -299,6 +300,113 @@ If you are on macOS, I encourage you to reduce your Python installations to no m
 
 If you are on Windows, good luck. I don't know how it works. I switched to mac so I wouldn't have to deal with Windows.
 :::
+
+# Presentations
+
+## Goal
+You must each present (1) a success you've experienced with genAI and (2) a challenge that you have not yet overcome with genAI. That is the ten percent presentation grade in class. The Python exercise will determine the schedule of presentations.
+
+- Please create the presentation using Quarto, which I will demonstrate.
+- Please explain your success and your challenge (I will demonstrate in a minute)
+- Please show your prompts (your dialog) leading to success and failure
+- Please tell us how we can benefit from what you've learned
+
+## Example---success
+I use a format called BibTeX to construct bibliographies. Here's a fragment.
+
+![](fiBibFormat.png)
+
+It's tedious to enter.
+
+## My first prompt almost worked!
+`Please format the following as a BibTeX inproceedings entry`
+
+`Vinita Tibdewal, Sharoda Paul, Xiaomai Chen, Jennifer Kim, Obinna Anya, Mina Shojaeizadeh, and Ilteris Kaplan. 2018. Unlocking the
+User Experience of Generative AI Applications: Design Patterns and Principles. In Honolulu ’24: ACM CHI Conference on Human Factors
+in Computing Systems,May 11–16, 2024, Honolulu, Hawai’i. ACM, New York, NY, USA, 5 pages`
+
+## Output of first prompt
+![](fiBibOutput.png)
+
+## Adjustments
+::: {.incremental}
+- I have a key format I always use and `tibdewal12018unlocking` doesn't fit (but the AI could not have known that)
+- The booktitle should begin CHI '24 (but the AI could probably not have known that)
+- The address and location should be swapped (not sure if the AI should have been able to figure that out)
+- Overall, I gave it an A and promptly used it for a long list of unformatted bibliographic items, which it handled similarly
+:::
+
+## Example---challenge
+Animate this
+
+##
+
+```{r}
+#| engine = 'tikz',
+#| engine.opts=list(extra.preamble=c("\\usepackage{pgfplots,stix,pagecolor}","\\pgfplotsset{compat=1.18}")),
+#| echo=FALSE
+\begin{tikzpicture}
+  \tikzset{
+        every pin/.style={fill=yellow!50!white,rectangle,rounded corners=3pt,font=\tiny},
+        small dot/.style={fill=black,circle,scale=0.3}
+    }
+\begin{axis}[
+  no markers, domain=0.75:3.45, samples=200,
+  axis lines=left, xlabel={}, ylabel=\phantom{y},
+  every axis y label/.style={at=(current axis.above origin),anchor=south},
+  every axis x label/.style={at=(current axis.right of origin),anchor=west},
+  height=4cm, width=7cm,
+  xtick=\empty, ytick=\empty,
+  enlargelimits=false, clip=false, axis on top,
+    extra x ticks={0,2,2.5},
+    extra x tick labels={\scriptsize 0, \scriptsize $t_c$,\scriptsize $t_{\alpha,\nu}$}
+  ]
+  \addplot [fill=cyan!20, draw=none, domain=2:3.5]
+  {9*(x^(0.5*4-1))*((1+4*x/3)^(-0.5*4-0.5*3))} \closedcycle node [style={font=\scriptsize},above,text width=1.5cm] at (axis cs:0,0.008) {};
+   \node[small dot,pin=80:{$p$}]  at (axis cs:2.25,0.12) {};
+  \addplot [fill=cyan!30, draw=none, domain=2.5:3.5]
+  {9*(x^(0.5*4-1))*((1+4*x/3)^(-0.5*4-0.5*3))} \closedcycle node [style={font=\scriptsize},above,text width=1.5cm] at (axis cs:0,0.008) {};
+   \node[small dot,pin=80:{$\alpha$}]  at (axis cs:2.8,0.09) {};
+  \addplot [very thick,cyan!50!black] {9*(x^(0.5*4-1))*((1+4*x/3)^(-0.5*4-0.5*3))};
+\end{axis}
+\end{tikzpicture}
+```
+
+##
+The preceding possibility shows the situation where
+$t_{\alpha,\nu}>t_c$, which is equivalent to saying that
+$p>\alpha$.
+
+The $x$-axis scale begins to the left of the fragment shown here, and values of $t$
+increase from left to right. At the same time, the
+shaded regions decrease in size from left to right.
+Note that the entire shaded region above is $p$,
+while only the darker region at the right is $\alpha$.
+
+::: {.notes}
+Note that the math on this slide is in a different font than the remainder of the text. This appears to be a limitation of the slide-making software that has this particular math font hardcoded into it. I've written to the developer requesting a fix.
+:::
+
+## The challenge
+I tried several times to get a genAI tool (can't remember if it was DALL-E or Midjourney or what) to animate this, only to experience repeated failures of many kinds. I thought of making this an exercise, in fact, because it seems like a difficult problem.
+
+On the bright side, I have since learned that, instead of asking for a picture, I might be better off asking for a programmatic specification of a picture, allowing me to tweak the parameters. That's how I arrived at the preceding *no leverage* picture.
+
+Unfortunately, it did not work in this case and the output is too involved to put on a slide. Instead, I will share my dialog with ChatGPT separately.
+
+$\langle$ Pause to show dialog $\rangle$
+
+## The outcome
+I created eighteen LaTeX files and about fifteen Python scripts trying to debug this but could never get even a rough output I could work with. I tried debugging both the Python scripts and the LaTeX input with no success. The challenge remains $\cdots$
+
+One additional problem is that I couldn't portray the issues in a presentation. I would need a video to go through the ChatGPT window. I'm reluctant to ask you to produce a video for your presentation but I will allow it if you prefer.
+
+## Presentations in Quarto
+You'll need to turn in a .qmd file and a .html file by 11:59PM the night before your presentation. Optionally, you may also turn in an .mp4 file. (If you do that, we can run the .mp4 file in class instead of having you present.)
+
+How do you do that? Just open R Studio and select File > New File > Quarto Presentation. The system will create a small presentation template for you. Now we'll add to it.
+
+$\langle$ Pause to demo Quarto Presentations $\rangle$
 
 ---
 
