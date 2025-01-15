@@ -71,6 +71,7 @@ Welcome!
 ::: {.incremental}
 - We'll do an exercise.
 - Then we'll review @Dhar2024 for a bit of history.
+- We'll learn how you'll do homework and presentations.
 - Finally, we'll do another exercise.
 - In fact, the general format of the class will usually be some lecture followed by some exercises.
 - Next week, we'll discuss the general framework for the semester, but I want to give you something to think about first---one view of learning is that it is like hanging ornaments on an Xmas tree---you need the tree but you also need to appreciate the ornaments: which should come first?
@@ -249,58 +250,6 @@ Which view do you subscribe to? Perhaps both at different times and in different
 I should add that body language is not a far-fetched concept in the conversation with generative AI. Certainly the camera in your laptop can detect your interest in the conversation, your mood, and more. And generative AI tools can certainly produce avatars that react to your body language.
 :::
 
-# Another exercise
-
-## Write a short Python program
-::: {.incremental}
-- generate a random order for students to make presentations in this class
-- everyone must present once
-- no more than four may present on a given day
-- no fewer than three may present on a given day
-- there are twelve days on which students may present
-- if no program works by the end of today's class, I need three volunteers for next week
-:::
-
-## Approaching this exercise
-::: {.incremental}
-- You can make this very simple by doing some manual labor
-- You need to break the problem down into parts
-- You need to iterate
-- You need to document what you do
-- As with all exercises, I ask you to turn in a Quarto qmd file and an html file (both are required for credit)
-:::
-
-## Why Quarto?
-::: {.incremental}
-- Quarto is a tool that helps you do *reproducible research*
-- Quarto helps you document the steps you took
-- Quarto encapsulates the code (in this case, Python code) and your commentary about what you did, including any pictures, equations, videos, or anything else that a word processor can include
-- Quarto provides a text that is readable by any text editor of your preference
-- Quarto documents and slideshows can be rendered to html or any of about a dozen other formats
-:::
-
-## How to use Quarto
-::: {.incremental}
-- Note that you don't have to follow these instructions if you already know how to use Quarto
-- Be sure you have Python on your computer (how you do that is up to you; I use `pyenv`)
-- Download R; then download R Studio (the order is important)
-- Download the file `eA.qmd` from Canvas
-- Open R studio; choose Open File from the menu; open `eA.qmd`
-- `eA.qmd` is a template for exercise A
-- Fill in your name
-- Do the exercise in this file, documenting what you do as you go
-- Intersperse code and commentary, including prompts you use
-:::
-
-## Problem?
-![](fiPythonEnvironmentXKCD.png)
-
-::: {.notes}
-If you are on macOS, I encourage you to reduce your Python installations to no more than two, the one macOS installs (because it's hard to get rid of and may get reinstalled automatically upon an OS update), and the one you actually use. I use `pyenv` and I install that using `homebrew`. Then I install Python using `pyenv`, not using `homebrew`. The reason is that, if you actually need additional Python versions, `pyenv` manages them for you. I would get rid of miniconda, anaconda, and other automatic Python installations if I were you.
-
-If you are on Windows, good luck. I don't know how it works. I switched to mac so I wouldn't have to deal with Windows.
-:::
-
 # Presentations
 
 ## Goal
@@ -406,7 +355,59 @@ You'll need to turn in a .qmd file and a .html file by 11:59PM the night before 
 
 How do you do that? Just open R Studio and select File > New File > Quarto Presentation. The system will create a small presentation template for you. Now we'll add to it.
 
+## Why Quarto?
+::: {.incremental}
+- Quarto is a tool that helps you do *reproducible research*
+- Quarto helps you document the steps you took
+- Quarto encapsulates the code (in this case, Python code) and your commentary about what you did, including any pictures, equations, videos, or anything else that a word processor can include
+- Quarto provides a text that is readable by any text editor of your preference
+- Quarto documents and slideshows can be rendered to html or any of about a dozen other formats
+:::
+
+## How to use Quarto
+::: {.incremental}
+- Note that you don't have to follow these instructions if you already know how to use Quarto
+- Be sure you have Python on your computer (how you do that is up to you; I use `pyenv`)
+- Download R; then download R Studio (the order is important)
+- Download the file `eA.qmd` from Canvas
+- Open R studio; choose Open File from the menu; open `eA.qmd`
+- `eA.qmd` is a template for exercise A
+- Fill in your name
+- Do the exercise in this file, documenting what you do as you go
+- Intersperse code and commentary, including prompts you use
+:::
+
+## Problem?
+![](fiPythonEnvironmentXKCD.png)
+
 $\langle$ Pause to demo Quarto Presentations $\rangle$
+
+::: {.notes}
+If you are on macOS, I encourage you to reduce your Python installations to no more than two, the one macOS installs (because it's hard to get rid of and may get reinstalled automatically upon an OS update), and the one you actually use. I use `pyenv` and I install that using `homebrew`. Then I install Python using `pyenv`, not using `homebrew`. The reason is that, if you actually need additional Python versions, `pyenv` manages them for you. I would get rid of miniconda, anaconda, and other automatic Python installations if I were you.
+
+If you are on Windows, good luck. I don't know how it works. I switched to mac so I wouldn't have to deal with Windows.
+:::
+
+# Another exercise
+
+## Write a short Python program
+::: {.incremental}
+- task: generate a random order for students to make presentations in this class
+- constraint: everyone must present once
+- constraint: no more than three may present on a given day
+- constraint: no fewer than two may present on a given day
+- constraint: there are twelve days on which students may present
+- if no program works by the end of today's class, we will use the program I wrote and will show as a demo
+:::
+
+## Approaching this exercise
+::: {.incremental}
+- You can make this very simple by doing some manual labor
+- You need to break the problem down into parts
+- You need to iterate
+- You need to document what you do
+- As with all exercises, I ask you to turn in a Quarto qmd file and an html file (both are required for credit)
+:::
 
 ---
 
