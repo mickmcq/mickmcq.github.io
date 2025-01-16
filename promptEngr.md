@@ -15,6 +15,12 @@ icon: fa-edit
 
 [02principles](/promptEngr/02principles/index.html) introduces the notion of principles in prompt engineering, along with some examples.
 
+# Exercises
+
+[eA.qmd](/promptEngr/eA.qmd) This is the code template for the first exercise.
+
+[eA.html](/promptEngr/eA.html) This is the rendered html for the above code template.
+
 <!--
 
 -->
