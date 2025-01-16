@@ -21,6 +21,10 @@ icon: fa-edit
 
 [eA.html](/promptEngr/eA.html) This is the rendered html for the above code template.
 
+[eAsolutionR.qmd](/promptEngr/eAsolutionR.qmd) This is an example solution in R instead of Python.
+
+[eAsolutionR.html](/promptEngr/eAsolutionR.html) This is the rendered version of the above example solution.
+
 <!--
 
 -->
