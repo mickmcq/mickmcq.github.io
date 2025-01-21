@@ -20,16 +20,21 @@ format:
 Week TWO
 :::
 
-## Agenda
-1. attendance
-2. decide what to do with design thinking artifacts (put on canvas or figjam)
-3. discuss the questions from the 1/16 class
-4. establish groups
-5. framer tutorial
-6. figjam tutorial
-7. accessibility
-8. design principles
-9. write the answers to questions from the 1/22 class
+## Review Design thinking
+::: {.incremental}
+- a lot of really good work
+- please export HEIC files to png or jpg so Canvas understands them
+- please export pdfs in such a way that Canvas displays them properly
+- terrific sketching---keep it up---sketching is so important
+- mostly well organized presentations
+- a lot of good app ideas
+- one person included follow-up thoughts, which was great and so important!
+:::
+
+## Groups
+I'd like one person from *UXerrrs* or *Software Designers* to switch to *Pink Pony Club*, which currently has only two people. There's too much work in the projects for two people. It would actually be ideal if one person from each of those two groups would switch. That way, we would have almost all groups of four, which is the ideal size. (Sometimes groups of five have communication problems.)
+
+If no one switches before milestone 1 is due, I'll randomly choose people to assign! Be warned!
 
 ---
 
@@ -75,15 +80,42 @@ Use any one or any combination of these guidelines in developing your prototypes
 I'm high on Framer because of its excellent JavaScript output, which cuts down on cycle time. You will often hear me say that cutting down cycle time is a high priority in rapid prototyping. Framer easily beats Figma in this regard, but Framer only recently acquired a free tier, so Figma has captured most of the mindshare. I want to expose you to Framer as well. The goal of this tutorial is to create a Framer website.
 :::
 
+## Framer's own fundamentals course
+::: {.incremental}
+- Visit framer.com and navigate to Resources > Academy > Framer Fundamentals
+- The direct URL is <https://www.framer.com/academy/courses/fundamentals>
+- The first few screencasts should be sufficient
+- The course is not yet complete, but you just need a framer website as a container for Figma prototypes and pdfs
+- (You're also free to use a different website builder)
+:::
+
+---
+
+::: {.r-fit-text}
+‹Figma tutorial›
+:::
+
+## Figma tutorial
+::: {.incremental}
+- Visit help.figma.com and navigate to *Figma for Beginners* (near the bottom of the page)
+- There are four beginner lessons---try to do all four
+- Even if you're advanced in Figma, it may help to skim these lessons to pick up things you may have missed or forgotten
+:::
+
 ---
 
 ::: {.r-fit-text}
 ‹Figjam tutorial›
 :::
 
-::: {.notes}
-The goal of this tutorial is to learn (1) to collaborate with your team and (2) to share artifacts.
+## FigJam tutorial
+::: {.incremental}
+- Visit help.figma.com and, from the top menu, navigate to *Product documentation* > FigJam > Tour the interface > Guide to FigJam
+- You can use FigJam to collaborate with your team
+- Try to do as much as you can on the *Guide to FigJam* page
+- How much you do will determine how extensively you can use FigJam to collaborate
 :::
+
 
 <!--
 
