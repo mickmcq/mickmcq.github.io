@@ -9,7 +9,7 @@ date: last-modified
 date-format: "DD MMM YYYY"
 format: 
   clean-revealjs:
-    self-contained: true
+    # self-contained: true
     slide-number: false
     logo: quarto.png
     footer-logo-link: "https://quarto.org"
@@ -27,7 +27,7 @@ filters:
 slide-level: 2
 number-sections: false
 engine: knitr
-embed-resources: true
+# embed-resources: true
 bibliography: master.bib
 monofont: JetBrainsMono Nerd Font
 css: "style.css"
