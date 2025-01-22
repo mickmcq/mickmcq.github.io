@@ -1,0 +1,15 @@
+- ✓ Prelim: ask Ishwari to answer questions
+- ✓ Prelim: brainstorm with Ishwari on faq and whatiknow doc in general
+- Prelim: set a reading schedule; add stuff to whatiknow doc
+- Prelim: Ishwari will make a google form to get gmail addresses
+- Prelim: change doc to require a login
+- Presentations by Sharon and Tianyu on successes and challenges
+- In class: get a gmail address from everyone for whatiknow doc
+- In class: discuss giving credit for whatiknow contributions
+  - Milestones now worth 10 pts each; contributions worth 2 pts each for 10 weeks
+  - In class: discuss whatiknow contributions
+- Lecture on principles
+- Class exercise on principles (use multiple LLMs and refine prompts)
+- Time to work on m1 (form groups) (switching seats exercise)
+- Show Jasmine's eA solution
+- Time to work on eA
