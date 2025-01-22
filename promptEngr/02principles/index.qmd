@@ -47,7 +47,11 @@ $\langle$ pause to view whatiknow doc $\rangle$
 # Principles
 
 ## Good News, Everyone!
-People want to help you! Here's the whole course on one slide!
+People want to help you!
+![](fiProfessorFarnsworth.png)
+
+## Our course
+Here's the whole course on one slide!
 (Don't worry that it's too small to read, it's pretty much useless)
 
 ![](fiFiftySteps.png)
@@ -206,12 +210,23 @@ meta-analyses and helps in comparing results across different studies.
 :::
 
 # Exercise on principles
-
-# Time to work on milestone 1
+::: {.incremental}
+- Compare definitions of principles of prompting from Gemini, Claude, ChatGPT
+- Note that the definitions may be sensitive to adjectives such as *basic principles*, *general principles*, etc.
+- Create a comprehensive section on principles in the whatiknow doc
+- Don't just copy and paste
+- Don't just duplicate what someone else added---read everyone's contributions and make them fit together, but recognize that there may be different perspectives and that you may need to organize the section by perspective
+- This project is for the entire class to work on together---can you use genAI together?
+:::
 
 # Show an example eA
 
-# Time to work on eA
+# Time to work on eA or m1 or both
+::: {.incremental}
+- m1 involves group identity and project focus, i.e., a chatbot's purpose
+- It's smart to pick a domain for m1 for which you can generate some labeled data
+- m2 will involve generating labeled data
+:::
 
 ---
 
