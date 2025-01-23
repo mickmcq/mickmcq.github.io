@@ -22,12 +22,12 @@ Week TWO
 
 # Today
 
-- Q and A from last time
-- Signups for Article Presentation, Design Critique, Discussion Leading
+- Q and A from last time (actually last semester)
+- Example Article presentation (Mick)
 - Groups
 - Perception
+- Perception Discussion (Victor)
 - @Norman2023
-- Framer tutorial
 
 # Q and A from last time
 It didn't work! (There are two empty responses and nothing else!)
@@ -238,6 +238,8 @@ Readings this week include @Johnson2020: Ch 1--5
 ::: {.notes}
 I once worked with a group of junior Naval officers who were required by their commander to be responsible for all the information in their email and military message traffic, some 5,000 items per day. The group got together and devised a strategy of dividing up the material and briefing each other on the points of importance, so that no one person had to read 5,000 items, which would have been physically impossible anyway. You could use a similar divide and conquer strategy on our reading material.
 :::
+
+## Discussion of readings (led by Victor)
 
 # Assignment
 Milestone 0
