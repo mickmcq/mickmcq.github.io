@@ -28,9 +28,11 @@ Week TWO
 - Perception
 - @Norman2023
 - Framer tutorial
-- Figma tutorial
 
 # Q and A from last time
+It didn't work! (There are two empty responses and nothing else!)
+
+As a result, we'll look at last semester's Q&A.
 
 ## Bringing it together
 How does this material tie holistically into HCI and Design (Thinking)
@@ -97,7 +99,7 @@ How is the collective different from the individual? Many billionaires are buyin
 :::
 
 # In class presentations
-Four people signed up for in class presentations and none for today. Let's sign up the rest now.
+$\langle$ pause for example article presentation by Mick $\rangle$
 
 # Groups
 Are you all in groups now? Are you satisfied with your groups? Let's make sure you're on track right now.
