@@ -26,17 +26,31 @@ Week THREE
 Recap
 :::
 
+## Sketches
+
+$\langle$ Pause to look at `graphical-intros.pdf` $\rangle$
+
 ::: {.notes}
 - sketches: mostly terrific, raises issue of how to sharpen your skills
 - sketches: some appeared to use iPad---is that the best approach?
+- sketches: whiteboard is still the target, but for how long?
 - sketches: different styles for graphical self-intro vs good design
-- accessibility reports: well done (only one so far), used a lot of good techniques to convey information
 - three things: act fast, think slow, energize yourself
+:::
+
+## Accessibility Reports
+::: {.incremental}
+- Well done!
+- Please don't double space any documents you give me
+- NWS is a very important resource for all Americans: interesting to see some of its shortcomings!
+- Two groups did ESPN and took very different approaches
+- My takeaway is that you all take accessibility very seriously
+- Do you feel like you can integrate accessibility into your design process?
 :::
 
 # project ideas
 
-## idea rejected, then reconsidered
+## previous semester idea rejected, then reconsidered
 ::: {.incremental}
 - presented idea was to help women seeking abortions in Texas
 - rejected because it seemed like more of a privacy and security issue than a UX issue
@@ -45,8 +59,12 @@ Recap
 - two synergistic groups: drivers and patients
 :::
 
-# project inspiration
+# project inspiration from prior semester
 
+::: {.notes}
+- Who wants to use a permanent exhibit and why?
+- Who wants to avoid visiting the museum and why? (When people say they're too busy, it suggests that they think the museum is a waste of time)
+:::
 
 ## orange sky
 ![](fiOrangeSky.png)
@@ -231,7 +249,7 @@ At the time, they were featuring an exhibition on Edvard Münch, as well as this
 ![](fiMuralByDiegoRivera.png)
 
 ::: {.notes}
-The museum features a lot of work by Diego Rivera, including this admittedly overexposed mural.
+The museum features a lot of work by Diego Rivera, including this admittedly overexposed mural. This overexposed mural is a good example of why you need to keep documenting things and learning as you go. I used to overexpose a lot more often than I do now. Also, I've stuck with basically the same camera, just different iterations of it.
 :::
 
 ##
@@ -266,7 +284,7 @@ This is the view you see when you first enter the gate.
 ![](fiFridasDesk.png)
 
 ::: {.notes}
-This is Frida Kahlo's desk. I love to see the working environments of artists and I took a number of photographs of her workspace, a few of which follow.
+This is Frida Kahlo's desk. I love to see the working environments of artists and I took a number of photographs of her workspace, a few of which follow. Workspaces in general are fascinating because we spend so much time in them.
 :::
 
 ##
@@ -294,14 +312,14 @@ Here are some pigments and brushes sitting on the left.
 ![](fiFridasKitchen.png)
 
 ::: {.notes}
-Here is part of Frida's kitchen.
+Here is part of Frida's kitchen. Notice how she's made it an exciting place to be. The eye of the artist isn't just on the canvas, but on every aspect of life. Contrast this with the home of Einstein which is now a museum and reminds us that he was mostly living in his head.
 :::
 
 ##
 ![](fiFridasPalette.png)
 
 ::: {.notes}
-This is part of a larger exhibit, where this shows her color palette for the project.
+This is part of a larger exhibit, where this shows her color palette for the project. The notes on the left discuss the colors she used.
 :::
 
 ##
@@ -333,12 +351,12 @@ This is a view of Kidzania, a working city for children with branches in Mexico 
 ## Develop your own shorthand
 For example
 
-- a boxed x means a photo
+- a boxed $\times$ means a photo
 - a circle means an icon
 - a straight line means a headline
 - a squiggly line means body copy
 
-## Pause for video
+## $\langle$ Pause for video $\rangle$
 
 ---
 
