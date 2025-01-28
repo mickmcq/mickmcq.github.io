@@ -39,3 +39,5 @@ icon: fa-edit
 
 [hciExperiments](/hciExperiments/index.html) introduces quantitative evaluation.
 
+[example article presentation](/hci/articlePresentation/index.html) provides an example of an article presentation.
+
