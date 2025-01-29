@@ -15,6 +15,8 @@ icon: fa-edit
 
 [02principles](/promptEngr/02principles/index.html) introduces the notion of principles in prompt engineering, along with some examples.
 
+[03principlesTwo](/promptEngr/03principlesTwo/index.html) introduces evaluation as a way to surface principles in prompt engineering.
+
 # Exercises
 
 [eA.qmd](/promptEngr/eA.qmd) This is the code template for the first exercise.
