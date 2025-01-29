@@ -19,6 +19,8 @@ icon: fa-edit
 
 # Exercises
 
+## Exercise A
+
 [eA.qmd](/promptEngr/eA.qmd) This is the code template for the first exercise.
 
 [eA.html](/promptEngr/eA.html) This is the rendered html for the above code template.
@@ -26,6 +28,14 @@ icon: fa-edit
 [eAsolutionR.qmd](/promptEngr/eAsolutionR.qmd) This is an example solution in R instead of Python.
 
 [eAsolutionR.html](/promptEngr/eAsolutionR.html) This is the rendered version of the above example solution.
+
+## Exercise B
+
+[eB.qmd](/promptEngr/eB.qmd) This is the code template for the second exercise.
+
+[eB.html](/promptEngr/eB.html) This is the rendered html for the above code template.
+
+[eB.bib](/promptEngr/eB.bib) This is an example bibliography file for the above code template. It must be in the same directory as the above code template.
 
 <!--
 
