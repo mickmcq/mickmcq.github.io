@@ -1,5 +1,5 @@
 ---
-title: "Human Computer Interaction:<br>Cognition"
+title: "HCI:<br>Cognition"
 author: Mick McQuaid
 date: today
 bibliography: master.bib
@@ -14,6 +14,8 @@ format:
     controls: true
     controls-layout: bottom-right
     center: true
+filters:
+  - autofade.lua
 ---
 
 ::: {.r-fit-text}
@@ -23,39 +25,50 @@ Week THREE
 # Today
 
 - Q and A from last time
-- Cognition
-- Discussion leading (Ellis Brown)
-- Design Critique (Brie Warren)
-- Article Presentation (Mick McQuaid on @Norman2023, Part II, *Meaningful*)
-- Figma tutorial (Rachel Sung)
+- Design Critique (Ishwari)
+- Article Presentation (Maggie)
+- Cognition (Mick)
+- Discussion leading (Mick)
+- @Norman2023 (Mick)
 
 # Q and A from last time
 
-## AI and portfolio websites
-- implications?
-- useful?
-- unethical?
-- equitable?
+## Measurement
+Since Norman mentioned measure and measurement in his new book, is there any other measurement he mentioned about as a non-ideal measurement of the world instead of GDP?
 
-## Kahneman
-Why can't his experiments be replicated? Falsifying data? Unique sample? Changes in society, e.g., social media, computer, technology, cultural change?
+## Positive decisions
+Norman puts design at the center of human activity, saying that when we make choices, we are designing things. How do we know that the decisions we make are positive designs and can find inspiration to promote society?
 
-## Optical illusion
-What is the meaning of the red Ys in the optical illusion image?
+## Career paths
+Do certain career paths point us towards opportunities to design for humanity rather than Individual humans?
 
-## Limitations of humans
-In the context of the limitations of humans, how to address any cultural and religious beliefs that have shaped individuals' ethical frameworks?
+## Group work
+The group work is still a bit hazy in terms of what the deliverable will
 
-## Boundary between AI and Human Designers
-UX designers work as a bridge of aesthetics, usability, and usefulness between software engineers and users, and set the whole design concept (UX Book). I'm getting more concerned on the boundary between human designers and AI.
+## Information dashboards
+In regards to information dashboards, Nielson [sic] mentions that automobile dashboards have changed over time. However, have they become simpler or complex?
 
-## Opinion on Attitudes
-"I think people's attitudes are beginning to move towards two extremes, with some people increasingly seeking inner peace and spiritual abundance, but the other group becoming more utilitarian."
+## Cognitive illusions
+I really want to understand more about how our brain was functioning that we could not really notice when the gorilla walked passed in the video. I went ahead and saw that video later and it was surprising how the human mind works. While focusing on the task, many people completely miss a person in a gorilla suit walking through the scene, beating their chest. It’s such a brilliant way to show how we can overlook the obvious when our attention is elsewhere. How does selective attention impact our ability to process unexpected or irrelevant stimuli, and what does this reveal about the limitations of human perception?
 
-*Reminds me of a NY Times article from this past weekend on intrinsic vs extrinsic values as explaining the Trump phenomenon. Intrinsincally motivated people are immune to Trump, but extrinsically motivated people value eveything about Trump, according to the article.*
+## Advocacy
+How can we advocate for change or ethical design, especially when it might not be the most profitable?
 
-## Opinion on Cognitive Ease
-"I'm not sure I agree that the model of cognitive ease applies only to legacy applications. They apply to today's social media apps as they still require a clear display in terms of design and familiarity, ease of use (for good mood), and in terms of experience. In my opinion, we are still designing with the same input and output feedback in mind."
+## Replication
+Have other researchers who have not been able to replicate Kahneman's experiment been able to provide a reasoning for why it cannot/has not been replicated? Was his experiment flawed in some type of way?
+
+## Wikipedia take on Replication
+Part of the book has been swept up in the replication crisis facing psychology and the social sciences. It was discovered many prominent research findings were difficult or impossible for others to replicate, and thus the original findings were called into question. An analysis[50] of the studies cited in chapter 4, "The Associative Machine", found that their replicability index (R-index)[51] is 14, indicating essentially low to no reliability. Kahneman himself responded to the study in blog comments and acknowledged the chapter's shortcomings: "I placed too much faith in underpowered studies."[52] Others have noted the irony in the fact that Kahneman made a mistake in judgment similar to the ones he studied.[53]
+
+## More from Wikipedia
+A later analysis[54] made a bolder claim that, despite Kahneman's previous contributions to the field of decision making, most of the book's ideas are based on 'scientific literature with shaky foundations'. A general lack of replication in the empirical studies cited in the book was given as a justification.
+
+## Wikipedia cites the following article
+[https://replicationindex.com/2020/12/30/a-meta-scientific-perspective-on-thinking-fast-and-slow/](https://replicationindex.com/2020/12/30/a-meta-scientific-perspective-on-thinking-fast-and-slow/)
+
+# Design Critique (Ishwari)
+
+# Article Presentation (Maggie)
 
 # Cognition
 We talked a bit about cognitive psychology last week, particularly about Tversky and Kahneman's work. This week we continue with some historical information.
@@ -129,7 +142,7 @@ design takes place at all three levels: high-level cognition can trigger low-lev
 ## More on levels of human processing
 Another way to think of these levels is illustrated in the previous frame: hardwired or prewired, short-term, and abstract or contemplative. All three levels play a role in our reactions to our environment, including designed artifacts.
 
-# Model human processor
+## Model human processor
 
 ![](fiModelHumanProc1.png)
 
@@ -239,7 +252,7 @@ Protocol analysis was an early hci tool
 
 ::: {.notes}
 The main idea in @Ericsson1984 is to elicit
-information from a person \textit{while} they accomplish
+information from a person *while* they accomplish
 a task by asking them to think aloud about the
 information they attend to while solving problems, but
 not to describe or explain.
@@ -266,7 +279,7 @@ verbal analysis $\rightarrow$ *knowledge map*
 Both processes result in maps, as seen in this frame, one of a process and one of a knowledge structure.
 :::
 
-# Hick's Law
+## Hick's Law
 
 Hick’s law predicts the
 time it will take for a user to make a choice, given the
@@ -285,7 +298,7 @@ of the above*.
 This law has influenced the development of menus in computers and the number of choices that are offered in each submenu. The shape of a menu tree is a reflection of Hick's law.
 :::
 
-# Fitts's Law
+## Fitts's Law
 
 Fitts's law was actually discovered by Paul Fitts in the 1950s, but has been applied to the use of mice and other pointing devices as well as screen layouts since. It is perhaps the most widely invoked theory in the world of human computer interaction, and is depicted in the next frame.
 
@@ -306,17 +319,110 @@ in HCI.
 Fitts's law is the basis for the original Apple menu bar and Dock, among other influences. By expanding the target, $W$, to be the entire width of the display instead of the current window, the developers of the Dock and menu bar hoped to reduce the time it would take for people to point to them. Contrast this with the situation in Microsoft Windows, where the menu bar is particular to a given window. In this situation, a person must exhibit much finer motor control to point to the menu bar target than to point to a menu bar at the edge of the screen, where $D$ can be any amount without missing the target. In other words, you can push the mouse as hard as you want against the top of the screen: it can't go any further than the top of the screen.
 :::
 
-# Readings
+# Discussion
 
 Readings last week include @Johnson2020: Ch 1--5
 
 Readings this week include @Johnson2020: Ch 7--9, @Norman2013: Ch 2, 4
 
-Let's look at the Johnson book together, then the Norman book.
+Let's look at the questions and answers from the readings
 
 ::: {.notes}
 I once worked with a group of junior Naval officers who were required by their commander to be responsible for all the information in their email and military message traffic, some 5,000 items per day. The group got together and devised a strategy of dividing up the material and briefing each other on the points of importance, so that no one person had to read 5,000 items, which would have been physically impossible anyway. You could use a similar divide and conquer strategy on our reading material.
 :::
+
+# @Norman2023
+::: {.r-fit-text}
+Sustainable
+:::
+
+## The age of waste
+- The twentieth century was the age of waste
+- What can designers do to help?
+- Few designers have power to change the system
+- No single discipline can solve the problem
+- Long-term damage is being done but short-term harm can come if we act precipitously
+
+## How did we get here?
+- Ease of manufacturing and ubiquity of plastics in the twentieth century
+- Design of short-lived products
+- Planned obsolescence of appliances and automobiles
+- Ikea!
+- The world's data centers used 200 terawatt hours in 2023 (tera is trillion)
+- (More than many nations)
+- Design for obsolecence uses three techniques: breakdown, progress, and fashion
+- Many ingredients (plastics) are useless to recycle
+
+## Sustainability's multiple components and implications, 1 of 2
+- Over 1m plant and animal species are threatened with extinction
+- STEM is not the answer, local expertise is never enough
+- We need STEAM, humanities, social sciences, economics, politics, law ...
+- SEM are focused on narrow technical problems, T on economics and business
+- No one can predict all impacts long term, e.g., horses vs cars
+- T enables a surveillance society; empowers extremists
+
+## Sustainability's multiple components and implications, 
+- Universities produce narrow specialists (does the iSchool?)
+- Shouldn't education be lifelong and in small blocks?
+- To be tolerant, we must be intolerant of the intolerant
+
+## Design, Products, Sustainability, and the Circular Economy
+Take $\rightarrow$ Make $\rightarrow$ Waste
+
+How about Repair $\rightarrow$ Reuse $\rightarrow$ Regenerate?
+
+## Circular Economy requires Circular Design
+1. Minimize waste and pollution
+2. Keep products in use as long as possible
+3. Regenerate natural systems
+
+## Design implications of above principles
+1. Consider waste and pollution as design flaws rather than inevitable
+2. Design for reuse, repair, and manufacturing (even of packaging!)
+3. Avoid landfills
+
+## Practical Difficulties of Implementing Circular Design
+- Designers aren't trained in materials
+- Companies will resist
+- Recycling is hard for people to understand
+- Recycling often degrades the molecular structure of materials
+- Deemphasize but improve recycling and emphasize reuse instead
+- Make companies pay for waste (!?) instead of public or gov't
+- Talk to companies (Norman gives examples of how)
+
+## Sustainable, Robust, and Resilient Systems
+- All three ingredients are important
+- Resilience is a system's ability to maintain its operation through adverse conditions
+- Redundancy develops resilience, e.g., in commercial aircraft controls
+- Tightly coupled systems are controllable and efficient, but not in emergencies
+- JIT has little resilience, little redundancy, and COVID, the Ukraine war, and critical fires and earthquakes brought down the world's supply chains
+- Loosely coupled systems are more resilient, but harder to control, e.g., universities, the Internet, governments
+
+## How people understand systems
+- People view the world in a highly oversimplified cause and effect manner
+- Okay for hunter-gatherers, where false positives have little consequence
+- Sakichi Toyoda, father of Toyota, coined the "Five Whys" technique for getting at linear cause-and-effect relationships
+- Five Whys is a linear model and won't work for complex systems
+- Norman prefers the NTSB (National Transportation Safety Board) method
+- The NTSB method reveals multiple causal factors and poor management is the most common factor
+
+## Myth of the Infinite Earth
+- Formerly common to believe that the Earth was infinite and that there was no need to conserve resources
+- When there a only a few people on Earth, you could get away with this belief
+- Not when there eight billion people on Earth!
+- Example: air conditioners heat the atmosphere more than they cool the house
+- Prime minister of Barbados said in 2021 that 2° C temperature increase would be a death sentence for nine nations
+
+## Working with Complex Sociotechnical Systems
+- People understand simple linear systems, but not when there are delayed effects, and multiple feedback and feedforward loops and non-linearities
+- Norman reviews cybernetics, the science of feedback (among other things)
+- Norman doesn't talk about emergent properties of complex systems for some reason
+- Example: rethinking the design of homes and buildings
+
+## It's not too late
+- Okay, actually it is too late to stop some major damage, but not too late to stop the trend and reverse it
+- Necessary ideas are already known (since Alexander von Humboldt in 1800 and 1831)
+- Current efforts are too small and too slow and need to be amplified worldwide
 
 # Assignment
 Milestone 0: Topic Idea
