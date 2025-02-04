@@ -17,6 +17,8 @@ icon: fa-edit
 
 [03principlesTwo](/promptEngr/03principlesTwo/index.html) introduces evaluation as a way to surface principles in prompt engineering.
 
+[04iterAnnotate](/promptEngr/04iterAnnotate/index.html) introduces a prompt engineering tool for iterative development and an annotation tool for labeling data.
+
 # Exercises
 
 ## Exercise A
