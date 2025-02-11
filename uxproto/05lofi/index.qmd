@@ -63,7 +63,7 @@ source (diana mounter of github)
 - [IBM Design Language](https://www.ibm.com/design/language/)
 - [IBM Carbon Design System](https://carbondesignsystem.com/)
 - [Atlassian Design System](https://atlassian.design/)
-- [Firefox](https://design.firefox.com/photon/) (obsolete but not yet replaced)
+- [Firefox](https://acorn.firefox.com/latest/acorn-aRSAh0Sp)
 - [Salesforce](https://www.lightningdesignsystem.com/) (the original use of the term)
 
 ##
