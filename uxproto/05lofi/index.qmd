@@ -127,7 +127,8 @@ You could hand this to the developer and say "Animate this transition!" Instead,
 - Allows the user to experience the trigger and the effect
 - Gives the *feel* of the timing, not just the *look*
 - Establishes context (e.g., bouncy, playful bank app)
-- Intuit example [https://designsystem.quickbooks.com](https://designsystem.quickbooks.com) (go to Foundations > Motion)
+- Following is archived but still available:
+  - Intuit example [https://designsystem.quickbooks.com](https://designsystem.quickbooks.com) (go to Foundations > Motion)
 
 # lofi
 
@@ -159,10 +160,11 @@ source
 [https://youtu.be/51SX9CpFBnc](https://youtu.be/51SX9CpFBnc)
 :::
 
-## IDEO steps
-- Brainstorm [https://www.designkit.org/methods/1](https://www.designkit.org/methods/1)
-- Interview [https://www.designkit.org/methods/2](https://www.designkit.org/methods/2)
-- How Might We [https://www.designkit.org/methods/3](https://www.designkit.org/methods/3)
+## IDEO Inspiration Examples
+- [https://www.designkit.org/methods.html](https://www.designkit.org/methods.html)
+- Brainstorm
+- Interview
+- How Might We
 
 ## The How Might We step
 - Rephrase insight statements from previous step as questions by adding "How might we" at the beginning
@@ -240,7 +242,7 @@ ideas for them had occurred to me. I shall not argue the point.*
 - Many developers are schooled in UML, may resist anything else
 - UML has roughly nine very specific diagram types, standardized worldwide
 
-# Story about learning
+# Story about learning (time permitting)
 - The time, the place, the people, and the skills
 - aka The time, the place, and the people
 - concerns Daud Sahil (sahil means guide or leader in Hindi)
