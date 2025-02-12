@@ -49,9 +49,9 @@ icon: fa-edit
 
 # Milestones
 
-[haystack01.qmd](/promptEngr/haystack.qmd) contains a condensed tutorial on haystack (qmd input).
+[haystack01.qmd](/promptEngr/haystack01.qmd) contains a condensed tutorial on haystack (qmd input).
 
-[haystack01.html](/promptEngr/haystack.html) contains a condensed tutorial on haystack (html output).
+[haystack01.html](/promptEngr/haystack01.html) contains a condensed tutorial on haystack (html output).
 
 <!--
 
