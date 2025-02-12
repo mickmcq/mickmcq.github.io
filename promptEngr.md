@@ -39,6 +39,10 @@ icon: fa-edit
 
 [eB.bib](/promptEngr/eB.bib) This is an example bibliography file for the above code template. It must be in the same directory as the above code template.
 
+[eC.qmd](/promptEngr/eC.qmd) This is the code template for the third exercise.
+
+[eC.html](/promptEngr/eC.html) This is the rendered html for the above code template.
+
 <!--
 
 -->
