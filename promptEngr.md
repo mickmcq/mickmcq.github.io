@@ -19,6 +19,8 @@ icon: fa-edit
 
 [04iterAnnotate](/promptEngr/04iterAnnotate/index.html) introduces a prompt engineering tool for iterative development and an annotation tool for labeling data.
 
+[05techniques](/promptEngr/05techniques/index.html) introduces a survey of prompting techniques and prompt engineering approaches.
+
 # Exercises
 
 ## Exercise A
@@ -44,6 +46,12 @@ icon: fa-edit
 [eC.qmd](/promptEngr/eC.qmd) This is the code template for the third exercise.
 
 [eC.html](/promptEngr/eC.html) This is the rendered html for the above code template.
+
+# Milestones
+
+[haystack01.qmd](/promptEngr/haystack.qmd) contains a condensed tutorial on haystack (qmd input).
+
+[haystack01.html](/promptEngr/haystack.html) contains a condensed tutorial on haystack (html output).
 
 <!--
 
