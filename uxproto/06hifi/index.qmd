@@ -83,6 +83,15 @@ Another example is from last week. I complained about time travel, teleportation
 
 Two people look and one sees
 
+##
+
+::: {.quotation}
+You can observe a lot by watching
+:::
+::: {.attribution}
+--- Yogi Berra
+:::
+
 # hifi prototyping
 
 ## Elements
