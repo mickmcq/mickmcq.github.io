@@ -21,6 +21,8 @@ icon: fa-edit
 
 [05techniques](/promptEngr/05techniques/index.html) introduces a survey of prompting techniques and prompt engineering approaches.
 
+[06moreTechniques](/promptEngr/06moreTechniques/index.html) continues the survey of prompting techniques and prompt engineering approaches.
+
 # Exercises
 
 ## Exercise A
