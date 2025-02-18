@@ -29,6 +29,10 @@ Week SIX
 - Sketching
 - @Norman2023 ?
 
+# Microinteraction example, animate it!
+
+![](fiOpenClose.png){fig-alt="Opening and closing a search dialog box"}
+
 ## Discussion
 
 ## Metaphors beyond visual cues
