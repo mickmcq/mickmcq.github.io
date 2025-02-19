@@ -25,8 +25,9 @@ This documents our choice of dataset for our project.
 
 $\langle$ replace this with detailed information about the dataset $\rangle$
 
-Make sure you include
+Make sure you include at least
 
+- URL
 - source (original source not repository)
 - repository (e.g., HuggingFace, Kaggle, etc.)
 - task you intend to use it for (e.g., question answering, summarization, etc.)
@@ -54,6 +55,8 @@ Here's an example of a table:
 
 Table: Here's the table caption. It, too, may span
 multiple lines.
+
+*Warning: if you use the Visual editor in RStudio, it will mangle the above table.*
 
 The data dictionary should be laid out like a table. It should include
 
