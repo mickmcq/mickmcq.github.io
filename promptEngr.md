@@ -55,6 +55,10 @@ icon: fa-edit
 
 [haystack01.html](/promptEngr/haystack01.html) contains a condensed tutorial on haystack (html output).
 
+[m2.qmd](/promptEngr/m2.qmd) contains a template for milestone 2 (qmd input).
+
+[m2.html](/promptEngr/m2.html) contains a template for milestone 2 (html output).
+
 <!--
 
 -->
