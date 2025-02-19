@@ -88,9 +88,9 @@ The tutorial shows you how to create a generative question-answering pipeline us
 ## But first, data!
 - [quickStart](https://huggingface.co/docs/dataset-viewer/quick_start)
 - [tutorialData](https://huggingface.co/datasets/bilgeyucel/seven-wonders)
-- Try the Python fragments from the tutorial on the seve-wonders dataset
+- Try the Python fragments from the tutorial on the seven-wonders dataset
 - If that's successful, try it on your own dataset
-- The fragments are *Check dataset validity*, *List configuration and splits*, *Preview a dataset*, *Download slices of a dataset*, *Search text in a dataset*, *Access Parquet files*, and *Get the size of the dataset*.
+- The fragments are *Check dataset validity*, *List configuration and splits*, *Preview a dataset*, and *Get the size of the dataset*.
 
 ## Embed documents
 - Once you have the data, you can embed it using the `SentenceTransformersTextEmbedder`. This will create an embedding for each document in the dataset.
