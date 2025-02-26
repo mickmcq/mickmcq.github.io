@@ -23,6 +23,8 @@ icon: fa-edit
 
 [06moreTechniques](/promptEngr/06moreTechniques/index.html) continues the survey of prompting techniques and prompt engineering approaches.
 
+[07sagemaker](/promptEngr/07sagemaker/index.html) continues the survey of prompting techniques and prompt engineering approaches and introduces SageMaker.
+
 # Exercises
 
 ## Exercise A
