@@ -24,42 +24,19 @@ Week EIGHT
 
 - Q and A from last time
 - Naheel Jawaid recap
-- Discussion
+- Nitya Nambisan recap
+- Design critique (Maggie)
+- Discussion (Nikki)
 - Prototyping
 
 # Q and A from last time
-
-## Learning
-
-##
-There were so many experiences shared that addressed about the accessibility for the disability community. Recognizing and acknowledging the diverse feelings and challenges faced by individuals with disabilities is an essential first step towards creating inclusive solutions. There are possibilities that one solution works for a group doesn't work for the other: think for avenue for the product can help. One can include more than one avenue can help(subtitles, images can have more texts, etc). So, "Diversity in solutions is key".
-
-##
-Erica's talk was very inspiring.
-
-##
-I wasn't aware that screen sharing tools override screen readers functions making it inaccessible to blind and low-vision users. Other interesting issues I learned about were security and information sharing using screen readers.
-
-##
-I really enjoyed Ananya's presentation on Context-Awareness Settings. I think it was a very engaging presentation and topic that was very easy to understand, given the capabilities of devices these days. I think it was also from a good article.
-
-## Q and A
-
-##
-Nothing unresolved. The class discussions were quiet broad and descriptive.
-
-##
-How can the process of co-ideation be made accessible using automated tools?
-
-##
-N/A
 
 # Naheel Jawaid recap
 
 ## Naheel Jawaid
 - Currently a UX designer at Google
 - Plans to start own company soon
-- Gave an engaging talk at UX Design club yesterday
+- Gave an engaging talk at UX Design club
 - Offers free design school!
 
 ## Four things you do
@@ -84,7 +61,11 @@ Example: AirBnB vs CraigsList
 - tools: Protopie and Origami
 - portfolios: thereal.kim and rauno.me/craft
 
-# Discussion
+# Nitya Nambisan recap
+
+# Design critique (Maggie)
+
+# Discussion (Nikki)
 
 ## Prototyping
 I teach a course on this topic and a couple of you are in that course! What do you think are the most important things to say about prototyping after seven weeks of it?
