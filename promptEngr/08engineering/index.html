@@ -701,11 +701,11 @@ grid-template-areas: "sc ht sb sn";
 .reveal-header.no-logo .sc-title p {margin-left: 2vw; }
 div.reveal.has-logo div.slide-number { font-size: 10px; }
 }</style><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.41">
+  <meta name="generator" content="quarto-1.6.42">
 
   <meta name="author" content="Mick McQuaid">
-  <meta name="dcterms.date" content="2025-02-25">
-  <title>Sagemaker, Techniques, and System Prompts</title>
+  <meta name="dcterms.date" content="2025-03-03">
+  <title>Prompt Engineering Approaches and System Prompts</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -1320,7 +1320,7 @@ margin-right: 0; }
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Sagemaker, Techniques, and System Prompts</h1>
+  <h1 class="title">Prompt Engineering Approaches and System Prompts</h1>
   <p class="subtitle">Prompt Engineering</p>
 
 <div class="quarto-title-authors">
@@ -1337,12 +1337,12 @@ Mick McQuaid
     </div>
 </div>
 
-  <p class="date">25 Feb 2025</p>
+  <p class="date">03 Mar 2025</p>
 </section>
 <section class="slide level2">
 
 <div style="position: fixed; font-size: 4em; color: gray;">
-<p>Week Six</p>
+<p>Week Eight</p>
 </div>
 </section>
 <section id="agenda" class="title-slide slide level1 center">
@@ -1350,7 +1350,7 @@ Mick McQuaid
 <div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>Presentations: Kylie, Aditya</li>
+<li>Presentations: Kylie, Zeel, Maitreyee</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
@@ -1365,27 +1365,27 @@ Mick McQuaid
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>eC review</li>
+<li>m2 questions</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>m1 review</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Haystack (again)</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Techniques</li>
+<li>Prompt engineering techniques</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
 <li>System prompts</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Sagemaker</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Colab</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
@@ -1415,406 +1415,6 @@ Mick McQuaid
 
 </section>
 
-<section>
-<section id="ec-review" class="title-slide slide level1 center">
-<h1>eC review</h1>
-
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
-<div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>What did you learn from this exercise?</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>One thing Ishwari and I noticed was limited documentation of prompt tuning, so did you learn a lot about prompt tuning?</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>No parameter tuning that I know of</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Almost everyone used the same 20 tweets, probably due to uniform Python scripts with 42 as the random seed</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Everyone reported accuracy results but not everyone reported latency and cost, which is a problem</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Only a couple of people reported a score composed of a weighted linear combination of accuracy, latency, and cost</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Most people just eyeballed the results and said that the most accurate model and prompt were the best, but some acknowledged that the cost and latency were important</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="section-1" class="slide level2">
-<h2></h2>
-<div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Where cost and latency gave conflicting results, some people reported that one should take precedence, while others said that it depends on the user priority</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>The best accuracy reported by anyone was 95 percent, but it was not well-documented—the best well-documented accuracy was 85 percent</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>The lowest winner on accuracy was 60 percent</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Many people did not include a table of accuracy, latency, and cost, which was disappointing</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>One person included prompt type (CoT, “regular”) in their table! Great!</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Some people used VADER as a benchmark, generally finding it worse than the best prompt / model combinations; one person used a different benchmark from formulabot, which scored 95 percent, several used text2data, one used TextBlob</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="section-2" class="slide level2">
-<h2></h2>
-<div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>There was a lot of variety in the detail level of results</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Some very thoughtful conclusions, e.g., about the effect of CoT on latency and accuracy</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>I really appreciated the documentation of the selection of two best prompts, especially one that used the blockquote feature of Quarto</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>A wide variety of models were used, including gpt-4o-mini, gemini-2.0-flash-001, llama-2-70-b-chat-hf, llama-3.3-70b-versatile, o3-mini-high, mistral-large, gemini-pro, claude 2.1, gpt 3.5, Claude 3.5 Sonnet:beta, claude-3.5-haiku, Cohere v2, DeepSeek v2, Sonar Pro, Llama 8192, Grok 3 DeepSearch</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Many people included screenshots of tables from Agenta instead of creating tables on their own, which was disappointing</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>A key learning should have been how to compare models and prompts, some mentioned that in the conclusion</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="section-3" class="slide level2">
-<h2></h2>
-<div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>One unexpected learning was a bit of data wrangling to ensure things like column name matching</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Some people reported discovering how LLMs interpret questions differently</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>There is a difference between using curly braces and not using them in the labels of code chunks, for example <code>{python}</code> should cause code to be run, but not including the curly braces should cause code to be displayed but not run</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>One person got a confidence score with the benchmark tool, which highlights a limitation of the prompting techniques used by nearly everyone—a confidence score would have been possible, although it would have required more effort and skill (one person did it)</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>One person selected zero-shot and few-shot prompts to compare, which was a good idea</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="section-4" class="slide level2">
-<h2></h2>
-<div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>No one used the feature of Quarto that allows you to save results from code chunks to display in markdown text (some people noticed that they got different results in different runs)</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>One person got better results from one model with less context rather than more</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Some students investigated the individual tweets and the “ground truth” associated with them, finding it sometimes misleading</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>One interesting table was the one that showed the 20 tweets alongside the sentiments reported as ground truth and three models, allowing a very detailed comparison</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>One person tried to use VADER from NLTK without success</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Good insights about the difficulty of neutral tweets compared to extremes of positive and negative (model is looking for cues and reads the absence of cues as neutral), as well as insights the problem of URLs in tweets</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="section-5" class="slide level2">
-<h2></h2>
-<div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>It’s valuable to learn more about Python, Markdown, and AI in general, as one person noted</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>People spent a wide variety of time on this assignment!</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Some people experienced inexplicable errors in Agenta and soldiered on, I appreciate that!</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>One person got uppercase responses and didn’t remedy that, while others then asked explicitly for lowercase responses</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>One person used gpt-o3-mini to generate prompts!</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>One person looked at MMLU and HellaSwag metrics to choose models!</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>The best report, in my view, was the one with the most extensive and illuminating conclusion, which I have put on Canvas (several others were close, though)</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>I really appreciate efforts to make the report more readable! This can be facilitated by studying Quarto a bit</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="section-6" class="slide level2">
-<h2></h2>
-<div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>“even a minor clarification in instructions can lead to better consistency and accuracy … highlights the need for structured prompt experimentation”</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>One person wrote a lengthy report in the style of an academic paper, perhaps assisted by genAI</li>
-</ul>
-</div>
-</div>
-</section></section>
-<section>
-<section id="more-on-techniques" class="title-slide slide level1 center">
-<h1>More on Techniques</h1>
-<p>Last time, we continued with more prompting techniques. Now we’ll move on to decomposition techniques and others. Again, we’re referring to <span class="citation" data-cites="Schulhoff2024">Schulhoff et al. (<a href="#/references" role="doc-biblioref" onclick>2024</a>)</span>.</p>
-</section>
-<section id="decomposition" class="slide level2">
-<h2>Decomposition</h2>
-<div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li><em>explicitly decomposing the problem into subproblems</em></li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Least-to-Most Prompting</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Plan-and-Solve Prompting</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Tree-of-Thought Prompting</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Recursion-of-Thought Prompting</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Program-of-Thoughts</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Faithful Chain-of-Thought</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Skeleton-of-Thought</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Metacognitive Prompting</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="ensembling" class="slide level2">
-<h2>Ensembling</h2>
-<div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li><em>using multiple prompts to solve the same problem, then aggregating the results, for example, by majority vote</em></li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Demonstration Ensembling</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Mixture of Reasoning Experts</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Max Mutual Information Method</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Self-Consistency</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Universal Self-Consistency</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Meta-Reasoning over Multiple CoTs</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>DiVeRSe</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Consistency-based Self-Adaptive Prompting</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="more-ensembling" class="slide level2">
-<h2>More Ensembling</h2>
-<div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Universal Self-Adaptive Prompting</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Prompt Paraphrasing</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="self-criticism" class="slide level2">
-<h2>Self-Criticism</h2>
-<div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li><em>prompting the model to critique its own output</em></li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Self-Calibration</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Self-Refine</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Reversing Chain-of-Thought</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Self-Verification</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Chain-of-Verification</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Cumulative Reasoning</li>
-</ul>
-</div>
-</div>
-</section></section>
 <section>
 <section id="prompt-engineering-techniques-and-goals" class="title-slide slide level1 center">
 <h1>Prompt Engineering Techniques and Goals</h1>
@@ -2036,7 +1636,7 @@ Mick McQuaid
 </section>
 <section id="ethical-considerations" class="slide level2">
 <h2>Ethical considerations</h2>
-<p>(<em>We covered this last time, but a reminder doesn’t hurt</em>)</p>
+<p>(<em>We covered this previously, but a reminder doesn’t hurt</em>)</p>
 <p>Admirably, <span class="citation" data-cites="Zhang2024">Zhang et al. (<a href="#/references" role="doc-biblioref" onclick>2024</a>)</span> includes a section on ethical considerations. These include:</p>
 <div>
 <div class="fragment fade-in-then-semi-out">
@@ -2066,7 +1666,12 @@ Mick McQuaid
 <p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo stretchy="false" form="prefix">⟨</mo><annotation encoding="application/x-tex">\langle</annotation></semantics></math> pause to look at the mistral tutorial <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo stretchy="false" form="postfix">⟩</mo><annotation encoding="application/x-tex">\rangle</annotation></semantics></math></p>
 </section>
 
-<section id="section-7" class="title-slide slide level1 center">
+<section id="google-colab" class="title-slide slide level1 center">
+<h1>Google Colab</h1>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo stretchy="false" form="prefix">⟨</mo><annotation encoding="application/x-tex">\langle</annotation></semantics></math> pause to demo Colab <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo stretchy="false" form="postfix">⟩</mo><annotation encoding="application/x-tex">\rangle</annotation></semantics></math></p>
+</section>
+
+<section id="section" class="title-slide slide level1 center">
 <h1></h1>
 <div style="text-align: right; font-size: 300px; font-weight: bold;">
 <p>END</p>
@@ -2078,9 +1683,6 @@ Mick McQuaid
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Sahoo2024" class="csl-entry" role="listitem">
 Sahoo, Pranab, Ayush Kumar Singh, Sriparna Saha, Vinija Jain, Samrat Mondal, and Aman Chadha. 2024. <span>“A Systematic Survey of Prompt Engineering in Large Language Models: Techniques and Applications.”</span> <a href="https://arxiv.org/abs/2402.07927">https://arxiv.org/abs/2402.07927</a>.
-</div>
-<div id="ref-Schulhoff2024" class="csl-entry" role="listitem">
-Schulhoff, Sander, Michael Ilie, Nishant Balepur, Konstantine Kahadze, Amanda Liu, Chenglei Si, Yinheng Li, et al. 2024. <span>“The Prompt Report: A Systematic Survey of Prompting Techniques.”</span> <a href="https://arxiv.org/abs/2406.06608">https://arxiv.org/abs/2406.06608</a>.
 </div>
 <div id="ref-Wan2024" class="csl-entry" role="listitem">
 Wan, Xingchen, Ruoxi Sun, Hootan Nakhost, and Sercan O. Arik. 2024. <span>“Teach Better or Show Smarter? On Instructions and Exemplars in Automatic Prompt Optimization.”</span> <a href="https://arxiv.org/abs/2406.15708">https://arxiv.org/abs/2406.15708</a>.

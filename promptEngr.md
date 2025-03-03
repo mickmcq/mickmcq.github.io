@@ -19,11 +19,13 @@ icon: fa-edit
 
 [04iterAnnotate](/promptEngr/04iterAnnotate/index.html) introduces a prompt engineering tool for iterative development and an annotation tool for labeling data.
 
-[05techniques](/promptEngr/05techniques/index.html) introduces a survey of prompting techniques and prompt engineering approaches.
+[05techniques](/promptEngr/05techniques/index.html) introduces a survey of prompting techniques.
 
-[06moreTechniques](/promptEngr/06moreTechniques/index.html) continues the survey of prompting techniques and prompt engineering approaches.
+[06moreTechniques](/promptEngr/06moreTechniques/index.html) continues the survey of prompting techniques.
 
-[07sagemaker](/promptEngr/07sagemaker/index.html) continues the survey of prompting techniques and prompt engineering approaches and introduces SageMaker.
+[07techniquesPartThree](/promptEngr/07techniquesPartThree/index.html) concludes the survey of prompting techniques.
+
+[08engineering](/promptEngr/08engineering/index.html) surveys of prompt engineering approaches, system prompting, and introduces SageMaker and Colab.
 
 # Exercises
 

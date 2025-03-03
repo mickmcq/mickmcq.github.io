@@ -705,7 +705,7 @@ div.reveal.has-logo div.slide-number { font-size: 10px; }
 
   <meta name="author" content="Mick McQuaid">
   <meta name="dcterms.date" content="2025-03-03">
-  <title>More on Prompting Techniques</title>
+  <title>Prompting Techniques, Part Three</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -1320,7 +1320,7 @@ margin-right: 0; }
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">More on Prompting Techniques</h1>
+  <h1 class="title">Prompting Techniques, Part Three</h1>
   <p class="subtitle">Prompt Engineering</p>
 
 <div class="quarto-title-authors">
@@ -1342,7 +1342,7 @@ Mick McQuaid
 <section class="slide level2">
 
 <div style="position: fixed; font-size: 4em; color: gray;">
-<p>Week Six</p>
+<p>Week Seven</p>
 </div>
 </section>
 <section id="agenda" class="title-slide slide level1 center">
@@ -1350,7 +1350,7 @@ Mick McQuaid
 <div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>Presentations: Kylie, Aditya</li>
+<li>Presentations: Sainath, Anusha, Aditya</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
@@ -1375,17 +1375,7 @@ Mick McQuaid
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>Haystack (again)</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Techniques</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Work time</li>
+<li>Prompting Techniques</li>
 </ul>
 </div>
 </div>
@@ -1410,377 +1400,250 @@ Mick McQuaid
 
 </section>
 
+<section>
 <section id="ec-review" class="title-slide slide level1 center">
 <h1>eC review</h1>
-<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo stretchy="false" form="prefix">⟨</mo><annotation encoding="application/x-tex">\langle</annotation></semantics></math> look at the doc <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo stretchy="false" form="postfix">⟩</mo><annotation encoding="application/x-tex">\rangle</annotation></semantics></math></p>
-</section>
 
-<section id="m1-review" class="title-slide slide level1 center">
-<h1>m1 review</h1>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
 <div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>It’s a colossal blunder to fail to turn in either the qmd or html file</li>
+<li>What did you learn from this exercise?</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>I’m going to suggest that almost everyone use Huggingface datasets instead of Kaggle</li>
-<li><div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>For example, Huggingface has 24 Shakespeare datasets</li>
-</ul>
-</div>
-</div></li>
+<li>One thing Ishwari and I noticed was limited documentation of prompt tuning, so did you learn a lot about prompt tuning?</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>Each group should probably focus on one task, such as recommendation (3), question answering (1), or summarization (2) (One group has several tasks)</li>
+<li>No parameter tuning that I know of</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>Although you are using different platforms, you will be required to extensively document what you’re doing in a qmd file and an html file for the three remaining milestones</li>
+<li>Almost everyone used the same 20 tweets, probably due to uniform Python scripts with 42 as the random seed</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>If you’re using Jupyter, leave enough time to translate your notebook to quarto</li>
+<li>Everyone reported accuracy results but not everyone reported latency and cost, which is a problem</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Only a couple of people reported a score composed of a weighted linear combination of accuracy, latency, and cost</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Most people just eyeballed the results and said that the most accurate model and prompt were the best, but some acknowledged that the cost and latency were important</li>
 </ul>
 </div>
 </div>
 </section>
-
-<section>
-<section id="haystack" class="title-slide slide level1 center">
-<h1>Haystack</h1>
-<p>Break into <em>new</em> pairs as specified on Canvas.</p>
-</section>
-<section id="tutorial-components" class="slide level2">
-<h2>Tutorial components</h2>
-<p>The tutorial shows you how to create a generative question-answering pipeline using the retrieval-augmentation (RAG) approach with Haystack 2.0. The process involves four main components:</p>
+<section id="section-1" class="slide level2">
+<h2></h2>
 <div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>SentenceTransformersTextEmbedder for creating an embedding for the user query,</li>
+<li>Where cost and latency gave conflicting results, some people reported that one should take precedence, while others said that it depends on the user priority</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>InMemoryBM25Retriever for fetching relevant documents,</li>
+<li>The best accuracy reported by anyone was 95 percent, but it was not well-documented—the best well-documented accuracy was 85 percent</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>PromptBuilder for creating a template prompt, and</li>
+<li>The lowest winner on accuracy was 60 percent</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>OpenAIChatGenerator for generating responses.</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="but-first-data" class="slide level2">
-<h2>But first, data!</h2>
-<div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li><a href="https://huggingface.co/docs/dataset-viewer/quick_start">quickStart</a></li>
+<li>Many people did not include a table of accuracy, latency, and cost, which was disappointing</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li><a href="https://huggingface.co/datasets/bilgeyucel/seven-wonders">tutorialData</a></li>
+<li>One person included prompt type (CoT, “regular”) in their table! Great!</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>Try the Python fragments from the tutorial on the seven-wonders dataset</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>If that’s successful, try it on your own dataset</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>The fragments are <em>Check dataset validity</em>, <em>List configuration and splits</em>, <em>Preview a dataset</em>, and <em>Get the size of the dataset</em>.</li>
+<li>Some people used VADER as a benchmark, generally finding it worse than the best prompt / model combinations; one person used a different benchmark from formulabot, which scored 95 percent, several used text2data, one used TextBlob</li>
 </ul>
 </div>
 </div>
 </section>
-<section id="embed-documents" class="slide level2">
-<h2>Embed documents</h2>
+<section id="section-2" class="slide level2">
+<h2></h2>
 <div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>Once you have the data, you can embed it using the <code>SentenceTransformersTextEmbedder</code>. This will create an embedding for each document in the dataset.</li>
+<li>There was a lot of variety in the detail level of results</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>You could use a different embedder. Let’s look at the list of embedders at <a href="https://docs.haystack.deepset.ai/docs/embedders">https://docs.haystack.deepset.ai/docs/embedders</a>. What you do will depend on the data you choose for your project.</li>
+<li>Some very thoughtful conclusions, e.g., about the effect of CoT on latency and accuracy</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>For now, let’s use the default.</li>
+<li>I really appreciated the documentation of the selection of two best prompts, especially one that used the blockquote feature of Quarto</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>By the way, what is an embedding?</li>
+<li>A wide variety of models were used, including gpt-4o-mini, gemini-2.0-flash-001, llama-2-70-b-chat-hf, llama-3.3-70b-versatile, o3-mini-high, mistral-large, gemini-pro, claude 2.1, gpt 3.5, Claude 3.5 Sonnet:beta, claude-3.5-haiku, Cohere v2, DeepSeek v2, Sonar Pro, Llama 8192, Grok 3 DeepSearch</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>In its simplest form, an embedding is a vector of numbers that represents (in this case) a sentence. The vector is created by a neural network that has been trained to learn the meaning of the word or sentence.</li>
+<li>Many people included screenshots of tables from Agenta instead of creating tables on their own, which was disappointing</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>A key learning should have been how to compare models and prompts, some mentioned that in the conclusion</li>
 </ul>
 </div>
 </div>
 </section>
-<section id="start-building-the-rag-pipeline" class="slide level2">
-<h2>Start building the RAG pipeline</h2>
+<section id="section-3" class="slide level2">
+<h2></h2>
 <div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>What is RAG, again?</li>
+<li>One unexpected learning was a bit of data wrangling to ensure things like column name matching</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>RAG is a retrieval-augmented generation approach. It uses a retriever to find relevant documents, and then uses a generator to generate a response.</li>
+<li>Some people reported discovering how LLMs interpret questions differently</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>The pipeline generates a response by combining the retrieved documents with the user query.</li>
+<li>There is a difference between using curly braces and not using them in the labels of code chunks, for example <code>{python}</code> should cause code to be run, but not including the curly braces should cause code to be displayed but not run</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>You will use a text embedder for the user’s question that matches the document embedder you used to embed the documents.</li>
+<li>One person got a confidence score with the benchmark tool, which highlights a limitation of the prompting techniques used by nearly everyone—a confidence score would have been possible, although it would have required more effort and skill (one person did it)</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>You will use a retriever to find relevant documents.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>You will define a prompt template that will be used to generate the response.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>You will use a chat generator to generate the response.</li>
+<li>One person selected zero-shot and few-shot prompts to compare, which was a good idea</li>
 </ul>
 </div>
 </div>
 </section>
-<section id="initialize-the-pipeline" class="slide level2">
-<h2>Initialize the pipeline</h2>
+<section id="section-4" class="slide level2">
+<h2></h2>
 <div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>The tutorial has initialization steps for the above components.</li>
+<li>No one used the feature of Quarto that allows you to save results from code chunks to display in markdown text (some people noticed that they got different results in different runs)</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>The steps are:</li>
-<li><div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Initialize the text embedder</li>
+<li>One person got better results from one model with less context rather than more</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>Initialize the retriever</li>
+<li>Some students investigated the individual tweets and the “ground truth” associated with them, finding it sometimes misleading</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>Initialize the prompt builder</li>
+<li>One interesting table was the one that showed the 20 tweets alongside the sentiments reported as ground truth and three models, allowing a very detailed comparison</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>Initialize the chat generator</li>
+<li>One person tried to use VADER from NLTK without success</li>
 </ul>
 </div>
-</div></li>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Good insights about the difficulty of neutral tweets compared to extremes of positive and negative (model is looking for cues and reads the absence of cues as neutral), as well as insights the problem of URLs in tweets</li>
 </ul>
 </div>
 </div>
 </section>
-<section id="build-the-pipeline" class="slide level2">
-<h2>Build the pipeline</h2>
+<section id="section-5" class="slide level2">
+<h2></h2>
 <div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>The tutorial has a build step for the above components.</li>
+<li>It’s valuable to learn more about Python, Markdown, and AI in general, as one person noted</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>People spent a wide variety of time on this assignment!</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Some people experienced inexplicable errors in Agenta and soldiered on, I appreciate that!</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>One person got uppercase responses and didn’t remedy that, while others then asked explicitly for lowercase responses</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>One person used gpt-o3-mini to generate prompts!</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>One person looked at MMLU and HellaSwag metrics to choose models!</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>The best report, in my view, was the one with the most extensive and illuminating conclusion, which I have put on Canvas (several others were close, though)</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>I really appreciate efforts to make the report more readable! This can be facilitated by studying Quarto a bit</li>
 </ul>
 </div>
 </div>
 </section>
-<section id="asking-a-question" class="slide level2">
-<h2>Asking a question</h2>
+<section id="section-6" class="slide level2">
+<h2></h2>
 <div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>The tutorial has a run step for the above components.</li>
+<li>“even a minor clarification in instructions can lead to better consistency and accuracy … highlights the need for structured prompt experimentation”</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
-<li>In this case, a single question is asked.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>The question is: “What does the Rhodes Statue look like?”</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Some examples are given that could be run in a loop.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Your simple interface to the pipeline is probably going to be a simple loop.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>I’m not going to require any error-handling or user-friendly interface components. You can consider me the only user and I can be given instructions to follow, such as to press Ctrl-D to exit the loop.</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>The interface need not be a web-based interface but can be. You are welcome to ask a model to generate a web-based interface but a simple command-line interface is sufficient.</li>
+<li>One person wrote a lengthy report in the style of an academic paper, perhaps assisted by genAI</li>
 </ul>
 </div>
 </div>
-</section>
-<section id="other-haystack-tutorials" class="slide level2">
-<h2>Other Haystack tutorials</h2>
-<div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Although you are not required to use Haystack, you might find it useful. There are many tutorials on the Haystack website, for example:</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li><a href="https://haystack.deepset.ai/tutorials/31_metadata_filtering">Filtering Documents with Metadata</a></li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li><a href="https://haystack.deepset.ai/tutorials/30_file_type_preprocessing_index_pipeline">Preprocessing Different File Types</a></li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li><a href="https://haystack.deepset.ai/tutorials/33_hybrid_retrieval">Creating a Hybrid Retrieval Pipeline</a></li>
-</ul>
-</div>
-</div>
-<p>These are Beginner tutorials. There are also Intermediate and Advanced tutorials linked from the same page as the one we just did.</p>
 </section></section>
 <section>
 <section id="more-on-techniques" class="title-slide slide level1 center">
 <h1>More on Techniques</h1>
-<p>Last time, we did few-shot and zero-shot prompting techniques. Now we’ll move on to thought generation techniques and others. Again, we’re referring to <span class="citation" data-cites="Schulhoff2024">Schulhoff et al. (<a href="#/references" role="doc-biblioref" onclick>2024</a>)</span>.</p>
-</section>
-<section id="thought-generation" class="slide level2">
-<h2>Thought Generation</h2>
-<div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li><em>prompting the model to articulate its ongoing reasoning</em></li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Chain-of-Thought</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Zero-Shot Chain-of-Thought</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Step-Back Prompting</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Analogical Prompting</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Thread-of-Thought Prompting</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Tabular Chain-of-Thought</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="few-shot-cot" class="slide level2">
-<h2>Few-Shot CoT</h2>
-<div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li><em>multiple examples, including chains-of-thought</em></li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Contrastive CoT Prompting</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Uncertainty-Routed CoT Prompting</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Complexity-based Prompting</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Active Prompting</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Memory-of-Thought Prompting</li>
-</ul>
-</div>
-<div class="fragment fade-in-then-semi-out">
-<ul>
-<li>Automatic Chain-of-Thought Prompting</li>
-</ul>
-</div>
-</div>
+<p>Last time, we continued with more prompting techniques. Now we’ll move on to decomposition techniques and others. Again, we’re referring to <span class="citation" data-cites="Schulhoff2024">Schulhoff et al. (<a href="#/references" role="doc-biblioref" onclick>2024</a>)</span>.</p>
 </section>
 <section id="decomposition" class="slide level2">
 <h2>Decomposition</h2>
@@ -1880,6 +1743,11 @@ Mick McQuaid
 <li>Consistency-based Self-Adaptive Prompting</li>
 </ul>
 </div>
+</div>
+</section>
+<section id="more-ensembling" class="slide level2">
+<h2>More Ensembling</h2>
+<div>
 <div class="fragment fade-in-then-semi-out">
 <ul>
 <li>Universal Self-Adaptive Prompting</li>
@@ -1932,7 +1800,7 @@ Mick McQuaid
 </div>
 </div>
 </section></section>
-<section id="section" class="title-slide slide level1 center">
+<section id="section-7" class="title-slide slide level1 center">
 <h1></h1>
 <div style="text-align: right; font-size: 300px; font-weight: bold;">
 <p>END</p>
