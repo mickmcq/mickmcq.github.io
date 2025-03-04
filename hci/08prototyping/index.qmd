@@ -67,6 +67,8 @@ Example: AirBnB vs CraigsList
 
 # Discussion (Nikki)
 
+*Note: discussion questions are worth more now, two points instead of one. The subtractions this week were more of a warning than a consequence. Perfunctory items will receive less credit in future.*
+
 ## Prototyping
 I teach a course on this topic and a couple of you are in that course! What do you think are the most important things to say about prototyping after seven weeks of it?
 
