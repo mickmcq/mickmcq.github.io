@@ -23,70 +23,12 @@ Week NINE
 # Today
 
 - Q and A from last time
-- Discussion leading ()
-- Design Critique (Swaraj?, Keyur)
-- Article Presentation ()
-- Break (break may be earlier or later in sequence)
+- Discussion leading
 - Empirical Evaluation
 
 # Q and A from last time
 
-## Learning 1 of 4
-
-Learning about Naheel Jawaid's presentation was very interesting, particularly the insight that having all doors open could mean being last in line. Essentially, this would suggest that I must fully commit to a path to make significant progress. It resonates with the advice my dad consistently gave me about life, which I used to resist because I believed in keeping all options open. However, after hearing Naheel's perspective, I now see the value in committing to a direction, though I still believe in maintaining some flexibility within reason.
-
-## Learning 2 of 4
-I enjoyed the discussions about AirBNB vs Craigslist. I always thought that Craigslist was cluttered, and the design was a little archaic. I never thought that the clutter was an intentional design choice (so the user feels like they have a bargain).
-
-## Learning 3 of 4
-I appreciate those two portfolio website examples which are really impressive. And thank you Rachel to teach me something I've always wanted to learn but didn't figure out.
-
-## Learning 4 of 4
-I thought the discussion on the different categorizations of prototype variants was interesting.
-
-## Q&A 1 of 5
-N/A. Shout out to Rachel!! I've noticed that my ability to follow along with these Figma tutorials has improved significantly, and I'm not feeling as lost!
-
-## Q&A 2 of 5
-Can you provide us with more examples of good portfolios?
-
-## Q&A 3 of 5
-rauno.me/craft was really satisfying and fun to look at.
-
-## Q&A 4 of 5
-When I use websites that look old, I would doubt if the content and system are under maintenance and updated. I'm curious to hear more about the good and bad experiences of these sites.
-
-## Q&A 5 of 5
-I am curious about trying the other tools recommended by Naheel (the speaker who's talk you summarized for us). It is nice to hear more about what designers are using and trying outside of Figma (since I feel Figma really boomed and it sounds rather ubiquitous, but there are other tools.)
-
 # Discussion
-
-## Experts of novel products
-How do you find expert users for novel products that no one has seen before?
-
-*(Note re iPhone: Android team members I talked to said that, as soon as they saw it, they knew they had to scrap their existing work)*
-
-## Surprising behavior
-Which empirical evaluation techniques are most likely to lead to surprising behavior and possible design pivots?
-
-## Qual vs Quant
-Is qualitative data more valuable than quantitative data? If so, why? Is it possible that it depends on context?
-
-*(Note: I just had a horrendous experience with the KLM website over break and yet they tried to survey me every step of the way.)*
-
-## How is data collection accomplished?
-Do you partner with data analysis experts or learn all the skills? How do you track and store observations, time on task, user comments, and more?
-
-## Benchmark tasks
-How do you select benchmark tasks?
-
-*(Note: Isn't this largely dictated by the goals of the system being tested?)*
-
-## Collaboration between Design and Engineering
-How can UX and engineering teams establish a collaborative and integrated approach?
-
-##
-![](fiRisksOpptys.png)
 
 # Empirical evaluation
 
@@ -141,7 +83,7 @@ Described in a book chapter, "Dimensions of Usability", in a book, *Content and 
 ## Five E techniques (3 of 3)
 - Easy to Learn: Control how much instruction is given to the test participants, or ask experienced users to try especially difficult, complex or rarely-used tasks. Look for places where the on-screen text or work flow helps…or confuses the
 
-## UX target table
+## UX target table headings
 - Work role: user class
 - UX goal
 - UX measure (what is measured)
@@ -151,8 +93,13 @@ Described in a book chapter, "Dimensions of Usability", in a book, *Content and 
 - Target level
 - Observed results
 
+## UX target table example from UVA
+![](fiUXtargetTable.png)
+
 ## Steve Krug's approach
 (pause for video)
+
+[usabilityTestVideo](https://youtu.be/1UCDUOB_aS8?si=YBDX_FTzWAL7Qpl1)
 
 # Readings
 
