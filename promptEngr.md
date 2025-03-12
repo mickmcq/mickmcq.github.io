@@ -27,6 +27,8 @@ icon: fa-edit
 
 [08engineering](/promptEngr/08engineering/index.html) surveys of prompt engineering approaches, system prompting, and introduces SageMaker and Colab.
 
+[09frameworks](/promptEngr/09frameworks/index.html) surveys prompt frameworks and continues exploration of Colab.
+
 # Exercises
 
 ## Exercise A
