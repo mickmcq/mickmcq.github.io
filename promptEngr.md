@@ -29,6 +29,8 @@ icon: fa-edit
 
 [09frameworks](/promptEngr/09frameworks/index.html) surveys prompt frameworks and continues exploration of Colab.
 
+[10localRAGchatbot](/promptEngr/10localRAGchatbot/index.html) introduces a locally run RAG chatbot.
+
 # Exercises
 
 ## Exercise A
@@ -55,6 +57,16 @@ icon: fa-edit
 
 [eC.html](/promptEngr/eC.html) This is the rendered html for the above code template.
 
+## Exercise D
+
+[eD.qmd](/promptEngr/eD.qmd) This is the code template for the fourth exercise.
+
+[eD.html](/promptEngr/eD.html) This is the rendered html for the above code template.
+
+[amesHousing2011.csv](/promptEngr/amesHousing2011.csv) This is the dataset for the fourth exercise.
+
+[amesHousing2011doc.txt](/promptEngr/amesHousing2011doc.txt) This documents the dataset for the fourth exercise.
+
 # Milestones
 
 [haystack01.qmd](/promptEngr/haystack01.qmd) contains a condensed tutorial on haystack (qmd input).
@@ -64,6 +76,18 @@ icon: fa-edit
 [m2.qmd](/promptEngr/m2.qmd) contains a template for milestone 2 (qmd input).
 
 [m2.html](/promptEngr/m2.html) contains a template for milestone 2 (html output).
+
+[localRAGchatbot.qmd](/promptEngr/localRAGchatbot.qmd) contains a modified tutorial on building a chatbot (qmd input).
+
+[localRAGchatbot.html](/promptEngr/localRAGchatbot.html) contains a modified tutorial on building a chatbot (html output).
+
+[localRAGchatbot.py](/promptEngr/localRAGchatbot.py) contains just the Python code for the above tutorial, suitable for running in a Python environment to check for errors.
+
+[Xiao2025.pdf](/promptEngr/Xiao2025.pdf) contains the input file for the above tutorial.
+
+[m3.qmd](/promptEngr/m3.qmd) contains a template for milestone 3 (qmd input).
+
+[m3.html](/promptEngr/m3.html) contains a template for milestone 3 (html output).
 
 <!--
 
