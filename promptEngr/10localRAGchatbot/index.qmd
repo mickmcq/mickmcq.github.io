@@ -55,7 +55,25 @@ Week Ten
 
 # News
 
+## AI and diagrams
+It's worth looking at the AI and diagrams article that was posted to Hacker News, along with the HN comments, which are more generally focused on prompting techniques. The article discusses the use of AI to generate diagrams, and concludes that it's good for simple diagrams and brainstorming, but struggles with complex diagrams and diagrams of systems that require insights into the system that are not well-documented.
+
+[https://news.ycombinator.com/item?id=43398434](https://news.ycombinator.com/item?id=43398434)
+
 ## The Batch
+Last week's edition:
+
+- Agentic AI was a strong theme at AI Dev 25
+- Demos of Astra and Deep Research illustrated embedding AI in everything
+- Andrew thinks many companies fine-tune when they should be prompting, but fine-tuning is coming along
+- Aya Vision is a new model that has been deployed on WhatsApp and can translate text and images in 23 languages (good for under-resourced languages)
+- Google introduced AI co-scientist, a general multi-agent system designed to generate in-depth research proposals within user-specified constraints (It's enjoyed some success already)
+
+## More of Batch
+- AI-generated works now qualify for copyright protection if a human being contributed enough creative input, in a determination of the US Copyright Office
+- Microsoft and Shenzhen Institute of Advanced Technology (SIAT) partnered to create MatterGen, a diffusion model that generates a material's chemical composition (crystals so far) from a prompt specifying a desired property
+
+## Still more of Batch
 
 $\langle$ pause to look at this week's edition $\rangle$
 
@@ -152,11 +170,14 @@ You can verify that you have the 7B model by saying
 ls -lh ~/.ollama/models/blobs
 ```
 
-One of the blob files should be about 4.4GB. The file names are long hash keys and only matter if you think your download was corrupted.
+One of the blob files should be about 4.4GB.
 
+::: {.notes}
+ The file names are long hash keys and only matter if you think your download was corrupted.
+:::
 
 # The chatbot
-We now turn our attention to the `localRAGchatbot.qmd` file. You must download that file from Canvas, along with `Xiao2025.pdf`. This later file is a book, @Xiao2025.
+We now turn our attention to the `localRAGchatbot.qmd` file. You must download that file from Canvas, along with `Xiao2025.pdf`. This latter file is a book, @Xiao2025.
 
 The first thing to do is to copy and paste the `pip install ...` commands into a terminal window. Then you can try to render the `localRAGchatbot.qmd` file in RStudio.
 

@@ -704,7 +704,7 @@ div.reveal.has-logo div.slide-number { font-size: 10px; }
   <meta name="generator" content="quarto-1.6.42">
 
   <meta name="author" content="Mick McQuaid">
-  <meta name="dcterms.date" content="2025-03-20">
+  <meta name="dcterms.date" content="2025-03-21">
   <title>A local RAG chatbot</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -1402,7 +1402,7 @@ Mick McQuaid
     </div>
 </div>
 
-  <p class="date">20 Mar 2025</p>
+  <p class="date">21 Mar 2025</p>
 </section>
 <section class="slide level2">
 
@@ -1466,8 +1466,59 @@ Mick McQuaid
 <h1>News</h1>
 
 </section>
+<section id="ai-and-diagrams" class="slide level2">
+<h2>AI and diagrams</h2>
+<p>It’s worth looking at the AI and diagrams article that was posted to Hacker News, along with the HN comments, which are more generally focused on prompting techniques. The article discusses the use of AI to generate diagrams, and concludes that it’s good for simple diagrams and brainstorming, but struggles with complex diagrams and diagrams of systems that require insights into the system that are not well-documented.</p>
+<p><a href="https://news.ycombinator.com/item?id=43398434">https://news.ycombinator.com/item?id=43398434</a></p>
+</section>
 <section id="the-batch" class="slide level2">
 <h2>The Batch</h2>
+<p>Last week’s edition:</p>
+<div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Agentic AI was a strong theme at AI Dev 25</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Demos of Astra and Deep Research illustrated embedding AI in everything</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Andrew thinks many companies fine-tune when they should be prompting, but fine-tuning is coming along</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Aya Vision is a new model that has been deployed on WhatsApp and can translate text and images in 23 languages (good for under-resourced languages)</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Google introduced AI co-scientist, a general multi-agent system designed to generate in-depth research proposals within user-specified constraints (It’s enjoyed some success already)</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="more-of-batch" class="slide level2">
+<h2>More of Batch</h2>
+<div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>AI-generated works now qualify for copyright protection if a human being contributed enough creative input, in a determination of the US Copyright Office</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Microsoft and Shenzhen Institute of Advanced Technology (SIAT) partnered to create MatterGen, a diffusion model that generates a material’s chemical composition (crystals so far) from a prompt specifying a desired property</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="still-more-of-batch" class="slide level2">
+<h2>Still more of Batch</h2>
 <p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo stretchy="false" form="prefix">⟨</mo><annotation encoding="application/x-tex">\langle</annotation></semantics></math> pause to look at this week’s edition <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo stretchy="false" form="postfix">⟩</mo><annotation encoding="application/x-tex">\rangle</annotation></semantics></math></p>
 </section></section>
 <section id="whatialreadyknow-ishwari" class="title-slide slide level1 center">
@@ -1541,11 +1592,24 @@ display:block!important;
 <p>divided across several files. The name <code>deepseek-r1</code> is important because that is the name used by Ollama to refer to the model. If you store other models, they will be stored in this structure and can be accessed by name.</p>
 <p>You can verify that you have the 7B model by saying</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href></a><span class="fu">ls</span> <span class="at">-lh</span> ~/.ollama/models/blobs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>One of the blob files should be about 4.4GB. The file names are long hash keys and only matter if you think your download was corrupted.</p>
+<p>One of the blob files should be about 4.4GB.</p>
+<aside class="notes">
+<p>The file names are long hash keys and only matter if you think your download was corrupted.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
 </section></section>
 <section id="the-chatbot" class="title-slide slide level1 center">
 <h1>The chatbot</h1>
-<p>We now turn our attention to the <code>localRAGchatbot.qmd</code> file. You must download that file from Canvas, along with <code>Xiao2025.pdf</code>. This later file is a book, <span class="citation" data-cites="Xiao2025">Xiao and Zhu (<a href="#/references" role="doc-biblioref" onclick>2025</a>)</span>.</p>
+<p>We now turn our attention to the <code>localRAGchatbot.qmd</code> file. You must download that file from Canvas, along with <code>Xiao2025.pdf</code>. This latter file is a book, <span class="citation" data-cites="Xiao2025">Xiao and Zhu (<a href="#/references" role="doc-biblioref" onclick>2025</a>)</span>.</p>
 <p>The first thing to do is to copy and paste the <code>pip install ...</code> commands into a terminal window. Then you can try to render the <code>localRAGchatbot.qmd</code> file in RStudio.</p>
 <p>If you can’t render the file, there may be several reasons. The first thing to try is to download the <code>localRAGchatbot.py</code> file and try to run that in Python by saying <code>python localRAGchatbot.py</code> at a terminal prompt. It takes about seven minutes to run on my machine. If that doesn’t work, the problem may be in your Python installation. If it does work, the problem may be in your RStudio installation.</p>
 </section>
