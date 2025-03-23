@@ -839,6 +839,43 @@ to get beneath the surface
 
 *when you're ready to make design choices*
 
+# Coda: AI
+This could actually be two separate slideshows:
+
+- Using AI to evaluate usability
+- Evaluating the usability of AI products
+
+Here, we'll focus on the first and just provide a few preliminary thoughts
+
+## AI in heuristic evaluation
+- There is already a Figma plugin (maybe more than one) to use AI in heuristic evaluation
+- The one I'm thinking of costs \$12/mo for the "standard" plan and \$22/mo for the "pro" plan
+- It's called UX Pilot Design Review
+- It's not very good
+- You should try it anyway
+
+## General problem
+Most AI tools have poor usability and may not get better in the short term for a few reasons, mainly that people have a poor conceptual model of how they really work
+
+You need to work with them for a while to get a feel for how to get the most out of them (which, so far, is not too much)
+
+## Specific problems
+- They make mistakes so you have to be a careful reader to understand how to fix them
+- They can't understand transitions between screens, they can only evaluate specific screens
+- They don't understand the user---in particular, they don't have whatever knowledge is implicit and not present in the training data
+- They don't understand the real world
+- (My AI tool keeps telling to add context to the list of problems!)
+
+## Mixed views
+- Baymard Institute, a potential competitor to AI tools, says that AI tools are not very good in a post [here](https://baymard.com/blog/gpt-ux-audit)
+- Jakob Nielsen, a UX pioneer, speaks glowingly of them in a controversial post [here](https://jakobnielsenphd.substack.com/p/ai-can-cannot-do-ux)
+
+## How to do it
+You can upload a screenshot to several AI tools and a list of heuristic guidelines and get back a list of problems
+
+You can, for example, use the OpenAI Vision API for this, but it is not free
+
+My best recommendation right now is to use free tools; this is because good prompts to limited models seem in my experience to get better results than poor prompts to more sophisticated models and you need some practice to generate good prompts
 
 # References
 
