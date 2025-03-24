@@ -1,0 +1,118 @@
+---
+title: "Milestone 4 Proposal"
+subtitle: "evaluating major LLMs"
+author:
+  - name: Mick McQuaid
+    email: mcq@utexas.edu
+    affiliations: University of Texas at Austin
+date: last-modified
+date-format: "DD MMM YYYY"
+format: 
+  clean-revealjs:
+    self-contained: true
+    slide-number: false
+    logo: quarto.png
+    footer-logo-link: "https://quarto.org"
+    sc-sb-title: false
+    header-logo: iSchoolLogoLight.png
+    header-logo-link: "https://ischool.utexas.edu"
+    subtitle-as-header: false
+    controls: true
+    controls-layout: edges
+html-math-method:
+  method: mathml
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+filters:
+  - reveal-header
+  - autofade.lua
+slide-level: 2
+number-sections: false
+engine: knitr
+embed-resources: true
+monofont: JetBrainsMono Nerd Font
+mathfont: TeX Gyre Math
+menu:
+  side: 'right'
+css: "style.css"
+---
+
+# Introduction
+- My original plan for m4 was to evaluate the chatbots from m3
+- With the help of Sam Burns, I've come up with a better idea
+- Evaluate the major LLMs on prescribed tasks of interest to students and staff of UT Austin
+- This is an ambitious plan but with much bigger rewards than the original plan
+
+# Background
+
+## Backstory
+- Microsoft wants UT Austin to adopt Copilot as our official LLM
+- Not everyone is on board
+- I want to evaluate the major LLMs and see which, if any, are best for our needs
+- I want to do this in a way that is transparent and reproducible
+- I want to get news coverage of our results
+- The rest of this slideshow covers the questions I've thought of so far
+
+# How?
+
+## Team responsibilities
+- My idea is to have each team be responsible for one LLM
+- We'd have to agree on which team does which LLM
+- After each team has evaluated their LLM, we'd work together in class to develop a report comparing the results
+
+## The material
+- Sam Burns has come up with ideas for candidate tasks of interest to staff and students
+- For example, *How do I print at the iSchool?*
+- For example, *What documents do I need to submit to apply for graduation?*
+- Sam Burns has also come up with ideas of of documents pertinent to the tasks
+- We may need to expand that repository
+
+## Resources
+- UT Austin subreddit's [FAQ](https://www.reddit.com/r/UTAustin/wiki/faq/)
+- Admissions [FAQ](https://admissions.utexas.edu/apply/frequently-asked-questions/)
+- Texas Global [FAQ](https://global.utexas.edu/english-language-center/pre-arrival/faqs/)
+- iSchool Commons may develop resources for using LLMs at scale
+
+# Goals
+- We want to give each LLM a fair chance to shine
+- We need to make sure the tasks are relevant to our needs
+- We want a transparent, reproducible process
+- We want the results to be newsworthy
+
+# Challenges
+
+## Level playing field
+- It will be difficult to create a level playing field
+- For example, Copilot needs small documents and they have to be uploaded to Microsoft's OneDrive for Copilot to read them
+- For example, ChatGPT is not completely compatible with the RAG framework demoed today
+- Other LLMs may have other limitations, e.g., some can search the web others can not
+- We have paid access to some, free access to others (the iSchool may help)
+
+## Resources
+- All the information resources (FAQs, etc.) may need to be wrangled for intake by the LLMs
+- We may need computing resources we don't currently have (iSchool Commons may be able to help)
+- One group will need access to Copilot (Sam Burns can probably help)
+
+## Timeline
+- We have a lot of work to do and not much time
+- We may need to revise or eliminate m3 to devote time to this project
+- You have to get into your groups and discuss how you want to move forward
+
+# Next Steps
+- We need to spend fifteen minutes in our groups to discuss how we want to move forward
+- As you come up with questions, tell me and I'll put them on the screen
+- Then we'll come together and each group will share ideas
+- We need to make certain decisions today and can put off other decisions until later
+- We need to get in touch with the iSchool's new publicity person
+
+# 
+
+::: {style="text-align: right; font-size: 300px; font-weight: bold;"}
+END
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *Roboto Light* and *Roboto Bold*
+
