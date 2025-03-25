@@ -61,7 +61,6 @@ css: "style.css"
 
 ## The material
 - Sam Burns has come up with ideas for candidate tasks of interest to staff and students
-- For example, *How do I print at the iSchool?*
 - For example, *What documents do I need to submit to apply for graduation?*
 - Sam Burns has also come up with ideas of of documents pertinent to the tasks
 - We may need to expand that repository
@@ -70,7 +69,7 @@ css: "style.css"
 - UT Austin subreddit's [FAQ](https://www.reddit.com/r/UTAustin/wiki/faq/)
 - Admissions [FAQ](https://admissions.utexas.edu/apply/frequently-asked-questions/)
 - Texas Global [FAQ](https://global.utexas.edu/english-language-center/pre-arrival/faqs/)
-- iSchool Commons may develop resources for using LLMs at scale
+- You can probably add more
 
 # Goals
 - We want to give each LLM a fair chance to shine
@@ -85,17 +84,17 @@ css: "style.css"
 - For example, Copilot needs small documents and they have to be uploaded to Microsoft's OneDrive for Copilot to read them
 - For example, ChatGPT is not completely compatible with the RAG framework demoed today
 - Other LLMs may have other limitations, e.g., some can search the web others can not
-- We have paid access to some, free access to others (the iSchool may help)
+- We have paid access to some, free access to others (we may need to do all free)
 
 ## Resources
 - All the information resources (FAQs, etc.) may need to be wrangled for intake by the LLMs
-- We may need computing resources we don't currently have (iSchool Commons may be able to help)
-- One group will need access to Copilot (Sam Burns can probably help)
+- We may find the information resources to be a bottleneck we need to tackle as a large group or in teams
 
 ## Timeline
 - We have a lot of work to do and not much time
 - We may need to revise or eliminate m3 to devote time to this project
 - You have to get into your groups and discuss how you want to move forward
+- Then we need to come together and reach consensus
 
 # Next Steps
 - We need to spend fifteen minutes in our groups to discuss how we want to move forward
@@ -103,6 +102,20 @@ css: "style.css"
 - Then we'll come together and each group will share ideas
 - We need to make certain decisions today and can put off other decisions until later
 - We need to get in touch with the iSchool's new publicity person
+
+# More backstory---Copilot limitations
+At a recent meeting of UT Austin tech people, the following issues were raised
+
+## More backstory---Copilot limitations (1 of 2)
+- Trust and Accuracy: J--- mentioned that she does not trust Copilot 365 for personalized assistance, as it may not provide accurate responses for specific queries like checking meeting schedules.
+- Inferior Responses: C--- highlighted that Copilot's responses are perceived as inferior compared to ChatGPT and Gemini, making it difficult to gain credibility among faculty.
+- Response Limitations: Faculty reported running out of responses on Copilot, unlike ChatGPT.
+
+## More backstory---Copilot limitations (2 of 2)
+- Integration Issues: S--- noted that Copilot's power lies in integration with other applications, which is currently lacking.
+- S--- also mentioned that Box meets all data security requirements, whereas OneDrive does not, posing a data protection issue.
+- Data Size Limitations: Participants discussed the limitations of Copilot in handling large files, particularly in the free version, which restricts file uploads to 1 MB.
+- Complexity of Use: J--- found agents harder to use compared to custom GPTs in ChatGPT, indicating a need for better user experience and ease of use.
 
 # 
 
