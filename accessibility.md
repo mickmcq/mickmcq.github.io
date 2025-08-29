@@ -8,7 +8,7 @@ icon: fa-edit
 # Teach Access slides
 
 These are introductory lectures to get you started on your journey to accessible design.
-Press s on your keyboard to get speaker's notes.
+Press p on your keyboard to get presenter's notes to the first two (01understanding and 02context). Press s on your keyboard to get speaker notes for the remaining three (03uiFacilitatorsBarriers, 04assistiveTech, 05bestPractices). 
 
 [01understanding](/accessibility/01understanding)
 

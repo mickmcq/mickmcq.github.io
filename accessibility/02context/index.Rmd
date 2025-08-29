@@ -202,6 +202,10 @@ Protesters crawling up the steps to the US Capitol
 
 ???
 
+Eight year old Jennifer Keelan-Chaffins, pictured here in a photo of the Capitol Crawl on March 12, 1990, pulled herself out of her wheelchair and crawled up the Capitol steps in support of the ADA. She had been arrested at age 7 for another protest and organizers asked her not to participate in the Capitol Crawwl, fearing that her presence would send a messagge of pity rather than empowerment. She said, "If somebody my age didn't do it, then nobody from my generation would be represented."
+
+Pressure from the protest pushed the stalled ADA bill out of committee and four months later it was signed into law.
+
 Source: [https://s.abcnews.com/images/Politics/disability-ap-er-200304_hpMain_2_1x1_992.jpg](https://s.abcnews.com/images/Politics/disability-ap-er-200304_hpMain_2_1x1_992.jpg)
 
 ---
@@ -435,6 +439,14 @@ Source: The actual CVAA, downloaded from the FCC
 ---
 
 .scale-70[.center[![Digital ADA lawsuit graphic](fiDigitalADAlawsuits.png)]]
+
+???
+
+One such lawsuit is Domino's Pizza v Guillermo Robles, which saw a Supreme Court ruling on Oct 7, 2019 that found that Domino's Pizza website is an extension of its physical facilities and could therefore be sued under the ADA. This is an example of how the courts can interpret laws that didn't anticipate current technology.
+
+On June 23, 2021, the lower court awarded summary judgement for Robles. The ruling sttes that, while the website is not a place of public accommodation, an inaccessible website impedes access tot he goods and services of its physical pizza franches-which are places of public accommodation.
+
+I recall the lawsuit of Author's Guild v Hathi Trust, where the plaintiff unsuccessfully argued that making books available to the blind would make them available to thieves.
 
 ---
 
