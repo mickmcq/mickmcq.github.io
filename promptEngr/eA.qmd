@@ -19,18 +19,18 @@ This documents my attempts to create a Python program using an LLM. The purpose 
 
 The constraints are that
 
--   everyone in class must present once
--   no more than three may present on a given day
--   no fewer than two may present on a given day
--   there are twelve days on which students may present (from week 2 to week 13)
+-   everyone in class must present exactly once
+-   no more than two may present on a given day
+-   no fewer than one may present on a given day
+-   there are ten days on which students may present (from week 3 through week 12)
 
 ## Possibilities
 
 This program could operate in many different ways.
 
-For example, it could print out twelve rows of three or four numbers in each row, with each row representing one date. The numbers must be in the set 1 to $\langle$ *number of students in the class* $\rangle$. In that case, no number must be repeated and every number must be included. Then the numbers can be matched to an alphabetical list of students.
+For example, it could print out ten rows of one or two numbers in each row, with each row representing one date. The numbers must be in the set 1 to $\langle$ *number of students in the class* $\rangle$. In that case, no number must be repeated and every number must be included. Then the numbers can be matched to an alphabetical list of students.
 
-As another example, the program could read in a list of student names and spit them out in a random order, with a line ending after every three. Since there are currently 36 students in the class, if I did this today, there would be three students for each day. But this strategy might be problematic if some students drop the course.
+As another example, the program could read in a list of student names and spit them out in a random order, with a line ending after every two. Since there are currently 19 students in the class, if I did this today, there would be two students for each day except the last. But this strategy might be problematic if some students drop the course.
 
 There is a Python `random` module, which can be used in several different ways to randomize.
 
@@ -103,7 +103,7 @@ Here is the prompt that actually gave you the desired result.
 
 Here is the Python fragment that actually achieves the goal of the program.
 
-(Just kidding about fifteenth---I don't know how many attempts it will take to get a satisfactory result)
+(Just kidding about fifteenth---I don't know how many attempts it will take to get a satisfactory result---it took me three)
 
 # Conclusion
 
