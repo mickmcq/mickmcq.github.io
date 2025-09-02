@@ -43,6 +43,8 @@ icon: fa-edit
 
 [eAsolutionR.html](/promptEngr/eAsolutionR.html) This is the rendered version of the above example solution.
 
+[eAexample2prep.html](/promptEngr/eAexample2prep.html) This is how I prepped the class roster to extract and format the first names of students.
+
 [eAexample2conversation.txt](/promptEngr/eAexample2conversation.txt) This is a conversation with Gemini in Google Colab to obtain a Python solution.
 
 [eAexample2.ipynb](/promptEngr/eAexample2.ipynb) This is the Jupyter notebook produced by the above conversation.
