@@ -43,6 +43,12 @@ icon: fa-edit
 
 [eAsolutionR.html](/promptEngr/eAsolutionR.html) This is the rendered version of the above example solution.
 
+[eAexample2conversation.txt](/promptEngr/eAexample2conversation.txt) This is a conversation with Gemini in Google Colab to obtain a Python solution.
+
+[eAexample2.ipynb](/promptEngr/eAexample2.ipynb) This is the Jupyter notebook produced by the above conversation.
+
+[eAexample2output.txt](/promptEngr/eAexample2output.txt) This is the output of the Python program.
+
 ## Exercise B
 
 [eB.qmd](/promptEngr/eB.qmd) This is the code template for the second exercise.
