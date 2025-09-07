@@ -40,6 +40,9 @@ css: "style.css"
 Week THREE
 :::
 
+# But first ... A public service announcement
+![](fiBDPslideFall2025.jpg)
+
 # But first ... Draw a face
 - It was supposed to convince you that you can draw
 - Some of you didn't need it
@@ -48,6 +51,8 @@ Week THREE
 - Some need the exercises in @Dodson2006
 
 # Crazy Eights
+
+$\langle$ Pause for video $\rangle$
 
 ## Annotated! And speedy!
 
@@ -610,6 +615,9 @@ not without seeking some understanding of complicated
 fragile networks of infrastructure that account for so much
 of the variation in health between communities.
 :::
+
+## Disabilities: Permanent, Temporary, Situational, and Cognitive
+![](fiDisabilitiesIncCognitive.png)
 
 ## Disability-specific design
 UT-Austin is notable as a disability-friendly campus, according to [https://www.collegeconsensus.com/rankings/best-disability-friendly-colleges/](https://www.collegeconsensus.com/rankings/best-disability-friendly-colleges/)
