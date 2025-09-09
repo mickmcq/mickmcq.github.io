@@ -52,8 +52,8 @@ Week Three
 # eA
 
 ## Scoring
-- Average score: 4.7/5 (95%)
-- Grading was very lenient
+- Average score: 5/5 (100%)
+- Grading was *very* lenient
 - But the honeymoon is over
 - Many people disregarded instructions like the file names---I'll take off points for these omissions in future assignments
 - I don't regrade assignments---I make suggestions for improvement that you should implement so that the hw is useful to you in the future
@@ -61,11 +61,11 @@ Week Three
 - I don't regrade because everyone would eventually get a 5/5
 
 ## Observations
-- One person did a single prompt
 - One person did five prompts
 - Most did two or three prompts
 - Some people did not include an intro or conclusion
-- Most people did not mention the exact model used
+- Most people included last names, which we discussed as a privacy no-no
+- Many people included the boilerplate, which should have been removed
 
 ## Exemplary version
 Let's pause to look at an exemplary version of the assignment. Notice the detailed commentary and conclusion.
@@ -96,7 +96,18 @@ Let's pause to look at an exemplary version of the assignment. Notice the detail
 
 # News
 
-## Deepseek R1
+## Biggest news of the week?
+
+## You guessed it: the Anthropic settlement
+- Is 1.5 billion dollars a lot?
+- It's 3,000USD per book for 500,000 books
+- Fair use books were exempted from the settlement---only books from LibGen were covered
+- Current Anthropic valuation: 183 billion USD
+
+## Other news
+Let's look at Data Points and The Batch
+
+## Last semester's news in week three: Deepseek R1
 - Deepseek is a Chinese startup founded by Liang Wenfeng
 - They rocked the US stock markets this week by releasing a new LLM called R1
 - R1 is claimed to be competitive with gpt-4o o3 but at a fraction of the cost to develop
