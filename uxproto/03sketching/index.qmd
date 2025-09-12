@@ -1,19 +1,48 @@
 ---
-title: "UX Prototyping:<br>Sketching"
-author: Mick McQuaid
-date: today
-bibliography: master.bib
-format:
-  revealjs:
-    logo: iSchoolLogo.png
-    theme: moon
-    css: style.css
-    transition: slide
-    background-transition: fade
-    preview-links: auto
+title: "Sketching"
+subtitle: "UX Prototyping"
+author:
+  - name: Mick McQuaid
+    email: mcq@utexas.edu
+    affiliations: University of Texas at Austin
+date: last-modified
+date-format: "DD MMM YYYY"
+execute:
+  echo: true
+format: 
+  clean-revealjs:
+    slide-number: false
+    logo: quarto.png
+    footer-logo-link: "https://quarto.org"
+    sc-sb-title: false
+    header-logo: iSchoolLogoLight.png
+    header-logo-link: "https://ischool.utexas.edu"
+    subtitle-as-header: false
     controls: true
-    controls-layout: bottom-right
-    center: true
+    controls-layout: edges
+    include-in-header:
+      text: |
+        <style>
+        @font-face {font-family: VictorMono Nerd Font; src: url("/Users/mm223266/Library/Fonts/VictorMonoNerdFont-Regular.ttf"); font-style:normal;}
+        @font-face {font-family: VictorMono Nerd Font Italic; src: url("/Users/mm223266/Library/Fonts/VictorMonoNerdFont-Italic.ttf"); font-style:italic,oblique;}
+        @font-face {font-family: VictorMono Nerd Font Bold; src: url("/Users/mm223266/Library/Fonts/VictorMonoNerdFont-Bold.ttf"); font-weight:bold;}
+        pre, code {font-family: VictorMono Nerd Font, monospace;}
+        code.sourceCode span.co {font-style: italic;}
+        code.sourceCode span.fu {font-weight: bold;}
+        </style>
+filters:
+  - reveal-header
+  - autofade.lua
+slide-level: 2
+number-sections: false
+engine: knitr
+embed-resources: true
+bibliography: master.bib
+monofont: VictorMono Nerd Font
+mathfont: TeX Gyre Math
+menu:
+  side: 'right'
+css: "style.css"
 ---
 
 ::: {.r-fit-text}
@@ -26,38 +55,17 @@ Week THREE
 Recap
 :::
 
-## Sketches
-
-$\langle$ Pause to look at `graphical-intros.pdf` $\rangle$
-
-::: {.notes}
-- sketches: mostly terrific, raises issue of how to sharpen your skills
-- sketches: some appeared to use iPad---is that the best approach?
-- sketches: whiteboard is still the target, but for how long?
-- sketches: different styles for graphical self-intro vs good design
-- three things: act fast, think slow, energize yourself
-:::
-
 ## Accessibility Reports
-::: {.incremental}
-- Well done!
-- Please don't double space any documents you give me
-- NWS is a very important resource for all Americans: interesting to see some of its shortcomings!
-- Two groups did ESPN and took very different approaches
-- My takeaway is that you all take accessibility very seriously
 - Do you feel like you can integrate accessibility into your design process?
-:::
 
 # project ideas
 
 ## previous semester idea rejected, then reconsidered
-::: {.incremental}
 - presented idea was to help women seeking abortions in Texas
 - rejected because it seemed like more of a privacy and security issue than a UX issue
 - reconsidered because I then researched it and found UX issues
 - e.g., websites to help undocumented migrants assume literacy and often English literacy
 - two synergistic groups: drivers and patients
-:::
 
 # project inspiration from prior semester
 
@@ -80,14 +88,12 @@ $\langle$ Pause to look at `graphical-intros.pdf` $\rangle$
 # mood boards
 
 ## What is a mood board?
-::: {.incremental}
 - Collage
 - Images
 - Typography
 - Color palettes
 - Conveys a strong impression
 - Can be checked by asking people what they see
-:::
 
 ## Why a mood board, according to 99designs
 - Inspiration
@@ -160,11 +166,9 @@ People make mood boards for all kinds of things, even law firms!
 :::
 
 # design inspiration
-::: {.incremental}
 - Where did you get the inspiration for your mood board?
 - Where do you get inspiration in general?
 - Where do you want to get inspiration?
-:::
 
 ## A whole new mind
 
@@ -330,13 +334,11 @@ This is a view of Kidzania, a working city for children with branches in Mexico 
 :::
 
 # Sketching
-::: {.incremental}
 - Easy enough to say just do it
 - Nothing works like conscientious practice
 - Once inspired, what keeps you going?
 - Try @Dodson2006
 - Try the five minute plan
-:::
 
 # Crazy eights
 ![](fiCrazyEights.png)
