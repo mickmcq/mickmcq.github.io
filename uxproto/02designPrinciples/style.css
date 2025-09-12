@@ -27,6 +27,15 @@
   .reveal .emph {
     color:#F8971F;
   }
+  .reveal .quotation {
+    text-align: left;
+    font-style: italic;
+    box-sizing: border-box;
+    width: 85%;
+  }
+  .reveal .attribution {
+    text-align: right;
+  }
 p.author {
    text-align: center;
 }
@@ -39,10 +48,5 @@ p.date {
 }
 .col {
   flex: 1;
-}
-
-.reveal .slide-logo {
-  top: 0;
-  right: 12px
 }
 

@@ -38,6 +38,15 @@ css: "style.css"
 Welcome!
 :::
 
+# Schedule for today
+- 1530--1540 brief intro
+- 1540--1600 reading `ai-2027.com` and `ai_report_2025.pdf`
+- 1600--1610 forming teams: positive, negative, and alternative
+- 1610--1645 debate: I'll call on you to represent the above three positions
+- 1645--1700 break
+  1700--1705 taking attendance
+- 1705--1745 slideshow intro to course (rest of this slideshow)
+
 # Setting the stage
 
 ## Let me set the stage for our adventure
@@ -60,19 +69,18 @@ Welcome!
 
 ## Constraint
 ::: {.incremental}
-- There are no prereqs. You may not even know how to spell AI
+- There are no prereqs (except a bit of Python). You may not even know how to spell AI
 - $\langle$ Pause for laughter $\rangle$
 - $\langle$ If no laughter, tell mother-in-law joke $\rangle$
 - Since there are no prereqs, we have to start before the beginning.
 - I need to tell you a little bit of history, so you get the context.
 :::
 
-## Today's plan
+## Remainder of today
 ::: {.incremental}
-- We'll do an exercise.
-- Then we'll review @Dhar2024 for a bit of history.
-- We'll learn how you'll do homework and presentations.
-- Finally, we'll do another exercise.
+- We'll review @Dhar2024 for a bit of history
+- We'll learn how you'll do homework and presentations
+- Finally, we'll introduce Exercise A.
 - In fact, the general format of the class will usually be some lecture followed by some exercises.
 - Next week, we'll discuss the general framework for the semester, but I want to give you something to think about first---one view of learning is that it is like hanging ornaments on an Xmas tree---you need the tree but you also need to appreciate the ornaments: which should come first?
 :::
@@ -100,7 +108,7 @@ This cartoon may become controversial soon. We are still in a situation where th
 $\langle$ Pause to let the room clear $\rangle$
 
 # Exercise: What I already know
-- There is a google doc referenced in Canvas (on the course's home page) that I want you to edit
+- There is a google doc referenced in Canvas (on the course's home page) that I want you to edit throughout the semester
 - There is some starter text for you to add to
 - Please also add your own sections but *please* use appropriate section headings and subheadings rather than jury-rigging text attributes as headings
 
@@ -388,7 +396,7 @@ If you are on macOS, I encourage you to reduce your Python installations to no m
 If you are on Windows, good luck. I don't know how it works. I switched to mac so I wouldn't have to deal with Windows.
 :::
 
-# Another exercise
+# Exercise A
 
 ## Write a short Python program
 ::: {.incremental}
