@@ -1680,7 +1680,7 @@ Mick McQuaid
 <span id="cb1-4"><a href></a>client<span class="sc">$</span><span class="fu">chat</span>(<span class="st">&quot;Summarize the plot of Romeo and Juliet in 20 words or fewer.&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Two young lovers from feuding families secretly marry, but miscommunication 
-leads to their tragic deaths, ultimately reconciling their warring households.</code></pre>
+leads to their tragic deaths, ultimately reconciling their warring houses.</code></pre>
 </div>
 </div>
 <p>Now <code>client</code> is an object (you can name it anything) and <code>chat</code> is a component of that object.</p>
@@ -1690,8 +1690,8 @@ leads to their tragic deaths, ultimately reconciling their warring households.</
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href></a>client<span class="sc">$</span><span class="fu">chat</span>(<span class="st">&quot;Now do Hamlet.&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Prince Hamlet seeks revenge against his uncle who murdered his father, but his 
-hesitation and schemes ultimately lead to tragedy for all.</code></pre>
+<pre><code>Prince Hamlet seeks revenge against his uncle Claudius for murdering his 
+father, but his hesitation and madness lead to tragic consequences.</code></pre>
 </div>
 </div>
 <p>… and it remembers the question from the previous call.</p>
@@ -1706,7 +1706,7 @@ hesitation and schemes ultimately lead to tragedy for all.</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Two young lovers from feuding families secretly marry, but miscommunication     
-leads to their tragic deaths, ultimately reconciling their warring houses.      &lt;chatlas._chat.ChatResponse object at 0x142ffaa80&gt;</code></pre>
+leads to their tragic deaths, ultimately reconciling their warring houses.      &lt;chatlas._chat.ChatResponse object at 0x11244e5a0&gt;</code></pre>
 </div>
 </div>
 <p>Notice that the same exact answer may not be provided. This is a completely different conversation from the one in R.</p>
@@ -1718,7 +1718,7 @@ leads to their tragic deaths, ultimately reconciling their warring houses.      
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Prince Hamlet seeks revenge against his uncle Claudius for murdering his father,
-but his hesitation and madness lead to tragic consequences.                     &lt;chatlas._chat.ChatResponse object at 0x1451003e0&gt;</code></pre>
+but his hesitation and madness lead to tragedy.                                 &lt;chatlas._chat.ChatResponse object at 0x113300770&gt;</code></pre>
 </div>
 </div>
 </section></section>
@@ -1732,25 +1732,24 @@ but his hesitation and madness lead to tragic consequences.                     
 <span id="cb9-4"><a href></a>    ellmer<span class="sc">::</span><span class="fu">interpolate_file</span>(<span class="st">&quot;posit-expense-policy.md&quot;</span>))</span>
 <span id="cb9-5"><a href></a>client<span class="sc">$</span><span class="fu">chat</span>(<span class="st">&quot;I am a Posit employee. Based on the Posit Expense Policy, can I expense a hotel for business?&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Yes, based on the Posit Expense Policy, you can expense a hotel for business 
-purposes.
-
+<pre><code>Yes, as a Posit employee, you can expense a hotel for business travel. 
 According to **Section 4.1 Travel Expenses**, accommodation expenses are 
 reimbursable with the following guidelines:
 
-- You should book **standard hotel rooms at a reasonable rate**
-- If a nightly rate **exceeds $250, a justification is required**
+- **Standard**: You should book standard hotel rooms at a reasonable rate
+- **Rate limit**: If a nightly rate exceeds $250, you&#39;ll need to provide a 
+justification
+- **Business purpose**: The hotel stay must be directly related to company 
+business (as stated in **Section 3 General Principles**)
 
-To ensure reimbursement, make sure to:
-1. Keep your receipt (Section 3 requires &quot;corresponding receipt or proof of 
-purchase&quot;)
-2. Submit the expense within 30 days (Section 3)
-3. Submit through the company&#39;s designated expense management software (Section
-6.1)
-4. Get approval from your direct manager (Section 6.2)
+**Requirements for reimbursement:**
+- Submit the expense within 30 days of incurring it
+- Provide a corresponding receipt or proof of purchase
+- Submit through the company&#39;s designated expense management software
+- Get approval from your direct manager
 
-The hotel stay must be directly related to company business, as outlined in the
-general principles in Section 3.</code></pre>
+Make sure to attach a clear, legible image of the hotel receipt to your expense
+report as outlined in **Section 6.1 Submission**.</code></pre>
 </div>
 </div>
 </section>
@@ -1764,6 +1763,11 @@ general principles in Section 3.</code></pre>
 <div class="fragment fade-in-then-semi-out">
 <ul>
 <li>Do the same thing in Python, using whatever key you have (OpenAI, Gemini, Anthropic, etc.)</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Put the key in an <code>~/.Renviron</code> file</li>
 </ul>
 </div>
 <div class="fragment fade-in-then-semi-out">
