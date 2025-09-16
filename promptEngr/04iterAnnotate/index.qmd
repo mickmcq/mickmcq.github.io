@@ -35,6 +35,9 @@ mathfont: TeX Gyre Math
 menu:
   side: 'right'
 css: "style.css"
+jupyter: python3
+execute: 
+  echo: true
 ---
 
 ::: {style="position: fixed; font-size: 4em; color: gray;"}
@@ -42,11 +45,12 @@ Week Four
 :::
 
 # Agenda
-- Presentations: Tianyi, Srishti, Puneeth
+- Presentations: Steven, Jihyung
 - News
-- Review whatialreadyknow (Ishwari)
+- Review whatiknow
 - Q&A on eB
 - Q&A on m1
+- Simple chatbot
 - Iteration
 - Annotation
 - Work time
@@ -55,7 +59,43 @@ Week Four
 
 # News
 
-# WhatIAlreadyKnow (Ishwari)
+# WhatIKnow
+
+## Issues with the doc
+- It's a bit hard to read (aimed at me instead of you)
+- Nothing in the Intro tab? (shouldn't it introduce prompt engineering?)
+- Most items are long summaries of old academic articles 
+- The FAQ doesn't look like an FAQ
+- Some of the items are articles we went over in class!
+- Most of the items need a TLDR 
+- Most of the items are copied and pasted in, making the review process hard (I'll demonstrate)
+- Three different tabs for LLM Evaluation??
+- Who would use this doc? (I meant it as something you would find useful in answering the questions you naturally have)
+
+## News
+![](fi02News.png)
+
+## FAQ
+![](fi03FAQ.png)
+
+## Prompt Techniques
+![](fi04PromptTechniques.png)
+
+## LLM Evaluation
+![](fi05LLMevals.png)
+
+## LLM Evaluators (?!)
+![](fi06Evaluators.png)
+
+## Who Validates the Validators?
+![](fi07WhoValidates.png)
+
+## So, let's completely redo it
+- Make a document that works for you
+- Only make a new tab for a new *group* of topics
+- Use headings and subheadings for topics and subtopics on a tab
+- Try to write in the document rather than cutting and pasting in from another source
+- Dhruvi has already graded your previous contributions, so it's okay to nuke them and start from scratch
 
 # eB
 
@@ -73,10 +113,77 @@ Week Four
 
 ## Deliverable
 - A short qmd / html document describing the domain
-- The doc should include specification of whether you plan to run locally or using a cloud service
+- Use the template!
 - The doc should include a discussion of the possible datasets you might use (the actual dataset will be due in m2)
 - You are not required to stick with the directions you give here, but this should be your current best guess of what you plan to do
 - Examples: chatbot to emulate a foreign leader; chatbot to triage banking problems; chatbot to analyze tweets
+
+# Simple chatbot
+
+## First, a Hello World in R 
+
+```{r}
+# install.packages(pacman)
+pacman::p_load(ellmer)
+client <- chat_anthropic(model = "claude-sonnet-4-20250514")
+client$chat("Summarize the plot of Romeo and Juliet in 20 words or fewer.")
+```
+
+Now `client` is an object (you can name it anything) and `chat` is a component of that object.
+
+## Continuing the same conversation
+
+```{r}
+client$chat("Now do Hamlet.")
+```
+
+... and it remembers the question from the previous call.
+
+## Same thing in Python
+First, say `pip install chatlas` in a terminal.
+
+```{python}
+from chatlas import ChatAnthropic
+client = ChatAnthropic(model = "claude-sonnet-4-20250514")
+client.chat("Summarize the plot of Romeo and Juliet in 20 words or fewer.")
+```
+
+Notice that the same exact answer may not be provided. This is a completely different conversation from the one in R.
+
+## This Python conversation can also be continued.
+
+```{python}
+client.chat("Now do Hamlet.")
+```
+# Now a simple chatbot
+
+```{r}
+client =
+  chat_anthropic(model = "claude-sonnet-4-20250514",
+  system_prompt =
+    ellmer::interpolate_file("posit-expense-policy.md"))
+client$chat("I am a Posit employee. Based on the Posit Expense Policy, can I expense a hotel for business?")
+```
+## Cost
+Anthropic isn't too good about itemizing costs, so I'm going to guess that the above, after running many times, cost about 0.25 USD. If you want to know the cost per conversation, you have to keep looking at Anthropic's up to the minute meter.
+
+## Your turn
+- Do the same thing in Python, using whatever key you have (OpenAI, Gemini, Anthropic, etc.)
+- Put the key in an `~/.Renviron` file
+- First task: Find something (not an expense report, but you can use my `posit-expense-policy.md` to get started) to put in the system prompt
+- Can be in any domain you prefer, e.g., your project focus
+- Remember to use `.` instead of `$` and ChatAnthropic instead of chat_anthropic (or whatever---I'll show the [possible models](https://posit-dev.github.io/chatlas/get-started/models.html))
+
+# Iteration and annotation
+I've lost interest in the tools we explored last semester but I haven't deleted the slideware talking about how to use them. Instead, for iteration, I think we can just brainstorm a lot of prompts and use a `foreach` to run them through `chatlas` in different conversations. Remember that each time we initialized the variable `client`, we were starting a new conversation where we could reuse that variable. We could instead give the conversations different names and run them in parallel, skipping back and forth as we get new ideas.
+
+As for annotation, the effectiveness of system prompts makes it seem less pressing. Last semester, I asked students to annotate data for their projects. This semester, I'm not going to ask the same.
+
+# A different direction
+I'm thinking we should write and deploy a number of chatbots using `Shiny`. That means we have to learn a little bit about Shiny. What do you think?
+
+# The remaining slides
+The remaining slides are a holdover from iteration and annotation from last semester.
 
 # Iteration
 
