@@ -1,24 +1,63 @@
 ---
-title: UX Prototyping<br>Story Mapping
-author: Mick McQuaid
-date: today
-bibliography: master.bib
-format:
-  revealjs:
-    logo: iSchoolLogo.png
-    theme: moon
-    css: style.css
-    transition: slide
-    background-transition: fade
-    preview-links: auto
+title: "Storymapping"
+subtitle: "UX Prototyping"
+author:
+  - name: Mick McQuaid
+    email: mcq@utexas.edu
+    affiliations: University of Texas at Austin
+date: last-modified
+date-format: "DD MMM YYYY"
+execute:
+  echo: true
+format: 
+  clean-revealjs:
+    slide-number: false
+    logo: quarto.png
+    footer-logo-link: "https://quarto.org"
+    sc-sb-title: false
+    header-logo: iSchoolLogoLight.png
+    header-logo-link: "https://ischool.utexas.edu"
+    subtitle-as-header: false
     controls: true
-    controls-layout: bottom-right
-    center: true
+    controls-layout: edges
+html-math-method:
+  method: mathml
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+filters:
+  - reveal-header
+  - autofade.lua
+slide-level: 2
+number-sections: false
+engine: knitr
+embed-resources: true
+bibliography: master.bib
+monofont: VictorMono Nerd Font
+mathfont: TeX Gyre Math
+menu:
+  side: 'right'
+css: "style.css"
 ---
-
 ::: {.r-fit-text}
 WEEK FOUR
 :::
+
+# whiteboards
+(remember them?)
+
+##
+![](whiteboard01.png)
+
+##
+![](whiteboard02.png)
+
+##
+![](whiteboard03.png)
+
+##
+![](whiteboard04.png)
+
+##
+![](whiteboard05.png)
 
 # Story Mapping
 
@@ -45,14 +84,12 @@ Here the steps are the steps in the user's journey toward some favorable outcome
 ![](fiCakeWrecks1.png){fig-alt="A cake decorated with the actual instructions to decorate the cake"}
 
 ## Here are some instructions
-::: {.incremental}
 - Customer: Hello, I’d like to order a cake.
 - Employee: Sure, what would you like written on it?
 - Customer: Could you write "So long, Alicia" in purple?
 - Employee: Sure.
 - Customer: And put stars around it?
 - Employee: No problem. I’ve written this up, and will hand it to my cake decorator right away. We’ll have it for you in the morning.
-:::
 
 ::: {.notes}
 Try to imagine what the employee is writing down while listening to the customer. Try to imagine the scenario of the employee. For example, is the employee juggling the phone and a notepad and pen? Or perhaps trying to write into a computer program with both hands while holding the phone against their shoulder? Details may matter in this communication breakdown.
@@ -243,12 +280,10 @@ There are many ways to convey dialog or thoughts in storyboards. You don't alway
 
 ## How to use scenarios
 
-::: {.incremental}
 - represent the story of the work
 - represent a successful process
 - inject the personas into their work
 - illustrate what you found from contextual inquiry
-:::
 
 ## types of scenario frames
 
@@ -256,13 +291,11 @@ There are many ways to convey dialog or thoughts in storyboards. You don't alway
 
 ## Characteristics
 
-::: {.incremental}
 - Readable like a comic strip
 - One step per frame
 - Rough user interfaces
 - Manual actions
 - Cartoons of people
-:::
 
 ## Evaluate the scenario
 - include words where a stranger would not understand
