@@ -101,7 +101,7 @@ It is vital that the course meets the needs of both groups, which is not easy.
 
 To achieve this, one necessity is to have varying levels of projects. Broadly there are two levels, novice and advanced. Both are eligible for an A grade. You should work comfortably at your limit, not shirking but not trying to be heroic.
 
-You should deploy something you can put in your portfolio, but this can be anything from a simple chatbot like we created using `chatlas` or an agentic app using, say, Google's ADK. There needs to be extensive use of prompting and it needs to be possible to evaluate and compare prompts in your project.
+You should deploy something you can put in your portfolio and can be anything from a simple chatbot like we created using `chatlas` or an agentic app using, say, Google's ADK. Include extensive use of prompting and make it possible to evaluate and compare prompts.
 
 ## Deliverable
 - A short qmd / html document describing the domain
