@@ -198,15 +198,11 @@ The PDCA cycle can be traversed over and over, indefinitely. There are four main
 
 Also see @Pruitt2003.
 
+# [END]{.r-fit-text}
+
 # References
 
 ::: {#refs}
-:::
-
----
-
-::: {.r-fit-text}
-END
 :::
 
 # Colophon
