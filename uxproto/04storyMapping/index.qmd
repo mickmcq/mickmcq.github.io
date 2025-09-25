@@ -362,22 +362,16 @@ Here's an example from class where the student used the hat and the ponytails to
 
 ![](fiPreparePanels3.jpg)
 
-
+# [END]{.r-fit-text}
 
 # References
 
 ::: {#refs}
 :::
 
----
-
-::: {.r-fit-text}
-END
-:::
-
 # Colophon
 
 This slideshow was produced using `quarto`
 
-Fonts are *League Gothic* and *Lato*
+Fonts are *Roboto*, *Roboto Light*, and *VictorMono Nerd Font*
 

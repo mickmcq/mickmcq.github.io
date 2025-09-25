@@ -124,24 +124,18 @@ I'm high on Framer because of its excellent JavaScript output, which cuts down o
 - Try to do as much as you can on the *Guide to FigJam* page
 - How much you do will determine how extensively you can use FigJam to collaborate
 
-<!--
+# [END]{.r-fit-text}
 
+<!--
 # References
 
 ::: {#refs}
 :::
-
 -->
-
----
-
-::: {.r-fit-text}
-END
-:::
 
 # Colophon
 
 This slideshow was produced using `quarto`
 
-Fonts are *Roboto Light*, *Roboto Bold*, and *JetBrains Mono Nerd Font*
+Fonts are *Roboto*, *Roboto Light*, and *VictorMono Nerd Font*
 

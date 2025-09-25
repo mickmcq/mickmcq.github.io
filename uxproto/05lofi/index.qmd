@@ -1,19 +1,41 @@
 ---
-title: "UX Prototyping<br>lofi"
-author: Mick McQuaid
-date: today
-bibliography: master.bib
-format:
-  revealjs:
-    logo: iSchoolLogo.png
-    theme: moon
-    css: style.css
-    transition: slide
-    background-transition: fade
-    preview-links: auto
+title: "lofi"
+subtitle: "UX Prototyping"
+author:
+  - name: Mick McQuaid
+    email: mcq@utexas.edu
+    affiliations: University of Texas at Austin
+date: last-modified
+date-format: "DD MMM YYYY"
+execute:
+  echo: true
+format: 
+  clean-revealjs:
+    slide-number: false
+    logo: quarto.png
+    footer-logo-link: "https://quarto.org"
+    sc-sb-title: false
+    header-logo: iSchoolLogoLight.png
+    header-logo-link: "https://ischool.utexas.edu"
+    subtitle-as-header: false
     controls: true
-    controls-layout: bottom-right
-    center: true
+    controls-layout: edges
+html-math-method:
+  method: mathml
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+filters:
+  - reveal-header
+  - autofade.lua
+slide-level: 2
+number-sections: false
+engine: knitr
+embed-resources: true
+bibliography: master.bib
+monofont: VictorMono Nerd Font
+mathfont: TeX Gyre Math
+menu:
+  side: 'right'
+css: "style.css"
 ---
 
 ::: {.r-fit-text}
@@ -40,7 +62,6 @@ source (diana mounter of github)
 :::
 
 ## Takeaways
-::: {.incremental}
 - People use different terms
 - People use the term *design system* in different ways, all the wayfrom style guide to component libraries to basis for entire company (e.g., AirBnB)
 - GitHub posits rules, constraints, and principles
@@ -48,16 +69,13 @@ source (diana mounter of github)
   - rule: pass color contrast ratio of 4:5:1
   - constraint: number of colors in palette
   - principle: color used in a meaningful way
-:::
 
 ## Takeaways, continued
-::: {.incremental}
 - GitHub started with color, typography, spacing, components, layouts
 - GitHub added interaction models, voice and tone, words, grammar and mechanics
 - GitHub uses [https://primer.style/](https://primer.style/)
 - GitHub uses BEM-style notation [https://en.bem.info/](https://en.bem.info/)
 - Material Design is aspirational for GitHub
-:::
 
 ## Other examples
 - [IBM Design Language](https://www.ibm.com/design/language/)
@@ -138,13 +156,11 @@ You could hand this to the developer and say "Animate this transition!" Instead,
 # Ideation
 
 ## Day one of this course
-::: {.incremental}
 - We used a storyboard sheet to ideate
 - But we could consider the interview and brainstorming the list of needs as part of the ideate process---they certainly lead up to it
 - In fact, we can do anything that will help us come up with ideas!
 - [IDEO](https://www.designkit.org/methods) suggests a three step process: inspiration, ideation, implementation
 - Under Ideate, they suggest many activities, including journey mapping, HMW, and rapid prototyping; we'll examine HMW
-:::
 
 # HMW (how might we?)
 
@@ -247,20 +263,16 @@ ideas for them had occurred to me. I shall not argue the point.*
 - aka The time, the place, and the people
 - concerns Daud Sahil (sahil means guide or leader in Hindi)
 
+# [END]{.r-fit-text}
+
 # References
 
 ::: {#refs}
-:::
-
----
-
-::: {.r-fit-text}
-END
 :::
 
 # Colophon
 
 This slideshow was produced using `quarto`
 
-Fonts are *League Gothic* and *Lato*
+Fonts are *Roboto*, *Roboto Light*, and *VictorMono Nerd Font*
 

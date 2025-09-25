@@ -20,16 +20,6 @@ format:
     subtitle-as-header: false
     controls: true
     controls-layout: edges
-    include-in-header:
-      text: |
-        <style>
-        @font-face {font-family: VictorMono Nerd Font; src: url("/Users/mm223266/Library/Fonts/VictorMonoNerdFont-Regular.ttf"); font-style:normal;}
-        @font-face {font-family: VictorMono Nerd Font Italic; src: url("/Users/mm223266/Library/Fonts/VictorMonoNerdFont-Italic.ttf"); font-style:italic,oblique;}
-        @font-face {font-family: VictorMono Nerd Font Bold; src: url("/Users/mm223266/Library/Fonts/VictorMonoNerdFont-Bold.ttf"); font-weight:bold;}
-        pre, code {font-family: VictorMono Nerd Font, monospace;}
-        code.sourceCode span.co {font-style: italic;}
-        code.sourceCode span.fu {font-weight: bold;}
-        </style>
 filters:
   - reveal-header
   - autofade.lua
@@ -382,20 +372,16 @@ for i in $(seq 0 8); do printf "\a\n$i"; sleep 60; done
 milestone 2
 :::
 
+# [END]{.r-fit-text}
+
 # References
 
 ::: {#refs}
-:::
-
----
-
-::: {.r-fit-text}
-END
 :::
 
 # Colophon
 
 This slideshow was produced using `quarto`
 
-Fonts are *League Gothic* and *Lato*
+Fonts are *Roboto*, *Roboto Light*, and *VictorMono Nerd Font*
 
