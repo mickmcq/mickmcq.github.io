@@ -1,46 +1,59 @@
 ---
-title: "UX Prototyping<br>hifi"
-author: Mick McQuaid
-date: today
-bibliography: master.bib
-format:
-  revealjs:
-    logo: iSchoolLogo.png
-    theme: moon
-    css: style.css
-    transition: slide
-    background-transition: fade
-    preview-links: auto
+title: "hifi"
+subtitle: "UX Prototyping"
+author:
+  - name: Mick McQuaid
+    email: mcq@utexas.edu
+    affiliations: University of Texas at Austin
+date: last-modified
+date-format: "DD MMM YYYY"
+execute:
+  echo: true
+format: 
+  clean-revealjs:
+    slide-number: false
+    logo: quarto.png
+    footer-logo-link: "https://quarto.org"
+    sc-sb-title: false
+    header-logo: iSchoolLogoLight.png
+    header-logo-link: "https://ischool.utexas.edu"
+    subtitle-as-header: false
     controls: true
-    controls-layout: bottom-right
-    center: true
+    controls-layout: edges
+filters:
+  - reveal-header
+  - autofade.lua
+slide-level: 2
+number-sections: false
+engine: knitr
+embed-resources: true
+bibliography: master.bib
+monofont: VictorMono Nerd Font
+mathfont: TeX Gyre Math
+menu:
+  side: 'right'
+css: "style.css"
 ---
 
-::: {.r-fit-text}
-Week SIX
-:::
+# [Week SIX]{.r-fit-text}
 
 # But first ... A short story
 
 ## The setting
 
-::: {.incremental}
 - Story takes place in the eighties
 - Toyota was eating everyone's lunch
 - Ford had a plan
 - Let's visit Toyota!
-:::
 
 ## Toyota embraced the visit
 
-::: {.incremental}
 - Ford executives saw everything
 - Aside: Ford executive offended by insolent elevator operator
 - End of tour: Any questions?
 - Yeah, show us the secrets!
 - Toyota: we showed you everything
 - Ford execs couldn't accept that
-:::
 
 ## Moral of the story
 
@@ -69,7 +82,6 @@ Another example is from last week. I complained about time travel, teleportation
 
 ## Another example: Spymaster Yuri Titrov
 
-::: {.incremental}
 - During the cold war, he caused the deaths and derailments of many American spies
 - He ferreted them out by watching embassy workers
 - Sitting alone in parks much?
@@ -77,13 +89,12 @@ Another example is from last week. I complained about time travel, teleportation
 - Not using official cars?
 - Using pay telephone booths?
 - But the Americans thought he had a mole and we axed many of our own people
-:::
 
 ## Again
 
 Two people look and one sees
 
-##
+#
 
 ::: {.quotation}
 You can observe a lot by watching
@@ -196,13 +207,11 @@ Read this article for a lesson in knowledge representation, inertia, standards b
 
 # Typography
 
-::: {.incremental}
 - You're experiencing it right now!
 - I'm using default typefaces!
 - People have prejudices, e.g., Comic Sans, Papyrus
 - It's not just fonts!
 - LaTeX and Adobe InDesign do the best spacing and line breaking
-:::
 
 ::: {.notes}
 Some authors give very definite advice when space is constrained: use this or that typeface, use only serif or only sans serif type, set only ragged right or only justified. This seems like banal advice to me. It is predicated on the fact that you may not have much time to devote to typography, certainly not as much as someone who majors in typography!
@@ -402,18 +411,12 @@ You can google *tschichold posters* to see examples of this movement of the earl
 :::
 
 ## Chunking words, especially in menus
-
 Hick’s law predicts the
 time it will take for a user to make a choice, given the
 number of choices. Hick’s law can be expressed similarly to
 Fitts's Law as
-
 $$t = b \log_2 (n + 1)$$
-
-Here, $t$ is reaction time, $b$ is a constant to be found
-empirically, and $n$ is the number of choices with which the
-user is confronted. The extra $1$ represents the concept *none
-of the above*.
+Here, $t$ is reaction time, $b$ is a constant to be found empirically, and $n$ is the number of choices with which the user is confronted. The extra $1$ represents the concept *none of the above*.
 
 ## The magic number seven ± 2
 
@@ -461,13 +464,11 @@ Readability and legibility are two concepts in contention when it comes to decid
 
 ## Past advice
 
-::: {.incremental}
 - Layout on a twelve column grid
 - Easy to reduce to 9,6 or 8,4 for responsiveness
 - But @Pickering2022 advises against this
 - They claim it's too rigid
 - Instead, they urge you to learn a dozen reusable components and endlessly combine them
-:::
 
 ## CSS
 
@@ -932,20 +933,16 @@ It's all done with curves!
 ::::
 :::
 
+# [END]{.r-fit-text}
+
 # References
 
 ::: {#refs}
-:::
-
----
-
-::: {.r-fit-text}
-END
 :::
 
 # Colophon
 
 This slideshow was produced using `quarto`
 
-Fonts are *League Gothic* and *Lato* (and *STIX* for the tiny amount of math)
+Fonts are *Roboto* and *Roboto Light*
 

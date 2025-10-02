@@ -28,13 +28,15 @@
     color:#F8971F;
   }
   .reveal .quotation {
-    text-align: left;
+    vertical-align: bottom !important;
+    text-align: center;
     font-style: italic;
-    box-sizing: border-box;
     width: 85%;
   }
   .reveal .attribution {
+    vertical-align: top !important;
     text-align: right;
+    width: 85%;
   }
 p.author {
    text-align: center;
@@ -48,10 +50,5 @@ p.date {
 }
 .col {
   flex: 1;
-}
-
-.reveal .slide-logo {
-  top: 0;
-  right: 12px
 }
 
