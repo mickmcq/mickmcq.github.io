@@ -1,22 +1,79 @@
 ---
-title: "UX Prototyping<br>UCD and Agile"
-author: Mick McQuaid
-date: today
-bibliography: master.bib
-format:
-  revealjs:
-    logo: iSchoolLogo.png
-    theme: moon
-    css: style.css
-    transition: slide
-    background-transition: fade
-    preview-links: auto
+title: "UCD & Agile"
+subtitle: "UX Prototyping"
+author:
+  - name: Mick McQuaid
+    email: mcq@utexas.edu
+    affiliations: University of Texas at Austin
+date: last-modified
+date-format: "DD MMM YYYY"
+execute:
+  echo: true
+format: 
+  clean-revealjs:
+    slide-number: false
+    logo: quarto.png
+    footer-logo-link: "https://quarto.org"
+    sc-sb-title: false
+    header-logo: iSchoolLogoLight.png
+    header-logo-link: "https://ischool.utexas.edu"
+    subtitle-as-header: false
     controls: true
-    controls-layout: bottom-right
-    center: true
+    controls-layout: edges
+filters:
+  - reveal-header
+  - autofade.lua
+slide-level: 2
+number-sections: false
+engine: knitr
+embed-resources: true
+bibliography: master.bib
+monofont: VictorMono Nerd Font
+mathfont: TeX Gyre Math
+menu:
+  side: 'right'
+css: "style.css"
 ---
 
-# But first ... Figma
+# But first ... Extreme emphasis
+
+##
+![](fiExtreme01.png)
+
+##
+![](fiExtreme02.png)
+
+##
+![](fiExtreme03.png)
+
+##
+![](fiExtreme04.png)
+
+##
+![](fiExtreme05.png)
+
+## But first ... Guessing Game 
+- How I'd do it differently 
+  - Initial screenshot instead of actual Figma file 
+  - Final design as implemented (again screenshots)
+  - Narrative about the process and conversations
+  - Grading scheme of 3/3/4 
+- What do you think?
+- What were your conversations like?
+
+## Good things
+- Guideposts for Figma newbs
+- Annotations (mostly callouts)
+- Unicode cheatsheets
+
+## Surprises
+- Why did everyone use the default font when that was one of the very variables you could control?
+- Not reading the instructions to the CS students
+- CS students asked Prof Bulko what they "had to do"
+- One CS student complained they didn't get the design until 2 Oct!
+- One or two of our students didn't take the conversation about their capabilities seriously
+
+# But first ... the story of Figma
 In September 2022, there was a time when it seemed that Figma was going to be devoured by Adobe and we discussed it in class ...
 It may still be worthwhile to explore the situation as it developed ...
 (We still don't know whether it was really Adobe or Figma that actually killed the acquisition ...)
@@ -35,13 +92,11 @@ Here's some of what was said ...
 
 ## Where is more info about this?
 
-::: {.incremental}
 - Hacker News: [https://news.ycombinator.com/item?id=32850178](https://news.ycombinator.com/item?id=32850178)
 - [https://hunterwalk.com/2022/09/19/why-figma-is-worth-20b-and-other-observations-from-the-adobe-acquisition/](https://hunterwalk.com/2022/09/19/why-figma-is-worth-20b-and-other-observations-from-the-adobe-acquisition/)
 - [https://adamnash.blog/2022/09/16/figma-a-random-walk-in-palo-alto/](https://adamnash.blog/2022/09/16/figma-a-random-walk-in-palo-alto/)
 - [https://finance.yahoo.com/video/adobe-figma-deal-ive-never-193650708.html](https://finance.yahoo.com/video/adobe-figma-deal-ive-never-193650708.html)
 - [https://www.cnbc.com/2022/08/25/figma-growing-inside-microsoft-testing-longtime-deal-with-adobe.html](https://www.cnbc.com/2022/08/25/figma-growing-inside-microsoft-testing-longtime-deal-with-adobe.html)
-:::
 
 ## Questions
 - Everybody hates Adobe. Why? (Subscriptions?)
@@ -68,6 +123,10 @@ Plus, Adobe doesn't need the team. If they get patents to Figma's technology, th
 
 ![](fiAdobeStock3rdTime.png)
 
+## Speaking of Adobe stock (4th time)
+
+![](fiAdobeStock4thTime.png)
+
 ## Why do we care?
 - Reliance on Figma
 - Pace of innovation at Figma
@@ -77,9 +136,22 @@ Plus, Adobe doesn't need the team. If they get patents to Figma's technology, th
 - It failed, allegedly because Adobe lost interest after regulatory scrutiny
 - Scuttlebutt was that Adobe realized it had overbid, but no one knows---Figma's internal valuation is reportedly half of what Adobe offered
 - Figma continues to lead by nonstop innovation, current team is doing really well in my view, not so well in the eyes of others
-  [ny times perspective](https://www.nytimes.com/2024/02/08/technology/figma-adobe-.html)
+  ([ny times perspective](https://www.nytimes.com/2024/02/08/technology/figma-adobe-.html))
 
-# Intro
+## Still later ...
+- Figma went public in July 2025
+- Offered at 33
+- Immediately went to 120 
+- Slowly slid to mid 50s 
+- Starting October at about 53 
+- October market cap about 25 billion USD
+
+## Figma's stock practices
+![](fiFigmaStock.png)
+
+# UCD & Agile
+
+## Intro
 
 Most of this material comes from a NordiCHI conference workshop on UCD and Agile, documented in @Cockton2016.
 
@@ -456,22 +528,18 @@ Note that the book uses the expression SME to mean *small to medium sized enterp
 - Getting developers to appreciate UX is the key to blending them
 - Templates seem to work
 
+# [END]{.r-fit-text}
+
 # References
 
 ::: {#refs}
-:::
-
----
-
-::: {.r-fit-text}
-END
 :::
 
 # Colophon
 
 This slideshow was produced using `quarto`
 
-Fonts are *League Gothic* and *Lato*
+Fonts are *Roboto* and *Roboto Light*
 
 
 
