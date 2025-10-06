@@ -19,9 +19,6 @@ format:
     subtitle-as-header: false
     controls: true
     controls-layout: edges
-html-math-method:
-  method: mathml
-  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
 filters:
   - reveal-header
   - autofade.lua
@@ -42,26 +39,38 @@ Week Seven
 :::
 
 # Agenda
-- Presentations: Sainath, Anusha, Aditya
+- Presentations: Kayla, Siyu
 - News
-- Review whatialreadyknow (Ishwari)
-- eC review
-- m1 review
+- Review whatiknow
 - Prompting Techniques
 
 # Presentations
 
 # News
 
+## Measurement!
+[https://news.ycombinator.com/item?id=45458455](https://news.ycombinator.com/item?id=45458455)
+is a discussion of an evaluation of table-reading by LLMs. (The referenced evaluation is blocked by UT Austin, by the way.)
+
+## Results
+![](fiTableReading01.png)
+
+## Discussion
+- The evaluation prompted several others to build their own (better, in my opinion) evaluations!
+- The top one found that model and number of rows in the table mattered more than the table format
+- The [top one](https://github.com/jcheng5/table-formats?tab=readme-ov-file) used the [inspect framework](https://inspect.aisi.org.uk/llms.txt) to evaluate
+- The Inspect framework is an invention of the UK government to evaluate LLMs
+
 ## The Batch
 
 $\langle$ pause to look at this week's edition $\rangle$
 
-# WhatIAlreadyKnow (Ishwari)
+# WhatIKnow
+Something different this week: I'd like people narrate their own contributions.
 
 # eC review
 
-##
+## Last semester's feedback
 - What did you learn from this exercise?
 - One thing Ishwari and I noticed was limited documentation of prompt tuning, so did you learn a lot about prompt tuning?
 - No parameter tuning that I know of
@@ -130,6 +139,8 @@ $\langle$ pause to look at this week's edition $\rangle$
 ##
 - "even a minor clarification in instructions can lead to better consistency and accuracy ... highlights the need for structured prompt experimentation"
 - One person wrote a lengthy report in the style of an academic paper, perhaps assisted by genAI
+
+# Measurement
 
 # More on Techniques
 Last time, we continued with more prompting techniques. Now we'll move on to decomposition techniques and others. Again, we're referring to @Schulhoff2024.

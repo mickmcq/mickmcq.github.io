@@ -20,9 +20,6 @@ format:
     subtitle-as-header: false
     controls: true
     controls-layout: edges
-html-math-method:
-  method: mathml
-  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
 filters:
   - reveal-header
   - autofade.lua
