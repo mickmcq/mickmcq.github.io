@@ -463,7 +463,7 @@ The following slides review the four themes that coalesced at the NordiCHI works
 - Team member (undifferentiated by rank or expertise)
 
 ::: {.notes}
-Note that the book uses the expression SME to mean *small to medium sized enterprises*, not *subject matter expert*, its usually meaning. The book also uses UXS to refer to any UX specialist, evidently including designers and researchers.
+Note that the book uses the expression SME to mean *small to medium sized enterprises*, not *subject matter expert*, its usual meaning. The book also uses UXS to refer to any UX specialist, evidently including designers and researchers.
 :::
 
 ## Roles vs responsibilities
@@ -525,7 +525,7 @@ Note that the book uses the expression SME to mean *small to medium sized enterp
 
 ## Summary
 - Designers need to better understand the language of developers
-- Getting developers to appreciate UX is the key to blending them
+- Getting developers to appreciate UX is the key to blending with them
 - Templates seem to work
 
 # [END]{.r-fit-text}
