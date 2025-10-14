@@ -19,9 +19,6 @@ format:
     subtitle-as-header: false
     controls: true
     controls-layout: edges
-html-math-method:
-  method: mathml
-  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
 filters:
   - reveal-header
   - autofade.lua
@@ -42,14 +39,13 @@ Week Eight
 :::
 
 # Agenda
-- Presentations: Kylie, Zeel, Maitreyee
+- Presentations: Ryan, Rui
 - News
-- Review whatialreadyknow (Ishwari)
+- Review whatiknow (everyone)
+- eD demo
 - m2 questions
 - Prompt engineering techniques
 - System prompts
-- Sagemaker
-- Colab
 - Work time
 
 # Presentations
@@ -60,7 +56,12 @@ Week Eight
 
 $\langle$ pause to look at this week's edition $\rangle$
 
-# WhatIAlreadyKnow (Ishwari)
+# WhatIKnow (everyone)
+- other faculty are asking what you know
+- should we transition to a blog for remaining weeks?
+- should we run a bluesky or other account to post to?
+- remember, science is in the heart as well as the mind
+- you must say things that matter to you
 
 # Prompt Engineering Techniques and Goals
 
@@ -126,12 +127,6 @@ Admirably, @Zhang2024 includes a section on ethical considerations. These includ
 - possibility of stereotyping people, e.g., "act like a professor"
 - crowdsourced annotations from WEIRD contexts
 - need for research on model performance in new cultural and social contexts
-
-# Sagemaker Studio Lab
-$\langle$ pause to look at the mistral tutorial $\rangle$
-
-# Google Colab
-$\langle$ pause to demo Colab $\rangle$
 
 #
 
