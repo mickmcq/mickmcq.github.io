@@ -1,39 +1,50 @@
 ---
-title: "Info & Interaction Design: Patterns"
-author: Mick McQuaid
-date: today
-bibliography: master.bib
-format:
-  revealjs:
-    logo: iSchoolLogo.png
-    theme: moon
-    css: style.css
-    transition: slide
-    background-transition: fade
-    preview-links: auto
+title: "Patterns"
+subtitle: "Information & Interaction Design"
+author:
+  - name: Mick McQuaid
+    email: mcq@utexas.edu
+    affiliations: University of Texas at Austin
+date: last-modified
+date-format: "DD MMM YYYY"
+execute:
+  echo: true
+format: 
+  clean-revealjs:
+    slide-number: false
+    logo: quarto.png
+    footer-logo-link: "https://quarto.org"
+    sc-sb-title: false
+    header-logo: iSchoolLogoLight.png
+    header-logo-link: "https://ischool.utexas.edu"
+    subtitle-as-header: false
     controls: true
-    controls-layout: bottom-right
-    center: true
+    controls-layout: edges
+filters:
+  - reveal-header
+  - autofade.lua
+slide-level: 2
+number-sections: false
+engine: knitr
+embed-resources: true
+bibliography: master.bib
+monofont: VictorMono Nerd Font
+mathfont: TeX Gyre Math
+menu:
+  side: 'right'
+css: "style.css"
 ---
 
-::: {.r-fit-text}
-Week TEN
-:::
+# [Week TEN]{.r-fit-text}
 
----
-
-::: {.r-fit-text}
-DESIGN PATTERNS AGAIN
-:::
+# [DESIGN PATTERNS AGAIN]{.r-fit-text}
 
 ## Design Patterns, Why?
-::: {.incremental}
 - I've already told you I don't believe in the Design Patterns Bunny ...
 - So, why an entire lecture devoted to Design Patterns?
 - The reason is that @Tidwell2020 has come up with a rationale that *may* work
 - @Tidwell2020 catalogs an exhaustive set of interaction design patterns
 - Organizing your thinking this way *may* help---let's try it
-:::
 
 ## Categories
 - Cognition and Behavior Related to Interface Design, p 11
@@ -87,26 +98,21 @@ This pattern corresponds to three of the @Nielsen1994 guidelines:
 - Predictable back button (no back button hijacking or interstitials ...)
 
 ## Another example: Satisficing
-::: {.incremental}
 - portmanteau of satisfying and sufficing, coined by Herbert Simon in 1957
 - used in psychology and economics to describe people accepting the first "good enough" solution to a problem
 - thinking about an optimal solution represents additional work and there's a tradeoff
-:::
 
 ## Supporting satisficing
-::: {.incremental}
 - calls to action
 - short labels
 - use layout to communicate meaning
 - escape hatches
 - reduce visual complexity, e.g., with hierarchy
-:::
 
 ## Your part
 - Make a few Google Slide slides as a group, including a title with your names
 - Give us a feel of your category of patterns, along with a few examples
-- Merge what you've done into the class slideshow at
-  [https://docs.google.com/presentation/d/1FXauE830Ok7DMCMUeS7IAUG4XnlDo11I2cd6fElFQm0/edit?usp=sharing](https://docs.google.com/presentation/d/1FXauE830Ok7DMCMUeS7IAUG4XnlDo11I2cd6fElFQm0/edit?usp=sharing)
+- Merge what you've done into the class slideshow
 - One person from each group pastes in the group's slides
 - You present them on Wednesday
 
@@ -121,20 +127,16 @@ According to Edgar Dale, you remember:
 - 80% of what you experience
 - 95% of what you teach
 
+# [END]{.r-fit-text}
+
 # References
 
 ::: {#refs}
-:::
-
----
-
-::: {.r-fit-text}
-END
 :::
 
 # Colophon
 
 This slideshow was produced using `quarto`
 
-Fonts are *League Gothic* and *Lato*
+Fonts are *Roboto* and *Roboto Light*
 
