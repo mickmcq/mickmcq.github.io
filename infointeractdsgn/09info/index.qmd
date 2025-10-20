@@ -249,6 +249,33 @@ Examples of memes are tunes, ideas, catch-phrases, clothes fashions, ways of mak
 In the years since Dawkins coined the term, it has become popular to study the concept of memes and to track memes, thanks to the Web. Our awareness of memes as a force informs our interaction design in many ways. There can be no doubt that the most successful users of the web, such as Google and Facebook, maintain a keen sensitivity to memes. As a thought exercise, examine an electronic artifact, such as a website or smartphone app, and try to identify the presence and influence of any memes upon it. As a similar thought exercise, try to identify memes in your own work.
 :::
 
+## Human computation
+- Relatively new field in computer science
+- Asks people to do what machines can't
+- Gameifies tasks, such as identifying craters on the moon
+- Origin of captchas
+
+::: {.notes}
+Historically it has been difficult to obtain judgments of humans to label enough things to help computers. Recently, under the banner of human computation, scientists have developed ways to turn small tasks that are difficult for computers into games that are fun to play. An example would be to recognize birds species in pictures. By carefully arranging for different people to try to label the same picture, it is possible to obtain useful labels. Pornographers also use the results of this research to defeat captchas, which are themselves outgrowths of this research. Visitors to pornographic sites or other sites with illicit content, are asked to solve captchas to obtain admittance. These captchas are ones that the host site's robots encountered while trying to harvest content from competitors or other gated communities.
+
+While human computation was hailed as the solution to spam ten years ago, it has turned out to have some value and some unexpected consequences.
+:::
+
+## Learning navigational behavior
+- Google learns from user navigational behavior
+- Search behavior is bartered by information brokers
+- LSOs (locally stored objects) are often used instead of cookies, as are tracking pixels
+- A-B testing is the most common tool for understanding navigational behavior between two items (and for multiple items, the multi-armed bandit)
+
+::: {.notes}
+We have discussed the overwhelming influence of Google and its skill in rapidly changing information artifacts by learning the navigational behavior of its users. We have discussed the sharing of consumer information by commercial interests on the web through information brokers. We have discussed the local storage of tracking information on individual devices and some ways, such as LSOs (locally stored objects) used by commercial interests to thwart privacy preservation. We discussed the fact that many large websites, as well as many local network storage appliances, are better served by Google search than by any designed navigational aids. We considered the implications of that situation for expending effort to design navigational aids.
+
+One thing I may have neglected to mention is A-B testing, a common practice where commercial websites compare the conversion rates of two features by randomly assigning visitors to one (A) or the other (B). This is a common way to choose design features. The conversion rate is the rate at which visits to a commercial site are converted to successful commercial transactions.
+:::
+
+## Flexibility of representation
+We have touched on the notion that information structures are more or less amenable to change. Brittle structures may be symptomatic of technical shortcomings or may be symptoms of authoritarian governance. We discussed whether the speed with which we can modify an information artifact matters in a given context. We saw that we may put together an information artifact with little planning if we expect to take advantage of user behavior to improve it but that, if we can can not or will not change an information artifact after publishing it, we can not realize the value of understanding navigational behavior.
+
 # Organizing information
 
 Designers use an almost folkloric understanding of how people organize information to design information artifacts to work with rather than against people. Some of the borrowings from other disciplines studying the organization of information include the following.
@@ -520,35 +547,6 @@ Supervision in this case may be very limited. For example, a person can identify
 
 A common approach to helping a machine to group things together is to provide a training set and a testing set, a set of things that have been grouped to train the machine and a set of unlabeled things to evaluate the outcome of the machine's training.
 :::
-
-# Other information concepts
-
-## Human computation
-- Relatively new field in computer science
-- Asks people to do what machines can't
-- Gameifies tasks, such as identifying craters on the moon
-- Origin of captchas
-
-::: {.notes}
-Historically it has been difficult to obtain judgments of humans to label enough things to help computers. Recently, under the banner of human computation, scientists have developed ways to turn small tasks that are difficult for computers into games that are fun to play. An example would be to recognize birds species in pictures. By carefully arranging for different people to try to label the same picture, it is possible to obtain useful labels. Pornographers also use the results of this research to defeat captchas, which are themselves outgrowths of this research. Visitors to pornographic sites or other sites with illicit content, are asked to solve captchas to obtain admittance. These captchas are ones that the host site's robots encountered while trying to harvest content from competitors or other gated communities.
-
-While human computation was hailed as the solution to spam ten years ago, it has turned out to have some value and some unexpected consequences.
-:::
-
-## Learning navigational behavior
-- Google learns from user navigational behavior
-- Search behavior is bartered by information brokers
-- LSOs (locally stored objects) are often used instead of cookies, as are tracking pixels
-- A-B testing is the most common tool for understanding navigational behavior between two items (and for multiple items, the multi-armed bandit)
-
-::: {.notes}
-We have discussed the overwhelming influence of Google and its skill in rapidly changing information artifacts by learning the navigational behavior of its users. We have discussed the sharing of consumer information by commercial interests on the web through information brokers. We have discussed the local storage of tracking information on individual devices and some ways, such as LSOs (locally stored objects) used by commercial interests to thwart privacy preservation. We discussed the fact that many large websites, as well as many local network storage appliances, are better served by Google search than by any designed navigational aids. We considered the implications of that situation for expending effort to design navigational aids.
-
-One thing I may have neglected to mention is A-B testing, a common practice where commercial websites compare the conversion rates of two features by randomly assigning visitors to one (A) or the other (B). This is a common way to choose design features. The conversion rate is the rate at which visits to a commercial site are converted to successful commercial transactions.
-:::
-
-## Flexibility of representation
-We have touched on the notion that information structures are more or less amenable to change. Brittle structures may be symptomatic of technical shortcomings or may be symptoms of authoritarian governance. We discussed whether the speed with which we can modify an information artifact matters in a given context. We saw that we may put together an information artifact with little planning if we expect to take advantage of user behavior to improve it but that, if we can can not or will not change an information artifact after publishing it, we can not realize the value of understanding navigational behavior.
 
 # Information Design Patterns
 We discussed several elements that information architecture authors have referred to as information design patterns. To determine whether these elements deserve the label of *design pattern*, we must examine the coinage and past use of the term.
