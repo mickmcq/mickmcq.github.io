@@ -1,5 +1,14 @@
 ---
 title: "Haystack Tutorial: Basic QA Pipeline with RAG"
+date: today
+author: Mick McQuaid
+format:
+  html:
+    toc: true
+    embed-resources: true
+mainfont: TeX Gyre Schola
+monofont: JetBrainsMono Nerd Font
+mathfont: TeX Gyre Schola Math
 jupyter: python3
 ---
 
@@ -120,10 +129,11 @@ Note that the following code will only work if you have an OPENAI_API_KEY. Mine 
 OPENAI_API_KEY="sk1093847bunchofnumbersandletters"
 ```
 
-You must have an OPENAI_API_KEY defined somehow for the following to work.
+You must have an OPENAI_API_KEY defined somehow for the following to work. One way is to have it in the environment instead of `~/.Renviron` as above.
 
 ```{python}
 import os
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 from getpass import getpass
 from haystack.components.generators.chat import OpenAIChatGenerator
 
