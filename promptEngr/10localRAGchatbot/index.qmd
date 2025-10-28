@@ -9,7 +9,6 @@ date: last-modified
 date-format: "DD MMM YYYY"
 format: 
   clean-revealjs:
-    self-contained: true
     slide-number: false
     logo: quarto.png
     footer-logo-link: "https://quarto.org"
@@ -19,9 +18,6 @@ format:
     subtitle-as-header: false
     controls: true
     controls-layout: edges
-html-math-method:
-  method: mathml
-  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
 filters:
   - reveal-header
   - autofade.lua
@@ -30,21 +26,19 @@ number-sections: false
 engine: knitr
 embed-resources: true
 bibliography: master.bib
-monofont: JetBrainsMono Nerd Font
+monofont: VictorMono Nerd Font
 mathfont: TeX Gyre Math
 menu:
   side: 'right'
 css: "style.css"
 ---
 
-::: {style="position: fixed; font-size: 4em; color: gray;"}
-Week Ten
-:::
+# [Week Ten]{.r-fit-text}
 
 # Agenda
-- Presentations: Yuan, Siddharth
-- News (two weeks worth!)
-- Review whatialreadyknow (Ishwari)
+- Presentations: Chi-Tse, Disha
+- News
+- Review whatiknow
 - Today's plan
 - Ollama
 - DeepSeek
@@ -56,28 +50,26 @@ Week Ten
 # News
 
 ## AI and diagrams
-It's worth looking at the AI and diagrams article that was posted to Hacker News, along with the HN comments, which are more generally focused on prompting techniques. The article discusses the use of AI to generate diagrams, and concludes that it's good for simple diagrams and brainstorming, but struggles with complex diagrams and diagrams of systems that require insights into the system that are not well-documented.
+Last semester in week 10, we looked at AI diagramming as follows:
+
+*It's worth looking at the AI and diagrams article that was posted to Hacker News, along with the HN comments, which are more generally focused on prompting techniques. The article discusses the use of AI to generate diagrams, and concludes that it's good for simple diagrams and brainstorming, but struggles with complex diagrams and diagrams of systems that require insights into the system that are not well-documented.*
 
 [https://news.ycombinator.com/item?id=43398434](https://news.ycombinator.com/item?id=43398434)
+
+It may be worthwhile to see how things have changed (or not).
 
 ## The Batch
 Last week's edition:
 
-- Agentic AI was a strong theme at AI Dev 25
-- Demos of Astra and Deep Research illustrated embedding AI in everything
-- Andrew thinks many companies fine-tune when they should be prompting, but fine-tuning is coming along
-- Aya Vision is a new model that has been deployed on WhatsApp and can translate text and images in 23 languages (good for under-resourced languages)
-- Google introduced AI co-scientist, a general multi-agent system designed to generate in-depth research proposals within user-specified constraints (It's enjoyed some success already)
+- Evaluation and Error Analysis
+- Data Governance Course
+- Reasoning without "thinking" (selective reasoning) in Ling-1T
+- Security risks of MCP
+- California's new regulations concerning AI
+- Better prompting instead of fine tuning
+- Security risks of local models (did we discuss this?)
 
-## More of Batch
-- AI-generated works now qualify for copyright protection if a human being contributed enough creative input, in a determination of the US Copyright Office
-- Microsoft and Shenzhen Institute of Advanced Technology (SIAT) partnered to create MatterGen, a diffusion model that generates a material's chemical composition (crystals so far) from a prompt specifying a desired property
-
-## Still more of Batch
-
-$\langle$ pause to look at this week's edition $\rangle$
-
-# WhatIAlreadyKnow (Ishwari)
+# WhatIKnow
 
 # Today's plan
 Today we'll create a local RAG chatbot, using Ollama, DeepSeek R1, LangChain, ChromaDB, and Gradio.
@@ -183,11 +175,7 @@ The first thing to do is to copy and paste the `pip install ...` commands into a
 
 If you can't render the file, there may be several reasons. The first thing to try is to download the `localRAGchatbot.py` file and try to run that in Python by saying `python localRAGchatbot.py` at a terminal prompt. It takes about seven minutes to run on my machine. If that doesn't work, the problem may be in your Python installation. If it does work, the problem may be in your RStudio installation.
 
-#
-
-::: {style="text-align: right; font-size: 300px; font-weight: bold;"}
-END
-:::
+# [END]{.r-fit-text}
 
 # References
 
@@ -198,5 +186,5 @@ END
 
 This slideshow was produced using `quarto`
 
-Fonts are *Roboto Light*, *Roboto Bold*, and *JetBrains Mono Nerd Font*
+Fonts are *Roboto Light*, *Roboto Bold*, and *Victor Mono Nerd Font*
 
