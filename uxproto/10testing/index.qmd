@@ -1,24 +1,41 @@
 ---
-title: "UX Prototyping: Testing"
-author: Mick McQuaid
-date: today
-bibliography: master.bib
-format:
-  revealjs:
-    logo: iSchoolLogo.png
-    theme: moon
-    css: style.css
-    transition: slide
-    background-transition: fade
-    preview-links: auto
+title: "Testing"
+subtitle: "UX Prototyping"
+author:
+  - name: Mick McQuaid
+    email: mcq@utexas.edu
+    affiliations: University of Texas at Austin
+date: last-modified
+date-format: "DD MMM YYYY"
+execute:
+  echo: true
+format: 
+  clean-revealjs:
+    slide-number: false
+    logo: quarto.png
+    footer-logo-link: "https://quarto.org"
+    sc-sb-title: false
+    header-logo: iSchoolLogoLight.png
+    header-logo-link: "https://ischool.utexas.edu"
+    subtitle-as-header: false
     controls: true
-    controls-layout: bottom-right
-    center: true
+    controls-layout: edges
+filters:
+  - reveal-header
+  - autofade.lua
+slide-level: 2
+number-sections: false
+engine: knitr
+embed-resources: true
+bibliography: master.bib
+monofont: VictorMono Nerd Font
+mathfont: TeX Gyre Math
+menu:
+  side: 'right'
+css: "style.css"
 ---
 
-::: {.r-fit-text}
-Week TEN
-:::
+# [Week TEN]{.r-fit-text}
 
 # Definition of usability testing
 
@@ -857,7 +874,7 @@ Here, we'll focus on the first and just provide a few preliminary thoughts
 ## General problem
 Most AI tools have poor usability and may not get better in the short term for a few reasons, mainly that people have a poor conceptual model of how they really work
 
-You need to work with them for a while to get a feel for how to get the most out of them (which, so far, is not too much)
+You need to work with them for a while to get a feel for how to get the most out of them
 
 ## Specific problems
 - They make mistakes so you have to be a careful reader to understand how to fix them
@@ -867,7 +884,7 @@ You need to work with them for a while to get a feel for how to get the most out
 - (My AI tool keeps telling to add context to the list of problems!)
 
 ## Mixed views
-- Baymard Institute, a potential competitor to AI tools, says that AI tools are not very good in a post [here](https://baymard.com/blog/gpt-ux-audit)
+- Baymard Institute, a potential competitor to AI tools, says that AI tools are not very good in a post [here](https://baymard.com/blog/gpt-ux-audit); that was then, this is [now](https://baymard.com/product/ux-ray?utm_medium=ppc&utm_source=google&utm_campaign=prospecting-ux-research-eu-us-maxai&utm_term=ai-ux&hsa_acc=8536536397&hsa_cam=22829173642&hsa_grp=186048259672&hsa_ad=774226013235&hsa_src=g&hsa_tgt=kwd-3500001&hsa_kw=ai%20ui%20ux%20design&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=22829173642&gclid=Cj0KCQjw9obIBhCAARIsAGHm1mQCpMZWShPURR4Kzo-ia3vWXwkloW39opzHb5uI51I4HDmzIs6w70gaAmqkEALw_wcB)
 - Jakob Nielsen, a UX pioneer, speaks glowingly of them in a controversial post [here](https://jakobnielsenphd.substack.com/p/ai-can-cannot-do-ux)
 
 ## How to do it
@@ -877,20 +894,16 @@ You can, for example, use the OpenAI Vision API for this, but it is not free
 
 My best recommendation right now is to use free tools; this is because good prompts to limited models seem in my experience to get better results than poor prompts to more sophisticated models and you need some practice to generate good prompts
 
+# [END]{.r-fit-text}
+
 # References
 
 ::: {#refs}
-:::
-
----
-
-::: {.r-fit-text}
-END
 :::
 
 # Colophon
 
 This slideshow was produced using `quarto`
 
-Fonts are *League Gothic* and *Lato*
+Fonts are *Roboto*, *Roboto Light*, and *Victor Mono Nerd Font*
 
