@@ -31,6 +31,8 @@ icon: fa-edit
 
 [10localRAGchatbot](/promptEngr/10localRAGchatbot/index.html) introduces a locally run RAG chatbot.
 
+[11skills](/promptEngr/11skills/index.html) introduces Claude Skills.
+
 # Exercises
 
 ## Exercise A
