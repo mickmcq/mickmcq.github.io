@@ -80,6 +80,8 @@ I wanted more prepackaged skills to try, so I cloned the Anthropic Skills Repo
 
 I asked Claude where to put it and it suggested `~/.anthropic/skills/`
 
+I checked the Claude documentation about where to put it and it suggested `~/.claude/skills/`
+
 It offered to make the directory and put the files there, by the way. This raises a typical problem for LLMs: it is typically faster to do a one-off task yourself rather than ask the LLM. The LLM (and Skills in particular) excel at automating repeated tasks.
 
 # Which skill to try?
@@ -130,6 +132,9 @@ $\langle$ Pause to view Ames analysis $\rangle$
 Can we fix these? Yes, if we know some Python, we can tell it what graphics to use. Even without knowing Python, we could limit the correlation heatmap to, say, the four most and least correlated variables.
 
 On the other hand, if we know Python, it may be better (not faster as a one-off but better for routine use) to create our own Skill and Python script.
+
+# More about skills
+[https://news.ycombinator.com/item?id=45786738](https://news.ycombinator.com/item?id=45786738) discusses Claude Code in general but with an emphasis on Claude Skills.
 
 # [END]{.r-fit-text}
 
