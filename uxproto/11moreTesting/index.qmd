@@ -1,31 +1,45 @@
 ---
-title: "UX Prototyping:<br>More on Testing"
-author: Mick McQuaid
-date: today
-bibliography: master.bib
-format:
-  revealjs:
-    logo: iSchoolLogo.png
-    theme: moon
-    css: style.css
-    transition: slide
-    background-transition: fade
-    preview-links: auto
+title: "More on Testing"
+subtitle: "UX Prototyping"
+author:
+  - name: Mick McQuaid
+    email: mcq@utexas.edu
+    affiliations: University of Texas at Austin
+date: last-modified
+date-format: "DD MMM YYYY"
+execute:
+  echo: true
+format: 
+  clean-revealjs:
+    slide-number: false
+    logo: quarto.png
+    footer-logo-link: "https://quarto.org"
+    sc-sb-title: false
+    header-logo: iSchoolLogoLight.png
+    header-logo-link: "https://ischool.utexas.edu"
+    subtitle-as-header: false
     controls: true
-    controls-layout: bottom-right
-    center: true
+    controls-layout: edges
+filters:
+  - reveal-header
+  - autofade.lua
+slide-level: 2
+number-sections: false
+engine: knitr
+embed-resources: true
+bibliography: master.bib
+monofont: VictorMono Nerd Font
+mathfont: TeX Gyre Math
+menu:
+  side: 'right'
+css: "style.css"
 ---
 
-::: {.r-fit-text}
-Week ELEVEN
-:::
+# [Week ELEVEN]{.r-fit-text}
 
 # UserTesting Dot Com
 
-*Thanks to the student who pointed out that I shouldn't
-ignore UserTesting.com just because it lacks a free
-student tier---in fact, it turns out it used to have a (limited)
-free student tier! That was suspended, but now it may be back. In any event, it does allow a single free test.*
+I've applied for an academic program that will allow you to conduct one test on three users for free
 
 ::: {.notes}
 I applied for this academic program:
@@ -122,15 +136,11 @@ This comes from the following URL
 - Analyze the research outcomes and findings
 - Use the analysis to fill in the knowledge gaps, prove or disprove our hypotheses, and recommend opportunities for UX design efforts.
 
----
-
-::: {.r-fit-text}
-END
-:::
+# [END]{.r-fit-text}
 
 # Colophon
 
 This slideshow was produced using `quarto`
 
-Fonts are *League Gothic* and *Lato*
+Fonts are *Roboto*, *Roboto Light*, and *Victor Mono Nerd Font*
 
