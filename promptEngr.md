@@ -33,6 +33,8 @@ icon: fa-edit
 
 [11skills](/promptEngr/11skills/index.html) introduces Claude Skills.
 
+[12pretraining](/promptEngr/12pretraining/index.html) discusses pre-training models from the perspective of the Xiao (2025) book.
+
 # Exercises
 
 ## Exercise A
