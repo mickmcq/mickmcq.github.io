@@ -35,6 +35,8 @@ icon: fa-edit
 
 [12pretraining](/promptEngr/12pretraining/index.html) discusses pre-training models from the perspective of the Xiao (2025) book.
 
+[13evaluation](/promptEngr/13evaluation/index.html) discusses evaluation of genAI projects as well as providing some notes on chain-of-thought prompting and a recent agentic-ai conference.
+
 # Exercises
 
 ## Exercise A
