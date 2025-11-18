@@ -107,6 +107,10 @@ icon: fa-edit
 
 [m3.html](/promptEngr/m3.html) contains a template for milestone 3 (html output).
 
+[m4.qmd](/promptEngr/m4.qmd) contains a template for milestone 4 (qmd input).
+
+[m4.html](/promptEngr/m4.html) contains a template for milestone 4 (html output).
+
 <!--
 
 -->
