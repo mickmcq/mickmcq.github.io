@@ -45,6 +45,8 @@ icon: fa-edit
 
 [13visDemo](/infointeractdsgn/13visDemo/index.html) provides two exercises for exploring what you've learned about visual design.
 
+[14designSystems](/infointeractdsgn/14designSystems/index.html) documents the exercise you'll do in week 14.
+
 [14visTheory](/infointeractdsgn/14visTheory/index.html) provides some theory to back up what you've learned about visual design.
 
 [14conclusion](/infointeractdsgn/14conclusion/index.html) closes out the semester.
