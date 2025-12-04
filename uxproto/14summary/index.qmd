@@ -1,0 +1,121 @@
+---
+title: "Summary"
+subtitle: "UX Prototyping"
+author:
+  - name: Mick McQuaid
+    email: mcq@utexas.edu
+    affiliations: University of Texas at Austin
+date: last-modified
+date-format: "DD MMM YYYY"
+execute:
+  echo: true
+format: 
+  clean-revealjs:
+    slide-number: false
+    logo: quarto.png
+    footer-logo-link: "https://quarto.org"
+    sc-sb-title: false
+    header-logo: iSchoolLogoLight.png
+    header-logo-link: "https://ischool.utexas.edu"
+    subtitle-as-header: false
+    controls: true
+    controls-layout: edges
+filters:
+  - reveal-header
+  - autofade.lua
+slide-level: 2
+number-sections: false
+engine: knitr
+embed-resources: true
+bibliography: master.bib
+monofont: VictorMono Nerd Font
+mathfont: TeX Gyre Math
+menu:
+  side: 'right'
+css: "style.css"
+---
+
+::: {.r-fit-text}
+Week FOURTEEN
+:::
+
+# Design Thinking (Day One)
+
+![](fiEDIPT.png)
+
+# Design Principles (Day Two)
+
+- [Google Material 3](https://m3.material.io/)
+- [Apple HIG](https://developer.apple.com/design/human-interface-guidelines)
+- [Microsoft Fluent 2 Design Principles](https://fluent2.microsoft.design/design-principles)
+- [Microsoft Inclusive Design](https://inclusive.microsoft.design/)
+
+# Mood boards (Day Three)
+
+![](fi99designsMoodBoard.png)
+
+# Story Mapping (Day Four)
+@Patton2014a
+
+![](fiBasicStoryMap.png)
+
+# How Might We Stmts & Lofi (Day Five)
+@Becker2020
+
+![](fiSketchPrototype.png)
+
+# Prototyping Elements (Day Six)
+
+![](fiIllusionOfLife2.jpg)
+
+# Agile (Day Seven)
+
+![](fiTypicalScrum.png)
+
+# Clients (Day Eight)
+@Greever2020
+
+![](fiClientsFromHell1.png)
+
+# Micro Interactions and Pair Designing (Day Nine)
+
+![](fiAsanaUnicorn.png)
+
+# Formative & Summative Testing (Day Ten)
+
+![](fiKrug2010.png)
+
+# More Testing (Day Eleven)
+
+![](fiTreeTestOutput1.png)
+
+# Work in Progress (Day Twelve)
+
+![](fiWIP.png)
+
+# Leading a Prototyping Workshop (Day Thirteen)
+@Stackowiak2020
+
+![](fiRolesResponsibilities.png)
+
+# Throughout the Course
+
+- Constraints imposed by working with developers
+- Projects that show work under constraints
+- Issues of communication with developers
+- Issues with blurred "chain of command"
+- Note a current article in *Interactions* about this
+
+# [END]{.r-fit-text}
+
+# References
+
+::: {#refs}
+:::
+
+# Colophon
+
+This slideshow was produced using `quarto`
+
+Fonts are *Roboto*, *Roboto Light*, and *Victor Mono Nerd Font*
+
