@@ -104,7 +104,7 @@ Week FOURTEEN
 - Projects that show work under constraints
 - Issues of communication with developers
 - Issues with blurred "chain of command"
-- Note a current article in *Interactions* about this
+- Note a current article in *Interactions* about this---@Kolko2025
 
 # [END]{.r-fit-text}
 
