@@ -20,9 +20,9 @@ Following are photos of the instrument, and links to three videos of me playing 
 
 ![Crack and Number](/assets/fiCrackAndNbr.jpg) shows the crack on the barrel joint and the maker's number, 170.
 
-[Ah, Surely!](https://youtu.be/1tkcSuq74yY) a reel.
+[Ah, Surely!](https://youtu.be/1tkcSuq74yY), an Irish reel.
 
-[Old Hag, You Have Killed Me](https://youtu.be/bVoGrCwSy8M) a double jig.
+[Old Hag, You Have Killed Me](https://youtu.be/bVoGrCwSy8M), an Irish double jig.
 
-[Rodney's Glory](https://youtu.be/W0D9gjdGcXI) a set dance. Listen for the F natural in the second part!
+[Rodney's Glory](https://youtu.be/W0D9gjdGcXI), an Irish set dance. Listen for the F natural in the second part!
 
