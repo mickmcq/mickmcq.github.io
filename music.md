@@ -1,6 +1,6 @@
 ---
 title: music
-subtitle: Irish flute, whistle, and Uilleann pipes
+subtitle: \- Irish flute, whistle, and Uilleann pipes
 layout: default
 rank: 11
 icon: fa-edit
