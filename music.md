@@ -6,7 +6,7 @@ rank: 11
 icon: fa-edit
 ---
 
-I'm selling my flute, made for me in 1980 by Michael Copeland, then of Philadelphia, PA. It is made of grenadilla with nickel fittings. It has a crack in the barrel joint, which was stabilized with dyed beeswax in the mid eighties. It has remained playable without intervention ever since. It has an ivory tip, which makes it impossible to ship the flute outside the US.
+I'm selling my flute, made for me in 1980 by Michael Copeland, then of Philadelphia, PA. It is made of grenadilla with nickel fittings. It has a crack in the barrel joint, which was stabilized with dyed beeswax in the mid eighties. It has remained playable without intervention ever since. It has an ivory tip, which makes it impossible to ship the flute outside the US. It comes with a Cavallaro soft case.
 
 I am asking 1,000 USD for it and you can reach me at my email address, mickmcquaid at gmail dot com or via Chiff and Fipple, where I will also list it. If you have trepidations about buying from an individual, I can list it on Reverb.com, but the price will be slightly higher there to account for their fee.
 
