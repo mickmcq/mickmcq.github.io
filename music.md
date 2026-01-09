@@ -6,6 +6,18 @@ rank: 11
 icon: fa-edit
 ---
 
+# Performing
+
+![Mick with Pipes](/assets/fiMick+Pipes.png)
+
+Note: The Irish Uilleann (pronounced "ill-en") pipes are not like the Scottish Great Highland bagpipes. Instead, they are played sitting down, with the pipes across the lap, and are bellows-blown rather than mouth-blown. They are about as loud as a violin.
+
+They are the main native instrument of Irish traditional dance music: jigs, reels, hornpipes, and other dance music. They are also used for slow airs.
+
+Mick McQuaid is available for performances on pipes, flute, and whistle, mainly in Austin, Texas, and the surrounding area. He can be texted at 734-274-1547 or emailed at mickmcquaid@gmail.com.
+
+# Selling my flute
+
 I'm selling my flute, made for me in 1980 by Michael Copeland, then of Philadelphia, PA. It is made of grenadilla with nickel fittings. It has a crack in the barrel joint, which was stabilized with dyed beeswax in the mid eighties. It has remained playable without intervention ever since. It has an ivory tip, which makes it impossible to ship the flute outside the US. It comes with a Cavallaro soft case.
 
 I am asking 1,000 USD for it and you can reach me at my email address, mickmcquaid at gmail dot com or via Chiff and Fipple, where I will also list it. If you have trepidations about buying from an individual, I can list it on Reverb.com, but the price will be slightly higher there to account for their fee.
