@@ -9,6 +9,8 @@ icon: fa-edit
 
 [The syllabus](/uxproto/syllabus.html) is the course's main document. Expect it to be followed to the letter.
 
+[A grid view](/uxproto/grid.html) of our schedule is available. The syllabus, however, is the source of truth. 
+
 [The homework instructions](/uxproto/hwInstructions.html) detail what is expected of you in this course.
 
 ## Lectures
