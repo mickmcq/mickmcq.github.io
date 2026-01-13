@@ -138,6 +138,9 @@ That's one view of the design thinking process. I'd like you to engage in that p
 - don't worry about the app details
 - concentrate on the user experience&mdash;what did the user feel?
 
+#
+![](fiStoryboardTypes.png)
+
 # [‹prototype›]{.r-fit-text}
 
 - now use the index cards
