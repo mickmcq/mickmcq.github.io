@@ -41,13 +41,13 @@ Welcome!
 :::
 
 # Schedule for today
-- 1530--1540 brief intro
-- 1540--1600 reading `ai-2027.com` and `ai_report_2025.pdf`
-- 1600--1610 forming teams: positive, negative, and alternative
-- 1610--1645 debate: I'll call on you to represent the above three positions
-- 1645--1700 break
-- 1700--1705 taking attendance
-- 1705--1745 slideshow intro to course (rest of this slideshow)
+- 1500--1510 brief intro
+- 1510--1530 reading `ai-2027.com` and `ai_report_2025.pdf`
+- 1530--1540 forming teams: positive, negative, and alternative
+- 1540--1615 debate: I'll call on you to represent the above three positions
+- 1615--1630 break
+- 1630--1635 taking attendance
+- 1635--1745 slideshow intro to course (rest of this slideshow)
 
 # Setting the stage
 
