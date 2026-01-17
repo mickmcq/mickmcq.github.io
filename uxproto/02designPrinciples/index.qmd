@@ -9,6 +9,7 @@ date: last-modified
 date-format: "DD MMM YYYY"
 format: 
   clean-revealjs:
+    transition: fade
     slide-number: false
     logo: quarto.png
     footer-logo-link: "https://quarto.org"
@@ -29,32 +30,26 @@ number-sections: false
 engine: knitr
 embed-resources: true
 bibliography: master.bib
-monofont: JetBrainsMono Nerd Font
+monofont: VictorMono Nerd Font
 mathfont: TeX Gyre Math
 menu:
   side: 'right'
 css: "style.css"
 ---
 
-::: {.r-fit-text}
-Week TWO
-:::
+# [Week TWO]{.r-fit-text}
 
 ## Review Design thinking
-- some good examples---what's good abou them?
-- a lot of really good work
-- please export HEIC files to png or jpg so Canvas understands them
+- not everyone submitted their design thinking artifacts
+- some good examples---what's good about them?
+- a lot of really good work!
 - please export pdfs in such a way that Canvas displays them properly
 - terrific sketching---keep it up---sketching is so important
-- mostly well organized presentations
-- a lot of good app ideas
-- one person included follow-up thoughts, which was great and so important!
+- maybe include fewer details in sketches to save time
+- could use color to guide interaction
+- a lot of good app ideas; let's look
 
----
-
-::: {.r-fit-text}
-design principles
-:::
+# [design principles]{.r-fit-text}
 
 ---
 
@@ -73,7 +68,7 @@ Use any one or any combination of these guidelines in developing your prototypes
 1. Look for things like *Foundations*, *Principles*, and *Getting Started* on the first three sites (the inclusive design site is organized differently)
 2. Look for differences in emphasis and word choice between the three companies (Apple, Google, and Microsoft)
 3. Reflect on why they may differ
-4. Pick two things, such as accessibility and typography, that are represented on every site and see how their presentations differ
+4. [In-class exercise]{.emph}: Pick one thing, such as accessibility, motion, layout, color, or typography, that are represented on every site and tell how their presentations differ
 
 ## File submission
 - Create a website that will be used for the entire
@@ -84,11 +79,15 @@ Use any one or any combination of these guidelines in developing your prototypes
 - The page for milestone 1 should contain your
   report or a link to it
 
----
+# In-class exercise
+![](fiOpenClose.png)
 
-::: {.r-fit-text}
-‹Framer tutorial›
-:::
+Animate this transition!
+
+# The rest is time dependent
+If we have time, Dhruvi will do a Framer tutorial and a Figma tutorial and maybe even a FigJam tutorial. If we're out of time, I'll ask you to do the following tutorials on your own before next Tuesday.
+
+# [‹Framer tutorial›]{.r-fit-text}
 
 ::: {.notes}
 I'm high on Framer because of its excellent JavaScript output, which cuts down on cycle time. You will often hear me say that cutting down cycle time is a high priority in rapid prototyping. Framer easily beats Figma in this regard, but Framer only recently acquired a free tier, so Figma has captured most of the mindshare. I want to expose you to Framer as well. The goal of this tutorial is to create a Framer website.
@@ -101,22 +100,14 @@ I'm high on Framer because of its excellent JavaScript output, which cuts down o
 - The course is not yet complete, but you just need a framer website as a container for Figma prototypes and pdfs
 - (You're also free to use a different website builder)
 
----
-
-::: {.r-fit-text}
-‹Figma tutorial›
-:::
+# [‹Figma tutorial›]{.r-fit-text}
 
 ## Figma tutorial
 - Visit help.figma.com and navigate to *Figma for Beginners* (near the bottom of the page)
 - There are four beginner lessons---try to do all four
 - Even if you're advanced in Figma, it may help to skim these lessons to pick up things you may have missed or forgotten
 
----
-
-::: {.r-fit-text}
-‹Figjam tutorial›
-:::
+# [‹Figjam tutorial›]{.r-fit-text}
 
 ## FigJam tutorial
 - Visit help.figma.com and, from the top menu, navigate to *Product documentation* > FigJam > Tour the interface > Guide to FigJam
