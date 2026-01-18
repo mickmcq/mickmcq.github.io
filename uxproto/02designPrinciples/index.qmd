@@ -49,6 +49,12 @@ css: "style.css"
 - could use color to guide interaction
 - a lot of good app ideas; let's look
 
+## Some terms
+- GUI graphical user interface
+- TUI terminal user interface
+- WIMP window, icon, menu, pointer
+- Direct manipulation - manipulating objects directly on screen instead of issuing commands, e.g., volume slider instead of typing `volume up 11`
+
 # [design principles]{.r-fit-text}
 
 ---
