@@ -34,28 +34,43 @@ menu:
   side: 'right'
 css: "style.css"
 ---
-
-::: {.r-fit-text}
-Week THREE
-:::
+[Week THREE]{.r-fit-text}
 
 ---
 
-::: {.r-fit-text}
-Recap
-:::
+[Recap]{.r-fit-text}
 
-## Accessibility Reports
-- Do you feel like you can integrate accessibility into your design process?
+# Graphical self-intros
+
+## What's the purpose of a self-intro?
+- To help others get to know you
+- To help others understand your perspective
+- To help others understand your values
+- To help others understand your skills
+
+## Your self-intros
+- On Canvas > Files > `graphicalSelfIntros.pdf`
+- Radically different sizes
+- Some are stories, others are perhaps puzzles to solve
+- No one included their name on the sketch
+- Some revealed a lot of skill that you can perhaps share with others in the class
+
+## Your good design sketches
+- These are meant to help you reflect on what good design is
+- They are also meant to refine your sketching skills
+- Do not include screenshots or sketches by other people
+  - If you want to include a design that was presented as a sketch, copy it using your own skills
 
 # project ideas
 
 ## previous semester idea rejected, then reconsidered
 - presented idea was to help women seeking abortions in Texas
 - rejected because it seemed like more of a privacy and security issue than a UX issue
-- reconsidered because I then researched it and found UX issues
+- reconsidered because I then researched it and found UX issues that weren't presented
 - e.g., websites to help undocumented migrants assume literacy and often English literacy
 - two synergistic groups: drivers and patients
+- synergistic groups often overcome the so called *cold start* problem
+- in other words, "this app will attract a lot of users once it's attracted a lot of users" (oops!)
 
 # project inspiration from prior semester
 
