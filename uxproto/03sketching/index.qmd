@@ -90,6 +90,16 @@ css: "style.css"
 
 ## pause for project ideas
 
+## A provocative talk
+- Jenny Wen, formerly design director at Figma
+- Leader of the Figjam team
+- Talk: Don't trust the process
+- [https://youtu.be/KyOMQJUxQ28?si=134azCPcFvb5Zd-Z](https://youtu.be/KyOMQJUxQ28?si=134azCPcFvb5Zd-Z)
+- Refers to the double diamond process (the other major school of design thinking besides the Stanford school---think EDIPT, which is what we tried on day one)
+- Says you should not rigidly adhere to the process, instead make a lot of prototypes
+- Double diamond has four steps (she says it's five?!) but she advocates three, but even be flexible about those three
+- Advocates brainstorming, sketching, and prototyping
+
 # mood boards
 
 ## What is a mood board?
@@ -365,6 +375,8 @@ For example
 
 ## $\langle$ Pause for video $\rangle$
 
+[https://youtu.be/PmmQjLqJQlY?si=6evVXHwPHLSwxfEZ](https://youtu.be/PmmQjLqJQlY?si=6evVXHwPHLSwxfEZ)
+
 ---
 
 ::: {.r-fit-text}
@@ -379,12 +391,6 @@ Use this bash code to give one minute to each panel; change 60 to 120 to give tw
 for i in $(seq 0 8); do printf "\a\n$i"; sleep 60; done
 ```
 
-:::
-
----
-
-::: {.r-fit-text}
-milestone 2
 :::
 
 # [END]{.r-fit-text}
