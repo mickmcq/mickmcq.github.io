@@ -37,27 +37,87 @@ menu:
   side: 'right'
 css: "style.css"
 ---
-::: {.r-fit-text}
-WEEK FOUR
-:::
+# [Week FOUR]{.r-fit-text}
 
-# whiteboards
-(remember them?)
+# [RECAP]{.r-fit-text}
 
-##
-![](whiteboard01.png)
+## Jenny Wen, Don't Trust the Process
+- The lines between product manager, designer, and engineer are blurring.
+- You can't obsessively adhere to the double diamond process (four steps, the first two focusing on the problem, the second two focusing on the solution)
+- At one point, she says to throw away what you know.
+- Can you throw away something you don't have?
+- No! You have to understand something first, then trust that it is imbued in your work without focusing on it.
+- Acting teacher says *don't do yesterday's rehearsal*!
+- Golf pro says *you only have room for one swing thought*!
+- Both are variations on a theme.
 
-##
-![](whiteboard02.png)
+## What you can do in the real world
+- You can't do every technique you learn in every job.
+- You have to develop an intuition for what you need in a particular job.
+- Pick your battles based on what matters *and* what you can win.
+- You learn techniques in order and over the course of a project, but you don't get to use them that way.
+- You need to learn the strengths and weaknesses of the techniques to know which fits where.
+- *And*, you need to learn about the perspectives of product managers and engineers.
+- We'll talk a bit about engineers in this class and that means talking about code.
 
-##
-![](whiteboard03.png)
+# Designers and Code
 
-##
-![](whiteboard04.png)
+[https://youtu.be/HcLz3ikw-n0?si=MVPkFz-53AHIc7p4](https://youtu.be/HcLz3ikw-n0?si=MVPkFz-53AHIc7p4) is a discussion with Kyle Zantos about design tools using Claude, Cursor, and more. I urge you to watch it.
 
-##
-![](whiteboard05.png)
+- The lines between product manager, designer, and engineer are blurring.
+- Many designers will soon transition to be designer / builders, designer / engineers, or design engineers.
+- You'll likely use AI tools like Claude Code, Cursor, and more in your work.
+- These tools won't likely replace Figma, at least for a while, but will augment it
+- One thing especially caught my eye in this video, shown in the next frame.
+
+## Kyle Zantos Screenshot
+![](fiKyleZantosScreen.png)
+
+## Coding with Cursor
+- I suggest you take advantage of Cursor's free year for students on the Pro tier. (You have to supply your ID to get it.)
+- Yet, I'm going to delete my Cursor Pro account after this class. Why do I suggest you do something I won't do??
+- The free year is not for faculty and I get good results from Claude Code, which has a free tier for faculty but doesn't have a free year for students. (You can get Claude EDU for free, but it's not the same.)
+- I'm going to demo both Cursor and Claude Code now, so you get an idea of what they're about.
+
+## iPhone app on Cursor
+$\langle$ Pause to look at actual iPhone app on an iPhone $\rangle$
+
+## Notes on the iPhone app
+- I only prompted it with a couple of sentences.
+- Then it asked me a couple of questions.
+- Then it delivered the first cut of the app.
+- I made a couple of suggestions and it modified the app.
+- I had to delve into Xcode a tiny bit because it made some mistakes, but I didn't do anything that a beginner couldn't do.
+
+## Next app on Cursor
+- The main reason I wanted to try Cursor was that it has a panel that resembles a Figma panel (shown in the next frame).
+- According to Ryo Lu, the head designer of Cursor, it doesn't replace Figma but makes the tool easier for Figma users who may not know how to code.
+- It allows you to tweak a design but first you have to tell Cursor in natural language what you want to design, then open it in Cursor's browser and click the CSS Inspector.
+- Also, it can't be an Xcode app, so I had to redo the Tip Calculator / Bill Splitter in React. (Does anyone here know React?)
+- By the way, Cursor doesn't know it has a CSS Inspector, so you just have to find it yourself as of January 2026!
+
+## Cursor display with CSS inspector in Design mode
+![](fiCursorInDesignMode.png)
+
+## Claude Code + Figma
+- Figma has a thing called an MCP server (Model Context Protocol), a defacto standardized bridge between models (I'm using it with Claude Code and the Sonnet 4.5 model) and tools (Figma, in this case).
+- When I enable it in Figma, it gives me a URL for the current Figma prototype that I can plug into a model.
+- The model then implements the prototype in code, in this case a simple JavaScript / CSS / HTML page, but it will also work with React, Vue, and some other frameworks.
+- The result is a standalone web app.
+- Here's an example with a simple Figma exercise from this class.
+
+## Figma example, followed by Claude Code example
+$\langle$ Pause to look at Figma, followed by browser $\rangle$
+
+## Preceding example
+- Required a bit of back and forth with Claude.
+- Didn't initially use right timing, so I told it twice to fix the timing. The second time I told it to, it did.
+- Kept an extraneous part of the frame until I told it once to remove it.
+- Note that it did use the correct colors and geometry.
+- It did not do the dissolve of the plus sign to the minus sign.
+- It added a hover state for the sign that I didn't ask for.
+- There is always a tradeoff between the time it takes to interact with the model to get it right and the time it would take to code it manually.
+- Of course, an engineer may not be available to code right when you want.
 
 # Story Mapping
 
