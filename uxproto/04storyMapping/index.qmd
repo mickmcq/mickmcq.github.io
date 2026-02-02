@@ -41,6 +41,17 @@ css: "style.css"
 
 # [RECAP]{.r-fit-text}
 
+## Accessibility Report
+- Good work overall
+- Not everyone followed all the instructions
+- One exemplary report inspired me to try an exercise
+- I want you to try that exercise now
+- Go to Files > hw > claudeCodeAccessibilityExample
+- Download `claudeCodeGroundTruth.pdf`, the exemplary report
+- Download `claudeCodeReport.pdf`, a report done by Claude Code
+- Spend twenty minutes comparing them side by side on your screen
+- Use the first five minutes to skim, then spend five minutes per page for three pages
+
 ## Jenny Wen, Don't Trust the Process
 - The lines between product manager, designer, and engineer are blurring.
 - You can't obsessively adhere to the double diamond process (four steps, the first two focusing on the problem, the second two focusing on the solution)
@@ -73,8 +84,18 @@ css: "style.css"
 ## Kyle Zantos Screenshot
 ![](fiKyleZantosScreen.png)
 
+## Kyle Zantos recommends ...
+- Jhey Tompkins: [https://x.com/jh3yy](https://x.com/jh3yy)
+- Derek Briggs: [https://x.com/PixelJanitor](https://x.com/PixelJanitor)
+- Will King: [https://x.com/willking](https://x.com/willking)
+- Emil Kowalski: [https://x.com/emilkowalski](https://x.com/emilkowalski)
+- Jakub Krehel:  [https://jakub.kr/](https://jakub.kr/)
+- Leva control panel: [https://threejsresources.com/tool/leva](https://threejsresources.com/tool/leva)
+- Compound Engineering plugin: [https://github.com/EveryInc/compound-engineering-plugin](https://github.com/EveryInc/compound-engineering-plugin)
+
+
 ## Coding with Cursor
-- I suggest you take advantage of Cursor's free year for students on the Pro tier. (You have to supply your ID to get it.)
+- I suggest you take advantage of Cursor's free year for students on the Pro tier. (You have to supply your ID to get it. Visit [https://cursor.com/students](https://cursor.com/students))
 - Yet, I'm going to delete my Cursor Pro account after this class. Why do I suggest you do something I won't do??
 - The free year is not for faculty and I get good results from Claude Code, which has a free tier for faculty but doesn't have a free year for students. (You can get Claude EDU for free, but it's not the same.)
 - I'm going to demo both Cursor and Claude Code now, so you get an idea of what they're about.
@@ -90,17 +111,21 @@ $\langle$ Pause to look at actual iPhone app on an iPhone $\rangle$
 - I had to delve into Xcode a tiny bit because it made some mistakes, but I didn't do anything that a beginner couldn't do.
 
 ## Next app on Cursor
-- The main reason I wanted to try Cursor was that it has a panel that resembles a Figma panel (shown in the next frame).
+- The main reason I wanted to try Cursor was that it has a panel that resembles a Figma panel (shown in the next frame). Described at [https://cursor.com/blog/browser-visual-editor](https://cursor.com/blog/browser-visual-editor) and [https://cursor.com/docs/agent/browser](https://cursor.com/docs/agent/browser)
 - According to Ryo Lu, the head designer of Cursor, it doesn't replace Figma but makes the tool easier for Figma users who may not know how to code.
 - It allows you to tweak a design but first you have to tell Cursor in natural language what you want to design, then open it in Cursor's browser and click the CSS Inspector.
 - Also, it can't be an Xcode app, so I had to redo the Tip Calculator / Bill Splitter in React. (Does anyone here know React?)
-- By the way, Cursor doesn't know it has a CSS Inspector, so you just have to find it yourself as of January 2026!
 
 ## Cursor display with CSS inspector in Design mode
 ![](fiCursorInDesignMode.png)
 
+## Using shadow instead of border with Cursor
+![](fiShadowVsBorder.png)
+
+I instructed Cursor to look at [https://jakub.kr/work/shadows](https://jakub.kr/work/shadows) and to use that in the Tip Calculator
+
 ## Claude Code + Figma
-- Figma has a thing called an MCP server (Model Context Protocol), a defacto standardized bridge between models (I'm using it with Claude Code and the Sonnet 4.5 model) and tools (Figma, in this case).
+- Figma has a thing called an MCP server (Model Context Protocol), a defacto standardized bridge between models (I'm using it with Claude Code and the Sonnet 4.5 model) and tools (Figma, in this case). Visit [https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Figma-MCP-server](https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Figma-MCP-server)
 - When I enable it in Figma, it gives me a URL for the current Figma prototype that I can plug into a model.
 - The model then implements the prototype in code, in this case a simple JavaScript / CSS / HTML page, but it will also work with React, Vue, and some other frameworks.
 - The result is a standalone web app.
