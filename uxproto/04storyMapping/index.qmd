@@ -52,6 +52,12 @@ css: "style.css"
 - Spend twenty minutes comparing them side by side on your screen
 - Use the first five minutes to skim, then spend five minutes per page for three pages
 
+## Crazy Eights
+![](fiCrazyEights.png)
+
+## Mood Boards
+![](fiMoodBoardWilliam.png)
+
 ## Jenny Wen, Don't Trust the Process
 - The lines between product manager, designer, and engineer are blurring.
 - You can't obsessively adhere to the double diamond process (four steps, the first two focusing on the problem, the second two focusing on the solution)
@@ -143,6 +149,11 @@ $\langle$ Pause to look at Figma, followed by browser $\rangle$
 - It added a hover state for the sign that I didn't ask for.
 - There is always a tradeoff between the time it takes to interact with the model to get it right and the time it would take to code it manually.
 - Of course, an engineer may not be available to code right when you want.
+
+## Meagan Choi, design lead at Anthropic
+[https://youtu.be/1-x-QzNjFHQ?si=rnSDiik-qsmVKYmf](https://youtu.be/1-x-QzNjFHQ?si=rnSDiik-qsmVKYmf) is an interview by Peter Yang with a designer who spends an equal amount of time in Figma and Claude Code
+
+[https://www.youtube.com/live/x2LGggL6BNI?si=XdtCgCdQCntszDIo](https://www.youtube.com/live/x2LGggL6BNI?si=XdtCgCdQCntszDIo) is an intro by Meagan Choi into her experience as a designer for Claude Code (more of a basic intro than the above video)
 
 # Story Mapping
 
