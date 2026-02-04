@@ -40,12 +40,10 @@ execute:
   echo: true
 ---
 
-::: {style="position: fixed; font-size: 4em; color: gray;"}
-Week Four
-:::
+# [Week FOUR]{.r-fit-text}
 
 # Agenda
-- Presentations: Steven, Jihyung
+- Presentation: Shreya K
 - News
 - Review whatiknow
 - Q&A on eB
@@ -62,48 +60,20 @@ Week Four
 # WhatIKnow
 
 ## Issues with the doc
-- It's a bit hard to read (aimed at me instead of you)
+- Several people dated their contributions! Let's all do that
 - Nothing in the Intro tab? (shouldn't it introduce prompt engineering?)
-- Most items are long summaries of old academic articles 
-- The FAQ doesn't look like an FAQ
-- Some of the items are articles we went over in class!
-- Most of the items need a TLDR 
-- Most of the items are copied and pasted in, making the review process hard (I'll demonstrate)
-- Three different tabs for LLM Evaluation??
-- Who would use this doc? (I meant it as something you would find useful in answering the questions you naturally have)
-
-## News
-![](fi02News.png)
-
-## FAQ
-![](fi03FAQ.png)
-
-## Prompt Techniques
-![](fi04PromptTechniques.png)
-
-## LLM Evaluation
-![](fi05LLMevals.png)
-
-## LLM Evaluators (?!)
-![](fi06Evaluators.png)
-
-## Who Validates the Validators?
-![](fi07WhoValidates.png)
-
-## So, let's completely redo it
-- Make a document that works for you
-- Only make a new tab for a new *group* of topics
-- Use headings and subheadings for topics and subtopics on a tab
-- Try to write in the document rather than cutting and pasting in from another source
-- Dhruvi has already graded your previous contributions, so it's okay to nuke them and start from scratch
+- How about more of your opinions / reflections on what you read?
+- The FAQ is empty! Don't you have questions?
+- Some items need a TLDR 
+- Are you finding it useful?
 
 # eB
 
 ## Specification
-- Assemble a bibliography in BibTeX format
-- The subject is PDF remediation
-- PDF remediation is the process of making a PDF accessible to people with disabilities
-- Most of the literature is about research papers students are required to read
+- Use gen AI to assemble a bibliography in BibTeX format
+- Manually assemble a bibliography at the ACM Digital Library
+- Compare them
+- The subject is PDF remediation: making a PDF accessible to people with disabilities
 - I'm familiar with this literature, making it easier for me to detect hallucinations
 - I can also judge the importance of the papers listed
 - A recent bibliography in this area listed 39 sources, of which only about 20 were relevant
@@ -114,7 +84,7 @@ Week Four
 ## Deliverable
 - A short qmd / html document describing the domain
 - Use the template!
-- The doc should include a discussion of the possible datasets you might use (the actual dataset will be due in m2)
+- The doc should include a discussion of the possible datasets / skills / mcp servers you might use (the actual dataset will be due in m2)
 - You are not required to stick with the directions you give here, but this should be your current best guess of what you plan to do
 - Examples: chatbot to emulate a foreign leader; chatbot to triage banking problems; chatbot to analyze tweets
 
@@ -145,7 +115,8 @@ First, say `pip install chatlas` in a terminal.
 ```{python}
 from chatlas import ChatAnthropic
 client = ChatAnthropic(model = "claude-sonnet-4-20250514")
-client.chat("Summarize the plot of Romeo and Juliet in 20 words or fewer.")
+response = client.chat("Summarize the plot of Romeo and Juliet in 20 words or fewer.",echo="none")
+print(response)
 ```
 
 Notice that the same exact answer may not be provided. This is a completely different conversation from the one in R.
@@ -153,8 +124,10 @@ Notice that the same exact answer may not be provided. This is a completely diff
 ## This Python conversation can also be continued.
 
 ```{python}
-client.chat("Now do Hamlet.")
+response = client.chat("Now do Hamlet.",echo="none")
+print(response)
 ```
+
 # Now a simple chatbot
 
 ```{r}
@@ -175,15 +148,9 @@ Anthropic isn't too good about itemizing costs, so I'm going to guess that the a
 - Remember to use `.` instead of `$` and ChatAnthropic instead of chat_anthropic (or whatever---I'll show the [possible models](https://posit-dev.github.io/chatlas/get-started/models.html))
 
 # Iteration and annotation
-I've lost interest in the tools we explored last semester but I haven't deleted the slideware talking about how to use them. Instead, for iteration, I think we can just brainstorm a lot of prompts and use a `foreach` to run them through `chatlas` in different conversations. Remember that each time we initialized the variable `client`, we were starting a new conversation where we could reuse that variable. We could instead give the conversations different names and run them in parallel, skipping back and forth as we get new ideas.
+For iteration, I think we can just brainstorm a lot of prompts and use a `foreach` to run them through `chatlas` in different conversations. Remember that each time we initialized the variable `client`, we were starting a new conversation where we could reuse that variable. We could instead give the conversations different names and run them in parallel, skipping back and forth as we get new ideas.
 
 As for annotation, the effectiveness of system prompts makes it seem less pressing. Last semester, I asked students to annotate data for their projects. This semester, I'm not going to ask the same.
-
-# A different direction
-I'm thinking we should write and deploy a number of chatbots using `Shiny`. That means we have to learn a little bit about Shiny. What do you think?
-
-# The remaining slides
-The remaining slides are a holdover from iteration and annotation from last semester.
 
 # Iteration
 
@@ -298,11 +265,7 @@ python potato/flask_server.py start project-hub/politeness_rating/configs/polite
 
 See if you can make a stem-and-leaf plot for your data with an LLM
 
----
-
-::: {style="text-align: right; font-size: 300px; font-weight: bold;"}
-END
-:::
+# [END]{.r-fit-text}
 
 # References
 
