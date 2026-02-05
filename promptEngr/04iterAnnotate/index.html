@@ -1604,13 +1604,13 @@ Mick McQuaid
 <section id="first-a-hello-world-in-r" class="slide level2">
 <h2>First, a Hello World in R</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href></a><span class="co"># install.packages(pacman)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href></a><span class="co"># install.packages(&quot;pacman&quot;)</span></span>
 <span id="cb1-2"><a href></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(ellmer)</span>
-<span id="cb1-3"><a href></a>client <span class="ot">&lt;-</span> <span class="fu">chat_anthropic</span>(<span class="at">model =</span> <span class="st">&quot;claude-sonnet-4-20250514&quot;</span>)</span>
+<span id="cb1-3"><a href></a>client <span class="ot">&lt;-</span> <span class="fu">chat_google_gemini</span>()</span>
 <span id="cb1-4"><a href></a>client<span class="sc">$</span><span class="fu">chat</span>(<span class="st">&quot;Summarize the plot of Romeo and Juliet in 20 words or fewer.&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Two young lovers from feuding families secretly marry, but miscommunication 
-leads to their tragic deaths, ultimately reconciling their warring households.</code></pre>
+<pre><code>Romeo and Juliet, children of rival families, fall in love, marry, and die 
+tragically, ending their parents&#39; bitter feud.</code></pre>
 </div>
 </div>
 <p>Now <code>client</code> is an object (you can name it anything) and <code>chat</code> is a component of that object.</p>
@@ -1620,8 +1620,8 @@ leads to their tragic deaths, ultimately reconciling their warring households.</
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href></a>client<span class="sc">$</span><span class="fu">chat</span>(<span class="st">&quot;Now do Hamlet.&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Prince Hamlet seeks revenge against his uncle Claudius for murdering his 
-father, but his hesitation and madness lead to tragic consequences for all.</code></pre>
+<pre><code>Hamlet, urged by his father&#39;s ghost, seeks revenge on his murderous uncle. His 
+fatal hesitation leads to a tragic end for all.</code></pre>
 </div>
 </div>
 <p>… and it remembers the question from the previous call.</p>
@@ -1630,12 +1630,12 @@ father, but his hesitation and madness lead to tragic consequences for all.</cod
 <h2>Same thing in Python</h2>
 <p>First, say <code>pip install chatlas</code> in a terminal.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href></a><span class="im">from</span> chatlas <span class="im">import</span> ChatAnthropic</span>
-<span id="cb5-2"><a href></a>client <span class="op">=</span> ChatAnthropic(model <span class="op">=</span> <span class="st">&quot;claude-sonnet-4-20250514&quot;</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href></a><span class="im">from</span> chatlas <span class="im">import</span> ChatGoogle</span>
+<span id="cb5-2"><a href></a>client <span class="op">=</span> ChatGoogle(model <span class="op">=</span> <span class="st">&quot;gemini-2.5-flash&quot;</span>)</span>
 <span id="cb5-3"><a href></a>response <span class="op">=</span> client.chat(<span class="st">&quot;Summarize the plot of Romeo and Juliet in 20 words or fewer.&quot;</span>,echo<span class="op">=</span><span class="st">&quot;none&quot;</span>)</span>
 <span id="cb5-4"><a href></a><span class="bu">print</span>(response)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Two young lovers from feuding families secretly marry, but miscommunication leads to their tragic deaths, ultimately reconciling their warring houses.</code></pre>
+<pre><code>Two teens from warring families fall in love, secretly marry, and tragically die due to feuding and miscommunication.</code></pre>
 </div>
 </div>
 <p>Notice that the same exact answer may not be provided. This is a completely different conversation from the one in R.</p>
@@ -1646,7 +1646,7 @@ father, but his hesitation and madness lead to tragic consequences for all.</cod
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href></a>response <span class="op">=</span> client.chat(<span class="st">&quot;Now do Hamlet.&quot;</span>,echo<span class="op">=</span><span class="st">&quot;none&quot;</span>)</span>
 <span id="cb7-2"><a href></a><span class="bu">print</span>(response)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Prince Hamlet seeks revenge against his uncle Claudius for murdering his father, but his hesitation and madness lead to tragic consequences for all.</code></pre>
+<pre><code>Prince Hamlet seeks revenge on his uncle, who murdered his father and married his mother. His feigned madness leads to tragedy and death for all.</code></pre>
 </div>
 </div>
 </section></section>
@@ -1655,33 +1655,17 @@ father, but his hesitation and madness lead to tragic consequences for all.</cod
 <h1>Now a simple chatbot</h1>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href></a>client <span class="ot">=</span></span>
-<span id="cb9-2"><a href></a>  <span class="fu">chat_anthropic</span>(<span class="at">model =</span> <span class="st">&quot;claude-sonnet-4-20250514&quot;</span>,</span>
+<span id="cb9-2"><a href></a>  <span class="fu">chat_google_gemini</span>(</span>
 <span id="cb9-3"><a href></a>  <span class="at">system_prompt =</span></span>
 <span id="cb9-4"><a href></a>    ellmer<span class="sc">::</span><span class="fu">interpolate_file</span>(<span class="st">&quot;posit-expense-policy.md&quot;</span>))</span>
 <span id="cb9-5"><a href></a>client<span class="sc">$</span><span class="fu">chat</span>(<span class="st">&quot;I am a Posit employee. Based on the Posit Expense Policy, can I expense a hotel for business?&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Yes, as a Posit employee you can expense a hotel for business purposes under 
-**Section 4.1 Travel Expenses**.
+<pre><code>Yes, as a Posit employee, you can expense a hotel for business purposes 
+(Section 4.1, Accommodation).
 
-According to the policy:
-
-- **Accommodation**: &quot;Employees should book standard hotel rooms at a 
-reasonable rate.&quot;
-- **Rate Guidelines**: If a nightly rate exceeds $250, you&#39;ll need to provide a
-justification.
-
-**Key Requirements** (from Section 3):
-- The hotel stay must be &quot;directly related to company business&quot;
-- You must submit the expense within 30 days of incurring it
-- You need &quot;a corresponding receipt or proof of purchase&quot;
-
-**Reimbursement Process** (Section 6):
-- Submit through the company&#39;s designated expense management software
-- Attach a clear, legible image of the hotel receipt
-- Get approval from your direct manager
-
-As long as your hotel booking meets these guidelines and is for legitimate 
-business travel, it should be reimbursable under the expense policy.</code></pre>
+The policy states that &quot;Employees should book standard hotel rooms at a 
+reasonable rate.&quot; If a nightly rate for accommodation exceeds $250, a 
+justification is required (Section 4.1, Accommodation).</code></pre>
 </div>
 </div>
 </section>

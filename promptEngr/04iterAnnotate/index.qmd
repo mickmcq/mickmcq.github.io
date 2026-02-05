@@ -93,9 +93,9 @@ execute:
 ## First, a Hello World in R 
 
 ```{r}
-# install.packages(pacman)
+# install.packages("pacman")
 pacman::p_load(ellmer)
-client <- chat_anthropic(model = "claude-sonnet-4-20250514")
+client <- chat_google_gemini()
 client$chat("Summarize the plot of Romeo and Juliet in 20 words or fewer.")
 ```
 
@@ -113,8 +113,8 @@ client$chat("Now do Hamlet.")
 First, say `pip install chatlas` in a terminal.
 
 ```{python}
-from chatlas import ChatAnthropic
-client = ChatAnthropic(model = "claude-sonnet-4-20250514")
+from chatlas import ChatGoogle
+client = ChatGoogle(model = "gemini-2.5-flash")
 response = client.chat("Summarize the plot of Romeo and Juliet in 20 words or fewer.",echo="none")
 print(response)
 ```
@@ -132,7 +132,7 @@ print(response)
 
 ```{r}
 client =
-  chat_anthropic(model = "claude-sonnet-4-20250514",
+  chat_google_gemini(
   system_prompt =
     ellmer::interpolate_file("posit-expense-policy.md"))
 client$chat("I am a Posit employee. Based on the Posit Expense Policy, can I expense a hotel for business?")
