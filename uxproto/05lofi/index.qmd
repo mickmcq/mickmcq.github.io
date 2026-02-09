@@ -11,6 +11,7 @@ execute:
   echo: true
 format: 
   clean-revealjs:
+    transition: fade
     slide-number: false
     logo: quarto.png
     footer-logo-link: "https://quarto.org"
@@ -38,9 +39,7 @@ menu:
 css: "style.css"
 ---
 
-::: {.r-fit-text}
-Week FIVE
-:::
+# [Week FIVE]{.r-fit-text}
 
 # But first ... Design systems
 
@@ -134,7 +133,7 @@ This is a still from Hayley Hughes' presentation of a value-based design system 
 - Video of how animation works
 - Very high fidelity
 
-## Problem: Animate this!
+## Problem: Animate this! (Remember this?)
 ![](fiOpenClose.png)
 
 ::: {.notes}
@@ -195,7 +194,7 @@ source
 --- Linus Pauling
 :::
 
-## Why diverge then converge
+## Why diverge then converge?
 - You will not come up with a creative solution if you don't diverge
 - You will not meet the deadline if you don't converge
 - You must set a time limit for both processes
