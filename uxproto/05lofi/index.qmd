@@ -47,7 +47,8 @@ css: "style.css"
 
 ![](fiFerrariLuce.png)
 
-## Ferrari Luce (loo-chay)
+## Ferrari Luce
+- pronounced __loo__ - cheh
 - First all-electric Ferrari ([https://www.ferrari.com/en-US/auto/ferrari-luce](https://www.ferrari.com/en-US/auto/ferrari-luce))
 - Designed by Jony Ive's firm, LoveFrom
 - Jony Ive designed a thing called the iPhone. Have you heard of it?
