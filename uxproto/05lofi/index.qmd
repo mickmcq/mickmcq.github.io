@@ -41,6 +41,15 @@ css: "style.css"
 
 # [Week FIVE]{.r-fit-text}
 
+# But first ... Sketches 2
+
+## Sketches 2 problems
+- I haven't graded it yet, but when I do, people who didn't submit two good designs will suffer low grades---you can still submit them as of now, no guarantee as to when I will grade them
+- Maybe the assignment box on Canvas needs a reminder?
+- Some of the submissions are not something I would put on an Apple Watch, which was the original inspiration for this exercise---again, feel free to resubmit if you can do it before I grade them
+- Are wrist-worn interfaces becoming popular enough for students to think about?
+- Do they require a different design aesthetic from hand-held, i.e., smartphone interfaces?
+
 # But first ... some news
 
 ##
