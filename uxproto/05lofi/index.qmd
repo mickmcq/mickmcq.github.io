@@ -86,7 +86,7 @@ source (diana mounter of github)
 - People use the term *design system* in different ways, all the wayfrom style guide to component libraries to basis for entire company (e.g., AirBnB)
 - GitHub posits rules, constraints, and principles
   - example: color
-  - rule: pass color contrast ratio of 4:5:1
+  - rule: pass color contrast ratio of 4.5:1
   - constraint: number of colors in palette
   - principle: color used in a meaningful way
 
