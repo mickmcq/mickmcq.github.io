@@ -41,13 +41,24 @@ css: "style.css"
 
 # [Week FIVE]{.r-fit-text}
 
-# But first ... Design systems
+# But first ... some news
 
 ##
 
-::: {.r-fit-text}
-〈pause for design system video〉
-:::
+![](fiFerrariLuce.png)
+
+## Ferrari Luce (loo-chay)
+- First all-electric Ferrari ([https://www.ferrari.com/en-US/auto/ferrari-luce](https://www.ferrari.com/en-US/auto/ferrari-luce))
+- Designed by Jony Ive's firm, LoveFrom
+- Jony Ive designed a thing called the iPhone. Have you heard of it?
+- The Luce is orthogonal to Ive's Apple designs, bristling with physical knobs, buttons, and switches
+- My recent BMW loaner, by contrast, is all smooth glass panels
+- I had to look at everything I wanted to interact with---not so with the Luce
+- Hopefully the Luce design will trickle down to the rest of the industry, as the Ive Apple designs did
+
+# But first ... Design systems
+
+## [〈pause for design system video〉]{.r-fit-text}
 
 ::: {.notes}
 source (hayley hughes of AirBnB)
@@ -163,11 +174,7 @@ You could hand this to the developer and say "Animate this transition!" Instead,
 
 # HMW (how might we?)
 
-##
-
-::: {.r-fit-text}
-〈pause for how might we video〉
-:::
+## [〈pause for how might we video〉]{.r-fit-text}
 
 ::: {.notes}
 
