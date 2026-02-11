@@ -9,6 +9,7 @@ date: last-modified
 date-format: "DD MMM YYYY"
 format: 
   clean-revealjs:
+    transition: fade
     self-contained: true
     slide-number: false
     logo: quarto.png
@@ -37,12 +38,10 @@ menu:
 css: "style.css"
 ---
 
-::: {style="position: fixed; font-size: 4em; color: gray;"}
-Week Five
-:::
+# [Week FIVE]{.r-fit-text}
 
 # Agenda
-- Presentations: Xiaoqi, Zhizhou 
+- Presentation: Sanjai
 - News
 - Review whatiknow (Dhruvi)
 - eB review
@@ -52,16 +51,17 @@ Week Five
 - Introduce Google AI Studio
 - Techniques
 
-# Presentations
+# Presentation
 
 # News
 
-## s1
-- From `simplescaling`
-- Trained on 1,000 examples
-- Each example is $\langle$ a question $\rangle$ $\langle$ an answer $\rangle$ $\langle$ a reasoning process $\rangle$
-- First tried 59,000 examples
-- [article at Economist](https://www.economist.com/science-and-technology/2025/02/12/forget-deepseek-large-language-models-are-getting-cheaper-still)
+## OpenClaw
+- Avoid at all costs
+- It's a security nightmare
+- Check out the commentary on [OpenClaw is changing my life](https://news.ycombinator.com/item?id=46931805)
+- Or read about how [Moltbook was AI theater](https://news.ycombinator.com/item?id=46932911) from MIT Technology Review
+- By the way [LLMs commit ethics violations](https://news.ycombinator.com/item?id=46954920)
+- And the above comment section compares the three main frontier models
 
 ## The Batch and Data Points
 
@@ -73,11 +73,10 @@ $\langle$ pause to discuss contributions $\rangle$
 
 ## Writing and formatting the doc
 1. Write about topics that excite you. If it greatly interests you, it's more likely to greatly interest others in the class.
-2. Sign your contributions at the end of the contribution. You can either write your name or use a smart chip with your google identity.
-3. Add a horizontal rule before and after your contribution. (Only after if there is already one before!)
-4. Use headings and subheadings in your contribution.
-5. Use links in your contribution. Use Links from the Insert menu.
-6. Consolidate tabs---no reason for three tabs for Evaluation. Either delete the second and third tab (especially the stuff about articles that were assigned readings) or move their contents into the first tab. Move the content from the Prompt Optimization tab into the Prompt Techniques tab, which already has a contribution about Prompt Optimization anyway.
+2. Remember to date your contributions.
+3. Use headings and subheadings in your contribution.
+4. Use links in your contribution. Use Links from the Insert menu.
+5. What else? How can we get the most out of this, both as readers and writers?
 
 # eB review
 
