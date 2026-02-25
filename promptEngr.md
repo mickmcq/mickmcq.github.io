@@ -23,7 +23,7 @@ icon: fa-edit
 
 [06moreTechniques](/promptEngr/06moreTechniques/index.html) continues the survey of prompting techniques.
 
-[07techniquesPartThree](/promptEngr/07techniquesPartThree/index.html) concludes the survey of prompting techniques.
+[07recentWork](/promptEngr/07recentWork/index.html) explores some *very* recent work in genAI.
 
 [08engineering](/promptEngr/08engineering/index.html) surveys of prompt engineering approaches, system prompting, and introduces SageMaker and Colab.
 
