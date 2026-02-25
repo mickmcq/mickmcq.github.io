@@ -1,6 +1,6 @@
 ---
-title: "Prompt Engineering"
-subtitle: "Recent work"
+title: "Recent work"
+subtitle: "Prompt Engineering"
 author:
   - name: Mick McQuaid
     email: mcq@utexas.edu
