@@ -25,13 +25,13 @@ icon: fa-edit
 
 [07recentWork](/promptEngr/07recentWork/index.html) explores some *very* recent work in genAI.
 
-[08engineering](/promptEngr/08engineering/index.html) surveys of prompt engineering approaches, system prompting, and introduces SageMaker and Colab.
+[08engineering](/promptEngr/08engineering/index.html) surveys of prompt engineering approaches, system prompting, and explores the Inspect framework for evaluation.
 
-[09frameworks](/promptEngr/09frameworks/index.html) surveys prompt frameworks and continues exploration of Colab.
+[09frameworks](/promptEngr/09frameworks/index.html) surveys prompt frameworks.
 
 [10localRAGchatbot](/promptEngr/10localRAGchatbot/index.html) introduces a locally run RAG chatbot.
 
-[11skills](/promptEngr/11skills/index.html) introduces Claude Skills.
+[11skills](/promptEngr/11skills/index.html) introduces Claude Skills and MCP servers.
 
 [12pretraining](/promptEngr/12pretraining/index.html) discusses pre-training models from the perspective of the Xiao (2025) book.
 

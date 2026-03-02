@@ -35,9 +35,95 @@ menu:
 css: "style.css"
 ---
 
-::: {.r-fit-text}
-Week EIGHT
-:::
+# [Week EIGHT]{.r-fit-text}
+
+# But first ... Vibe Coding
+
+## Specifically, Beyond Vibe Coding
+![](fiBeyondVibe.png)
+
+## Just the beginning ...
+- `Osmani2025ch1-3.pdf` is now in Canvas > Files > booksPapers
+- Just the first three chapters
+- Osmani posits a spectrum from vibe coding to agentic engineering
+- You created some prompts to vibe code a bill splitter / tip calculator in our last class
+- How did Claude do with those?
+
+##
+![](fiSplit01.png)
+
+##
+![](fiSplit02.png)
+
+##
+![](fiSplit03.png)
+
+##
+![](fiSplit04.png)
+
+##
+![](fiSplit05.png)
+
+##
+![](fiSplit06.png)
+
+##
+![](fiSplit07.png)
+
+##
+![](fiSplit07a.png)
+
+##
+![](fiSplit08.png)
+
+##
+![](fiSplit09.png)
+
+##
+![](fiSplit10.png)
+
+##
+![](fiSplit11.png)
+
+##
+![](fiSplit12.png)
+
+##
+![](fiSplit13.png)
+
+##
+![](fiSplit14.png)
+
+##
+![](fiSplit14a.png)
+
+##
+![](fiSplit14b.png)
+
+##
+![](fiSplit15.png)
+
+##
+![](fiSplit16.png)
+
+##
+![](fiSplit17.png)
+
+## Takeaways
+- You need to vibe code or perform agentic engineering
+- There is a skill associated with it---you can't just expect out of the box success
+- Claude (and probably ChatGPT and maybe Gemini) is getting vastly better at this than it was a couple of months ago
+- You can't do it well for free or even close to free
+- You need a premium account (200USD/mo) for the best integration with Xcode, and probably the best integration with other developer tools
+- Therefore students and inexperienced designers are at a disadvantage compared to experienced designers whose companies pay for their accounts
+
+## More Takeaways
+- Short prompts yield vague results
+- Some development knowledge greatly improves your prompts
+- You need to be a good debugger rather than a good developer
+- Vibe coding is an iterative process---you have to be ready to hold a conversation with the AI to get what you want
+- There are plenty of vibe coding "tools" on the market that all use the same two models, Claude or ChatGPT (maybe Gemini but I'm not sure)
+- Connecting Figma and Claude in a two-way street works best as of March 2026
 
 # Clients
 
