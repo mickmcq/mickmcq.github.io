@@ -6,6 +6,7 @@ rank: 2
 icon: fa-edit
 ---
 
+Important note: *The following information reflects past iterations of the course. For Fall 2026, I plan to use the recent (2025) Intro to HCI textbook by Hornbaek et al., available free online from Oxford University Press. This will replace the Hartson and Pyla (2019) book mentioned in the lectures. As a result, the lectures described below will be substantially modified.*
 
 [The syllabus](/hci/syllabus.html) is the course's main document. Expect it to be followed to the letter.
 
