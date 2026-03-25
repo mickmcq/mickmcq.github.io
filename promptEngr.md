@@ -99,7 +99,7 @@ icon: fa-edit
 
 [localRAGchatbot.html](/promptEngr/localRAGchatbot.html) contains a modified tutorial on building a chatbot (html output).
 
-[localRAGchatbot.py](/promptEngr/localRAGchatbot.py) contains just the Python code for the above tutorial, suitable for running in a Python environment to check for errors.
+[localRAGchatbot3.py](/promptEngr/localRAGchatbot3.py) contains just the Python code for the above tutorial, suitable for running in a Python environment to check for errors.
 
 [Xiao2025.pdf](/promptEngr/Xiao2025.pdf) contains the input file for the above tutorial.
 

@@ -1,9 +1,15 @@
 ---
 title: "localRAGchatbot"
 jupyter: python3
+format:
+  html:
+    embed-resources: true
+    toc: true
+monofont: JetBrainsMono Nerd Font
+mainfont: "TeX Gyre Schola"
 ---
 
-You should *not* try to render this file until you have run the code in the week 10 lecture slides. You must have Ollama and DeepSeek-R1 installed on your machine, which is described in the lecture slides. Then you must be running Ollama via `ollama serve` in a separate terminal window.
+You should *not* try to render this file until you have run the code in the accompanying slides. You must have Ollama and DeepSeek-R1 installed on your machine, which is described in the lecture slides. Then you must be running Ollama via `ollama serve` in a separate terminal window.
 
 We will follow a modification of the tutorial by
 Aashi Dutt at
@@ -31,19 +37,31 @@ You must import the following packages but be careful to just run this chunk fir
 
 ```{python}
 import ollama
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import PyMuPDFLoader
 from langchain_community.embeddings import OllamaEmbeddings
+from langchain_ollama import OllamaEmbeddings
 from chromadb.config import Settings
 from chromadb import Client
-from langchain.vectorstores import Chroma
+from langchain_chroma import Chroma
 import gradio as gr
 import re
 from concurrent.futures import ThreadPoolExecutor
 ```
 
 # The document
-The whole point of this tutorial is create a chatbot that can answer questions about the book *Foundations of LLMs* by Xiao, et al. The following chunk loads the document. It assumes you have downloaded the document and saved it in the same directory as this file. You then split it into smaller chunks, use DeepSeek-R1 to generate embeddings, and store the embeddings in a vector store.
+The whole point of this tutorial is create a chatbot that can answer questions about the book *Foundations of LLMs* by Xiao and Zhu. The following chunk loads the document. It assumes you have downloaded the document and saved it in the same directory as this file. You then split it into smaller chunks, use DeepSeek-R1 to generate embeddings, and store the embeddings in a vector store.
+
+# Packages
+You will use a number of packages to accomplish this. First is `PyMuPDFLoader`, which allows you to load a PDF document. You can read more about it at [https://pymupdf.readthedocs.io/en/latest/rag.html](https://pymupdf.readthedocs.io/en/latest/rag.html). It has many more capabilities we won't use and handles many other filetypes. We're just going to load a well-behaved PDF.
+
+Second, we split the texts into chunks. The `RecursiveCharacterTextSplitter` is a very popular tool provided by `LangChain` for, as you might guess, splitting large amounts of text, such as our 231 page book, into small chunks. `LangChain` is a popular framework for building LLM applications. It *orchestrates* the various tools you use. You can read more about it at [https://python.langchain.com/docs/](https://python.langchain.com/docs/).
+
+Next we generate embeddings for each chunk, using DeepSeek R1. The actual generation process is quite time-consuming on a typical laptop. You can see in the comments that it takes seven minutes on my machine and that you can tell when it's done by watching the window running `ollama serve`.
+
+What are we going to do with these embeddings, which constitute a vector representation of the text? We will use them to create a vector database, which we will use to answer questions about the book. For this, we'll use ChromaDB, a popular vector database. You can read more about it at [https://docs.trychroma.com/](https://docs.trychroma.com/).
+
+# The setup code
 
 ```{python}
 #. Step 1: Load the document using PyMuPDFLoader
@@ -55,7 +73,7 @@ text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=20
 chunks = text_splitter.split_documents(documents)
 
 #. Step 3: Initialize Ollama embeddings
-embedding_function = OllamaEmbeddings(model="deepseek-r1")
+embedding_function = OllamaEmbeddings(model="nomic-embed-text")
 
 
 #. Step 4: Parallelize embedding generation
@@ -72,7 +90,7 @@ client = Client(Settings())
 #. client.delete_collection(
 #.     name="foundations_of_llms"
 #. )  # Delete any existing collection if needed
-collection = client.create_collection(name="foundations_of_llms")
+collection = client.get_or_create_collection(name="foundations_of_llms")
 
 #. Step 6: Add documents and embeddings to Chroma
 for idx, chunk in enumerate(chunks):
@@ -86,6 +104,7 @@ for idx, chunk in enumerate(chunks):
 print("Embeddings stored successfully!")
 ```
 
+# Retrieve the context to answer the question
 Next you have to initialize a retriever that will retrieve the context from the vector store.
 
 ```{python}
@@ -100,23 +119,24 @@ retriever = Chroma(
 
 
 def retrieve_context(question):
-    results = retriever.get_relevant_documents(question)
+    results = retriever.invoke(question)
     context = "\n\n".join([doc.page_content for doc in results])
     return context
 
 ```
 
+# Create the prompt
 Next, create the prompt, send it to DeepSeek-R1 using Ollama, and obtain a response. If this doesn't work, it may mean that you are not running Ollama via `ollama serve` in a separate terminal window.
 
 ```{python}
-def query_deepseek(question, context):
+def query_qwen(question, context):
 
     # Format the input as a structured prompt
     formatted_promt = f"Question: {question}\n\nContext: {context}"
 
     # Send the prompt to DeepSeek-R1 using Ollama
     response = ollama.chat(
-        model="deepseek-r1", messages=[{"role": "user", "content": formatted_promt}]
+        model="qwen3.5:9b", messages=[{"role": "user", "content": formatted_promt}]
     )
 
     # Extract and clean the response
@@ -127,6 +147,7 @@ def query_deepseek(question, context):
     return final_answer
 ```
 
+# Define the RAG pipeline
 Next, define the RAG (retrieval augmented generation) pipeline.
 
 ```{python}
@@ -136,7 +157,7 @@ def rag_pipeline(question):
     context = retrieve_context(question)
 
     # Generate an answer using DeepSeek-R1
-    answer = query_deepseek(question, context)
+    answer = query_qwen(question, context)
     return answer
 ```
 
@@ -148,7 +169,8 @@ def ask_question(question):
     return rag_pipeline(question)
 ```
 
-Finally, create a Gradio interface for the chatbot. This will appear as a web page in your browser. The user can enter as many prompts as they like.
+# Gradio interface
+Finally, create a Gradio interface for the chatbot. This will appear as a web page in your browser. The user can enter as many prompts as they like. Gradio is a popular library for creating web interfaces for machine learning models. You can read more about it at [https://gradio.app/](https://gradio.app/).
 
 ```{python}
 #. Create a Gradio interface
@@ -157,11 +179,11 @@ interface = gr.Interface(
     inputs="text",
     outputs="text",
     title="RAG Chatbot: Foundations of LLMs",
-    description="Ask any question about the Foundations of LLMs book. Powered by DeepSeek-R1.",
+    description="Ask any question about the Foundations of LLMs book. Powered by Qwen 3.5.",
 )
 ```
 
-Note that I have commented out the following line that actually launches the Gradio interface. This is only for rendering purposes. When you want to actually run the code, you should uncomment it. The interface will then appear in your browser if you point to `http://localhost:7860`.
+Note that I have commented out the following line that actually launches the Gradio interface. This is only for rendering purposes. It should be commented out when you render the document. When you want to actually run the code, you should uncomment it. The interface will then appear in your browser if you point to `http://localhost:7860`.
 
 ```{python}
 #. Launch the Gradio app
