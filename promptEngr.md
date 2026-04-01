@@ -31,7 +31,7 @@ icon: fa-edit
 
 [10localRAGchatbot](/promptEngr/10localRAGchatbot/index.html) introduces a locally run RAG chatbot.
 
-[11skills](/promptEngr/11skills/index.html) introduces Claude Skills and MCP servers.
+[11context](/promptEngr/11context/index.html) introduces Claude Skills and context engineering.
 
 [12pretraining](/promptEngr/12pretraining/index.html) discusses pre-training models from the perspective of the Xiao (2025) book.
 
