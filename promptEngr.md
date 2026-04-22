@@ -37,6 +37,8 @@ icon: fa-edit
 
 [13evaluation](/promptEngr/13evaluation/index.html) discusses evaluation of genAI projects as well as providing some notes on chain-of-thought prompting and a recent agentic-ai conference.
 
+[14summary](/promptEngr/14summary/index.html) discusses some news and the good, the bad, and the ugly of generative AI.
+
 # Exercises
 
 ## Exercise A
