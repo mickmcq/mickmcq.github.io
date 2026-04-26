@@ -26,3 +26,5 @@ Now, admittedly, I've overused em dashes in this post---all to make a point, but
 
 edit: I see that Jekyll has failed to convert my double and triple hyphens to en dashes and em dashes! I'm puzzled and disappointed. I will investigate.
 
+further edit: I discovered that I was using `markdown: GFM` instead of `markdown: Kramdown` in my `_config.yml` file. By switching to the latter, I got the desired behavior.
+
