@@ -1,5 +1,9 @@
 ---
 layout: post
+kramdown:
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  typographic_symbols:
+    mdash: "&mdash;"
 ---
 
 The humble em dash---a wonderful typographical device
