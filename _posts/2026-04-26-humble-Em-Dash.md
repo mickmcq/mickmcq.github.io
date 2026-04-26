@@ -20,3 +20,5 @@ That brings us the twenties---a time when I am accused of offloading my writing 
 
 Now, admittedly, I've overused em dashes in this post---all to make a point, but I do want to encourage writers to use them rather than shying away from them as evidence of AI interference. Please don't consign em dashes to the graveyard of AI writing---use them enthusiastically!
 
+edit: I see that Jekyll has failed to convert my double and triple hyphens to en dashes and em dashes! I'm puzzled and disappointed. I will investigate.
+
