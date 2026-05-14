@@ -28,7 +28,7 @@ The following list shows the slideshow followed by the corresponding video. Numb
 - [04aKeys](/db/04aKeys/index.html), [04aKeys video](https://youtu.be/1nIDEyIFZYI)
 - [04bNormalization](/db/04bNormalization/index.html), [04bNormalization video](https://youtu.be/EElhLQb_0gI)
 - [05TablesAndRelationships](/db/05TablesAndRelationships/index.html), [05TablesAndRelationships video](https://youtu.be/cMCiVZNICuo)
-- [06bSQLiteIntro](/db/06bSQLiteIntro/index.html), [06bSQLiteIntro video](https://youtu.be/a4JW-L5z2pY)
+- [06aSQLiteIntro](/db/06aSQLiteIntro/index.html), [06aSQLiteIntro video](https://youtu.be/a4JW-L5z2pY)
 - [06bSQLiteUsage](/db/06bSQLiteUsage/index.html), [06bSQLiteUsage video](https://youtu.be/ue92thRU74M)
 - [06cTerminalInterfaces](/db/06cTerminalInterfaces/index.html), [06cTerminalInterfaces video](https://youtu.be/7dbOYVsL0nA)
 - [06dIntroFinalProject](/db/06dIntroFinalProject/index.html), [06dIntroFinalProject video](https://youtu.be/i5P5Kqs5wwQ)

@@ -14,6 +14,7 @@ These are the courses I teach at the University of Texas at Austin:
 - [I306, Statistics for Informatics](stats.html)
 - [INF385T, Prompt Engineering](promptEngr.html)
 - [INF385T, UX Prototyping](uxproto.html)
+- [INFW385M, Database Management](db.html)
 
 These are the courses I taught at Rochester Institute of Technology:
 
@@ -24,6 +25,7 @@ These are the courses I taught at Rochester Institute of Technology:
 - ISTE264, Prototyping and Usability Testing
 - ISTE422, Application Development Practices
 - ISTE432, Database Application Development
+- ISTE438, Contemporary Databases
 - ISTE661, Informatics for City Sciences
 - ISTE780, Data-Driven Knowledge Discovery
 - ISTE782, Visual Analytics
