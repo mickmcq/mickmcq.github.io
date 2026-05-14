@@ -1,6 +1,5 @@
 ---
-title: INF W385M,
-subtitle: Database Management
+title: INF W385M, Database Management
 layout: default
 rank: 2
 icon: fa-edit
