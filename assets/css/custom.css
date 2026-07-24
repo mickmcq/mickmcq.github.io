@@ -1,0 +1,54 @@
+/*
+ * Custom overrides for the pages-themes/minimal remote theme.
+ * Loaded AFTER the theme's generated style.css (see _layouts/*.html).
+ *
+ * Fixes the desktop layout bug: the theme makes the left sidebar
+ * `position: fixed`, so it is removed from document flow. When the
+ * sidebar's navigation list is taller than the viewport, its lower
+ * links are clipped off-screen and cannot be scrolled to.
+ *
+ * These rules apply only to desktop widths (min-width: 961px), so the
+ * theme's existing mobile layout (max-width: 960px) is left untouched.
+ */
+@media screen and (min-width: 961px) {
+  /* Fluid, centered layout that uses the screen better than the old
+     fixed 860px wrapper, capped for readable line lengths. */
+  div.wrapper {
+    width: auto;
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    column-gap: 60px;
+  }
+
+  /* Sidebar: sticky instead of fixed, so it stays in document flow.
+     The page scrolls normally and every nav link is reachable, while
+     the sidebar still stays in view as the main content scrolls. */
+  header {
+    position: sticky;
+    top: 20px;
+    float: none;
+    width: 270px;
+    flex: 0 0 270px;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+
+  /* Main content grows to fill the remaining width. */
+  section {
+    float: none;
+    width: auto;
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  /* Footer no longer fixed to the viewport. */
+  footer {
+    position: static;
+    float: none;
+    flex: 0 0 270px;
+    width: 270px;
+    bottom: auto;
+  }
+}
