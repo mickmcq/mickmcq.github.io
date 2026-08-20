@@ -6,39 +6,39 @@ rank: 2
 icon: fa-edit
 ---
 
-Important note: *The following information reflects past iterations of the course. For Fall 2026, I plan to use the recent (2025) Intro to HCI textbook by Hornbaek et al., available free online from Oxford University Press. This will replace the Hartson and Pyla (2019) book mentioned in the lectures. As a result, the lectures described below will be substantially modified.*
+The lectures below follow Hornbæk, Kristensson, and Oulasvirta, *Introduction to Human-Computer Interaction* (Oxford University Press, 2025), available free online. They replace the earlier lectures built around Hartson and Pyla (2019).
 
 [The syllabus](/hci/syllabus.html) is the course's main document. Expect it to be followed to the letter.
 
 ## Lecture
 
-[01intro](/hci/01intro/index.html) gives a brief introduction to the course.
+[01 Intro](/hci/01Intro/index.html) introduces the instructors, the syllabus, and the textbook.
 
-[02perception](/hci/02perception/index.html) discusses perception and some cognition.
+[02 People](/hci/02People/index.html) covers perception, motor control, and cognition: saliency and Gestalt grouping, Fitts' and Hick-Hyman laws, working memory, mental models, and decision-making heuristics.
 
-[03cognition](/hci/03cognition/index.html) discusses cognition.
+[03 People](/hci/03People/index.html) covers needs and motivation, behavior change, dark patterns, experience, collaboration, and communication, including computers as social actors.
 
-[04userResearch](/hci/04userResearch/index.html) introduces ways to learn about users of software.
+[04 Research](/hci/04Research/index.html) introduces user research: why you are not the user, validity and reliability, interviews, contextual inquiry, field research, ethnography, and surveys.
 
-[05modeling](/hci/05modeling/index.html) introduces modeling of users, tasks, flows.
+[05 Research](/hci/05Research/index.html) covers unobtrusive research (log files, instrumentation, archival data) and representations of user research: personas, scenarios, journeys, task analysis, and requirements.
 
-[06sketching](/hci/06sketching/index.html) introduces sketching or lofi prototyping.
+[06 Interaction](/hci/06Interaction/index.html) treats interaction itself: information and control, throughput, closed-loop feedback, dialogue and the two gulfs, tool use, automation, bounded rationality, and appropriation in practice.
 
-[07conceptualDesign](/hci/07conceptualDesign/index.html) introduces conceptual design, ecology, pervasive information architecture, and interaction design.
+[07 Interfaces](/hci/07Interfaces/index.html) surveys user interfaces: interaction styles, input devices and sensing, displays and haptics, interaction techniques, commands and navigation, GUIs and direct manipulation, and reality-based interaction.
 
-[08prototyping](/hci/08prototyping/index.html) introduces prototyping, both lofi and hifi.
+[08 Design](/hci/08Design/index.html) covers design as product and as change, design cognition and fixation, ideation and sketching, critique and participatory practice, and design processes from waterfall to agile.
 
-[09empirical](/hci/09empirical/index.html) introduces empirical evaluation.
+[09 Engineering](/hci/09Engineering/index.html) is the first of two engineering lectures: building the right thing versus building the thing right, systems thinking and system mapping, and design engineering from requirements through concept selection and verification.
 
-[10analytic](/hci/10analytic/index.html) introduces analytic evaluation.
+[10 Engineering](/hci/10Engineering/index.html) continues with safety and risk, human error, reliability and security, software architecture and end-user development, and computational methods including modeling, optimization, and machine learning.
 
-[11affordance](/hci/11affordance/index.html) introduces affordances, laws, and errors.
+[11 Evaluation](/hci/11Evaluation/index.html) is the first of three evaluation lectures: formative versus summative evaluation, yardsticks, and analytic methods — heuristic evaluation, cognitive walkthrough, keystroke-level modeling — plus think-aloud studies and the evaluator effect.
 
-[12interactionCycle](/hci/12interactionCycle/index.html) introduces Hartson and Pyla's interaction cycle.
+[12 Evaluation](/hci/12Evaluation/index.html) covers experiments and walks through analyzing one in R and RStudio.
 
-[13guidelines](/hci/13guidelines/index.html) discusses design guidelines from industry and from Hartson and Pyla.
+[13 Evaluation](/hci/13Evaluation/index.html) covers field evaluations: ecological validity, pilot studies, probes and minimum viable products, and deployment (in-the-wild) studies.
 
-[hciExperiments](/hciExperiments/index.html) introduces quantitative evaluation.
+[14 Conclusion](/hci/14Conclusion/index.html) closes the course.
 
-[example article presentation](/hci/articlePresentation/index.html) provides an example of an article presentation.
+[hciExperiments](/hciExperiments/index.html) is the companion R material for quantitative evaluation, used with lecture 12.
 

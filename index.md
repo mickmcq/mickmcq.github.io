@@ -10,6 +10,7 @@ icon: fa-home
 These are the courses I teach at the University of Texas at Austin:
 
 - [INF385C, Human Computer Interaction](hci.html)
+- [I320U, App Prototyping Studio](appProtoStudio.html)
 - [I320U, Information and Interaction Design](infointeractdsgn.html)
 - [I306, Statistics for Informatics](stats.html)
 - [INF385T, Prompt Engineering](promptEngr.html)
