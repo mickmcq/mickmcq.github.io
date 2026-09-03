@@ -11,7 +11,7 @@ icon: fa-edit
 
 [A grid view](/appProtoStudio/newgrid.html) of our schedule shows, week by week, what the designers and the developers each do, along with what is assigned, what is due, and what to read.
 
-[Homework instructions](/appPrototoStudio/hwInstructions.html) gives instructions for completing homework assignments.
+[Homework instructions](/appProtoStudio/hwInstructions.html) gives instructions for completing homework assignments.
 
 ## Lectures
 
