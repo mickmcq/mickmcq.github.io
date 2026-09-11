@@ -12,6 +12,8 @@ The lectures below follow Hornbæk, Kristensson, and Oulasvirta, *Introduction t
 
 ## Lecture
 
+[00 Design Thinking](/hci/00DesignThinking/index.html) provides a design thinking exercise to begin the course.
+
 [01 Intro](/hci/01Intro/index.html) introduces the instructors, the syllabus, and the textbook.
 
 [02 People](/hci/02People/index.html) covers perception, motor control, and cognition: saliency and Gestalt grouping, Fitts' and Hick-Hyman laws, working memory, mental models, and decision-making heuristics.
