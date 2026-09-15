@@ -21,9 +21,11 @@ icon: fa-edit
 
 [03Teaching](/appProtoStudio/03Teaching/index.html) is about teaching design to developers, tracing user centered design from waterfall to iterative practice and then examining where UCD and Agile conflict and combine, with attention to culture, teams, and roles.
 
-[04Elements](/appProtoStudio/04Elements/index.html) describes four elements of hifi prototyping: color, typography, layout, and animation, including the CSS box model, layout primitives, and composition over inheritance.
+[04TestingIntro](/appProtoStudio/04TestingIntro/index.html) introduces user testing.
 
-[05StoryMapping](/appProtoStudio/05StoryMapping/index.html) introduces user story mapping as a way to build shared understanding, then turns to scenarios, how they differ from storyboards, and a storyboarding exercise in Figma.
+[05aStoryMapping](/appProtoStudio/05aStoryMapping/index.html) introduces user story mapping as a way to build shared understanding, then turns to scenarios, how they differ from storyboards, and a storyboarding exercise in Figma.
+
+[05bElements](/appProtoStudio/05bElements/index.html) describes four elements of hifi prototyping: color, typography, layout, and animation, including the CSS box model, layout primitives, and composition over inheritance.
 
 [06MoodBoards](/appProtoStudio/06MoodBoards/index.html) covers mood boards — what goes in one and why — along with sources of design inspiration and a crazy eights sketching exercise.
 
@@ -35,7 +37,9 @@ icon: fa-edit
 
 [09bSummative](/appProtoStudio/09bSummative/index.html) surveys summative testing services, working through UserTesting.com methods — five second tests, card sorting, tree testing — and the FuelCycle user research process.
 
-[10Culture](/appProtoStudio/10Culture/index.html) asks what culture is and why it matters to technology, using color as an example of cultural difference.
+[10aHeuristics](/appProtoStudio/10aHeuristics/index.html) introduces heuristi evaluation.
+
+[10bCulture](/appProtoStudio/10bCulture/index.html) asks what culture is and why it matters to technology, using color as an example of cultural difference.
 
 [11BadUX](/appProtoStudio/11BadUX/index.html) examines bad UX through a gallery of failures: doors, dryers, iPads, elevators, hotel showers, and the risks of flat design.
 
