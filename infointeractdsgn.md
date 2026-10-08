@@ -9,7 +9,7 @@ icon: fa-edit
 
 [The syllabus](/infointeractdsgn/syllabus.html) is the course's main document. Expect it to be followed to the letter.
 
-[The study guide](/infointeractdsgn/studyGuide.pdf) is the main textbook for the course.
+[The grid](/infointeractdsgn/newgrid.html) provides a summary of the course in grid form.
 
 [hwInstructions](/infointeractdsgn/hwInstructions.html) is an html version of the exercise and milestone section of the study guide.
 
