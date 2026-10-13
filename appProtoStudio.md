@@ -31,13 +31,15 @@ icon: fa-edit
 
 [07Microinteractions](/appProtoStudio/07Microinteractions/index.html) discusses microinteractions for engagement, system status, error prevention, and brand, then introduces pair designing with its generator and synthesizer roles.
 
-[08ClientTime](/appProtoStudio/08ClientTime/index.html) discusses clients and stakeholders, drawing on Greever (2020): what makes a design good, why communication is the job, and how to apply UX principles to the people you report to.
+[08aPersonas](/appProtoStudio/08aPersonas/index.html) introduces persona posters.
+
+[08bHeuristics](/appProtoStudio/08bHeuristics/index.html) introduces heuristic evaluation.
 
 [09aFormative](/appProtoStudio/09aFormative/index.html) explains usability testing in depth: formative versus summative, testing lofi prototypes, amateur and professional approaches from Krug and Barnum, expert and user based methods, how many participants to recruit, measurement, analysis, reporting, validity, and a closing look at AI in evaluation.
 
 [09bSummative](/appProtoStudio/09bSummative/index.html) surveys summative testing services, working through UserTesting.com methods — five second tests, card sorting, tree testing — and the FuelCycle user research process.
 
-[10aHeuristics](/appProtoStudio/10aHeuristics/index.html) introduces heuristi evaluation.
+[10aClientTime](/appProtoStudio/10aClientTime/index.html) discusses clients and stakeholders, drawing on Greever (2020): what makes a design good, why communication is the job, and how to apply UX principles to the people you report to.
 
 [10bCulture](/appProtoStudio/10bCulture/index.html) asks what culture is and why it matters to technology, using color as an example of cultural difference.
 

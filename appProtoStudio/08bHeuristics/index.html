@@ -701,11 +701,11 @@ grid-template-areas: "sc ht sb sn";
 .reveal-header.no-logo .sc-title p {margin-left: 2vw; }
 div.reveal.has-logo div.slide-number { font-size: 10px; }
 }</style><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.18">
+  <meta name="generator" content="quarto-1.10.19">
 
   <meta name="author" content="Mick McQuaid">
-  <meta name="dcterms.date" content="2026-09-14">
-  <title>10a Heuristic Evaluation</title>
+  <meta name="dcterms.date" content="2026-10-13">
+  <title>08b Heuristic Evaluation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -1342,7 +1342,7 @@ margin-right: 0; }
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">10a Heuristic Evaluation</h1>
+  <h1 class="title">08b Heuristic Evaluation</h1>
   <p class="subtitle">App Prototyping Studio</p>
 
 <div class="quarto-title-authors">
@@ -1359,10 +1359,10 @@ Mick McQuaid
     </div>
 </div>
 
-  <p class="date">14 Sep 2026</p>
+  <p class="date">13 Oct 2026</p>
 </section>
-<section id="week-ten" class="title-slide slide level1 center">
-<h1><span class="r-fit-text">Week TEN</span></h1>
+<section id="week-eight" class="title-slide slide level1 center">
+<h1><span class="r-fit-text">Week EIGHT</span></h1>
 
 </section>
 
@@ -1403,6 +1403,549 @@ Mick McQuaid
 </ol>
 <p>Nielsen developed two sets of these heuristics, <span class="citation" data-cites="Nielsen1990">Nielsen and Molich (<a href="#/references" role="doc-biblioref" onclick>1990</a>)</span> and <span class="citation" data-cites="Nielsen1994">Nielsen (<a href="#/references" role="doc-biblioref" onclick>1994</a>)</span>. This is the second and enduring one, still popular after thirty years.</p>
 </small><p><small></small></p>
+</section>
+<section id="what-is-a-heuristic-evaluation" class="slide level2">
+<h2>What is a heuristic evaluation?</h2>
+<div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>A small number of evaluators inspect an interface against a short list of recognized principles (the heuristics)</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>No users are involved, so it is cheap and fast</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Each evaluator works alone, then findings are merged</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Nielsen found that three to five evaluators catch most problems</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Output is a list of problems, each tied to a heuristic and rated for severity</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Nielsen’s own description of the method is at <a href="https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/">https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/</a>. The ten heuristics with his current commentary are at <a href="https://www.nngroup.com/articles/ten-usability-heuristics/">https://www.nngroup.com/articles/ten-usability-heuristics/</a>.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
+<section id="visibility-of-system-status" class="slide level2">
+<h2>1. Visibility of system status</h2>
+<div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>The system should always keep users informed about what is going on, through appropriate feedback within reasonable time</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Users should never have to wonder “did that work?” or “is it still loading?”</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Examples: progress bars, “saving…” indicators, a highlighted current tab, a shopping cart badge that updates immediately</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Violations: a button press with no response, a form that submits silently, a multi-step process with no indication of which step you are on</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>This connects directly to the microinteractions lecture. Most microinteractions exist to satisfy this heuristic. Ask students: in your prototype, after every tap, what tells the user it worked?</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
+<section id="match-between-system-and-the-real-world" class="slide level2">
+<h2>2. Match between system and the real world</h2>
+<div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Speak the user’s language, with words, phrases, and concepts familiar to the user, rather than internal jargon</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Follow real-world conventions so information appears in a natural and logical order</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Examples: a trash can for deleting, a calendar laid out as a month grid, “Sign in” rather than “Authenticate session”</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Violations: error codes instead of sentences, database field names on screen, a date picker that starts with the year when users think in days</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>This heuristic is where personas and interviews pay off. If you know how users talk about their task, you can match it. Ask students to find any term on their screens that came from the team rather than from the user.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
+<section id="user-control-and-freedom" class="slide level2">
+<h2>3. User control and freedom</h2>
+<div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Users often choose actions by mistake and need a clearly marked emergency exit</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Support undo and redo</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Let users cancel out of a process without finishing it</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Examples: undo after delete, a visible back button, a close icon on every modal, a cancel link on every multi-step flow</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Violations: a wizard with no way out, a confirmation dialog whose only button is OK, a deleted item that is gone forever</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Mobile prototypes violate this one constantly because the designer only prototyped the happy path. Ask students: from every screen in your prototype, how do I get back?</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
+<section id="consistency-and-standards" class="slide level2">
+<h2>4. Consistency and standards</h2>
+<div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Users should not have to wonder whether different words, situations, or actions mean the same thing</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Internal consistency: the same thing looks and behaves the same way everywhere in your product</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>External consistency: follow platform conventions so users can apply what they already know</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Examples: one style of primary button, one word for the same action, standard iOS or Android navigation patterns</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Violations: “Delete” on one screen and “Remove” on another, icons that change meaning, a custom gesture where a standard one exists</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Jakob’s Law: users spend most of their time on other sites, so they prefer your site to work the same way as all the others. Figma components and styles are the practical tool for internal consistency.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
+<section id="error-prevention" class="slide level2">
+<h2>5. Error prevention</h2>
+<div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Better than good error messages is a careful design that prevents a problem from occurring in the first place</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Eliminate error-prone conditions or check for them and ask for confirmation before the user commits</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Two kinds of errors: slips (right intention, wrong action) and mistakes (wrong intention from a wrong mental model)</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Examples: date pickers instead of typed dates, disabling a button until the form is valid, confirming before a destructive action, autosave</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Violations: free-text fields with a required format, Delete placed right next to Save, no warning before leaving unsaved work</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Prevent slips with constraints and good defaults. Prevent mistakes with clear affordances and feedback. The iOS app-delete wiggle from the microinteractions lecture is an example of friction added deliberately to prevent a slip.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
+<section id="recognition-rather-than-recall" class="slide level2">
+<h2>6. Recognition rather than recall</h2>
+<div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Minimize the user’s memory load by making objects, actions, and options visible</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>The user should not have to remember information from one part of the dialogue to another</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Recognizing something is far easier than recalling it from nothing</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Examples: recently used items, autocomplete, visible menus, showing the item being edited alongside the editing controls</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Violations: requiring a code shown on an earlier screen, hidden gesture-only features, asking the user to remember which of three similarly named accounts is which</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>A test for this: cover the previous screen. Can the user still complete the current screen? If not, something that should be visible is being held in memory instead.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
+<section id="flexibility-and-efficiency-of-use" class="slide level2">
+<h2>7. Flexibility and efficiency of use</h2>
+<div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Accelerators, unseen by the novice user, may speed up the interaction for the expert user</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>The system caters to both inexperienced and experienced users</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Allow users to tailor frequent actions</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Examples: keyboard shortcuts, swipe actions on list items, saved searches, “recent” and “favorites,” customizable home screens</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Violations: every action takes the same number of taps no matter how often you do it, no defaults remembered, no shortcuts for power users</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>This one is often rated “not applicable” by students evaluating an early prototype, and that can be legitimate. But ask: who is the frequent user of this app, and what do they do fifty times a day?</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
+<section id="aesthetic-and-minimalist-design" class="slide level2">
+<h2>8. Aesthetic and minimalist design</h2>
+<div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Dialogues should not contain information that is irrelevant or rarely needed</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Every extra unit of information competes with the relevant units and diminishes their relative visibility</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>This is not about flat versus skeuomorphic. It is about focus: does the screen support the user’s primary goal?</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Examples: one primary action per screen, progressive disclosure of advanced options, generous whitespace, content first</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Violations: five calls to action of equal weight, decorative elements that look like controls, a settings screen with everything exposed at once</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Minimalist does not mean sparse. It means prioritized. A good test: for each screen, what is the one thing the user came here to do, and is it the most visually prominent thing?</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
+<section id="help-users-recognize-diagnose-and-recover-from-errors" class="slide level2">
+<h2>9. Help users recognize, diagnose, and recover from errors</h2>
+<div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Error messages should be expressed in plain language, with no codes</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Precisely indicate the problem</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Constructively suggest a solution</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Examples: “That email address is already registered. Sign in instead?” with a sign-in link; inline validation next to the offending field; a 404 page that offers search</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Violations: “Error 0x80004005,” “Something went wrong,” a red border with no explanation, an error shown at the top of a long form far from the field that caused it</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Heuristic 5 is about keeping errors from happening. Heuristic 9 is about what happens when they do anyway. Many prototypes contain no error states at all, which is itself a finding.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
+<section id="help-and-documentation" class="slide level2">
+<h2>10. Help and documentation</h2>
+<div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>It is best if the system can be used without documentation, but it may be necessary to provide help</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Help should be easy to search, focused on the user’s task, list concrete steps, and not be too large</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Examples: contextual tooltips, an onboarding walkthrough that can be skipped and replayed, an FAQ reachable from the screen where the question arises, empty states that explain what to do</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Violations: a 40-page PDF manual, help that is only available from the home screen, no explanation of an unfamiliar feature at the moment the user first meets it</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Empty states are the most overlooked form of help in student prototypes. What does the screen look like before the user has added anything, and does it tell them what to do?</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
+<section id="severity-ratings" class="slide level2">
+<h2>Severity ratings</h2>
+<p>Nielsen recommends rating each problem so the team can prioritize:</p>
+<ol start="0" type="1">
+<li>Not a usability problem at all</li>
+<li>Cosmetic: fix only if time permits</li>
+<li>Minor: low priority</li>
+<li>Major: important to fix, high priority</li>
+<li>Catastrophe: must fix before release</li>
+</ol>
+<p>Severity combines frequency (how often will users hit it?), impact (how hard is it to overcome?), and persistence (does it keep happening or is it one-time?).</p>
+<aside class="notes">
+<p>Source: <a href="https://www.nngroup.com/articles/how-to-rate-the-severity-of-usability-problems/">https://www.nngroup.com/articles/how-to-rate-the-severity-of-usability-problems/</a></p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
+<section id="exercise-heuristic-evaluation" class="slide level2">
+<h2>Exercise: Heuristic Evaluation</h2>
+<div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Evaluate your project design using Nielsen’s ten heuristics</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Work through your prototype screen by screen, as a user would, not as the designer</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>For each heuristic, write a short summary: what you looked for, what you found, and how severe it is</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Not every heuristic applies to every project. If one does not apply, say so and say why</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<ul>
+<li>Put it in the heuristic evaluation assignment box</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="exercise-what-to-turn-in" class="slide level2">
+<h2>Exercise: what to turn in</h2>
+<p><small></small></p><small>
+<p>One entry per heuristic, ten in all. Each entry contains:</p>
+<ol type="1">
+<li><strong>Heuristic</strong>: number and name</li>
+<li><strong>Finding</strong>: what in your prototype satisfies or violates it. Name the screen. A screenshot or Figma link helps</li>
+<li><strong>Severity</strong>: 0 to 4, using Nielsen’s scale</li>
+<li><strong>Fix</strong>: what you would change, in a sentence</li>
+</ol>
+<p>Example entry:</p>
+<blockquote>
+<p><strong>3. User control and freedom.</strong> The checkout flow (screens 7 to 10) has no back or cancel control; the only way out is the device back gesture, which loses the cart. <strong>Severity 3.</strong> Add a persistent back arrow and a cancel link that returns to the cart intact.</p>
+</blockquote>
+<p>A heuristic that is satisfied is still a finding. Say what satisfies it. A heuristic that does not apply gets a one-line explanation of why.</p>
+</small><p><small></small></p>
+<aside class="notes">
+<p>Tips to share: evaluate alone first, then compare notes with your team. Two or three people inspecting independently find more than the same people inspecting together. Resist the urge to fix things while evaluating. Record first, fix afterward.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
 </section></section>
 <section id="end" class="title-slide slide level1 center">
 <h1><span class="r-fit-text">END</span></h1>
