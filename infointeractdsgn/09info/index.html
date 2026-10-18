@@ -701,10 +701,10 @@ grid-template-areas: "sc ht sb sn";
 .reveal-header.no-logo .sc-title p {margin-left: 2vw; }
 div.reveal.has-logo div.slide-number { font-size: 10px; }
 }</style><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.18">
+  <meta name="generator" content="quarto-1.10.19">
 
   <meta name="author" content="Mick McQuaid">
-  <meta name="dcterms.date" content="2026-08-17">
+  <meta name="dcterms.date" content="2026-10-18">
   <title>Information</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -888,6 +888,10 @@ display: flex;
 }
 .col {
 flex: 1;
+}
+
+.reveal .slide.scale85 {
+font-size: 0.85em;
 }
 </style>
   <style type="text/css">.reveal
@@ -1425,7 +1429,7 @@ Mick McQuaid
     </div>
 </div>
 
-  <p class="date">17 Aug 2026</p>
+  <p class="date">18 Oct 2026</p>
 </section>
 <section id="week-nine" class="title-slide slide level1 center">
 <h1><span class="r-fit-text">Week NINE</span></h1>
@@ -1635,6 +1639,27 @@ overflow: hidden!important;
 display:block!important;
 }</style></aside>
 </section>
+<section id="discussion-the-field-that-broke-the-form" class="slide level2">
+<h2>Discussion: the field that broke the form</h2>
+<ol type="1">
+<li>Think of an online form that asked for something its rules could not accept: a name with the wrong characters, an address without a street number, a gender box with two choices, a date before 1900. (1 min)</li>
+<li>Tell your neighbor what you entered and what happened next. Did a program reject it, or did a person have to deal with it? (3 min)</li>
+<li>Report to the class. We will sort the examples into failures of structure and failures of the designer’s imagination. (4 min)</li>
+</ol>
+<aside class="notes">
+<p>The point is to connect the definition of semistructured information, that a human must intervene when input can not be anticipated, to the designer’s responsibility. Every example a student offers is a case where the form’s structure was stricter than the world. Ask whether loosening the rule (free text) or widening it (more choices) would have been the better fix, and who pays for each: the program, the clerk, or the person filling in the form.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
 <section id="structured-information" class="slide level2">
 <h2>Structured information</h2>
 <div>
@@ -1781,6 +1806,31 @@ display:block!important;
 </small><p><small></small></p>
 <aside class="notes">
 <p>A key characteristic of this hierarchical form is that it can present exactly the same data as in the relational form above. In other words, the above hierarchy could be converted to tables of rows and columns. Many computer programs just translate between one form and the other, depending on immediate needs.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
+<section id="exercise-from-waybill-to-tables" class="slide level2 scale85">
+<h2>Exercise: from waybill to tables</h2>
+<ol type="1">
+<li>Form a pair.</li>
+<li>Open this <a href="https://docs.google.com/document/d/179DIwjTMiLYlAWyyf1J6RVH2THpBl8aTI6I8Fy19Y7A/edit?usp=sharing">Google Doc</a>.</li>
+<li>Convert the waybill hierarchy on the previous slide into relational tables. Name each table, list its columns, and say which column links it to another table. Remember that good tables are long and thin. (6 min)</li>
+<li>Add a second shipment from the same sender with three commodities. What changes in your tables? What changes in the hierarchy? (3 min)</li>
+<li>Decide which form you would send to a partner company and which you would keep in your own database, and why. (2 min)</li>
+<li>Report to the class. (4 min)</li>
+</ol>
+<aside class="notes">
+<p>A reasonable answer has four tables: Sender, Recipient, Shipment, and Commodity, with Shipment holding keys to Sender and Recipient and each Commodity row holding a key to its Shipment. Adding a shipment adds rows and no columns. In the hierarchy, by contrast, the whole Sender block is repeated for every shipment. Students who put all the commodity columns into one wide Shipment table have rediscovered why tables should be long and thin: ask them what happens with a fourth commodity.</p>
+<p>Step 5 sets up the next slide. The hierarchy is what you send; the tables are what you keep.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
@@ -1972,6 +2022,28 @@ display:block!important;
 <aside class="notes">
 <p>Examples of memes are tunes, ideas, catch-phrases, clothes fashions, ways of making pots or of building arches. Just as genes propagate themselves in the gene pool by leaping from body to body via sperms or eggs, so memes propagate themselves in the meme pool by leaping from brain to brain via a process which, in the broad sense, can be called imitation. If a scientist hears, or reads about, a good idea, he passes it on to his colleagues and students. He mentions it in his articles and his lectures. If the idea catchs on, it can be said to propagate itself, spreading from brain to brain. As my colleague N. K. Humphrey neatly summed up an earlier draft of this chapter: ‘memes should be regarded as living structures, not just metaphorically but technically. When you plant a fertile meme in my mind you literally parasitize my brain, turning it into a vehicle for the meme’s propagation in just the way that a virus may parasitize the genetic mechanism of a host cell. And this isn’t just a way of talking—the meme for, say, “belief in life after death” is actually realized physically, millions of times over, as a structure in the nervous systems of individual men the world over.’</p>
 <p>In the years since Dawkins coined the term, it has become popular to study the concept of memes and to track memes, thanks to the Web. Our awareness of memes as a force informs our interaction design in many ways. There can be no doubt that the most successful users of the web, such as Google and Facebook, maintain a keen sensitivity to memes. As a thought exercise, examine an electronic artifact, such as a website or smartphone app, and try to identify the presence and influence of any memes upon it. As a similar thought exercise, try to identify memes in your own work.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
+<section id="discussion-memes-in-your-own-artifact" class="slide level2">
+<h2>Discussion: memes in your own artifact</h2>
+<ol type="1">
+<li>With a neighbor, pick an app one of you used today. (1 min)</li>
+<li>Find two features that are there because other apps had them first: a gesture, a layout, an icon, a sound, a phrase. (3 min)</li>
+<li>For each, decide: did it spread because it works, or does it work because it spread? (2 min)</li>
+<li>Report to the class. (4 min)</li>
+</ol>
+<aside class="notes">
+<p>This is Dawkins’s thought exercise from the previous notes, done aloud. Expect pull-to-refresh, the hamburger menu, the heart, infinite scroll, stories, the floppy-disk save icon, blue underlined links. Keep the list on the board. It returns at the end of the deck, where the question becomes whether any of these memes deserve the name <em>design pattern</em>. A meme only has to copy well. A pattern has to explain why it should be copied.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
@@ -2318,6 +2390,64 @@ In sqrt(varkappa) : NaNs produced</code></pre>
 <p>When I run these, they give slightly different results. I’m not sure how much that matters but my guess is not much. You should report which function you used. One nice thing about Fleiss’s 𝜅 is that it allows missing values. That is to say that, if you have some piles that differ from others, you could leave part of a row blank if only some raters have a score for it.</p>
 <p>Light’s 𝜅 is briefly described in <span class="citation" data-cites="Hallgren2012">Hallgren (<a href="#/references" role="doc-biblioref" onclick>2012</a>)</span>. That tutorial gives R code for several versions of 𝜅, including Cohen’s weighted 𝜅, described above as <code>kappa2()</code>, and both Fleiss’s and Light’s 𝜅.</p>
 </section>
+<section id="exercise-card-sort-with-𝜅" class="slide level2 scale85">
+<h2>Exercise: card sort with 𝜅</h2>
+<ol type="1">
+<li>Form a pair.</li>
+<li>Open this <a href="https://docs.google.com/document/d/1qg0lVt48EhVifsQVdpq3cHVyUEjMgMJ3gcaqxxGjE-w/edit?usp=sharing">Google Doc</a>.</li>
+<li>Working alone, do a closed card sort: place each of the twenty items on the next slide into exactly one of the five categories. Do not look at your partner’s sort. (4 min)</li>
+<li>Compare. Count the items you agreed on and divide by 20 to get <span class="math inline">\(p_o\)</span>. For each category, multiply the number of items you put there by the number your partner put there, add the five products, and divide by 400 to get <span class="math inline">\(p_e\)</span>. Then <span class="math inline">\(𝜅 = \frac{p_o-p_e}{1-p_e}\)</span>. Or paste both columns into <code>kappa2()</code>. (5 min)</li>
+<li>Discuss the items you disagreed on. Would a different label, or a sixth category, have removed the disagreement? (3 min)</li>
+<li>Report your 𝜅 and your worst item to the class. (4 min)</li>
+</ol>
+<aside class="notes">
+<p>This replaces the random numbers from the preceding slides with real ratings, so students see that <span class="math inline">\(p_e\)</span> is not a formality. With five categories used about equally, <span class="math inline">\(p_e\)</span> is near 0.2, so 70% agreement gives a 𝜅 near 0.6, below the 0.7 cutoff I was taught. Pairs that agree on 17 or more items reach 0.8.</p>
+<p>The items were chosen so that several are genuinely ambiguous: parking permit, football tickets, transcript request, housing contract, dining plan, laptop loan, emergency alerts. Those are where disagreements should cluster. The remedy in step 5 is the real lesson: the fix for low 𝜅 is a better labeling scheme, not a more lenient rater.</p>
+<p>If time permits, paste every pair’s two columns into one matrix and run <code>kappam.fleiss()</code> for the whole class.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
+<section id="card-sort-items" class="slide level2 scale85">
+<h2>Card sort items</h2>
+<p>Categories: <strong>Academics</strong>, <strong>Money</strong>, <strong>Health and Safety</strong>, <strong>Campus Life</strong>, <strong>Technology</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ol type="1">
+<li>Final exam schedule</li>
+<li>Tuition payment deadline</li>
+<li>Parking permit</li>
+<li>Wifi setup</li>
+<li>Counseling appointment</li>
+<li>Library hours</li>
+<li>Football tickets</li>
+<li>Transcript request</li>
+<li>Password reset</li>
+<li>Scholarship application</li>
+</ol>
+</div><div class="column" style="width:50%;">
+<ol start="11" type="1">
+<li>Gym membership</li>
+<li>Course registration</li>
+<li>Housing contract</li>
+<li>Campus bus routes</li>
+<li>Flu shot clinic</li>
+<li>Student org fair</li>
+<li>Laptop loan program</li>
+<li>Emergency alert sign-up</li>
+<li>Dining plan</li>
+<li>Academic advising</li>
+</ol>
+</div></div>
+</section>
 <section id="grouping-information-items" class="slide level2">
 <h2>Grouping information items</h2>
 <div>
@@ -2336,6 +2466,27 @@ In sqrt(varkappa) : NaNs produced</code></pre>
 <p>When we group information together, we typically have a purpose. For example, some people studying animals have proposed labeling the classification of animals according to a food chain and features of animals such as their teeth and jaws that predispose them to eating similar things. On the other hand, cooks group animals in an entirely different way.</p>
 <p>Psychologists who study grouping used to believe in the notion that people group things together by a process that can be approximated by counting similar attributes shared by different things.</p>
 <p>More recently, psychologists led by Eleanor Rosch have claimed that people hold mental images of what they call prototypes of groups. Here the word prototype is NOT related to the sense in which we use it in this class. The prototype for grouping is a thing that best represents the group. For example, an early experiment found that, for North Americans, the robin is the prototype for birds. Rather than evaluating attributes of other things, the mental process to group things together as birds is to compare them to the mental picture of the robin.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
+<section id="discussion-name-the-prototype" class="slide level2">
+<h2>Discussion: name the prototype</h2>
+<ol type="1">
+<li>On paper, without talking, write the first example that comes to mind for each of these: a bird, a piece of furniture, a tool, a vehicle, a social media app, a website. (1 min)</li>
+<li>Compare with your neighbors. (2 min)</li>
+<li>Show of hands for each word. How many of us wrote the same thing? Does this class have a robin? (4 min)</li>
+</ol>
+<aside class="notes">
+<p>Rosch’s claim predicts strong convergence on the first four: something like robin or cardinal, chair, hammer, car. The last two are the interesting ones. If the class converges on one app or one website, ask whether that is a prototype in Rosch’s sense or a monopoly in the sense of the last slide of this deck. If the class does not converge, ask what that says about designing navigation for a category that has no prototype.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
@@ -2567,6 +2718,30 @@ display:block!important;
 <h2>A consequence is a result or trade-off</h2>
 <p>The application of a pattern may resolve conflicts of various kinds, most often conflicts of space and time. To contemplate the use of a design pattern is to evaluate the design decision with awareness of the consequences. Consequences may have implementation issues, unlike the solution. If you feel tempted to talk about implementation, do so under the consequences banner instead of under the solution banner. Keep the solution a description, not an evaluation of itself.</p>
 </section>
+<section id="exercise-write-a-pattern" class="slide level2 scale85">
+<h2>Exercise: write a pattern</h2>
+<ol type="1">
+<li>Form a pair.</li>
+<li>Open this <a href="https://docs.google.com/document/d/1YJgmaeRYalHzdibaPegfAyJ11-jMtnAy9JBzv_Cpw7Q/edit?usp=sharing">Google Doc</a>.</li>
+<li>Choose one element that information architects call a pattern: tabbed menu, hub-and-spoke, breadcrumbs, hamburger menu, infinite scroll, or faceted search.</li>
+<li>Write it in the Gang of Four’s four parts. The name must work in conversation. The problem must say when the element applies. The solution must describe elements, relationships, and responsibilities, with no implementation. The consequences must name at least two trade-offs. (8 min)</li>
+<li>Read the entry of the pair above yours in the doc (the first pair reads the last). Mark anything in their solution that belongs under consequences, and any consequence they missed. (4 min)</li>
+<li>Report to the class: which part was hardest to write, and why? (4 min)</li>
+</ol>
+<aside class="notes">
+<p>Expect thin solutions and easy consequences, especially for elements people have suffered, such as infinite scroll. Expect names that are really descriptions of implementation (hamburger menu names the icon, not the problem). Both observations set up the next slide’s claim that these elements are structural elements, not yet design patterns. Keep the doc open; the closing discussion returns to it.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
 <section id="design-patterns-in-information-architecture" class="slide level2">
 <h2>Design patterns in information architecture</h2>
 <div>
@@ -2661,6 +2836,27 @@ display:block!important;
 </ul>
 </div>
 </div>
+</section>
+<section id="discussion-what-endures" class="slide level2">
+<h2>Discussion: what endures</h2>
+<ol type="1">
+<li>With a neighbor, name one feature of the web or of apps that has lasted twenty years and one that has died. (2 min)</li>
+<li>For the one that lasted, is it enduring because a community finds it useful, or because a monopoly imposes it? Would it pass the four-part test you just applied? (3 min)</li>
+<li>Report to the class. (5 min)</li>
+</ol>
+<aside class="notes">
+<p>Bring back the meme list from earlier in the deck. Some of those memes will be on the enduring list. The question for each is whether anyone can state its problem, solution, and consequences well enough that a designer who had never seen it could decide when to use it. That is the difference between an observation that something spread and a pattern that says why it should.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
 </section></section>
 <section id="end" class="title-slide slide level1 center">
 <h1><span class="r-fit-text">END</span></h1>
