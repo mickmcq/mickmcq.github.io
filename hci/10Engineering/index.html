@@ -701,11 +701,11 @@ grid-template-areas: "sc ht sb sn";
 .reveal-header.no-logo .sc-title p {margin-left: 2vw; }
 div.reveal.has-logo div.slide-number { font-size: 10px; }
 }</style><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.18">
+  <meta name="generator" content="quarto-1.10.19">
 
   <meta name="author" content="Valle Hansen">
   <meta name="author" content="Mick McQuaid">
-  <meta name="dcterms.date" content="2026-08-17">
+  <meta name="dcterms.date" content="2026-10-29">
   <title>Engineering (2 of 2)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -1371,7 +1371,7 @@ Mick McQuaid
     </div>
 </div>
 
-  <p class="date">17 Aug 2026</p>
+  <p class="date">29 Oct 2026</p>
 </section>
 <section id="week-ten" class="title-slide slide level1 center">
 <h1><span class="r-fit-text">Week TEN</span></h1>
@@ -3330,6 +3330,9 @@ Mick McQuaid
 <h2>Activity 2: What does undo mean here? (~35 min)</h2>
 <p><strong>Task:</strong> In pairs or groups of 3, take three applications and work out which undo model each actually implements: flip, backtrack, or stack-based with redo. Test the strong-cu property empirically — does a command followed by undo really return you to the previous state? Find at least two places where it does not, and one action that cannot be undone at all.</p>
 <p><strong>Produce:</strong> A table of command, undo behavior, and whether strong-cu held. Then write a short specification for undo in an agentic AI context, where a single instruction produced a multi-step change across several files or records: state what one press of undo reverts, what it cannot revert, and what the interface shows the user before they press it.</p>
+</section>
+<section class="slide level2">
+
 <p><strong>Time:</strong> 25 min work · 10 min share-out</p>
 <p><strong>Debrief:</strong> Undo is provably not an ordinary command. In your AI case, is undo even the right affordance, or does an irreversible multi-step action need a different mechanism — a preview, a staging area, a confirmation — instead?</p>
 </section>
@@ -3337,6 +3340,9 @@ Mick McQuaid
 <h2>Activity 3: Optimize a menu, then argue with the optimum (~40 min)</h2>
 <p><strong>Task:</strong> In groups of 3 to 4, take a menu or toolbar of roughly eight commands. Define the task instance by estimating each command’s frequency of use. Define an objective function — expected selection time is a reasonable one, built from Hick–Hyman for the decision and Fitts’s law for the pointing. Compute it for the current layout and for two alternatives, including a frequency-ordered one.</p>
 <p><strong>Produce:</strong> The three scores and the winner. Then answer the three questions that make “optimal” mean anything: best out of which options, best for what, and best with what guarantees. Finish by naming one epistemic uncertainty your model ignores — something real that your objective function has no term for.</p>
+</section>
+<section class="slide level2">
+
 <p><strong>Time:</strong> 28 min group work · 12 min share-out</p>
 <p><strong>Debrief:</strong> Would you ship your winner? In the speech-correction work, the designers chose the <em>understandable</em> option over the one the analysis scored highest. Does that make the analysis a failure, or is guidance all it was ever going to give you?</p>
 </section></section>
