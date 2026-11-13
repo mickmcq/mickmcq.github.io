@@ -27,3 +27,8 @@ Press p on your keyboard to get presenter's notes to the first two (01understand
 These are slides for a talk on World Usability Day 2024 about the role of accessibility in designing for a better world.
 
 [Designing for a better world](/accessibility/worldUsabilityDay2024/index.html)
+
+And here are slides from a talk on World Usability Day 2026.
+
+[Access That Lasts](/accessibility/worldUsabilityDay2026/index.html)
+
