@@ -46,3 +46,6 @@ icon: fa-edit
 [11BadUX](/appProtoStudio/11BadUX/index.html) examines bad UX through a gallery of failures: doors, dryers, iPads, elevators, hotel showers, and the risks of flat design.
 
 [12VibeCoding](/appProtoStudio/12VibeCoding/index.html) goes beyond vibe coding, looking at what designers can do with code using Cursor, Claude Code, and Figma.
+
+[13PresentationPrep](/appProtoStudio/13PresentationPrep/index.html) covers the final presentation schedule and expectations.
+
